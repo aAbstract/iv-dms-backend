@@ -1,3 +1,4 @@
+from typing import Optional
 from pydantic import BaseModel
 from enum import Enum
 
@@ -9,6 +10,7 @@ class UserRoles(str, Enum):
 
 
 class User(BaseModel):
+    _id: Optional[str]
     username: str
     disp_name: str
     pass_hash: str

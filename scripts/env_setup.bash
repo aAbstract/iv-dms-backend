@@ -1,0 +1,11 @@
+#!/bin/bash
+
+# install docker
+# https://docs.docker.com/engine/install/ubuntu/
+
+# web server python packages
+pip install "fastapi[all]"
+# pip install pymongo [OPTIONAL]
+pip install motor
+
+# AI engine python packages [TODO]
