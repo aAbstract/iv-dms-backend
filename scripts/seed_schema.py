@@ -24,14 +24,24 @@ client = pymongo.MongoClient(f"mongodb://{os.environ['MDB_USERNAME']}:{os.enviro
 db = client.get_database(os.environ['IVDMS_DB'])
 
 # users schema
-seed_user = User(
-    username='cwael',
-    disp_name='Captin Wael',
-    pass_hash='86d74596bb4c2f6b63ae7c09c212a7ed824ab15371ec06a2126dffc3aaa191659478e432c458d5b6a7c0b21b5bf2120c91480c27e78cf94935135d8c022f42f7',
-    user_role=UserRoles.AUDITOR,
-    phone_number='+201001000000',
-    email='test@example.com',
-)
+seed_users = [
+    User(
+        username='cwael',
+        disp_name='Captin Wael',
+        pass_hash='86d74596bb4c2f6b63ae7c09c212a7ed824ab15371ec06a2126dffc3aaa191659478e432c458d5b6a7c0b21b5bf2120c91480c27e78cf94935135d8c022f42f7',
+        user_role=UserRoles.AUDITOR,
+        phone_number='+201001000000',
+        email='cwael@aerosync.com',
+    ),
+    User(
+        username='eslam',
+        disp_name='Eslam Admin',
+        pass_hash='86d74596bb4c2f6b63ae7c09c212a7ed824ab15371ec06a2126dffc3aaa191659478e432c458d5b6a7c0b21b5bf2120c91480c27e78cf94935135d8c022f42f7',
+        user_role=UserRoles.ADMIN,
+        phone_number='+201001000000',
+        email='eslam@aerosync.com',
+    ),
+]
 
 # regulations schema
 seed_iosa_regulation = IOSARegulation(type=RegulationType.IOSA, name='IOSA Standards Manual (ISM) Ed 16-Revision2', sections=[
@@ -105,7 +115,7 @@ seed_log = Log(
 
 def seed_routine():
     print('seeding users...')
-    db.get_collection('users').insert_one(seed_user.dict())
+    db.get_collection('users').insert_many([x.dict() for x in seed_users])
     print('creating users indexes...')
     db.get_collection('users').create_index([('username', pymongo.ASCENDING)], unique=True)
     db.get_collection('users').create_index([('email', pymongo.ASCENDING)], unique=True)
@@ -122,6 +132,8 @@ def seed_routine():
 
     print('seeding logs...')
     db.get_collection('logs').insert_one(seed_log.dict())
+    print('creating logs indexes...')
+    db.get_collection('logs').create_index([('date', pymongo.DESCENDING)], unique=False)
 
 
 seed_routine()

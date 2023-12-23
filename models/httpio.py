@@ -18,3 +18,7 @@ class JsonResponse(BaseModel):
 class LoginRequest(BaseModel):
     username: str
     password: str
+
+
+class GetLogsRequest(BaseModel):
+    limit: int
