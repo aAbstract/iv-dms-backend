@@ -10,6 +10,7 @@ load_dotenv()
 
 # routes
 from routes import auth_api
+from routes import manuals_api
 # autopep8: on
 
 server = FastAPI()
@@ -20,6 +21,7 @@ server.add_middleware(
     allow_headers=['*'],
 )
 server.include_router(auth_api.router)
+server.include_router(manuals_api.router)
 
 
 @server.on_event('startup')

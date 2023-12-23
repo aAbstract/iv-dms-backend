@@ -1,4 +1,5 @@
-from .regulations import RegulationType
+from typing import Optional
+from models.regulations import RegulationType
 from pydantic import BaseModel
 
 
@@ -22,6 +23,13 @@ class ManualChapter(BaseModel):
     sections: list[ManualSection]
 
 
-class Manual(BaseModel):
+class StructuredManual(BaseModel):
+    _id: Optional[str]
     name: str
     chapters: list[ManualChapter]
+
+
+class UnstructuredManual(BaseModel):
+    _id: Optional[str]
+    name: str
+    pages: list[str]
