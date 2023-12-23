@@ -14,7 +14,7 @@ async def mongodb_connect():
     mdb_client = maio.AsyncIOMotorClient(connection_string, server_api=ServerApi('1'), serverSelectionTimeoutMS=3000)
     await log_man.add_log(func_id, 'INFO', 'connecting to mongodb server')
     try:
-        await mdb_client.admin.command('ping')
+        await mdb_client.get_database('admin').command('ping')
         await log_man.add_log(func_id, 'INFO', 'connected to mongodb server successfully')
     except Exception as e:
         await log_man.add_log(func_id, 'ERROR', f"error connecting to mongodb server: {e}")
