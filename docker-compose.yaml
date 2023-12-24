@@ -7,7 +7,7 @@ services:
     network_mode: host
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
-      MONGO_INITDB_ROOT_PASSWORD: example
+      MONGO_INITDB_ROOT_PASSWORD: AFoCzNBQ5KaLGznFhdEdvjHUVMpQK76RUygCPKa98FbbiYBeU9VJJhjjXyUXPWu9
     volumes:
       - iv_dms_mdb_data:/data/db
       - iv_dms_mdb_config:/data/configdb
