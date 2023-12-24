@@ -2,13 +2,6 @@ from typing import Optional, Any
 from pydantic import BaseModel
 
 
-class ServiceResponse(BaseModel):
-    success: Optional[bool] = True
-    status_code: Optional[int] = 200
-    msg: Optional[str] = ''
-    data: Optional[Any] = {}
-
-
 class JsonResponse(BaseModel):
     success: Optional[bool] = True
     msg: Optional[str] = ''
@@ -22,3 +15,8 @@ class LoginRequest(BaseModel):
 
 class GetLogsRequest(BaseModel):
     limit: int
+
+
+class GetManualPageRequest(BaseModel):
+    manual_id: str
+    page_order: int

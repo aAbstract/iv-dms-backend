@@ -52,4 +52,4 @@
 # )
 
 # print('seeding example manual...')
-# db.manuals.insert_one(seed_manual.dict())
+# db.manuals.insert_one(seed_manual.model_dump())

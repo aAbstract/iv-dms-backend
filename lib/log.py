@@ -27,4 +27,4 @@ async def add_log(source: str, level: str, desc: str):
     formated_log = _format_log(log)
     print(formated_log)
     if os.environ['ENV'] == 'prod':
-        await get_database().get_collection('logs').insert_one(log.dict())
+        await get_database().get_collection('logs').insert_one(log.model_dump())

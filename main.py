@@ -1,6 +1,7 @@
 # autopep8: off
 import uvicorn
 from fastapi import FastAPI
+from contextlib import asynccontextmanager
 from fastapi.middleware.cors import CORSMiddleware
 from models.httpio import JsonResponse
 import lib.log as log_man
@@ -14,7 +15,15 @@ from routes import manuals_api
 from routes import activity_api
 # autopep8: on
 
-server = FastAPI()
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    await mdb.mongodb_connect()
+    yield
+    # clean up resources here
+
+
+server = FastAPI(lifespan=lifespan)
 server.add_middleware(
     CORSMiddleware,
     allow_origins=['*'],
@@ -26,13 +35,9 @@ server.include_router(manuals_api.router)
 server.include_router(activity_api.router)
 
 
-@server.on_event('startup')
-async def startup_event():
-    await mdb.mongodb_connect()
-
-
 @server.get('/api/test')
 async def get_test():
+    """Test route to check if server is online."""
     await log_man.add_log('main.get_test', 'DEBUG', 'received get test request')
     return JsonResponse(msg='server online')
 

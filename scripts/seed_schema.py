@@ -91,7 +91,7 @@ seed_iosa_regulation = IOSARegulation(type=RegulationType.IOSA, name='IOSA Stand
     ),
 ])
 regulations_index = {
-    'iosa_ism_e16r2': seed_iosa_regulation.dict(),
+    'iosa_ism_e16r2': seed_iosa_regulation.model_dump(),
 }
 
 # unstructured manuals schema
@@ -115,7 +115,7 @@ seed_log = Log(
 
 def seed_routine():
     print('seeding users...')
-    db.get_collection('users').insert_many([x.dict() for x in seed_users])
+    db.get_collection('users').insert_many([x.model_dump() for x in seed_users])
     print('creating users indexes...')
     db.get_collection('users').create_index([('username', pymongo.ASCENDING)], unique=True)
     db.get_collection('users').create_index([('email', pymongo.ASCENDING)], unique=True)
@@ -126,12 +126,12 @@ def seed_routine():
     db.get_collection('regulations').create_index([('type', pymongo.ASCENDING)], unique=True)
 
     print('seeding unstructured manuals...')
-    db.get_collection('unstructured_manuals').insert_one(seed_unstructured_manual.dict())
+    db.get_collection('unstructured_manuals').insert_one(seed_unstructured_manual.model_dump())
     print('creating unstructured manuals indexes...')
     db.get_collection('unstructured_manuals').create_index([('name', pymongo.ASCENDING)], unique=True)
 
     print('seeding logs...')
-    db.get_collection('logs').insert_one(seed_log.dict())
+    db.get_collection('logs').insert_one(seed_log.model_dump())
     print('creating logs indexes...')
     db.get_collection('logs').create_index([('date', pymongo.DESCENDING)], unique=False)
 
