@@ -16,7 +16,7 @@ router = APIRouter()
 
 @router.post(f"{_ROOT_ROUTE}/get-logs")
 async def get_logs(req: GetLogsRequest, res: Response, authorization=Header(default=None)) -> JsonResponse:
-    """Gets activity logs.\n
+    """Get activity logs.\n
     Returns: {..., "data": {"logs": string[]}}
     """
     func_id = f"{_MODULE_ID}.get_logs"

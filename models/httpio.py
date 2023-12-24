@@ -20,3 +20,13 @@ class GetLogsRequest(BaseModel):
 class GetManualPageRequest(BaseModel):
     manual_id: str
     page_order: int
+
+
+class GetManualMetaDataRequest(BaseModel):
+    manual_id: str
+
+
+class UnstructuredManualMetaData(BaseModel):
+    _id: Optional[str]
+    name: str
+    page_count: int
