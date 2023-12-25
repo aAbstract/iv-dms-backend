@@ -13,12 +13,12 @@ _LOG_TAG_COLOR_MAP = {
 
 
 def _format_log(log: Log):
-    return f"[{log.date.strftime('%Y-%m-%d %H:%M:%S')}] {_LOG_TAG_COLOR_MAP[log.level]} [{log.source}] {log.description}"
+    return f"[{log.datetime.strftime('%Y-%m-%d %H:%M:%S')}] {_LOG_TAG_COLOR_MAP[log.level]} [{log.source}] {log.description}"
 
 
 async def add_log(source: str, level: str, desc: str):
     log = Log(
-        date=datetime.now(),
+        datetime=datetime.now(),
         level=level,
         source=source,
         description=desc

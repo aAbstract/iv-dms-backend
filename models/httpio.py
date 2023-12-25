@@ -24,9 +24,3 @@ class GetManualPageRequest(BaseModel):
 
 class GetManualMetaDataRequest(BaseModel):
     manual_id: str
-
-
-class UnstructuredManualMetaData(BaseModel):
-    _id: Optional[str]
-    name: str
-    page_count: int

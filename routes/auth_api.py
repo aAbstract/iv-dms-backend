@@ -14,7 +14,7 @@ router = APIRouter()
 @router.post(f"{_ROOT_ROUTE}/login")
 async def login(req: LoginRequest, res: Response) -> JsonResponse:
     """Handles user login request by validating credentials and generating JWT token.\n
-    Returns: {..., "data": {"access_token": string}}
+    Returns: {..., data: {access_token: string}}
     """
     func_id = f"{_MODULE_ID}.login"
     await log_man.add_log(func_id, 'DEBUG', f"received login request: {req}")

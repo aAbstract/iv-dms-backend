@@ -1,6 +1,6 @@
 from typing import Optional
 from models.regulations import RegulationType
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 
 
 class ManualRegulationCode(BaseModel):
@@ -24,12 +24,18 @@ class ManualChapter(BaseModel):
 
 
 class StructuredManual(BaseModel):
-    _id: Optional[str]
+    id: Optional[str] = None
     name: str
     chapters: list[ManualChapter]
 
 
 class UnstructuredManual(BaseModel):
-    _id: Optional[str]
+    id: Optional[str] = None
     name: str
     pages: list[str]
+
+
+class UnstructuredManualMetaData(BaseModel):
+    id: Optional[str] = None
+    name: str
+    page_count: int

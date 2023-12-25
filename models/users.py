@@ -10,7 +10,7 @@ class UserRoles(str, Enum):
 
 
 class User(BaseModel):
-    _id: Optional[str]
+    id: Optional[str] = None
     username: str
     disp_name: str
     pass_hash: str

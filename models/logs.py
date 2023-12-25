@@ -4,8 +4,8 @@ from datetime import datetime
 
 
 class Log(BaseModel):
-    _id: Optional[str]
-    date: datetime
+    id: Optional[str] = None
+    datetime: datetime
     level: str
     source: str
     description: str

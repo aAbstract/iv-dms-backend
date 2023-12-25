@@ -13,6 +13,7 @@ load_dotenv()
 from routes import auth_api
 from routes import manuals_api
 from routes import activity_api
+from routes import regulations_api
 # autopep8: on
 
 
@@ -23,7 +24,12 @@ async def lifespan(app: FastAPI):
     # clean up resources here
 
 
-server = FastAPI(lifespan=lifespan)
+server = FastAPI(
+    title='IV DMS Backend',
+    description='Added Regulations Options API',
+    version="0.12.0",
+    lifespan=lifespan,
+)
 server.add_middleware(
     CORSMiddleware,
     allow_origins=['*'],
@@ -33,6 +39,7 @@ server.add_middleware(
 server.include_router(auth_api.router)
 server.include_router(manuals_api.router)
 server.include_router(activity_api.router)
+server.include_router(regulations_api.router)
 
 
 @server.get('/api/test')

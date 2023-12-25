@@ -28,10 +28,19 @@ class IOSASection(BaseModel):
 
 
 class IOSARegulation(BaseModel):
-    _id: Optional[str]
+    id: Optional[str] = None
     type: RegulationType = RegulationType.IOSA
     name: str
     sections: list[IOSASection]
+
+    class Config:
+        use_enum_values = True
+
+
+class RegulationsMetaData(BaseModel):
+    id: Optional[str] = None
+    type: RegulationType
+    name: str
 
     class Config:
         use_enum_values = True
