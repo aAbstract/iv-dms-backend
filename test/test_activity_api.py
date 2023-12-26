@@ -28,3 +28,7 @@ def test_get_logs():
     json_res_body = json.loads(http_res.content.decode())
     assert json_res_body['success']
     assert 'logs' in json_res_body['data']
+    logs = json_res_body['data']['logs']
+    if len(logs) > 0:
+        obj_keys = set(logs[0].keys())
+        assert obj_keys == {'level', 'id', 'description', 'datetime', 'source'}
