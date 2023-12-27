@@ -7,5 +7,4 @@
 pip install "fastapi[all]"
 # pip install pymongo [OPTIONAL]
 pip install motor
-
-# AI engine python packages [TODO]
+pip install PyPDF2

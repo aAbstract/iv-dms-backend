@@ -2,6 +2,7 @@ import os
 import lib.log as log_man
 import motor.motor_asyncio as maio
 from pymongo.server_api import ServerApi
+from bson import ObjectId
 
 
 mdb_client: maio.AsyncIOMotorClient | None = None
@@ -24,3 +25,10 @@ def get_database() -> maio.core.AgnosticDatabase | None:
     if mdb_client:
         return mdb_client.get_database(os.environ['IVDMS_DB'])
     return None
+
+
+def validate_bson_id(bson_id: str) -> ObjectId | None:
+    try:
+        return ObjectId(bson_id)
+    except:
+        return None

@@ -3,9 +3,10 @@ from fastapi import APIRouter, Response, UploadFile, Header
 import lib.log as log_man
 import lib.security as security_man
 from models.users import UserRoles
-from models.httpio import JsonResponse, GetManualPageRequest, GetManualMetaDataRequest
+from models.httpio import JsonResponse, GetManualPageRequest, GetManualMetaDataRequest, DeleteManualRequest
 from models.manuals import UnstructuredManual
 import database.manuals_database_api as manuals_database_api
+import lib.pdf as pdf_man
 
 
 _ROOT_ROUTE = f"{os.getenv('API_ROOT')}/manuals"
@@ -15,10 +16,10 @@ router = APIRouter()
 
 
 @router.post(f"{_ROOT_ROUTE}/parse-pdf")
-async def parse_pdf(file: UploadFile, res: Response, authorization=Header(default=None)) -> JsonResponse:
+async def parse_pdf(file: UploadFile, res: Response, authorization=Header(default=None)):
     """ TODO """
     func_id = f"{_MODULE_ID}.parse_pdf"
-    await log_man.add_log(func_id, 'DEBUG', f"received parse pdf request: {file.filename}")
+    await log_man.add_log(func_id, "DEBUG", f"received parse pdf request: {file.filename}")
 
     # authorize user
     auth_service_response = await security_man.authorize_api(authorization, _ALLOWED_USERS, func_id)
@@ -29,17 +30,44 @@ async def parse_pdf(file: UploadFile, res: Response, authorization=Header(defaul
             msg=auth_service_response.msg,
         )
 
-    # TODO-GAMAL: parse {file}
+    all_pages = pdf_man.extract(file.file)
+
     parsed_file = UnstructuredManual(
         name=file.filename,
-        pages=[
-            'page1 content',
-            'page2 content',
-            'page3 content',
-        ],
+        pages=all_pages,
     )
-    # TODO-GAMAL: store {parsed_file} in database collection unstructured_manuals
-    return JsonResponse(data={'manual_id': 'database_id'})
+
+    db_service_response = await manuals_database_api.create_unstructured_manual(parsed_file)
+    res.status_code = db_service_response.status_code
+    if not db_service_response.success:
+        return JsonResponse(
+            success=db_service_response.success,
+            msg=db_service_response.msg,
+        )
+    return JsonResponse(data=db_service_response.data)
+
+
+@router.post(f"{_ROOT_ROUTE}/delete-manual")
+async def delete_manual(req: DeleteManualRequest, res: Response, authorization=Header(default=None)):
+    """ TODO """
+    func_id = f"{_MODULE_ID}.delete_manual"
+
+    # authorize user
+    auth_service_response = await security_man.authorize_api(authorization, [UserRoles.ADMIN], func_id)
+    if not auth_service_response.success:
+        res.status_code = auth_service_response.status_code
+        return JsonResponse(
+            success=auth_service_response.success,
+            msg=auth_service_response.msg,
+        )
+    await log_man.add_log(func_id, 'DEBUG', f"received delete manual request: username={auth_service_response.data['token_claims']['username']}, manual_id={req.manual_id}")
+
+    db_service_response = await manuals_database_api.delete_unstructured_manual(req.manual_id)
+    res.status_code = db_service_response.status_code
+    return JsonResponse(
+        success=db_service_response.success,
+        msg=db_service_response.msg,
+    )
 
 
 @router.post(f"{_ROOT_ROUTE}/get-page")

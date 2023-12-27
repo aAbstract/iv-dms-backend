@@ -24,3 +24,11 @@ class GetManualPageRequest(BaseModel):
 
 class GetManualMetaDataRequest(BaseModel):
     manual_id: str
+
+
+class GetRegulationCodesRequest(BaseModel):
+    regulation_id: str
+
+
+class DeleteManualRequest(BaseModel):
+    manual_id: str

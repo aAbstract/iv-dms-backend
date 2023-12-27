@@ -41,6 +41,14 @@ seed_users = [
         phone_number='+201001000000',
         email='eslam@aerosync.com',
     ),
+    User(
+        username='safwat',
+        disp_name='Safwat Admin',
+        pass_hash='bee066ca744aa10dffa39924161a190c5193988779b7ec58694b2bc15e104c998164bf04500c8523005f36ea4fc660f8cb8cf476eea14285a8079f2a530fbb9f',
+        user_role=UserRoles.ADMIN,
+        phone_number='+201001000000',
+        email='safwat@aerosync.com',
+    ),
 ]
 
 # regulations schema
@@ -52,7 +60,7 @@ seed_regulations = [
             code='FLT',
             applicability='addresses safety and security requirements for flight operations, and is applicable to an operator that uses two-pilot, multi-engine aircraft with a maximum certificated takeoff mass in excess of 5,700 kg (12,566 lbs.).',
             guidance='The definitions of technical terms used in this ISM Section 2, as well as the list of abbreviations and acronyms, are found in the IATA Reference Manual for Audit Programs (IRM).',
-            order=1,
+            order=2,
             items=[
                 IOSAItem(
                     code='FLT 1.1.1',
@@ -88,6 +96,35 @@ seed_regulations = [
                     code='FLT 1.5.2',
                     guidance='Refer to Guidance associated with ORG 1.5.3 located in ISM Section 1.',
                     constraint=Constrain(text='The Operator shall have a selection process for management and non-management positions within the organization that require the performance of functions relevant to the safety or security of aircraft operations.'),
+                ),
+            ],
+        ),
+        IOSASection(
+            name='Section 3 — Operational Control and Flight Dispatch',
+            code='DSP',
+            applicability='addresses the requirements for operational control of flights conducted by multi-engine aircraft and is applicable to an operator that conducts such flights, whether operational control functions are conducted by the operator or conducted for the operator by an external organization (outsourced).',
+            guidance='For the purposes of this section authority is defined as the delegated power or right to command or direct, to make specific decisions, to grant permission and/or provide approval, or to control or modify a process.',
+            order=3,
+            items=[
+                IOSAItem(
+                    code='DSP 1.1.1',
+                    guidance='',
+                    constraint=Constrain(text=''),
+                ),
+                IOSAItem(
+                    code='DSP 1.1.2',
+                    guidance='',
+                    constraint=Constrain(text=''),
+                ),
+                IOSAItem(
+                    code='DSP 1.1.3',
+                    guidance='',
+                    constraint=Constrain(text=''),
+                ),
+                IOSAItem(
+                    code='DSP 1.1.4',
+                    guidance='',
+                    constraint=Constrain(text=''),
                 ),
             ],
         ),
