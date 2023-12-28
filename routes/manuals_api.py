@@ -17,7 +17,9 @@ router = APIRouter()
 
 @router.post(f"{_ROOT_ROUTE}/parse-pdf")
 async def parse_pdf(file: UploadFile, res: Response, authorization=Header(default=None)):
-    """ TODO """
+    """Parse PDF file, store it in the database and return it's id.\n
+    Returns: {..., data: {manual_id: string}}
+    """
     func_id = f"{_MODULE_ID}.parse_pdf"
     await log_man.add_log(func_id, "DEBUG", f"received parse pdf request: {file.filename}")
 
@@ -49,7 +51,7 @@ async def parse_pdf(file: UploadFile, res: Response, authorization=Header(defaul
 
 @router.post(f"{_ROOT_ROUTE}/delete-manual")
 async def delete_manual(res: Response, manual_id: str = Body(embed=True), authorization=Header(default=None)):
-    """ TODO """
+    """ Delete an airlines manual from database. """
     func_id = f"{_MODULE_ID}.delete_manual"
 
     # authorize user

@@ -14,6 +14,7 @@ from routes import auth_api
 from routes import manuals_api
 from routes import activity_api
 from routes import regulations_api
+from routes import llm_api
 # autopep8: on
 
 
@@ -26,8 +27,8 @@ async def lifespan(app: FastAPI):
 
 server = FastAPI(
     title='IV DMS Backend',
-    description='Added Get Regulation Document Index for a Checklist Code API',
-    version="0.14.1",
+    description='Added LLM API Skeleton',
+    version="0.15.0",
     lifespan=lifespan,
 )
 server.add_middleware(
@@ -40,6 +41,7 @@ server.include_router(auth_api.router)
 server.include_router(manuals_api.router)
 server.include_router(activity_api.router)
 server.include_router(regulations_api.router)
+server.include_router(llm_api.router)
 
 
 @server.get('/api/test')
