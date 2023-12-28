@@ -1,11 +1,10 @@
 import os
-from fastapi import APIRouter, Response, Header
+from fastapi import APIRouter, Response, Header, Body
 import lib.log as log_man
 import lib.security as security_man
 from models.users import UserRoles
 from models.httpio import JsonResponse
 import database.activity_database_api as activity_database_api
-from models.httpio import GetLogsRequest
 
 
 _ROOT_ROUTE = f"{os.getenv('API_ROOT')}/activity"
@@ -15,7 +14,7 @@ router = APIRouter()
 
 
 @router.post(f"{_ROOT_ROUTE}/get-logs")
-async def get_logs(req: GetLogsRequest, res: Response, authorization=Header(default=None)) -> JsonResponse:
+async def get_logs(res: Response, limit: int = Body(embed=True), authorization=Header(default=None)) -> JsonResponse:
     """Get activity logs.\n
     Returns: {..., data: {logs: <{id: string, level: string, description: string, datetime: Date, source: string}>[]}}
     """
@@ -29,10 +28,10 @@ async def get_logs(req: GetLogsRequest, res: Response, authorization=Header(defa
             success=auth_service_response.success,
             msg=auth_service_response.msg,
         )
-    await log_man.add_log(func_id, 'DEBUG', f"received get logs request: username={auth_service_response.data['token_claims']['username']}, limit={req.limit}")
+    await log_man.add_log(func_id, 'DEBUG', f"received get logs request: username={auth_service_response.data['token_claims']['username']}, limit={limit}")
 
     # get activity logs
-    db_service_response = await activity_database_api.get_logs(req.limit)
+    db_service_response = await activity_database_api.get_logs(limit)
     res.status_code = db_service_response.status_code
     if not db_service_response.success:
         return JsonResponse(

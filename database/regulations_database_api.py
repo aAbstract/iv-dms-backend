@@ -61,3 +61,24 @@ async def get_regulation_codes(regulation_id: str) -> ServiceResponse:
         return ServiceResponse(success=False, msg='Regulation Codes not Found', status_code=404)
 
     return ServiceResponse(data=regulation_codes)
+
+
+async def get_checklist_code_iosa_map(regulation_id: str, checklist_code: str) -> ServiceResponse:
+    bson_id = validate_bson_id(regulation_id)
+    if not bson_id:
+        return ServiceResponse(success=False, msg='Bad Regulation ID', status_code=400)
+
+    mdb_query = [
+        {'$match': {'_id': bson_id}},
+        {'$unwind': '$sections'},
+        {'$unwind': '$sections.items'},
+        {'$match': {'sections.items.code': checklist_code}},
+        {'$project': {'_id': 0, 'iosa_map': '$sections.items.iosa_map'}}
+    ]
+
+    try:
+        iosa_map = await get_database().get_collection('regulations').aggregate(mdb_query).next()
+    except:
+        return ServiceResponse(success=False, msg='Checklist Code not Found', status_code=404)
+
+    return ServiceResponse(data=iosa_map)

@@ -32,11 +32,12 @@ async def get_manual_meta_data(manual_id: str) -> ServiceResponse:
         },
     ]
 
-    manual_meta_data = await get_database().get_collection('unstructured_manuals').aggregate(mdb_query).next()
-    if not manual_meta_data:
+    try:
+        manual_meta_data = await get_database().get_collection('unstructured_manuals').aggregate(mdb_query).next()
+        manual_meta_data = UnstructuredManualMetaData.model_validate(manual_meta_data)
+    except:
         return ServiceResponse(success=False, msg='Can not Get Manual Meta Data', status_code=404)
 
-    manual_meta_data = UnstructuredManualMetaData.model_validate(manual_meta_data)
     return ServiceResponse(data={'manual_meta_data': manual_meta_data})
 
 

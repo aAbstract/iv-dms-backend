@@ -1,9 +1,9 @@
 import os
-from fastapi import APIRouter, Response, UploadFile, Header
+from fastapi import APIRouter, Response, UploadFile, Header, Body
 import lib.log as log_man
 import lib.security as security_man
 from models.users import UserRoles
-from models.httpio import JsonResponse, GetManualPageRequest, GetManualMetaDataRequest, DeleteManualRequest
+from models.httpio import JsonResponse
 from models.manuals import UnstructuredManual
 import database.manuals_database_api as manuals_database_api
 import lib.pdf as pdf_man
@@ -48,7 +48,7 @@ async def parse_pdf(file: UploadFile, res: Response, authorization=Header(defaul
 
 
 @router.post(f"{_ROOT_ROUTE}/delete-manual")
-async def delete_manual(req: DeleteManualRequest, res: Response, authorization=Header(default=None)):
+async def delete_manual(res: Response, manual_id: str = Body(embed=True), authorization=Header(default=None)):
     """ TODO """
     func_id = f"{_MODULE_ID}.delete_manual"
 
@@ -60,9 +60,9 @@ async def delete_manual(req: DeleteManualRequest, res: Response, authorization=H
             success=auth_service_response.success,
             msg=auth_service_response.msg,
         )
-    await log_man.add_log(func_id, 'DEBUG', f"received delete manual request: username={auth_service_response.data['token_claims']['username']}, manual_id={req.manual_id}")
+    await log_man.add_log(func_id, 'DEBUG', f"received delete manual request: username={auth_service_response.data['token_claims']['username']}, manual_id={manual_id}")
 
-    db_service_response = await manuals_database_api.delete_unstructured_manual(req.manual_id)
+    db_service_response = await manuals_database_api.delete_unstructured_manual(manual_id)
     res.status_code = db_service_response.status_code
     return JsonResponse(
         success=db_service_response.success,
@@ -71,12 +71,12 @@ async def delete_manual(req: DeleteManualRequest, res: Response, authorization=H
 
 
 @router.post(f"{_ROOT_ROUTE}/get-page")
-async def get_page(req: GetManualPageRequest, res: Response, authorization=Header(default=None)) -> JsonResponse:
+async def get_page(res: Response, manual_id: str = Body(), page_order: int = Body(), authorization=Header(default=None)) -> JsonResponse:
     """Get a page from a manual.\n
     Returns: {..., data: {page: string}}
     """
     func_id = f"{_MODULE_ID}.get_page"
-    await log_man.add_log(func_id, 'DEBUG', f"received get manual page request: {req}")
+    await log_man.add_log(func_id, 'DEBUG', f"received get manual page request: manual_id={manual_id}, page_order={page_order}")
 
     # authorize user
     auth_service_response = await security_man.authorize_api(authorization, _ALLOWED_USERS, func_id)
@@ -87,7 +87,7 @@ async def get_page(req: GetManualPageRequest, res: Response, authorization=Heade
             msg=auth_service_response.msg,
         )
 
-    db_service_response = await manuals_database_api.get_manual_page(req.manual_id, req.page_order)
+    db_service_response = await manuals_database_api.get_manual_page(manual_id, page_order)
     res.status_code = db_service_response.status_code
     if not db_service_response.success:
         return JsonResponse(
@@ -98,14 +98,14 @@ async def get_page(req: GetManualPageRequest, res: Response, authorization=Heade
 
 
 @router.post(f"{_ROOT_ROUTE}/get-meta-data")
-async def get_meta_data(req: GetManualMetaDataRequest, res: Response, authorization=Header(default=None)) -> JsonResponse:
+async def get_meta_data(res: Response, manual_id: str = Body(embed=True), authorization=Header(default=None)) -> JsonResponse:
     """Get manual meta data.\n
     Returns: {..., data: {\n
     manual_meta_data: {id: string, name: string, page_count: number}\n
     }}
     """
     func_id = f"{_MODULE_ID}.get_meta_data"
-    await log_man.add_log(func_id, 'DEBUG', f"received get manual meta data request: {req}")
+    await log_man.add_log(func_id, 'DEBUG', f"received get manual meta data request: manual_id={manual_id}")
 
     # authorize user
     auth_service_response = await security_man.authorize_api(authorization, _ALLOWED_USERS, func_id)
@@ -116,7 +116,7 @@ async def get_meta_data(req: GetManualMetaDataRequest, res: Response, authorizat
             msg=auth_service_response.msg,
         )
 
-    db_service_response = await manuals_database_api.get_manual_meta_data(req.manual_id)
+    db_service_response = await manuals_database_api.get_manual_meta_data(manual_id)
     res.status_code = db_service_response.status_code
     if not db_service_response.success:
         return JsonResponse(

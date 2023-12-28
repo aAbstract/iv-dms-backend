@@ -65,11 +65,13 @@ seed_regulations = [
                 IOSAItem(
                     code='FLT 1.1.1',
                     guidance='Refer to the IRM for the definitions of Operations and Operator.',
+                    iosa_map=['1 Management and Control', '1.1 Management System Overview'],
                     constraint=Constrain(text='The Operator shall have a management system for the flight operations organization that ensures control of flight operations and the management of safety and security outcomes.'),
                 ),
                 IOSAItem(
                     code='FLT 1.1.2',
                     guidance='Refer to the IRM for the definitions of Accountability, Authority, Post Holder and Responsibility.',
+                    iosa_map=['1 Management and Control', '1.1 Management System Overview'],
                     constraint=Constrain(
                         text='The Operator shall have one or more designated managers in the flight operations organization that, if required, are post holders acceptable to the Authority, and have the responsibility for ensuring:',
                         children=[
@@ -82,6 +84,7 @@ seed_regulations = [
                 IOSAItem(
                     code='FLT 1.3.4',
                     guidance='Refer to Guidance associated with ORG 1.3.3 located in ISM Section 1 regarding the need to coordinate and communicate with external entities.',
+                    iosa_map=['1 Management and Control', '1.3 Accountability, Authorities and Responsibilities'],
                     constraint=Constrain(
                         text='The Operator shall ensure pilot flight crew members complete an evaluation that includes a demonstration of knowledge of the operations approved as part of the Air Operator Certificate (AOC). Such evaluation shall include a demonstration of knowledge of:',
                         children=[
@@ -95,12 +98,13 @@ seed_regulations = [
                 IOSAItem(
                     code='FLT 1.5.2',
                     guidance='Refer to Guidance associated with ORG 1.5.3 located in ISM Section 1.',
+                    iosa_map=['1 Management and Control', '1.5 Provision of Resources'],
                     constraint=Constrain(text='The Operator shall have a selection process for management and non-management positions within the organization that require the performance of functions relevant to the safety or security of aircraft operations.'),
                 ),
             ],
         ),
         IOSASection(
-            name='Section 3 — Operational Control and Flight Dispatch',
+            name='Section 3 Operational Control and Flight Dispatch',
             code='DSP',
             applicability='addresses the requirements for operational control of flights conducted by multi-engine aircraft and is applicable to an operator that conducts such flights, whether operational control functions are conducted by the operator or conducted for the operator by an external organization (outsourced).',
             guidance='For the purposes of this section authority is defined as the delegated power or right to command or direct, to make specific decisions, to grant permission and/or provide approval, or to control or modify a process.',
@@ -109,21 +113,25 @@ seed_regulations = [
                 IOSAItem(
                     code='DSP 1.1.1',
                     guidance='',
+                    iosa_map=['1 Management and Control', '1.1 Management System Overview'],
                     constraint=Constrain(text=''),
                 ),
                 IOSAItem(
                     code='DSP 1.1.2',
                     guidance='',
+                    iosa_map=['1 Management and Control', '1.1 Management System Overview'],
                     constraint=Constrain(text=''),
                 ),
                 IOSAItem(
                     code='DSP 1.1.3',
                     guidance='',
+                    iosa_map=['1 Management and Control', '1.1 Management System Overview'],
                     constraint=Constrain(text=''),
                 ),
                 IOSAItem(
                     code='DSP 1.1.4',
                     guidance='',
+                    iosa_map=['1 Management and Control', '1.1 Management System Overview'],
                     constraint=Constrain(text=''),
                 ),
             ],
