@@ -17,7 +17,7 @@ class IOSAItem(BaseModel):
     code: str
     guidance: str
     iosa_map: list[str] = []
-    constraint: Constrain
+    constraints: list[Constrain]
 
 
 class IOSASection(BaseModel):
