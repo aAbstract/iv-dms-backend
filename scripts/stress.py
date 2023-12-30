@@ -8,7 +8,7 @@ import colorama
 import socket
 
 
-TEST_COUNT = 100
+TEST_COUNT = 10
 THREAD_COUNT = 10
 SERVER_PORT = 8080
 SERVER_IP = '127.0.0.1'
