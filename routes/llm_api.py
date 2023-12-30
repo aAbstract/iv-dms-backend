@@ -17,7 +17,22 @@ router = APIRouter()
 
 @router.post(f"{_ROOT_ROUTE}/iosa-audit")
 async def iosa_audit(res: Response, regulation_id: str = Body(), checklist_code: str = Body(), text: str = Body(), authorization=Header(default=None)) -> JsonResponse:
-    """ TODO """
+    """Audit text against checklist_code from regulation_id using AI.\n
+    =================================================================\n
+    interface LLMIOSAItemResponse {\n
+    text: string,\n
+    explanation: string,\n
+    score: string,\n
+    children: LLMIOSAItemResponse[],\n
+    };\n
+    =================================================================\n
+    Returns: {..., data: {\n
+    score_tag: 'IRRELEVANT' | 'PARTIAL' | 'DOCUMENTED' | 'ACTIVE'\n
+    score_text: string,\n
+    summary: string,\n
+    details: LLMIOSAItemResponse[],\n
+    }}\n
+    """
     func_id = f"{_MODULE_ID}.iosa_audit"
     await log_man.add_log(func_id, 'DEBUG', f"received iosa audit request: regulation_id={regulation_id}, checklist_code={checklist_code}, text={text}")
 

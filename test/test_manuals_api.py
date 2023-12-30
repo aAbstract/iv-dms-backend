@@ -22,28 +22,36 @@ def test_parse_pdf_api_success():
     json_res_body = json.loads(http_res.content.decode())
     assert json_res_body['success']
     assert 'manual_id' in json_res_body['data']
+    assert 'file_id' in json_res_body['data']
+    assert 'url_path' in json_res_body['data']
     manual_id = json_res_body['data']['manual_id']
+    file_id = json_res_body['data']['file_id']
+    url_path = json_res_body['data']['url_path']
+
+    # check file index
+    http_res = requests.get(f"{_test_config.get_file_server_url()}/{url_path}")
+    assert http_res.status_code == 200
 
     # check manual exists
     http_res = requests.post(api_url, headers=http_headers, files={'file': open('temp/sample_manual.pdf', 'rb')})
-    assert http_res.status_code == 403
+    assert http_res.status_code == 409
     json_res_body = json.loads(http_res.content.decode())
-    assert (not json_res_body['success'] and json_res_body['msg'] == 'This Manual Already Exists')
+    assert (not json_res_body['success'] and json_res_body['msg'] == 'File Index Already Exists')
 
     # delete manual
     access_token = _test_config.login_user('eslam', 'CgJhxwieCc7QEyN3BB7pmvy9MMpseMPV')
     http_headers = {'Authorization': f"Bearer {access_token}"}
     api_url = f"{_test_config.get_api_url()}/manuals/delete-manual"
-    http_res = requests.post(api_url, headers=http_headers, json={'manual_id': manual_id})
+    http_res = requests.post(api_url, headers=http_headers, json={'file_id': file_id, 'manual_id': manual_id})
     assert http_res.status_code == 200
     json_res_body = json.loads(http_res.content.decode())
     assert (json_res_body['success'] and json_res_body['msg'] == 'OK')
 
     # check manual is deleted
-    http_res = requests.post(api_url, headers=http_headers, json={'manual_id': manual_id})
+    http_res = requests.post(api_url, headers=http_headers, json={'file_id': file_id, 'manual_id': manual_id})
     assert http_res.status_code == 404
     json_res_body = json.loads(http_res.content.decode())
-    assert (not json_res_body['success'] and json_res_body['msg'] == 'Manual not Found')
+    assert (not json_res_body['success'] and json_res_body['msg'] == 'File Index not Found')
 
 
 def test_get_page_api_lock():
@@ -137,3 +145,5 @@ def test_get_meta_data_api_success():
     assert 'manual_meta_data' in json_res_body['data']
     manual_meta_data = json_res_body['data']['manual_meta_data']
     assert ('id' in manual_meta_data and 'name' in manual_meta_data and 'page_count' in manual_meta_data)
+
+# TODO: test bad file extention for parse-pdf route

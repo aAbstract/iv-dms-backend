@@ -16,6 +16,7 @@ from models.users import *
 from models.regulations import *
 from models.manuals import *
 from models.logs import *
+from models.fs_index import *
 # autopep8: on
 
 
@@ -115,6 +116,38 @@ seed_regulations = [
                     iosa_map=['1 Management and Control', '1.5 Provision of Resources'],
                     constraints=[Constrain(text='The Operator shall have a selection process for management and non-management positions within the organization that require the performance of functions relevant to the safety or security of aircraft operations.')],
                 ),
+                IOSAItem(
+                    code='FLT 2.1.35',
+                    guidance='',
+                    iosa_map=[],
+                    constraints=[
+                        Constrain(
+                            text='The Operator shall have an initial training program for instructors, evaluators and line check airmen,to include:',
+                            children=[
+                                Constrain(
+                                    text='An instructor course that addresses as a minimum',
+                                    children=[
+                                        Constrain(text='The fundamentals of teaching and evaluation'),
+                                        Constrain(text='Lesson plan management'),
+                                        Constrain(text='Briefing and debriefing'),
+                                        Constrain(text='Human performance issues'),
+                                        Constrain(text='Company policies and procedures'),
+                                        Constrain(text='Simulator serviceability and training in simulator operation'),
+                                        Constrain(text='If the Operator conducts training flights, dangers associated with simulating system failures in flight'),
+                                        Constrain(text='As applicable, the simulated or actual weather and environmental conditions necessary to conduct each simulator or aircraft training/evaluation session to be administered'),
+                                    ],
+                                )
+                            ],
+                        ),
+                        Constrain(text='The Operator shall have a management system for the flight operations organization that ensures control of flight operations and the management of safety and security outcomes.'),
+                    ],
+                ),
+                IOSAItem(
+                    code='FLT 2.1.21',
+                    guidance='',
+                    iosa_map=[],
+                    constraints=[Constrain(text='The Operator shall have sufficient instructors, evaluators, line check airmen and support personnel to administer the training and evaluation programs in accordance with requirements of the Operator and/or the State, as applicable.')],
+                ),
             ],
         ),
         IOSASection(
@@ -166,6 +199,15 @@ seed_unstructured_manuals = [
     )
 ]
 
+# seed fs index
+seed_fs_index_file = FSIndexFile(
+    username='cwael',
+    datetime=datetime.now(),
+    file_type=IndexFileType.AIRLINES_MANUAL,
+    file_id='000000000000000000000000',
+    filename='sample_file.txt',
+)
+
 # system logs schema
 seed_log = Log(
     datetime=datetime.now(),
@@ -191,6 +233,12 @@ def seed_routine():
     db.get_collection('unstructured_manuals').insert_many([x.model_dump() for x in seed_unstructured_manuals])
     print('creating unstructured manuals indexes...')
     db.get_collection('unstructured_manuals').create_index('name', unique=True)
+
+    print('seeding fs index...')
+    db.get_collection('fs_index').insert_one(seed_fs_index_file.model_dump())
+    print('creating fs index indexes...')
+    db.get_collection('fs_index').create_index('username', unique=False)
+    db.get_collection('fs_index').create_index('filename', unique=False)
 
     print('seeding logs...')
     db.get_collection('logs').insert_one(seed_log.model_dump())

@@ -101,17 +101,17 @@ async def get_iosa_map(res: Response, regulation_id: str = Body(), checklist_cod
 @router.post(f"{_ROOT_ROUTE}/get-iosa-checklist")
 async def get_iosa_checklist(res: Response, regulation_id: str = Body(), checklist_code: str = Body(), authorization=Header(default=None)) -> JsonResponse:
     """Get iosa checklist details.\n
-    ====================================\n
+    ==============================\n
     interface Constrain {\n
     text: string,\n
     children: Constrain[],\n
     };\n
-    ====================================\n
+    ==============================\n
     Returns: {..., data: {\n
     code: string,\n
     guidance: string,\n
     iosa_map: string[],\n
-    constraints: Constrain[]\n
+    constraints: Constrain[],\n
     }}
     """
     func_id = f"{_MODULE_ID}.get_iosa_checklist"

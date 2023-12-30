@@ -5,7 +5,9 @@ import lib.security as security_man
 from models.users import UserRoles
 from models.httpio import JsonResponse
 from models.manuals import UnstructuredManual
+from models.fs_index import IndexFileType
 import database.manuals_database_api as manuals_database_api
+import database.fs_index_database_api as fs_index_database_api
 import lib.pdf as pdf_man
 
 
@@ -32,13 +34,20 @@ async def parse_pdf(file: UploadFile, res: Response, authorization=Header(defaul
             msg=auth_service_response.msg,
         )
 
-    all_pages = pdf_man.extract(file.file)
+    username = auth_service_response.data['token_claims']['username']
+    fs_service_response = await fs_index_database_api.create_fs_index_entry(username, IndexFileType.AIRLINES_MANUAL, file.filename, file.file.read())
+    if not fs_service_response.success:
+        res.status_code = fs_service_response.status_code
+        return JsonResponse(
+            success=fs_service_response.success,
+            msg=fs_service_response.msg,
+        )
 
+    all_pages = pdf_man.extract(file.file)
     parsed_file = UnstructuredManual(
         name=file.filename,
         pages=all_pages,
     )
-
     db_service_response = await manuals_database_api.create_unstructured_manual(parsed_file)
     res.status_code = db_service_response.status_code
     if not db_service_response.success:
@@ -46,12 +55,17 @@ async def parse_pdf(file: UploadFile, res: Response, authorization=Header(defaul
             success=db_service_response.success,
             msg=db_service_response.msg,
         )
-    return JsonResponse(data=db_service_response.data)
+
+    return JsonResponse(data={
+        'manual_id': db_service_response.data['manual_id'],
+        'file_id': fs_service_response.data['file_id'],
+        'url_path': fs_service_response.data['url_path'],
+    })
 
 
 @router.post(f"{_ROOT_ROUTE}/delete-manual")
-async def delete_manual(res: Response, manual_id: str = Body(embed=True), authorization=Header(default=None)):
-    """ Delete an airlines manual from database. """
+async def delete_manual(res: Response, file_id: str = Body(), manual_id: str = Body(), authorization=Header(default=None)):
+    """ Delete an airlines manual from database. [ALPHA] """
     func_id = f"{_MODULE_ID}.delete_manual"
 
     # authorize user
@@ -63,6 +77,14 @@ async def delete_manual(res: Response, manual_id: str = Body(embed=True), author
             msg=auth_service_response.msg,
         )
     await log_man.add_log(func_id, 'DEBUG', f"received delete manual request: username={auth_service_response.data['token_claims']['username']}, manual_id={manual_id}")
+
+    fs_service_response = await fs_index_database_api.delete_fs_index_entry(file_id)
+    if not fs_service_response.success:
+        res.status_code = fs_service_response.status_code
+        return JsonResponse(
+            success=fs_service_response.success,
+            msg=fs_service_response.msg,
+        )
 
     db_service_response = await manuals_database_api.delete_unstructured_manual(manual_id)
     res.status_code = db_service_response.status_code

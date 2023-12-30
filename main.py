@@ -1,6 +1,7 @@
 # autopep8: off
 import uvicorn
 from fastapi import FastAPI
+from fastapi.staticfiles import StaticFiles
 from contextlib import asynccontextmanager
 from fastapi.middleware.cors import CORSMiddleware
 from models.httpio import JsonResponse
@@ -27,8 +28,8 @@ async def lifespan(app: FastAPI):
 
 server = FastAPI(
     title='IV DMS Backend',
-    description='Added LLM API Skeleton',
-    version="0.15.0",
+    description='Merged LLM Model',
+    version="0.16.0",
     lifespan=lifespan,
 )
 server.add_middleware(
@@ -49,6 +50,11 @@ async def get_test():
     """Test route to check if server is online."""
     await log_man.add_log('main.get_test', 'DEBUG', 'received get test request')
     return JsonResponse(msg='server online')
+
+
+# mount static files server
+server.mount('/', StaticFiles(directory='public', html=True), name='public')
+# TODO-LATER: add fs security
 
 
 if __name__ == '__main__':

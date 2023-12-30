@@ -1,1 +1,9 @@
-- server: ssh ubuntu@140.238.90.55
+- server
+    - ssh ubuntu@140.238.90.55
+
+- color codes
+    - 'IRRELEVANT': '#DD2C00'
+    - 'PARTIAL': '#F57F17'
+    - 'DOCUMENTED': '#CDDC39'
+    - 'ACTIVE': '#00C853'
+    - default: '#757575'

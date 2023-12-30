@@ -61,7 +61,7 @@ async def create_unstructured_manual(unstructured_manual: UnstructuredManual):
     # check manual name duplicate
     manual = await get_database().get_collection('unstructured_manuals').find_one({'name': unstructured_manual.name})
     if manual:
-        return ServiceResponse(success=False, msg='This Manual Already Exists', status_code=403)
+        return ServiceResponse(success=False, msg='This Manual Already Exists', status_code=409)
 
     mdb_result = await get_database().get_collection('unstructured_manuals').insert_one(unstructured_manual.model_dump())
     manual_id = str(mdb_result.inserted_id)

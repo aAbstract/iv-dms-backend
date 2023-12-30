@@ -33,12 +33,11 @@ def test_llm_api_success():
     api_url = f"{_test_config.get_api_url()}/llm/iosa-audit"
     http_res = requests.post(api_url, headers=http_headers, json={
         'regulation_id': regulation_id,
-        'checklist_code': 'FLT 1.3.4',
-        'text': 'some text',
+        'checklist_code': 'FLT 2.1.35',
+        'text': _test_config.example_prompt,
     })
     assert http_res.status_code == 200
     json_res_body = json.loads(http_res.content.decode())
     assert 'llm_resp' in json_res_body['data']
     obj_keys = set(json_res_body['data']['llm_resp'])
-    assert obj_keys == {'details', 'score_tag', 'score_text', 'description'}
-    # TODO-GALAL complete this test
+    assert obj_keys == {'details', 'score_tag', 'score_text', 'summary'}

@@ -11,13 +11,22 @@ class JsonResponse(BaseModel):
 
 class LLMAuditScore(str, Enum):
     IRRELEVANT = 'IRRELEVANT'
-    SOME = 'SOME'
+    PARTIAL = 'PARTIAL'
     DOCUMENTED = 'DOCUMENTED'
     ACTIVE = 'ACTIVE'
+    NULL = 'NULL'
+    SERVER_ERROR = 'SERVER_ERROR'
+
+
+class LLMIOSAItemResponse(BaseModel):
+    text: str
+    explanation: str = 'NULL'
+    score: str = 'NULL'
+    children: list['LLMIOSAItemResponse'] = []
 
 
 class LLMAuditResponse(BaseModel):
     score_tag: LLMAuditScore
     score_text: str  # what does the tag mean
-    description: str  # explaination generated from the LLM
-    details: list['LLMAuditResponse'] = []
+    summary: str  # explaination generated from the LLM
+    details: list[LLMIOSAItemResponse] = []
