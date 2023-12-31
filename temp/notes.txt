@@ -1,5 +1,5 @@
 - server
-    - ssh ubuntu@140.238.90.55
+    - ssh ubuntu@129.151.153.60
 
 - color codes
     - 'IRRELEVANT': '#DD2C00'
