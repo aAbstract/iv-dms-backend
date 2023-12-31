@@ -28,8 +28,8 @@ async def lifespan(app: FastAPI):
 
 server = FastAPI(
     title='IV DMS Backend',
-    description='Fixed File System Structure',
-    version="0.16.1",
+    description='Added FLT 3.1.1-3.10.8 Seeder',
+    version="0.16.2",
     lifespan=lifespan,
 )
 server.add_middleware(
@@ -55,6 +55,7 @@ async def get_test():
 # mount static files server
 server.mount('/', StaticFiles(directory='public', html=True), name='public')
 # TODO-LATER: add fs security
+# TODO-LATER: change auth header
 
 
 if __name__ == '__main__':
