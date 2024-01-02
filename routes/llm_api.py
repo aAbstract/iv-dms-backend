@@ -16,7 +16,7 @@ router = APIRouter()
 
 
 @router.post(f"{_ROOT_ROUTE}/iosa-audit")
-async def iosa_audit(res: Response, regulation_id: str = Body(), checklist_code: str = Body(), text: str = Body(), authorization=Header(default=None)) -> JsonResponse:
+async def iosa_audit(res: Response, regulation_id: str = Body(), checklist_code: str = Body(), text: str = Body(), x_auth=Header(alias='X-Auth', default=None)) -> JsonResponse:
     """Audit text against checklist_code from regulation_id using AI.\n
     =================================================================\n
     interface LLMIOSAItemResponse {\n
@@ -37,7 +37,7 @@ async def iosa_audit(res: Response, regulation_id: str = Body(), checklist_code:
     await log_man.add_log(func_id, 'DEBUG', f"received iosa audit request: regulation_id={regulation_id}, checklist_code={checklist_code}, text={text}")
 
     # authorize user
-    auth_service_response = await security_man.authorize_api(authorization, _ALLOWED_USERS, func_id)
+    auth_service_response = await security_man.authorize_api(x_auth, _ALLOWED_USERS, func_id)
     if not auth_service_response.success:
         res.status_code = auth_service_response.status_code
         return JsonResponse(

@@ -14,7 +14,7 @@ router = APIRouter()
 
 
 @router.post(f"{_ROOT_ROUTE}/get-options")
-async def get_options(res: Response, authorization=Header(default=None)) -> JsonResponse:
+async def get_options(res: Response, x_auth=Header(alias='X-Auth', default=None)) -> JsonResponse:
     """Get all regulations check lists meta data.\n
     Returns: {..., data: {\n
     regulations_options: <{id: string, type: string, name: string}>[]\n
@@ -24,7 +24,7 @@ async def get_options(res: Response, authorization=Header(default=None)) -> Json
     await log_man.add_log(func_id, 'DEBUG', 'received get regulations options request')
 
     # authorize user
-    auth_service_response = await security_man.authorize_api(authorization, _ALLOWED_USERS, func_id)
+    auth_service_response = await security_man.authorize_api(x_auth, _ALLOWED_USERS, func_id)
     if not auth_service_response.success:
         res.status_code = auth_service_response.status_code
         return JsonResponse(
@@ -43,7 +43,7 @@ async def get_options(res: Response, authorization=Header(default=None)) -> Json
 
 
 @router.post(f"{_ROOT_ROUTE}/get-codes")
-async def get_codes(res: Response, regulation_id: str = Body(embed=True), authorization=Header(default=None)) -> JsonResponse:
+async def get_codes(res: Response, regulation_id: str = Body(embed=True), x_auth=Header(alias='X-Auth', default=None)) -> JsonResponse:
     """Get regulation codes.\n
     Returns: {..., data: {\n
     regulation_codes: <{section_name: string, section_code: string, checklist_codes: string[]}>[]\n
@@ -53,7 +53,7 @@ async def get_codes(res: Response, regulation_id: str = Body(embed=True), author
     await log_man.add_log(func_id, 'DEBUG', f"received get regulation codes request: regulation_id={regulation_id}")
 
     # authorize user
-    auth_service_response = await security_man.authorize_api(authorization, _ALLOWED_USERS, func_id)
+    auth_service_response = await security_man.authorize_api(x_auth, _ALLOWED_USERS, func_id)
     if not auth_service_response.success:
         res.status_code = auth_service_response.status_code
         return JsonResponse(
@@ -72,7 +72,7 @@ async def get_codes(res: Response, regulation_id: str = Body(embed=True), author
 
 
 @router.post(f"{_ROOT_ROUTE}/get-iosa-map")
-async def get_iosa_map(res: Response, regulation_id: str = Body(), checklist_code: str = Body(), authorization=Header(default=None)) -> JsonResponse:
+async def get_iosa_map(res: Response, regulation_id: str = Body(), checklist_code: str = Body(), x_auth=Header(alias='X-Auth', default=None)) -> JsonResponse:
     """Get index of a given checklist code in the regulations document.\n
     Returns: {..., data: {iosa_map: string[]}}
     """
@@ -80,7 +80,7 @@ async def get_iosa_map(res: Response, regulation_id: str = Body(), checklist_cod
     await log_man.add_log(func_id, 'DEBUG', f"received get iosa map request: regulation_id={regulation_id}, checklist_code={checklist_code}")
 
     # authorize user
-    auth_service_response = await security_man.authorize_api(authorization, _ALLOWED_USERS, func_id)
+    auth_service_response = await security_man.authorize_api(x_auth, _ALLOWED_USERS, func_id)
     if not auth_service_response.success:
         res.status_code = auth_service_response.status_code
         return JsonResponse(
@@ -99,7 +99,7 @@ async def get_iosa_map(res: Response, regulation_id: str = Body(), checklist_cod
 
 
 @router.post(f"{_ROOT_ROUTE}/get-iosa-checklist")
-async def get_iosa_checklist(res: Response, regulation_id: str = Body(), checklist_code: str = Body(), authorization=Header(default=None)) -> JsonResponse:
+async def get_iosa_checklist(res: Response, regulation_id: str = Body(), checklist_code: str = Body(), x_auth=Header(alias='X-Auth', default=None)) -> JsonResponse:
     """Get iosa checklist details.\n
     ==============================\n
     interface Constrain {\n
@@ -118,7 +118,7 @@ async def get_iosa_checklist(res: Response, regulation_id: str = Body(), checkli
     await log_man.add_log(func_id, 'DEBUG', f"received get iosa checklist request: regulation_id={regulation_id}, checklist_code={checklist_code}")
 
     # authorize user
-    auth_service_response = await security_man.authorize_api(authorization, _ALLOWED_USERS, func_id)
+    auth_service_response = await security_man.authorize_api(x_auth, _ALLOWED_USERS, func_id)
     if not auth_service_response.success:
         res.status_code = auth_service_response.status_code
         return JsonResponse(

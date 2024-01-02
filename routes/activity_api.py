@@ -14,14 +14,14 @@ router = APIRouter()
 
 
 @router.post(f"{_ROOT_ROUTE}/get-logs")
-async def get_logs(res: Response, limit: int = Body(embed=True), authorization=Header(default=None)) -> JsonResponse:
+async def get_logs(res: Response, limit: int = Body(embed=True), x_auth=Header(alias='X-Auth', default=None)) -> JsonResponse:
     """Get activity logs.\n
     Returns: {..., data: {logs: <{id: string, level: string, description: string, datetime: Date, source: string}>[]}}
     """
     func_id = f"{_MODULE_ID}.get_logs"
 
     # authorize user
-    auth_service_response = await security_man.authorize_api(authorization, _ALLOWED_USERS, func_id)
+    auth_service_response = await security_man.authorize_api(x_auth, _ALLOWED_USERS, func_id)
     if not auth_service_response.success:
         res.status_code = auth_service_response.status_code
         return JsonResponse(

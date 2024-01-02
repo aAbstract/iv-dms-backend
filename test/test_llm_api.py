@@ -5,7 +5,7 @@ import _test_config
 
 def test_llm_api_lock():
     api_url = f"{_test_config.get_api_url()}/llm/iosa-audit"
-    http_headers = {'Authorization': 'Bearer fake_token'}
+    http_headers = {'X-Auth': 'Bearer fake_token'}
     http_res = requests.post(api_url, headers=http_headers, json={
         'regulation_id': '000000000000000000000000',
         'checklist_code': 'XXX 0.0.0',
@@ -18,7 +18,7 @@ def test_llm_api_lock():
 
 def test_llm_api_success():
     access_token = _test_config.login_user('cwael', 'CgJhxwieCc7QEyN3BB7pmvy9MMpseMPV')
-    http_headers = {'Authorization': f"Bearer {access_token}"}
+    http_headers = {'X-Auth': f"Bearer {access_token}"}
 
     # get regulations options
     api_url = f"{_test_config.get_api_url()}/regulations/get-options"

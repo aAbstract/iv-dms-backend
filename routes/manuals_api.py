@@ -18,7 +18,7 @@ router = APIRouter()
 
 
 @router.post(f"{_ROOT_ROUTE}/parse-pdf")
-async def parse_pdf(file: UploadFile, res: Response, authorization=Header(default=None)):
+async def parse_pdf(file: UploadFile, res: Response, x_auth=Header(alias='X-Auth', default=None)):
     """Parse PDF file, store it in the database and return it's id.\n
     Returns: {..., data: {manual_id: string}}
     """
@@ -26,7 +26,7 @@ async def parse_pdf(file: UploadFile, res: Response, authorization=Header(defaul
     await log_man.add_log(func_id, "DEBUG", f"received parse pdf request: {file.filename}")
 
     # authorize user
-    auth_service_response = await security_man.authorize_api(authorization, _ALLOWED_USERS, func_id)
+    auth_service_response = await security_man.authorize_api(x_auth, _ALLOWED_USERS, func_id)
     if not auth_service_response.success:
         res.status_code = auth_service_response.status_code
         return JsonResponse(
@@ -64,12 +64,12 @@ async def parse_pdf(file: UploadFile, res: Response, authorization=Header(defaul
 
 
 @router.post(f"{_ROOT_ROUTE}/delete-manual")
-async def delete_manual(res: Response, file_id: str = Body(), manual_id: str = Body(), authorization=Header(default=None)):
+async def delete_manual(res: Response, file_id: str = Body(), manual_id: str = Body(), x_auth=Header(alias='X-Auth', default=None)):
     """ Delete an airlines manual from database. [ALPHA] """
     func_id = f"{_MODULE_ID}.delete_manual"
 
     # authorize user
-    auth_service_response = await security_man.authorize_api(authorization, [UserRoles.ADMIN], func_id)
+    auth_service_response = await security_man.authorize_api(x_auth, [UserRoles.ADMIN], func_id)
     if not auth_service_response.success:
         res.status_code = auth_service_response.status_code
         return JsonResponse(
@@ -95,7 +95,7 @@ async def delete_manual(res: Response, file_id: str = Body(), manual_id: str = B
 
 
 @router.post(f"{_ROOT_ROUTE}/get-page")
-async def get_page(res: Response, manual_id: str = Body(), page_order: int = Body(), authorization=Header(default=None)) -> JsonResponse:
+async def get_page(res: Response, manual_id: str = Body(), page_order: int = Body(), x_auth=Header(alias='X-Auth', default=None)) -> JsonResponse:
     """Get a page from a manual.\n
     Returns: {..., data: {page: string}}
     """
@@ -103,7 +103,7 @@ async def get_page(res: Response, manual_id: str = Body(), page_order: int = Bod
     await log_man.add_log(func_id, 'DEBUG', f"received get manual page request: manual_id={manual_id}, page_order={page_order}")
 
     # authorize user
-    auth_service_response = await security_man.authorize_api(authorization, _ALLOWED_USERS, func_id)
+    auth_service_response = await security_man.authorize_api(x_auth, _ALLOWED_USERS, func_id)
     if not auth_service_response.success:
         res.status_code = auth_service_response.status_code
         return JsonResponse(
@@ -122,7 +122,7 @@ async def get_page(res: Response, manual_id: str = Body(), page_order: int = Bod
 
 
 @router.post(f"{_ROOT_ROUTE}/get-meta-data")
-async def get_meta_data(res: Response, manual_id: str = Body(embed=True), authorization=Header(default=None)) -> JsonResponse:
+async def get_meta_data(res: Response, manual_id: str = Body(embed=True), x_auth=Header(alias='X-Auth', default=None)) -> JsonResponse:
     """Get manual meta data.\n
     Returns: {..., data: {\n
     manual_meta_data: {id: string, name: string, page_count: number}\n
@@ -132,7 +132,7 @@ async def get_meta_data(res: Response, manual_id: str = Body(embed=True), author
     await log_man.add_log(func_id, 'DEBUG', f"received get manual meta data request: manual_id={manual_id}")
 
     # authorize user
-    auth_service_response = await security_man.authorize_api(authorization, _ALLOWED_USERS, func_id)
+    auth_service_response = await security_man.authorize_api(x_auth, _ALLOWED_USERS, func_id)
     if not auth_service_response.success:
         res.status_code = auth_service_response.status_code
         return JsonResponse(
@@ -151,7 +151,7 @@ async def get_meta_data(res: Response, manual_id: str = Body(embed=True), author
 
 
 @router.post(f"{_ROOT_ROUTE}/get-options")
-async def get_options(res: Response, authorization=Header(default=None)) -> JsonResponse:
+async def get_options(res: Response, x_auth=Header(alias='X-Auth', default=None)) -> JsonResponse:
     """Get all manuals meta data.\n
     Returns: {..., data: {\n
     manuals_options: <{id: string, name: string, page_count: number}>[]\n
@@ -161,7 +161,7 @@ async def get_options(res: Response, authorization=Header(default=None)) -> Json
     await log_man.add_log(func_id, 'DEBUG', 'received get manuals options request')
 
     # authorize user
-    auth_service_response = await security_man.authorize_api(authorization, _ALLOWED_USERS, func_id)
+    auth_service_response = await security_man.authorize_api(x_auth, _ALLOWED_USERS, func_id)
     if not auth_service_response.success:
         res.status_code = auth_service_response.status_code
         return JsonResponse(

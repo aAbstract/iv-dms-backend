@@ -5,7 +5,7 @@ import _test_config
 
 def test_get_options_api_lock():
     api_url = f"{_test_config.get_api_url()}/regulations/get-options"
-    http_headers = {'Authorization': 'Bearer fake_token'}
+    http_headers = {'X-Auth': 'Bearer fake_token'}
     http_res = requests.post(api_url, headers=http_headers)
     assert http_res.status_code == 403
     json_res_body = json.loads(http_res.content.decode())
@@ -15,7 +15,7 @@ def test_get_options_api_lock():
 def test_get_options_api_success():
     api_url = f"{_test_config.get_api_url()}/regulations/get-options"
     access_token = _test_config.login_user('cwael', 'CgJhxwieCc7QEyN3BB7pmvy9MMpseMPV')
-    http_headers = {'Authorization': f"Bearer {access_token}"}
+    http_headers = {'X-Auth': f"Bearer {access_token}"}
     http_res = requests.post(api_url, headers=http_headers)
     assert http_res.status_code == 200
     json_res_body = json.loads(http_res.content.decode())
@@ -29,7 +29,7 @@ def test_get_options_api_success():
 
 def test_get_codes_api_lock():
     api_url = f"{_test_config.get_api_url()}/regulations/get-codes"
-    http_headers = {'Authorization': 'Bearer fake_token'}
+    http_headers = {'X-Auth': 'Bearer fake_token'}
     http_res = requests.post(api_url, headers=http_headers, json={'regulation_id': '000000000000000000000000'})
     assert http_res.status_code == 403
     json_res_body = json.loads(http_res.content.decode())
@@ -39,7 +39,7 @@ def test_get_codes_api_lock():
 def test_get_codes_api_regulation_not_found():
     api_url = f"{_test_config.get_api_url()}/regulations/get-codes"
     access_token = _test_config.login_user('cwael', 'CgJhxwieCc7QEyN3BB7pmvy9MMpseMPV')
-    http_headers = {'Authorization': f"Bearer {access_token}"}
+    http_headers = {'X-Auth': f"Bearer {access_token}"}
     http_res = requests.post(api_url, headers=http_headers, json={'regulation_id': '000000000000000000000000'})
     assert http_res.status_code == 404
     json_res_body = json.loads(http_res.content.decode())
@@ -48,7 +48,7 @@ def test_get_codes_api_regulation_not_found():
 
 def test_get_codes_api_success():
     access_token = _test_config.login_user('cwael', 'CgJhxwieCc7QEyN3BB7pmvy9MMpseMPV')
-    http_headers = {'Authorization': f"Bearer {access_token}"}
+    http_headers = {'X-Auth': f"Bearer {access_token}"}
 
     # get regulations options
     api_url = f"{_test_config.get_api_url()}/regulations/get-options"
@@ -73,7 +73,7 @@ def test_get_codes_api_success():
 
 def test_get_checklist_code_iosa_map_api_lock():
     api_url = f"{_test_config.get_api_url()}/regulations/get-iosa-map"
-    http_headers = {'Authorization': 'Bearer fake_token'}
+    http_headers = {'X-Auth': 'Bearer fake_token'}
     http_res = requests.post(api_url, headers=http_headers, json={
         'regulation_id': '000000000000000000000000',
         'checklist_code': 'XXX 0.0.0',
@@ -85,7 +85,7 @@ def test_get_checklist_code_iosa_map_api_lock():
 
 def test_get_checklist_code_iosa_map_api_success():
     access_token = _test_config.login_user('cwael', 'CgJhxwieCc7QEyN3BB7pmvy9MMpseMPV')
-    http_headers = {'Authorization': f"Bearer {access_token}"}
+    http_headers = {'X-Auth': f"Bearer {access_token}"}
 
     # get regulations options
     api_url = f"{_test_config.get_api_url()}/regulations/get-options"
@@ -109,7 +109,7 @@ def test_get_checklist_code_iosa_map_api_success():
 
 def test_get_iosa_checklist_api_lock():
     api_url = f"{_test_config.get_api_url()}/regulations/get-iosa-checklist"
-    http_headers = {'Authorization': 'Bearer fake_token'}
+    http_headers = {'X-Auth': 'Bearer fake_token'}
     http_res = requests.post(api_url, headers=http_headers, json={
         'regulation_id': '000000000000000000000000',
         'checklist_code': 'XXX 0.0.0',
@@ -121,7 +121,7 @@ def test_get_iosa_checklist_api_lock():
 
 def test_get_iosa_checklist_api_sucess():
     access_token = _test_config.login_user('cwael', 'CgJhxwieCc7QEyN3BB7pmvy9MMpseMPV')
-    http_headers = {'Authorization': f"Bearer {access_token}"}
+    http_headers = {'X-Auth': f"Bearer {access_token}"}
 
     # get regulations options
     api_url = f"{_test_config.get_api_url()}/regulations/get-options"

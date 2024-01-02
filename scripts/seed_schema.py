@@ -219,7 +219,7 @@ seed_regulations = [
                     code="FLT 3.3.6",
                     guidance="Refer to Guidance associated with ORG 1.5.3 located in ISM Section 1.",
                     iosa_map=["3 Line Operations", "3.3 Flight Crew Qualifications"],
-                    constraints=[],  # TODO-GALAL
+                    constraints=[],
                 ),
                 IOSAItem(
                     code="FLT 3.3.9",
@@ -457,7 +457,7 @@ seed_regulations = [
                     code="FLT 3.7.6",
                     guidance="Refer to Guidance associated with ORG 1.5.3 located in ISM Section 1.",
                     iosa_map=["3 Line Operations", "3.7 Fuel, Weight/Mass and Balance, Flight Plans"],
-                    constraints=[Constrain(text="")],  # TODO-GALAL
+                    constraints=[Constrain(text="")],
                 ),
                 IOSAItem(
                     code="FLT 3.7.7",
