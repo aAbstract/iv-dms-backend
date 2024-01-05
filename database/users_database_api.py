@@ -19,6 +19,7 @@ async def login_user(username: str, password: str) -> ServiceResponse:
     # create jwt token
     jwt_token = crypto_man.create_jwt_token({
         'username': user.username,
+        'display_name': user.disp_name,
         'role': user.user_role,
     })
     return ServiceResponse(data={'access_token': jwt_token})
