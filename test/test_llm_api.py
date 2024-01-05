@@ -40,4 +40,4 @@ def test_llm_api_success():
     json_res_body = json.loads(http_res.content.decode())
     assert 'llm_resp' in json_res_body['data']
     obj_keys = set(json_res_body['data']['llm_resp'])
-    assert obj_keys == {'details', 'score_tag', 'score_text', 'summary'}
+    assert obj_keys == {'details', 'score', 'score_tag', 'score_text', 'summary'}

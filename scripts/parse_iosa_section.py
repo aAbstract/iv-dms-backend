@@ -115,8 +115,9 @@ def check_type(text):
 
 def parse_paragraph(paragraph):
     text = paragraph[:]
-    splitter = r"\.\n|:\n|;\n"
+    splitter = r"\.\n|:\n|;\n| or\n"
     items = re.split(splitter, text)
+    items = [i for i in items if i]
 
     items_labled = []
     last = None
@@ -231,6 +232,8 @@ def extract_section_text(text):
     )
     auditor_actions_reg = r"\nAuditor Actions\n"
     Guidence_reg = r"\nGuidance\n"
+    gm_reg = r"\(GM\)"
+    sms_reg = r"\[SMS\]"
     all_sections = []
     in_text_spans_beg = []
     in_text_spans_end = []
@@ -263,9 +266,21 @@ def extract_section_text(text):
         if gg:
             guidence = paragraph[gg.span()[0]:].strip("\n").strip()
             paragraph = paragraph[: gg.span()[0]]
-        aa = re.search(auditor_actions_reg, paragraph).span()[0]
-        auditor_actions = paragraph[aa:].strip("\n").strip()
-        paragraph = paragraph[:aa]
+
+        aa = re.search(auditor_actions_reg, paragraph)
+        if aa:
+            auditor_actions = paragraph[aa.span()[0]:].strip("\n").strip()
+            paragraph = paragraph[: aa.span()[0]]
+
+        gm = re.search(gm_reg, paragraph)
+        if gm:
+            gm_text = paragraph[gm.span()[0]:].strip("\n").strip()
+            paragraph = paragraph[: gm.span()[0]]
+
+        sms = re.search(sms_reg, paragraph)
+        if sms:
+            sms_text = paragraph[sms.span()[0]:].strip("\n").strip()
+            paragraph = paragraph[: sms.span()[0]]
 
         all_sections.append(
             {
@@ -281,9 +296,21 @@ def extract_section_text(text):
     if gg:
         guidence = paragraph[gg.span()[0]:].strip("\n").strip()
         paragraph = paragraph[: gg.span()[0]]
-    aa = re.search(auditor_actions_reg, paragraph).span()[0]
-    auditor_actions = paragraph[aa:].strip("\n").strip()
-    paragraph = paragraph[:aa]
+
+    aa = re.search(auditor_actions_reg, paragraph)
+    if aa:
+        auditor_actions = paragraph[aa.span()[0]:].strip("\n").strip()
+        paragraph = paragraph[: aa.span()[0]]
+
+    gm = re.search(gm_reg, paragraph)
+    if gm:
+        gm_text = paragraph[gm.span()[0]:].strip("\n").strip()
+        paragraph = paragraph[: gm.span()[0]]
+
+    sms = re.search(sms_reg, paragraph)
+    if sms:
+        sms_text = paragraph[sms.span()[0]:].strip("\n").strip()
+        paragraph = paragraph[: sms.span()[0]]
 
     all_sections.append(
         {

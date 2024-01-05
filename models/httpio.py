@@ -26,6 +26,7 @@ class LLMIOSAItemResponse(BaseModel):
 
 
 class LLMAuditResponse(BaseModel):
+    score: float
     score_tag: LLMAuditScore
     score_text: str  # what does the tag mean
     summary: str  # explaination generated from the LLM
