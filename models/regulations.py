@@ -11,11 +11,14 @@ class RegulationType(str, Enum):
 class Constrain(BaseModel):
     text: str
     children: list['Constrain'] = []
+    # LLM placeholder tokens
+    score: str = '<score>'
+    explanation: str = '<explanation>'
 
 
 class IOSAItem(BaseModel):
     code: str
-    guidance: str
+    guidance: Optional[str] = None
     iosa_map: list[str] = []
     constraints: list[Constrain]
 
@@ -24,7 +27,7 @@ class IOSASection(BaseModel):
     name: str
     code: str
     applicability: str
-    guidance: str
+    guidance: Optional[str] = None
     items: list[IOSAItem]
 
 

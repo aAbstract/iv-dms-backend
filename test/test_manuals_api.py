@@ -6,7 +6,7 @@ import _test_config
 def test_parse_pdf_api_lock():
     api_url = f"{_test_config.get_api_url()}/manuals/parse-pdf"
     http_headers = {'X-Auth': 'Bearer fake_token'}
-    http_res = requests.post(api_url, headers=http_headers, files={'file': open('temp/sample_manual.pdf', 'rb')})
+    http_res = requests.post(api_url, headers=http_headers, files={'file': open('data/sample_manual.pdf', 'rb')})
     assert http_res.status_code == 403
     json_res_body = json.loads(http_res.content.decode())
     assert (not json_res_body['success'] and json_res_body['msg'] == 'Unauthorized API Access [Invalid Token]')
@@ -17,7 +17,7 @@ def test_parse_pdf_api_success():
     access_token = _test_config.login_user('cwael', 'CgJhxwieCc7QEyN3BB7pmvy9MMpseMPV')
     api_url = f"{_test_config.get_api_url()}/manuals/parse-pdf"
     http_headers = {'X-Auth': f"Bearer {access_token}"}
-    http_res = requests.post(api_url, headers=http_headers, files={'file': open('temp/sample_manual.pdf', 'rb')})
+    http_res = requests.post(api_url, headers=http_headers, files={'file': open('data/sample_manual.pdf', 'rb')})
     assert http_res.status_code == 200
     json_res_body = json.loads(http_res.content.decode())
     assert json_res_body['success']
@@ -33,7 +33,7 @@ def test_parse_pdf_api_success():
     assert http_res.status_code == 200
 
     # check manual exists
-    http_res = requests.post(api_url, headers=http_headers, files={'file': open('temp/sample_manual.pdf', 'rb')})
+    http_res = requests.post(api_url, headers=http_headers, files={'file': open('data/sample_manual.pdf', 'rb')})
     assert http_res.status_code == 409
     json_res_body = json.loads(http_res.content.decode())
     assert (not json_res_body['success'] and json_res_body['msg'] == 'File Index Already Exists')

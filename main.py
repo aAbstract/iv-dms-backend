@@ -54,8 +54,7 @@ async def get_test():
 
 # mount static files server
 server.mount('/', StaticFiles(directory='public', html=True), name='public')
-# TODO-LATER: add fs security
-# TODO-LATER: change auth header
+# TODO-LATER: add fs security (when adding airlines user)
 
 
 if __name__ == '__main__':

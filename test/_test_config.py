@@ -2,16 +2,16 @@ import requests
 import json
 
 
-_SERVER_URL = '127.0.0.1'
+_SERVER_ADDR = '127.0.0.1'
 _SERVER_PORT = 8080
 
 
 def get_api_url():
-    return f"http://{_SERVER_URL}:{_SERVER_PORT}/api"
+    return f"http://{_SERVER_ADDR}:{_SERVER_PORT}/api"
 
 
 def get_file_server_url():
-    return f"http://{_SERVER_URL}:{_SERVER_PORT}"
+    return f"http://{_SERVER_ADDR}:{_SERVER_PORT}"
 
 
 def login_user(username: str, password: str) -> str:
