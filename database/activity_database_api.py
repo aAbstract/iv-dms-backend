@@ -11,6 +11,6 @@ async def get_logs(length: int) -> ServiceResponse:
         'level': 1,
         'source': 1,
         'description': 1,
-    }).sort({'date': -1}).to_list(length=length if length >= 0 else None)
+    }).sort({'datetime': -1}).to_list(length=length if length >= 0 else None)
     logs = [Log.model_validate(x) for x in logs]
     return ServiceResponse(data={'logs': logs})
