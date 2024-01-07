@@ -2,14 +2,14 @@ import os
 from fastapi import APIRouter, Response, Header, Body
 import lib.log as log_man
 import lib.security as security_man
-from models.users import UserRoles
+from models.users import UserRole
 from models.httpio import JsonResponse
 import database.regulations_database_api as regulations_database_api
 
 
 _ROOT_ROUTE = f"{os.getenv('API_ROOT')}/regulations"
 _MODULE_ID = 'routes.regulations_api'
-_ALLOWED_USERS = [UserRoles.ADMIN, UserRoles.AUDITOR]
+_ALLOWED_USERS = [UserRole.ADMIN, UserRole.AUDITOR]
 router = APIRouter()
 
 

@@ -2,7 +2,7 @@ import os
 from fastapi import APIRouter, Response, Body, Header
 import lib.log as log_man
 import database.regulations_database_api as regulations_database_api
-from models.users import UserRoles
+from models.users import UserRole
 from models.regulations import IOSAItem
 from models.httpio import JsonResponse
 import lib.security as security_man
@@ -11,7 +11,7 @@ import lib.llm as llm_man
 
 _ROOT_ROUTE = f"{os.getenv('API_ROOT')}/llm"
 _MODULE_ID = 'routes.llm_api'
-_ALLOWED_USERS = [UserRoles.ADMIN, UserRoles.AUDITOR]
+_ALLOWED_USERS = [UserRole.ADMIN, UserRole.AUDITOR]
 router = APIRouter()
 
 

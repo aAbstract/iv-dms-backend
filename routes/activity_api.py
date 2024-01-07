@@ -2,14 +2,14 @@ import os
 from fastapi import APIRouter, Response, Header, Body
 import lib.log as log_man
 import lib.security as security_man
-from models.users import UserRoles
+from models.users import UserRole
 from models.httpio import JsonResponse
 import database.activity_database_api as activity_database_api
 
 
 _ROOT_ROUTE = f"{os.getenv('API_ROOT')}/activity"
 _MODULE_ID = 'routes.activity_api'
-_ALLOWED_USERS = [UserRoles.ADMIN]
+_ALLOWED_USERS = [UserRole.ADMIN]
 router = APIRouter()
 
 

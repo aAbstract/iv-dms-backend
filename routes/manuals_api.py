@@ -2,7 +2,7 @@ import os
 from fastapi import APIRouter, Response, UploadFile, Header, Body
 import lib.log as log_man
 import lib.security as security_man
-from models.users import UserRoles
+from models.users import UserRole
 from models.httpio import JsonResponse
 from models.manuals import UnstructuredManual
 from models.fs_index import IndexFileType
@@ -13,7 +13,7 @@ import lib.pdf as pdf_man
 
 _ROOT_ROUTE = f"{os.getenv('API_ROOT')}/manuals"
 _MODULE_ID = 'routes.manuals_api'
-_ALLOWED_USERS = [UserRoles.ADMIN, UserRoles.AUDITOR]
+_ALLOWED_USERS = [UserRole.ADMIN, UserRole.AUDITOR]
 router = APIRouter()
 
 
@@ -69,7 +69,7 @@ async def delete_manual(res: Response, file_id: str = Body(), manual_id: str = B
     func_id = f"{_MODULE_ID}.delete_manual"
 
     # authorize user
-    auth_service_response = await security_man.authorize_api(x_auth, [UserRoles.ADMIN], func_id)
+    auth_service_response = await security_man.authorize_api(x_auth, [UserRole.ADMIN], func_id)
     if not auth_service_response.success:
         res.status_code = auth_service_response.status_code
         return JsonResponse(

@@ -3,7 +3,7 @@ from pydantic import BaseModel
 from enum import Enum
 
 
-class UserRoles(str, Enum):
+class UserRole(str, Enum):
     ADMIN = 'ADMIN'
     AUDITOR = 'AUDITOR'
     AIRLINES = 'AIRLINES'
@@ -14,7 +14,7 @@ class User(BaseModel):
     username: str
     disp_name: str
     pass_hash: str
-    user_role: UserRoles
+    user_role: UserRole
     phone_number: str
     email: str
 

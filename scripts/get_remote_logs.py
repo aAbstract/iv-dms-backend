@@ -1,12 +1,6 @@
 import json
 import requests
-
-
-# SERVER_ADDR = '127.0.0.1'
-SERVER_ADDR = 'iv-dms.duckdns.org'
-SERVER_PORT = 8080
-API_URL = f"https://{SERVER_ADDR}/api"
-# API_URL = f"http://{SERVER_ADDR}:{SERVER_PORT}/api"
+from scripts.scripts_config import *
 
 
 def login_user(username: str, password: str) -> str:

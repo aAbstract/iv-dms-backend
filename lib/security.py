@@ -1,7 +1,7 @@
 import lib.crypto as crypto_man
 import lib.log as log_man
 from models.runtime import ServiceResponse
-from models.users import UserRoles
+from models.users import UserRole
 
 
 def _parse_auth_token(auth: str) -> str:
@@ -11,7 +11,7 @@ def _parse_auth_token(auth: str) -> str:
         return auth
 
 
-async def authorize_api(auth: str, allowed_roles: list[UserRoles], func_id: str) -> ServiceResponse:
+async def authorize_api(auth: str, allowed_roles: list[UserRole], func_id: str) -> ServiceResponse:
     if auth == None:
         err_msg = 'Unauthorized API Access [Empty Authorization Header]'
         await log_man.add_log(func_id, 'ERROR', err_msg)
