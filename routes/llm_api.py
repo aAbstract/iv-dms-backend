@@ -6,7 +6,7 @@ from models.users import UserRole
 from models.regulations import IOSAItem
 from models.httpio import JsonResponse
 import lib.security as security_man
-import lib.llm as llm_man
+import lib.gemini as gemini_man
 
 
 _ROOT_ROUTE = f"{os.getenv('API_ROOT')}/llm"
@@ -56,7 +56,7 @@ async def iosa_audit(res: Response, regulation_id: str = Body(), checklist_code:
     iosa_checklist: IOSAItem = db_service_response.data['iosa_checklist']
 
     # call llm api
-    llm_service_response = await llm_man.iosa_audit_text(iosa_checklist, text)
+    llm_service_response = await gemini_man.iosa_audit_text(iosa_checklist, text)
     if not llm_service_response.success:
         res.status_code = llm_service_response.status_code
         return JsonResponse(

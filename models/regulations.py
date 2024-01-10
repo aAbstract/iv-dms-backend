@@ -20,6 +20,7 @@ class IOSAItem(BaseModel):
     code: str
     guidance: Optional[str] = None
     iosa_map: list[str] = []
+    paragraph: str
     constraints: list[Constrain]
 
 

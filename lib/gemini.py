@@ -165,7 +165,7 @@ REGULATIONS
 
 
 async def iosa_audit_text(iosa_item: IOSAItem, text: str) -> ServiceResponse:
-    llm_enable = int(os.environ['LLM_ENABLE'])
+    llm_enable = int(os.environ['GEMINI_ENABLE'])
     if not llm_enable:
         return ServiceResponse(data={
             'llm_resp': LLMAuditResponse(

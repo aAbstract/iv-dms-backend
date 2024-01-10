@@ -1,5 +1,7 @@
+import os
 import json
 import requests
+from dotenv import load_dotenv
 import _test_config
 
 
@@ -10,48 +12,6 @@ def test_parse_pdf_api_lock():
     assert http_res.status_code == 403
     json_res_body = json.loads(http_res.content.decode())
     assert (not json_res_body['success'] and json_res_body['msg'] == 'Unauthorized API Access [Invalid Token]')
-
-
-def test_parse_pdf_api_success():
-    # add manual
-    access_token = _test_config.login_user('cwael', 'CgJhxwieCc7QEyN3BB7pmvy9MMpseMPV')
-    api_url = f"{_test_config.get_api_url()}/manuals/parse-pdf"
-    http_headers = {'X-Auth': f"Bearer {access_token}"}
-    http_res = requests.post(api_url, headers=http_headers, files={'file': open('data/sample_manual.pdf', 'rb')})
-    assert http_res.status_code == 200
-    json_res_body = json.loads(http_res.content.decode())
-    assert json_res_body['success']
-    assert 'manual_id' in json_res_body['data']
-    assert 'file_id' in json_res_body['data']
-    assert 'url_path' in json_res_body['data']
-    manual_id = json_res_body['data']['manual_id']
-    file_id = json_res_body['data']['file_id']
-    url_path = json_res_body['data']['url_path']
-
-    # check file index
-    http_res = requests.get(f"{_test_config.get_file_server_url()}/{url_path}")
-    assert http_res.status_code == 200
-
-    # check manual exists
-    http_res = requests.post(api_url, headers=http_headers, files={'file': open('data/sample_manual.pdf', 'rb')})
-    assert http_res.status_code == 409
-    json_res_body = json.loads(http_res.content.decode())
-    assert (not json_res_body['success'] and json_res_body['msg'] == 'File Index Already Exists')
-
-    # delete manual
-    access_token = _test_config.login_user('eslam', 'CgJhxwieCc7QEyN3BB7pmvy9MMpseMPV')
-    http_headers = {'X-Auth': f"Bearer {access_token}"}
-    api_url = f"{_test_config.get_api_url()}/manuals/delete-manual"
-    http_res = requests.post(api_url, headers=http_headers, json={'file_id': file_id, 'manual_id': manual_id})
-    assert http_res.status_code == 200
-    json_res_body = json.loads(http_res.content.decode())
-    assert (json_res_body['success'] and json_res_body['msg'] == 'OK')
-
-    # check manual is deleted
-    http_res = requests.post(api_url, headers=http_headers, json={'file_id': file_id, 'manual_id': manual_id})
-    assert http_res.status_code == 404
-    json_res_body = json.loads(http_res.content.decode())
-    assert (not json_res_body['success'] and json_res_body['msg'] == 'File Index not Found')
 
 
 def test_get_page_api_lock():
@@ -145,5 +105,56 @@ def test_get_meta_data_api_success():
     assert 'manual_meta_data' in json_res_body['data']
     manual_meta_data = json_res_body['data']['manual_meta_data']
     assert ('id' in manual_meta_data and 'name' in manual_meta_data and 'page_count' in manual_meta_data)
+
+
+def test_chat_doc_parse_api():
+    # test parse doc
+    access_token = _test_config.login_user('cwael', 'CgJhxwieCc7QEyN3BB7pmvy9MMpseMPV')
+    api_url = f"{_test_config.get_api_url()}/manuals/parse-pdf"
+    http_headers = {'X-Auth': f"Bearer {access_token}"}
+    http_res = requests.post(api_url, headers=http_headers, files={'file': open('data/nesma_org_cos_rad.pdf', 'rb')})
+    assert http_res.status_code == 200
+    json_res_body = json.loads(http_res.content.decode())
+    assert json_res_body['success']
+    assert 'doc_uuid' in json_res_body['data']
+
+    # test check doc
+    api_url = f"{_test_config.get_api_url()}/manuals/check-pdf"
+    http_res = requests.post(api_url, headers=http_headers, json={'doc_uuid': json_res_body['data']['doc_uuid']})
+    assert http_res.status_code == 200
+    json_res_body = json.loads(http_res.content.decode())
+    assert json_res_body['success']
+    assert 'chat_doc_status' in json_res_body['data']
+
+
+def test_chat_doc_scan_api():
+    load_dotenv()
+    access_token = _test_config.login_user('cwael', 'CgJhxwieCc7QEyN3BB7pmvy9MMpseMPV')
+    http_headers = {'X-Auth': f"Bearer {access_token}"}
+
+    # get regulations options
+    api_url = f"{_test_config.get_api_url()}/regulations/get-options"
+    http_res = requests.post(api_url, headers=http_headers)
+    assert http_res.status_code == 200
+    json_res_body = json.loads(http_res.content.decode())
+    assert json_res_body['success']
+    assert 'regulations_options' in json_res_body['data']
+    regulation_id = [x for x in json_res_body['data']['regulations_options'] if x['name'] == 'IOSA Standards Manual (ISM) Ed 16-Revision2'][0]['id']
+
+    # test pdf AI scanner
+    api_url = f"{_test_config.get_api_url()}/manuals/scan-pdf"
+    http_res = requests.post(api_url, headers=http_headers, json={
+        'regulation_id': regulation_id,
+        'checklist_code': 'FLT 3.1.1',
+        'doc_uuid': '4aa2d2c4-0355-413e-8a1b-a7f87cb85098',
+    })
+    assert http_res.status_code == 200
+    json_res_body = json.loads(http_res.content.decode())
+    assert json_res_body['success']
+    assert 'is_found' in json_res_body['data']
+    if json_res_body['data']['is_found']:
+        assert 'text' in json_res_body['data']
+        assert 'doc_ref' in json_res_body['data']
+
 
 # TODO: test bad file extention for parse-pdf route

@@ -783,3 +783,58 @@
 #         ],
 #     ),
 # ]
+
+
+# all_pages = pdf_man.extract(file.file)
+# parsed_file = UnstructuredManual(
+#     name=file.filename,
+#     pages=all_pages,
+# )
+# db_service_response = await manuals_database_api.create_unstructured_manual(parsed_file)
+# res.status_code = db_service_response.status_code
+# if not db_service_response.success:
+#     return JsonResponse(
+#         success=db_service_response.success,
+#         msg=db_service_response.msg,
+#     )
+
+
+# def test_parse_pdf_api_success():
+#     # add manual
+#     access_token = _test_config.login_user('cwael', 'CgJhxwieCc7QEyN3BB7pmvy9MMpseMPV')
+#     api_url = f"{_test_config.get_api_url()}/manuals/parse-pdf"
+#     http_headers = {'X-Auth': f"Bearer {access_token}"}
+#     http_res = requests.post(api_url, headers=http_headers, files={'file': open('data/sample_manual.pdf', 'rb')})
+#     assert http_res.status_code == 200
+#     json_res_body = json.loads(http_res.content.decode())
+#     assert json_res_body['success']
+#     assert 'doc_uuid' in json_res_body['data']
+#     assert 'file_id' in json_res_body['data']
+#     assert 'url_path' in json_res_body['data']
+#     doc_uuid = json_res_body['data']['doc_uuid']
+#     url_path = json_res_body['data']['url_path']
+
+#     # check file index
+#     http_res = requests.get(f"{_test_config.get_file_server_url()}/{url_path}")
+#     assert http_res.status_code == 200
+
+#     # check manual exists
+#     http_res = requests.post(api_url, headers=http_headers, files={'file': open('data/sample_manual.pdf', 'rb')})
+#     assert http_res.status_code == 409
+#     json_res_body = json.loads(http_res.content.decode())
+#     assert (not json_res_body['success'] and json_res_body['msg'] == 'File Index Already Exists')
+
+#     # delete manual
+#     access_token = _test_config.login_user('eslam', 'CgJhxwieCc7QEyN3BB7pmvy9MMpseMPV')
+#     http_headers = {'X-Auth': f"Bearer {access_token}"}
+#     api_url = f"{_test_config.get_api_url()}/manuals/delete-manual"
+#     http_res = requests.post(api_url, headers=http_headers, json={'doc_uuid': doc_uuid})
+#     assert http_res.status_code == 200
+#     json_res_body = json.loads(http_res.content.decode())
+#     assert (json_res_body['success'] and json_res_body['msg'] == 'OK')
+
+#     # check manual is deleted
+#     http_res = requests.post(api_url, headers=http_headers, json={'doc_uuid': doc_uuid})
+#     assert http_res.status_code == 404
+#     json_res_body = json.loads(http_res.content.decode())
+#     assert (not json_res_body['success'] and json_res_body['msg'] == 'File Index not Found')

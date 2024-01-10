@@ -32,8 +32,8 @@ async def get_logs(res: Response, limit: int = Body(embed=True), x_auth=Header(a
 
     # get activity logs
     db_service_response = await activity_database_api.get_logs(limit)
-    res.status_code = db_service_response.status_code
     if not db_service_response.success:
+        res.status_code = db_service_response.status_code
         return JsonResponse(
             success=db_service_response.success,
             msg=db_service_response.msg,

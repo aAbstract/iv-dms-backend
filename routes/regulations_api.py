@@ -33,8 +33,8 @@ async def get_options(res: Response, x_auth=Header(alias='X-Auth', default=None)
         )
 
     db_service_response = await regulations_database_api.get_regulations_options()
-    res.status_code = db_service_response.status_code
     if not db_service_response.success:
+        res.status_code = db_service_response.status_code
         return JsonResponse(
             success=db_service_response.success,
             msg=db_service_response.msg,
@@ -62,8 +62,8 @@ async def get_codes(res: Response, regulation_id: str = Body(embed=True), x_auth
         )
 
     db_service_response = await regulations_database_api.get_regulation_codes(regulation_id)
-    res.status_code = db_service_response.status_code
     if not db_service_response.success:
+        res.status_code = db_service_response.status_code
         return JsonResponse(
             success=db_service_response.success,
             msg=db_service_response.msg,
@@ -89,8 +89,8 @@ async def get_iosa_map(res: Response, regulation_id: str = Body(), checklist_cod
         )
 
     db_service_response = await regulations_database_api.get_checklist_code_iosa_map(regulation_id, checklist_code)
-    res.status_code = db_service_response.status_code
     if not db_service_response.success:
+        res.status_code = db_service_response.status_code
         return JsonResponse(
             success=db_service_response.success,
             msg=db_service_response.msg,
@@ -127,8 +127,8 @@ async def get_iosa_checklist(res: Response, regulation_id: str = Body(), checkli
         )
 
     db_service_response = await regulations_database_api.get_iosa_checklist(regulation_id, checklist_code)
-    res.status_code = db_service_response.status_code
     if not db_service_response.success:
+        res.status_code = db_service_response.status_code
         return JsonResponse(
             success=db_service_response.success,
             msg=db_service_response.msg,

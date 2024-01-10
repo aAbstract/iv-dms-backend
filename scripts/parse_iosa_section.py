@@ -287,11 +287,12 @@ def extract_section_text(text):
                 "code": header,
                 "guidence": guidence if guidence else None,
                 "iosa_map": [],
+                "paragraph": paragraph.strip(),
                 "constraints": parse_paragraph(paragraph),
             }
         )
     header = text[flts_spans[-1][0]: flts_spans[-1][1]].strip("\n").strip()
-    paragraph = text[flts_spans[-1][1]:]
+    paragraph: str = text[flts_spans[-1][1]:]
     gg = re.search(Guidence_reg, paragraph)
     if gg:
         guidence = paragraph[gg.span()[0]:].strip("\n").strip()
@@ -317,6 +318,7 @@ def extract_section_text(text):
             "code": header,
             "guidence": guidence if guidence else None,
             "iosa_map": [],
+            "paragraph": paragraph.strip(),
             "constraints": parse_paragraph(paragraph),
         }
     )
@@ -348,5 +350,7 @@ if __name__ == "__main__":
     )
 
     # write to a separate json file
-    with open("data/iosa_flt.json", "w") as fp:
+    file_path = 'data/iosa_flt.json'
+    with open(file_path, 'w') as fp:
         json.dump(section.model_dump(), fp, indent=4)
+    print(f"output file: {file_path}")

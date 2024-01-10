@@ -151,4 +151,4 @@ def test_get_iosa_checklist_api_sucess():
     json_res_body = json.loads(http_res.content.decode())
     assert 'iosa_checklist' in json_res_body['data']
     obj_keys = set(json_res_body['data']['iosa_checklist'])
-    assert obj_keys == {'constraints', 'iosa_map', 'guidance', 'code'}
+    assert obj_keys == {'constraints', 'iosa_map', 'guidance', 'code', 'paragraph'}

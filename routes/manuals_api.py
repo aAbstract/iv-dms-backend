@@ -5,10 +5,13 @@ import lib.security as security_man
 from models.users import UserRole
 from models.httpio import JsonResponse
 from models.manuals import UnstructuredManual
-from models.fs_index import IndexFileType
+from models.fs_index import IndexFileType, FSIndexFile
+from models.regulations import IOSAItem
 import database.manuals_database_api as manuals_database_api
+import database.regulations_database_api as regulations_database_api
 import database.fs_index_database_api as fs_index_database_api
 import lib.pdf as pdf_man
+import lib.chat_doc as chat_doc_man
 
 
 _ROOT_ROUTE = f"{os.getenv('API_ROOT')}/manuals"
@@ -20,7 +23,7 @@ router = APIRouter()
 @router.post(f"{_ROOT_ROUTE}/parse-pdf")
 async def parse_pdf(file: UploadFile, res: Response, x_auth=Header(alias='X-Auth', default=None)):
     """Parse PDF file, store it in the database and return it's id.\n
-    Returns: {..., data: {manual_id: string}}
+    Returns: {..., data: {manual_id: string}} TODO
     """
     func_id = f"{_MODULE_ID}.parse_pdf"
     await log_man.add_log(func_id, "DEBUG", f"received parse pdf request: {file.filename}")
@@ -34,8 +37,18 @@ async def parse_pdf(file: UploadFile, res: Response, x_auth=Header(alias='X-Auth
             msg=auth_service_response.msg,
         )
 
+    # parse file using ChatDOC API
+    cd_service_response = await chat_doc_man.parse_doc(file.filename, file.file)
+    if not cd_service_response.success:
+        res.status_code = cd_service_response.status_code
+        return JsonResponse(
+            success=cd_service_response.success,
+            msg=cd_service_response.msg,
+        )
+
+    # save file to server
     username = auth_service_response.data['token_claims']['username']
-    fs_service_response = await fs_index_database_api.create_fs_index_entry(username, IndexFileType.AIRLINES_MANUAL, file.filename, file.file.read())
+    fs_service_response = await fs_index_database_api.create_fs_index_entry(username, IndexFileType.AIRLINES_MANUAL, file.filename, cd_service_response.data['chat_doc_uuid'], file.file.read())
     if not fs_service_response.success:
         res.status_code = fs_service_response.status_code
         return JsonResponse(
@@ -43,28 +56,15 @@ async def parse_pdf(file: UploadFile, res: Response, x_auth=Header(alias='X-Auth
             msg=fs_service_response.msg,
         )
 
-    all_pages = pdf_man.extract(file.file)
-    parsed_file = UnstructuredManual(
-        name=file.filename,
-        pages=all_pages,
-    )
-    db_service_response = await manuals_database_api.create_unstructured_manual(parsed_file)
-    res.status_code = db_service_response.status_code
-    if not db_service_response.success:
-        return JsonResponse(
-            success=db_service_response.success,
-            msg=db_service_response.msg,
-        )
-
     return JsonResponse(data={
-        'manual_id': db_service_response.data['manual_id'],
+        'doc_uuid': cd_service_response.data['chat_doc_uuid'],
         'file_id': fs_service_response.data['file_id'],
         'url_path': fs_service_response.data['url_path'],
     })
 
 
 @router.post(f"{_ROOT_ROUTE}/delete-manual")
-async def delete_manual(res: Response, file_id: str = Body(), manual_id: str = Body(), x_auth=Header(alias='X-Auth', default=None)):
+async def delete_manual(res: Response, doc_uuid: str = Body(embed=True), x_auth=Header(alias='X-Auth', default=None)):
     """ Delete an airlines manual from database. [ALPHA] """
     func_id = f"{_MODULE_ID}.delete_manual"
 
@@ -76,22 +76,16 @@ async def delete_manual(res: Response, file_id: str = Body(), manual_id: str = B
             success=auth_service_response.success,
             msg=auth_service_response.msg,
         )
-    await log_man.add_log(func_id, 'DEBUG', f"received delete manual request: username={auth_service_response.data['token_claims']['username']}, manual_id={manual_id}")
+    await log_man.add_log(func_id, 'DEBUG', f"received delete manual request: username={auth_service_response.data['token_claims']['username']}, doc_uuid={doc_uuid}")
 
-    fs_service_response = await fs_index_database_api.delete_fs_index_entry(file_id)
-    if not fs_service_response.success:
-        res.status_code = fs_service_response.status_code
-        return JsonResponse(
-            success=fs_service_response.success,
-            msg=fs_service_response.msg,
-        )
-
-    db_service_response = await manuals_database_api.delete_unstructured_manual(manual_id)
-    res.status_code = db_service_response.status_code
+    fs_service_response = await fs_index_database_api.delete_fs_index_entry(doc_uuid)
+    res.status_code = fs_service_response.status_code
     return JsonResponse(
-        success=db_service_response.success,
-        msg=db_service_response.msg,
+        success=fs_service_response.success,
+        msg=fs_service_response.msg,
     )
+
+    # TODO-LATER: remove file from ChatDOC cloud
 
 
 @router.post(f"{_ROOT_ROUTE}/get-page")
@@ -112,8 +106,8 @@ async def get_page(res: Response, manual_id: str = Body(), page_order: int = Bod
         )
 
     db_service_response = await manuals_database_api.get_manual_page(manual_id, page_order)
-    res.status_code = db_service_response.status_code
     if not db_service_response.success:
+        res.status_code = db_service_response.status_code
         return JsonResponse(
             success=db_service_response.success,
             msg=db_service_response.msg,
@@ -141,8 +135,8 @@ async def get_meta_data(res: Response, manual_id: str = Body(embed=True), x_auth
         )
 
     db_service_response = await manuals_database_api.get_manual_meta_data(manual_id)
-    res.status_code = db_service_response.status_code
     if not db_service_response.success:
+        res.status_code = db_service_response.status_code
         return JsonResponse(
             success=db_service_response.success,
             msg=db_service_response.msg,
@@ -170,10 +164,88 @@ async def get_options(res: Response, x_auth=Header(alias='X-Auth', default=None)
         )
 
     db_service_response = await manuals_database_api.get_manuals_options()
-    res.status_code = db_service_response.status_code
     if not db_service_response.success:
+        res.status_code = db_service_response.status_code
         return JsonResponse(
             success=db_service_response.success,
             msg=db_service_response.msg,
         )
     return JsonResponse(data=db_service_response.data)
+
+
+@router.post(f"{_ROOT_ROUTE}/scan-pdf")
+async def scan_pdf(res: Response, regulation_id: str = Body(), checklist_code: str = Body(), doc_uuid: str = Body(), x_auth=Header(alias='X-Auth', default=None)) -> JsonResponse:
+    """Scan PDF to get a section that documents certain checklist_code.\n
+    Returns: {..., data: {\n
+    key: tval\n TODO
+    }}
+    """
+    func_id = f"{_MODULE_ID}.scan_pdf"
+    await log_man.add_log(func_id, 'DEBUG', 'received scan pdf request')
+
+    # authorize user
+    auth_service_response = await security_man.authorize_api(x_auth, _ALLOWED_USERS, func_id)
+    if not auth_service_response.success:
+        res.status_code = auth_service_response.status_code
+        return JsonResponse(
+            success=auth_service_response.success,
+            msg=auth_service_response.msg,
+        )
+
+    # get fs index entry
+    fs_service_response = await fs_index_database_api.get_fs_index_entry(chat_doc_uuid=doc_uuid)
+    if not fs_service_response.success:
+        res.status_code = fs_service_response.status_code
+        return JsonResponse(
+            success=fs_service_response.success,
+            msg=fs_service_response.msg,
+        )
+    fs_index_entry: FSIndexFile = fs_service_response.data['fs_index_entry']
+
+    # get iosa item
+    db_service_response = await regulations_database_api.get_iosa_checklist(regulation_id, checklist_code)
+    if not db_service_response.success:
+        res.status_code = db_service_response.status_code
+        return JsonResponse(
+            success=db_service_response.success,
+            msg=db_service_response.msg,
+        )
+    iosa_checklist: IOSAItem = db_service_response.data['iosa_checklist']
+
+    cd_service_response = await chat_doc_man.scan_doc(fs_index_entry.chat_doc_uuid, fs_index_entry.filename, iosa_checklist)
+    if not cd_service_response.success:
+        res.status_code = db_service_response.status_code
+        return JsonResponse(
+            success=cd_service_response.success,
+            msg=cd_service_response.msg,
+        )
+    return JsonResponse(data=cd_service_response.data)
+
+
+@router.post(f"{_ROOT_ROUTE}/check-pdf")
+async def check_pdf(res: Response, doc_uuid: str = Body(embed=True), x_auth=Header(alias='X-Auth', default=None)) -> JsonResponse:
+    """Check PDF parsing status.\n
+    Returns: {..., data: {\n
+    key: tval\n TODO
+    }}
+    """
+    func_id = f"{_MODULE_ID}.check_pdf"
+    await log_man.add_log(func_id, 'DEBUG', 'received check pdf request')
+
+    # authorize user
+    auth_service_response = await security_man.authorize_api(x_auth, _ALLOWED_USERS, func_id)
+    if not auth_service_response.success:
+        res.status_code = auth_service_response.status_code
+        return JsonResponse(
+            success=auth_service_response.success,
+            msg=auth_service_response.msg,
+        )
+
+    cd_service_response = await chat_doc_man.check_doc(doc_uuid)
+    if not cd_service_response.success:
+        res.status_code = cd_service_response.status_code
+        return JsonResponse(
+            success=cd_service_response.success,
+            msg=cd_service_response.msg,
+        )
+    return JsonResponse(data=cd_service_response.data)

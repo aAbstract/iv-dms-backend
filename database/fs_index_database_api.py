@@ -2,7 +2,7 @@ import os
 import aiofiles
 import aiofiles.os
 from datetime import datetime
-from models.fs_index import FSIndexFile, IndexFileType, FILE_TYPE_PATH_MAP
+from models.fs_index import FSIndexFile, IndexFileType, FILE_TYPE_PATH_MAP, ChatDocStatus
 from models.runtime import ServiceResponse
 from database.mongo_driver import get_database, validate_bson_id
 
@@ -10,7 +10,7 @@ from database.mongo_driver import get_database, validate_bson_id
 _PUBLIC_DIR = 'public'
 
 
-async def create_fs_index_entry(username: str, file_type: IndexFileType, filename: str, data: bytes) -> ServiceResponse:
+async def create_fs_index_entry(username: str, file_type: IndexFileType, filename: str, chat_doc_uuid: str, data: bytes) -> ServiceResponse:
     # check file extention
     file_ext = os.path.splitext(filename)[1]
     if file_ext != '.pdf':
@@ -24,14 +24,23 @@ async def create_fs_index_entry(username: str, file_type: IndexFileType, filenam
         ]
     })
     if fs_index:
-        return ServiceResponse(success=False, msg='File Index Already Exists', status_code=409)
+        file_id = str(fs_index['_id'])
+        disk_filename = f"{file_id}.pdf"
+        file_type = fs_index['file_type']
+        url_path = f"{FILE_TYPE_PATH_MAP[file_type]}/{disk_filename}"
+        return ServiceResponse(data={
+            'url_path': url_path,
+            'file_id': file_id,
+        })
 
     # create fs index entry in database
     fs_index_entry = FSIndexFile(
         username=username,
         datetime=datetime.now(),
         file_type=file_type,
-        filename=filename
+        filename=filename,
+        chat_doc_uuid=chat_doc_uuid,
+        chat_doc_status=ChatDocStatus.PARSING,
     )
     mdb_result = await get_database().get_collection('fs_index').insert_one(fs_index_entry.model_dump())
     file_id = str(mdb_result.inserted_id)
@@ -49,25 +58,29 @@ async def create_fs_index_entry(username: str, file_type: IndexFileType, filenam
     })
 
 
-async def delete_fs_index_entry(file_id: str) -> ServiceResponse:
-    bson_id = validate_bson_id(file_id)
-    if not bson_id:
-        return ServiceResponse(success=False, msg='Bad File ID', status_code=400)
-
+async def delete_fs_index_entry(doc_uuid: str) -> ServiceResponse:
     # fetch entry from database
-    fs_index_entry = await get_database().get_collection('fs_index').find_one({'_id': bson_id})
+    fs_index_entry = await get_database().get_collection('fs_index').find_one({'chat_doc_uuid': doc_uuid})
     if not fs_index_entry:
         return ServiceResponse(success=False, status_code=404, msg='File Index not Found')
 
     # delete file from disk
     file_type = fs_index_entry['file_type']
+    file_id = str(fs_index_entry['_id'])
     filename = f"{file_id}.pdf"
     file_path = os.path.join(_PUBLIC_DIR, FILE_TYPE_PATH_MAP[file_type], filename)
     await aiofiles.os.remove(file_path)
 
     # delete file index database entry
-    result = await get_database().get_collection('fs_index').delete_one({'_id': bson_id})
+    result = await get_database().get_collection('fs_index').delete_one({'chat_doc_uuid': doc_uuid})
     if not result.deleted_count:
         return ServiceResponse(success=False, status_code=404, msg='Error Deleting File Index Entry')
 
     return ServiceResponse(msg='OK')
+
+
+async def get_fs_index_entry(chat_doc_uuid: str) -> ServiceResponse:
+    fs_index_entry = await get_database().get_collection('fs_index').find_one({'chat_doc_uuid': chat_doc_uuid})
+    if not fs_index_entry:
+        return ServiceResponse(success=False, msg='File Index not Found', status_code=404)
+    return ServiceResponse(data={'fs_index_entry': FSIndexFile.model_validate(fs_index_entry)})

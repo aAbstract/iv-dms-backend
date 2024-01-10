@@ -51,6 +51,14 @@ seed_users = [
         phone_number='+201001000000',
         email='safwat@aerosync.com',
     ),
+    User(
+        username='aelhennawy',
+        disp_name='Amr Elhennawy',
+        pass_hash='6204c03169cb87f6834c1dd0419e0a06d1dfca3b0df37fef6b7f2bf5baa016b03463c3906c8669e797ba49c67b3f9950dfc7248ce278f922fc0592e7044a3d32',
+        user_role=UserRole.AUDITOR,
+        phone_number='+201001000000',
+        email='aelhennawy@aerosync.com',
+    ),
 ]
 
 # regulations schema
@@ -73,13 +81,26 @@ seed_unstructured_manuals = [
 ]
 
 # seed fs index
-seed_fs_index_file = FSIndexFile(
-    username='cwael',
-    datetime=datetime.now(),
-    file_type=IndexFileType.AIRLINES_MANUAL,
-    file_id='000000000000000000000000',
-    filename='sample_file.txt',
-)
+seed_fs_index_files = [
+    FSIndexFile(
+        username='cwael',
+        datetime=datetime.now(),
+        file_type=IndexFileType.AIRLINES_MANUAL,
+        file_id='000000000000000000000000',
+        filename='nesma_org_cos_rad.pdf',
+        chat_doc_uuid=os.environ['INVALID_CHAT_DOC_UUID'],
+        chat_doc_status=ChatDocStatus.PARSED,
+    ),
+    FSIndexFile(
+        username='cwael',
+        datetime=datetime.now(),
+        file_type=IndexFileType.AIRLINES_MANUAL,
+        file_id='000000000000000000000000',
+        filename='nesma_org.pdf',
+        chat_doc_uuid=os.environ['VALID_CHAT_DOC_UUID'],
+        chat_doc_status=ChatDocStatus.PARSED,
+    ),
+]
 
 # system logs schema
 seed_log = Log(
@@ -119,8 +140,9 @@ def seed_routine():
     db.get_collection('unstructured_manuals').create_index('name', unique=True)
 
     print('seeding fs index...')
-    db.get_collection('fs_index').insert_one(seed_fs_index_file.model_dump())
+    db.get_collection('fs_index').insert_many([x.model_dump() for x in seed_fs_index_files])
     print('creating fs index indexes...')
+    db.get_collection('fs_index').create_index('chat_doc_uuid', unique=True)
     db.get_collection('fs_index').create_index('username', unique=False)
     db.get_collection('fs_index').create_index('filename', unique=False)
 
