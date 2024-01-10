@@ -157,4 +157,11 @@ def test_chat_doc_scan_api():
         assert 'doc_ref' in json_res_body['data']
 
 
-# TODO: test bad file extention for parse-pdf route
+def test_chat_doc_parse_api_bad_file_type():
+    access_token = _test_config.login_user('cwael', 'CgJhxwieCc7QEyN3BB7pmvy9MMpseMPV')
+    api_url = f"{_test_config.get_api_url()}/manuals/parse-pdf"
+    http_headers = {'X-Auth': f"Bearer {access_token}"}
+    http_res = requests.post(api_url, headers=http_headers, files={'file': open('data/sample_manual.txt', 'rb')})
+    assert http_res.status_code == 409
+    json_res_body = json.loads(http_res.content.decode())
+    assert (not json_res_body['success'] and json_res_body['msg'] == 'Bad File Extention')
