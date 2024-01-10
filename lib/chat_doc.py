@@ -57,7 +57,7 @@ async def scan_doc(doc_id: str, filename: str, iosa_item: IOSAItem) -> ServiceRe
         return ServiceResponse(data={
             'is_found': True,
             'text': 'NONE',
-            'doc_ref': [],
+            'doc_ref': {},
         })
 
     api_key = os.environ['CHAT_DOC_API_KEY']

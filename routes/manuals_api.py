@@ -4,13 +4,11 @@ import lib.log as log_man
 import lib.security as security_man
 from models.users import UserRole
 from models.httpio import JsonResponse
-from models.manuals import UnstructuredManual
 from models.fs_index import IndexFileType, FSIndexFile
 from models.regulations import IOSAItem
 import database.manuals_database_api as manuals_database_api
 import database.regulations_database_api as regulations_database_api
 import database.fs_index_database_api as fs_index_database_api
-import lib.pdf as pdf_man
 import lib.chat_doc as chat_doc_man
 
 
@@ -23,7 +21,7 @@ router = APIRouter()
 @router.post(f"{_ROOT_ROUTE}/parse-pdf")
 async def parse_pdf(file: UploadFile, res: Response, x_auth=Header(alias='X-Auth', default=None)):
     """Parse PDF file, store it in the database and return it's id.\n
-    Returns: {..., data: {manual_id: string}} TODO
+    Returns: {..., data: {doc_uuid: string}}
     """
     func_id = f"{_MODULE_ID}.parse_pdf"
     await log_man.add_log(func_id, "DEBUG", f"received parse pdf request: {file.filename}")
@@ -176,8 +174,15 @@ async def get_options(res: Response, x_auth=Header(alias='X-Auth', default=None)
 @router.post(f"{_ROOT_ROUTE}/scan-pdf")
 async def scan_pdf(res: Response, regulation_id: str = Body(), checklist_code: str = Body(), doc_uuid: str = Body(), x_auth=Header(alias='X-Auth', default=None)) -> JsonResponse:
     """Scan PDF to get a section that documents certain checklist_code.\n
+    ===================================================================\n
+    interface RefMap {\n
+    [page_number: string]: number[][],\n
+    };\n
+    ===================================================================\n
     Returns: {..., data: {\n
-    key: tval\n TODO
+    is_found: boolean,\n
+    text: string,\n
+    doc_ref: <{[page_number: string]: number[][]}>,\n
     }}
     """
     func_id = f"{_MODULE_ID}.scan_pdf"
@@ -226,7 +231,7 @@ async def scan_pdf(res: Response, regulation_id: str = Body(), checklist_code: s
 async def check_pdf(res: Response, doc_uuid: str = Body(embed=True), x_auth=Header(alias='X-Auth', default=None)) -> JsonResponse:
     """Check PDF parsing status.\n
     Returns: {..., data: {\n
-    key: tval\n TODO
+    chat_doc_status: 'PARSED' | 'PARSING' | 'PARSING_FAILD'\n
     }}
     """
     func_id = f"{_MODULE_ID}.check_pdf"
