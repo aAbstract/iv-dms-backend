@@ -240,7 +240,6 @@ seed_fs_index_files = [
         username='cwael',
         datetime=datetime.now(),
         file_type=IndexFileType.AIRLINES_MANUAL,
-        file_id='000000000000000000000000',
         filename='nesma_org_cos_rad.pdf',
         doc_uuid=os.environ['INVALID_CHAT_DOC_UUID'],
         doc_status=ChatDOCStatus.PARSED,
@@ -249,7 +248,22 @@ seed_fs_index_files = [
         username='cwael',
         datetime=datetime.now(),
         file_type=IndexFileType.AIRLINES_MANUAL,
-        file_id='000000000000000000000000',
+        filename='nesma_org.pdf',
+        doc_uuid=os.environ['VALID_CHAT_DOC_UUID'],
+        doc_status=ChatDOCStatus.PARSED,
+    ),
+    FSIndexFile(
+        username='safwat',
+        datetime=datetime.now(),
+        file_type=IndexFileType.AIRLINES_MANUAL,
+        filename='nesma_org_cos_rad.pdf',
+        doc_uuid=os.environ['INVALID_CHAT_DOC_UUID'],
+        doc_status=ChatDOCStatus.PARSED,
+    ),
+    FSIndexFile(
+        username='safwat',
+        datetime=datetime.now(),
+        file_type=IndexFileType.AIRLINES_MANUAL,
         filename='nesma_org.pdf',
         doc_uuid=os.environ['VALID_CHAT_DOC_UUID'],
         doc_status=ChatDOCStatus.PARSED,
@@ -296,7 +310,7 @@ def seed_routine():
     print('seeding fs index...')
     db.get_collection('fs_index').insert_many([x.model_dump() for x in seed_fs_index_files])
     print('creating fs index indexes...')
-    db.get_collection('fs_index').create_index('doc_uuid', unique=True)
+    db.get_collection('fs_index').create_index('doc_uuid', unique=False)
     db.get_collection('fs_index').create_index('username', unique=False)
     db.get_collection('fs_index').create_index('filename', unique=False)
 
