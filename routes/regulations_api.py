@@ -148,7 +148,7 @@ async def get_iosa_checklist(res: Response, regulation_id: str = Body(), checkli
 
 @router.post(f"{_ROOT_ROUTE}/get-checklist-template")
 async def get_checklist_template(res: Response, regulation_id: str = Body(), checklist_template_code: str = Body(), x_auth=Header(alias='X-Auth', default=None)) -> JsonResponse:
-    """Get iosa checklist details.\n
+    """Get iosa checklist report templates.\n
     ==============================\n
     interface Constrain {\n
     text: string,\n
@@ -187,6 +187,39 @@ async def get_checklist_template(res: Response, regulation_id: str = Body(), che
         )
 
     db_service_response = await regulations_database_api.get_checklist_template(regulation_id, checklist_template_code)
+    if not db_service_response.success:
+        res.status_code = db_service_response.status_code
+        return JsonResponse(
+            success=db_service_response.success,
+            msg=db_service_response.msg,
+        )
+    return JsonResponse(data=db_service_response.data)
+
+
+@router.post(f"{_ROOT_ROUTE}/get-checklist-template-options")
+async def get_checklist_template_options(res: Response, regulation_id: str = Body(embed=True), x_auth=Header(alias='X-Auth', default=None)) -> JsonResponse:
+    """Get iosa checklist report templates options.\n
+    ===============================================\n
+    interface ChecklistTemplateOption {\n
+    code: string,\n
+    title: string,\n
+    };\n
+    ===============================================\n
+    Returns: {..., data: {checklist_template_options: ChecklistTemplateOption[]}}
+    """
+    func_id = f"{_MODULE_ID}.get_checklist_template_options"
+    await log_man.add_log(func_id, 'DEBUG', f"received get iosa checklist report templates options request: regulation_id={regulation_id}")
+
+    # authorize user
+    auth_service_response = await security_man.authorize_api(x_auth, _ALLOWED_USERS, func_id)
+    if not auth_service_response.success:
+        res.status_code = auth_service_response.status_code
+        return JsonResponse(
+            success=auth_service_response.success,
+            msg=auth_service_response.msg,
+        )
+
+    db_service_response = await regulations_database_api.get_checklist_template_options(regulation_id)
     if not db_service_response.success:
         res.status_code = db_service_response.status_code
         return JsonResponse(

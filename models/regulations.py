@@ -49,3 +49,10 @@ class RegulationsMetaData(BaseModel):
 
     class Config:
         use_enum_values = True
+
+
+class RegulationsSourceMap(BaseModel):
+    code: str
+    title: str
+    sub_section: list[str]
+    regulation_id: str

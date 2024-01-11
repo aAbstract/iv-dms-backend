@@ -233,3 +233,65 @@ def test_get_checklist_template_2():
                 assert obj_keys == {'guidance', 'code', 'constraints', 'iosa_map', 'paragraph'}
 
     check_code('FLT 3')
+
+
+def test_get_checklist_template_options_lock():
+    api_url = f"{_test_config.get_api_url()}/regulations/get-checklist-template-options"
+    http_headers = {'X-Auth': 'Bearer fake_token'}
+    http_res = requests.post(api_url, headers=http_headers, json={
+        'regulation_id': '000000000000000000000000',
+    })
+    assert http_res.status_code == 403
+    json_res_body = json.loads(http_res.content.decode())
+    assert (not json_res_body['success'] and json_res_body['msg'] == 'Unauthorized API Access [Invalid Token]')
+
+
+def test_get_checklist_template_options_empty_source_map():
+    access_token = _test_config.login_user('cwael', 'CgJhxwieCc7QEyN3BB7pmvy9MMpseMPV')
+    http_headers = {'X-Auth': f"Bearer {access_token}"}
+
+    # get regulations options
+    api_url = f"{_test_config.get_api_url()}/regulations/get-options"
+    http_res = requests.post(api_url, headers=http_headers)
+    assert http_res.status_code == 200
+    json_res_body = json.loads(http_res.content.decode())
+    assert json_res_body['success']
+    assert 'regulations_options' in json_res_body['data']
+    regulation_id = [x for x in json_res_body['data']['regulations_options'] if x['name'] == 'IOSA Standards Manual (ISM) Ed 15'][0]['id']
+
+    # get checklist template options
+    api_url = f"{_test_config.get_api_url()}/regulations/get-checklist-template-options"
+    http_res = requests.post(api_url, headers=http_headers, json={
+        'regulation_id': regulation_id,
+    })
+    assert http_res.status_code == 404
+    json_res_body = json.loads(http_res.content.decode())
+    assert (not json_res_body['success'] and json_res_body['msg'] == 'Empty Source Maps for this Regulation ID')
+
+
+def test_get_checklist_template_options_valid_source_map():
+    access_token = _test_config.login_user('cwael', 'CgJhxwieCc7QEyN3BB7pmvy9MMpseMPV')
+    http_headers = {'X-Auth': f"Bearer {access_token}"}
+
+    # get regulations options
+    api_url = f"{_test_config.get_api_url()}/regulations/get-options"
+    http_res = requests.post(api_url, headers=http_headers)
+    assert http_res.status_code == 200
+    json_res_body = json.loads(http_res.content.decode())
+    assert json_res_body['success']
+    assert 'regulations_options' in json_res_body['data']
+    regulation_id = [x for x in json_res_body['data']['regulations_options'] if x['name'] == 'IOSA Standards Manual (ISM) Ed 16-Revision2'][0]['id']
+
+    # get checklist template options
+    api_url = f"{_test_config.get_api_url()}/regulations/get-checklist-template-options"
+    http_res = requests.post(api_url, headers=http_headers, json={
+        'regulation_id': regulation_id,
+    })
+    assert http_res.status_code == 200
+    json_res_body = json.loads(http_res.content.decode())
+    assert json_res_body['success']
+    assert 'checklist_template_options' in json_res_body['data']
+    assert len(json_res_body['data']['checklist_template_options']) > 0
+    sample_option = json_res_body['data']['checklist_template_options'][0]
+    obj_keys = set(sample_option)
+    assert obj_keys == {'code', 'title'}

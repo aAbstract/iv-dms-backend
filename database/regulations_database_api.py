@@ -156,3 +156,23 @@ async def get_checklist_template(regulation_id: str, checklist_template_code: st
     ) for sub_section_header, iosa_items in sub_section_iosa_item_map.items()]
 
     return ServiceResponse(data={'checklist_template': report_template})
+
+
+async def get_checklist_template_options(regulation_id: str) -> ServiceResponse:
+    bson_id = validate_bson_id(regulation_id)
+    if not bson_id:
+        return ServiceResponse(success=False, msg='Bad Regulation ID', status_code=400)
+
+    options = await get_database().get_collection('regulations_source_maps').find(
+        {'regulation_id': bson_id},
+        projection={
+            '_id': 0,
+            'code': 1,
+            'title': 1,
+        },
+    ).to_list(length=None)
+
+    if not options:
+        return ServiceResponse(success=False, msg='Empty Source Maps for this Regulation ID', status_code=404)
+
+    return ServiceResponse(data={'checklist_template_options': options})

@@ -305,5 +305,20 @@ def seed_routine():
     print('creating logs indexes...')
     db.get_collection('logs').create_index([('date', pymongo.DESCENDING)], unique=False)
 
+    # seed regulations source map
+    reg_sm_file = ['iosa_flt']
+    reg_sm_data = []
+    for sm_file in reg_sm_file:
+        with open(f"data/{sm_file}_map.json", 'r') as f:
+            json_obj = json.loads(f.read())
+            for x in json_obj:
+                x['regulation_id'] = iosa_e16r2_id
+            reg_sm_data += json_obj
+
+    print('seeding regulations source maps...')
+    db.get_collection('regulations_source_maps').insert_many(reg_sm_data)
+    print('creating regulations source maps indexes...')
+    db.get_collection('regulations_source_maps').create_index('code', unique=True)
+
 
 seed_routine()
