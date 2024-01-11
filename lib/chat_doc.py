@@ -5,7 +5,7 @@ import httpx
 from typing import BinaryIO
 from models.runtime import ServiceResponse
 from models.regulations import IOSAItem
-from models.fs_index import CHAT_DOC_STATUS_CODE_MAP, ChatDocStatus
+from models.fs_index import CHAT_DOC_STATUS_CODE_MAP, ChatDOCStatus
 import lib.log as log_man
 
 
@@ -21,11 +21,11 @@ async def parse_doc(filename: str, file_ptr: BinaryIO) -> ServiceResponse:
         http_res = await client.post(api_url, headers=api_headers, files={'file': (filename, file_ptr)})
 
         if http_res.status_code != 200:
-            return ServiceResponse(success=False, status_code=http_res.status_code, msg=f"ChatDoc API Error: {http_res.content.decode()}")
+            return ServiceResponse(success=False, status_code=http_res.status_code, msg=f"ChatDOC API Error: {http_res.content.decode()}")
 
         json_res = json.loads(http_res.content.decode())
         if json_res['status'] != 'ok':
-            return ServiceResponse(success=False, status_code=503, msg=f"ChatDoc API Error: {http_res.content.decode()}")
+            return ServiceResponse(success=False, status_code=503, msg=f"ChatDOC API Error: {http_res.content.decode()}")
 
         return ServiceResponse(data={'chat_doc_uuid': json_res['data']['id']})
 
@@ -40,13 +40,13 @@ async def check_doc(chat_doc_uuid: str) -> ServiceResponse:
 
         if http_res.status_code != 200:
             if http_res.status_code == 404 and not chat_doc_enable:
-                return ServiceResponse(msg='ChatDoc API Disabled', data={'chat_doc_status': ChatDocStatus.PARSED})
+                return ServiceResponse(msg='ChatDOC API Disabled', data={'chat_doc_status': ChatDOCStatus.PARSED})
 
-            return ServiceResponse(success=False, status_code=http_res.status_code, msg=f"ChatDoc API Error: {http_res.content.decode()}")
+            return ServiceResponse(success=False, status_code=http_res.status_code, msg=f"ChatDOC API Error: {http_res.content.decode()}")
 
         json_res = json.loads(http_res.content.decode())
         if json_res['status'] != 'ok':
-            return ServiceResponse(success=False, status_code=503, msg=f"ChatDoc API Error: {http_res.content.decode()}")
+            return ServiceResponse(success=False, status_code=503, msg=f"ChatDOC API Error: {http_res.content.decode()}")
 
         return ServiceResponse(data={'chat_doc_status': CHAT_DOC_STATUS_CODE_MAP[json_res['data']['status']]})
 
@@ -85,17 +85,17 @@ async def scan_doc(doc_id: str, filename: str, iosa_item: IOSAItem) -> ServiceRe
         })
 
         if http_res.status_code != 200:
-            return ServiceResponse(success=False, status_code=http_res.status_code, msg=f"ChatDoc API Error: {http_res.content.decode()}")
+            return ServiceResponse(success=False, status_code=http_res.status_code, msg=f"ChatDOC API Error: {http_res.content.decode()}")
 
         json_res = json.loads(http_res.content.decode())
         if json_res['status'] != 'ok':
-            return ServiceResponse(success=False, status_code=503, msg=f"ChatDoc API Error: {http_res.content.decode()}")
+            return ServiceResponse(success=False, status_code=503, msg=f"ChatDOC API Error: {http_res.content.decode()}")
 
         try:
             model_res = json.loads(json_res['data']['answer'])
         except:
             await log_man.add_log('lib.chat_doc.scan_doc', 'ERROR', f"chat_doc api parse error: {json_res['data']['answer']}")
-            return ServiceResponse(success=False, status_code=503, msg='ChatDoc API Parse Error')
+            return ServiceResponse(success=False, status_code=503, msg='ChatDOC API Parse Error')
 
         if model_res['is_found']:
             return ServiceResponse(data={

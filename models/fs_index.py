@@ -16,16 +16,16 @@ FILE_TYPE_PATH_MAP = {
 }
 
 
-class ChatDocStatus(str, Enum):
+class ChatDOCStatus(str, Enum):
     PARSING = 'PARSING'
     PARSED = 'PARSED'
     PARSING_FAILD = 'PARSING_FAILD'
 
 
 CHAT_DOC_STATUS_CODE_MAP = {
-    300: ChatDocStatus.PARSED,
-    1: ChatDocStatus.PARSING,
-    12: ChatDocStatus.PARSING,
+    300: ChatDOCStatus.PARSED,
+    1: ChatDOCStatus.PARSING,
+    12: ChatDOCStatus.PARSING,
 }
 
 
@@ -36,4 +36,4 @@ class FSIndexFile(BaseModel):
     file_type: IndexFileType
     filename: str
     chat_doc_uuid: str
-    chat_doc_status: ChatDocStatus
+    chat_doc_status: ChatDOCStatus

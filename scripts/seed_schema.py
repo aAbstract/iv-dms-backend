@@ -243,7 +243,7 @@ seed_fs_index_files = [
         file_id='000000000000000000000000',
         filename='nesma_org_cos_rad.pdf',
         chat_doc_uuid=os.environ['INVALID_CHAT_DOC_UUID'],
-        chat_doc_status=ChatDocStatus.PARSED,
+        chat_doc_status=ChatDOCStatus.PARSED,
     ),
     FSIndexFile(
         username='cwael',
@@ -252,7 +252,7 @@ seed_fs_index_files = [
         file_id='000000000000000000000000',
         filename='nesma_org.pdf',
         chat_doc_uuid=os.environ['VALID_CHAT_DOC_UUID'],
-        chat_doc_status=ChatDocStatus.PARSED,
+        chat_doc_status=ChatDOCStatus.PARSED,
     ),
 ]
 

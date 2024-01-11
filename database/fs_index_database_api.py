@@ -2,7 +2,7 @@ import os
 import aiofiles
 import aiofiles.os
 from datetime import datetime
-from models.fs_index import FSIndexFile, IndexFileType, FILE_TYPE_PATH_MAP, ChatDocStatus
+from models.fs_index import FSIndexFile, IndexFileType, FILE_TYPE_PATH_MAP, ChatDOCStatus
 from models.runtime import ServiceResponse
 from database.mongo_driver import get_database, validate_bson_id
 
@@ -40,7 +40,7 @@ async def create_fs_index_entry(username: str, file_type: IndexFileType, filenam
         file_type=file_type,
         filename=filename,
         chat_doc_uuid=chat_doc_uuid,
-        chat_doc_status=ChatDocStatus.PARSING,
+        chat_doc_status=ChatDOCStatus.PARSING,
     )
     mdb_result = await get_database().get_collection('fs_index').insert_one(fs_index_entry.model_dump())
     file_id = str(mdb_result.inserted_id)
