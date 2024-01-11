@@ -1,6 +1,6 @@
 from models.runtime import ServiceResponse
 from database.mongo_driver import get_database, validate_bson_id
-from models.regulations import RegulationsMetaData, IOSAItem
+from models.regulations import RegulationsMetaData, IOSAItem, IOSASection
 
 
 async def get_regulations_options() -> ServiceResponse:
@@ -107,3 +107,23 @@ async def get_iosa_checklist(regulation_id: str, checklist_code: str) -> Service
         return ServiceResponse(success=False, msg='Checklist Code not Found', status_code=404)
 
     return ServiceResponse(data={'iosa_checklist': iosa_checklist})
+
+
+async def get_checklist_template(regulation_id: str, checklist_template_code: str) -> ServiceResponse:
+    bson_id = validate_bson_id(regulation_id)
+    if not bson_id:
+        return ServiceResponse(success=False, msg='Bad Regulation ID', status_code=400)
+
+    if ' ' not in checklist_template_code:
+        return ServiceResponse(success=False, msg='Bad Checklist Template Code', status_code=400)
+
+    section_code = checklist_template_code.split(' ')[0]
+    iosa_section = await get_database().get_collection('regulations').find_one({'_id': bson_id, 'sections.code': section_code}, projection={"_id": 0, "sections.$": 1})
+    if not iosa_section:
+        return ServiceResponse(success=False, msg='Regulation Checklist Code not Found', status_code=404)
+
+    if len(iosa_section['sections']) > 1:
+        return ServiceResponse(success=False, msg='Multiple Regulation Checklist Codes were Found', status_code=400)
+
+    iosa_section = IOSASection.model_validate(iosa_section['sections'][0])
+    return ServiceResponse(data={'checklist_template': iosa_section})

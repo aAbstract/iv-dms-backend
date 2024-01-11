@@ -9,3 +9,5 @@
     - default: '#757575'
 
 add_user_account(username='aelhennawy', password='ssw5b8FC7MfZ4XeaiYSLzbYZZDzBY4aX', disp_name='Amr Elhennawy', user_role=UserRole.AUDITOR)
+
+[x['code'] for x in iosa_section['sections']]

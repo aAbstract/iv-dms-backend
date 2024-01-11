@@ -63,7 +63,161 @@ seed_users = [
 
 # regulations schema
 seed_regulations = [
-    IOSARegulation(type=RegulationType.IOSA, name='IOSA Standards Manual (ISM) Ed 15', sections=[]),
+    IOSARegulation(type=RegulationType.IOSA, name='IOSA Standards Manual (ISM) Ed 15', sections=[
+        IOSASection(
+            name="Section 2 Flight Operations",
+            code="FLT",
+            applicability="addresses safety and security requirements for flight operations, and is applicable to an operator that uses two-pilot, multi-engine aircraft with a maximum certificated takeoff mass in excess of 5,700 kg (12,566 lbs.).",
+            guidance="The definitions of technical terms used in this ISM Section 2, as well as the list of abbreviations and acronyms, are found in the IATA Reference Manual for Audit Programs (IRM).",
+            order=2,
+            items=[
+                IOSAItem(
+                    code='FLT 1.1.1',
+                    guidance='Refer to the IRM for the definitions of Operations and Operator.',
+                    iosa_map=['1 Management and Control', '1.1 Management System Overview'],
+                    paragraph='',
+                    constraints=[
+                        Constrain(text='The Operator shall have a management system for the flight operations organization that ensures control of flight operations and the management of safety and security outcomes.'),
+                        Constrain(text='Sample Constain'),
+                    ],
+                ),
+                IOSAItem(
+                    code='FLT 1.1.2',
+                    guidance='Refer to the IRM for the definitions of Accountability, Authority, Post Holder and Responsibility.',
+                    iosa_map=['1 Management and Control', '1.1 Management System Overview'],
+                    paragraph='',
+                    constraints=[Constrain(
+                        text='The Operator shall have one or more designated managers in the flight operations organization that, if required, are post holders acceptable to the Authority, and have the responsibility for ensuring:',
+                        children=[
+                            Constrain(text='The management and supervision of all flight operations activities.'),
+                            Constrain(text='The management of safety and security risks to flight operations.'),
+                            Constrain(text='Flight operations are conducted in accordance with conditions and restrictions of the Air Operator Certificate (AOC), and in compliance with applicable regulations and standards of the Operator.'),
+                        ],
+                    )],
+                ),
+                IOSAItem(
+                    code='FLT 1.3.4',
+                    guidance='Refer to Guidance associated with ORG 1.3.3 located in ISM Section 1 regarding the need to coordinate and communicate with external entities.',
+                    iosa_map=['1 Management and Control', '1.3 Accountability, Authorities and Responsibilities'],
+                    paragraph='',
+                    constraints=[
+                        Constrain(
+                            text='The Operator shall ensure pilot flight crew members complete an evaluation that includes a demonstration of knowledge of the operations approved as part of the Air Operator Certificate (AOC). Such evaluation shall include a demonstration of knowledge of:',
+                            children=[
+                                Constrain(text='Approaches authorized by the Authority.'),
+                                Constrain(text='Ceiling and visibility requirements for takeoff, approach and landing.'),
+                                Constrain(text='Allowance for inoperative ground components.'),
+                                Constrain(text='Wind limitations (crosswind, tailwind and, if applicable, headwind).'),
+                            ],
+                        ),
+                        Constrain(
+                            text='Sample Constrain',
+                            children=[
+                                Constrain(text='item 1'),
+                                Constrain(text='item 2'),
+                                Constrain(text='item 3'),
+                                Constrain(text='item 4'),
+                            ],
+                        ),
+                    ],
+                ),
+                IOSAItem(
+                    code='FLT 1.5.2',
+                    guidance='Refer to Guidance associated with ORG 1.5.3 located in ISM Section 1.',
+                    iosa_map=['1 Management and Control', '1.5 Provision of Resources'],
+                    paragraph='',
+                    constraints=[Constrain(text='The Operator shall have a selection process for management and non-management positions within the organization that require the performance of functions relevant to the safety or security of aircraft operations.')],
+                ),
+                IOSAItem(
+                    code='FLT 2.1.35',
+                    guidance='',
+                    iosa_map=[],
+                    paragraph='',
+                    constraints=[
+                        Constrain(
+                            text='The Operator shall have an initial training program for instructors, evaluators and line check airmen,to include:',
+                            children=[
+                                Constrain(
+                                    text='An instructor course that addresses as a minimum',
+                                    children=[
+                                        Constrain(text='The fundamentals of teaching and evaluation'),
+                                        Constrain(text='Lesson plan management'),
+                                        Constrain(text='Briefing and debriefing'),
+                                        Constrain(text='Human performance issues'),
+                                        Constrain(text='Company policies and procedures'),
+                                        Constrain(text='Simulator serviceability and training in simulator operation'),
+                                        Constrain(text='If the Operator conducts training flights, dangers associated with simulating system failures in flight'),
+                                        Constrain(text='As applicable, the simulated or actual weather and environmental conditions necessary to conduct each simulator or aircraft training/evaluation session to be administered'),
+                                    ],
+                                )
+                            ],
+                        ),
+                        Constrain(text='The Operator shall have a management system for the flight operations organization that ensures control of flight operations and the management of safety and security outcomes.'),
+                    ],
+                ),
+                IOSAItem(
+                    code='FLT 2.1.21',
+                    guidance='',
+                    iosa_map=[],
+                    paragraph='',
+                    constraints=[Constrain(text='The Operator shall have sufficient instructors, evaluators, line check airmen and support personnel to administer the training and evaluation programs in accordance with requirements of the Operator and/or the State, as applicable.')],
+                ),
+                IOSAItem(
+                    code="FLT 3.1.1",
+                    guidance="Refer to the IRM for the definitions of Operations and Operator.",
+                    iosa_map=["3 Line Operations", "3.1 Common Language"],
+                    paragraph='',
+                    constraints=[
+                        Constrain(
+                            text="The Operator shall ensure the designation of a common language(s) for use by all flight crew members for communication:",
+                            children=[
+                                Constrain(text="On the flight deck during line operations"),
+                                Constrain(text="If the Operator conducts passenger flights with cabin crew, between the flight crew and cabin crew during line operations"),
+                                Constrain(text="During flight crew training and evaluation activities"),
+                            ],
+                        ),
+                    ],
+                ),
+            ],
+        ),
+        IOSASection(
+            name='Section 3 Operational Control and Flight Dispatch',
+            code='DSP',
+            applicability='addresses the requirements for operational control of flights conducted by multi-engine aircraft and is applicable to an operator that conducts such flights, whether operational control functions are conducted by the operator or conducted for the operator by an external organization (outsourced).',
+            guidance='For the purposes of this section authority is defined as the delegated power or right to command or direct, to make specific decisions, to grant permission and/or provide approval, or to control or modify a process.',
+            order=3,
+            items=[
+                IOSAItem(
+                    code='DSP 1.1.1',
+                    guidance='',
+                    iosa_map=['1 Management and Control', '1.1 Management System Overview'],
+                    paragraph='',
+                    constraints=[],
+                ),
+                IOSAItem(
+                    code='DSP 1.1.2',
+                    guidance='',
+                    iosa_map=['1 Management and Control', '1.1 Management System Overview'],
+                    paragraph='',
+                    constraints=[],
+                ),
+                IOSAItem(
+                    code='DSP 1.1.3',
+                    guidance='',
+                    iosa_map=['1 Management and Control', '1.1 Management System Overview'],
+                    paragraph='',
+                    constraints=[],
+                ),
+                IOSAItem(
+                    code='DSP 1.1.4',
+                    guidance='',
+                    iosa_map=['1 Management and Control', '1.1 Management System Overview'],
+                    paragraph='',
+                    constraints=[],
+                ),
+            ],
+        ),
+    ]),
     IOSARegulation(type=RegulationType.IOSA, name='IOSA Standards Manual (ISM) Ed 16-Revision2', sections=[])
 ]
 

@@ -152,3 +152,40 @@ def test_get_iosa_checklist_api_sucess():
     assert 'iosa_checklist' in json_res_body['data']
     obj_keys = set(json_res_body['data']['iosa_checklist'])
     assert obj_keys == {'constraints', 'iosa_map', 'guidance', 'code', 'paragraph'}
+
+
+def test_get_checklist_template():
+    access_token = _test_config.login_user('cwael', 'CgJhxwieCc7QEyN3BB7pmvy9MMpseMPV')
+    http_headers = {'X-Auth': f"Bearer {access_token}"}
+
+    # get regulations options
+    api_url = f"{_test_config.get_api_url()}/regulations/get-options"
+    http_res = requests.post(api_url, headers=http_headers)
+    assert http_res.status_code == 200
+    json_res_body = json.loads(http_res.content.decode())
+    assert json_res_body['success']
+    assert 'regulations_options' in json_res_body['data']
+    regulation_id = [x for x in json_res_body['data']['regulations_options'] if x['name'] == 'IOSA Standards Manual (ISM) Ed 15'][0]['id']
+
+    def check_code(code: str):
+        api_url = f"{_test_config.get_api_url()}/regulations/get-checklist-template"
+        http_res = requests.post(api_url, headers=http_headers, json={
+            'regulation_id': regulation_id,
+            'checklist_template_code': code,
+        })
+        assert http_res.status_code == 200
+        json_res = json.loads(http_res.content.decode())
+        assert json_res['success']
+        assert 'checklist_template' in json_res['data']
+        chl_temp = json_res['data']['checklist_template']
+        obj_keys = set(chl_temp.keys())
+        assert obj_keys == {'applicability', 'items', 'code', 'guidance', 'name'}
+        assert chl_temp['code'] == code.split(' ')[0]
+
+        if len(chl_temp['items']) > 0:
+            example_item = chl_temp['items'][0]
+            obj_keys = set(example_item.keys())
+            assert obj_keys == {'iosa_map', 'constraints', 'code', 'paragraph', 'guidance'}
+
+    check_code('FLT 1')
+    check_code('DSP 1')

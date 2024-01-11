@@ -186,7 +186,7 @@ async def scan_pdf(res: Response, regulation_id: str = Body(), checklist_code: s
     }}
     """
     func_id = f"{_MODULE_ID}.scan_pdf"
-    await log_man.add_log(func_id, 'DEBUG', 'received scan pdf request')
+    await log_man.add_log(func_id, 'DEBUG', f"received scan pdf request: regulation_id={regulation_id}, checklist_code={checklist_code}, doc_uuid={doc_uuid}")
 
     # authorize user
     auth_service_response = await security_man.authorize_api(x_auth, _ALLOWED_USERS, func_id)
@@ -235,7 +235,7 @@ async def check_pdf(res: Response, doc_uuid: str = Body(embed=True), x_auth=Head
     }}
     """
     func_id = f"{_MODULE_ID}.check_pdf"
-    await log_man.add_log(func_id, 'DEBUG', 'received check pdf request')
+    await log_man.add_log(func_id, 'DEBUG', f"received check pdf request: doc_uuid={doc_uuid}")
 
     # authorize user
     auth_service_response = await security_man.authorize_api(x_auth, _ALLOWED_USERS, func_id)
