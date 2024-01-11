@@ -1,0 +1,57 @@
+[
+    {
+        "title": "1 Management and Control",
+        "sub_sections": [
+            "1.1 Management System Overview",
+            "1.2 State Requirements",
+            "1.3 Accountability, Authorities and Responsibilities",
+            "1.4 Communication and Coordination",
+            "1.5 Provision of Resources",
+            "1.6 Documentation System",
+            "1.7 Operations Manual",
+            "1.8 Records System",
+            "1.9 (Intentionally open)",
+            "1.10 Quality Assurance Program",
+            "1.11 Quality Control of Outsourced Operations and Products",
+            "1.12 Safety Management"
+        ]
+    },
+    {
+        "title": "2 Training and Qualification",
+        "sub_sections": [
+            "2.1 Training and Evaluation Program",
+            "2.2 Training Elements",
+            "2.3 Line Qualification",
+            "2.4 Special Qualification",
+            "2.5 SMS Training"
+        ]
+    },
+    {
+        "title": "3 Line Operations",
+        "sub_sections": [
+            "3.1 Common Language",
+            "3.2 Flight Crew Responsibilities",
+            "3.3 Flight Crew Qualifications",
+            "3.4 Flight Crew Scheduling",
+            "3.5 Flight Preparation",
+            "3.6 Route and Airport Planning",
+            "3.7 Fuel, Weight/Mass and Balance, Flight Plans",
+            "3.8 Aircraft Preflight and Airworthiness",
+            "3.9 Ground Handling",
+            "3.10 Airspace Rules",
+            "3.11 In-Flight Operations",
+            "3.12 Flight Deck Policy and Procedures",
+            "3.13 Flight Deck, Passenger Cabin, Supernumerary Compartment Coordination",
+            "3.14 Non-Normal/Abnormal and Emergency Operations",
+            "3.15 Flight Crew Reporting Requirements"
+        ]
+    },
+    {
+        "title": "4 Operations Engineering Specifications",
+        "sub_sections": [
+            "4.1 Aircraft Performance",
+            "4.2 Navigation and Facilities",
+            "4.3 Aircraft Systems and Equipment Specifications"
+        ]
+    }
+]

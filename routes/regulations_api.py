@@ -150,14 +150,18 @@ async def get_checklist_template(res: Response, regulation_id: str = Body(), che
     iosa_map: string[],\n
     constraints: Constrain[],\n
     };\n
+    interface ReportSubSection {\n
+    title: string:, // sub section title\n
+    checklist_items: IOSAItem[], // checklist items\n
+    };\n
     ==============================\n
     Returns: {..., data: {\n
     checklist_template: <{\n
-    name: string, // IOSA section name\n
-    code: string, // IOSA section code, example FLT, DSP\n
+    title: string, // report title\n
+    type: RegulationType, // 'IOSA', 'ECAR'\n
     applicability: string,\n
     guidance: string,\n
-    items: IOSAItem[],
+    sub_sections: ReportSubSection[],\n
     }>,\n
     }}
     """

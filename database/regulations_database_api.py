@@ -1,6 +1,7 @@
 from models.runtime import ServiceResponse
 from database.mongo_driver import get_database, validate_bson_id
 from models.regulations import RegulationsMetaData, IOSAItem, IOSASection
+from models.audit_reports import ReportTemplate, ReportSubSection, RegulationType
 
 
 async def get_regulations_options() -> ServiceResponse:
@@ -117,7 +118,7 @@ async def get_checklist_template(regulation_id: str, checklist_template_code: st
     if ' ' not in checklist_template_code:
         return ServiceResponse(success=False, msg='Bad Checklist Template Code', status_code=400)
 
-    section_code = checklist_template_code.split(' ')[0]
+    section_code, section_index = checklist_template_code.split(' ')
     iosa_section = await get_database().get_collection('regulations').find_one({'_id': bson_id, 'sections.code': section_code}, projection={"_id": 0, "sections.$": 1})
     if not iosa_section:
         return ServiceResponse(success=False, msg='Regulation Checklist Code not Found', status_code=404)
@@ -126,4 +127,32 @@ async def get_checklist_template(regulation_id: str, checklist_template_code: st
         return ServiceResponse(success=False, msg='Multiple Regulation Checklist Codes were Found', status_code=400)
 
     iosa_section = IOSASection.model_validate(iosa_section['sections'][0])
-    return ServiceResponse(data={'checklist_template': iosa_section})
+
+    # construct report template
+    template_title = 'NULL'
+    if len(iosa_section.items) > 0:
+        if len(iosa_section.items[0].iosa_map) > 0:
+            template_title = iosa_section.items[0].iosa_map[1]
+
+    report_template = ReportTemplate(
+        title=template_title,
+        type=RegulationType.IOSA,
+        applicability=iosa_section.applicability,
+        general_guidance=iosa_section.guidance,
+    )
+
+    sub_section_iosa_item_map = {}
+    for item in iosa_section.items:
+        if item.code.startswith(checklist_template_code):
+            sub_section_title = item.iosa_map[1]
+
+            if not sub_section_title in sub_section_iosa_item_map:
+                sub_section_iosa_item_map[sub_section_title] = []
+            sub_section_iosa_item_map[sub_section_title].append(item)
+
+    report_template.sub_sections = [ReportSubSection(
+        title=sub_section_header,
+        checklist_items=iosa_items,
+    ) for sub_section_header, iosa_items in sub_section_iosa_item_map.items()]
+
+    return ServiceResponse(data={'checklist_template': report_template})
