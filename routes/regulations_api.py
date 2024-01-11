@@ -16,9 +16,14 @@ router = APIRouter()
 @router.post(f"{_ROOT_ROUTE}/get-options")
 async def get_options(res: Response, x_auth=Header(alias='X-Auth', default=None)) -> JsonResponse:
     """Get all regulations check lists meta data.\n
-    Returns: {..., data: {\n
-    regulations_options: <{id: string, type: string, name: string}>[]\n
-    }}
+    =============================================\n
+    interface RegulationsOption {\n
+    id: string,\n
+    type: string,\n
+    name: string,\n
+    };\n
+    =============================================\n
+    Returns: {..., data: {regulations_options: RegulationsOption[]}}
     """
     func_id = f"{_MODULE_ID}.get_options"
     await log_man.add_log(func_id, 'DEBUG', 'received get regulations options request')
@@ -45,9 +50,14 @@ async def get_options(res: Response, x_auth=Header(alias='X-Auth', default=None)
 @router.post(f"{_ROOT_ROUTE}/get-codes")
 async def get_codes(res: Response, regulation_id: str = Body(embed=True), x_auth=Header(alias='X-Auth', default=None)) -> JsonResponse:
     """Get regulation codes.\n
-    Returns: {..., data: {\n
-    regulation_codes: <{section_name: string, section_code: string, checklist_codes: string[]}>[]\n
-    }}
+    ========================\n
+    interface RegulationCode {\n
+    section_name: string,\n
+    section_code: string,\n
+    checklist_codes: string[],\n
+    };\n
+    ========================\n
+    Returns: {..., data: {regulation_codes: RegulationCode[]}}
     """
     func_id = f"{_MODULE_ID}.get_codes"
     await log_man.add_log(func_id, 'DEBUG', f"received get regulation codes request: regulation_id={regulation_id}")
@@ -154,16 +164,15 @@ async def get_checklist_template(res: Response, regulation_id: str = Body(), che
     title: string:, // sub section title\n
     checklist_items: IOSAItem[], // checklist items\n
     };\n
-    ==============================\n
-    Returns: {..., data: {\n
-    checklist_template: <{\n
-    title: string, // report title\n
-    type: RegulationType, // 'IOSA', 'ECAR'\n
+    interface ReportTemplate {\n
+    title: string,\n
+    type: string,\n
     applicability: string,\n
     guidance: string,\n
     sub_sections: ReportSubSection[],\n
-    }>,\n
-    }}
+    };\n
+    ==============================\n
+    Returns: {..., data: {checklist_template: ReportTemplate}}
     """
     func_id = f"{_MODULE_ID}.get_checklist_template"
     await log_man.add_log(func_id, 'DEBUG', f"received get iosa checklist request: regulation_id={regulation_id}, checklist_template_code={checklist_template_code}")

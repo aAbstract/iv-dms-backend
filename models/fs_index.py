@@ -35,5 +35,5 @@ class FSIndexFile(BaseModel):
     datetime: datetime
     file_type: IndexFileType
     filename: str
-    chat_doc_uuid: str
-    chat_doc_status: ChatDOCStatus
+    doc_uuid: str
+    doc_status: ChatDOCStatus

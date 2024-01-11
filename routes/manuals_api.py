@@ -145,9 +145,14 @@ async def get_meta_data(res: Response, manual_id: str = Body(embed=True), x_auth
 @router.post(f"{_ROOT_ROUTE}/get-options")
 async def get_options(res: Response, x_auth=Header(alias='X-Auth', default=None)) -> JsonResponse:
     """Get all manuals meta data.\n
-    Returns: {..., data: {\n
-    manuals_options: <{id: string, name: string, page_count: number}>[]\n
-    }}
+    =============================\n
+    interface ManualOption {\n
+    id: string,\n
+    name: string,\n
+    page_count: number,\n
+    };\n
+    =============================\n
+    Returns: {..., data: {manuals_options: ManualOption[]}}
     """
     func_id = f"{_MODULE_ID}.get_options"
     await log_man.add_log(func_id, 'DEBUG', 'received get manuals options request')
@@ -217,7 +222,7 @@ async def scan_pdf(res: Response, regulation_id: str = Body(), checklist_code: s
         )
     iosa_checklist: IOSAItem = db_service_response.data['iosa_checklist']
 
-    cd_service_response = await chat_doc_man.scan_doc(fs_index_entry.chat_doc_uuid, fs_index_entry.filename, iosa_checklist)
+    cd_service_response = await chat_doc_man.scan_doc(fs_index_entry.doc_uuid, fs_index_entry.filename, iosa_checklist)
     if not cd_service_response.success:
         res.status_code = db_service_response.status_code
         return JsonResponse(
@@ -254,3 +259,41 @@ async def check_pdf(res: Response, doc_uuid: str = Body(embed=True), x_auth=Head
             msg=cd_service_response.msg,
         )
     return JsonResponse(data=cd_service_response.data)
+
+
+@router.post(f"{_ROOT_ROUTE}/get-manuals")
+async def get_manuals(res: Response, x_auth=Header(alias='X-Auth', default=None)) -> JsonResponse:
+    """Get user manuals and their parsing status.\n
+    =============================================\n
+    interface ManualFile {\n
+    id: string,\n
+    username: string,\n
+    datetime: Date,\n
+    file_type: IndexFileType, // 'AIRLINES_MANUAL' | 'AIRLINES_ATTACHMENT'\n
+    filename: string,\n
+    doc_uuid: string,\n
+    doc_status: ChatDOCStatus, // 'PARSED' | 'PARSING' | 'PARSING_FAILD'\n
+    };\n
+    =============================================\n
+    Returns: {..., data: {files: ManualFile[]}}
+    """
+    func_id = f"{_MODULE_ID}.get_manuals"
+    # authorize user
+    auth_service_response = await security_man.authorize_api(x_auth, _ALLOWED_USERS, func_id)
+    if not auth_service_response.success:
+        res.status_code = auth_service_response.status_code
+        return JsonResponse(
+            success=auth_service_response.success,
+            msg=auth_service_response.msg,
+        )
+    username = auth_service_response.data['token_claims']['username']
+    await log_man.add_log(func_id, 'DEBUG', f"received get docs request: username={username}")
+
+    fs_service_response = await fs_index_database_api.get_user_manuals(username)
+    if not fs_service_response.success:
+        res.status_code = fs_service_response.status_code
+        return JsonResponse(
+            success=fs_service_response.success,
+            msg=fs_service_response.msg,
+        )
+    return JsonResponse(data=fs_service_response.data)

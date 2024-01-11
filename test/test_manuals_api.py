@@ -165,3 +165,26 @@ def test_chat_doc_parse_api_bad_file_type():
     assert http_res.status_code == 409
     json_res_body = json.loads(http_res.content.decode())
     assert (not json_res_body['success'] and json_res_body['msg'] == 'Bad File Extention')
+
+
+def test_get_user_manuals_api_lock():
+    api_url = f"{_test_config.get_api_url()}/manuals/get-manuals"
+    http_headers = {'X-Auth': 'Bearer fake_token'}
+    http_res = requests.post(api_url, headers=http_headers)
+    assert http_res.status_code == 403
+    json_res_body = json.loads(http_res.content.decode())
+    assert (not json_res_body['success'] and json_res_body['msg'] == 'Unauthorized API Access [Invalid Token]')
+
+
+def test_get_user_manuals_api_success():
+    access_token = _test_config.login_user('cwael', 'CgJhxwieCc7QEyN3BB7pmvy9MMpseMPV')
+    api_url = f"{_test_config.get_api_url()}/manuals/get-manuals"
+    http_headers = {'X-Auth': f"Bearer {access_token}"}
+    http_res = requests.post(api_url, headers=http_headers)
+    assert http_res.status_code == 200
+    json_res_body = json.loads(http_res.content.decode())
+    assert 'files' in json_res_body['data']
+    if len(json_res_body['data']['files']) > 0:
+        example_file = json_res_body['data']['files'][0]
+        obj_keys = set(example_file.keys())
+        assert obj_keys == {'doc_status', 'filename', 'datetime', 'id', 'doc_uuid', 'username', 'file_type'}
