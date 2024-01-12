@@ -72,7 +72,7 @@ async def scan_doc(doc_id: str, filename: str, iosa_item: IOSAItem) -> ServiceRe
     "{iosa_item.paragraph}"
 
     extract from file "{filename}" best sections that documents this REGULATION.
-    output format is a json list.
+    output format must only be a json list.
     each object in the list has these keys: text, refs.
     text: the text that documents this REGULATION.
     refs: a list of references where this text is located in file "{filename}".
@@ -98,7 +98,8 @@ async def scan_doc(doc_id: str, filename: str, iosa_item: IOSAItem) -> ServiceRe
             return ServiceResponse(success=False, status_code=503, msg=f"ChatDOC API Error: {http_res.content.decode()}")
 
         # clean answer text
-        model_answer = re.sub(r'"\[<span data-index="([0-9]+)">[0-9]+</span>\]"', r'\1', json_res['data']['answer'])
+        model_answer = re.sub(r'\["[0-9]+"\]', '', json_res['data']['answer'])
+        model_answer = re.sub(r'"\[<span data-index="([0-9]+)">[0-9]+</span>\]"', r'\1', model_answer)
         try:
             model_json_answer = json.loads(model_answer)
         except:
