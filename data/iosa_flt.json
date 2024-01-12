@@ -3356,13 +3356,12 @@
             ]
         },
         {
-            "code": "FLT 3.3.7",
-            "guidance": null,
+            "code": "FLT 3.3.7A",
             "iosa_map": [
                 "3 Line Operations",
                 "3.3 Flight Crew Qualifications"
             ],
-            "paragraph": "The Operator shall have a process to ensure flight crew member recency-of-experience\nrequirements are satisfied as follows:\n(i) A pilot does not act as PIC or SIC of an aircraft unless either:\n(a) On the same type or variant of aircraft within the preceding 90 days (120 days if\nunder the supervision of an instructor or evaluator), that pilot has operated the flight\ncontrols during at least three takeoffs and landings in the aircraft type or in a flight\nsimulator approved for the purpose by the appropriate authority, or\n(b) On the same type or variant of aircraft within a time period acceptable to the State\nand applicable authorities, that pilot has operated the flight controls during the\nnumber of takeoffs and landings in the aircraft type or in a flight simulator approved\nfor the purpose by the appropriate authority, necessary to conform to a defined\nrecency of experience schedule approved or accepted by the State and applicable\nauthorities.\n(ii) A pilot does not act in the capacity of a cruise relief pilot unless, within the preceding\n90 days, that pilot has either:\n(a) Operated as PIC, SIC or cruise relief pilot on the same type or variant of aircraft, or\n(b) Completed flying skill refresher training to include normal, abnormal and emergency\nprocedures specific to cruise flight on the same type of aircraft or in a flight simulator\napproved for the purpose, and has practiced approach and landing procedures,\nwhere the approach and landing procedure practice may be performed as the PM.\n(iii) A flight engineer does not perform duties in an aircraft unless either:\n(a) Within the preceding 6 months, that individual has had at least 50 hours of flight\ntime as a flight engineer on that aircraft type aircraft, or\n(b) Within the preceding 90 days, that individual has operated as a flight engineer on\nboard that aircraft type or in a simulator of the aircraft type.\n(iv) A flight navigator or radio operator does not perform duties in an aircraft unless recency-of-\nexperience requirements of the Operator and the State have been satisfied.\n(v) If a flight crew member does not satisfy recency-of-experience requirements in accordance\nwith i), ii), iii) or iv), such flight crew member completes re-qualification in accordance with\nthe Operator's training and evaluation program.",
+            "paragraph": "The Operator shall have a process to ensure flight crew member recency-of-experience\nrequirements are satisfied as follows:(i) A pilot does not act as PIC or SIC of an aircraft unless either:\n(a) On the same type or variant of aircraft within the preceding 90 days (120 days if\nunder the supervision of an instructor or evaluator), that pilot has operated the flight\ncontrols during at least three takeoffs and landings in the aircraft type or in a flight\nsimulator approved for the purpose by the appropriate authority, or\n(b) On the same type or variant of aircraft within a time period acceptable to the State\nand applicable authorities, that pilot has operated the flight controls during the\nnumber of takeoffs and landings in the aircraft type or in a flight simulator approved\nfor the purpose by the appropriate authority, necessary to conform to a defined\nrecency of experience schedule approved or accepted by the State and applicable\nauthorities.",
             "constraints": [
                 {
                     "text": "The Operator shall have a process to ensure flight crew member recency-of-experience\nrequirements are satisfied as follows",
@@ -3385,7 +3384,22 @@
                             ],
                             "score": "<score>",
                             "explanation": "<explanation>"
-                        },
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "code": "FLT 3.3.7B",
+            "iosa_map": [
+                "3 Line Operations",
+                "3.3 Flight Crew Qualifications"
+            ],
+            "paragraph": "The Operator shall have a process to ensure flight crew member recency-of-experience\nrequirements are satisfied as follows:(ii) A pilot does not act in the capacity of a cruise relief pilot unless, within the preceding\n90 days, that pilot has either:\n(a) Operated as PIC, SIC or cruise relief pilot on the same type or variant of aircraft, or\n(b) Completed flying skill refresher training to include normal, abnormal and emergency\nprocedures specific to cruise flight on the same type of aircraft or in a flight simulator\napproved for the purpose, and has practiced approach and landing procedures,\nwhere the approach and landing procedure practice may be performed as the PM.",
+            "constraints": [
+                {
+                    "text": "The Operator shall have a process to ensure flight crew member recency-of-experience\nrequirements are satisfied as follows",
+                    "children": [
                         {
                             "text": "(ii) A pilot does not act in the capacity of a cruise relief pilot unless, within the preceding\n90 days, that pilot has either",
                             "children": [
@@ -3404,7 +3418,22 @@
                             ],
                             "score": "<score>",
                             "explanation": "<explanation>"
-                        },
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "code": "FLT 3.3.7C",
+            "iosa_map": [
+                "3 Line Operations",
+                "3.3 Flight Crew Qualifications"
+            ],
+            "paragraph": "The Operator shall have a process to ensure flight crew member recency-of-experience\nrequirements are satisfied as follows:(iii) A flight engineer does not perform duties in an aircraft unless either:\n(a) Within the preceding 6 months, that individual has had at least 50 hours of flight\ntime as a flight engineer on that aircraft type aircraft, or\n(b) Within the preceding 90 days, that individual has operated as a flight engineer on\nboard that aircraft type or in a simulator of the aircraft type.",
+            "constraints": [
+                {
+                    "text": "The Operator shall have a process to ensure flight crew member recency-of-experience\nrequirements are satisfied as follows",
+                    "children": [
                         {
                             "text": "(iii) A flight engineer does not perform duties in an aircraft unless either",
                             "children": [
@@ -3423,7 +3452,22 @@
                             ],
                             "score": "<score>",
                             "explanation": "<explanation>"
-                        },
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "code": "FLT 3.3.7D",
+            "iosa_map": [
+                "3 Line Operations",
+                "3.3 Flight Crew Qualifications"
+            ],
+            "paragraph": "The Operator shall have a process to ensure flight crew member recency-of-experience\nrequirements are satisfied as follows:(iv) A flight navigator or radio operator does not perform duties in an aircraft unless recency-of-\nexperience requirements of the Operator and the State have been satisfied.\n(v) If a flight crew member does not satisfy recency-of-experience requirements in accordance\nwith i), ii), iii) or iv), such flight crew member completes re-qualification in accordance with\nthe Operator's training and evaluation program.",
+            "constraints": [
+                {
+                    "text": "The Operator shall have a process to ensure flight crew member recency-of-experience\nrequirements are satisfied as follows",
+                    "children": [
                         {
                             "text": "(iv) A flight navigator or radio operator does not perform duties in an aircraft unless recency-of-\nexperience requirements of the Operator and the State have been satisfied",
                             "children": [],
@@ -3436,9 +3480,7 @@
                             "score": "<score>",
                             "explanation": "<explanation>"
                         }
-                    ],
-                    "score": "<score>",
-                    "explanation": "<explanation>"
+                    ]
                 }
             ]
         },
