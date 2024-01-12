@@ -1,3 +1,4 @@
+import re
 from uuid import uuid4
 import json
 import os
@@ -67,10 +68,12 @@ async def scan_doc(doc_id: str, filename: str, iosa_item: IOSAItem) -> ServiceRe
     given this REGULATION
     "{iosa_item.paragraph}"
 
-    extract from file "{filename}" the best section that documents this REGULATION.
-    output format is json object with this shape {{is_found: boolean, text: string}}.
-    if nothing documents the REGULATION then is_found=false and text=NONE.
-    do not include in text citaion.
+    extract from file "{filename}" best sections that documents this REGULATION.
+    output format is a json list.
+    each object in the list has these keys: text, refs.
+    text: the text that documents this REGULATION.
+    refs: a list of references where this text is located in file "{filename}".
+    if nothing documents the REGULATION then just output NONE.
     """
 
     async with httpx.AsyncClient(timeout=60) as client:
@@ -91,16 +94,20 @@ async def scan_doc(doc_id: str, filename: str, iosa_item: IOSAItem) -> ServiceRe
         if json_res['status'] != 'ok':
             return ServiceResponse(success=False, status_code=503, msg=f"ChatDOC API Error: {http_res.content.decode()}")
 
+        # clean answer text
+        model_answer = re.sub(r'"\[<span data-index="([0-9]+)">[0-9]+</span>\]"', r'\1', json_res['data']['answer'])
         try:
-            model_res = json.loads(json_res['data']['answer'])
+            model_json_answer = json.loads(model_answer)
         except:
             await log_man.add_log('lib.chat_doc.scan_doc', 'ERROR', f"chat_doc api parse error: {json_res['data']['answer']}")
             return ServiceResponse(success=False, status_code=503, msg='ChatDOC API Parse Error')
 
-        if model_res['is_found']:
-            return ServiceResponse(data={
-                'is_found': True,
-                'text': model_res['text'],
-                'doc_ref': json_res['data']['source_info'][0],
-            })
-        return ServiceResponse(data={'is_found': False})
+        if len(model_json_answer) > 0:
+            obj_keys = set(model_json_answer[0].keys())
+            if obj_keys != {'text', 'refs'}:
+                return ServiceResponse(success=False, status_code=503, msg='Invalid ChatDOC API Response')
+
+        return ServiceResponse(data={
+            'matches': model_json_answer,
+            'doc_refs': json_res['data']['source_info'],
+        })

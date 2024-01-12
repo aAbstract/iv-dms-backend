@@ -151,10 +151,12 @@ def test_chat_doc_scan_api():
     assert http_res.status_code == 200
     json_res_body = json.loads(http_res.content.decode())
     assert json_res_body['success']
-    assert 'is_found' in json_res_body['data']
-    if json_res_body['data']['is_found']:
-        assert 'text' in json_res_body['data']
-        assert 'doc_ref' in json_res_body['data']
+    assert 'matches' in json_res_body['data']
+    assert 'doc_refs' in json_res_body['data']
+    if len(json_res_body['data']['matches']) > 0:
+        example_match = json_res_body['data']['matches'][0]
+        obj_keys = set(example_match.keys())
+        assert obj_keys == {'text', 'refs'}
 
 
 def test_chat_doc_parse_api_bad_file_type():

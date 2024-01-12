@@ -28,8 +28,8 @@ async def lifespan(app: FastAPI):
 
 server = FastAPI(
     title='IV DMS Backend',
-    description='Added Checklist Report Template Options Data Source',
-    version="0.21.0",
+    description='Fixed AI Scanner API',
+    version="0.21.1",
     lifespan=lifespan,
 )
 server.add_middleware(
