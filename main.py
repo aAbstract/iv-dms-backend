@@ -28,8 +28,8 @@ async def lifespan(app: FastAPI):
 
 server = FastAPI(
     title='IV DMS Backend',
-    description='Fixed Gemini Token Limit for FLT 3.3.7',
-    version="0.21.6",
+    description='Fixed API Timeouts',
+    version="0.21.7",
     lifespan=lifespan,
 )
 server.add_middleware(

@@ -18,7 +18,7 @@ async def parse_doc(filename: str, file_ptr: BinaryIO) -> ServiceResponse:
     api_key = os.environ['CHAT_DOC_API_KEY']
     api_headers = {'Authorization': f"Bearer {api_key}"}
     api_url = 'https://api.chatdoc.com/api/v2/documents/upload'
-    async with httpx.AsyncClient(timeout=60) as client:
+    async with httpx.AsyncClient(timeout=int(os.environ['API_TIMEOUT'])) as client:
         http_res = await client.post(api_url, headers=api_headers, files={'file': (filename, file_ptr)})
 
         if http_res.status_code != 200:
@@ -36,7 +36,7 @@ async def check_doc(chat_doc_uuid: str) -> ServiceResponse:
     api_key = os.environ['CHAT_DOC_API_KEY']
     api_headers = {'Authorization': f"Bearer {api_key}"}
     api_url = f"https://api.chatdoc.com/api/v2/documents/{chat_doc_uuid}"
-    async with httpx.AsyncClient(timeout=60) as client:
+    async with httpx.AsyncClient(timeout=int(os.environ['API_TIMEOUT'])) as client:
         http_res = await client.get(api_url, headers=api_headers)
 
         if http_res.status_code != 200:
@@ -79,7 +79,7 @@ async def scan_doc(doc_id: str, filename: str, iosa_item: IOSAItem) -> ServiceRe
     if nothing documents the REGULATION then just output NONE.
     """
 
-    async with httpx.AsyncClient(timeout=60) as client:
+    async with httpx.AsyncClient(timeout=int(os.environ['API_TIMEOUT'])) as client:
         http_res = await client.post(api_url, headers=api_headers, json={
             "upload_id": doc_id,
             "question": prompt,

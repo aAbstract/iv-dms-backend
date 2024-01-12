@@ -140,7 +140,7 @@ REGULATIONS
         "generationConfig": {"temperature": 0, "candidate_count": 1},
     }
 
-    async with httpx.AsyncClient(timeout=60) as client:
+    async with httpx.AsyncClient(timeout=int(os.environ['API_TIMEOUT'])) as client:
         response = await client.post(url, headers=headers, content=json.dumps(data))
 
         if response.status_code != 200:
