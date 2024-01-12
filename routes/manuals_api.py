@@ -181,7 +181,7 @@ async def scan_pdf(res: Response, regulation_id: str = Body(), checklist_code: s
     """Scan PDF to get a section that documents certain checklist_code.\n
     ===================================================================\n
     interface DocRef {\n
-    [page_number: string]: number[][],\n
+    [page_number: string]: number[ ][ ],\n
     };\n
     interface Match {\n
     text: string,\n
