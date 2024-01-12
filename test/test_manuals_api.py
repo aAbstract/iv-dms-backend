@@ -125,6 +125,7 @@ def test_chat_doc_parse_api():
     json_res_body = json.loads(http_res.content.decode())
     assert json_res_body['success']
     assert 'chat_doc_status' in json_res_body['data']
+    assert json_res_body['data']['chat_doc_status'] in ['PARSED', 'PARSING', 'PARSING_FAILD']
 
 
 def test_chat_doc_scan_api():

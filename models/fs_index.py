@@ -21,12 +21,14 @@ class ChatDOCStatus(str, Enum):
     PARSED = 'PARSED'
     PARSING_FAILD = 'PARSING_FAILD'
 
-
-CHAT_DOC_STATUS_CODE_MAP = {
-    300: ChatDOCStatus.PARSED,
-    1: ChatDOCStatus.PARSING,
-    12: ChatDOCStatus.PARSING,
-}
+    @classmethod
+    def map_status_code(cls, status_code: int):
+        if status_code == 300:
+            return cls.PARSED
+        elif status_code > 0:
+            return cls.PARSING
+        elif status_code < 0:
+            return cls.PARSING_FAILD
 
 
 class FSIndexFile(BaseModel):

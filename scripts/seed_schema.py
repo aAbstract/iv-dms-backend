@@ -253,6 +253,14 @@ seed_fs_index_files = [
         doc_status=ChatDOCStatus.PARSED,
     ),
     FSIndexFile(
+        username='cwael',
+        datetime=datetime.now(),
+        file_type=IndexFileType.AIRLINES_MANUAL,
+        filename='nesma_OMA.pdf',
+        doc_uuid=os.environ['COMPLETE_CHAT_DOC_UUID'],
+        doc_status=ChatDOCStatus.PARSED,
+    ),
+    FSIndexFile(
         username='safwat',
         datetime=datetime.now(),
         file_type=IndexFileType.AIRLINES_MANUAL,
@@ -266,6 +274,14 @@ seed_fs_index_files = [
         file_type=IndexFileType.AIRLINES_MANUAL,
         filename='nesma_org.pdf',
         doc_uuid=os.environ['VALID_CHAT_DOC_UUID'],
+        doc_status=ChatDOCStatus.PARSED,
+    ),
+    FSIndexFile(
+        username='safwat',
+        datetime=datetime.now(),
+        file_type=IndexFileType.AIRLINES_MANUAL,
+        filename='nesma_OMA.pdf',
+        doc_uuid=os.environ['COMPLETE_CHAT_DOC_UUID'],
         doc_status=ChatDOCStatus.PARSED,
     ),
 ]

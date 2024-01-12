@@ -6,7 +6,7 @@ import httpx
 from typing import BinaryIO
 from models.runtime import ServiceResponse
 from models.regulations import IOSAItem
-from models.fs_index import CHAT_DOC_STATUS_CODE_MAP, ChatDOCStatus
+from models.fs_index import ChatDOCStatus
 import lib.log as log_man
 
 
@@ -41,7 +41,9 @@ async def check_doc(chat_doc_uuid: str) -> ServiceResponse:
 
         if http_res.status_code != 200:
             if http_res.status_code == 404 and not chat_doc_enable:
-                return ServiceResponse(msg='ChatDOC API Disabled', data={'chat_doc_status': ChatDOCStatus.PARSED})
+                return ServiceResponse(data={
+                    'chat_doc_status': ChatDOCStatus.map_status_code(300)
+                })
 
             return ServiceResponse(success=False, status_code=http_res.status_code, msg=f"ChatDOC API Error: {http_res.content.decode()}")
 
@@ -49,7 +51,9 @@ async def check_doc(chat_doc_uuid: str) -> ServiceResponse:
         if json_res['status'] != 'ok':
             return ServiceResponse(success=False, status_code=503, msg=f"ChatDOC API Error: {http_res.content.decode()}")
 
-        return ServiceResponse(data={'chat_doc_status': CHAT_DOC_STATUS_CODE_MAP[json_res['data']['status']]})
+        return ServiceResponse(data={
+            'chat_doc_status': ChatDOCStatus.map_status_code(json_res['data']['status'])
+        })
 
 
 async def scan_doc(doc_id: str, filename: str, iosa_item: IOSAItem) -> ServiceResponse:
