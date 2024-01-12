@@ -1,7 +1,7 @@
 [
     {
         "code": "FLT 1",
-        "title": "1 Management and Control",
+        "title": "FLT 1 Management and Control",
         "sub_sections": [
             "1.1 Management System Overview",
             "1.2 State Requirements",
@@ -19,7 +19,7 @@
     },
     {
         "code": "FLT 2",
-        "title": "2 Training and Qualification",
+        "title": "FLT 2 Training and Qualification",
         "sub_sections": [
             "2.1 Training and Evaluation Program",
             "2.2 Training Elements",
@@ -30,7 +30,7 @@
     },
     {
         "code": "FLT 3",
-        "title": "3 Line Operations",
+        "title": "FLT 3 Line Operations",
         "sub_sections": [
             "3.1 Common Language",
             "3.2 Flight Crew Responsibilities",
@@ -51,7 +51,7 @@
     },
     {
         "code": "FLT 4",
-        "title": "4 Operations Engineering Specifications",
+        "title": "FLT 4 Operations Engineering Specifications",
         "sub_sections": [
             "4.1 Aircraft Performance",
             "4.2 Navigation and Facilities",
