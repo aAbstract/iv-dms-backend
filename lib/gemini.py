@@ -142,7 +142,6 @@ REGULATIONS
 
     async with httpx.AsyncClient(timeout=60) as client:
         response = await client.post(url, headers=headers, content=json.dumps(data))
-
         if response.status_code != 200:
             return ServiceResponse(
                 success=False,
@@ -156,12 +155,15 @@ REGULATIONS
             .strip("\n")
             .strip()
         )
-
-        result = json.loads(constraints)
-
-        return ServiceResponse(
-            success=True, msg="Gemini generation successfull", data=result
-        )
+        try:
+            result = json.loads(constraints)
+            return ServiceResponse(
+                success=True, msg="Gemini generation successfull", data=result
+            )
+        except:
+             return ServiceResponse(
+                success=False, msg="Gemini Response Json Parse Failed", data=constraints
+            )
 
 
 async def iosa_audit_text(iosa_item: IOSAItem, text: str) -> ServiceResponse:

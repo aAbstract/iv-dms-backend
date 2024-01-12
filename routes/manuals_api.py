@@ -2,7 +2,7 @@ import os
 from fastapi import APIRouter, Response, UploadFile, Header, Body
 import lib.log as log_man
 import lib.security as security_man
-from models.users import UserRole
+from models.users import UserRole, ApiUsageKey
 from models.httpio import JsonResponse
 from models.fs_index import IndexFileType, FSIndexFile
 from models.regulations import IOSAItem
@@ -10,6 +10,7 @@ import database.manuals_database_api as manuals_database_api
 import database.regulations_database_api as regulations_database_api
 import database.fs_index_database_api as fs_index_database_api
 import lib.chat_doc as chat_doc_man
+import database.activity_database_api as activity_api
 
 
 _ROOT_ROUTE = f"{os.getenv('API_ROOT')}/manuals"
@@ -43,7 +44,18 @@ async def parse_pdf(file: UploadFile, res: Response, x_auth=Header(alias='X-Auth
             success=cd_service_response.success,
             msg=cd_service_response.msg,
         )
-
+    
+    # incriminate llm API usage
+    activity_service_response = await activity_api.increment_activity(
+        auth_service_response.data["token_claims"]["username"], ApiUsageKey.CHATDOC_PARSE_DOCS
+    )
+    if not activity_service_response.success:
+        res.status_code = activity_service_response.status_code
+        return JsonResponse(
+            success=activity_service_response.success,
+            msg=activity_service_response.msg,
+        )
+    
     # save file to server
     username = auth_service_response.data['token_claims']['username']
     fs_service_response = await fs_index_database_api.create_fs_index_entry(username, IndexFileType.AIRLINES_MANUAL, file.filename, cd_service_response.data['chat_doc_uuid'], file.file.read())
@@ -215,7 +227,18 @@ async def scan_pdf(res: Response, regulation_id: str = Body(), checklist_code: s
             success=db_service_response.success,
             msg=db_service_response.msg,
         )
-    iosa_checklist: IOSAItem = db_service_response.data['iosa_checklist']
+    iosa_checklist: IOSAItem = db_service_response.data["iosa_checklist"]
+
+    # incriminate llm API usage
+    activity_service_response = await activity_api.increment_activity(
+        auth_service_response.data["token_claims"]["username"], ApiUsageKey.CHATDOC_SCAN_DOCS
+    )
+    if not activity_service_response.success:
+        res.status_code = activity_service_response.status_code
+        return JsonResponse(
+            success=activity_service_response.success,
+            msg=activity_service_response.msg,
+        )
 
     cd_service_response = await chat_doc_man.scan_doc(fs_index_entry.chat_doc_uuid, fs_index_entry.filename, iosa_checklist)
     if not cd_service_response.success:
@@ -246,11 +269,22 @@ async def check_pdf(res: Response, doc_uuid: str = Body(embed=True), x_auth=Head
             msg=auth_service_response.msg,
         )
 
+    # incriminate llm API usage
+    activity_service_response = await activity_api.increment_activity(
+        auth_service_response.data["token_claims"]["username"], ApiUsageKey.CHATDOC_CHECK_DOCS
+    )
+    if not activity_service_response.success:
+        res.status_code = activity_service_response.status_code
+        return JsonResponse(
+            success=activity_service_response.success,
+            msg=activity_service_response.msg,
+        )
+
     cd_service_response = await chat_doc_man.check_doc(doc_uuid)
     if not cd_service_response.success:
         res.status_code = cd_service_response.status_code
         return JsonResponse(
             success=cd_service_response.success,
             msg=cd_service_response.msg,
-        )
+        ) 
     return JsonResponse(data=cd_service_response.data)

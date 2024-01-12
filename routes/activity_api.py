@@ -39,3 +39,29 @@ async def get_logs(res: Response, limit: int = Body(embed=True), x_auth=Header(a
             msg=db_service_response.msg,
         )
     return JsonResponse(data=db_service_response.data)
+
+@router.post(f"{_ROOT_ROUTE}/get-user-activity")
+async def get_user_activity(res: Response, x_auth=Header(alias='X-Auth', default=None)) -> JsonResponse:
+    """Get user AI activity.\n
+    Returns: {..., data: {logs: <{id: string, level: string, description: string, datetime: Date, source: string}>[]}}
+    """
+    func_id = f"{_MODULE_ID}.get-user-activity"
+    # authorize user
+    auth_service_response = await security_man.authorize_api(x_auth, _ALLOWED_USERS, func_id)
+    if not auth_service_response.success:
+        res.status_code = auth_service_response.status_code
+        return JsonResponse(
+            success=auth_service_response.success,
+            msg=auth_service_response.msg,
+        )
+    await log_man.add_log(func_id, 'DEBUG', f"received get logs request: username={auth_service_response.data['token_claims']['username']}")
+
+    # get activity logs
+    db_service_response = await activity_database_api.get_activity(auth_service_response.data['token_claims']['username'])
+    if not db_service_response.success:
+        res.status_code = db_service_response.status_code
+        return JsonResponse(
+            success=db_service_response.success,
+            msg=db_service_response.msg,
+        )
+    return JsonResponse(data=db_service_response.data)

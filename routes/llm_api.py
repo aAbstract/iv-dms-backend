@@ -2,12 +2,12 @@ import os
 from fastapi import APIRouter, Response, Body, Header
 import lib.log as log_man
 import database.regulations_database_api as regulations_database_api
-from models.users import UserRole
+from models.users import UserRole, ApiUsageKey
 from models.regulations import IOSAItem
 from models.httpio import JsonResponse
 import lib.security as security_man
 import lib.gemini as gemini_man
-
+import database.activity_database_api as activity_api
 
 _ROOT_ROUTE = f"{os.getenv('API_ROOT')}/llm"
 _MODULE_ID = 'routes.llm_api'
@@ -53,8 +53,19 @@ async def iosa_audit(res: Response, regulation_id: str = Body(), checklist_code:
             success=db_service_response.success,
             msg=db_service_response.msg,
         )
-    iosa_checklist: IOSAItem = db_service_response.data['iosa_checklist']
+    iosa_checklist: IOSAItem = db_service_response.data["iosa_checklist"]
 
+    # incriminate llm API usage
+    activity_service_response = await activity_api.increment_activity(
+        auth_service_response.data["token_claims"]["username"], ApiUsageKey.GEMINI_AUDITS
+    )
+    if not activity_service_response.success:
+        res.status_code = activity_service_response.status_code
+        return JsonResponse(
+            success=activity_service_response.success,
+            msg=activity_service_response.msg,
+        )
+    
     # call llm api
     llm_service_response = await gemini_man.iosa_audit_text(iosa_checklist, text)
     if not llm_service_response.success:
