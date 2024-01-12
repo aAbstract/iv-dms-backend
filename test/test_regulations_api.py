@@ -221,6 +221,7 @@ def test_get_checklist_template_2():
         chl_temp = json_res['data']['checklist_template']
         obj_keys = set(chl_temp.keys())
         assert obj_keys == {'applicability', 'sub_sections', 'type', 'title', 'general_guidance'}
+        assert chl_temp['title'] == '3 Line Operations'
 
         if len(chl_temp['sub_sections']) > 0:
             sub_section = chl_temp['sub_sections'][0]

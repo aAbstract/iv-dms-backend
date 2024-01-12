@@ -56,9 +56,8 @@ async def scan_doc(doc_id: str, filename: str, iosa_item: IOSAItem) -> ServiceRe
     chat_doc_enable = int(os.environ['CHAT_DOC_ENABLE'])
     if not chat_doc_enable:
         return ServiceResponse(data={
-            'is_found': True,
-            'text': 'NONE',
-            'doc_ref': {},
+            'matches': [{'text': 'ChatDOC API Disabled', 'refs': [0]}],
+            'doc_refs': [],
         })
 
     api_key = os.environ['CHAT_DOC_API_KEY']
@@ -106,6 +105,10 @@ async def scan_doc(doc_id: str, filename: str, iosa_item: IOSAItem) -> ServiceRe
             obj_keys = set(model_json_answer[0].keys())
             if obj_keys != {'text', 'refs'}:
                 return ServiceResponse(success=False, status_code=503, msg='Invalid ChatDOC API Response')
+
+        # clean refs
+        for match in model_json_answer:
+            match['refs'] = [x for x in match['refs'] if isinstance(x, int)]
 
         return ServiceResponse(data={
             'matches': model_json_answer,

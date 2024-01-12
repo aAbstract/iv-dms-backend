@@ -118,7 +118,7 @@ async def get_checklist_template(regulation_id: str, checklist_template_code: st
     if ' ' not in checklist_template_code:
         return ServiceResponse(success=False, msg='Bad Checklist Template Code', status_code=400)
 
-    section_code, section_index = checklist_template_code.split(' ')
+    section_code, _ = checklist_template_code.split(' ')
     iosa_section = await get_database().get_collection('regulations').find_one({'_id': bson_id, 'sections.code': section_code}, projection={"_id": 0, "sections.$": 1})
     if not iosa_section:
         return ServiceResponse(success=False, msg='Regulation Checklist Code not Found', status_code=404)
@@ -129,13 +129,7 @@ async def get_checklist_template(regulation_id: str, checklist_template_code: st
     iosa_section = IOSASection.model_validate(iosa_section['sections'][0])
 
     # construct report template
-    template_title = 'NULL'
-    if len(iosa_section.items) > 0:
-        if len(iosa_section.items[0].iosa_map) > 0:
-            template_title = iosa_section.items[0].iosa_map[1]
-
     report_template = ReportTemplate(
-        title=template_title,
         type=RegulationType.IOSA,
         applicability=iosa_section.applicability,
         general_guidance=iosa_section.guidance,
@@ -144,6 +138,8 @@ async def get_checklist_template(regulation_id: str, checklist_template_code: st
     sub_section_iosa_item_map = {}
     for item in iosa_section.items:
         if item.code.startswith(checklist_template_code):
+            if not report_template.title:
+                report_template.title = item.iosa_map[0]
             sub_section_title = item.iosa_map[1]
 
             if not sub_section_title in sub_section_iosa_item_map:

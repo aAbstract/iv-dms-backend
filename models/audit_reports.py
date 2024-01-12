@@ -1,3 +1,4 @@
+from typing import Optional
 from pydantic import BaseModel
 from models.regulations import RegulationType, IOSAItem
 
@@ -8,7 +9,7 @@ class ReportSubSection(BaseModel):
 
 
 class ReportTemplate(BaseModel):
-    title: str
+    title: Optional[str] = None
     type: RegulationType
     applicability: str
     general_guidance: str
