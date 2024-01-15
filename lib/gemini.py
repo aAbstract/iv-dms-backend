@@ -10,7 +10,7 @@ score_tags_text_map: dict[str, str] = {
     LLMAuditScore.IRRELEVANT: "The input regulation's topics are unrelated to the input manual",
     LLMAuditScore.PARTIAL: "Some of the input regulation's topics are related to the input manual",
     LLMAuditScore.DOCUMENTED: "The input regulations document all the topics mentioned in the manual",
-    LLMAuditScore.ACTIVE: "The input regulations actively document all the topics mentioned in the manual",
+    LLMAuditScore.CONFORMITY: "The input regulations actively document all the topics mentioned in the manual",
 }
 
 
@@ -22,7 +22,7 @@ def count_score_list_explain(result: json):
         LLMAuditScore.IRRELEVANT.value: 0,
         LLMAuditScore.PARTIAL.value: 0,
         LLMAuditScore.DOCUMENTED.value: 0,
-        LLMAuditScore.ACTIVE.value: 0,
+        LLMAuditScore.CONFORMITY.value: 0,
     }
 
     for i in result:
@@ -50,7 +50,7 @@ def count_score_list_explain(result: json):
     total_scores = []
     total_weights = []
     for k, v in score_count_map.items():
-        if k == LLMAuditScore.ACTIVE.value:
+        if k == LLMAuditScore.CONFORMITY.value:
             for i in range(v):
                 total_scores.append(1)
                 total_weights.append(0.5)
@@ -90,44 +90,38 @@ def count_score_list_explain(result: json):
 
 
 async def gemini_generate(IOSA_checklist: str, user_input: str):
-    prompt = f"""You are a semantic simularity calculator that finds the semantic simularity <score> between the IOSA sections and the user's REGULATIONS
-You must replace each <score> token in the input IOSA object to be equal to on of four <score> options that represents the semantic simularity between the "text" key and the REGULATIONS
+    prompt = f"""You are a semantic simularity calculator that finds the semantic simularity <score> between the IOSA sections and the user's MANUAL
+You must replace each <score> token in the input IOSA object to be equal to on of four <score> options that represents the semantic simularity between the "text" key and the MANUAL
 and must replace each <explanation> token with a text explaining why you choose this <score> in high detail.
 ensure to do this with all "text" keys that are present in the IOSA object.
 The output strictly must be a JSON object just like the input IOSA object but with each <score> and <explanation> token having assigned a value.
 You can only output a "IRRELEVANT" in the <score> key and explain why incase they match EXAMPLE 1 or incase you don't know the answer,
 and output a "PARTIAL" in the <score> key and explain why incase they match EXAMPLE 2,
 and output a "DOCUMENTED" in the <score> key and explain why incase they match EXAMPLE 3,
-and output a "ACTIVE" in the <score> key and explain why incase they match EXAMPLE 4.
-
-### EXAMPLE 1 (The REGULATIONS only mention all topics unrelated to the IOSA)###
+and output a "CONFORMITY" in the <score> key and explain why incase they match EXAMPLE 4.
+### EXAMPLE 1 (The MANUAL only mention all topics unrelated to the IOSA)###
 IOSA
 - a sufficient number of workers must be assigned for each truck, workers must shower on a daily basis
-REGULATIONS
+MANUAL
 - The workshop will be cleaned on a daily basis, food will be served everyday
-
-### EXAMPLE 2 (The REGULATIONS only mention some topics unrelated to the IOSA)###
+### EXAMPLE 2 (The MANUAL only mention some topics unrelated to the IOSA)###
 IOSA
 - a sufficient number of workers must be assigned for each truck, workers must shower on a daily basis
-REGULATIONS
+MANUAL
 - we will have some workers for each truck, food will be served everyday
-
-### EXAMPLE 3 (The REGULATIONS only document all the topics mentioned in the IOSA)###
+### EXAMPLE 3 (The MANUAL only document all the topics mentioned in the IOSA)###
 IOSA
 - a sufficient number of workers must be assigned for each truck, workers must shower on a daily basis
-REGULATIONS
+MANUAL
 - we will have some workers for each truck, workers will shower
-
-### EXAMPLE 4 (The REGULATIONS only actively document all the topics mentioned in the IOSA)###
+### EXAMPLE 4 (The MANUAL only actively document all the topics mentioned in the IOSA)###
 IOSA
 - a sufficient number of workers must be assigned for each truck, workers must shower on a daily basis
-REGULATIONS
+MANUAL
 - we will have 1 to 2 workers for each truck, workers will shower everyday at least once
-
 ### IOSA ###
 {IOSA_checklist}
-
-### REGULATIONS ###
+### MANUAL ###
 {user_input}
 """
 

@@ -43,7 +43,11 @@ async def get_logs(res: Response, limit: int = Body(embed=True), x_auth=Header(a
 @router.post(f"{_ROOT_ROUTE}/get-user-activity")
 async def get_user_activity(res: Response, x_auth=Header(alias='X-Auth', default=None)) -> JsonResponse:
     """Get user AI activity.\n
-    Returns: {..., data: {logs: <{id: string, level: string, description: string, datetime: Date, source: string}>[]}}
+    Returns: {..., data: {\n
+        gemini_audits: int,
+        chatdoc_parse_docs: int,
+        chatdoc_check_docs: int,
+        chatdoc_scan_docs: int}}
     """
     func_id = f"{_MODULE_ID}.get-user-activity"
     # authorize user

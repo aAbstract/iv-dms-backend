@@ -1,6 +1,7 @@
 import requests
 import json
-
+import os
+from pymongo import MongoClient
 
 _SERVER_ADDR = '127.0.0.1'
 _SERVER_PORT = 8080
@@ -23,6 +24,14 @@ def login_user(username: str, password: str) -> str:
     http_res = requests.post(api_url, json=json_req_body)
     json_res_body = json.loads(http_res.content.decode())
     return json_res_body['data']['access_token']
+
+def get_database():
+    connection_string = f"mongodb://{os.environ['MDB_USERNAME']}:{os.environ['MDB_PASSWORD']}@127.0.0.1"
+    mdb_client = MongoClient(connection_string)
+
+    if mdb_client:
+        return mdb_client[os.environ['IVDMS_DB']]
+    return None
 
 
 # test data

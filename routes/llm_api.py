@@ -27,7 +27,7 @@ async def iosa_audit(res: Response, regulation_id: str = Body(), checklist_code:
     };\n
     =================================================================\n
     Returns: {..., data: {\n
-    score_tag: 'IRRELEVANT' | 'PARTIAL' | 'DOCUMENTED' | 'ACTIVE'\n
+    score_tag: 'IRRELEVANT' | 'PARTIAL' | 'DOCUMENTED' | 'CONFORMITY'\n
     score_text: string,\n
     summary: string,\n
     details: LLMIOSAItemResponse[],\n

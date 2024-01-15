@@ -1,7 +1,7 @@
 from models.runtime import ServiceResponse
 from database.mongo_driver import get_database
 from models.logs import Log
-from models.users import User, ApiUsageKey
+from models.users import User
 
 async def get_logs(length: int) -> ServiceResponse:
     logs = await get_database().get_collection('logs').find({}, {

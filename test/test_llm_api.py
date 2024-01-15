@@ -1,7 +1,7 @@
 import json
 import requests
 import _test_config
-
+from models.users import User
 
 def test_llm_api_lock():
     api_url = f"{_test_config.get_api_url()}/llm/iosa-audit"
@@ -41,3 +41,21 @@ def test_llm_api_success():
     assert 'llm_resp' in json_res_body['data']
     obj_keys = set(json_res_body['data']['llm_resp'])
     assert obj_keys == {'details', 'score', 'score_tag', 'score_text', 'summary'}
+    
+    # reset user    
+    get_database = _test_config.get_database() 
+    assert get_database != None
+
+    user = get_database["users"].find_one({"username": 'cwael'})
+
+    user = User.model_validate(user).model_dump()
+
+    gemini_audits = user['activity']['gemini_audits']
+    user['activity']['gemini_audits'] -= 1
+    get_database["users"].update_one({"username": "cwael"},{"$set": user})
+
+    user = get_database["users"].find_one({"username": "cwael"})
+
+    user = User.model_validate(user).model_dump()
+
+    assert user['activity']['gemini_audits'] == (gemini_audits - 1)

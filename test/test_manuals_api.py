@@ -3,7 +3,7 @@ import json
 import requests
 from dotenv import load_dotenv
 import _test_config
-
+from models.users import User
 
 def test_parse_pdf_api_lock():
     api_url = f"{_test_config.get_api_url()}/manuals/parse-pdf"
@@ -12,7 +12,6 @@ def test_parse_pdf_api_lock():
     assert http_res.status_code == 403
     json_res_body = json.loads(http_res.content.decode())
     assert (not json_res_body['success'] and json_res_body['msg'] == 'Unauthorized API Access [Invalid Token]')
-
 
 def test_get_page_api_lock():
     api_url = f"{_test_config.get_api_url()}/manuals/get-page"
@@ -24,7 +23,6 @@ def test_get_page_api_lock():
     assert http_res.status_code == 403
     json_res_body = json.loads(http_res.content.decode())
     assert (not json_res_body['success'] and json_res_body['msg'] == 'Unauthorized API Access [Invalid Token]')
-
 
 def test_get_page_api_manual_not_found():
     api_url = f"{_test_config.get_api_url()}/manuals/get-page"
@@ -45,7 +43,6 @@ def test_get_page_api_manual_not_found():
     assert http_res.status_code == 400
     json_res_body = json.loads(http_res.content.decode())
     assert (not json_res_body['success'] and json_res_body['msg'] == 'Bad Manual ID')
-
 
 def test_get_page_api_success():
     access_token = _test_config.login_user('cwael', 'CgJhxwieCc7QEyN3BB7pmvy9MMpseMPV')
@@ -72,7 +69,6 @@ def test_get_page_api_success():
     assert json_res_body['success']
     assert 'page' in json_res_body['data']
 
-
 def test_get_meta_data_api_lock():
     api_url = f"{_test_config.get_api_url()}/manuals/get-meta-data"
     http_headers = {'X-Auth': 'Bearer fake_token'}
@@ -80,7 +76,6 @@ def test_get_meta_data_api_lock():
     assert http_res.status_code == 403
     json_res_body = json.loads(http_res.content.decode())
     assert (not json_res_body['success'] and json_res_body['msg'] == 'Unauthorized API Access [Invalid Token]')
-
 
 def test_get_meta_data_api_success():
     access_token = _test_config.login_user('cwael', 'CgJhxwieCc7QEyN3BB7pmvy9MMpseMPV')
@@ -106,7 +101,6 @@ def test_get_meta_data_api_success():
     manual_meta_data = json_res_body['data']['manual_meta_data']
     assert ('id' in manual_meta_data and 'name' in manual_meta_data and 'page_count' in manual_meta_data)
 
-
 def test_chat_doc_parse_api():
     # test parse doc
     access_token = _test_config.login_user('cwael', 'CgJhxwieCc7QEyN3BB7pmvy9MMpseMPV')
@@ -126,6 +120,28 @@ def test_chat_doc_parse_api():
     assert json_res_body['success']
     assert 'chat_doc_status' in json_res_body['data']
 
+    # reset user    
+    get_database = _test_config.get_database() 
+    assert get_database != None
+
+    user = get_database["users"].find_one({"username": 'cwael'})
+
+    user = User.model_validate(user).model_dump()
+
+    chatdoc_check_docs = user['activity']['chatdoc_check_docs']
+    chatdoc_parse_docs = user['activity']['chatdoc_parse_docs']
+
+    user['activity']['chatdoc_check_docs'] -= 1
+    user['activity']['chatdoc_parse_docs'] -= 1
+
+    get_database["users"].update_one({"username": "cwael"},{"$set": user})
+
+    user = get_database["users"].find_one({"username": "cwael"})
+
+    user = User.model_validate(user).model_dump()
+
+    assert user['activity']['chatdoc_check_docs'] == (chatdoc_check_docs - 1)
+    assert user['activity']['chatdoc_parse_docs'] == (chatdoc_parse_docs - 1)
 
 def test_chat_doc_scan_api():
     load_dotenv()
@@ -156,6 +172,24 @@ def test_chat_doc_scan_api():
         assert 'text' in json_res_body['data']
         assert 'doc_ref' in json_res_body['data']
 
+    # reset user    
+    get_database = _test_config.get_database() 
+    assert get_database != None
+
+    user = get_database["users"].find_one({"username": 'cwael'})
+
+    user = User.model_validate(user).model_dump()
+
+    chatdoc_scan_docs = user['activity']['chatdoc_scan_docs']
+
+    user['activity']['chatdoc_scan_docs'] -= 1
+    get_database["users"].update_one({"username": 'cwael'},{"$set": user})
+
+    user = get_database["users"].find_one({"username": 'cwael'})
+
+    user = User.model_validate(user).model_dump()
+
+    assert user['activity']['chatdoc_scan_docs'] == (chatdoc_scan_docs - 1)
 
 def test_chat_doc_parse_api_bad_file_type():
     access_token = _test_config.login_user('cwael', 'CgJhxwieCc7QEyN3BB7pmvy9MMpseMPV')
@@ -165,3 +199,22 @@ def test_chat_doc_parse_api_bad_file_type():
     assert http_res.status_code == 409
     json_res_body = json.loads(http_res.content.decode())
     assert (not json_res_body['success'] and json_res_body['msg'] == 'Bad File Extention')
+
+    # reset user    
+    get_database = _test_config.get_database() 
+    assert get_database != None
+
+    user = get_database["users"].find_one({"username": 'cwael'})
+
+    user = User.model_validate(user).model_dump()
+
+    chatdoc_parse_docs = user['activity']['chatdoc_parse_docs']
+    
+    user['activity']['chatdoc_parse_docs'] -= 1
+
+    get_database["users"].update_one({"username": "cwael"},{"$set": user})
+
+    user = get_database["users"].find_one({"username": "cwael"})
+
+    user = User.model_validate(user).model_dump()
+    assert user['activity']['chatdoc_parse_docs'] == (chatdoc_parse_docs - 1)
