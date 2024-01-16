@@ -65,4 +65,7 @@ def test_get_ai_task_status_api_success():
     assert http_res.status_code == 200
     json_res_body = json.loads(http_res.content.decode())
     assert 'ai_task_status' in json_res_body['data']
+    assert 'json_res' in json_res_body['data']
+    json_res_keys = set(json_res_body['data']['json_res'].keys())
+    assert json_res_keys == {'success', 'msg', 'data'}
     assert json_res_body['data']['ai_task_status'] == target_ai_task['task_status']

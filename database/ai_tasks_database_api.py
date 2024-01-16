@@ -16,7 +16,7 @@ async def get_ai_task_status(task_id: str, username: str) -> ServiceResponse:
 
     return ServiceResponse(data={
         'ai_task_status': ai_task['task_status'],
-        'json_resp': ai_task['json_resp'],
+        'json_res': ai_task['json_res'],
     })
 
 
@@ -32,12 +32,12 @@ async def set_ai_task_status(task_id: str, new_status: AITaskStatus) -> ServiceR
     return ServiceResponse(msg='OK')
 
 
-async def set_ai_task_resp(task_id: str, resp: JsonResponse) -> ServiceResponse:
+async def set_ai_task_resp(task_id: str, res: JsonResponse) -> ServiceResponse:
     bson_id = validate_bson_id(task_id)
     if not bson_id:
         return ServiceResponse(success=False, msg='Bad Task ID', status_code=400)
 
-    mdb_result = await get_database().get_collection('ai_tasks').update_one({'_id': bson_id}, {'$set': {'json_resp': resp.model_dump()}})
+    mdb_result = await get_database().get_collection('ai_tasks').update_one({'_id': bson_id}, {'$set': {'json_res': res.model_dump()}})
     if mdb_result.modified_count != 1:
         return ServiceResponse(success=False, status_code=409, msg='Can not Change this AI Task JSON Response')
 
@@ -66,7 +66,7 @@ async def create_ai_task(username: str, task_type: AITaskType) -> ServiceRespons
         end_datetime=None,
         task_type=task_type,
         task_status=AITaskStatus.IN_PROGRESS,
-        json_resp=JsonResponse(),
+        json_res=JsonResponse(),
     )
 
     mdb_result = await get_database().get_collection('ai_tasks').insert_one(task.model_dump())

@@ -15,11 +15,19 @@ router = APIRouter()
 
 @router.post(f"{_ROOT_ROUTE}/check-task")
 async def check_task(res: Response, task_id: str = Body(embed=True), x_auth=Header(alias='X-Auth', default=None)) -> JsonResponse:
-    """Returns AI task status with given task_id.\n
-    =====================\n
-    TODO
-    =====================\n
-    Returns: TODO
+    """Gets AI task status with given task_id.\n
+    ==========================================\n
+    type AITaskStatus = 'IN_PROGRESS' | 'FINISHED' | 'FAILD';\n
+    interface JsonResponse {\n
+    success: boolean,\n
+    msg: string,\n
+    data: Object,\n
+    };\n
+    ==========================================\n
+    Returns: {..., data: {\n
+    ai_task_status: AITaskStatus,\n
+    json_res: JsonResponse,\n
+    }}\n
     """
     func_id = f"{_MODULE_ID}.check_task"
 
@@ -48,11 +56,21 @@ async def check_task(res: Response, task_id: str = Body(embed=True), x_auth=Head
 
 @router.post(f"{_ROOT_ROUTE}/get-all-tasks")
 async def get_all_tasks(res: Response, x_auth=Header(alias='X-Auth', default=None)) -> JsonResponse:
-    """Returns all AI tasks in the system for certain username.\n
-    =====================\n
-    TODO
-    =====================\n
-    Returns: TODO
+    """Gets all AI tasks in the system for certain username.\n
+    ========================================================\n
+    type AITaskStatus = 'IN_PROGRESS' | 'FINISHED' | 'FAILD';\n
+    type AITaskType = 'COMPLIANCE_CHECK' | 'PARSING_PDF' | 'SCANNING_PDF';\n
+    interface AITask {\n
+    id: string,\n
+    start_datetime: Date,\n
+    end_datetime: Date,\n
+    task_type: AITaskType,\n
+    task_status: AITaskStatus,\n
+    };\n
+    =========================================================\n
+    Returns: {..., data: {\n
+    ai_tasks: AITask[],\n
+    }}\n
     """
     func_id = f"{_MODULE_ID}.get_all_tasks"
 

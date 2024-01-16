@@ -24,4 +24,4 @@ class AITask(BaseModel):
     end_datetime: Optional[datetime]
     task_type: AITaskType
     task_status: AITaskStatus
-    json_resp: JsonResponse
+    json_res: JsonResponse

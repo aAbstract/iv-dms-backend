@@ -300,7 +300,7 @@ seed_ai_tasks = [
         end_datetime=datetime.now(),
         task_type=AITaskType.COMPLIANCE_CHECK,
         task_status=AITaskStatus.FINISHED,
-        json_resp=JsonResponse(),
+        json_res=JsonResponse(),
     ),
     AITask(
         username='safwat',
@@ -308,7 +308,7 @@ seed_ai_tasks = [
         end_datetime=datetime.now(),
         task_type=AITaskType.COMPLIANCE_CHECK,
         task_status=AITaskStatus.FINISHED,
-        json_resp=JsonResponse(),
+        json_res=JsonResponse(),
     ),
 ]
 

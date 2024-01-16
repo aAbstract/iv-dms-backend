@@ -15,7 +15,7 @@ from models.gpt_35t import *
 # autopep8: on
 
 
-gpt35t_json_resp = {
+gpt35t_json_res = {
     "compliance_scores": {
         "Operator shall have an initial training program for instructors, evaluators and line check airmen": {
             "i) An instructor course": {
@@ -61,16 +61,15 @@ def parse_scores_tree(scores_tree: dict) -> list[GTP35TIOSAItemResponse]:
     return items
 
 
-def gpt35t_output_format(llm_json_resp: dict) -> GPT35TAuditResponse:
-    scores_tree = llm_json_resp['compliance_scores']
-    comments = llm_json_resp['comments']
+def gpt35t_output_format(llm_json_res: dict) -> GPT35TAuditResponse:
+    scores_tree = llm_json_res['compliance_scores']
+    comments = llm_json_res['comments']
     details = parse_scores_tree(scores_tree)
-
-    resp = GPT35TAuditResponse(
+    return GPT35TAuditResponse(
         score=agg_score(details),
         comments=comments,
         details=details
     )
 
 
-gpt35t_output_format(gpt35t_json_resp)
+gpt35t_output_format(gpt35t_json_res)

@@ -162,9 +162,9 @@ def test_chat_doc_scan_api():
         assert http_res.status_code == 200
         json_res_body = json.loads(http_res.content.decode())
         assert 'ai_task_status' in json_res_body['data']
-        assert 'json_resp' in json_res_body['data']
+        assert 'json_res' in json_res_body['data']
         task_status = json_res_body['data']['ai_task_status']
-        task_resp = json_res_body['data']['json_resp']
+        task_resp = json_res_body['data']['json_res']
         if task_status != 'IN_PROGRESS':
             break
         time.sleep(5)

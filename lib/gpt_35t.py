@@ -53,9 +53,9 @@ def parse_scores_tree(scores_tree: dict) -> list[GTP35TIOSAItemResponse]:
     return items
 
 
-def gpt35t_parse_resp(llm_json_resp: dict) -> GPT35TAuditResponse:
-    scores_tree = llm_json_resp['compliance_scores']
-    comments = llm_json_resp['comments']
+def gpt35t_parse_resp(llm_json_res: dict) -> GPT35TAuditResponse:
+    scores_tree = llm_json_res['compliance_scores']
+    comments = llm_json_res['comments']
     details = parse_scores_tree(scores_tree)
     return GPT35TAuditResponse(
         score=agg_score(details),
@@ -139,18 +139,18 @@ async def iosa_audit_text(iosa_item: IOSAItem, input_text: str) -> ServiceRespon
             ),
         })
 
-    resp = await gpt35t_generate(iosa_item.paragraph, input_text)
-    if not resp.success:
-        return resp
+    res = await gpt35t_generate(iosa_item.paragraph, input_text)
+    if not res.success:
+        return res
 
     try:
-        gpt35t_json_resp = json.loads(resp.data['gpt35t_resp'])
+        gpt35t_json_res = json.loads(res.data['gpt35t_resp'])
     except:
         return ServiceResponse(success=False, status_code=503, msg='LLM 35T-1106 JSON Parse Error')
 
-    output_keys = set(gpt35t_json_resp.keys())
+    output_keys = set(gpt35t_json_res.keys())
     if output_keys != {'compliance_scores', 'comments', 'suggestions', 'modified'}:
         return ServiceResponse(success=False, status_code=503, msg=f"LLM 35T-1106 Error: missing output key, output_keys={output_keys}")
 
-    parsed_resp = gpt35t_parse_resp(gpt35t_json_resp)
+    parsed_resp = gpt35t_parse_resp(gpt35t_json_res)
     return ServiceResponse(data={'llm_resp': parsed_resp})
