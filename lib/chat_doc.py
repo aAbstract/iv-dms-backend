@@ -1,3 +1,4 @@
+import time
 import re
 from uuid import uuid4
 import json
@@ -7,7 +8,9 @@ from typing import BinaryIO
 from models.runtime import ServiceResponse
 from models.regulations import IOSAItem
 from models.fs_index import ChatDOCStatus
-import lib.log as log_man
+from models.ai_tasks import AITaskStatus
+from models.httpio import JsonResponse
+import database.ai_tasks_database_api as ai_tasks_database_api
 
 
 async def parse_doc(filename: str, file_ptr: BinaryIO) -> ServiceResponse:
@@ -56,29 +59,35 @@ async def check_doc(chat_doc_uuid: str) -> ServiceResponse:
         })
 
 
-async def scan_doc(doc_id: str, filename: str, iosa_item: IOSAItem) -> ServiceResponse:
+async def scan_doc(doc_id: str, filename: str, iosa_item: IOSAItem, ai_task_id: str):
     chat_doc_enable = int(os.environ['CHAT_DOC_ENABLE'])
     if not chat_doc_enable:
-        return ServiceResponse(data={
-            'matches': [{'text': 'ChatDOC API Disabled', 'refs': [0]}],
-            'doc_refs': [],
-        })
+        await ai_tasks_database_api.set_ai_task_status(ai_task_id, AITaskStatus.FINISHED)
+        await ai_tasks_database_api.set_ai_task_resp(ai_task_id, JsonResponse(data={
+            'matches': [{'text': 'ChatDOC API Disabled', 'refs': []}],
+        }))
+        return
 
     api_key = os.environ['CHAT_DOC_API_KEY']
     api_headers = {'Authorization': f"Bearer {api_key}"}
     api_url = 'https://api.chatdoc.com/api/v2/questions'
-    prompt = f"""
-    given this REGULATION
+    prompt = f"""Given this IOSA flight operations standards:
     "{iosa_item.paragraph}"
 
-    extract from file "{filename}" best sections that documents this REGULATION.
+    extract from file "{filename}" best sections that documents these standards.
     output format must only be a json list.
     each object in the list has these keys: text, refs.
-    text: the text that documents this REGULATION.
+    text: the text that documents these standards.
     refs: a list of references where this text is located in file "{filename}".
-    if nothing documents the REGULATION then just output NONE.
-    """
+    if nothing documents these standards then just output NONE."""
 
+    llm_debug = int(os.environ['LLM_DEBUG'])
+    if llm_debug:
+        print('=' * 100)
+        print(prompt)
+        print('=' * 100)
+
+    llm_start = time.time()
     async with httpx.AsyncClient(timeout=int(os.environ['API_TIMEOUT'])) as client:
         http_res = await client.post(api_url, headers=api_headers, json={
             "upload_id": doc_id,
@@ -90,12 +99,20 @@ async def scan_doc(doc_id: str, filename: str, iosa_item: IOSAItem) -> ServiceRe
             "model_type": "gpt-4"
         })
 
+        if llm_debug:
+            print(f"CHAT_DOC_GPT_4 reponse time: {time.time() - llm_start}s")
+            print('-' * 100)
+
         if http_res.status_code != 200:
-            return ServiceResponse(success=False, status_code=http_res.status_code, msg=f"ChatDOC API Error: {http_res.content.decode()}")
+            await ai_tasks_database_api.set_ai_task_status(ai_task_id, AITaskStatus.FAILD)
+            await ai_tasks_database_api.set_ai_task_resp(ai_task_id, JsonResponse(success=False, msg=f"ChatDOC API Error: {http_res.content.decode()}"))
+            return
 
         json_res = json.loads(http_res.content.decode())
         if json_res['status'] != 'ok':
-            return ServiceResponse(success=False, status_code=503, msg=f"ChatDOC API Error: {http_res.content.decode()}")
+            await ai_tasks_database_api.set_ai_task_status(ai_task_id, AITaskStatus.FAILD)
+            await ai_tasks_database_api.set_ai_task_resp(ai_task_id, JsonResponse(success=False, msg=f"ChatDOC API Error: {http_res.content.decode()}"))
+            return
 
         # clean answer text
         model_answer = re.sub(r'\["[0-9]+"\]', '', json_res['data']['answer'])
@@ -103,19 +120,21 @@ async def scan_doc(doc_id: str, filename: str, iosa_item: IOSAItem) -> ServiceRe
         try:
             model_json_answer = json.loads(model_answer)
         except:
-            await log_man.add_log('lib.chat_doc.scan_doc', 'ERROR', f"chat_doc api parse error: {json_res['data']['answer']}")
-            return ServiceResponse(success=False, status_code=503, msg='ChatDOC API Parse Error')
+            await ai_tasks_database_api.set_ai_task_status(ai_task_id, AITaskStatus.FAILD)
+            await ai_tasks_database_api.set_ai_task_resp(ai_task_id, JsonResponse(success=False, msg='ChatDOC API Parse Error'))
+            return
 
         if len(model_json_answer) > 0:
             obj_keys = set(model_json_answer[0].keys())
             if obj_keys != {'text', 'refs'}:
-                return ServiceResponse(success=False, status_code=503, msg='Invalid ChatDOC API Response')
+                await ai_tasks_database_api.set_ai_task_status(ai_task_id, AITaskStatus.FAILD)
+                await ai_tasks_database_api.set_ai_task_resp(ai_task_id, JsonResponse(success=False, msg='Invalid ChatDOC API Response'))
+                return
 
-        # clean refs
         for match in model_json_answer:
-            match['refs'] = [x for x in match['refs'] if isinstance(x, int)]
+            match['refs'] = [json_res['data']['source_info'][x - 1] for x in match['refs'] if isinstance(x, int)]  # map source info
+            match['refs'] = [int(list(x.keys())[0]) + 1 for x in match['refs']]  # map source info to page numbers
+            match['refs'] = list(set(match['refs']))  # extract unique page numbers
 
-        return ServiceResponse(data={
-            'matches': model_json_answer,
-            'doc_refs': json_res['data']['source_info'],
-        })
+        await ai_tasks_database_api.set_ai_task_status(ai_task_id, AITaskStatus.FINISHED)
+        await ai_tasks_database_api.set_ai_task_resp(ai_task_id, JsonResponse(data={'matches': model_json_answer}))

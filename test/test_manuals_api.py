@@ -1,3 +1,4 @@
+import time
 import os
 import json
 import requests
@@ -147,16 +148,31 @@ def test_chat_doc_scan_api():
     http_res = requests.post(api_url, headers=http_headers, json={
         'regulation_id': regulation_id,
         'checklist_code': 'FLT 3.1.1',
-        'doc_uuid': '4aa2d2c4-0355-413e-8a1b-a7f87cb85098',
+        'doc_uuid': os.environ['COMPLETE_CHAT_DOC_UUID'],
     })
     assert http_res.status_code == 200
     json_res_body = json.loads(http_res.content.decode())
     assert json_res_body['success']
-    assert 'matches' in json_res_body['data']
-    assert 'doc_refs' in json_res_body['data']
-    if len(json_res_body['data']['matches']) > 0:
-        example_match = json_res_body['data']['matches'][0]
-        obj_keys = set(example_match.keys())
+    assert 'ai_task_id' in json_res_body['data']
+    ai_task_id = json_res_body['data']['ai_task_id']
+
+    while True:
+        api_url = f"{_test_config.get_api_url()}/ai-tasks/check-task"
+        http_res = requests.post(api_url, headers=http_headers, json={'task_id': ai_task_id})
+        assert http_res.status_code == 200
+        json_res_body = json.loads(http_res.content.decode())
+        assert 'ai_task_status' in json_res_body['data']
+        assert 'json_resp' in json_res_body['data']
+        task_status = json_res_body['data']['ai_task_status']
+        task_resp = json_res_body['data']['json_resp']
+        if task_status != 'IN_PROGRESS':
+            break
+        time.sleep(5)
+
+    # check task_resp structure
+    assert 'matches' in task_resp['data']
+    if len(task_resp['data']['matches']) > 0:
+        obj_keys = set(task_resp['data']['matches'][0])
         assert obj_keys == {'text', 'refs'}
 
 

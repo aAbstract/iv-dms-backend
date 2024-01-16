@@ -1,5 +1,5 @@
 import os
-from fastapi import APIRouter, Response, UploadFile, Header, Body
+from fastapi import APIRouter, Response, UploadFile, Header, Body, BackgroundTasks
 import lib.log as log_man
 import lib.security as security_man
 from models.users import UserRole
@@ -10,6 +10,8 @@ import database.manuals_database_api as manuals_database_api
 import database.regulations_database_api as regulations_database_api
 import database.fs_index_database_api as fs_index_database_api
 import lib.chat_doc as chat_doc_man
+import database.ai_tasks_database_api as ai_tasks_database_api
+from models.ai_tasks import AITaskType
 
 
 _ROOT_ROUTE = f"{os.getenv('API_ROOT')}/manuals"
@@ -177,7 +179,7 @@ async def get_options(res: Response, x_auth=Header(alias='X-Auth', default=None)
 
 
 @router.post(f"{_ROOT_ROUTE}/scan-pdf")
-async def scan_pdf(res: Response, regulation_id: str = Body(), checklist_code: str = Body(), doc_uuid: str = Body(), x_auth=Header(alias='X-Auth', default=None)) -> JsonResponse:
+async def scan_pdf(res: Response, background_tasks: BackgroundTasks, regulation_id: str = Body(), checklist_code: str = Body(), doc_uuid: str = Body(), x_auth=Header(alias='X-Auth', default=None)) -> JsonResponse:
     """Scan PDF to get a section that documents certain checklist_code.\n
     ===================================================================\n
     interface DocRef {\n
@@ -225,14 +227,20 @@ async def scan_pdf(res: Response, regulation_id: str = Body(), checklist_code: s
         )
     iosa_checklist: IOSAItem = db_service_response.data['iosa_checklist']
 
-    cd_service_response = await chat_doc_man.scan_doc(fs_index_entry.doc_uuid, fs_index_entry.filename, iosa_checklist)
-    if not cd_service_response.success:
-        res.status_code = db_service_response.status_code
+    # create AI task
+    username = auth_service_response.data['token_claims']['username']
+    ait_db_service_response = await ai_tasks_database_api.create_ai_task(username, AITaskType.SCANNING_PDF)
+    if not ait_db_service_response.success:
+        res.status_code = ait_db_service_response.status_code
         return JsonResponse(
-            success=cd_service_response.success,
-            msg=cd_service_response.msg,
+            success=ait_db_service_response.success,
+            msg=ait_db_service_response.msg,
         )
-    return JsonResponse(data=cd_service_response.data)
+
+    # run FastAPI background task
+    ai_task_id = ait_db_service_response.data['ai_task_id']
+    background_tasks.add_task(chat_doc_man.scan_doc, fs_index_entry.doc_uuid, fs_index_entry.filename, iosa_checklist, ai_task_id)
+    return JsonResponse(data={'ai_task_id': ai_task_id})
 
 
 @router.post(f"{_ROOT_ROUTE}/check-pdf")

@@ -11,3 +11,9 @@
 add_user_account(username='aelhennawy', password='ssw5b8FC7MfZ4XeaiYSLzbYZZDzBY4aX', disp_name='Amr Elhennawy', user_role=UserRole.AUDITOR)
 
 [x['code'] for x in iosa_section['sections']]
+
+- updated color cores
+    - 'NON_COMPLIANT': '#DD2C00'
+    - 'PARTIALLY_COMPLIANT': '#F57F17'
+    - 'FULLY_COMPLIANT': '#CDDC39'
+    - default: '#757575'

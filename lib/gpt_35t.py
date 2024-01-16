@@ -11,7 +11,7 @@ openai_client = AsyncOpenAI(api_key=os.environ['GPT_35T_API_KEY'])
 
 
 def agg_score(items: list[GTP35TIOSAItemResponse]) -> GPT35TAuditScore:
-    """ computes GPT35T aggregate score TODO-GALAL """
+    """ computes GPT35T aggregate score TODO-LATER-GALAL """
     if len(items) == 0:
         return GPT35TAuditScore.NONE
 
@@ -19,7 +19,7 @@ def agg_score(items: list[GTP35TIOSAItemResponse]) -> GPT35TAuditScore:
 
 
 def agg_pct_score(items: list[GTP35TIOSAItemResponse]) -> float:
-    """ computes GPT35T  aggregate score TODO-GALAL """
+    """ computes GPT35T  aggregate score TODO-LATER-GALAL """
     if len(items) == 0:
         return 0
 
