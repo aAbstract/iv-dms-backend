@@ -18,7 +18,6 @@ async def authorize_api(auth: str, allowed_roles: list[UserRole], func_id: str) 
         return ServiceResponse(success=False, msg=err_msg, status_code=401)
 
     # validate authorization header
-    token_claims = None
     try:
         access_token = _parse_auth_token(auth)
         token_claims = crypto_man.decode_jwt_token(access_token)

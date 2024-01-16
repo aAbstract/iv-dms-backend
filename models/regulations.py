@@ -1,6 +1,7 @@
 from typing import Optional
 from pydantic import BaseModel
 from enum import Enum
+from datetime import datetime
 
 
 class RegulationType(str, Enum):
@@ -36,6 +37,7 @@ class IOSARegulation(BaseModel):
     id: Optional[str] = None
     type: RegulationType = RegulationType.IOSA
     name: str
+    effective_date: datetime
     sections: list[IOSASection]
 
     class Config:
@@ -46,6 +48,7 @@ class RegulationsMetaData(BaseModel):
     id: Optional[str] = None
     type: RegulationType
     name: str
+    effective_date: datetime
 
     class Config:
         use_enum_values = True

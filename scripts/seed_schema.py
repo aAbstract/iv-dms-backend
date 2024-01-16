@@ -18,6 +18,7 @@ from models.regulations import *
 from models.manuals import *
 from models.logs import *
 from models.fs_index import *
+from models.ai_tasks import *
 # autopep8: on
 
 
@@ -63,7 +64,7 @@ seed_users = [
 
 # regulations schema
 seed_regulations = [
-    IOSARegulation(type=RegulationType.IOSA, name='IOSA Standards Manual (ISM) Ed 15', sections=[
+    IOSARegulation(type=RegulationType.IOSA, name='IOSA Standards Manual (ISM) Ed 15', effective_date=datetime.strptime('1 Nov 2023', '%d %b %Y'), sections=[
         IOSASection(
             name="Section 2 Flight Operations",
             code="FLT",
@@ -218,7 +219,12 @@ seed_regulations = [
             ],
         ),
     ]),
-    IOSARegulation(type=RegulationType.IOSA, name='IOSA Standards Manual (ISM) Ed 16-Revision2', sections=[])
+    IOSARegulation(
+        type=RegulationType.IOSA,
+        name='IOSA Standards Manual (ISM) Ed 16-Revision2',
+        effective_date=datetime.strptime('1 Nov 2023', '%d %b %Y'),
+        sections=[]
+    )
 ]
 
 # unstructured manuals schema
@@ -286,6 +292,26 @@ seed_fs_index_files = [
     ),
 ]
 
+# seed ai tasks schema
+seed_ai_tasks = [
+    AITask(
+        username='cwael',
+        start_datetime=datetime.now(),
+        end_datetime=datetime.now(),
+        task_type=AITaskType.COMPLIANCE_CHECK,
+        task_status=AITaskStatus.FINISHED,
+        json_resp=JsonResponse(),
+    ),
+    AITask(
+        username='safwat',
+        start_datetime=datetime.now(),
+        end_datetime=datetime.now(),
+        task_type=AITaskType.COMPLIANCE_CHECK,
+        task_status=AITaskStatus.FINISHED,
+        json_resp=JsonResponse(),
+    ),
+]
+
 # system logs schema
 seed_log = Log(
     datetime=datetime.now(),
@@ -329,6 +355,11 @@ def seed_routine():
     db.get_collection('fs_index').create_index('doc_uuid', unique=False)
     db.get_collection('fs_index').create_index('username', unique=False)
     db.get_collection('fs_index').create_index('filename', unique=False)
+
+    print('seeding ai tasks...')
+    db.get_collection('ai_tasks').insert_many([x.model_dump() for x in seed_ai_tasks])
+    print('creating ai tasks indexes...')
+    db.get_collection('ai_tasks').create_index('username', unique=False)
 
     print('seeding logs...')
     db.get_collection('logs').insert_one(seed_log.model_dump())

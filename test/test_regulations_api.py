@@ -24,7 +24,7 @@ def test_get_options_api_success():
     if len(json_res_body['data']['regulations_options']) > 0:
         regulations_option = json_res_body['data']['regulations_options'][0]
         obj_keys = set(regulations_option.keys())
-        assert obj_keys == {'id', 'type', 'name'}
+        assert obj_keys == {'id', 'type', 'name', 'effective_date'}
 
 
 def test_get_codes_api_lock():

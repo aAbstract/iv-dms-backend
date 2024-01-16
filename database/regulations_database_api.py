@@ -11,6 +11,7 @@ async def get_regulations_options() -> ServiceResponse:
                 'id': {'$toString': '$_id'},
                 'type': 1,
                 'name': 1,
+                'effective_date': 1,
             },
         },
     ]

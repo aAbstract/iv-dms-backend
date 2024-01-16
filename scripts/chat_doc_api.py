@@ -47,13 +47,13 @@ def ask_doc(doc_id: str, question: str):
     json_req = {
         "upload_id": doc_id,
         "question": question,
-        "stream": False,
+        "stream": True,
         "search_entire_doc": True,
         "detailed_citation": True,
         "language": "en",
         "model_type": "gpt-4"
     }
-    http_res = requests.post(ASK_API, headers=API_HEADERS, json=json_req)
+    http_res = requests.post(ASK_API, headers=API_HEADERS, json=json_req, stream=True)
     json_res = json.loads(http_res.content.decode())
     print(json.dumps(json_res, indent=2))
 

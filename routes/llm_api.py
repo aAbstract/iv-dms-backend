@@ -7,6 +7,7 @@ from models.regulations import IOSAItem
 from models.httpio import JsonResponse
 import lib.security as security_man
 import lib.gemini as gemini_man
+import lib.gpt_35t as gpt_35t_man
 
 
 _ROOT_ROUTE = f"{os.getenv('API_ROOT')}/llm"
@@ -21,20 +22,24 @@ async def iosa_audit(res: Response, regulation_id: str = Body(), checklist_code:
     =================================================================\n
     interface LLMIOSAItemResponse {\n
     text: string,\n
-    explanation: string,\n
-    score: string,\n
+    score: 3 | 2 | 1 | 0,\n
+    score_tag: 'FULLY_COMPLIANT' | 'PARTIALLY_COMPLIANT' | 'NON_COMPLIANT' | 'NONE',\n
+    score_text: string,\n
+    pct_score: float,\n
     children: LLMIOSAItemResponse[],\n
     };\n
     =================================================================\n
     Returns: {..., data: {\n
-    score_tag: 'IRRELEVANT' | 'PARTIAL' | 'DOCUMENTED' | 'ACTIVE'\n
+    score: 3 | 2 | 1 | 0,\n
+    score_tag: 'FULLY_COMPLIANT' | 'PARTIALLY_COMPLIANT' | 'NON_COMPLIANT' | 'NONE',\n
     score_text: string,\n
-    summary: string,\n
+    pct_score: float,\n
+    comments: string,\n
     details: LLMIOSAItemResponse[],\n
     }}\n
     """
     func_id = f"{_MODULE_ID}.iosa_audit"
-    await log_man.add_log(func_id, 'DEBUG', f"received iosa audit request: regulation_id={regulation_id}, checklist_code={checklist_code}, text={text}")
+    await log_man.add_log(func_id, 'DEBUG', f"received iosa audit request: regulation_id={regulation_id}, checklist_code={checklist_code}")
 
     # authorize user
     auth_service_response = await security_man.authorize_api(x_auth, _ALLOWED_USERS, func_id)
@@ -56,7 +61,7 @@ async def iosa_audit(res: Response, regulation_id: str = Body(), checklist_code:
     iosa_checklist: IOSAItem = db_service_response.data['iosa_checklist']
 
     # call llm api
-    llm_service_response = await gemini_man.iosa_audit_text(iosa_checklist, text)
+    llm_service_response = await gpt_35t_man.iosa_audit_text(iosa_checklist, text)
     if not llm_service_response.success:
         res.status_code = llm_service_response.status_code
         return JsonResponse(

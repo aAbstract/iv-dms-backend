@@ -4,7 +4,7 @@ import aiofiles.os
 from datetime import datetime
 from models.fs_index import FSIndexFile, IndexFileType, FILE_TYPE_PATH_MAP, ChatDOCStatus
 from models.runtime import ServiceResponse
-from database.mongo_driver import get_database, validate_bson_id
+from database.mongo_driver import get_database
 
 
 _PUBLIC_DIR = 'public'
