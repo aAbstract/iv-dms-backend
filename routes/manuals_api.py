@@ -182,17 +182,13 @@ async def get_options(res: Response, x_auth=Header(alias='X-Auth', default=None)
 async def scan_pdf(res: Response, background_tasks: BackgroundTasks, regulation_id: str = Body(), checklist_code: str = Body(), doc_uuid: str = Body(), x_auth=Header(alias='X-Auth', default=None)) -> JsonResponse:
     """Scan PDF to get a section that documents certain checklist_code.\n
     ===================================================================\n
-    interface DocRef {\n
-    [page_number: string]: number[ ][ ],\n
-    };\n
     interface Match {\n
     text: string,\n
-    refs: number[], // IEEE ref indexes\n
+    refs: number[], // list of page numbers\n
     };\n
     ===================================================================\n
     Returns: {..., data: {\n
     matches: Match[],\n
-    doc_refs: DocRef[],\n
     }}
     """
     func_id = f"{_MODULE_ID}.scan_pdf"
