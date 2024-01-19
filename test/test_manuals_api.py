@@ -206,4 +206,4 @@ def test_get_user_manuals_api_success():
     if len(json_res_body['data']['files']) > 0:
         example_file = json_res_body['data']['files'][0]
         obj_keys = set(example_file.keys())
-        assert obj_keys == {'doc_status', 'filename', 'datetime', 'id', 'doc_uuid', 'username', 'file_type'}
+        assert obj_keys == {'doc_status', 'filename', 'datetime', 'id', 'doc_uuid', 'url_path', 'username', 'file_type'}

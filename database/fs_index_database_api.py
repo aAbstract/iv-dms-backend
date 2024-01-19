@@ -97,5 +97,8 @@ async def get_user_manuals(username: str) -> ServiceResponse:
         'doc_uuid': 1,
         'doc_status': 1,
     }).sort({'datetime': -1}).to_list(length=None)
-    files = [FSIndexFile.model_validate(x) for x in files]
+
+    for file in files:
+        file['url_path'] = f"/airlines_files/manuals/{file['id']}.pdf"
+
     return ServiceResponse(data={'files': files})

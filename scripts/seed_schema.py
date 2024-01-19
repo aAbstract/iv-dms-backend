@@ -3,6 +3,7 @@ import json
 import os
 import sys
 import pymongo
+import shutil
 from dotenv import load_dotenv
 def load_root_path():
     file_dir = os.path.abspath(__file__)
@@ -350,7 +351,15 @@ def seed_routine():
     db.get_collection('unstructured_manuals').create_index('name', unique=True)
 
     print('seeding fs index...')
-    db.get_collection('fs_index').insert_many([x.model_dump() for x in seed_fs_index_files])
+    for fs_index_entry in seed_fs_index_files:
+        mdb_result = db.get_collection('fs_index').insert_one(fs_index_entry.model_dump())
+        file_id = str(mdb_result.inserted_id)
+        filename = fs_index_entry.filename
+        src_path = f"{os.environ['ENV_DATA']}/{filename}"
+        dst_path = f"public/airlines_files/manuals/{file_id}.pdf"
+        shutil.copy2(src_path, dst_path)
+        print(f"file map {src_path} -> {dst_path}")
+
     print('creating fs index indexes...')
     db.get_collection('fs_index').create_index('doc_uuid', unique=False)
     db.get_collection('fs_index').create_index('username', unique=False)
