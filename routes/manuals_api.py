@@ -279,7 +279,7 @@ async def get_manuals(res: Response, x_auth=Header(alias='X-Auth', default=None)
     file_type: IndexFileType, // 'AIRLINES_MANUAL' | 'AIRLINES_ATTACHMENT'\n
     filename: string,\n
     doc_uuid: string,\n
-    url_path: string,\n // a link to the PDF file on the server
+    url_path: string, // a link to the PDF file on the server\n
     doc_status: ChatDOCStatus, // 'PARSED' | 'PARSING' | 'PARSING_FAILD'\n
     };\n
     =============================================\n
