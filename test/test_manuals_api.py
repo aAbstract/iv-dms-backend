@@ -207,3 +207,8 @@ def test_get_user_manuals_api_success():
         example_file = json_res_body['data']['files'][0]
         obj_keys = set(example_file.keys())
         assert obj_keys == {'doc_status', 'filename', 'datetime', 'id', 'doc_uuid', 'url_path', 'username', 'file_type'}
+
+        # test url path
+        file_url = f"{_test_config.get_file_server_url()}{example_file['url_path']}"
+        http_res = requests.get(file_url)
+        assert http_res.status_code == 200
