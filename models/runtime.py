@@ -3,6 +3,7 @@ from pydantic import BaseModel
 
 
 class ServiceResponse(BaseModel):
+    # TODO: Change This
     success: Optional[bool] = True
     status_code: Optional[int] = 200
     msg: Optional[str] = ''

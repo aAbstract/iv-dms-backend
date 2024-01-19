@@ -16,11 +16,10 @@ def get_file_server_url():
 
 def login_user(username: str, password: str) -> str:
     api_url = f"{get_api_url()}/auth/login"
-    json_req_body = {
+    http_res = requests.post(api_url, json={
         'username': username,
         'password': password,
-    }
-    http_res = requests.post(api_url, json=json_req_body)
+    })
     json_res_body = json.loads(http_res.content.decode())
     return json_res_body['data']['access_token']
 

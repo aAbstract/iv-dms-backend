@@ -55,6 +55,8 @@ class GPT35TAuditResponse(BaseModel):
     score: GPT35TAuditScore
     pct_score: float
     comments: str
+    suggestions: str
+    modified: str
     details: list[GTP35TIOSAItemResponse] = []
 
     @computed_field

@@ -56,12 +56,16 @@ def parse_scores_tree(scores_tree: dict) -> list[GTP35TIOSAItemResponse]:
 def gpt35t_parse_resp(llm_json_res: dict) -> GPT35TAuditResponse:
     scores_tree = llm_json_res['compliance_scores']
     comments = llm_json_res['comments']
+    suggestions = llm_json_res['suggestions']
+    modified = llm_json_res['modified']
     details = parse_scores_tree(scores_tree)
     return GPT35TAuditResponse(
         score=agg_score(details),
         pct_score=agg_pct_score(details),
         comments=comments,
-        details=details
+        suggestions=suggestions,
+        modified=modified,
+        details=details,
     )
 
 
@@ -135,6 +139,8 @@ async def iosa_audit_text(iosa_item: IOSAItem, input_text: str) -> ServiceRespon
                 score=0,
                 pct_score=0,
                 comments='LLM 35T-1106 Disabled',
+                suggestions='No Suggestions',
+                modified='No Modification',
                 details=[],
             ),
         })

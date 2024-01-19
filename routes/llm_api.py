@@ -35,6 +35,8 @@ async def iosa_audit(res: Response, regulation_id: str = Body(), checklist_code:
     score_text: string,\n
     pct_score: float,\n
     comments: string,\n
+    suggestions: string,\n
+    modified: string,\n
     details: LLMIOSAItemResponse[],\n
     }}\n
     """
