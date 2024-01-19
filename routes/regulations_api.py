@@ -21,6 +21,7 @@ async def get_options(res: Response, x_auth=Header(alias='X-Auth', default=None)
     id: string,\n
     type: string,\n
     name: string,\n
+    effective_date: Date,\n
     };\n
     =============================================\n
     Returns: {..., data: {regulations_options: RegulationsOption[]}}
