@@ -64,7 +64,7 @@ async def scan_doc(doc_id: str, filename: str, iosa_item: IOSAItem, ai_task_id: 
     if not chat_doc_enable:
         await ai_tasks_database_api.set_ai_task_status(ai_task_id, AITaskStatus.FINISHED)
         await ai_tasks_database_api.set_ai_task_resp(ai_task_id, JsonResponse(data={
-            'matches': [{'text': 'ChatDOC API Disabled', 'refs': []}],
+            'matches': [{'text': 'ChatDOC API Disabled', 'refs': [0]}],
         }))
         return
 

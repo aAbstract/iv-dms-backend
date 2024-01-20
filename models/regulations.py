@@ -12,9 +12,6 @@ class RegulationType(str, Enum):
 class Constrain(BaseModel):
     text: str
     children: list['Constrain'] = []
-    # LLM placeholder tokens
-    score: str = '<score>'
-    explanation: str = '<explanation>'
 
 
 class IOSAItem(BaseModel):

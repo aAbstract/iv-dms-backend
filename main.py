@@ -29,8 +29,8 @@ async def lifespan(app: FastAPI):
 
 server = FastAPI(
     title='IV DMS Backend',
-    description='Added Checklist Effective Date (Updated Docs)',
-    version="0.30.2",
+    description='Tuned GPT-35-TURBO-1106 Hyperparameters',
+    version="0.30.3",
     lifespan=lifespan,
 )
 server.add_middleware(

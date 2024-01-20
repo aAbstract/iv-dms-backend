@@ -46,7 +46,7 @@ def parse_scores_tree(scores_tree: dict) -> list[GTP35TIOSAItemResponse]:
                 GTP35TIOSAItemResponse(
                     text=key,
                     score=value,
-                    pct_score=(value / GPT35T_MAX_SCORE),
+                    pct_score=((value - 1) / (GPT35T_MAX_SCORE - 1)),
                 )
             )
 
@@ -106,11 +106,9 @@ async def gpt35t_generate(iosa_checklist: str, input_text: str) -> ServiceRespon
             model='gpt-3.5-turbo-1106',
             response_format={'type': 'json_object'},
             n=1,
-            temperature=0,
-            seed=0,
-            top_p=1,
-            frequency_penalty=0,
-            presence_penalty=0,
+            temperature=0.2,
+            frequency_penalty=0.2,
+            presence_penalty=0.3,
             timeout=int(os.environ['API_TIMEOUT']),
             messages=[
                 {'role': 'system', 'content': 'You are an expert IATA Operational Safety Auditor'},
@@ -134,10 +132,14 @@ async def gpt35t_generate(iosa_checklist: str, input_text: str) -> ServiceRespon
 async def iosa_audit_text(iosa_item: IOSAItem, input_text: str) -> ServiceResponse:
     gpt35t_enable = int(os.environ['GPT_35T_ENABLE'])
     if not gpt35t_enable:
+        dummy_scores_map = {
+            'FLT 3.1.1': 0.9,
+            'FLT 2.1.35': 0.1,
+        }
         return ServiceResponse(data={
             'llm_resp': GPT35TAuditResponse(
                 score=0,
-                pct_score=0,
+                pct_score=dummy_scores_map.get(iosa_item.code, 0),
                 comments='LLM 35T-1106 Disabled',
                 suggestions='No Suggestions',
                 modified='No Modification',

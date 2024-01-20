@@ -22,7 +22,7 @@ class ChatDOCStatus(str, Enum):
     PARSING_FAILD = 'PARSING_FAILD'
 
     @classmethod
-    def map_status_code(cls, status_code: int):
+    def map_status_code(cls, status_code: int) -> 'ChatDOCStatus':
         if status_code == 300:
             return cls.PARSED
         elif status_code > 0:
