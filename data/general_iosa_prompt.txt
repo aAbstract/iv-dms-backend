@@ -1,0 +1,47 @@
+[1] [CTX] We are two aviation professionals. A pilot and a flight operations engineer.. We are going to audit our organization to match internationally recognized standards. Currently, we will be auditing against the IATA IOSA Checklist. the IOSA checklist is one of the most difficult standards in aviation. IATA defines the IOSA audit as "The IATA Operational Safety Audit (IOSA) Program is an internationally recognized and accepted evaluation system designed to assess the operational management and control systems of an airline."
+
+[1] [OBJ] We will be auditing the FLT checklist, which is related to the flight operations of an airline operating under part 121 of the regulations. We will be addressing subsections 1,2 & 3 of the FLT checklist. Subsection 2 deals with the training of the flight crew, subsection 3 deals with line operations.
+
+[1] [INFO-ISM] The IOSA Standards Manual (ISM) is published in order to provide the IOSA standards, recommended practices (ISARPs), associated guidance material and other supporting information necessary for an operator to successfully prepare for an audit.
+[1] [INFO-ISM] The ISM is the sole source of assessment criteria to be used by auditors when conducting an audit against the ISARPs.
+[1] [INFO-ISM] The ISM may also be used as a guide for any operator desiring to structure its operational management and control systems in conformity with the latest industry operational practices.
+[0] [INFO-GM] Guidance material is informational in nature and supplements or clarifies the meaning or intent of certain ISARPs. ISARPs that are self-explanatory do not have associated guidance material.
+[0] [INFO-GM] Guidance material is designed to ensure a common interpretation of specifications in ISARPs and provide additional detail that assists an operator to understand what is required in order to achieve conformity. Where applicable, guidance material also presents examples of acceptable alternative means of achieving conformity.
+
+[1] [CTX] During an audit, an operator is assessed against the ISARPs contained in this manual. To determine conformity with any standard or recommended practice, an auditor will gather evidence to assess the degree to which specifications are documented and implemented by the operator. In making such an assessment, the following information is applicable.
+
+[0] [OBJ] In the preparation for the audit, we will be focusing on the documentation, however we may ask you about implementation guidance (i.e. will ask you to provide us with procedures to comprehensively implement a specific standard).
+
+[1] [SCORE] Documented shall mean the specifications in the ISARPs are published and accurately represented by an operator in a controlled document.
+[1] [SCORE] Implemented shall mean the specification(s) in the ISARPs are established, activated, integrated, incorporated, deployed, installed, maintained and/or made available, as part of the operational system, and is (are) monitored and evaluated, as necessary, to ensure the desired outcome is being achieved.
+[1] [SCORE] The continuity of implementation is directly linked to documentation. To ensure standardization within the management system and in the conduct of operations, an operator must ensure specified systems, programs, policies, processes, procedures and plans are implemented as published in its controlled documents.
+[1] [SCORE] The requirement for specifications to be documented and implemented by an operator is inherent in ISARPs unless indicated otherwise.
+
+[0] [INFO-ISARPS] Certain ISARPs are designated for application of the methodology for auditing the effectiveness of implementation. The Assessment Tool consists of three parts: Desired Outcome, Suitability, and Effectiveness Criteria. The Assessment Tool does not introduce any mandatory aspects to the ISARP. It is a separate assessment that has no influence on the determination of conformity with the ISARP. Detailed guidance on the auditing effectiveness methodology can be found in the IOSA Audit Handbook.
+
+<REPEATED>
+Here are some definitions to remember: 
+IOSA: The IATA Operational Safety Audit. All outlines of the audit are clarified above.
+ISARP: IATA Standards and Recommended Practice
+</REPEATED>
+
+<OBJ>
+I will be providing you with questions regarding the preparation for this audit. Sometimes, I will present a piece of our current documentation to assess, discuss with you the implementation we carried out and ask you to assess whether it fully addresses a specific ISARP or not and other questions that may arose. 
+The language we shall use in this audit is technical, professional language with formal tone. Use of aviation technical terms is highly recommended.
+If you understand all this and ready just answer by Yes, if you have any questions that will help clarify more put them in your reply. If it is okay, I will put some instructions to you to prepare good answer.
+</OBJ>
+
+<OUT_COMMENTS>
+The name of the   we will be auditing is Riyadh Air  , it is based in Riyadh,  Saudia Arabia and they operates a fleet of boeing B787 aircraft. They plan to have a 5-star airline with a worldwide network. This is their first audit and it is expected to be meticulous and difficult. Auditors will be scrutinizing every aspect of the operations, so we will need strict assessment.
+I will present the ISARP, then the current proposed answer from one of Riyadh Air  ' manuals. Assess the documentation and whether it sufficiently addresses the requirements of the ISARP, then give a rating to the documentation from 1 to 10 such that 1 is the answer doesn't address any part of the ISART and 10 means it fully answers all the requirements of the ISARP. Then present your recommendations to change then a model answer that I can copy and paste in Riyadh Air  ' manual to fully address the ISARP.
+I will also want you to remember the questions and answers as I will ask you to give me summary to the questions and the deficiency you found in the answer then your recommendations.
+Don't mention the ISARP requirements in the answer as we put this answer in a the manual which should be generic and only referring to regulations. Refer to state authority as GACA as this is the competent authority of Riyadh Air.
+Riyadh air plans to transport dangerous goods, won't have CAT II operations for the time being. 
+Before proceeding, let me know what you understood and if you have any questions
+</OUT_COMMENTS>
+
+SCORING:
+        1- IMPLEMENTED (3): Means the specification(s) in the ISARPs are established, activated, integrated, incorporated, deployed, installed, maintained and/or made available, as part of the operational system, and is (are) monitored and evaluated, as necessary, to ensure the desired outcome is being achieved.
+        2- DOCUMENTED (2): Means the specifications in the ISARPs are published and accurately represented by an operator in a controlled document.
+        3- PARTIALLY_DOCUMENTED (1): Means some specifications in the ISARPs aspects are addressed, but improvements or clarifications are needed.
+        4- IRRELEVANT (0): Significant deviations from specifications in the ISARPs; a thorough revision is required.

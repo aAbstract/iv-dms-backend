@@ -838,3 +838,28 @@
 #     assert http_res.status_code == 404
 #     json_res_body = json.loads(http_res.content.decode())
 #     assert (not json_res_body['success'] and json_res_body['msg'] == 'File Index not Found')
+
+# 3- Your output must be a valid json object.
+#         4- Here is an example output object:
+#         {{
+#             "compliance_scores": {{
+#                 "i": {{
+#                     "score": number, // estimated compliance score percentage
+#                     "explanation": string // explanation for this item estimated score
+#                 }},
+#                 "ii": {{
+#                     // sub item "a" for item "ii" in ISARPs if exists
+#                     "a": {{
+#                         "score": number, // estimated compliance score percentage
+#                         "explanation": string // explanation for this item estimated score
+#                     }},
+#                     // sub item "b" for item "ii" in ISARPs if exists
+#                     "b": {{
+#                         "score": number, // estimated compliance score percentage
+#                         "explanation": string // explanation for this item estimated score
+#                     }}
+#                 }}
+#             }},
+#             "comments": string, // general explanation for these estimated scores
+#             "suggestions": string // suggestions to improve compliance_scores
+#         }}

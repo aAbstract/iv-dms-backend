@@ -102,7 +102,7 @@ async def gpt35t_generate(iosa_checklist: str, input_text: str) -> ServiceRespon
 
     llm_start = time.time()
     try:
-        gpt_resp = await openai_client.chat.completions.create(
+        gpt_res = await openai_client.chat.completions.create(
             model='gpt-3.5-turbo-1106',
             response_format={'type': 'json_object'},
             n=1,
@@ -120,8 +120,8 @@ async def gpt35t_generate(iosa_checklist: str, input_text: str) -> ServiceRespon
             print(f"GPT_35T_1106 reponse time: {time.time() - llm_start}s")
             print('-' * 100)
 
-        if len(gpt_resp.choices) > 0:
-            return ServiceResponse(data={'gpt35t_resp': gpt_resp.choices[0].message.content})
+        if len(gpt_res.choices) > 0:
+            return ServiceResponse(data={'gpt35t_resp': gpt_res.choices[0].message.content})
         else:
             return ServiceResponse(success=False, status_code=503, msg='LLM 35T-1106 Empty Response')
 
@@ -133,8 +133,8 @@ async def iosa_audit_text(iosa_item: IOSAItem, input_text: str) -> ServiceRespon
     gpt35t_enable = int(os.environ['GPT_35T_ENABLE'])
     if not gpt35t_enable:
         dummy_scores_map = {
-            'FLT 3.1.1': 0.9,
-            'FLT 2.1.35': 0.1,
+            'FLT 3.1.1': 0.8,
+            'FLT 2.1.35': 0.2,
         }
         return ServiceResponse(data={
             'llm_resp': GPT35TAuditResponse(

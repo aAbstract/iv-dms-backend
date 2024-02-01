@@ -1,10 +1,8 @@
-from typing import Optional, Any
 from pydantic import BaseModel
 
 
 class ServiceResponse(BaseModel):
-    # TODO: Change This
-    success: Optional[bool] = True
-    status_code: Optional[int] = 200
-    msg: Optional[str] = ''
-    data: Optional[Any] = {}
+    success: bool = True
+    status_code: int = 200
+    msg: str = ''
+    data: dict = {}

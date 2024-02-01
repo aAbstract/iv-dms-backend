@@ -20,6 +20,7 @@ from models.manuals import *
 from models.logs import *
 from models.fs_index import *
 from models.ai_tasks import *
+from models.gpt_35t import *
 # autopep8: on
 
 
@@ -313,6 +314,34 @@ seed_ai_tasks = [
     ),
 ]
 
+# chat contexts
+seed_gpt35t_context = GPT35TContext(
+    username='cwael',
+    datetime=datetime.now(),
+    conversation=[
+        GPT35TMessage(
+            role=GPT35ContextRole.SYSTEM,
+            content='You are an aviation professionals',
+        ),
+        GPT35TMessage(
+            role=GPT35ContextRole.USER,
+            content='Audit ISARPs: NONE Againest INPUT_TEXT: NONE',
+        ),
+        GPT35TMessage(
+            role=GPT35ContextRole.ASSISTANT,
+            content='Dummy GPT35-TURBO-1106 Response',
+        ),
+        GPT35TMessage(
+            role=GPT35ContextRole.USER,
+            content='Ehannce these audit results',
+        ),
+        GPT35TMessage(
+            role=GPT35ContextRole.ASSISTANT,
+            content='Dummy GPT35-TURBO-1106 Response',
+        ),
+    ],
+)
+
 # system logs schema
 seed_log = Log(
     datetime=datetime.now(),
@@ -369,6 +398,10 @@ def seed_routine():
     db.get_collection('ai_tasks').insert_many([x.model_dump() for x in seed_ai_tasks])
     print('creating ai tasks indexes...')
     db.get_collection('ai_tasks').create_index('username', unique=False)
+
+    print('seeding chat contexts...')
+    db.get_collection('gpt35t_contexts').insert_one(seed_gpt35t_context.model_dump())
+    db.get_collection('gpt35t_contexts').create_index('username', unique=False)
 
     print('seeding logs...')
     db.get_collection('logs').insert_one(seed_log.model_dump())

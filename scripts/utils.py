@@ -12,6 +12,7 @@ def load_root_path():
 load_root_path()
 load_dotenv()
 from models.gpt_35t import *
+from models.regulations import *
 # autopep8: on
 
 
@@ -40,6 +41,51 @@ gpt35t_json_res = {
     "suggestions": "To improve compliance, the training program should be structured and detailed, covering all the required elements as per the IOSA standards. Specific training content and procedures need to be clearly defined and documented.",
     "modified": "The provided paragraph does not fully comply with the IOSA Flight Operations standards. It lacks specific details and structured training programs for instructors, evaluators, and line check airmen. To improve compliance, the training program should be structured and detailed, covering all the required elements as per the IOSA standards. Specific training content and procedures need to be clearly defined and documented."
 }
+
+flt_2_1_35 = IOSAItem(
+    code='FLT 2.1.35',
+    guidance='',
+    iosa_map=[],
+    paragraph='',
+    constraints=[
+        Constrain(
+            text='The Operator shall have an initial training program for instructors, evaluators and line check airmen,to include:',
+            children=[
+                Constrain(
+                    text='An instructor course that addresses as a minimum',
+                    children=[
+                        Constrain(text='The fundamentals of teaching and evaluation'),
+                        Constrain(text='Lesson plan management'),
+                        Constrain(text='Briefing and debriefing'),
+                        Constrain(text='Human performance issues'),
+                        Constrain(text='Company policies and procedures'),
+                        Constrain(text='Simulator serviceability and training in simulator operation'),
+                        Constrain(text='If the Operator conducts training flights, dangers associated with simulating system failures in flight'),
+                        Constrain(text='As applicable, the simulated or actual weather and environmental conditions necessary to conduct each simulator or aircraft training/evaluation session to be administered'),
+                    ],
+                )
+            ],
+        ),
+        Constrain(text='The Operator shall have a management system for the flight operations organization that ensures control of flight operations and the management of safety and security outcomes.'),
+    ],
+)
+
+flt_3_1_1 = IOSAItem(
+    code="FLT 3.1.1",
+    guidance="Refer to the IRM for the definitions of Operations and Operator.",
+    iosa_map=["3 Line Operations", "3.1 Common Language"],
+    paragraph='',
+    constraints=[
+        Constrain(
+            text="The Operator shall ensure the designation of a common language(s) for use by all flight crew members for communication:",
+            children=[
+                Constrain(text="On the flight deck during line operations"),
+                Constrain(text="If the Operator conducts passenger flights with cabin crew, between the flight crew and cabin crew during line operations"),
+                Constrain(text="During flight crew training and evaluation activities"),
+            ],
+        ),
+    ],
+)
 
 
 def agg_score(items: list[GTP35TIOSAItemResponse]):
@@ -72,4 +118,7 @@ def gpt35t_output_format(llm_json_res: dict) -> GPT35TAuditResponse:
     )
 
 
-gpt35t_output_format(gpt35t_json_res)
+def create_output_json_template(iosa_item: IOSAItem):
+    pass
+
+# gpt35t_output_format(gpt35t_json_res)

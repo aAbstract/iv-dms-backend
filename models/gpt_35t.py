@@ -1,5 +1,7 @@
 from pydantic import BaseModel, computed_field
+from typing import Optional
 from enum import Enum
+from datetime import datetime
 
 
 GPT35T_MAX_SCORE = 3
@@ -68,3 +70,24 @@ class GPT35TAuditResponse(BaseModel):
     @property
     def score_text(self) -> str:
         return GPT35TAuditScore.trans_audit_score(self.score)
+
+
+class GPT35ContextRole(str, Enum):
+    SYSTEM = 'system'
+    USER = 'user'
+    ASSISTANT = 'assistant'
+
+
+class GPT35TMessage(BaseModel):
+    role: GPT35ContextRole
+    content: str
+
+    class Config:
+        use_enum_values = True
+
+
+class GPT35TContext(BaseModel):
+    id: Optional[str] = None
+    username: str
+    datetime: datetime
+    conversation: list[GPT35TMessage]
