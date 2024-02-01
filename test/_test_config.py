@@ -17,11 +17,10 @@ def get_file_server_url():
 
 def login_user(username: str, password: str) -> str:
     api_url = f"{get_api_url()}/auth/login"
-    json_req_body = {
+    http_res = requests.post(api_url, json={
         'username': username,
         'password': password,
-    }
-    http_res = requests.post(api_url, json=json_req_body)
+    })
     json_res_body = json.loads(http_res.content.decode())
     return json_res_body['data']['access_token']
 
@@ -73,3 +72,25 @@ policy in (type rated contract pilot) in 1.7.11 shall apply.
 according to ICAO standards in order to be able to:
 1) Communicate effectively during their operation.
 2) Understand information in the company F.O.M'''
+
+dummy_prompt = """The module used to set the rules by which the system will restrict crew assignment. Rule set
+management is used to enter crew assignment regulations and standards. Rule setting
+compliance with regulations is the responsibility of the chief pilot and shall be restricted to his
+access. Crew scheduling department shall have no access to change the rules."""
+
+valid_prompt = """English and Arabic are the designated common language used by all Nesma Airlines flight
+crewmembers for communication.
+Personnel who demonstrate proficiency below expert level (ICAO Level 6) should be formally
+evaluated at intervals in accordance with ECAR 63.9 and ICAO Annex 1 item 1.2.9.6 as
+follows:
+▪ Those demonstrated language proficiency at the operational level (Level 4) should be
+evaluated at least once every three years
+▪ Those demonstrated language proficiency at the operational level (Level 5) should be
+evaluated at least once every six years
+ECAA requires level four of English language as a minimum level. All operational
+communications shall be established and maintained in English:
+1. On the flight deck during line operation.
+2. Between flight crew and cabin crew during line operation.
+3. During flight crew training and evaluation activities.
+4. In normal operations, abnormal and emergency situations
+5. In the event of incapacitation of any crewmember"""

@@ -1,13 +1,10 @@
-from enum import Enum
-from typing import Optional, Any
 from pydantic import BaseModel
-
+from enum import Enum
 
 class JsonResponse(BaseModel):
-    success: Optional[bool] = True
-    msg: Optional[str] = ''
-    data: Optional[Any] = {}
-
+    success: bool = True
+    msg: str = ''
+    data: dict = {}
 
 class LLMAuditScore(str, Enum):
     IRRELEVANT = 'IRRELEVANT'
@@ -31,3 +28,4 @@ class LLMAuditResponse(BaseModel):
     score_text: str  # what does the tag mean
     summary: str  # explaination generated from the LLM
     details: list[LLMIOSAItemResponse] = []
+

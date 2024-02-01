@@ -1,9 +1,34 @@
-from models.regulations import IOSAItem
-from models.httpio import LLMAuditResponse, LLMAuditScore
-from models.runtime import ServiceResponse
 import os
 import httpx
 import json
+from enum import Enum
+from pydantic import BaseModel
+from models.regulations import IOSAItem
+from models.runtime import ServiceResponse
+
+
+class LLMAuditScore(str, Enum):
+    IRRELEVANT = 'IRRELEVANT'
+    PARTIAL = 'PARTIAL'
+    DOCUMENTED = 'DOCUMENTED'
+    CONFORMITY = 'CONFORMITY'
+    NULL = 'NULL'
+    SERVER_ERROR = 'SERVER_ERROR'
+
+
+class LLMIOSAItemResponse(BaseModel):
+    text: str
+    explanation: str = 'NULL'
+    score: str = 'NULL'
+    children: list['LLMIOSAItemResponse'] = []
+
+
+class LLMAuditResponse(BaseModel):
+    score: float
+    score_tag: LLMAuditScore
+    score_text: str  # what does the tag mean
+    summary: str  # explaination generated from the LLM
+    details: list[LLMIOSAItemResponse] = []
 
 
 score_tags_text_map: dict[str, str] = {
@@ -44,8 +69,7 @@ def count_score_list_explain(result: json):
                     score_count_map[g["score"]] += 1
         else:
             score_count_map[i["score"]] += 1
-    # ((((doc + active)/total )*0.4)) - (((ir+par)/total)*0.6)+0.6)
-    # (doc/total)*0.2 + (active))
+
     total_keys = sum(score_count_map.values())
     total_scores = []
     total_weights = []
@@ -66,27 +90,14 @@ def count_score_list_explain(result: json):
             for i in range(v):
                 total_scores.append(-1)
                 total_weights.append(0.8)
+
     sum1 = 0
     w_sum = sum(total_weights)
     for i in range(len(total_scores)):
         sum1 += total_scores[i] * total_weights[i]
     score = ((sum1 / w_sum) + 1) / 2
-    # weighted_average = np.sum(values * weights) / np.sum(weights)
 
-    # score = (
-    #     (((score_count_map[LLMAuditScore.ACTIVE.value])) * 0.2)
-    #     + (((score_count_map[LLMAuditScore.DOCUMENTED.value])) * 0.2)
-    #     + (((score_count_map[LLMAuditScore.PARTIAL.value])) * 0.3)
-    #     + ((score_count_map[LLMAuditScore.IRRELEVANT.value])) * 0.3
-    # ) / total_keys
-    #
-    #
     return score, score_count_map, summary.strip("\n").strip()
-
-
-# with the same exact structure as the IOSA structure
-# if you encounter item with one or more item in the "children" key, then replace the <score> token of that item with the most common <score> value in children.
-# if you encounter <score> tokens that has many item in the "children" key, then
 
 
 async def gemini_generate(IOSA_checklist: str, user_input: str):
@@ -134,7 +145,7 @@ MANUAL
         "generationConfig": {"temperature": 0, "candidate_count": 1},
     }
 
-    async with httpx.AsyncClient(timeout=60) as client:
+    async with httpx.AsyncClient(timeout=int(os.environ['API_TIMEOUT'])) as client:
         response = await client.post(url, headers=headers, content=json.dumps(data))
         if response.status_code != 200:
             return ServiceResponse(

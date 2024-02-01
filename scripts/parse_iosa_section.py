@@ -198,7 +198,7 @@ def parse_paragraph(paragraph):
     return constraints
 
 
-def extract_section_header(text, first_flt_span):
+def extract_section_header(text, first_flt_span, filename):
     section_name_reg = r"Section (\d+) - ([\w\s]+) \(([\w]+)\)\n"
     general_guidence_reg = r"General Guidance\n"
     applicability_reg = r"Applicability\n"
@@ -239,6 +239,11 @@ def extract_section_text(text):
     in_text_spans_end = []
     flts_spans = []
     flts_spans_clean = []
+
+    # parse header source map
+    header_source_map = None
+    with open(f"data/{filename}_map.json", 'r') as f:
+        header_source_map = json.loads(f.read())
 
     for i in re.finditer(flts, text):
         flts_spans.append(i.span())
@@ -282,11 +287,16 @@ def extract_section_text(text):
             sms_text = paragraph[sms.span()[0]:].strip("\n").strip()
             paragraph = paragraph[: sms.span()[0]]
 
+        # parse header source map
+        idxs = header.split(' ')[1].split('.')
+        section_index = int(idxs[0]) - 1
+        sub_section_index = int(idxs[1]) - 1
+
         all_sections.append(
             {
                 "code": header,
                 "guidence": guidence if guidence else None,
-                "iosa_map": [],
+                "iosa_map": [header_source_map[section_index]['title'], header_source_map[section_index]['sub_sections'][sub_section_index]],
                 "paragraph": paragraph.strip(),
                 "constraints": parse_paragraph(paragraph),
             }
@@ -313,11 +323,16 @@ def extract_section_text(text):
         sms_text = paragraph[sms.span()[0]:].strip("\n").strip()
         paragraph = paragraph[: sms.span()[0]]
 
+    # parse header source map
+    idxs = header.split(' ')[1].split('.')
+    section_index = int(idxs[0]) - 1
+    sub_section_index = int(idxs[1]) - 1
+
     all_sections.append(
         {
             "code": header,
             "guidence": guidence if guidence else None,
-            "iosa_map": [],
+            "iosa_map": [header_source_map[section_index]['title'], header_source_map[section_index]['sub_sections'][sub_section_index]],
             "paragraph": paragraph.strip(),
             "constraints": parse_paragraph(paragraph),
         }
@@ -327,7 +342,8 @@ def extract_section_text(text):
 
 
 if __name__ == "__main__":
-    all_pages = extract("data/iosa_flt.pdf")
+    filename = 'iosa_flt'
+    all_pages = extract(f"data/{filename}.pdf")
 
     # remove all unallowed chars
     for z in range(len(all_pages)):
@@ -336,7 +352,7 @@ if __name__ == "__main__":
     all_pages = " ".join(all_pages)
 
     all_sections, first_flt_span = extract_section_text(all_pages)
-    section = extract_section_header(all_pages, first_flt_span)
+    section = extract_section_header(all_pages, first_flt_span, filename)
 
     section["items"] = all_sections
 
@@ -350,7 +366,7 @@ if __name__ == "__main__":
     )
 
     # write to a separate json file
-    file_path = 'data/iosa_flt.json'
+    file_path = f"data/{filename}.json"
     with open(file_path, 'w') as fp:
         json.dump(section.model_dump(), fp, indent=4)
     print(f"output file: {file_path}")

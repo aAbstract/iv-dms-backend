@@ -4,7 +4,7 @@ import aiofiles.os
 from datetime import datetime
 from models.fs_index import FSIndexFile, IndexFileType, FILE_TYPE_PATH_MAP, ChatDOCStatus
 from models.runtime import ServiceResponse
-from database.mongo_driver import get_database, validate_bson_id
+from database.mongo_driver import get_database
 
 
 _PUBLIC_DIR = 'public'
@@ -39,8 +39,8 @@ async def create_fs_index_entry(username: str, file_type: IndexFileType, filenam
         datetime=datetime.now(),
         file_type=file_type,
         filename=filename,
-        chat_doc_uuid=chat_doc_uuid,
-        chat_doc_status=ChatDOCStatus.PARSING,
+        doc_uuid=chat_doc_uuid,
+        doc_status=ChatDOCStatus.PARSING,
     )
     mdb_result = await get_database().get_collection('fs_index').insert_one(fs_index_entry.model_dump())
     file_id = str(mdb_result.inserted_id)
@@ -60,7 +60,7 @@ async def create_fs_index_entry(username: str, file_type: IndexFileType, filenam
 
 async def delete_fs_index_entry(doc_uuid: str) -> ServiceResponse:
     # fetch entry from database
-    fs_index_entry = await get_database().get_collection('fs_index').find_one({'chat_doc_uuid': doc_uuid})
+    fs_index_entry = await get_database().get_collection('fs_index').find_one({'doc_uuid': doc_uuid})
     if not fs_index_entry:
         return ServiceResponse(success=False, status_code=404, msg='File Index not Found')
 
@@ -72,7 +72,7 @@ async def delete_fs_index_entry(doc_uuid: str) -> ServiceResponse:
     await aiofiles.os.remove(file_path)
 
     # delete file index database entry
-    result = await get_database().get_collection('fs_index').delete_one({'chat_doc_uuid': doc_uuid})
+    result = await get_database().get_collection('fs_index').delete_one({'doc_uuid': doc_uuid})
     if not result.deleted_count:
         return ServiceResponse(success=False, status_code=404, msg='Error Deleting File Index Entry')
 
@@ -80,7 +80,25 @@ async def delete_fs_index_entry(doc_uuid: str) -> ServiceResponse:
 
 
 async def get_fs_index_entry(chat_doc_uuid: str) -> ServiceResponse:
-    fs_index_entry = await get_database().get_collection('fs_index').find_one({'chat_doc_uuid': chat_doc_uuid})
+    fs_index_entry = await get_database().get_collection('fs_index').find_one({'doc_uuid': chat_doc_uuid})
     if not fs_index_entry:
         return ServiceResponse(success=False, msg='File Index not Found', status_code=404)
     return ServiceResponse(data={'fs_index_entry': FSIndexFile.model_validate(fs_index_entry)})
+
+
+async def get_user_manuals(username: str) -> ServiceResponse:
+    files = await get_database().get_collection('fs_index').find({'username': username}, {
+        '_id': 0,
+        'id': {'$toString': '$_id'},
+        'username': 1,
+        'datetime': 1,
+        'file_type': 1,
+        'filename': 1,
+        'doc_uuid': 1,
+        'doc_status': 1,
+    }).sort({'datetime': -1}).to_list(length=None)
+
+    for file in files:
+        file['url_path'] = f"/airlines_files/manuals/{file['id']}.pdf"
+
+    return ServiceResponse(data={'files': files})

@@ -1,17 +1,19 @@
+import os
 import json
 import requests
 import code
 import readline
 from rlcompleter import Completer
+from dotenv import load_dotenv
 
 
-API_HEADERS = {'Authorization': 'Bearer ak-luq6I1s6ndLOYToQdyeslfpp8OvdaVNg1w6RGz6PT6c'}
+load_dotenv()
+API_HEADERS = {'Authorization': f"Bearer {os.environ['CHAT_DOC_API_KEY']}"}
 UPLOAD_API = 'https://api.chatdoc.com/api/v2/documents/upload'
 DOCS_API = 'https://api.chatdoc.com/api/v2/documents'
 SUGGS_API = 'https://api.chatdoc.com/api/v2/questions/suggested'
 ASK_API = 'https://api.chatdoc.com/api/v2/questions'
-
-doc_id = '4aa2d2c4-0355-413e-8a1b-a7f87cb85098'
+DOC_ID = os.environ['COMPLETE_CHAT_DOC_UUID']
 
 
 def upload_doc(filename: str):
@@ -45,13 +47,13 @@ def ask_doc(doc_id: str, question: str):
     json_req = {
         "upload_id": doc_id,
         "question": question,
-        "stream": False,
+        "stream": True,
         "search_entire_doc": True,
         "detailed_citation": True,
         "language": "en",
         "model_type": "gpt-4"
     }
-    http_res = requests.post(ASK_API, headers=API_HEADERS, json=json_req)
+    http_res = requests.post(ASK_API, headers=API_HEADERS, json=json_req, stream=True)
     json_res = json.loads(http_res.content.decode())
     print(json.dumps(json_res, indent=2))
 

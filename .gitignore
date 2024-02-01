@@ -1,2 +1,4 @@
 .pytest_cache
 **/__pycache__
+data/nesma_OMA.pdf
+public/airlines_files/manuals/*.pdf
