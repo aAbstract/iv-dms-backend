@@ -58,6 +58,8 @@ async def parse_pdf(file: UploadFile, res: Response, x_auth=Header(alias='X-Auth
             msg=cd_service_response.msg,
         )
 
+    # TODO-L0: add doc parsing status check background task
+
     # save file to server
     username = auth_service_response.data['token_claims']['username']
     fs_service_response = await fs_index_database_api.create_fs_index_entry(username, IndexFileType.AIRLINES_MANUAL, file.filename, file.file.read(), chat_doc_uuid=cd_service_response.data['chat_doc_uuid'])

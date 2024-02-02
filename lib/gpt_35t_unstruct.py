@@ -104,25 +104,29 @@ async def iosa_audit_text(iosa_item: IOSAItem, input_text: str) -> ServiceRespon
     if not res.success:
         return res
 
-    if 'OVERALL_COMPLIANCE_SCORE' not in res.data['gpt35t_resp']:
-        return ServiceResponse(success=False, status_code=503, msg='Missing OVERALL_COMPLIANCE_SCORE Key')
+    # post processing
+    # replace unwanted keywords
+    gpt35t_resp: str = res.data['gpt35t_resp']
+    gpt35t_resp = gpt35t_resp.replace('INPUT_TEXT', 'Manual Answer')
 
-    re_matches = re.search(r'OVERALL_COMPLIANCE_SCORE:\s+(\d{1,3})|\*\*OVERALL_COMPLIANCE_SCORE:\*\*\s+(\d{1,3})', res.data['gpt35t_resp'])
+    # extract OVERALL_COMPLIANCE_SCORE value
+    if 'OVERALL_COMPLIANCE_SCORE' not in gpt35t_resp:
+        return ServiceResponse(success=False, status_code=503, msg='Missing OVERALL_COMPLIANCE_SCORE Key')
+    re_matches = re.search(r'OVERALL_COMPLIANCE_SCORE:\s+(\d{1,3})|\*\*OVERALL_COMPLIANCE_SCORE:\*\*\s+(\d{1,3})', gpt35t_resp)
     if not re_matches:
         if int(os.environ['LLM_DEBUG']):
             print('=' * 100)
-            print(res.data['gpt35t_resp'])
+            print(gpt35t_resp)
             print('=' * 100)
         return ServiceResponse(success=False, status_code=503, msg='Faild to Compute Compliance Score')
-
     re_matches = re_matches.groups()
     first_match = next((x for x in re_matches if x is not None), None)
     if not first_match:
         return ServiceResponse(success=False, status_code=503, msg='Faild to Compute Compliance Score')
-
     ovcomp_score = int(first_match)
+
     return ServiceResponse(data={
-        'llm_resp': res.data['gpt35t_resp'],
+        'llm_resp': gpt35t_resp,
         'overall_compliance_score': ovcomp_score,
         'conversation': res.data['conversation'],
     })
@@ -172,25 +176,29 @@ async def iosa_enhance_text(gpt35t_context: GPT35TContext) -> ServiceResponse:
     except Exception as e:
         return ServiceResponse(success=False, status_code=503, msg=f"LLM 35T-1106 Error: {e}")
 
-    if 'NEW_COMPLIANCE_SCORE' not in gpt_res_msg.content:
-        return ServiceResponse(success=False, status_code=503, msg='Missing NEW_COMPLIANCE_SCORE Key')
+    # post processing
+    # replace unwanted keywords
+    gpt35t_resp = gpt_res_msg.content
+    gpt35t_resp = gpt35t_resp.replace('INPUT_TEXT', 'Manual Answer')
 
-    re_matches = re.search(r'NEW_COMPLIANCE_SCORE:\s+(\d{1,3})|\*\*NEW_COMPLIANCE_SCORE:\*\*\s+(\d{1,3})', gpt_res_msg.content)
+    # extract NEW_COMPLIANCE_SCORE value
+    if 'NEW_COMPLIANCE_SCORE' not in gpt35t_resp:
+        return ServiceResponse(success=False, status_code=503, msg='Missing NEW_COMPLIANCE_SCORE Key')
+    re_matches = re.search(r'NEW_COMPLIANCE_SCORE:\s+(\d{1,3})|\*\*NEW_COMPLIANCE_SCORE:\*\*\s+(\d{1,3})', gpt35t_resp)
     if not re_matches:
         if int(os.environ['LLM_DEBUG']):
             print('=' * 100)
-            print(gpt_res_msg.content)
+            print(gpt35t_resp)
             print('=' * 100)
         return ServiceResponse(success=False, status_code=503, msg='Faild to Compute Compliance Score')
-
     re_matches = re_matches.groups()
     first_match = next((x for x in re_matches if x is not None), None)
     if not first_match:
         return ServiceResponse(success=False, status_code=503, msg='Faild to Compute Compliance Score')
-
     ncomp_score = int(first_match)
+
     return ServiceResponse(data={
-        'llm_resp': gpt_res_msg.content,
+        'llm_resp': gpt35t_resp,
         'new_compliance_score': ncomp_score,
         'conversation': gpt35t_context.conversation,
     })

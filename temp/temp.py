@@ -863,3 +863,21 @@
 #             "comments": string, // general explanation for these estimated scores
 #             "suggestions": string // suggestions to improve compliance_scores
 #         }}
+
+# extract MODIFIED_TEXT value
+# if 'MODIFIED_TEXT' not in gpt_res_msg.content:
+#     return ServiceResponse(success=False, status_code=503, msg='Missing MODIFIED_TEXT Key')
+# re_matches = re.search(r'(?:\d\. MODIFIED_TEXT:|MODIFIED_TEXT:)(.*?)(?:\d\. NEW_COMPLIANCE_SCORE:|NEW_COMPLIANCE_SCORE:)', gpt_res_msg.content, re.DOTALL)
+# if not re_matches:
+#     if int(os.environ['LLM_DEBUG']):
+#         print('=' * 100)
+#         print(gpt_res_msg.content)
+#         print('=' * 100)
+#     return ServiceResponse(success=False, status_code=503, msg='Faild to Compute Modified Text')
+# re_matches = re_matches.groups()
+# if len(re_matches) == 0:
+#     return ServiceResponse(success=False, status_code=503, msg='Faild to Compute Modified Text')
+# first_match: str = re_matches[0]
+# if not first_match:
+#     return ServiceResponse(success=False, status_code=503, msg='Faild to Compute Modified Text')
+# mod_text = first_match.strip()

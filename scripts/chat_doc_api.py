@@ -51,7 +51,7 @@ def ask_doc(doc_id: str, question: str):
         "search_entire_doc": True,
         "detailed_citation": True,
         "language": "en",
-        "model_type": "gpt-4"
+        "model_type": "gpt-4",
     }
     http_res = requests.post(ASK_API, headers=API_HEADERS, json=json_req, stream=True)
     json_res = json.loads(http_res.content.decode())

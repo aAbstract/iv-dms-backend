@@ -82,7 +82,7 @@ async def iosa_audit_unstruct(res: Response, regulation_id: str = Body(), checkl
     Returns: {..., data: {\n
     llm_resp: string,\n
     overall_compliance_score: number, // [0, 100]\n
-    context_id: string,\n // LLM context identifier
+    context_id: string, // LLM context identifier\n
     }}\n
     """
     func_id = f"{_MODULE_ID}.iosa_audit_unstruct"

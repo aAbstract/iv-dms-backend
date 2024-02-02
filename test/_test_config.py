@@ -74,9 +74,9 @@ crewmembers for communication.
 Personnel who demonstrate proficiency below expert level (ICAO Level 6) should be formally
 evaluated at intervals in accordance with ECAR 63.9 and ICAO Annex 1 item 1.2.9.6 as
 follows:
-▪ Those demonstrated language proficiency at the operational level (Level 4) should be
+- Those demonstrated language proficiency at the operational level (Level 4) should be
 evaluated at least once every three years
-▪ Those demonstrated language proficiency at the operational level (Level 5) should be
+- Those demonstrated language proficiency at the operational level (Level 5) should be
 evaluated at least once every six years
 ECAA requires level four of English language as a minimum level. All operational
 communications shall be established and maintained in English:
