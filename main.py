@@ -17,6 +17,7 @@ from routes import activity_api
 from routes import regulations_api
 from routes import llm_api
 from routes import ai_tasks_api
+from routes import attachments_api
 # autopep8: on
 
 
@@ -29,8 +30,8 @@ async def lifespan(app: FastAPI):
 
 server = FastAPI(
     title='IV DMS Backend',
-    description='Enhanced GPT-35-TURBO-1106 Modifications Agent',
-    version="0.31.0",
+    description='Added Audit Report Attachments',
+    version="0.32.0",
     lifespan=lifespan,
 )
 server.add_middleware(
@@ -45,6 +46,7 @@ server.include_router(activity_api.router)
 server.include_router(regulations_api.router)
 server.include_router(llm_api.router)
 server.include_router(ai_tasks_api.router)
+server.include_router(attachments_api.router)
 
 
 @server.get('/api/test')

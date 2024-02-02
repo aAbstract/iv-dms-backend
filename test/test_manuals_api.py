@@ -118,6 +118,8 @@ def test_chat_doc_parse_api():
     json_res_body = json.loads(http_res.content.decode())
     assert json_res_body['success']
     assert 'doc_uuid' in json_res_body['data']
+    assert 'file_id' in json_res_body['data']
+    assert 'url_path' in json_res_body['data']
 
     # test check doc
     api_url = f"{_test_config.get_api_url()}/manuals/check-pdf"

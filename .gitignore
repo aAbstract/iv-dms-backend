@@ -2,3 +2,5 @@
 **/__pycache__
 data/nesma_OMA.pdf
 public/airlines_files/manuals/*.pdf
+public/airlines_files/attachments/*
+!public/airlines_files/attachments/*.txt

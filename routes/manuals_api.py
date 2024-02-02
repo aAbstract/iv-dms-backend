@@ -23,7 +23,11 @@ router = APIRouter()
 @router.post(f"{_ROOT_ROUTE}/parse-pdf")
 async def parse_pdf(file: UploadFile, res: Response, x_auth=Header(alias='X-Auth', default=None)):
     """Parse PDF file, store it in the database and return it's id.\n
-    Returns: {..., data: {doc_uuid: string}}
+    Returns: {..., data: {\n
+    doc_uuid: string,\n
+    file_id: string,\n
+    url_path: string,\n
+    }}
     """
     func_id = f"{_MODULE_ID}.parse_pdf"
     await log_man.add_log(func_id, "DEBUG", f"received parse pdf request: {file.filename}")
@@ -37,6 +41,14 @@ async def parse_pdf(file: UploadFile, res: Response, x_auth=Header(alias='X-Auth
             msg=auth_service_response.msg,
         )
 
+    file_ext = os.path.splitext(file.filename)[1]
+    if file_ext != '.pdf':
+        res.status_code = 409
+        return JsonResponse(
+            success=False,
+            msg='Bad File Extention',
+        )
+
     # parse file using ChatDOC API
     cd_service_response = await chat_doc_man.parse_doc(file.filename, file.file)
     if not cd_service_response.success:
@@ -48,7 +60,7 @@ async def parse_pdf(file: UploadFile, res: Response, x_auth=Header(alias='X-Auth
 
     # save file to server
     username = auth_service_response.data['token_claims']['username']
-    fs_service_response = await fs_index_database_api.create_fs_index_entry(username, IndexFileType.AIRLINES_MANUAL, file.filename, cd_service_response.data['chat_doc_uuid'], file.file.read())
+    fs_service_response = await fs_index_database_api.create_fs_index_entry(username, IndexFileType.AIRLINES_MANUAL, file.filename, file.file.read(), chat_doc_uuid=cd_service_response.data['chat_doc_uuid'])
     if not fs_service_response.success:
         res.status_code = fs_service_response.status_code
         return JsonResponse(
