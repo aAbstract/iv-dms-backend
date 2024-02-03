@@ -4,6 +4,7 @@ import os
 import sys
 import pymongo
 import shutil
+from glob import glob
 from dotenv import load_dotenv
 def load_root_path():
     file_dir = os.path.abspath(__file__)
@@ -364,15 +365,17 @@ def seed_routine():
     iosa_e16r2_id = mdb_result.inserted_id
     print('creating regulations indexes...')
     db.get_collection('regulations').create_index('type', unique=False)
-    with open('data/iosa_flt.json', 'r') as f:
-        file_content = f.read()
-        section_json = json.loads(file_content)
 
-        # write to the mongo database
-        db.get_collection("regulations").find_one_and_update(
-            {"_id": iosa_e16r2_id},
-            {"$push": {"sections": section_json}},
-        )
+    iosa_sections_files = [x for x in glob('data/parsed_iosa/iosa_*.json') if 'map' not in x]
+    for iosa_section_file in iosa_sections_files:
+        with open(iosa_section_file, 'r') as f:
+            file_content = f.read()
+            section_json = json.loads(file_content)
+            # write to the mongo database
+            db.get_collection("regulations").find_one_and_update(
+                {"_id": iosa_e16r2_id},
+                {"$push": {"sections": section_json}},
+            )
 
     print('seeding unstructured manuals...')
     db.get_collection('unstructured_manuals').insert_many([x.model_dump() for x in seed_unstructured_manuals])
@@ -409,10 +412,10 @@ def seed_routine():
     db.get_collection('logs').create_index([('date', pymongo.DESCENDING)], unique=False)
 
     # seed regulations source map
-    reg_sm_file = ['iosa_flt']
+    reg_sm_files = [x for x in glob('data/parsed_iosa/iosa_*_map.json')]
     reg_sm_data = []
-    for sm_file in reg_sm_file:
-        with open(f"data/{sm_file}_map.json", 'r') as f:
+    for sm_file in reg_sm_files:
+        with open(sm_file, 'r') as f:
             json_obj = json.loads(f.read())
             for x in json_obj:
                 x['regulation_id'] = iosa_e16r2_id

@@ -1,0 +1,1043 @@
+{
+    "name": "Section 3 - Operational Control and Flight Dispatch (DSP)",
+    "code": "DSP",
+    "applicability": "Applicability\nSection 3 addresses the requirements for operational control of flights conducted by multi-engine aircraft\nand is applicable to an operator that conducts such flights, whether operational control functions are\nconducted by the operator or conducted for the operator by an external organization (outsourced). Specific\nprovisions of this section are applicable to an operator based on the operational system in use, the manner\nin which authority is delegated by the operator, and the responsibilities, functions, duties or tasks assigned\nto the personnel involved.\nThe IOSA standards and recommended practices (ISARPs) in Section 3 are applicable only to those\naircraft that are of the type authorized in the Air Operator Certificate (AOC) and used in commercial\npassenger and/or cargo operations, unless applicability is extended to encompass non-commercial\noperations as stated in a note immediately under the body of the provision.\nSubsections 3.5,4.1,4.3, and 4.6 contain provisions that allow for the use of variations, including\nOperational Variations approved by the Authority, to achieve conformity with eligible aircraft tracking,\nalternate airport, fuel planning and EDTO specifications. General guidance related to the safety risk\nmanagement (SRM) processes necessary to develop and use all such variations prefaces subsection 4.\nTable 3.1 categorizes the personnel that are delegated the authority to exercise operational control,\nassigned the overall responsibility for the overall operational control of a flight, assigned the individual\nresponsibility to carry out one or more functions, duties or tasks related to the operational control of a flight,\nor assigned the duty to provide administrative support to others with responsibilities related to operational\ncontrol.\nTable 3.5 defines the competencies of operational control personnel appropriate to the assignment of\noverall responsibility for operational control and/or to carry out one or more operational control functions,\nduties or tasks according to their specific competencies.\nAll personnel used to perform operational control functions as defined in Table 3.1 ,or that act in a manner\nconsistent with the functional categories specified in Table 3.1 and the competencies specified in Table\n3.5, irrespective of management or post holder title, are subject to specified training and qualification\nprovisions in this section relevant to the operational control function performed.\nIndividual DSP provisions, and/or individual sub-specifications within a DSP provision, that:\n Do not begin with a conditional phrase are applicable to all operators unless determined otherwise\nby the Auditor.\n Begin with a conditional phrase ( If the Operator... ) are applicable if the operator meets the\ncondition(s) stated in the phrase. The conditional phrase serves to define or limit the applicability\nof the provision (e.g.  If the operator uses   or  If an FOO or FOA is used  ).\n Begin with a conditional phrase that specifies the use of a Flight Operations Officer (FOO) by an\noperator are applicable when the operator assigns the FOO, as defined in the IRM and delegated\nauthority in accordance with Table 3.1 , responsibility to carry out operational control functions,\nduties or tasks related to allof the competencies of operational control as specified in Table 3.5 .\n Begin with a conditional phrase that specifies the use of a Flight Operations Assistant (FOA) by an\noperator are applicable when the operator assigns the FOA, as defined in the IRM, responsibility\nto carry out operational control functions, duties or tasks related to one or more, but not all,\ncompetencies of operational control as specified in Table 3.5 .\n Are applicable to all systems of operational control, but with differences in application to each\nsystem, will have those differences explained in the associated Guidance Material (GM).\n Contain the phrase  personnel responsible for operational control  or  personnel with responsibility\nfor operational control  refer to any suitably qualified personnel with responsibility for operational\ncontrol as designated by the operator, to include the pilot-in-command (PIC) unless otherwise\nannotated. \n Contain training and qualification requirements are applicable to personnel, other than the PIC,\nthat are assigned responsibilities related to the operational control of flights. PIC training and\nqualification requirements for all systems of operational control are specified in ISM Section 2\n(FLT).\n Are eligible for conformance using variations, including Operational Variations approved by the\nAuthority, that contain a note referring to the additional SRM and safety monitoring requirements\nnecessary to ensure an acceptable level of safety is maintained.\nWhere operational functions, duties or tasks associated with operational control are outsourced to external\nservice providers, an operator retains overall responsibility for ensuring the management of safety in the\noperational control of flights and must demonstrate processes for monitoring applicable external service\nproviders in accordance with DSP 1.11.2 .",
+    "guidance": "General Guidance\nAuthority and Responsibility\nFor the purposes of this section authority is defined as the delegated power or right to command or direct, to\nmake specific decisions, to grant permission and/or provide approval, or to control or modify a process.\nFor the purposes of this section responsibility is defined as an obligation to perform an assigned function,\nduty, task or action. An assignment of responsibility typically also requires the delegation of an appropriate\nlevel of authority.\nOperational Control\nOperational control is defined as the exercise of authority to initiate, continue, divert or terminate a flight in the\ninterest of the safety and security of the aircraft and its occupants. An operator may delegate the authority for\noperational control of a specific flight to qualified individuals, but typically retains overall authority to operate\nand control the entire operation. An operator may also assign the responsibility to carry out specific\noperational control functions, duties, or tasks related to the conduct of each flight to identifiable, qualified and\nknowledgeable individual(s), but would remain responsible (and accountable) for the conduct of the entire\noperation.\nAny individuals delegated the authority to make specific decisions regarding operational control would also\nbe responsible (and accountable) for those decisions. Additionally, individuals assigned the responsibility to\ncarry out specific operational control functions, duties, or tasks related to the conduct of each flight are also\nresponsible (and accountable) for the proper execution of those functions, duties, or tasks. In all cases, the\nauthority and responsibility attributes of operational control personnel are clearly defined and documented by\nthe operator and communicated throughout the organization.\nIt is important to note that when an operator assigns the responsibility for functions, duties or tasks related to\nthe initiation, continuation, diversion and termination of a flight to employees or external service providers,\nsuch operator retains full responsibility (and accountability) for the proper execution of those functions, duties\nor tasks by ensuring:\n The training and qualification of such personnel meets any regulatory and operator requirements;\n Personnel are performing their duties diligently;\n The provisions of the Operations Manual are being complied with;\n An effective means of oversight is maintained to monitor the actions of such personnel for the\npurposes of ensuring operator guidance and policy, as well regulatory requirements, are complied\nwith.\nAuthority for the Operational Control of Each Flight\nIn order to practically exercise operational control of flight operations, an operator typically delegates the\nauthority for the initiation, continuation, diversion or termination of each flight to qualified individuals. Such\ndelegation occurs in conjunction with an operator's overall system of operational control as follows:\n Shared systems, wherein operational control authority is shared between the pilot-in-command (PIC)\nanda flight operations officer/flight dispatcher (FOO) ordesignated member of management, such\nas the Director of Flight Operations (or other designated post holder); \nFor example: The FOO (or designated member of management, as applicable) has the authority to\ndivert, delay or terminate a flight if in the judgment of the FOO, a designated member of management\nor the PIC, the flight cannot operate or continue to operate safely as planned or released.\n Non-shared systems, wherein operational control authority is delegated only to the PIC.\nFor example: Only the PIC has the authority to terminate, delay, or divert a flight if in the judgment of\nthe PIC the flight cannot operate or continue to operate safely as planned.\nResponsibility for Operational Control of Each Flight\nWhile an operator retains full responsibility (and accountability) for the entire operation, the responsibility for\nthe practical operational control of each flight is typically assigned to qualified individuals. As with the\ndelegation of authority, the assignment of responsibility related to the operational control of each flight occurs\nin conjunction with a system of operational control as follows:\n Shared systems, wherein operational control responsibility for each flight is shared between the PIC\nand an FOO, or between the PIC and a designated member of management such as the Director of\nFlight Operations (or other designated post holder). In either shared system, the PIC, FOO or\ndesignated member of management, as applicable, may be assisted by other qualified personnel\nassigned the individual responsibility (by the operator) to carry out specific operational control\nfunctions, duties or tasks. Such personnel, however, typically do not share operational control\nresponsibility with the PIC, FOO or designated member of management, as applicable.\nFor example: The FOO (or designated member of management) and the PIC are jointly responsible\n(and accountable) for the functions, duties or tasks associated with the operational control of a flight,\nsuch as pre-flight planning, load planning, weight and balance, delay, dispatch release, diversion,\ntermination, etc. In such systems, the FOO (or designated member of management) may carry out\nsuch responsibilities unassisted or be assisted by qualified personnel assigned the individual\nresponsibility (by the operator) to carry out specific operational control functions, duties or tasks.\n Non-shared systems, wherein the PIC is solely responsible for all duties, functions, or tasks\nregarding operational control of each flight, and may carry out such responsibilities unassisted or be\nassisted by qualified personnel assigned the individual responsibility (by the operator) to carry out\nspecific operational control functions, duties or tasks.\nFor example: The PIC is solely responsible (and accountable) for the duties, functions, duties or\ntasks associated with the operational control of a flight, and the PIC either acts unassisted or is\nassisted by qualified personnel in carrying out functions, duties or tasks such as preflight planning,\nload planning, weight and balance, delay, dispatch release, diversion, termination, etc.\nResponsibility for Individual Operational Control Functions, Duties, or Tasks\nIt is important to note that, except for purely non-shared (PIC-only) systems, and as illustrated by the\nexamples in the previous paragraph, the assignment of responsibilities related to the operational control of\neach flight can be further subdivided among a number of qualified and specialized personnel. In such cases,\nthe responsibility for individual or specific operational control functions, duties or tasks is typically assigned to\nFOA personnel who support, brief and/or assist the PIC, FOO personnel and/or designated member(s) of\nmanagement, as applicable, in the safe conduct of each flight. Examples of such qualified personnel include\nWeather Analysts, Navigation Analysts/Flight Planning Specialists, Load Agents/Planners, Operations\nCoordinators/Planners/Controllers, Maintenance controllers and Air Traffic Specialists.\nNote: Some operators might choose to assign the responsibility for specialized operational control functions,\nsuch as those described in the example, to fully qualified FOO personnel. In such cases, an FOO, although\nqualified in all competencies of operational control, would be functionally acting as an FOA. Therefore, for the\npurpose of an audit, FOO personnel acting in this limited capacity are assessed as FOA personnel.\nNote: Load Agents/Planners/Controllers who perform load control functions within the scope of ground\nhandling operations may not be considered FOAs if trained and qualified in accordance with ISM Section 6\n(GRH), Subsection 2.1 , Training Program.\nAdministrative Support Personnel\nFOA personnel are not to be confused with administrative personnel that lack any operational control\nauthority, have very limited operational control responsibilities, and who simply provide, collect or assemble\noperational documents or data on behalf of the PIC, the FOO, designated member of management or the\noperator. \nAdministrative personnel may be present in any system of operational control, are excluded from the initial\nand continuing qualification provisions of this section and may be qualified as competent through on-the-job\ntraining (OJT), meeting criteria as specified in a job description, or through the mandatory use of written\ninstruments such as task cards, guidelines, or checklists.\nAdditional Note\nFor the purposes of this section, continuing qualification includes recurrent or refresher training as well as any\ntraining necessary to meet recency-of-experience requirements.\nDefinitions, Abbreviations, Acronyms\nDefinitions of technical terms used in this ISM Section 3 , as well as the meaning of abbreviations and\nacronyms, are found in the IATA Reference Manual for Audit Programs (IRM).\n1 Management and Control\n1.1 Management System Overview",
+    "items": [
+        {
+            "code": "DSP 1.1.1",
+            "guidance": null,
+            "iosa_map": [
+                "DSP 1 Management and Control",
+                "1.1 Management System Overview"
+            ],
+            "paragraph": "The Operator shall have a management system that ensures:\n(i) Management of safety and security in flight operations;\n(ii) Supervision and control of all flights, operational control functions and other associated\nactivities;\n(iii) Compliance with standards of the Operator and requirements of the State of the Operator\n(hereinafter, the State) and other applicable authorities."
+        },
+        {
+            "code": "DSP 1.3.1A",
+            "guidance": null,
+            "iosa_map": [
+                "DSP 1 Management and Control",
+                "1.3 Accountability, Authorities and Responsibilities"
+            ],
+            "paragraph": "The Operator shall ensure the management system for operational control defines the safety\naccountability, authorities and responsibilities of management and non-management personnel that\nperform functions relevant to the operational control of flights. The management system shall also\nspecify:\n(i) The levels of management with the authority to make decisions regarding risk tolerability\nwith respect to the safety and/or security of aircraft operations;\n(ii) Responsibilities for ensuring operational control is conducted in accordance with applicable\nregulations and standards of the Operator;\n(iii) Lines of safety accountability within the organization, including direct accountability for\nsafety and/or security on the part of operational control senior management."
+        },
+        {
+            "code": "DSP 1.3.1B",
+            "guidance": null,
+            "iosa_map": [
+                "DSP 1 Management and Control",
+                "1.3 Accountability, Authorities and Responsibilities"
+            ],
+            "paragraph": "The Operator shall ensure accountability, authorities and responsibilities for the operational control of\nflights are defined and communicated throughout the organization, to include the authorities and\nresponsibilities of the pilot-in command (PIC) and, as applicable, the:\n(i) Flight operations officer (FOO), who supports, briefs and/or assists the PIC or designated\nmember of management regarding risk tolerability with respect to the safe conduct of each\nflight;\n(ii) Designated member of management or post holder that has joint authority with the PIC over\nthe decision functions, duties or tasks associated with the operational control of each flight;\n(iii) Flight operations assistant (FOA) who supports, briefs and/or assists the PIC, FOO, or\ndesignated member of management in the safe conduct of each flight."
+        },
+        {
+            "code": "DSP 1.3.2A",
+            "guidance": null,
+            "iosa_map": [
+                "DSP 1 Management and Control",
+                "1.3 Accountability, Authorities and Responsibilities"
+            ],
+            "paragraph": "The Operator shall have a process or procedure for the delegation of duties within the management\nsystem for operational control that ensures managerial continuity is maintained when operational\nmanagers including, if applicable, post holders are unable to carry out work duties."
+        },
+        {
+            "code": "DSP 1.3.2B",
+            "guidance": null,
+            "iosa_map": [
+                "DSP 1 Management and Control",
+                "1.3 Accountability, Authorities and Responsibilities"
+            ],
+            "paragraph": "The Operator shall have a process or procedures for the delegation of duties within the management\nsystem for operational control that ensures managerial and operational control continuity is\nmaintained and responsibility for operational control functions is assumed by qualified personnel\nwhen:\n(i) Managers directly responsible for the operational control of flights are unable to carry out\nwork duties;\n(ii) If used in the system of operational control, FOO and/or FOA personnel are unable to carry\nout work duties."
+        },
+        {
+            "code": "DSP 1.3.3",
+            "guidance": null,
+            "iosa_map": [
+                "DSP 1 Management and Control",
+                "1.3 Accountability, Authorities and Responsibilities"
+            ],
+            "paragraph": "The Operator shall ensure a delegation of authority and assignment of responsibility within the\nmanagement system for liaison with regulatory authorities, original equipment manufacturers and\nother external entities relevant to operational control."
+        },
+        {
+            "code": "DSP 1.3.4",
+            "guidance": null,
+            "iosa_map": [
+                "DSP 1 Management and Control",
+                "1.3 Accountability, Authorities and Responsibilities"
+            ],
+            "paragraph": "The Operator shall delegate the authority for operational control of each flight only to the PIC in a\nnon-shared system of operational control, or to a combination of suitably qualified individuals in a\nshared system of operational control, to include the PIC and either:\n(i) An FOO in a shared system of operational control that requires the use of FOO personnel,\nor\n(ii) A designated member of management or post holder in a shared system of operational\ncontrol that requires the use of such management personnel."
+        },
+        {
+            "code": "DSP 1.3.5",
+            "guidance": null,
+            "iosa_map": [
+                "DSP 1 Management and Control",
+                "1.3 Accountability, Authorities and Responsibilities"
+            ],
+            "paragraph": "The Operator shall retain the overall responsibility for operational control of each flight and assign the\nresponsibility to carry out functions, duties or tasks related to the operational control of each flight\nonly to the PIC, or to a combination of suitably qualified personnel as defined in Table 3.1 , to include\nthe PIC and, as applicable to the system of operational control responsibility:\n(i) If the Operator has a shared system of operational control responsibility, either of the\nfollowing:\n(a) An FOO, who shares overall operational control responsibility with the PIC and/or\nsupports, briefs and/or assists the PIC in the safe conduct of each flight, or\n(b) A designated member of management or post holder who shares overall\noperational control responsibility with the PIC and/or supports, briefs and/or assists\nthe PIC or FOO in the safe conduct of each flight.\nNote: FOA and/or administrative personnel can be used in combination with FOOs and/or\ndesignated members of management in a shared system of operational control, but neither\nwould share operational control responsibility with the PIC, FOO or designated member of\nmanagement.\n(ii) If the Operator has a non-shared system of operational control responsibility, one or more of\nthe following:\n(a) An FOO who supports, briefs and/or assists the PIC in the safe conduct of each\nflight, or\n(b) A designated member of management or post holder who supports, briefs and/or\nassists the PIC or FOO in the safe conduct of each flight, or\n(c) FOA personnel who support, brief and/or assist the PIC or FOO in the safe conduct\nof each flight, and/or\n(d) Administrative personnel who do not support, brief and/or assist the PIC or FOO,\nbut provide, collect or assemble operational documents or data relevant to the\nconduct of each flight."
+        },
+        {
+            "code": "DSP 1.3.6",
+            "guidance": null,
+            "iosa_map": [
+                "DSP 1 Management and Control",
+                "1.3 Accountability, Authorities and Responsibilities"
+            ],
+            "paragraph": "If an FOO is used in the system of operational control, the Operator shall assign responsibility to such\npersonnel for:\n(i) Assisting the PIC in flight preparation and providing required information;\n(ii) Assisting the PIC in preparing the operational and ATS flight plans;\n(iii) When applicable, signing the operational and ATS flight plans;\n(iv) Filing the ATS flight plan with the appropriate ATS unit;\n(v) Furnishing the PIC, while in flight, with appropriate information necessary for the safe\nconduct of the flight;\n(vi) If the Operator tracks aircraft position in accordance with DSP 3.5.2 and/or DSP 3.5.3,\nnotifying the appropriate ATS unit when the position of the aircraft cannot be determined by\nan aircraft tracking capability, and attempts to establish communication are unsuccessful;\n(vii) In the event of an emergency, initiating relevant procedures as specified in the OM."
+        },
+        {
+            "code": "DSP 1.3.7",
+            "guidance": null,
+            "iosa_map": [
+                "DSP 1 Management and Control",
+                "1.3 Accountability, Authorities and Responsibilities"
+            ],
+            "paragraph": "The Operator shall have a process to be used in the event of an emergency situation that endangers\nthe safety of the aircraft or persons, including those situations that become known first to the\nOperator. Such process shall ensure the FOO, FOA or other delegated person:\n(i) Initiates emergency procedures, as outlined in the OM, while avoiding taking any action that\nwould conflict with ATC procedures;\n(ii) Notifies the appropriate authorities, without delay, of the nature of the situation;\n(iii) Requests assistance, if required;\n(iv) Conveys, by any available means, safety-related information to the PIC that may be\nnecessary for the safe conduct of the flight, including information related to any necessary\namendments to the flight plan."
+        },
+        {
+            "code": "DSP 1.4.1",
+            "guidance": null,
+            "iosa_map": [
+                "DSP 1 Management and Control",
+                "1.4 Communication and Coordination"
+            ],
+            "paragraph": "The Operator shall have a system that enables effective communication of relevant safety and\noperational information throughout the operational control management system and in all areas\nwhere operational control is conducted. Such system shall ensure:\n(i) Personnel maintain an awareness of the SMS;\n(ii) Safety-critical information is conveyed;\n(iii) If applicable, external service providers are provided with information relevant to operations\nconducted."
+        },
+        {
+            "code": "DSP 1.4.2",
+            "guidance": null,
+            "iosa_map": [
+                "DSP 1 Management and Control",
+                "1.4 Communication and Coordination"
+            ],
+            "paragraph": "The Operator shall have a communication system that ensures operational control personnel are\nprovided with or have access to information relevant to the safe conduct of each flight, to include\ninformation associated with:\n(i) The aircraft (MEL, maintenance);\n(ii) Meteorology;\n(iii) Safety, including current accident and incident notification procedures;\n(iv) Routes, including over water and critical terrain (NOTAMs, facilities, outages);\n(v) Air Traffic Services (ATS)."
+        },
+        {
+            "code": "DSP 1.5.1",
+            "guidance": null,
+            "iosa_map": [
+                "DSP 1 Management and Control",
+                "1.5 Provision of Resources"
+            ],
+            "paragraph": "The Operator shall have the necessary facilities, workspace, equipment and supporting services, as\nwell as work environment, to satisfy operational control safety and security requirements."
+        },
+        {
+            "code": "DSP 1.5.2",
+            "guidance": null,
+            "iosa_map": [
+                "DSP 1 Management and Control",
+                "1.5 Provision of Resources"
+            ],
+            "paragraph": "The Operator shall have a selection process for management and non-management operational\ncontrol positions within the organization that require the performance of functions relevant to the\nsafety or security of aircraft operations. Such process shall ensure candidates are selected on the\nbasis of knowledge, skills, training and experience appropriate for the position."
+        },
+        {
+            "code": "DSP 1.5.3",
+            "guidance": null,
+            "iosa_map": [
+                "DSP 1 Management and Control",
+                "1.5 Provision of Resources"
+            ],
+            "paragraph": "The Operator shall have a process to ensure applicants hired in operational control functions are\nrequired to demonstrate the capability of speaking and reading in a language that will permit\ncommunication with other areas within the organization relevant to operational control."
+        },
+        {
+            "code": "DSP 1.5.4",
+            "guidance": null,
+            "iosa_map": [
+                "DSP 1 Management and Control",
+                "1.5 Provision of Resources"
+            ],
+            "paragraph": "If a licensed FOO is used in the system of operational control, the Operator shall ensure each FOO,\nprior to being assigned to operational control duties, holds a valid Flight Operations Officer or Flight\nDispatcher license issued or recognized by the State."
+        },
+        {
+            "code": "DSP 1.5.6",
+            "guidance": null,
+            "iosa_map": [
+                "DSP 1 Management and Control",
+                "1.5 Provision of Resources"
+            ],
+            "paragraph": "If an FOO is used in the system of operational control, the Operator should ensure personnel hired to\nperform the FOO functions are not less than 21 years of age and meet one or more of the following\ncriteria:\n(i) Have, as a minimum, one year of experience as an assistant in the operational control of air\ntransport flights, or\n(ii) Have satisfactorily completed a formal training course as a flight operations officer or flight\ndispatcher, or\n(iii) Have, as a minimum, a total of two years of service in any one or combination of the\nfollowing:\n(a) Flight crew member in air transport operations;\n(b) Meteorologist in an organization dispatching aircraft;\n(c) Air traffic controller;\n(d) Technical supervisor of FOO personnel;\n(e) Technical supervisor of air transportation systems."
+        },
+        {
+            "code": "DSP 1.5.7",
+            "guidance": null,
+            "iosa_map": [
+                "DSP 1 Management and Control",
+                "1.5 Provision of Resources"
+            ],
+            "paragraph": "If an FOO or FOA is used in the system of operational control, the Operator shall have a process to\nensure such personnel, prior to being assigned duties in an operational control function:\n(i) As applicable, meet minimum age, knowledge, experience and skill requirements of the\nState;\n(ii) Are trained to a minimum competency level acceptable to the Operator and/or State;\n(iii) For FOAs, have demonstrated the ability to provide assistance in their area(s) of\ncompetency to, as applicable, the PIC and/or FOO."
+        },
+        {
+            "code": "DSP 1.6.3",
+            "guidance": null,
+            "iosa_map": [
+                "DSP 1 Management and Control",
+                "1.6 Documentation System"
+            ],
+            "paragraph": "The Operator shall have a system for the management and control of documentation and/or data\nused directly in the conduct or support of Dispatch operations. Such system shall ensure\ndocumentation:\n(i) Meets all required elements specified in Table 1.1 ;\n(ii) Contains legible and accurate information;\n(iii) Is presented in a format appropriate for use in operations."
+        },
+        {
+            "code": "DSP 1.6.4",
+            "guidance": null,
+            "iosa_map": [
+                "DSP 1 Management and Control",
+                "1.6 Documentation System"
+            ],
+            "paragraph": "The Operator shall ensure the system for the management and control of operational control\ndocumentation as specified in ORG 2.5.1 andTable 1.1 addresses, as a minimum, the following\ndocuments from external sources:\n(i) As applicable, regulations of the State of the Operator and of other states or authorities\nrelevant to operations;\n(ii) As applicable, ICAO Standards and Recommended Practices; (SARPS), manuals, regional\nsupplementary procedures and/or circulars;\n(iii) Airworthiness Directives (ADs);\n(iv) As applicable, Aeronautical Information Publications, (AIP) and NOTAMS;\n(v) State-approved or State-Accepted Aircraft Flight Manuals (AFM);\n(vi) Manufacturer's Aircraft Operating Manuals (AOMs), including performance data, weight and\nbalance data/manuals, checklists and MEL/CDL;\n(vii) As applicable, other manufacturer's operational communications."
+        },
+        {
+            "code": "DSP 1.7.1",
+            "guidance": null,
+            "iosa_map": [
+                "DSP 1 Management and Control",
+                "1.7 Operations Manual"
+            ],
+            "paragraph": "The Operator shall have an Operations Manual (OM) for the use of operational control personnel,\nwhich may be issued in separate parts, and which contains or references the policies, procedures\nand other guidance or information necessary for compliance with applicable regulations, laws, rules\nand Operator standards. As a minimum, the OM shall:\n(i) Be managed and controlled in accordance with DSP 1.6.1;\n(ii) Have all parts relevant to operational control personnel clearly identified and defined;\n(iii) Be in accordance with the specifications in Table 3.2 ."
+        },
+        {
+            "code": "DSP 1.7.2",
+            "guidance": null,
+            "iosa_map": [
+                "DSP 1 Management and Control",
+                "1.7 Operations Manual"
+            ],
+            "paragraph": "The Operator shall have a description of the Operational Flight Plan (OFP) or equivalent document\nthat is published in the OM and includes:\n(i) Guidance for use by operational control personnel;\n(ii) An outline of the content in accordance with specifications in Table 3.3 ."
+        },
+        {
+            "code": "DSP 1.7.4",
+            "guidance": null,
+            "iosa_map": [
+                "DSP 1 Management and Control",
+                "1.7 Operations Manual"
+            ],
+            "paragraph": "If an FOO or FOA is used in the system of operational control, the Operator shall have guidance and\nprocedures to enable such personnel, as applicable, to comply with the conditions and limitations\nspecified in the AOC."
+        },
+        {
+            "code": "DSP 1.8.1",
+            "guidance": null,
+            "iosa_map": [
+                "DSP 1 Management and Control",
+                "1.8 Records System"
+            ],
+            "paragraph": "The Operator shall have a system for the management and control of operational control records to\nensure the content and retention of such records is in accordance with requirements of the Authority,\nas applicable, and to ensure operational records are subjected to standardized processes for:\n(i) Identification;\n(ii) Legibility;\n(iii) Maintenance;\n(iv) Retention and retrieval;\n(v) Protection, integrity and security;\n(vi) Disposal, deletion (electronic records) and archiving."
+        },
+        {
+            "code": "DSP 1.8.2",
+            "guidance": null,
+            "iosa_map": [
+                "DSP 1 Management and Control",
+                "1.8 Records System"
+            ],
+            "paragraph": "The Operator shall ensure the system for the management and control of operational control records\nas specified in DSP 1.8.1 addresses, as a minimum, records that document or include:\n(i) Operational information, communications and data for each flight specified in DSP 1.8.4 and\nTable 3.4 ;\n(ii) The fulfillment of FOO and/or FOA qualification requirements specified in DSP 1.8.6 ,1.8.8\nand1.8.9 , as applicable;\n(iii) A signed copy of the OFP or equivalent document, as specified in DSP 3.2.5 ."
+        },
+        {
+            "code": "DSP 1.8.3",
+            "guidance": null,
+            "iosa_map": [
+                "DSP 1 Management and Control",
+                "1.8 Records System"
+            ],
+            "paragraph": "If the Operator uses an electronic system for the management and control of operational control\nrecords, the Operator shall ensure the system provides for a scheduled generation of backup record\nfiles."
+        },
+        {
+            "code": "DSP 1.8.4",
+            "guidance": null,
+            "iosa_map": [
+                "DSP 1 Management and Control",
+                "1.8 Records System"
+            ],
+            "paragraph": "The Operator shall have a process or procedures to record and retain operational information,\ncommunications and data for each flight. As a minimum, such retained flight information and data\nshall be in accordance with the specifications in Table 3.4 and retained for a period of time\ndetermined by the Operator or the Authority."
+        },
+        {
+            "code": "DSP 1.8.6",
+            "guidance": null,
+            "iosa_map": [
+                "DSP 1 Management and Control",
+                "1.8 Records System"
+            ],
+            "paragraph": "If an FOO or FOA is used in the system of operational control, the Operator shall ensure training\nrecords for such personnel, as applicable, are managed and maintained in accordance with\nDSP 1.8.1 , to include records that document completion of:\n(i) Initial qualification;\n(ii) Continuing qualification;\n(iii) Competency evaluations."
+        },
+        {
+            "code": "DSP 1.8.8",
+            "guidance": null,
+            "iosa_map": [
+                "DSP 1 Management and Control",
+                "1.8 Records System"
+            ],
+            "paragraph": "If the Operator has a flight deck familiarization program for FOO personnel in accordance with DSP\n2.3.4 , the Operator should have a procedure to retain a record of the operational flight deck\nfamiliarization activities completed by each FOO for a period of time in accordance with requirements\nof the Operator and/or Authority."
+        },
+        {
+            "code": "DSP 1.8.9",
+            "guidance": null,
+            "iosa_map": [
+                "DSP 1 Management and Control",
+                "1.8 Records System"
+            ],
+            "paragraph": "If a licensed FOO is used in the system of operational control, the Operator shall have a procedure to\nretain a copy of the license of each FOO for a period of time, in accordance with the requirements of\nthe Operator and/or Authority."
+        },
+        {
+            "code": "DSP 1.10.1",
+            "guidance": null,
+            "iosa_map": [
+                "DSP 1 Management and Control",
+                "1.10 Quality Assurance Program"
+            ],
+            "paragraph": "The Operator shall have a quality assurance program that provides for the auditing and evaluation of\nthe management system and operational control functions at planned intervals to ensure the\norganization(s) with responsibility for operational control is (are):\n(i) Complying with applicable regulations and standards;\n(ii) Satisfying stated operational control needs;\n(iii) Identifying areas requiring improvement;\n(iv) Identifying hazards to operations;\n(v) Assessing the effectiveness of safety risk controls."
+        },
+        {
+            "code": "DSP 1.10.2",
+            "guidance": null,
+            "iosa_map": [
+                "DSP 1 Management and Control",
+                "1.10 Quality Assurance Program"
+            ],
+            "paragraph": "The Operator shall have an audit planning process and sufficient resources to ensure audits of\noperational control functions are:\n(i) Scheduled at intervals to meet regulatory and management system requirements;\n(ii) Conducted within the scheduled interval."
+        },
+        {
+            "code": "DSP 1.10.3",
+            "guidance": null,
+            "iosa_map": [
+                "DSP 1 Management and Control",
+                "1.10 Quality Assurance Program"
+            ],
+            "paragraph": "The Operator shall have a process to ensure significant issues arising from operational control\nquality assurance and risk management are subject to management review in accordance with ORG\n4.1.1 ."
+        },
+        {
+            "code": "DSP 1.10.4",
+            "guidance": null,
+            "iosa_map": [
+                "DSP 1 Management and Control",
+                "1.10 Quality Assurance Program"
+            ],
+            "paragraph": "The Operator shall have a process for addressing findings that result from audits conducted under\nthe quality assurance program, which ensures:\n(i) Identification of root cause(s);\n(ii) Development of corrective action as appropriate to address findings;\n(iii) Implementation of corrective action in appropriate operational areas;\n(iv) Evaluation of corrective action to determine effectiveness."
+        },
+        {
+            "code": "DSP 1.11.1A",
+            "guidance": null,
+            "iosa_map": [
+                "DSP 1 Management and Control",
+                "1.11 Quality Control of Outsourced Operations and Products"
+            ],
+            "paragraph": "If the Operator has external service providers conduct outsourced operational control functions, the\nOperator should ensure a service provider selection process is in place that ensures:\n(i) Relevant safety and security selection criteria are established;\n(ii) Service providers are evaluated against such criteria prior to selection."
+        },
+        {
+            "code": "DSP 1.11.1B",
+            "guidance": null,
+            "iosa_map": [
+                "DSP 1 Management and Control",
+                "1.11 Quality Control of Outsourced Operations and Products"
+            ],
+            "paragraph": "If the Operator has external service providers conduct outsourced operational control functions, the\nOperator shall have a process to ensure a contract or agreement is executed with such external\nservice providers. Such contract(s) or agreement(s) shall identify the application of specific\ndocumented requirements that can be monitored by the Operator, to ensure requirements that affect\nthe safety of flight operations are being fulfilled by the service provider."
+        },
+        {
+            "code": "DSP 1.11.2",
+            "guidance": null,
+            "iosa_map": [
+                "DSP 1 Management and Control",
+                "1.11 Quality Control of Outsourced Operations and Products"
+            ],
+            "paragraph": "If the Operator has external service providers conduct operational functions associated with the\noperational control of flights, the Operator shall have a process to monitor such external service\nproviders, to ensure requirements that affect the safety of flight operations are being fulfilled."
+        },
+        {
+            "code": "DSP 1.11.3",
+            "guidance": null,
+            "iosa_map": [
+                "DSP 1 Management and Control",
+                "1.11 Quality Control of Outsourced Operations and Products"
+            ],
+            "paragraph": "The Operator should have processes to ensure data, equipment or other operational products\nrelevant to the safety and security of aircraft operations that are purchased or otherwise acquired\nfrom an external vendor or supplier (other than electronic navigation data products as specified in\nDSP 1.11.4 ) meet the product technical requirements specified by the Operator prior to being used in\nthe operational control of flights."
+        },
+        {
+            "code": "DSP 1.11.4",
+            "guidance": null,
+            "iosa_map": [
+                "DSP 1 Management and Control",
+                "1.11 Quality Control of Outsourced Operations and Products"
+            ],
+            "paragraph": "If the Operator uses electronic navigation data products for application in operational control, the\nOperator shall have processes, approved or accepted by the State, if required, which ensure such\nelectronic navigation data products acquired from suppliers, prior to being used in operations:\n(i) Are assessed for a level of data integrity commensurate with the intended application;\n(ii) Are compatible with the intended function of equipment in which it is installed."
+        },
+        {
+            "code": "DSP 1.11.5",
+            "guidance": null,
+            "iosa_map": [
+                "DSP 1 Management and Control",
+                "1.11 Quality Control of Outsourced Operations and Products"
+            ],
+            "paragraph": "If the Operator has external service providers conduct operational functions associated with the\noperational control of flights, the Operator should include auditing as a process for the monitoring of\nexternal service providers in accordance with DSP 1.11.2 ."
+        },
+        {
+            "code": "DSP 1.12.1",
+            "guidance": null,
+            "iosa_map": [
+                "DSP 1 Management and Control",
+                "1.12 Safety Management"
+            ],
+            "paragraph": "The Operator shall have a hazard identification program in the organization responsible for the\noperational control of flights that includes a combination of reactive and proactive methods of hazard\nidentification."
+        },
+        {
+            "code": "DSP 1.12.2",
+            "guidance": null,
+            "iosa_map": [
+                "DSP 1 Management and Control",
+                "1.12 Safety Management"
+            ],
+            "paragraph": "The Operator shall have a safety risk assessment and mitigation program in the organization\nresponsible for the operational control of flights that specifies processes to ensure:\n(i) Hazards are analyzed to determine the corresponding safety risks to aircraft operations;\n(ii) Safety risks are assessed to determine the requirement for risk mitigation action(s);\n(iii) When required, risk mitigation actions are developed and implemented in operational\ncontrol."
+        },
+        {
+            "code": "DSP 1.12.3",
+            "guidance": null,
+            "iosa_map": [
+                "DSP 1 Management and Control",
+                "1.12 Safety Management"
+            ],
+            "paragraph": "The Operator shall have an operational safety reporting system in the organization responsible for\nthe operational control of flights that:\n(i) Encourages and facilitates operational control personnel to submit reports that identify\nsafety hazards, expose safety deficiencies and raise safety concerns;\n(ii) Ensures mandatory reporting in accordance with applicable regulations;\n(iii) Includes analysis and operational control management action as necessary to address\nsafety issues identified through the reporting system."
+        },
+        {
+            "code": "DSP 1.12.4",
+            "guidance": null,
+            "iosa_map": [
+                "DSP 1 Management and Control",
+                "1.12 Safety Management"
+            ],
+            "paragraph": "The Operator should have a confidential safety reporting system in the organization responsible for\nthe operational control of flights that encourages and facilitates the reporting of events, hazards\nand/or concerns resulting from or associated with human performance in operations."
+        },
+        {
+            "code": "DSP 1.12.5",
+            "guidance": null,
+            "iosa_map": [
+                "DSP 1 Management and Control",
+                "1.12 Safety Management"
+            ],
+            "paragraph": "The Operator shall have processes in the organization responsible for the operational control of\nflights for setting safety performance indicators (SPIs) and, as applicable, safety performance targets\n(SPTs) as means to monitor its safety performance, the achievement of its safety objectives and to\nvalidate the effectiveness of risk controls."
+        },
+        {
+            "code": "DSP 2.1.1",
+            "guidance": null,
+            "iosa_map": [
+                "DSP 2 Training and Qualification",
+                "2.1 Training and Evaluation Program"
+            ],
+            "paragraph": "The Operator shall have a training program, approved or accepted by the Authority, to ensure the\noperational control personnel as specified in Table 3.1 , as applicable to the Operator, are competent\nto perform any assigned duties relevant to operational control in accordance with the applicable\nspecifications of Table 3.5 prior to being assigned to operational control duties. Such program shall,\nas a minimum, address:\n(i) Initial qualification;\n(ii) Continuing qualification."
+        },
+        {
+            "code": "DSP 2.1.2",
+            "guidance": null,
+            "iosa_map": [
+                "DSP 2 Training and Qualification",
+                "2.1 Training and Evaluation Program"
+            ],
+            "paragraph": "If an FOO or FOA is used in the system of operational control, the Operator shall ensure the training\nprogram specifies minimum training hours for such personnel, as applicable, in accordance with\nrequirements of the Operator and/or State."
+        },
+        {
+            "code": "DSP 2.1.3",
+            "guidance": null,
+            "iosa_map": [
+                "DSP 2 Training and Qualification",
+                "2.1 Training and Evaluation Program"
+            ],
+            "paragraph": "The Operator shall have a process to ensure course materials used in training programs for\npersonnel responsible for operational control are periodically evaluated to ensure compliance with\nthe qualification and performance standards of the Operator and/or Authority."
+        },
+        {
+            "code": "DSP 2.1.7",
+            "guidance": null,
+            "iosa_map": [
+                "DSP 2 Training and Qualification",
+                "2.1 Training and Evaluation Program"
+            ],
+            "paragraph": "If an FOO or FOA is used in the system of operational control, the Operator shall have a process to\nensure those individuals designated to evaluate the competency of such personnel, as applicable,\nare current and qualified to conduct such evaluations."
+        },
+        {
+            "code": "DSP 2.2.2",
+            "guidance": null,
+            "iosa_map": [
+                "DSP 2 Training and Qualification",
+                "2.2 Training Elements"
+            ],
+            "paragraph": "If an FOO or FOA is used in the system of operational control, the Operator shall ensure such\npersonnel receive recurrent training in the applicable competencies of operational control, as\nspecified in Table 3.5 . Recurrent training shall be completed on a frequency in accordance with\nrequirements of the Authority, if applicable, but not less than once during every\n36-month period plus or minus one month from the original qualification anniversary date or base\nmonth."
+        },
+        {
+            "code": "DSP 2.2.3",
+            "guidance": null,
+            "iosa_map": [
+                "DSP 2 Training and Qualification",
+                "2.2 Training Elements"
+            ],
+            "paragraph": "If an FOO is used in the system of operational control, the Operator shall ensure such personnel\nreceive training in human factors on a frequency in accordance with requirements of the Authority, if\napplicable, but not less than once during every 36-month period plus or minus one month from the\noriginal qualification anniversary date or base month."
+        },
+        {
+            "code": "DSP 2.2.4",
+            "guidance": null,
+            "iosa_map": [
+                "DSP 2 Training and Qualification",
+                "2.2 Training Elements"
+            ],
+            "paragraph": "If the Operator transports dangerous goods as cargo, and an FOO or FOA is used in the system of\noperational control with duties or responsibilities related to the carriage of dangerous goods, the\nOperator shall ensure such personnel receive training and evaluation in dangerous goods during\ninitial ground training and subsequently during recurrent training on a frequency in accordance with\nrequirements of the Authority, if applicable, but not less than once during every 24-month\nperiod."
+        },
+        {
+            "code": "DSP 2.3.1",
+            "guidance": null,
+            "iosa_map": [
+                "DSP 2 Training and Qualification",
+                "2.3 Line Qualification"
+            ],
+            "paragraph": "If an FOO, FOA or designated member of management is used in the system of operational control,\nthe Operator shall have a line qualification program to ensure such personnel, prior to being assigned\nto operational control duties, have demonstrated proficiency in the competencies of operational\ncontrol as specified in Table 3.5 , as applicable to the Operator, and have demonstrated the ability to:\n(i) Assist the PIC in flight preparation and provide the relevant information required;\n(ii) File a flight plan with the appropriate ATS unit;\n(iii) Furnish the PIC in flight, by appropriate means, with information that may be necessary for\nthe safe conduct of the flight;\n(iv) Initiate, in the event of an emergency, applicable procedures as outlined in the OM."
+        },
+        {
+            "code": "DSP 2.3.3",
+            "guidance": null,
+            "iosa_map": [
+                "DSP 2 Training and Qualification",
+                "2.3 Line Qualification"
+            ],
+            "paragraph": "If an FOO is used in the system of operational control, the Operator shall ensure such personnel who\nhave not performed duties as an FOO for a period of 12 consecutive months are not assigned to\nperform FOO duties until re-qualified, by demonstrating knowledge and/or proficiency in accordance\nwith DSP 2.1.1 ."
+        },
+        {
+            "code": "DSP 2.3.4",
+            "guidance": null,
+            "iosa_map": [
+                "DSP 2 Training and Qualification",
+                "2.3 Line Qualification"
+            ],
+            "paragraph": "If an FOO is used in the system of operational control, the Operator shall ensure such personnel are\nnot assigned to FOO duties unless, within the preceding 12 months plus or minus one month from\nthe original qualification anniversary date or base month, they have either:\n(i) Observed one familiarization flight from the flight deck of an aircraft over any area or route\nsegment where responsibility for operational control will be exercised, or \n(ii) If approved by the State and/or if access to the aircraft flight deck is restricted by the\nAuthority, observed a Line Operational Simulation (LOS) profile accomplished in a\nrepresentative flight simulator approved for the purpose by the State, and such profile\naddresses the areas or route segments where responsibility for operational control will be\nexercised."
+        },
+        {
+            "code": "DSP 2.4.1",
+            "guidance": null,
+            "iosa_map": [
+                "DSP 2 Training and Qualification",
+                "2.4 Special Qualification"
+            ],
+            "paragraph": "If the Operator uses FOO personnel and the Operator's method of Operational Control requires\nshared responsibility between an FOO and the PIC, the Operator should ensure FOO personnel\ncomplete resource management training that addresses issues of mutual concern to FOOs and flight\ncrew members. Such training should be conducted for the purposes of enhancing coordination,\nensuring a mutual understanding of the human factors involved in joint operational control and\nachieving common learning objectives as set out by the appropriate operational control and flight\noperations management personnel."
+        },
+        {
+            "code": "DSP 2.5.1",
+            "guidance": null,
+            "iosa_map": [
+                "DSP 2 Training and Qualification",
+                "2.5 SMS Training"
+            ],
+            "paragraph": "The Operator shall have a program that ensures its operational control personnel are trained and\ncompetent to perform SMS duties. The scope of such training shall be appropriate to each\nindividual's involvement in the SMS."
+        },
+        {
+            "code": "DSP 2.5.2",
+            "guidance": null,
+            "iosa_map": [
+                "DSP 2 Training and Qualification",
+                "2.5 SMS Training"
+            ],
+            "paragraph": "If the Operator outsources operational control functions to external service providers, the Operator\nshould have a program that ensures personnel of external service providers are trained and\ncompetent to perform SMS duties. The scope of such training should be appropriate to individual\ninvolvement in the Operator s SMS."
+        },
+        {
+            "code": "DSP 3.1.2",
+            "guidance": null,
+            "iosa_map": [
+                "DSP 3 Line Operations",
+                "3.1 General"
+            ],
+            "paragraph": "The Operator shall have a process or procedures to ensure the PIC is provided with all documents,\ninformation and data necessary for the safe conduct of the flight."
+        },
+        {
+            "code": "DSP 3.2.2",
+            "guidance": null,
+            "iosa_map": [
+                "DSP 3 Line Operations",
+                "3.2 Flight Preparation and Planning"
+            ],
+            "paragraph": "If an FOO or FOA is used in the system of operational control, the Operator shall have a process or\nprocedures to ensure such personnel, as applicable, and the PIC use a common set of flight\ndocuments for each planned flight."
+        },
+        {
+            "code": "DSP 3.2.3",
+            "guidance": null,
+            "iosa_map": [
+                "DSP 3 Line Operations",
+                "3.2 Flight Preparation and Planning"
+            ],
+            "paragraph": "The Operator shall have a procedure to ensure an Operational Flight Plan (OFP) and Air Traffic\nServices (ATS) Flight Plan is generated for every intended flight."
+        },
+        {
+            "code": "DSP 3.2.4",
+            "guidance": null,
+            "iosa_map": [
+                "DSP 3 Line Operations",
+                "3.2 Flight Preparation and Planning"
+            ],
+            "paragraph": "If an FOO or FOA is used in the system of operational control, the Operator shall have guidance and\nprocedures to ensure such personnel, as applicable, assist the PIC in flight preparation, furnish\nrequired operational information as necessary and either:\n(i) Prepare the OFP and ATS flight plan, or\n(ii) Assist the PIC in the preparation of the OFP and ATS flight plan."
+        },
+        {
+            "code": "DSP 3.2.5",
+            "guidance": null,
+            "iosa_map": [
+                "DSP 3 Line Operations",
+                "3.2 Flight Preparation and Planning"
+            ],
+            "paragraph": "The Operator shall have guidance and procedures that ensure the original OFP or equivalent\ndocument is accepted and signed by the following personnel, using either manuscript or an approved\nelectronic method:\n(i) The PIC for all systems of operational control;\n(ii) The FOO for a shared system of operational control;\n(iii) Designated member of management or post holder in a shared system of operational\ncontrol that requires the use of such management personnel."
+        },
+        {
+            "code": "DSP 3.2.6",
+            "guidance": null,
+            "iosa_map": [
+                "DSP 3 Line Operations",
+                "3.2 Flight Preparation and Planning"
+            ],
+            "paragraph": "If an FOO is used in a full shared system of operational control, the Operator shall have guidance\nand procedures to ensure en route amendments to the OFP are coordinated and verified through:\n(i) A signature (manuscript or approved electronic method) by the FOO or other person\nresponsible for operational control;\n(ii) A recorded agreement of the PIC."
+        },
+        {
+            "code": "DSP 3.2.7",
+            "guidance": null,
+            "iosa_map": [
+                "DSP 3 Line Operations",
+                "3.2 Flight Preparation and Planning"
+            ],
+            "paragraph": "If an FOO or FOA is used in the system of operational control, the Operator shall have a process or\nprocedures to ensure Operator changes in an ATS flight plan are, when practicable, coordinated with\nthe appropriate ATS unit before transmission to the aircraft by the FOO, FOA or other delegated\nperson."
+        },
+        {
+            "code": "DSP 3.2.8A",
+            "guidance": null,
+            "iosa_map": [
+                "DSP 3 Line Operations",
+                "3.2 Flight Preparation and Planning"
+            ],
+            "paragraph": "The Operator shall have guidance and procedures to ensure a flight will not be commenced unless it\nhas been ascertained, by every reasonable means available, that conditions and ground facilities\nrequired for the flight are adequate for the type of operation."
+        },
+        {
+            "code": "DSP 3.2.8B",
+            "guidance": null,
+            "iosa_map": [
+                "DSP 3 Line Operations",
+                "3.2 Flight Preparation and Planning"
+            ],
+            "paragraph": "The Operator shall ensure a flight will not commence or continue as planned unless it has been\nascertained by every reasonable means available that the airspace containing the intended route\nfrom the airport of departure to the airport of arrival, including the intended take-off, destination and\nen route alternate airports, can be safely used for the planned operation."
+        },
+        {
+            "code": "DSP 3.2.9A",
+            "guidance": null,
+            "iosa_map": [
+                "DSP 3 Line Operations",
+                "3.2 Flight Preparation and Planning"
+            ],
+            "paragraph": "If the Operator is authorized to conduct certain portions of a commercial flight under visual flight rules\n(VFR), the Operator shall have guidance and procedures that:\n(i) Specify the type of flight plan to be filed with the appropriate ATS unit;\n(ii) Require current meteorological reports, or a combination of current reports and forecasts, to\nindicate that meteorological conditions along the portion of the flight to be flown under VFR\nwill, at the appropriate time, be such as to make compliance with VFR possible."
+        },
+        {
+            "code": "DSP 3.2.9B",
+            "guidance": null,
+            "iosa_map": [
+                "DSP 3 Line Operations",
+                "3.2 Flight Preparation and Planning"
+            ],
+            "paragraph": "The Operator shall have guidance and procedures to ensure a flight to be conducted in accordance\nwith IFR does not:\n(i) Take off from the departure airport unless the meteorological conditions are at or above the\noperator's established airport takeoff operating minima for that operation; and\n(ii) Take off, or continue beyond the point of in-flight re-planning, unless at the airport of\nintended landing or at each required alternate airport, current meteorological reports or a\ncombination of current reports and forecasts indicate that the meteorological conditions will\nbe, at the estimated time of use (ETU), at or above the operator's established airport\noperating minima for that operation."
+        },
+        {
+            "code": "DSP 3.2.9C",
+            "guidance": null,
+            "iosa_map": [
+                "DSP 3 Line Operations",
+                "3.2 Flight Preparation and Planning"
+            ],
+            "paragraph": "The Operator shall have guidance and procedures, approved or accepted by the State, for\ndetermining whether an approach and landing can be safely conducted at each required alternate\nairport at the ETU. Such guidance and procedures shall specify the appropriate incremental values\nfor visibility (and ceiling, if required), to be added to the Operator's established airport operating\nminima."
+        },
+        {
+            "code": "DSP 3.3.1",
+            "guidance": null,
+            "iosa_map": [
+                "DSP 3 Line Operations",
+                "3.3 Aircraft Performance and Load Planning"
+            ],
+            "paragraph": "The Operator shall have guidance and procedures to ensure a planned flight does not exceed:\n(i) The maximum performance takeoff, en route and landing weight limits, based upon\nenvironmental conditions expected at the times of departure, along the route of flight and at\narrival;\n(ii) The aircraft structural ramp, takeoff and landing weight limits."
+        },
+        {
+            "code": "DSP 3.3.3",
+            "guidance": null,
+            "iosa_map": [
+                "DSP 3 Line Operations",
+                "3.3 Aircraft Performance and Load Planning"
+            ],
+            "paragraph": "The Operator shall ensure qualified personnel perform weight and balance calculations."
+        },
+        {
+            "code": "DSP 3.4.1",
+            "guidance": null,
+            "iosa_map": [
+                "DSP 3 Line Operations",
+                "3.4 Icing Conditions"
+            ],
+            "paragraph": "The Operator shall have guidance and procedures to ensure a flight to be operated in known or\nexpected icing conditions shall not be commenced unless the aircraft is certificated and equipped to\nbe operated in such conditions."
+        },
+        {
+            "code": "DSP 3.4.3",
+            "guidance": null,
+            "iosa_map": [
+                "DSP 3 Line Operations",
+                "3.4 Icing Conditions"
+            ],
+            "paragraph": "If the Operator conducts flights from any airport when conditions are conducive to ground aircraft\nicing, the Operator shall have guidance and procedures to ensure a flight planned to operate in\nknown or suspected ground icing conditions is subjected to the following:\n(i) The aircraft has been inspected for ice accretion;\n(ii) If necessary, the aircraft has been given appropriate de/anti-icing treatment."
+        },
+        {
+            "code": "DSP 3.5.1",
+            "guidance": null,
+            "iosa_map": [
+                "DSP 3 Line Operations",
+                "3.5 Aircraft Tracking"
+            ],
+            "paragraph": "The Operator shall have an aircraft tracking capability to track its aircraft throughout its areas of\noperations."
+        },
+        {
+            "code": "DSP 3.5.2",
+            "guidance": null,
+            "iosa_map": [
+                "DSP 3 Line Operations",
+                "3.5 Aircraft Tracking"
+            ],
+            "paragraph": "The Operator should track the position of an aircraft through automated reporting at least every\n15 minutes for the portion(s) of the planned in-flight operation(s) under the following conditions:\n(i) The aircraft has a maximum certificated takeoff mass of over 27,000 kg and a seating\ncapacity greater than 19, and\n(ii) Where an Air Traffic Services Unit (ATSU) obtains aircraft position information at greater\nthan 15-minute intervals."
+        },
+        {
+            "code": "DSP 3.5.3",
+            "guidance": null,
+            "iosa_map": [
+                "DSP 3 Line Operations",
+                "3.5 Aircraft Tracking"
+            ],
+            "paragraph": "If the Operator conducts flight operations in oceanic areas, the Operator shall track the position of an\naircraft through automated reporting at least every 15 minutes for the portion(s) of the in-flight\noperation that is planned in an oceanic area(s) under the following conditions:\n(i) The aircraft has a maximum certificated takeoff mass of over 45 500 kg and a seating\ncapacity greater than 19; and \n(ii) Where an Air Traffic Services Unit (ATSU) obtains aircraft position information at greater\nthan 15-minute intervals."
+        },
+        {
+            "code": "DSP 3.6.1",
+            "guidance": null,
+            "iosa_map": [
+                "DSP 3 Line Operations",
+                "3.6 Flight Monitoring and In-Flight Management"
+            ],
+            "paragraph": "If an FOO or FOA is used in a shared system of operational control, the Operator shall have\nprocedures and equipment that ensure effective communication between the:\n(i) FOO and the PIC;\n(ii) If applicable, FOA and the PIC;\n(iii) FOO, PIC and maintenance."
+        },
+        {
+            "code": "DSP 3.6.2",
+            "guidance": null,
+            "iosa_map": [
+                "DSP 3 Line Operations",
+                "3.6 Flight Monitoring and In-Flight Management"
+            ],
+            "paragraph": "If required by the State, the Operator shall have a system of operational control that includes flight\nmonitoring for the duration of a flight and ensures timely notification to the Operator by the PIC of en\nroute flight movement and/or significant deviation from the operational flight plan."
+        },
+        {
+            "code": "DSP 3.6.3",
+            "guidance": null,
+            "iosa_map": [
+                "DSP 3 Line Operations",
+                "3.6 Flight Monitoring and In-Flight Management"
+            ],
+            "paragraph": "The Operator should have a system of operational control that includes flight monitoring for the\nduration of a flight and ensures timely notification to the Operator by the PIC of en route flight\nmovement and/or significant deviation from the operational flight plan."
+        },
+        {
+            "code": "DSP 3.6.4",
+            "guidance": null,
+            "iosa_map": [
+                "DSP 3 Line Operations",
+                "3.6 Flight Monitoring and In-Flight Management"
+            ],
+            "paragraph": "If the Operator has a system of operational control that includes automated flight monitoring, the\nOperator should have an adequate backup method of flight monitoring in case of failure of the\nautomated system."
+        },
+        {
+            "code": "DSP 3.6.5A",
+            "guidance": null,
+            "iosa_map": [
+                "DSP 3 Line Operations",
+                "3.6 Flight Monitoring and In-Flight Management"
+            ],
+            "paragraph": "The Operator shall have guidance and procedures to ensure a flight is not continued toward the\nairport of intended landing unless the latest available information indicates, at the ETU, a landing can\nbe made either at that airport or at least one destination alternate airport."
+        },
+        {
+            "code": "DSP 3.6.5B",
+            "guidance": null,
+            "iosa_map": [
+                "DSP 3 Line Operations",
+                "3.6 Flight Monitoring and In-Flight Management"
+            ],
+            "paragraph": "If the Operator selects and specifies en route alternate airports on the OFP, the Operator shall have\nguidance and procedures to ensure en route alternate airports selected and specified on the OFP are\navailable for approach and landing, and the forecast at those airports is for conditions to be at or\nabove the operating minima approved for the operation at the ETU."
+        },
+        {
+            "code": "DSP 3.6.5C",
+            "guidance": null,
+            "iosa_map": [
+                "DSP 3 Line Operations",
+                "3.6 Flight Monitoring and In-Flight Management"
+            ],
+            "paragraph": "The Operator shall have procedures to ensure that the inadequacy of any facilities observed during\nthe course of flight operations is reported to the responsible authority without undue delay, and to\nfurther ensure that information relevant to any such inadequacy is immediately disseminated to\napplicable operating areas within the Operator's organization."
+        },
+        {
+            "code": "DSP 3.6.6",
+            "guidance": null,
+            "iosa_map": [
+                "DSP 3 Line Operations",
+                "3.6 Flight Monitoring and In-Flight Management"
+            ],
+            "paragraph": "The Operator shall have guidance and procedures to ensure notification to the Operator when a flight\nhas been completed."
+        },
+        {
+            "code": "DSP 3.7.1",
+            "guidance": null,
+            "iosa_map": [
+                "DSP 3 Line Operations",
+                "3.7 Emergency Response"
+            ],
+            "paragraph": "If the Operator conducts international flights with aircraft that have emergency and survival\nequipment on board, the Operator shall ensure the availability of information for immediate\ncommunication to rescue coordination centers that describes such equipment, to include, as\napplicable:\n(i) The number, color and type of lifesaving rafts and pyrotechnics;\n(ii) Details of emergency medical and water supplies;\n(iii) Type and frequencies of the emergency portable radio equipment."
+        },
+        {
+            "code": "DSP 3.7.2",
+            "guidance": null,
+            "iosa_map": [
+                "DSP 3 Line Operations",
+                "3.7 Emergency Response"
+            ],
+            "paragraph": "The Operator shall have guidance and procedures to ensure FOO, FOA or other designated\npersonnel:\n(i) Notify the appropriate authority in the quickest manner of any accident involving an aircraft\nthat results in a fatal or serious injury to any person or substantial damage to the aircraft or\nproperty;\n(ii) Make position information of a flight in distress available to the appropriate organizations as\nestablished by the State."
+        },
+        {
+            "code": "DSP 3.7.3",
+            "guidance": null,
+            "iosa_map": [
+                "DSP 3 Line Operations",
+                "3.7 Emergency Response"
+            ],
+            "paragraph": "If the Operator transports dangerous goods as cargo, the Operator shall ensure FOO, FOA and/or\nother designated operational control personnel:\n(i) Have access to the same information pertaining to dangerous goods carried as cargo on\nboard the aircraft that is provided to the PIC;\n(ii) Are assigned the responsibility to provide detailed information without delay about\ndangerous goods carried as cargo to emergency services responding to an accident or\nserious incident involving the Operator's aircraft."
+        },
+        {
+            "code": "DSP 4.1.1",
+            "guidance": null,
+            "iosa_map": [
+                "DSP 4 Operational Control Requirements and Specifications",
+                "4.1 Alternate and Isolated Airports"
+            ],
+            "paragraph": "The Operator shall have a system, process and/or procedures for alternate airport selection to\nensure an appropriate takeoff alternate airport is selected and specified on the OFP whenever:\n(i) The meteorological conditions at the airport of departure are below the applicable airport\noperating landing minima, and/or\n(ii) Other operational conditions exist, as defined by the State or the Operator, that would\npreclude a return to the departure airport."
+        },
+        {
+            "code": "DSP 4.1.2",
+            "guidance": null,
+            "iosa_map": [
+                "DSP 4 Operational Control Requirements and Specifications",
+                "4.1 Alternate and Isolated Airports"
+            ],
+            "paragraph": "The Operator shall have a system, process, and/or procedures for alternate airport selection to\nensure a takeoff alternate airport selected in accordance with DSP 4.1.1 is located within a specified\nflying time from the airport of departure as follows (as applicable to the Operator):\n(i) For aircraft with two engines, not more than one hour flying time from the airport of\ndeparture calculated at the single-engine cruise speed, determined from the aircraft\noperating manual in ISA and still air conditions using the actual takeoff mass.\n(ii) For aircraft with three or more engines, not more than two hours flying time from the airport\nof departure calculated at the all-engine operating cruise speed, determined from the aircraft\noperating manual in ISA and still air conditions using the actual takeoff mass.\n(iii) For aircraft engaged in ETOPS/EDTO, where an alternate airport meeting the flight time\ncriteria of i) or ii) is not available, the first available alternate airport located within the\nmaximum diversion flying time approved for the Operator considering the actual takeoff\nmass."
+        },
+        {
+            "code": "DSP 4.1.4",
+            "guidance": null,
+            "iosa_map": [
+                "DSP 4 Operational Control Requirements and Specifications",
+                "4.1 Alternate and Isolated Airports"
+            ],
+            "paragraph": "The Operator shall have a system, process and/or procedures for alternate airport selection that\ntakes into account meteorological conditions and relevant operational information to ensure a\nminimum of one destination alternate airport is specified on the OFP and the ATS flight plan, except\nunder one or more of the following conditions (as approved or accepted by the Authority based on the\noperations of the Operator):\n(i) When, based on the duration of the flight (from the departure airport, or from the point of in-\nflight re-planning to the destination), there is reasonable certainty that, at the ETU of the\ndestination airport:\n(a) The approach and landing may be made under visual meteorological conditions\n(VMC), as defined by the State; and\n(b) Separate runways are usable with at least one runway having an operational\ninstrument approach procedure.\n(ii) When, based on the duration of the flight (from the departure airport, or from the point of in-\nflight re-planning to the destination airport), there is reasonable certainty that, at the ETU of\nthe destination airport, the visibility will be at least 3 miles (5 km) andthe ceiling will be at or\nabove one or more of the following prescribed heights, (as approved or accepted by the\nAuthority based on the operations of the Operator):\n(a) The ceiling height for VMC, as defined by the State, or\n(b) 1,500 feet above the lowest ( TERPS) circling MDA, if a circling approach is required\nand authorized for that airport, or\n(c) 2,000 feet or 500 feet above the ( PANS-OPS) circling height, whichever is greater,\nor\n(d) 2,000 feet or 1,500 feet above the lowest applicable HAT/HAA, whichever is\ngreater."
+        },
+        {
+            "code": "DSP 4.1.5",
+            "guidance": null,
+            "iosa_map": [
+                "DSP 4 Operational Control Requirements and Specifications",
+                "4.1 Alternate and Isolated Airports"
+            ],
+            "paragraph": "The Operator shall have a system, process and/or procedures for alternate airport selection that\ntakes into account meteorological conditions and relevant operational information to ensure a second\ndestination alternate airport is specified on the OFP and the ATS flight plan under one or more of the\nfollowing conditions (as approved or accepted by the Authority based on the operations of the\nOperator):\n(i) When, for the destination airport, meteorological conditions at the ETU will be below the\nOperator's established airport operating minima.\n(ii) When, for the destination airport, meteorological information is not available (unless the\nAuthority will not permit the initiation of a flight in the absence of such information).\n(iii) If the Operator conducts operations to airports with  marginal  meteorological conditions as\ndefined in the OM, when, for such operations, the meteorological conditions at the ETU of\nthe destination andfirst alternate airports will be marginal.\n(iv) If the Operator conducts extended over-water operations as defined in the OM, when, for\nsuch operations, the meteorological conditions at the ETU of the destination airport will be\nbelow the Operator's established operating minima for that operation, unless there is a\nreasonable certainty that the first alternate airport will be at or above the Operator's\nestablished operating minima at the ETU."
+        },
+        {
+            "code": "DSP 4.1.7",
+            "guidance": null,
+            "iosa_map": [
+                "DSP 4 Operational Control Requirements and Specifications",
+                "4.1 Alternate and Isolated Airports"
+            ],
+            "paragraph": "If the Operator conducts isolated airport operations that preclude the selection of any destination\nalternate airport in accordance with DSP 4.1.4 or4.1.5 , the Operator shall have a process to ensure,\nfor each flight into an isolated destination airport:\n(i) The designation of a point of safe return (PSR);\n(ii) The flight does not continue past the PSR unless a current assessment of meteorological\nconditions, traffic, and other operational conditions indicate that a safe landing can be made\nat the ETU."
+        },
+        {
+            "code": "DSP 4.2.1",
+            "guidance": null,
+            "iosa_map": [
+                "DSP 4 Operational Control Requirements and Specifications",
+                "4.2 Minimum Flight Altitudes and En Route Performance"
+            ],
+            "paragraph": "The Operator shall have guidance and procedures to ensure planned minimum flight altitudes are not\nless than those established by the applicable authorities."
+        },
+        {
+            "code": "DSP 4.2.2",
+            "guidance": null,
+            "iosa_map": [
+                "DSP 4 Operational Control Requirements and Specifications",
+                "4.2 Minimum Flight Altitudes and En Route Performance"
+            ],
+            "paragraph": "The Operator shall have guidance and procedures to ensure provision of an OFP such that, if the\nmost critical engine on an aircraft with two engines become inoperative at any point along the\nplanned route of flight, the aircraft can continue to an airport and land safely without flying below the\nminimum flight altitude(s) at any points along the route."
+        },
+        {
+            "code": "DSP 4.2.3",
+            "guidance": null,
+            "iosa_map": [
+                "DSP 4 Operational Control Requirements and Specifications",
+                "4.2 Minimum Flight Altitudes and En Route Performance"
+            ],
+            "paragraph": "If the Operator uses aircraft with three or more engines, the Operator shall have guidance and\nprocedures for diversion planning and the provision of an OFP that ensures aircraft with three or\nmore engines can either:\n(i) If a second engine becomes inoperative en route, continue from the point where two\nengines are assumed to fail simultaneously to an en route alternate airport at which the\nlanding distance specification for alternate airports is complied with and where it is expected\nthat a safe landing can be made, or\n(ii) If a single engine becomes inoperative en route, and for operations conducted in areas of\nthe world with limited diversion options, the flight is planned with a more distant alternate\nthan specified in item i) in order to provide for a diversion for any en route contingency that\nmay limit the planned operation. Such diversion planning shall be conducted in accordance\nwith the specifications of a program approved or accepted by the State that requires the\nOperator to actively manage the risk of subsequent engine failures or other flight limiting\noccurrences and:\n(a) Contains special considerations for extended range flights conducted over remote\nareas designed to prevent the need for a diversion and protect the diversion to an\nalternate airport when it cannot be prevented;\n(b) Uses aircraft designed and manufactured for the intended operation and maintained\nto ensure original reliability;\n(c) Requires the Operator to implement and maintain a problem reporting, tracking and\nresolution system that contains a means for the prompt reporting, tracking and\nresolution of specific problems, as designated by the Operator or State, that could\naffect the safety of the operation;\n(d) Requires a prescribed level of engine reliability, as measured by an in-flight\nshutdown rate (IFSD) determined by the Operator or State, where the risk of\nindependent failures leading to a loss of thrust from two simultaneous engine\nfailures ceases to limit the operation and other limiting factors come into play;\n(e) Designates a maximum diversion distance in cases where a diversion is necessary\nfor any reason, including limiting airframe systems and reasons that do not have\nanything to do with aircraft reliability, such as passenger illness;\n(f) Requires the Operator to demonstrate to the applicable authorities that, when\nconsidering the impact of increasing diversion time, the operation can be conducted\nat a level of reliability which maintains an acceptable level of risk. [PCO]"
+        },
+        {
+            "code": "DSP 4.3.1",
+            "guidance": null,
+            "iosa_map": [
+                "DSP 4 Operational Control Requirements and Specifications",
+                "4.3 Fuel Planning"
+            ],
+            "paragraph": "The Operator shall have a system, process and/or procedures to ensure an aircraft carries a\nsufficient amount of usable fuel to complete each planned flight safely and allow for deviations from\nthe planned operation."
+        },
+        {
+            "code": "DSP 4.3.2",
+            "guidance": null,
+            "iosa_map": [
+                "DSP 4 Operational Control Requirements and Specifications",
+                "4.3 Fuel Planning"
+            ],
+            "paragraph": "The Operator shall have a system, process and/or procedures to ensure the amount of usable fuel to\nbe carried on an aircraft in accordance with DSP 4.3.1 is, as a minimum, based on the following data\nand operating conditions for each planned flight:\n(i) Current aircraft-specific data derived from a fuel consumption monitoring program, if\navailable, or if current aircraft-specific data is not available, data provided by the aircraft\nmanufacturer;\n(ii) The anticipated aircraft mass;\n(iii) Notices to Airmen (NOTAM);\n(iv) Current meteorological reports, or a combination of current reports and forecasts;\n(v) Applicable air traffic services procedures, restrictions and anticipated delays;\n(vi) The effects of deferred maintenance items and/or configuration deviations;\n(vii) Any other conditions that might cause increased fuel consumption."
+        },
+        {
+            "code": "DSP 4.3.5",
+            "guidance": null,
+            "iosa_map": [
+                "DSP 4 Operational Control Requirements and Specifications",
+                "4.3 Fuel Planning"
+            ],
+            "paragraph": "The Operator shall have a process and/or procedures to ensure the taxi fuel required in accordance\nwith its fuel policy is the amount of fuel estimated to be consumed before takeoff, taking into account\nlocal conditions at the departure airport and auxiliary power unit (APU) fuel consumption."
+        },
+        {
+            "code": "DSP 4.3.6",
+            "guidance": null,
+            "iosa_map": [
+                "DSP 4 Operational Control Requirements and Specifications",
+                "4.3 Fuel Planning"
+            ],
+            "paragraph": "The Operator shall have a process and/or procedures to ensure the trip fuel required in accordance\nwith its fuel policy is the amount of fuel required to enable the aircraft to fly from takeoff, or from the\npoint of in-flight re-planning, until landing at the destination airport taking into account the operating\nconditions specified in DSP 4.3.2."
+        },
+        {
+            "code": "DSP 4.3.7",
+            "guidance": null,
+            "iosa_map": [
+                "DSP 4 Operational Control Requirements and Specifications",
+                "4.3 Fuel Planning"
+            ],
+            "paragraph": "The Operator shall have a process and/or procedures to ensure the contingency fuel required in\naccordance with its fuel policy is the amount of fuel required to compensate for unforeseen factors\nthat could have an influence on the fuel consumption to the destination airport. Contingency fuel shall\nnot be lower than any one or more of the following (as approved or accepted by the Authority based\non the operations of the Operator):\n(i) Five (5) percent of the planned trip fuel or of the fuel required from the point of in-flight re-\nplanning based on the consumption rate used to plan the trip fuel, but never lower than the\namount required to fly for five (5) minutes at holding speed at 450 m (1,500 ft) above the\ndestination airport in standard conditions.\n(ii) If approved or accepted by the Authority for domestic operations; an amount of fuel to fly for\n45 minutes at normal cruising fuel consumption, including 30 minutes final reserve.\n(iii) If approved or accepted by the Authority for international operations, an amount of fuel to fly\nfor 10 percent of the total time required to fly from the airport of departure or the point of in-\nflight re-planning to, and then land at, the airport to which it was released or re-released.\n(iv) If approved or accepted by the Authority for the purpose of reducing contingency fuel, not\nless than three (3) percent of the planned trip fuel or, in the event of in-flight re-planning,\nthree (3) percent of the trip fuel for the remainder of the flight, provided that an en route\nalternate airport is available in accordance with the requirements of the Authority.\n(v) If approved or accepted by the Authority based on actual fuel consumption data, an amount\nof fuel sufficient for 20 minutes flying time based upon the planned trip fuel consumption\nprovided that the operator has established a fuel consumption monitoring program for\nindividual aircraft and uses valid data determined by means of such a program for fuel\ncalculation.\n(vi) If approved or accepted by the Authority, an amount of fuel based on a statistical method\nthat ensures an appropriate statistical coverage of the deviation from the planned to the\nactual trip fuel. This method is used to monitor the fuel consumption on each city pair/aircraft\ncombination and the Operator uses this data for a statistical analysis to calculate\ncontingency fuel for the applicable city pair/aircraft combination."
+        },
+        {
+            "code": "DSP 4.3.8",
+            "guidance": null,
+            "iosa_map": [
+                "DSP 4 Operational Control Requirements and Specifications",
+                "4.3 Fuel Planning"
+            ],
+            "paragraph": "The Operator shall have a process and/or procedures to ensure, for flights that require a single\ndestination alternate airport, the destination alternate fuel required in accordance with its fuel policy is\nnot lower than amount of fuel that will enable the aircraft to complete all of the following:\n(i) Perform a missed approach at the destination airport;\n(ii) Climb to the expected cruising altitude;\n(iii) Fly the expected routing to the destination alternate airport;\n(iv) Descend to the point where the expected approach is initiated;\n(v) Conduct the approach and landing at the destination alternate airport."
+        },
+        {
+            "code": "DSP 4.3.9",
+            "guidance": null,
+            "iosa_map": [
+                "DSP 4 Operational Control Requirements and Specifications",
+                "4.3 Fuel Planning"
+            ],
+            "paragraph": "The Operator shall have a process and/or procedures to ensure, for flights that require a second\ndestination alternate, the destination alternate fuel required in accordance with its fuel policy is not\nlower than the amount of fuel, as calculated in accordance with DSP 4.3.8 , that enables the aircraft to\nproceed to the destination alternate airport requiring the greater amount of fuel"
+        },
+        {
+            "code": "DSP 4.3.10",
+            "guidance": null,
+            "iosa_map": [
+                "DSP 4 Operational Control Requirements and Specifications",
+                "4.3 Fuel Planning"
+            ],
+            "paragraph": "If the Operator conducts flights that do not require a destination alternate airport, the Operator shall\nhave a process and/or procedures to ensure a supplemental amount of fuel is carried on such flights\nto provide for increased fuel consumption during the flight to the destination airport due to unforeseen\noperational occurrences."
+        },
+        {
+            "code": "DSP 4.3.11",
+            "guidance": null,
+            "iosa_map": [
+                "DSP 4 Operational Control Requirements and Specifications",
+                "4.3 Fuel Planning"
+            ],
+            "paragraph": "If the Operator conducts isolated airport operations, the Operator shall have a process and/or\nprocedures to ensure the isolated airport fuel calculated in accordance with its fuel policy is not less\nthan the amount of fuel required to fly for two (2) hours at normal cruise consumption above the\nisolated destination airport, including the final reserve fuel calculated in accordance with DSP 4.3.12 ."
+        },
+        {
+            "code": "DSP 4.3.12",
+            "guidance": null,
+            "iosa_map": [
+                "DSP 4 Operational Control Requirements and Specifications",
+                "4.3 Fuel Planning"
+            ],
+            "paragraph": "The Operator shall have a process and/or procedures to ensure the final reserve fuel calculated in\naccordance with its fuel policy is not less than the amount of fuel required to fly for 30 minutes under\nspeed and altitude conditions specified by the Operator and as approved or accepted by the\nAuthority."
+        },
+        {
+            "code": "DSP 4.3.13",
+            "guidance": null,
+            "iosa_map": [
+                "DSP 4 Operational Control Requirements and Specifications",
+                "4.3 Fuel Planning"
+            ],
+            "paragraph": "The Operator shall have a process and/or procedures to ensure the additional fuel calculated in\naccordance with its fuel policy is a supplementary amount of fuel required to be carried when the sum \nof the trip fuel, contingency fuel, alternate fuel and final reserve fuel is insufficient to meet any one of\nthe following conditions (as applicable to the Operator):\n(i) Allow the aircraft engaged in ETOPS/EDTO to comply with critical fuel scenario as\nestablished defined by the State.\n(ii) Allow the aircraft, as defined by the State, flying greater than 90 minutes from an alternate\nairport to:\n(a) Descend as necessary and proceed to an alternate airport in the event of engine\nfailure or loss of pressurization, whichever requires the greater amount of fuel\nbased on the assumption that such a failure occurs at the most critical point along\nthe route;\n(b) Fly for 15 minutes at holding speed at 450 m (1,500 ft) above the alternate airport\nelevation in standard conditions;\n(c) Make an approach and landing at the alternate airport.\n(iii) Allow for any additional operational requirements, as defined by the State or the Operator,\nnot covered by items i) and ii)."
+        },
+        {
+            "code": "DSP 4.3.14",
+            "guidance": null,
+            "iosa_map": [
+                "DSP 4 Operational Control Requirements and Specifications",
+                "4.3 Fuel Planning"
+            ],
+            "paragraph": "The Operator shall have a process and/or procedures to provide for the uplift of discretionary fuel in\naccordance with its fuel policy, which is the extra amount of fuel to be carried at the discretion of the\nPIC, or the PIC and FOO in a shared system of operational control."
+        },
+        {
+            "code": "DSP 4.3.16",
+            "guidance": null,
+            "iosa_map": [
+                "DSP 4 Operational Control Requirements and Specifications",
+                "4.3 Fuel Planning"
+            ],
+            "paragraph": "If the Operator uses FOO personnel, the Operator should have guidance for the purpose of\nincreasing fuel state awareness. Such guidance should include one or more of the following:\n(i) One approximate final reserve fuel value applicable to each aircraft type and variant in the\nOperator's fleet.\n(ii) A value for the final reserve fuel for each flight presented on the OFP.\n(iii) A display in the Flight Planning System or Flight Monitoring System of the planned or actual\nfinal reserve fuel for each flight."
+        },
+        {
+            "code": "DSP 4.4.1",
+            "guidance": null,
+            "iosa_map": [
+                "DSP 4 Operational Control Requirements and Specifications",
+                "4.4 Oxygen"
+            ],
+            "paragraph": "If an FOO is used in a full shared system of operational control, the Operator shall have guidance\nand procedures for such personnel to ensure a flight is not commenced unless the aircraft has a\nsufficient amount of oxygen to supply crew members and passengers in accordance with FLT 4.3.5 ."
+        },
+        {
+            "code": "DSP 4.5.1",
+            "guidance": null,
+            "iosa_map": [
+                "DSP 4 Operational Control Requirements and Specifications",
+                "4.5 Operations Beyond 60 Minutes from an En Route Alternate Airport and ETOPS/EDTO"
+            ],
+            "paragraph": "If the Operator conducts flight operations beyond 60 minutes from a point on a route to an en route\nalternate airport, including ETOPS/EDTO, the Operator shall have a system, process and/or\nprocedures to ensure such operations are planned and conducted in accordance with operational\nrequirements and applicable regulations."
+        },
+        {
+            "code": "DSP 4.5.2",
+            "guidance": null,
+            "iosa_map": [
+                "DSP 4 Operational Control Requirements and Specifications",
+                "4.5 Operations Beyond 60 Minutes from an En Route Alternate Airport and ETOPS/EDTO"
+            ],
+            "paragraph": "If the Operator conducts flight operations beyond 60 minutes from a point on a route to an en route\nalternate airport, including ETOPS/EDTO, the Operator shall have guidance and procedures to\nensure (as applicable to the Operator):\n(i) For all aircraft, en route alternate airports are identified and the most up-to-date information\nrelative to such airports is available to the flight crew, including airport status and\nmeteorological conditions;\n(ii) For aircraft with two engines engaged in ETOPS/EDTO, the most up-to-date information\navailable to the flight crew indicates that conditions at identified en route alternate airports\nwill be at or above the Operator's established airport operating minima for the operation at\nthe ETU."
+        },
+        {
+            "code": "DSP 4.5.3",
+            "guidance": null,
+            "iosa_map": [
+                "DSP 4 Operational Control Requirements and Specifications",
+                "4.5 Operations Beyond 60 Minutes from an En Route Alternate Airport and ETOPS/EDTO"
+            ],
+            "paragraph": "If the Operator uses aircraft with two engines in ETOPS/EDTO, the Operator shall have guidance\nand procedures to select en route alternate airports for such operations, and ensure en route\nalternate airports are specified on:\n(i) The OFP or other equivalent operational document available to the PIC in flight;\n(ii) The ATS flight plan where required by the State or the ATS system in use."
+        },
+        {
+            "code": "DSP 4.5.4",
+            "guidance": null,
+            "iosa_map": [
+                "DSP 4 Operational Control Requirements and Specifications",
+                "4.5 Operations Beyond 60 Minutes from an En Route Alternate Airport and ETOPS/EDTO"
+            ],
+            "paragraph": "If the Operator conducts ETOPS/EDTO, the Operator shall have guidance and procedures to ensure,\nfor aircraft engaged in such operations:\n(i) A flight will not proceed beyond the threshold time unless the identified en route alternate\nairports are re-evaluated for availability and the most up-to-date information indicates that,\nduring the ETU, conditions at those airports will be at or above the Operator's established\nairport operating minima for the operation;\n(ii) If any conditions are identified that would preclude a safe approach and landing at an\nidentified en route alternate airport during the ETU, an alternative course of action has been\ndetermined;\n(iii) The most limiting EDTO-significant system time limitation (except for the most limiting fire\nsuppression system), if any, indicated in the aircraft flight manual (directly or by reference)\nand relevant to a particular operation is not exceeded."
+        },
+        {
+            "code": "DSP 4.5.5",
+            "guidance": null,
+            "iosa_map": [
+                "DSP 4 Operational Control Requirements and Specifications",
+                "4.5 Operations Beyond 60 Minutes from an En Route Alternate Airport and ETOPS/EDTO"
+            ],
+            "paragraph": "If the Operator conducts flights beyond 60 minutes from a point on a route to an en route alternate\nairport, including EDTO, with aircraft that have a published cargo compartment fire suppression time\nlimit, the Operator should have a system, process, and/or procedures to ensure the diversion time to\nan airport where a safe landing could be made does not exceed the cargo compartment fire\nsuppression time capability reduced by an operational safety margin specified by the State."
+        }
+    ]
+}

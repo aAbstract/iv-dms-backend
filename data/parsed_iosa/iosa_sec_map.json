@@ -1,0 +1,51 @@
+[
+    {
+        "code": "SEC 1",
+        "title": "SEC 1 Management and Control",
+        "sub_sections": [
+            "1.1 Management System Overview",
+            "1.2 Air Operator Security Program (AOSP)",
+            "1.3 Authorities and Responsibilities",
+            "1.4 Communication",
+            "1.5 Provision of Resources",
+            "1.6 Documentation System",
+            "1.7 (Intentionally open)",
+            "1.8 Records System",
+            "1.9 Management Review",
+            "1.10 Quality Assurance/Quality Control Programs",
+            "1.11 Quality Control of Outsourced Operations and Products",
+            "1.12 Operational Reporting"
+        ]
+    },
+    {
+        "code": "SEC 2",
+        "title": "SEC 2 Training and Qualification",
+        "sub_sections": [
+            "2.1 Training Program"
+        ]
+    },
+    {
+        "code": "SEC 3",
+        "title": "SEC 3 Security Operations",
+        "sub_sections": [
+            "3.1 Access Control",
+            "3.2 (Intentionally open)",
+            "3.3 Carriage of Weapons",
+            "3.4 Passengers (Including Supernumeraries) and Cabin Baggage",
+            "3.5 Special Category Passengers",
+            "3.6 Hold Baggage",
+            "3.7 Cargo Shipments",
+            "3.8 In-Flight, Catering and Other Supplies",
+            "3.9 General Protection"
+        ]
+    },
+    {
+        "code": "SEC 4",
+        "title": "SEC 4 Security Threat and Contingency Management",
+        "sub_sections": [
+            "4.1 Threat Management",
+            "4.2 Contingency Planning",
+            "4.3 Investigation and Notification"
+        ]
+    }
+]

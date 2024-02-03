@@ -30,8 +30,8 @@ async def lifespan(app: FastAPI):
 
 server = FastAPI(
     title='IV DMS Backend',
-    description='Added Paragraph Field to get-iosa-checklist API',
-    version="0.32.2",
+    description='Removed Constraints Field From IOSA Checklists',
+    version="0.32.3",
     lifespan=lifespan,
 )
 server.add_middleware(

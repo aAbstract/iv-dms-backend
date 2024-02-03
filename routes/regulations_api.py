@@ -113,17 +113,11 @@ async def get_iosa_map(res: Response, regulation_id: str = Body(), checklist_cod
 async def get_iosa_checklist(res: Response, regulation_id: str = Body(), checklist_code: str = Body(), x_auth=Header(alias='X-Auth', default=None)) -> JsonResponse:
     """Get iosa checklist details.\n
     ==============================\n
-    interface Constrain {\n
-    text: string,\n
-    children: Constrain[],\n
-    };\n
-    ==============================\n
     Returns: {..., data: {\n
     code: string,\n
     guidance: string,\n
     iosa_map: string[],\n
-    paragraph: paragraph,\n
-    constraints: Constrain[],\n
+    paragraph: string,\n
     }}
     """
     func_id = f"{_MODULE_ID}.get_iosa_checklist"
@@ -152,15 +146,10 @@ async def get_iosa_checklist(res: Response, regulation_id: str = Body(), checkli
 async def get_checklist_template(res: Response, regulation_id: str = Body(), checklist_template_code: str = Body(), x_auth=Header(alias='X-Auth', default=None)) -> JsonResponse:
     """Get iosa checklist report templates.\n
     ==============================\n
-    interface Constrain {\n
-    text: string,\n
-    children: Constrain[],\n
-    };\n
     interface IOSAItem {\n
     code: string,\n
     guidance: string,\n
     iosa_map: string[],\n
-    constraints: Constrain[],\n
     };\n
     interface ReportSubSection {\n
     title: string:, // sub section title\n

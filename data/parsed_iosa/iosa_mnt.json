@@ -1,0 +1,935 @@
+{
+    "name": "Section 4 - Aircraft Engineering and Maintenance (MNT)",
+    "code": "MNT",
+    "applicability": "Applicability\nSection 4 is applicable to all operators, and addresses aircraft engineering and maintenance functions\nrelevant to the airworthiness of the aircraft, engines and components.\nIndividual MNT provisions or sub-specifications within a MNT provision that:\n Do not begin with a conditional phrase are applicable unless determined otherwise by the Auditor.\n Begin with a conditional phrase  If the Operator...  are applicable if the Operator meets the\ncondition(s) stated in the phrase.\nAn operator may choose to have certain functions within the scope of ground handling operations (e.g.\naircraft loading, aircraft ground handling) performed by maintenance operations personnel. If this situation\nexists, the operator must be in conformity with the ISARPs contained in Section 6 , Ground Handling\nOperations (GRH), that are applicable to the ground handling functions performed by maintenance\noperations personnel.\nWhere an operator outsources the performance of aircraft engineering and maintenance operational\nfunctions to external organizations, the operator retains overall responsibility for ensuring aircraft\nairworthiness, and must demonstrate processes for monitoring the applicable external organization(s) in\naccordance with MNT 1.11.7 .",
+    "guidance": "General Guidance\nDefinitions of technical terms used in this ISM Section 4 , as well as the meaning of abbreviations and\nacronyms, are found in the IATA Reference Manual for Audit Programs (IRM).\nMany provisions in this section contain the phrase  organization that performs maintenance (or performs\nmaintenance functions) for the Operator.  This phrase is inclusive and refers to any organizations that might\nperform maintenance on the operator s aircraft, either an external maintenance organization or the operator s\nown maintenance organization.\nThe term  maintenance  as used in above-referenced phrase means restoring or maintaining an aircraft,\naircraft engine or aircraft component to or in an airworthy and serviceable condition through the performance\nof functions such as repair, modification, overhaul, inspection, replacement, defect rectification and/or\ndetermination of condition.\nIf a standard or recommended practice requires an operator to ensure that certain provisions (specifically in\nMNT subsection 4) are satisfied by an organization that performs maintenance or maintenance operational\nfunctions for the operator under a maintenance agreement, then the operator monitors such maintenance\norganization to ensure specifications in the relevant ISARPs are being fulfilled.\nIf the organization that has a maintenance agreement with the operator subcontracts certain maintenance\nfunctions to other maintenance organizations (as agreed between parties), then the operator s monitoring of\nthe contracted maintenance organization would also ensure such organization is performing oversight of all\nrelevant subcontractors. For example, when an operator contracts with an airframe maintenance provider to\nconduct base maintenance and such maintenance provider then subcontracts certain maintenance activities\nor functions to one or more of its subcontractors, the operator s monitoring would also ensure the contracted\nairframe maintenance provider is providing proper oversight of the relevant subcontractors.\n1 Management and Control\n1.1 Management System Overview",
+    "items": [
+        {
+            "code": "MNT 1.1.1",
+            "guidance": null,
+            "iosa_map": [
+                "MNT 1 Management and Control",
+                "1.1 Management System Overview"
+            ],
+            "paragraph": "The Operator shall have a management system for maintenance operations that ensures:\n(i) Management of safety and quality in maintenance operations;\n(ii) Supervision and control of maintenance activities; \n(iii) Compliance with applicable regulations and standards of the Operator."
+        },
+        {
+            "code": "MNT 1.1.2",
+            "guidance": null,
+            "iosa_map": [
+                "MNT 1 Management and Control",
+                "1.1 Management System Overview"
+            ],
+            "paragraph": "The Operator shall have a staff of management personnel suitably matched to the scale and scope of\nmaintenance operations to ensure:\n(i) Maintenance of all aircraft is performed in accordance with the Maintenance Program;\n(ii) All maintenance is carried out in accordance with policies and procedures contained in the\nMaintenance Management Manual (MMM)."
+        },
+        {
+            "code": "MNT 1.1.3",
+            "guidance": null,
+            "iosa_map": [
+                "MNT 1 Management and Control",
+                "1.1 Management System Overview"
+            ],
+            "paragraph": "The Operator shall have a manager of maintenance operations that is acceptable to the Authority, if\nrequired, and is responsible for ensuring:\n(i) The management of safety and security risks to maintenance operations;\n(ii) Maintenance operations are conducted in accordance with conditions and restrictions of the\nAir Operator Certificate (AOC), and in compliance with applicable regulations and standards\nof the Operator."
+        },
+        {
+            "code": "MNT 1.2.1",
+            "guidance": null,
+            "iosa_map": [
+                "MNT 1 Management and Control",
+                "1.2 Accountability, Authorities and Responsibilities"
+            ],
+            "paragraph": "The Operator shall ensure the management system for maintenance operations defines the safety\naccountability, authorities and responsibilities of management and non-management personnel that\nperform functions relevant to aircraft engineering and maintenance. The management system shall\nalso specify:\n(i) The levels of management within maintenance operations with the authority to make\ndecisions regarding risk tolerability with respect to aircraft airworthiness;\n(ii) Responsibilities for ensuring maintenance operations are conducted in accordance with\nconditions and restrictions of the AOC, applicable regulations and standards of the\nOperator;\n(iii) Lines of accountability throughout maintenance operations, including direct accountability\non the part of senior management for ensuring aircraft airworthiness."
+        },
+        {
+            "code": "MNT 1.2.2",
+            "guidance": null,
+            "iosa_map": [
+                "MNT 1 Management and Control",
+                "1.2 Accountability, Authorities and Responsibilities"
+            ],
+            "paragraph": "The Operator shall have a process or procedure for the delegation of duties within the management\nsystem for maintenance operations that ensures managerial continuity is maintained when\noperational managers including, if applicable, post holders are unable to carry out work duties."
+        },
+        {
+            "code": "MNT 1.2.3",
+            "guidance": null,
+            "iosa_map": [
+                "MNT 1 Management and Control",
+                "1.2 Accountability, Authorities and Responsibilities"
+            ],
+            "paragraph": "The Operator shall ensure a delegation of authority and assignment of responsibility within the\nmanagement system for maintenance operations for liaison with regulatory authorities, original\nequipment manufacturers (OEMs) and other external entities relevant to maintenance operations."
+        },
+        {
+            "code": "MNT 1.3.1",
+            "guidance": null,
+            "iosa_map": [
+                "MNT 1 Management and Control",
+                "1.3 Maintenance Program"
+            ],
+            "paragraph": "The Operator shall provide, for the use and guidance of relevant maintenance and operational\npersonnel, a Maintenance Program that is approved by the relevant Authority and contains\ninformation and data for each aircraft type/model and configuration in the Operator's fleet in\naccordance with specifications in Table 4.1 . The Maintenance Program shall satisfy:\n(i) Requirements of the State of Registry;\n(ii) Requirements of the State of Design;\n(iii) Requirements of the Operator;\n(iv) Maintenance specifications provided by the aircraft, engine and component OEMs."
+        },
+        {
+            "code": "MNT 1.3.2",
+            "guidance": null,
+            "iosa_map": [
+                "MNT 1 Management and Control",
+                "1.3 Maintenance Program"
+            ],
+            "paragraph": "The Operator shall ensure the design and application of the Maintenance Program observes human\nfactors principles."
+        },
+        {
+            "code": "MNT 1.3.3",
+            "guidance": null,
+            "iosa_map": [
+                "MNT 1 Management and Control",
+                "1.3 Maintenance Program"
+            ],
+            "paragraph": "The Operator shall ensure amendments to the Maintenance Program:\n(i) Are approved by the Authority unless the Operator has been approved to amend the\nMaintenance Program without requiring approval of the Authority;\n(ii) Are furnished to all organizations and/or persons to whom the Maintenance Program has\nbeen issued."
+        },
+        {
+            "code": "MNT 1.4.1",
+            "guidance": null,
+            "iosa_map": [
+                "MNT 1 Management and Control",
+                "1.4 Provision of Resources"
+            ],
+            "paragraph": "The Operator shall ensure the existence of the facilities, workspace, equipment and supporting\nservices, as well as the work environment, that are necessary to allow all maintenance to be\nperformed in accordance with the Maintenance Program."
+        },
+        {
+            "code": "MNT 1.4.2",
+            "guidance": null,
+            "iosa_map": [
+                "MNT 1 Management and Control",
+                "1.4 Provision of Resources"
+            ],
+            "paragraph": "The Operator shall have a selection process for management and non-management positions within\nmaintenance operations organization that require the performance of functions relevant to aircraft\nairworthiness. Such process shall ensure candidates are selected on the basis of knowledge, skills,\ntraining and experience appropriate for the position."
+        },
+        {
+            "code": "MNT 1.4.3",
+            "guidance": null,
+            "iosa_map": [
+                "MNT 1 Management and Control",
+                "1.4 Provision of Resources"
+            ],
+            "paragraph": "The Operator shall ensure availability of the facilities, personnel, equipment and other resources, as\nnecessary, for the implementation of management and control functions, as specified in Table 4.2 ."
+        },
+        {
+            "code": "MNT 1.5.1",
+            "guidance": null,
+            "iosa_map": [
+                "MNT 1 Management and Control",
+                "1.5 Communication"
+            ],
+            "paragraph": "The Operator shall have a system that enables effective communication of relevant safety and\noperational information within the maintenance operations management system and in all areas\nwhere maintenance operations are conducted. Such system shall ensure:\n(i) Personnel maintain an awareness of the SMS;\n(ii) Safety-critical information is conveyed;\n(iii) External service providers who conduct outsourced maintenance and/or perform\nmaintenance functions for the Operator are provided with information relevant to operations\nconducted."
+        },
+        {
+            "code": "MNT 1.6.3",
+            "guidance": null,
+            "iosa_map": [
+                "MNT 1 Management and Control",
+                "1.6 Documentation System"
+            ],
+            "paragraph": "The Operator shall have a system for the management and control of documentation and/or data\nused directly in the conduct or support of maintenance operations. Such system shall ensure\ndocumentation:\n(i) Meets all required elements specified in Table 1.1 ;\n(ii) Contains legible and accurate information;\n(iii) Is presented in a format appropriate for use in operations."
+        },
+        {
+            "code": "MNT 1.7.1",
+            "guidance": null,
+            "iosa_map": [
+                "MNT 1 Management and Control",
+                "1.7 Maintenance Management Manual (MMM)"
+            ],
+            "paragraph": "The Operator shall have, for the use and guidance of relevant maintenance and operational\npersonnel, a Maintenance Management Manual that is accepted or approved by the Authority. The\nMMM may be issued in separate parts and shall contain maintenance policies, procedures and\ninformation as specified in Table 4.3 . The design of the manual shall observe Human Factors\nprinciples."
+        },
+        {
+            "code": "MNT 1.7.3",
+            "guidance": null,
+            "iosa_map": [
+                "MNT 1 Management and Control",
+                "1.7 Maintenance Management Manual (MMM)"
+            ],
+            "paragraph": "The Operator shall ensure the MMM is amended as necessary to keep information contained therein\nup to date and to address:\n(i) Changes to maintenance or airworthiness requirements;\n(ii) Changes in the organization or activities;\n(iii) Inadequacies identified through internal or external audit;\n(iv) Conformity with applicable requirements."
+        },
+        {
+            "code": "MNT 1.7.6",
+            "guidance": null,
+            "iosa_map": [
+                "MNT 1 Management and Control",
+                "1.7 Maintenance Management Manual (MMM)"
+            ],
+            "paragraph": "The Operator shall ensure a copy of the current version of the MMM, or relevant portions thereof, is\npromptly made available to:\n(i) Applicable authorities;\n(ii) Each organization or person that performs or certifies maintenance for the Operator;\n(iii) All other organizations or persons to whom the MMM has been issued."
+        },
+        {
+            "code": "MNT 1.7.7",
+            "guidance": null,
+            "iosa_map": [
+                "MNT 1 Management and Control",
+                "1.7 Maintenance Management Manual (MMM)"
+            ],
+            "paragraph": "If the Operator issues relevant portions of the MMM as specified in MNT 1.7.6 , the Operator shall\nensure policies and procedures contained therein are sufficiently comprehensive such that all\nrelevant guidance and information is available to any maintenance organization or person that\nperforms maintenance for the Operator under that portion of the manual."
+        },
+        {
+            "code": "MNT 1.8.1",
+            "guidance": null,
+            "iosa_map": [
+                "MNT 1 Management and Control",
+                "1.8 Maintenance Records System"
+            ],
+            "paragraph": "The Operator shall have a system for the management and control of maintenance records to ensure\nthe content and retention of such records is in accordance with requirements of the Authority, as\napplicable, and to ensure operational records are subjected to standardized processes for:\n(i) Identification;\n(ii) Legibility;\n(iii) Maintenance;\n(iv) Retrieval;\n(v) Protection, integrity and security;\n(vi) Disposal, deletion (electronic records) and archiving."
+        },
+        {
+            "code": "MNT 1.8.2",
+            "guidance": null,
+            "iosa_map": [
+                "MNT 1 Management and Control",
+                "1.8 Maintenance Records System"
+            ],
+            "paragraph": "If the Operator uses an electronic system for the management and control of maintenance operations\nrecords, the Operator shall ensure the system provides for a scheduled generation of backup record\nfiles associated with maintenance operations."
+        },
+        {
+            "code": "MNT 1.9.1",
+            "guidance": null,
+            "iosa_map": [
+                "MNT 1 Management and Control",
+                "1.9 Aircraft Systems/Equipment"
+            ],
+            "paragraph": "The Operator shall ensure all aircraft in its fleet are equipped with, in accordance with conditions of\napplicability, the aircraft systems and equipment specified in Table 4.11 ."
+        },
+        {
+            "code": "MNT 1.9.2",
+            "guidance": null,
+            "iosa_map": [
+                "MNT 1 Management and Control",
+                "1.9 Aircraft Systems/Equipment"
+            ],
+            "paragraph": "The Operator should ensure all aircraft in its fleet are equipped with, in accordance with conditions of\napplicability, the aircraft systems and equipment specified in Table 4.14 ."
+        },
+        {
+            "code": "MNT 1.10.1",
+            "guidance": null,
+            "iosa_map": [
+                "MNT 1 Management and Control",
+                "1.10 Quality Assurance Program"
+            ],
+            "paragraph": "The Operator shall have a quality assurance program that provides for auditing of the management\nsystem and all functions of maintenance operations to ensure the Operator is:\n(i) Complying with applicable regulations and standards;\n(ii) Satisfying stated maintenance operations needs;\n(iii) Identifying areas requiring improvement;\n(iv) Identifying hazards to operations;\n(v) Assessing the effectiveness of safety risk controls."
+        },
+        {
+            "code": "MNT 1.10.2",
+            "guidance": null,
+            "iosa_map": [
+                "MNT 1 Management and Control",
+                "1.10 Quality Assurance Program"
+            ],
+            "paragraph": "The Operator shall have a process for addressing findings that result from audits conducted under\nthe quality assurance program, which ensures:\n(i) Identification of root cause(s);\n(ii) Development of corrective action, as appropriate, to address findings;\n(iii) Implementation of corrective action in appropriate areas of maintenance operations;\n(iv) Evaluation of corrective action to determine effectiveness."
+        },
+        {
+            "code": "MNT 1.10.3",
+            "guidance": null,
+            "iosa_map": [
+                "MNT 1 Management and Control",
+                "1.10 Quality Assurance Program"
+            ],
+            "paragraph": "The Operator shall ensure significant issues arising from maintenance operations quality assurance\nand risk management are subject to management review in accordance with ORG 4.1.1 ."
+        },
+        {
+            "code": "MNT 1.10.4",
+            "guidance": null,
+            "iosa_map": [
+                "MNT 1 Management and Control",
+                "1.10 Quality Assurance Program"
+            ],
+            "paragraph": "The Operator shall ensure functions related to the maintenance operations quality assurance\nprogram are performed by qualified personnel that are either employees of the Operator or\nindependent external quality assurance agents."
+        },
+        {
+            "code": "MNT 1.10.5",
+            "guidance": null,
+            "iosa_map": [
+                "MNT 1 Management and Control",
+                "1.10 Quality Assurance Program"
+            ],
+            "paragraph": "The Operator shall have an audit planning process and sufficient resources to ensure audits of\nmaintenance operations are:\n(i) Scheduled at intervals to meet regulatory and management system requirements;\n(ii) Conducted within the scheduled interval."
+        },
+        {
+            "code": "MNT 1.11.1A",
+            "guidance": null,
+            "iosa_map": [
+                "MNT 1 Management and Control",
+                "1.11 Quality Control of Outsourced Operations and of Products"
+            ],
+            "paragraph": "If the Operator has external service providers conduct outsourced maintenance and/or maintenance\nfunctions, the Operator should ensure a service provider selection process is in place that ensures:\n(i) Safety-relevant selection criteria are established;\n(ii) Service providers are evaluated against these criteria prior to selection."
+        },
+        {
+            "code": "MNT 1.11.1B",
+            "guidance": null,
+            "iosa_map": [
+                "MNT 1 Management and Control",
+                "1.11 Quality Control of Outsourced Operations and of Products"
+            ],
+            "paragraph": "The Operator shall ensure a maintenance agreement has been executed with each external\nmaintenance organization that performs maintenance functions for the Operator; such maintenance\nagreement shall:\n(i) Specify all maintenance requirements and define all tasks to be performed;\n(ii) Comply with the procedures governing maintenance arrangements, as specified in the\nMMM."
+        },
+        {
+            "code": "MNT 1.11.2",
+            "guidance": null,
+            "iosa_map": [
+                "MNT 1 Management and Control",
+                "1.11 Quality Control of Outsourced Operations and of Products"
+            ],
+            "paragraph": "The Operator shall ensure each maintenance agreement with an external maintenance organization\nthat performs maintenance functions for the Operator documents specific maintenance safety and\nquality standards required to be fulfilled by the respective external maintenance organization. Such\nstandards shall provide the basis for a monitoring process as specified in MNT 1.11.7."
+        },
+        {
+            "code": "MNT 1.11.5",
+            "guidance": null,
+            "iosa_map": [
+                "MNT 1 Management and Control",
+                "1.11 Quality Control of Outsourced Operations and of Products"
+            ],
+            "paragraph": "The Operator shall have a process to maintain a listing of external providers of maintenance services\nand products, to include:\n(i) Organizations that are currently approved to perform maintenance on the Operator's\naircraft, engines, components and/or parts;\n(ii) Vendors that are currently approved to supply, directly to the Operator, parts, components\nand other materials for use in maintenance of the Operator's aircraft."
+        },
+        {
+            "code": "MNT 1.11.6",
+            "guidance": null,
+            "iosa_map": [
+                "MNT 1 Management and Control",
+                "1.11 Quality Control of Outsourced Operations and of Products"
+            ],
+            "paragraph": "The Operator shall have a process to ensure relevant training and/or training material is provided to\neach external organization that performs maintenance functions for the Operator."
+        },
+        {
+            "code": "MNT 1.11.7",
+            "guidance": null,
+            "iosa_map": [
+                "MNT 1 Management and Control",
+                "1.11 Quality Control of Outsourced Operations and of Products"
+            ],
+            "paragraph": "The Operator shall have monitoring processes to ensure external approved maintenance\norganizations that perform maintenance for the Operator:\n(i) Comply with applicable regulations and safety and quality requirements;\n(ii) Have procedures that are acceptable to the Authority granting the approval;\n(iii) Perform all maintenance in accordance with requirements of the Operator."
+        },
+        {
+            "code": "MNT 1.11.8",
+            "guidance": null,
+            "iosa_map": [
+                "MNT 1 Management and Control",
+                "1.11 Quality Control of Outsourced Operations and of Products"
+            ],
+            "paragraph": "The Operator should include auditing as a process for the monitoring of external maintenance\norganizations that perform maintenance for the Operator."
+        },
+        {
+            "code": "MNT 1.11.9",
+            "guidance": null,
+            "iosa_map": [
+                "MNT 1 Management and Control",
+                "1.11 Quality Control of Outsourced Operations and of Products"
+            ],
+            "paragraph": "The Operator shall have processes that ensure:\n(i) Aircraft parts and materials are only obtained from approved sources;\n(ii) Certification documentation requirements are specified;\n(iii) Traceability to the last certifying organization for used or surplus parts;\n(iv) A statement of conformity or certification test results is retained for hardware and raw\nmaterials (e.g. extrusions, sheet or bar stock);\n(v) Inventory storage of consumable material is managed to ensure traceability of manufacturer\nbatch/lot control."
+        },
+        {
+            "code": "MNT 1.12.1",
+            "guidance": null,
+            "iosa_map": [
+                "MNT 1 Management and Control",
+                "1.12 Safety Management"
+            ],
+            "paragraph": "The Operator shall have a hazard identification program for maintenance operations that includes a\ncombination of reactive and proactive methods of hazard identification."
+        },
+        {
+            "code": "MNT 1.12.2",
+            "guidance": null,
+            "iosa_map": [
+                "MNT 1 Management and Control",
+                "1.12 Safety Management"
+            ],
+            "paragraph": "The Operator shall have a safety risk assessment and mitigation program in maintenance operations\nthat specifies processes to ensure:\n(i) Hazards are analyzed to determine corresponding safety risk(s) to aircraft operations;\n(ii) Safety risks are assessed to determine the requirement for risk mitigation action(s);\n(iii) When required, risk mitigation actions are developed and implemented in maintenance\noperations."
+        },
+        {
+            "code": "MNT 1.12.3",
+            "guidance": null,
+            "iosa_map": [
+                "MNT 1 Management and Control",
+                "1.12 Safety Management"
+            ],
+            "paragraph": "The Operator shall have an operational safety reporting system in maintenance operations that:\n(i) Encourages and facilitates feedback from personnel to report safety hazards, expose safety\ndeficiencies and raise safety concerns;\n(ii) Includes analysis and management action as necessary to address safety issues identified\nthrough the reporting system."
+        },
+        {
+            "code": "MNT 1.12.4",
+            "guidance": null,
+            "iosa_map": [
+                "MNT 1 Management and Control",
+                "1.12 Safety Management"
+            ],
+            "paragraph": "The Operator should have a confidential safety reporting system in maintenance operations that\nencourages and facilitates the reporting of events, hazards and/or concerns resulting from or\nassociated with human performance in maintenance operations."
+        },
+        {
+            "code": "MNT 1.12.5",
+            "guidance": null,
+            "iosa_map": [
+                "MNT 1 Management and Control",
+                "1.12 Safety Management"
+            ],
+            "paragraph": "The Operator shall have processes for setting safety performance indicators (SPIs) and, as\napplicable, safety performance targets (SPTs) as means to monitor its safety performance,\nachievement of its safety objectives and to validate the effectiveness of risk controls."
+        },
+        {
+            "code": "MNT 1.12.6",
+            "guidance": null,
+            "iosa_map": [
+                "MNT 1 Management and Control",
+                "1.12 Safety Management"
+            ],
+            "paragraph": "The Operator shall have a program that ensures its aircraft engineering and maintenance personnel\nare trained and competent to perform SMS duties. The scope of such training shall be appropriate to\neach individual's involvement in the SMS."
+        },
+        {
+            "code": "MNT 1.12.7",
+            "guidance": null,
+            "iosa_map": [
+                "MNT 1 Management and Control",
+                "1.12 Safety Management"
+            ],
+            "paragraph": "If the Operator outsources aircraft engineering and maintenance operational functions to external\nservice providers, the Operator should have a program that ensures personnel of external service\nproviders are trained and competent to perform SMS duties. The scope of such training should be\nappropriate to individual involvement in the Operator's SMS."
+        },
+        {
+            "code": "MNT 2.1.1",
+            "guidance": null,
+            "iosa_map": [
+                "MNT 2 Maintenance Control",
+                "2.1 Control System"
+            ],
+            "paragraph": "The Operator shall have a maintenance control system that is in accordance with procedures\nacceptable to the Authority and ensures:\n(i) Each aircraft is maintained in an airworthy condition;\n(ii) Operational and emergency equipment necessary for flight is serviceable;\n(iii) The Certificate of Airworthiness of each aircraft remains valid;\n(iv) The maintenance of the aircraft is performed in accordance with the Maintenance Program\nas specified in MNT 1.3.1 ."
+        },
+        {
+            "code": "MNT 2.1.2",
+            "guidance": null,
+            "iosa_map": [
+                "MNT 2 Maintenance Control",
+                "2.1 Control System"
+            ],
+            "paragraph": "The Operator shall have guidance and procedures to ascertain if trends for oil consumption are such\nthat an aircraft has sufficient oil to complete each flight."
+        },
+        {
+            "code": "MNT 2.2.1",
+            "guidance": null,
+            "iosa_map": [
+                "MNT 2 Maintenance Control",
+                "2.2 Maintenance Planning"
+            ],
+            "paragraph": "The Operator shall have a system for forecasting and tracking required maintenance activities."
+        },
+        {
+            "code": "MNT 2.2.2",
+            "guidance": null,
+            "iosa_map": [
+                "MNT 2 Maintenance Control",
+                "2.2 Maintenance Planning"
+            ],
+            "paragraph": "The Operator shall have a system for tracking hours, cycles and calendar time for aircraft, engines\nand life-limited components."
+        },
+        {
+            "code": "MNT 2.3.1",
+            "guidance": null,
+            "iosa_map": [
+                "MNT 2 Maintenance Control",
+                "2.3 Parts Installation"
+            ],
+            "paragraph": "The Operator shall have a process to ensure that no new part is installed on an aeronautical product\nunless such part meets the standards of airworthiness applicable to the installation of new parts and,\nin addition, meets a minimum of one of the following:\n(i) The new part has marking identifying it as a part specified in the type design conforming to a\nrecognized national or international standard, or \n(ii) The new part has been approved for use on an aeronautical product, in accordance with the\ntype certificate/STC, if the part was originally designed and manufactured for non-\naeronautical use, or\n(iii) The new part was manufactured under a Parts Manufacturer Approval (PMA), or\n(iv) The new part was produced by the Operator using approved procedures for the purpose of\nmaintaining or altering its own aeronautical product."
+        },
+        {
+            "code": "MNT 2.3.2",
+            "guidance": null,
+            "iosa_map": [
+                "MNT 2 Maintenance Control",
+                "2.3 Parts Installation"
+            ],
+            "paragraph": "The Operator shall have a process to ensure that no used part is installed on an aeronautical product\nunless such part meets the standards of airworthiness applicable to the installation of used parts and\nis any of the following:\n(i) An airworthy part that has been removed from an aircraft for immediate installation on\nanother aircraft, or\n(ii) An airworthy part that has undergone maintenance for which a maintenance release has\nbeen signed by an appropriately rated Approved Maintenance Organization (AMO), or\n(iii) An airworthy part that has undergone an approved repair or alteration that restored the\ncertificated level of airworthiness to a used part."
+        },
+        {
+            "code": "MNT 2.3.3",
+            "guidance": null,
+            "iosa_map": [
+                "MNT 2 Maintenance Control",
+                "2.3 Parts Installation"
+            ],
+            "paragraph": "The Operator shall have a process to ensure that no used life-limited part is installed on an\naeronautical product unless such part meets the standards of airworthiness applicable to the\ninstallation of life-limited parts and:\n(i) The technical history of the part is available to demonstrate the time in service, as\nauthorized for that part in the type certificate governing the installation, has not been\nexceeded;\n(ii) The technical history referred to in sub-paragraph i) is incorporated into the technical record\nfor the aeronautical product on which the part is installed."
+        },
+        {
+            "code": "MNT 2.4.1",
+            "guidance": null,
+            "iosa_map": [
+                "MNT 2 Maintenance Control",
+                "2.4 Deferred Maintenance"
+            ],
+            "paragraph": "The Operator shall have a maintenance control function that is responsible for approving, controlling,\nmonitoring and scheduling non-routine and deferred maintenance activities, including MEL/CDL\nrequirements."
+        },
+        {
+            "code": "MNT 2.4.2",
+            "guidance": null,
+            "iosa_map": [
+                "MNT 2 Maintenance Control",
+                "2.4 Deferred Maintenance"
+            ],
+            "paragraph": "The Operator shall have a process to ensure deferred maintenance items (defects) are tracked and\ncorrected within the required intervals prescribed by the MEL, CDL or the appropriate maintenance\ndata."
+        },
+        {
+            "code": "MNT 2.4.3",
+            "guidance": null,
+            "iosa_map": [
+                "MNT 2 Maintenance Control",
+                "2.4 Deferred Maintenance"
+            ],
+            "paragraph": "If the Operator has a MEL/CDL items short-time extension/deviation approval process, the Operator\nshall ensure the process is approved by the Authority."
+        },
+        {
+            "code": "MNT 2.5.1",
+            "guidance": null,
+            "iosa_map": [
+                "MNT 2 Maintenance Control",
+                "2.5 Continuing Airworthiness Information"
+            ],
+            "paragraph": "The Operator shall have processes to:\n(i) Obtain and assess continuing airworthiness information, including Airworthiness Directives\n(ADs), Alert Service Bulletins and recommendations from the organizations responsible for\naircraft type design, and\n(ii) Implement the resulting actions that are mandatory or considered necessary in accordance\nwith procedures acceptable to the Authority."
+        },
+        {
+            "code": "MNT 2.5.2",
+            "guidance": null,
+            "iosa_map": [
+                "MNT 2 Maintenance Control",
+                "2.5 Continuing Airworthiness Information"
+            ],
+            "paragraph": "The Operator shall have a process to monitor and assess maintenance and operational experience\nwith respect to aircraft continuing airworthiness as prescribed by the relevant Authority."
+        },
+        {
+            "code": "MNT 2.5.3",
+            "guidance": null,
+            "iosa_map": [
+                "MNT 2 Maintenance Control",
+                "2.5 Continuing Airworthiness Information"
+            ],
+            "paragraph": "The Operator shall have a program for the management of the minimum equipment lists (MELs) used\nin its fleet operations. Such program shall ensure MELs:\n(i) Are approved by the State of the Operator and/or State of Registry if applicable;\n(ii) Include the latest applicable MMEL provisions released by the Type Certificate Holder(s);\n(iii) Are relevant to and customized for the type/model of aircraft in the Operator s fleet;\n(iv) Identify applicable maintenance procedures called upon by the MEL items and such\nprocedures are readily available for implementation by the appropriate maintenance\npersonnel;\n(v) Include, as applicable, aircraft systems and equipment required for operations in conformity\nwith special authorizations as specified in FLT 1.2.1 ."
+        },
+        {
+            "code": "MNT 2.6.1",
+            "guidance": null,
+            "iosa_map": [
+                "MNT 2 Maintenance Control",
+                "2.6 Repairs and Modifications"
+            ],
+            "paragraph": "The Operator shall have a process to ensure all modifications and repairs:\n(i) Are carried out using approved data;\n(ii) Comply with airworthiness requirements of the Authority and State of Registry."
+        },
+        {
+            "code": "MNT 2.7.1",
+            "guidance": null,
+            "iosa_map": [
+                "MNT 2 Maintenance Control",
+                "2.7 Defect Recording and Control"
+            ],
+            "paragraph": "The Operator shall have processes for defect recording and control, including the management of\nrecurring defects, to address:\n(i) Documenting troubleshooting history;\n(ii) Tracking chronic or repetitive unserviceable items;\n(iii) Implementing instructions for corrective action;\n(iv) Ensuring rectification takes into account the methodology used in previous repair attempts."
+        },
+        {
+            "code": "MNT 2.8.2",
+            "guidance": null,
+            "iosa_map": [
+                "MNT 2 Maintenance Control",
+                "2.8 Extended Diversion Time Operations (EDTO)"
+            ],
+            "paragraph": "If the Operator is approved to operate twin engine aircraft in ETOPS/EDTO conditions, the Operator\nshall ensure compliance with:\n(i) Maintenance requirements applicable to the respective operations and to the specific\ntype(s) of aircraft operated under ETOPS/EDTO.\n(ii) The requirements specified in Table 4.5 .\nAll ETOPS/EDTO requirements, including supportive program procedures, duties and\nresponsibilities, shall be identified for and be subject to revision."
+        },
+        {
+            "code": "MNT 2.9.1",
+            "guidance": null,
+            "iosa_map": [
+                "MNT 2 Maintenance Control",
+                "2.9 Aircraft Recorders"
+            ],
+            "paragraph": "The Operator shall have a Maintenance Program that provides for the periodic conduct of operational\nchecks, functional checks and evaluations of recordings from the Flight Data Recorder (FDR) and\nCockpit Voice Recorder (CVR) to ensure the continued serviceability of the recording systems. Such\nprogram shall ensure checks and/or evaluations of the recording systems:\n(i) Are conducted at least annually or at an extended interval approved by the Authority;\n(ii) For the FDR, include analysis of the recorded data validity, quality, and system calibration (if\napplicable) in accordance with the manufacturer's requirements or as required by the\nAuthority;\n(iii) For the CVR, include analysis of the recorded audio data validity, quality and intelligibility in\naccordance with the manufacturer s requirements or as required by the Authority."
+        },
+        {
+            "code": "MNT 2.9.2",
+            "guidance": null,
+            "iosa_map": [
+                "MNT 2 Maintenance Control",
+                "2.9 Aircraft Recorders"
+            ],
+            "paragraph": "If the Operator uses aircraft with Data Link Communication (DLC) capabilities and such aircraft are\nequipped with a Data Link Recorder (DLR), the Operator shall have a DLR Maintenance Program\nthat includes a periodic evaluation of the recording system and an assessment of DLR performance:\n(i) In accordance with the manufacturer s requirements or as required by the Authority;\n(ii) At least every 24 months or, if applicable, at an extended interval approved by the Authority."
+        },
+        {
+            "code": "MNT 2.10.1",
+            "guidance": null,
+            "iosa_map": [
+                "MNT 2 Maintenance Control",
+                "2.10 Electronic Navigation Data Management"
+            ],
+            "paragraph": "If the Operator uses aircraft with electronic navigation capabilities, the Operator shall have a\nprocedure to ensure the timely insertion of current and unaltered electronic navigation data to all\napplicable aircraft."
+        },
+        {
+            "code": "MNT 2.11.1",
+            "guidance": null,
+            "iosa_map": [
+                "MNT 2 Maintenance Control",
+                "2.11 Reduced Vertical Separation Minima (RVSM)"
+            ],
+            "paragraph": "If the Operator is authorized for RVSM operations, the Operator shall have procedures that ensure\naircraft used in such operations are maintained in a manner to continuously meet airworthiness\nrequirements necessary for the safe conduct of RVSM operations. Such procedures shall be in\naccordance with requirements of the aircraft OEM."
+        },
+        {
+            "code": "MNT 2.12.1",
+            "guidance": null,
+            "iosa_map": [
+                "MNT 2 Maintenance Control",
+                "2.12 Reporting to the Authority"
+            ],
+            "paragraph": "The Operator shall have a procedure to provide the Authority with aircraft in-service information as\nprescribed by the Authority."
+        },
+        {
+            "code": "MNT 2.12.2",
+            "guidance": null,
+            "iosa_map": [
+                "MNT 2 Maintenance Control",
+                "2.12 Reporting to the Authority"
+            ],
+            "paragraph": "The Operator shall have a procedure for reporting to the applicable authority defects or un-airworthy\nconditions in accordance with requirements contained in Table 4.4 ."
+        },
+        {
+            "code": "MNT 2.12.7",
+            "guidance": null,
+            "iosa_map": [
+                "MNT 2 Maintenance Control",
+                "2.12 Reporting to the Authority"
+            ],
+            "paragraph": "The Operator shall have a procedure to transmit to the Design Approval Holder (DAH) information on\nfaults, malfunctions, defects and other occurrences that could affect the continuing airworthiness of\naircraft."
+        },
+        {
+            "code": "MNT 3.1.1",
+            "guidance": null,
+            "iosa_map": [
+                "MNT 3 Technical Records",
+                "3.1 Aircraft Maintenance Records"
+            ],
+            "paragraph": "The Operator shall have a program to ensure the following maintenance records are maintained:\n(i) Total time in service (hours, calendar time and cycles, as appropriate,) of the aircraft,\nengines and all life-limited components;\n(ii) Current status of compliance with all mandatory continuing airworthiness information;\n(iii) Appropriate details of modifications and repairs;\n(iv) Time in service (hours, calendar time and cycles, as appropriate,) since last overhaul of the\naircraft, engines or its components subject to a mandatory overhaul life;\n(v) Current aircraft status of compliance with the Maintenance Program;\n(vi) Detailed maintenance records to show that all requirements for signing of a maintenance\nrelease have been met."
+        },
+        {
+            "code": "MNT 3.1.2",
+            "guidance": null,
+            "iosa_map": [
+                "MNT 3 Technical Records",
+                "3.1 Aircraft Maintenance Records"
+            ],
+            "paragraph": "The Operator shall have a procedure to ensure that records specified in MNT 3.1.1 are retained as\nfollows:\n(i) Records in sub-paragraphs i) to v) are retained for a minimum period of 90 days after the\naircraft, engine and component, to which they refer, has been permanently withdrawn from\nservice;\n(ii) Records in sub-paragraph vi) are retained for a minimum period of one year after the signing\nof the maintenance release."
+        },
+        {
+            "code": "MNT 3.1.3",
+            "guidance": null,
+            "iosa_map": [
+                "MNT 3 Technical Records",
+                "3.1 Aircraft Maintenance Records"
+            ],
+            "paragraph": "The Operator shall have processes to ensure, when an aircraft becomes involved in an accident or\nincident, the related flight recorder records and, to the extent possible, the associated flight recorders\nare preserved and retained in safe custody pending disposition in accordance with the appropriate\ninvestigation."
+        },
+        {
+            "code": "MNT 3.1.4",
+            "guidance": null,
+            "iosa_map": [
+                "MNT 3 Technical Records",
+                "3.1 Aircraft Maintenance Records"
+            ],
+            "paragraph": "The Operator shall have processes to ensure applicable aircraft maintenance records for aircraft\ncurrently listed on the AOC:\n(i) In the event of a temporary change of operator, are made available to the new operator;\n(ii) In the event of a permanent change of operator, transferred to the new operator."
+        },
+        {
+            "code": "MNT 3.2.1",
+            "guidance": null,
+            "iosa_map": [
+                "MNT 3 Technical Records",
+                "3.2 Aircraft Technical Log (ATL)"
+            ],
+            "paragraph": "The Operator shall have a process to ensure all aircraft have an aircraft technical log (ATL) or\napproved equivalent that comprises elements specified in Table 4.6 ."
+        },
+        {
+            "code": "MNT 3.2.2",
+            "guidance": null,
+            "iosa_map": [
+                "MNT 3 Technical Records",
+                "3.2 Aircraft Technical Log (ATL)"
+            ],
+            "paragraph": "The Operator shall have processes for the management of the ATL or approved equivalent as\nspecified in MNT 3.2.1 to ensure, with respect to the ATL or approved equivalent:\n(i) Entries are current and cannot be erased or deleted;\n(ii) Descriptions of errors or discrepancies that have been corrected remain readable and\nidentifiable;\n(iii) Entries are retained to provide a continuous record of the last six months of operations."
+        },
+        {
+            "code": "MNT 3.4.1",
+            "guidance": null,
+            "iosa_map": [
+                "MNT 3 Technical Records",
+                "3.4 Airworthiness Directives"
+            ],
+            "paragraph": "The Operator shall maintain records of Airworthiness Directives (ADs) and Service Bulletins (SBs) or\nequivalents accomplished in accordance with the MMM."
+        },
+        {
+            "code": "MNT 4.1.1",
+            "guidance": null,
+            "iosa_map": [
+                "MNT 4 Maintenance Organizations",
+                "4.1 Approval"
+            ],
+            "paragraph": "The Operator shall have a process to ensure an aircraft is not operated unless it is maintained and\nreleased to service by an Approved Maintenance Organization (AMO) that:\n(i) Is acceptable to the Authority:\n(ii) Has established procedures acceptable to the Authority to ensure maintenance practices\nare in compliance with all relevant requirements;\n(iii) Maintains the validity of its approval through compliance with the requirements for an\napproved maintenance organization acceptable to the Authority."
+        },
+        {
+            "code": "MNT 4.1.3",
+            "guidance": null,
+            "iosa_map": [
+                "MNT 4 Maintenance Organizations",
+                "4.1 Approval"
+            ],
+            "paragraph": "The Operator shall have a process to ensure each maintenance organization that performs\nmaintenance for the Operator has an approval document that contains, as a minimum, the:\n(i) Name and location of the AMO;\n(ii) Date of issue and period of validity of the approval;\n(iii) Scope of the approval."
+        },
+        {
+            "code": "MNT 4.1.5",
+            "guidance": null,
+            "iosa_map": [
+                "MNT 4 Maintenance Organizations",
+                "4.1 Approval"
+            ],
+            "paragraph": "If the Operator has maintenance performed outside the State of the Operator by a maintenance\norganization that does not hold an approval document issued by the Authority, the Operator shall\nhave a process to ensure such maintenance organization has been recognized by the Authority."
+        },
+        {
+            "code": "MNT 4.2.1",
+            "guidance": null,
+            "iosa_map": [
+                "MNT 4 Maintenance Organizations",
+                "4.2 Management"
+            ],
+            "paragraph": "The Operator shall have a process to ensure each maintenance organization that performs\nmaintenance for the Operator has a manager who, if applicable, is acceptable to the relevant\nAuthority and has responsibility for the management and supervision of the maintenance\norganization."
+        },
+        {
+            "code": "MNT 4.2.2",
+            "guidance": null,
+            "iosa_map": [
+                "MNT 4 Maintenance Organizations",
+                "4.2 Management"
+            ],
+            "paragraph": "The Operator shall have a process to ensure each maintenance organization that performs\nmaintenance for the Operator has appropriate post holders with responsibilities for ensuring the\nmaintenance organization is in compliance with the requirements for an approved maintenance\norganization as accepted by the Authority."
+        },
+        {
+            "code": "MNT 4.2.3",
+            "guidance": null,
+            "iosa_map": [
+                "MNT 4 Maintenance Organizations",
+                "4.2 Management"
+            ],
+            "paragraph": "The Operator shall have a process to ensure each maintenance organization that performs\nmaintenance for the Operator has the necessary personnel to plan, perform, supervise, inspect and\nrelease the maintenance work to be performed."
+        },
+        {
+            "code": "MNT 4.3.1",
+            "guidance": null,
+            "iosa_map": [
+                "MNT 4 Maintenance Organizations",
+                "4.3 Quality Assurance"
+            ],
+            "paragraph": "The Operator shall have a process to ensure each maintenance organization that performs\nmaintenance for the Operator has an independent quality assurance program that:\n(i) Meets the specifications contained in Table 4.7 ;\n(ii) Monitors compliance with applicable regulations, requirements and the Maintenance\nProcedures Manual (MPM) of the AMO;\n(iii) Addresses the specific requirements of the Operator as specified in the maintenance\nagreement;\n(iv) Is under the sole control of the Quality Manager or the person assigned managerial\nresponsibility for the program."
+        },
+        {
+            "code": "MNT 4.3.5",
+            "guidance": null,
+            "iosa_map": [
+                "MNT 4 Maintenance Organizations",
+                "4.3 Quality Assurance"
+            ],
+            "paragraph": "The Operator shall have a process to ensure each maintenance organization that performs\nmaintenance for the Operator has a process for periodic review of the quality assurance program by\nthe Quality Manager or the person assigned managerial responsibility for the program for the\npurpose of ensuring compliance with current requirements of the Maintenance Program and the\nMMM."
+        },
+        {
+            "code": "MNT 4.3.7",
+            "guidance": null,
+            "iosa_map": [
+                "MNT 4 Maintenance Organizations",
+                "4.3 Quality Assurance"
+            ],
+            "paragraph": "The Operator shall have a process to ensure each maintenance organization that performs\nmaintenance for the Operator has a process to immediately report to the Operator any defects, un-\nairworthy conditions, failures or malfunctions specified in MNT 2.12.2 ."
+        },
+        {
+            "code": "MNT 4.4.1",
+            "guidance": null,
+            "iosa_map": [
+                "MNT 4 Maintenance Organizations",
+                "4.4 Personnel"
+            ],
+            "paragraph": "The Operator shall have a process to ensure each maintenance organization that performs\nmaintenance for the Operator uses maintenance personnel:\n(i) That are appropriately licensed and/or authorized to sign the maintenance release;\n(ii) Whose competence has been established in accordance with a procedure and to a level\nacceptable to the authority granting approval for the maintenance organization."
+        },
+        {
+            "code": "MNT 4.4.2",
+            "guidance": null,
+            "iosa_map": [
+                "MNT 4 Maintenance Organizations",
+                "4.4 Personnel"
+            ],
+            "paragraph": "The Operator shall have a process to ensure each maintenance organization that performs\nmaintenance for the Operator has a means for providing a positive identification of maintenance\npersonnel that are approved to perform and certify maintenance."
+        },
+        {
+            "code": "MNT 4.5.1",
+            "guidance": null,
+            "iosa_map": [
+                "MNT 4 Maintenance Organizations",
+                "4.5 Training Program"
+            ],
+            "paragraph": "The Operator shall have a process to ensure each maintenance organization that performs\nmaintenance for the Operator has a training program that requires all maintenance personnel to\nreceive initial and recurrent training that is appropriate to individually assigned tasks and\nresponsibilities, and provides maintenance personnel with the:\n(i) Knowledge of regulations, standards and procedures in accordance with requirements in the\nMMM;\n(ii) Knowledge and skills related to human performance, including coordination with, as\napplicable, other maintenance personnel and/or flight crew."
+        },
+        {
+            "code": "MNT 4.5.4",
+            "guidance": null,
+            "iosa_map": [
+                "MNT 4 Maintenance Organizations",
+                "4.5 Training Program"
+            ],
+            "paragraph": "The Operator shall have a process to ensure each maintenance organization that performs\nmaintenance for the Operator has a training program that provides for continuation training on an \ninterval not to exceed 36 months, which may be reduced to a lesser interval based on findings\ngenerated by the QA Program."
+        },
+        {
+            "code": "MNT 4.5.5",
+            "guidance": null,
+            "iosa_map": [
+                "MNT 4 Maintenance Organizations",
+                "4.5 Training Program"
+            ],
+            "paragraph": "The Operator shall have a process to ensure each maintenance organization that performs\nmaintenance for the Operator has a training and qualification program for auditors used in the QA\nProgram."
+        },
+        {
+            "code": "MNT 4.5.6",
+            "guidance": null,
+            "iosa_map": [
+                "MNT 4 Maintenance Organizations",
+                "4.5 Training Program"
+            ],
+            "paragraph": "The Operator shall have a process to ensure each maintenance organization that performs\nmaintenance for the Operator has a training program that provides for initial and continuation training\nfor receiving inspectors."
+        },
+        {
+            "code": "MNT 4.5.7",
+            "guidance": null,
+            "iosa_map": [
+                "MNT 4 Maintenance Organizations",
+                "4.5 Training Program"
+            ],
+            "paragraph": "If the Operator uses a maintenance organization that has maintenance personnel taxi the Operator's\naircraft on the movement area of an airport, the Operator shall have a process to ensure such\nmaintenance personnel are authorized, competent and qualified to conduct aircraft taxi operations."
+        },
+        {
+            "code": "MNT 4.6.1",
+            "guidance": null,
+            "iosa_map": [
+                "MNT 4 Maintenance Organizations",
+                "4.6 Facilities and Physical Resources"
+            ],
+            "paragraph": "The Operator shall have a process to ensure each maintenance organization that performs\nmaintenance for the Operator has the basic facilities and work environment, appropriate for the\nmaintenance tasks to be performed for the Operator, to include:\n(i) A place of business, with a fixed address;\n(ii) Communications equipment/software, such as telephones, facsimile machines, email and\nothers;\n(iii) Any devices used to establish when a particular aircraft requires maintenance. This may\ninclude planning bulletin boards, card files or a computer system;\n(iv) A secure, dry storage area to retain aircraft technical records."
+        },
+        {
+            "code": "MNT 4.6.2",
+            "guidance": null,
+            "iosa_map": [
+                "MNT 4 Maintenance Organizations",
+                "4.6 Facilities and Physical Resources"
+            ],
+            "paragraph": "The Operator shall have a process to ensure each maintenance organization that performs\nmaintenance for the Operator has the necessary technical data, equipment, tools and material to\nperform the work for which the maintenance organization has been approved, to include:\n(i) Equipment and tools necessary to comply with the work specified in the agreement between\nthe Operator and the maintenance organization;\n(ii) Sufficient supplies and spare parts to ensure timely rectification of defects with regard to the\nMinimum Equipment List (MEL) provisions as specified in the agreement between the\nOperator and the maintenance organization."
+        },
+        {
+            "code": "MNT 4.6.3",
+            "guidance": null,
+            "iosa_map": [
+                "MNT 4 Maintenance Organizations",
+                "4.6 Facilities and Physical Resources"
+            ],
+            "paragraph": "The Operator shall have a process to ensure each maintenance organization that performs\nmaintenance for the Operator has facilities suitable for the storage of parts, equipment, tools and\nmaterial under conditions that provide security and prevent deterioration of and damage to stored\nitems. Such processes shall ensure:\n(i) Clean work areas, including management offices;\n(ii) Parts and material properly identified and stored;\n(iii) Oxygen and other high-pressure bottles properly identified and stored;\n(iv) Flammable, toxic or volatile materials properly identified and stored;\n(v) Equipment identified and protected."
+        },
+        {
+            "code": "MNT 4.6.4",
+            "guidance": null,
+            "iosa_map": [
+                "MNT 4 Maintenance Organizations",
+                "4.6 Facilities and Physical Resources"
+            ],
+            "paragraph": "The Operator shall have a process to ensure each maintenance organization that performs\nmaintenance for the Operator has a shelf-life program for applicable items, which includes a\nrequirement for the shelf-life limit to be controlled and displayed."
+        },
+        {
+            "code": "MNT 4.6.5",
+            "guidance": null,
+            "iosa_map": [
+                "MNT 4 Maintenance Organizations",
+                "4.6 Facilities and Physical Resources"
+            ],
+            "paragraph": "The Operator shall have a process to ensure each maintenance organization that performs\nmaintenance for the Operator has a receiving inspection program that:\n(i) Assures incoming material has the required certification documentation and traceability;\n(ii) Includes a process for verification of incoming part tags to ensure information on the tag\n(e.g. part name, part number, serial number, modification and/or any other applicable\nreference information) matches the corresponding information on the part."
+        },
+        {
+            "code": "MNT 4.7.1",
+            "guidance": null,
+            "iosa_map": [
+                "MNT 4 Maintenance Organizations",
+                "4.7 Material Handling"
+            ],
+            "paragraph": "The Operator shall have a process to ensure each maintenance organization that performs\nmaintenance for the Operator has a secure quarantine area for rejected parts and materials awaiting\ndisposition."
+        },
+        {
+            "code": "MNT 4.7.2",
+            "guidance": null,
+            "iosa_map": [
+                "MNT 4 Maintenance Organizations",
+                "4.7 Material Handling"
+            ],
+            "paragraph": "The Operator shall have a process to ensure each maintenance organization that performs\nmaintenance for the Operator has a process for segregating aircraft serviceable parts, aircraft non-\nserviceable parts, and non-aircraft parts."
+        },
+        {
+            "code": "MNT 4.7.3",
+            "guidance": null,
+            "iosa_map": [
+                "MNT 4 Maintenance Organizations",
+                "4.7 Material Handling"
+            ],
+            "paragraph": "The Operator shall have a process to ensure each maintenance organization that handles, or\nperforms maintenance on, electrostatic sensitive devices (ESD) for the Operator has an ESD\nProgram. Such ESD program shall comply with applicable manufacturer instructions and the\nspecifications contained in Table 4.8 ."
+        },
+        {
+            "code": "MNT 4.7.4",
+            "guidance": null,
+            "iosa_map": [
+                "MNT 4 Maintenance Organizations",
+                "4.7 Material Handling"
+            ],
+            "paragraph": "The Operator shall have a process to ensure each maintenance organization that performs\nmaintenance for the Operator has a method of storage that assures sensitive parts and equipment,\nsuch as, but not limited to, oxygen system components (oxygen generators and bottles), O-rings and\nelectrostatic sensitive devices are properly packaged, identified and stored to protect them from\ndamage and contamination."
+        },
+        {
+            "code": "MNT 4.7.5",
+            "guidance": null,
+            "iosa_map": [
+                "MNT 4 Maintenance Organizations",
+                "4.7 Material Handling"
+            ],
+            "paragraph": "The Operator shall have a process to ensure each maintenance organization that performs\nmaintenance for the Operator has a process that assures aircraft components and parts are shipped\nin suitable containers that provide protection from damage and, when specified by the OEM,\nATA-300 or equivalent containers shall be used."
+        },
+        {
+            "code": "MNT 4.9.1",
+            "guidance": null,
+            "iosa_map": [
+                "MNT 4 Maintenance Organizations",
+                "4.9 Procedures Manual"
+            ],
+            "paragraph": "The Operator shall have a process to ensure each maintenance organization that performs\nmaintenance for the Operator provides for the use and guidance of relevant maintenance personnel\na Maintenance Procedures Manual (MPM), which may be issued in separate parts, that contains\ninformation, as specified in Table 4.9 ."
+        },
+        {
+            "code": "MNT 4.9.2",
+            "guidance": null,
+            "iosa_map": [
+                "MNT 4 Maintenance Organizations",
+                "4.9 Procedures Manual"
+            ],
+            "paragraph": "The Operator shall have a process to ensure each maintenance organization that performs\nmaintenance for the Operator has a process to amend the MPM as necessary to keep the\ninformation contained therein up to date."
+        },
+        {
+            "code": "MNT 4.9.3",
+            "guidance": null,
+            "iosa_map": [
+                "MNT 4 Maintenance Organizations",
+                "4.9 Procedures Manual"
+            ],
+            "paragraph": "The Operator shall have a process to ensure each maintenance organization that performs\nmaintenance for the Operator has a process to furnish copies of all amendments to the MPM\npromptly to all organizations or persons to whom the manual has been issued."
+        },
+        {
+            "code": "MNT 4.10.1",
+            "guidance": null,
+            "iosa_map": [
+                "MNT 4 Maintenance Organizations",
+                "4.10 Maintenance Release"
+            ],
+            "paragraph": "The Operator shall have a process to ensure each maintenance organization that performs\nmaintenance for the Operator produces a completed and signed maintenance release that certifies\nall maintenance work performed has been completed satisfactorily and in accordance with the\napproved data and procedures described in the MPM of the maintenance organization. Such\nmaintenance release shall include:\n(i) Basic details of the maintenance performed;\n(ii) A reference of the approved data used and, if required, the revision status;\n(iii) Maintenance tasks that were not accomplished;\n(iv) The date maintenance was completed;\n(v) When applicable, identity of the approved maintenance organization;\n(vi) Identity of the person(s) that sign the release."
+        },
+        {
+            "code": "MNT 4.11.1",
+            "guidance": null,
+            "iosa_map": [
+                "MNT 4 Maintenance Organizations",
+                "4.11 Tooling and Calibration"
+            ],
+            "paragraph": "The Operator shall have a process to ensure each maintenance organization\nthat performs maintenance for the Operator has procedures to control and document the\ncalibration and records of all tools, including personnel-owned tools, and preventing out-of-service\nand due-for-calibration tools and equipment from being used, in accordance with specifications in\nTable 4.10 ."
+        }
+    ]
+}

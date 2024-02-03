@@ -222,13 +222,15 @@ def extract_section_header(text, first_flt_span, filename):
     }
 
 
-def extract_section_text(text):
-    flts = r"(FLT\s*)([0-9]+(\.[0-9]+)*)([A-Za-z]*)(\-([0-9]+(\.[0-9]+)*)([A-Za-z]*))*"
+def extract_section_text(text, section_code):
+
+    flts = fr"({section_code}\s*)([0-9]+(\.[0-9]+)*)([A-Za-z]*)(\-([0-9]+(\.[0-9]+)*)([A-Za-z]*))*"
+
     in_text_flts_beg = (
-        r". (FLT\s*)([0-9]+(\.[0-9]+)*)([A-Za-z]*)(\-([0-9]+(\.[0-9]+)*)([A-Za-z]*))*"
+        fr". ({section_code}\s*)([0-9]+(\.[0-9]+)*)([A-Za-z]*)(\-([0-9]+(\.[0-9]+)*)([A-Za-z]*))*"
     )
     in_text_flts_end = (
-        r"(FLT\s*)([0-9]+(\.[0-9]+)*)([A-Za-z]*)(\-([0-9]+(\.[0-9]+)*)([A-Za-z]*))* ."
+        fr"({section_code}\s*)([0-9]+(\.[0-9]+)*)([A-Za-z]*)(\-([0-9]+(\.[0-9]+)*)([A-Za-z]*))* ."
     )
     auditor_actions_reg = r"\nAuditor Actions\n"
     Guidence_reg = r"\nGuidance\n"
@@ -298,7 +300,7 @@ def extract_section_text(text):
                 "guidence": guidence if guidence else None,
                 "iosa_map": [header_source_map[section_index]['title'], header_source_map[section_index]['sub_sections'][sub_section_index]],
                 "paragraph": paragraph.strip(),
-                "constraints": parse_paragraph(paragraph),
+                # "constraints": parse_paragraph(paragraph),
             }
         )
     header = text[flts_spans[-1][0]: flts_spans[-1][1]].strip("\n").strip()
@@ -334,7 +336,7 @@ def extract_section_text(text):
             "guidence": guidence if guidence else None,
             "iosa_map": [header_source_map[section_index]['title'], header_source_map[section_index]['sub_sections'][sub_section_index]],
             "paragraph": paragraph.strip(),
-            "constraints": parse_paragraph(paragraph),
+            # "constraints": parse_paragraph(paragraph),
         }
     )
 
@@ -342,31 +344,36 @@ def extract_section_text(text):
 
 
 if __name__ == "__main__":
-    filename = 'iosa_flt'
-    all_pages = extract(f"data/{filename}.pdf")
+    codes = ["cab", 'cgo', 'dsp', 'grh', 'mnt', 'org', 'sec', 'flt']
+    for i in codes:
+        filename = f"iosa_{i}"
+        code = i.upper()
 
-    # remove all unallowed chars
-    for z in range(len(all_pages)):
-        all_pages[z] = clean(all_pages[z])
+        all_pages = extract(f"data/{filename}.pdf")
 
-    all_pages = " ".join(all_pages)
+        # remove all unallowed chars
+        for z in range(len(all_pages)):
+            all_pages[z] = clean(all_pages[z])
 
-    all_sections, first_flt_span = extract_section_text(all_pages)
-    section = extract_section_header(all_pages, first_flt_span, filename)
+        all_pages = " ".join(all_pages)
 
-    section["items"] = all_sections
+        all_sections, first_flt_span = extract_section_text(all_pages, code)
+        section = extract_section_header(all_pages, first_flt_span, filename)
 
-    # validate
-    section = IOSASection(
-        name="Section 2 Flight Operations",
-        code=section["code"],
-        applicability=section["applicability"],
-        guidance=section["guidance"],
-        items=section["items"],
-    )
+        section["items"] = all_sections
 
-    # write to a separate json file
-    file_path = f"data/{filename}.json"
-    with open(file_path, 'w') as fp:
-        json.dump(section.model_dump(), fp, indent=4)
-    print(f"output file: {file_path}")
+        # validate
+        section = IOSASection(
+            name=section["name"],
+            code=section["code"],
+            applicability=section["applicability"],
+            guidance=section["guidance"],
+            items=section["items"],
+        )
+
+        # write to a separate json file
+        file_path = f"data/{filename}.json"
+        with open(file_path, 'w') as fp:
+            json.dump(section.model_dump(), fp, indent=4)
+        print(f"output file: {file_path}")
+        # TODO: change data source file names

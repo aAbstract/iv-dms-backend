@@ -1,0 +1,548 @@
+{
+    "name": "Section 8 - Security Management (SEC)",
+    "code": "SEC",
+    "applicability": "Applicability\nSection 8 addresses the management of operational security in accordance with requirements of an Air\nOperator Security Program (AOSP). This section is applicable to all operators.\nIndividual SEC provisions or sub-specifications within a SEC provision that:\n Do not begin with a conditional phrase are applicable to all operators unless determined otherwise\nby the Auditor.\n Begin with a conditional phrase ( If the Operator... ) are applicable if the operator meets the\ncondition(s) stated in the phrase.\nWhere operational security functions are outsourced to contracted external service providers, an operator\nretains responsibility for the conduct of such functions and will have processes to monitor applicable\nexternal service providers in accordance with SEC 1.11.2 to ensure requirements that affect the security of\noperations are being fulfilled.",
+    "guidance": "General Guidance\nDefinitions of technical terms used in this ISM Section 8 , as well as the meaning of abbreviations and\nacronyms, are found in the IATA Reference Manual for Audit Programs (IRM).\n1 Management and Control\n1.1 Management System Overview",
+    "items": [
+        {
+            "code": "SEC 1.1.1",
+            "guidance": null,
+            "iosa_map": [
+                "SEC 1 Management and Control",
+                "1.1 Management System Overview"
+            ],
+            "paragraph": "The Operator shall have a security management system (SeMS) that includes, as a minimum, the\nfollowing key elements:\n(i) Senior management and corporate commitment;\n(ii) Resource management;\n(iii) Threat assessment and risk management;\n(iv) Management of emergencies and incidents (resilience);\n(v) Quality control and quality assurance;\n(vi) Air Operator Security Program (AOSP)."
+        },
+        {
+            "code": "SEC 1.1.2",
+            "guidance": null,
+            "iosa_map": [
+                "SEC 1 Management and Control",
+                "1.1 Management System Overview"
+            ],
+            "paragraph": "The Operator shall have a senior management official designated as the head of security with direct\naccess to the highest level of management within the organization. Such senior management official,\nregardless of other functions and reporting structure, shall:\n(i) Be responsible for ensuring implementation and maintenance of the AOSP; \n(ii) Have overall accountability for ensuring operations are conducted in accordance with\nconditions and restrictions of the AOSP and in compliance with applicable regulations and\nstandards of the Operator."
+        },
+        {
+            "code": "SEC 1.1.3",
+            "guidance": null,
+            "iosa_map": [
+                "SEC 1 Management and Control",
+                "1.1 Management System Overview"
+            ],
+            "paragraph": "The Operator shall have a corporate security policy that states the commitment of the organization to\na culture that has security as a fundamental operational priority. Such policy shall be communicated\nthroughout the organization and commit the organization to:\n(i) The provision of resources necessary for the successful implementation of the policy;\n(ii) Compliance with applicable regulations and standards of the Operator;\n(iii) The promotion of security awareness and the establishment of a security culture;\n(iv) The establishment of security objectives and security performance standards;\n(v) Continual improvement of the SeMS;\n(vi) Periodic review of the policy to ensure continuing relevance to the organization."
+        },
+        {
+            "code": "SEC 1.2.1",
+            "guidance": null,
+            "iosa_map": [
+                "SEC 1 Management and Control",
+                "1.2 Air Operator Security Program (AOSP)"
+            ],
+            "paragraph": "The Operator shall have a formal Air Operator Security Program (AOSP) that includes:\n(i) The requirements of the civil aviation security program of the State of the Operator\n(hereinafter, the State);\n(ii) Supplementary Station Procedures (SSP) that meet the requirements of other states where\noperations are conducted;\n(iii) The security standards of the Operator."
+        },
+        {
+            "code": "SEC 1.3.1",
+            "guidance": null,
+            "iosa_map": [
+                "SEC 1 Management and Control",
+                "1.3 Authorities and Responsibilities"
+            ],
+            "paragraph": "The Operator shall ensure the SeMS defines the authorities and responsibilities of management\npersonnel within the SeMS and provides a general description of security responsibilities for\ncategories of non-management personnel within the SeMS as documented in the AOSP. The SeMS\nshall specify:\n(i) The levels of management with the authority to make decisions that affect operational\nsecurity;\n(ii) Responsibilities for ensuring security functions are performed and procedures are\nimplemented in accordance with applicable regulations and standards of the Operator;\n(iii) Lines of accountability throughout the SeMS, including direct accountability for security on\nthe part of senior management;\n(iv) Responsibilities of members of management, irrespective of other functions, as well as of\nnon-management personnel, with respect to security performance of the SeMS."
+        },
+        {
+            "code": "SEC 1.3.2",
+            "guidance": null,
+            "iosa_map": [
+                "SEC 1 Management and Control",
+                "1.3 Authorities and Responsibilities"
+            ],
+            "paragraph": "The Operator shall have a process or procedure for delegation of duties and assignment of\nresponsibilities within the SeMS that ensures managerial continuity is maintained when managers\nwith operational security responsibilities are unable to carry out work duties."
+        },
+        {
+            "code": "SEC 1.3.3",
+            "guidance": null,
+            "iosa_map": [
+                "SEC 1 Management and Control",
+                "1.3 Authorities and Responsibilities"
+            ],
+            "paragraph": "The Operator shall ensure a delegation of duties and assignment of responsibility for liaison with\napplicable aviation security authorities and other relevant external entities."
+        },
+        {
+            "code": "SEC 1.4.1",
+            "guidance": null,
+            "iosa_map": [
+                "SEC 1 Management and Control",
+                "1.4 Communication"
+            ],
+            "paragraph": "The Operator shall have a system that enables effective communication of security information\nthroughout the management system and all areas where operations are conducted."
+        },
+        {
+            "code": "SEC 1.5.2",
+            "guidance": null,
+            "iosa_map": [
+                "SEC 1 Management and Control",
+                "1.5 Provision of Resources"
+            ],
+            "paragraph": "The Operator shall have a selection process for management and non-management positions within\nthe scope of AOSP, to include positions within the organization of the Operator and if applicable,\nservice providers selected by the Operator that conduct operational security functions. Such process\nshall ensure candidates are selected on the basis of knowledge, skills, training and experience\nappropriate for the position."
+        },
+        {
+            "code": "SEC 1.5.3",
+            "guidance": null,
+            "iosa_map": [
+                "SEC 1 Management and Control",
+                "1.5 Provision of Resources"
+            ],
+            "paragraph": "If permitted by the State, the Operator shall ensure a process has been established that requires\noperational security personnel in the organization of the Operator and, if applicable, service providers\nselected by the Operator to conduct operational security functions, to be subjected to pre-\nemployment and recurring background checks in accordance with requirements of applicable\naviation security authorities. The requirement for a background check shall be applicable to\npersonnel who:\n(i) Engage in the implementation of security controls;\n(ii) Have unescorted access to the security restricted area of an airport;\n(iii) Have unescorted access to other security areas and searched aircraft;\n(iv) Have access to sensitive aviation security information."
+        },
+        {
+            "code": "SEC 1.6.3",
+            "guidance": null,
+            "iosa_map": [
+                "SEC 1 Management and Control",
+                "1.6 Documentation System"
+            ],
+            "paragraph": "The Operator shall have a system for the management and control of documentation and/or data\nused directly in the conduct or support of operations, and in the implementation of the AOSP and its\nassociated SSPs to ensure that they:\n(i) Meet all required elements specified in Table 1.1 ;\n(ii) Contain legible and accurate information;\n(iii) Presented in a format appropriate for use in operations."
+        },
+        {
+            "code": "SEC 1.6.4",
+            "guidance": null,
+            "iosa_map": [
+                "SEC 1 Management and Control",
+                "1.6 Documentation System"
+            ],
+            "paragraph": "If the Operator has external service providers conduct outsourced operational security functions, the\nOperator shall have a process to ensure such external service providers receive information\nregarding security directives and instructions in a timely and secure manner that meets requirements\nof the AOSP and its associated SSPs."
+        },
+        {
+            "code": "SEC 1.8.1",
+            "guidance": null,
+            "iosa_map": [
+                "SEC 1 Management and Control",
+                "1.8 Records System"
+            ],
+            "paragraph": "The Operator shall have a system for the management and control of operational security records to\nensure the content and retention of such records is in accordance with requirements of the aviation\nsecurity authority of the State, as applicable, and to ensure security records are subjected to\nstandardized processes for:\n(i) Identification;\n(ii) Legibility;\n(iii) Maintenance;\n(iv) Retrieval;\n(v) Protection, integrity and security;\n(vi) Disposal, deletion (electronic records) and archiving, including retention and storage as\nmandated by the State."
+        },
+        {
+            "code": "SEC 1.8.2",
+            "guidance": null,
+            "iosa_map": [
+                "SEC 1 Management and Control",
+                "1.8 Records System"
+            ],
+            "paragraph": "If the Operator uses an electronic system for the management and control of records, the Operator\nshall ensure the system provides for a scheduled generation of backup record files."
+        },
+        {
+            "code": "SEC 1.9.1",
+            "guidance": null,
+            "iosa_map": [
+                "SEC 1 Management and Control",
+                "1.9 Management Review"
+            ],
+            "paragraph": "The Operator shall have a security review committee for the purpose of ensuring:\n(i) Senior management oversight of security in operations;\n(ii) Continual improvement of the SeMS;\n(iii) Security threats are being identified and controlled;\n(iv) The promotion of security awareness."
+        },
+        {
+            "code": "SEC 1.9.2",
+            "guidance": null,
+            "iosa_map": [
+                "SEC 1 Management and Control",
+                "1.9 Management Review"
+            ],
+            "paragraph": "The Operator shall have processes to monitor and assess its SeMS processes in order to maintain or\ncontinually improve the overall effectiveness of the SeMS."
+        },
+        {
+            "code": "SEC 1.10.1",
+            "guidance": null,
+            "iosa_map": [
+                "SEC 1 Management and Control",
+                "1.10 Quality Assurance/Quality Control Programs"
+            ],
+            "paragraph": "The Operator shall have a quality assurance program that provides for the auditing and evaluation of\nthe management system and operational security functions at a determined frequency following a\nregularly performed risk assessment to ensure the organization is:\n(i) Complying with the AOSP and its associated SSPs and other applicable regulations and\nstandards;\n(ii) Satisfying stated operational needs;\n(iii) Identifying areas requiring improvement;\n(iv) Identifying threats to operations;\n(v) Assessing the effectiveness of security risk management and controls."
+        },
+        {
+            "code": "SEC 1.10.2",
+            "guidance": null,
+            "iosa_map": [
+                "SEC 1 Management and Control",
+                "1.10 Quality Assurance/Quality Control Programs"
+            ],
+            "paragraph": "The Operator shall have a process for addressing findings resulting from audits of operational\nsecurity functions that ensures:\n(i) Identification of root cause(s);\n(ii) Development of corrective action, as appropriate, to address findings;\n(iii) Implementation of corrective action in appropriate operational security area(s);\n(iv) Evaluation of corrective action to determine effectiveness."
+        },
+        {
+            "code": "SEC 1.10.3A",
+            "guidance": null,
+            "iosa_map": [
+                "SEC 1 Management and Control",
+                "1.10 Quality Assurance/Quality Control Programs"
+            ],
+            "paragraph": "The Operator shall have a process to ensure significant issues arising from quality assurance audits\nof operational security functions are subject to a regular review by senior security management."
+        },
+        {
+            "code": "SEC 1.10.3B",
+            "guidance": null,
+            "iosa_map": [
+                "SEC 1 Management and Control",
+                "1.10 Quality Assurance/Quality Control Programs"
+            ],
+            "paragraph": "The Operator shall have an audit planning process and sufficient resources, including auditors as\nspecified in ORG 2.1.8 , to ensure audits are:\n(i) Scheduled in accordance with a security risk assessment at intervals to meet regulatory and\nmanagement system requirements;\n(ii) Conducted within the scheduled interval (subject to a change in risk)."
+        },
+        {
+            "code": "SEC 1.10.5",
+            "guidance": null,
+            "iosa_map": [
+                "SEC 1 Management and Control",
+                "1.10 Quality Assurance/Quality Control Programs"
+            ],
+            "paragraph": "If required and/or authorized by the aviation security authority, the Operator shall have a process for\nconducting security tests that assess the effectiveness and proper implementation of security\ncontrols of which the Operator is in direct control."
+        },
+        {
+            "code": "SEC 1.10.6",
+            "guidance": null,
+            "iosa_map": [
+                "SEC 1 Management and Control",
+                "1.10 Quality Assurance/Quality Control Programs"
+            ],
+            "paragraph": "If required and/or authorized by the aviation security authority, the Operator shall have a process to\nperform or participate in periodic operational security exercises in order to:\n(i) Evaluate the effectiveness of procedures designed for response to security incidents;\n(ii) Practice implementation of security procedures by applicable personnel."
+        },
+        {
+            "code": "SEC 1.11.1A",
+            "guidance": null,
+            "iosa_map": [
+                "SEC 1 Management and Control",
+                "1.11 Quality Control of Outsourced Operations and Products"
+            ],
+            "paragraph": "If the Operator has external service providers conduct outsourced aviation security functions, the\nOperator should ensure a service provider selection process is in place that ensures:\n(i) Security-relevant selection criteria are established;\n(ii) Service providers are evaluated against these criteria prior to selection."
+        },
+        {
+            "code": "SEC 1.11.1B",
+            "guidance": null,
+            "iosa_map": [
+                "SEC 1 Management and Control",
+                "1.11 Quality Control of Outsourced Operations and Products"
+            ],
+            "paragraph": "If the Operator has external service providers conduct outsourced operational security functions, the\nOperator shall have a process to ensure a contract or agreement is executed with such external\nservice providers. Such contract or agreement shall identify the application of specific documented\nrequirements that can be monitored by the Operator to ensure requirements that affect the security of\nits operations are being fulfilled by the service provider."
+        },
+        {
+            "code": "SEC 1.11.2",
+            "guidance": null,
+            "iosa_map": [
+                "SEC 1 Management and Control",
+                "1.11 Quality Control of Outsourced Operations and Products"
+            ],
+            "paragraph": "If the Operator has external service providers conducting outsourced operational security functions,\nthe Operator shall have processes to monitor such external service providers to ensure requirements\nthat affect the security of operations are being fulfilled."
+        },
+        {
+            "code": "SEC 1.11.4",
+            "guidance": null,
+            "iosa_map": [
+                "SEC 1 Management and Control",
+                "1.11 Quality Control of Outsourced Operations and Products"
+            ],
+            "paragraph": "If the Operator has operational security functions conducted by external organizations not under the\ncontrol of the Operator, the Operator shall have methods, as permitted by the applicable civil aviation\nsecurity authority, for the monitoring of such functions to ensure, as permitted, implementation of\noutsourced security measures is in compliance with its AOSP."
+        },
+        {
+            "code": "SEC 1.12.1",
+            "guidance": null,
+            "iosa_map": [
+                "SEC 1 Management and Control",
+                "1.12 Operational Reporting"
+            ],
+            "paragraph": "The Operator shall have an operational security reporting system that is implemented throughout the\norganization in a manner that:\n(i) Encourages and facilitates personnel to report security incidents and security occurrences\npertaining to the Operator;\n(ii) Ensures mandatory reporting in accordance with applicable regulations;\n(iii) Includes analysis and management action as necessary to address security issues\nidentified through the reporting system."
+        },
+        {
+            "code": "SEC 1.12.2",
+            "guidance": null,
+            "iosa_map": [
+                "SEC 1 Management and Control",
+                "1.12 Operational Reporting"
+            ],
+            "paragraph": "The Operator shall have a process to ensure security information, security incidents, security\noccurrences and acts of unlawful interference that have been reported by personnel in accordance\nwith SEC 1.12.1 or are derived from states or other relevant sources are reviewed by operational and\nsecurity management to ensure:\n(i) Root cause is identified;\n(ii) A security risk assessment is conducted;\n(iii) Corrective action is determined;\n(iv) When applicable, corrective action is implemented and monitored to ensure effectiveness in\npreventing future incidents or occurrences."
+        },
+        {
+            "code": "SEC 2.1.1",
+            "guidance": null,
+            "iosa_map": [
+                "SEC 2 Training and Qualification",
+                "2.1 Training Program"
+            ],
+            "paragraph": "The Operator shall have a security training program that is approved or accepted by the State and\nmeets applicable requirements of other states. Such program shall consist of initial, recurrent and,\nwhere applicable, requalification training that comprises, as appropriate, theoretical training, practical\ntraining and an assessment of competencies to ensure:\n(i) Personnel, employed by or under the control of the Operator who implement security\ncontrols understand security awareness and reporting, and have the competence to perform\ntheir duties;\n(ii) Flight and cabin crew members, as well as frontline aircraft ground handling and cargo\nhandling personnel, are able to act in the most appropriate manner to minimize the\nconsequences of acts of unlawful interference and disruptive passenger behavior."
+        },
+        {
+            "code": "SEC 2.1.2",
+            "guidance": null,
+            "iosa_map": [
+                "SEC 2 Training and Qualification",
+                "2.1 Training Program"
+            ],
+            "paragraph": "If the Operator has operational security functions conducted by external service providers selected\nby the Operator (outsourcing), the Operator shall have a process to ensure such external service\nproviders have a security training program that:\n(i) Is acceptable to the Operator;\n(ii) Consists of initial, recurrent and, where applicable, requalification training;\n(iii) Includes, as appropriate, theoretical and practical training;\n(iv) Includes an assessment of competencies;\n(v) Ensures personnel have a common understanding of security awareness and reporting."
+        },
+        {
+            "code": "SEC 2.1.4",
+            "guidance": null,
+            "iosa_map": [
+                "SEC 2 Training and Qualification",
+                "2.1 Training Program"
+            ],
+            "paragraph": "The Operator shall ensure personnel who perform security functions, crew members and appropriate\noperational personnel, as specified in SEC 2.1.1 , complete recurrent security training on a frequency\nin accordance with requirements of the security program of the State and, if applicable, other states\nwhere operations are conducted or, if there is no regulatory mandate, not less than once every 36\nmonths."
+        },
+        {
+            "code": "SEC 2.1.5",
+            "guidance": null,
+            "iosa_map": [
+                "SEC 2 Training and Qualification",
+                "2.1 Training Program"
+            ],
+            "paragraph": "If the Operator manages a security screening system, the Operator shall ensure personnel who\nmanage or operate the screening system:\n(i) Are approved and/or certified in accordance with requirements of the applicable aviation\nsecurity authority;\n(ii) Complete initial and recurrent training that includes training in the identification of\nexplosives, weapons or other dangerous items or devices."
+        },
+        {
+            "code": "SEC 2.1.6",
+            "guidance": null,
+            "iosa_map": [
+                "SEC 2 Training and Qualification",
+                "2.1 Training Program"
+            ],
+            "paragraph": "The security training program of the Operator shall include a process for reviewing and updating or\nrevising security training courses to ensure:\n(i) Continual improvement of curriculum, including content and applicability to the operational\nenvironment;\n(ii) Incorporation of regulatory amendments or operational changes."
+        },
+        {
+            "code": "SEC 2.1.7",
+            "guidance": null,
+            "iosa_map": [
+                "SEC 2 Training and Qualification",
+                "2.1 Training Program"
+            ],
+            "paragraph": "The Operator shall ensure the completion of required security training by operational personnel is\ndocumented and retained in a records system in accordance with SEC 1.8.1 ."
+        },
+        {
+            "code": "SEC 2.1.8",
+            "guidance": null,
+            "iosa_map": [
+                "SEC 2 Training and Qualification",
+                "2.1 Training Program"
+            ],
+            "paragraph": "The Operator shall ensure operational personnel complete security awareness training that focuses\non preventative measures and techniques in relation to passengers, baggage, cargo, mail,\nequipment, stores and supplies, as applicable, and permits such personnel to contribute to the\nprevention and reporting of acts of sabotage, other forms of unlawful interference and security\noccurrences."
+        },
+        {
+            "code": "SEC 3.1.1",
+            "guidance": null,
+            "iosa_map": [
+                "SEC 3 Security Operations",
+                "3.1 Access Control"
+            ],
+            "paragraph": "If the Operator has exclusive control over airport airside areas and/or security restricted areas, the\nOperator shall ensure an identification verification system is in place that prevents personnel and\nvehicles from unauthorized access. Such identification system shall include:\n(i) Designated checkpoints where identification is verified before access is permitted;\n(ii) A requirement for authorized personnel to prominently display an identification badge."
+        },
+        {
+            "code": "SEC 3.1.2",
+            "guidance": null,
+            "iosa_map": [
+                "SEC 3 Security Operations",
+                "3.1 Access Control"
+            ],
+            "paragraph": "The Operator shall ensure measures are in place to control and supervise personnel and vehicles\nmoving to and from the aircraft in security restricted areas to prevent unauthorized access to the\naircraft."
+        },
+        {
+            "code": "SEC 3.1.3",
+            "guidance": null,
+            "iosa_map": [
+                "SEC 3 Security Operations",
+                "3.1 Access Control"
+            ],
+            "paragraph": "The Operator shall ensure access control measures and security screening measures as mandated\nby the State are in place to prevent the introduction of unauthorized weapons, explosives or other\ndangerous devices or items on board an aircraft by persons other than passengers."
+        },
+        {
+            "code": "SEC 3.3.1",
+            "guidance": null,
+            "iosa_map": [
+                "SEC 3 Security Operations",
+                "3.3 Carriage of Weapons"
+            ],
+            "paragraph": "If the carriage of weapons on board an aircraft by law enforcement officers and/or other authorized\npersons acting in the performance of their duties is approved by the Operator, the State and/or other\napplicable authorities, the Operator shall have a policy and procedures, in accordance with the laws\nof the state(s) involved, for such carriage of weapons."
+        },
+        {
+            "code": "SEC 3.3.3",
+            "guidance": null,
+            "iosa_map": [
+                "SEC 3 Security Operations",
+                "3.3 Carriage of Weapons"
+            ],
+            "paragraph": "If the carriage of weapons in hold baggage on board an aircraft for a passenger flight is approved by\nthe Operator, the Operator shall have procedures for the carriage of such weapons to ensure:\n(i) If the weapon is a firearm or capable of discharging a projectile, the passenger or an\nauthorized and duly qualified person has declared the weapon to be not loaded;\n(ii) The weapon is stowed in a place that is inaccessible to any unauthorized person during\nflight;\n(iii) The carriage of a weapon is legally permitted by all state(s) involved, including the State and\nstate(s) of flight departure, transit and arrival."
+        },
+        {
+            "code": "SEC 3.4.1",
+            "guidance": null,
+            "iosa_map": [
+                "SEC 3 Security Operations",
+                "3.4 Passengers (Including Supernumeraries) and Cabin Baggage"
+            ],
+            "paragraph": "If the Operator conducts passenger flights, the Operator shall have a process to ensure originating\npassengers and their cabin baggage are subjected to screening prior to boarding a passenger\naircraft for;\n(i) An international flight;\n(ii) As required by the applicable aviation security authority, a domestic flight."
+        },
+        {
+            "code": "SEC 3.4.3",
+            "guidance": null,
+            "iosa_map": [
+                "SEC 3 Security Operations",
+                "3.4 Passengers (Including Supernumeraries) and Cabin Baggage"
+            ],
+            "paragraph": "If the Operator conducts passenger flights, the Operator shall have a process to ensure transfer and\ntransit passengers and their cabin baggage either:\n(i) Are subjected to screening prior to boarding a passenger aircraft, or\n(ii) Have been screened to an appropriate level at the point of origin and subsequently\nprotected from unauthorized interference from the point of screening at the originating\nairport to the departing aircraft at the transfer or transit airport."
+        },
+        {
+            "code": "SEC 3.4.4",
+            "guidance": null,
+            "iosa_map": [
+                "SEC 3 Security Operations",
+                "3.4 Passengers (Including Supernumeraries) and Cabin Baggage"
+            ],
+            "paragraph": "If the Operator conducts passenger flights, the Operator shall have a process to ensure passengers\nand their cabin baggage are subjected to additional security controls in accordance with\nrequirements of the applicable aviation security authority when flights are under an increased\nsecurity threat."
+        },
+        {
+            "code": "SEC 3.4.5",
+            "guidance": null,
+            "iosa_map": [
+                "SEC 3 Security Operations",
+                "3.4 Passengers (Including Supernumeraries) and Cabin Baggage"
+            ],
+            "paragraph": "If the Operator conducts passenger flights, the Operator shall have a process to ensure passengers\nand their cabin baggage, which have already been subjected to screening, are:\n(i) Protected from unauthorized interference from the point of screening until they board a\npassenger aircraft;\n(ii) Subjected to re-screening if the potential for unauthorized interference has been determined\nto exist."
+        },
+        {
+            "code": "SEC 3.4.6",
+            "guidance": null,
+            "iosa_map": [
+                "SEC 3 Security Operations",
+                "3.4 Passengers (Including Supernumeraries) and Cabin Baggage"
+            ],
+            "paragraph": "The Operator should ensure security practices and/or procedures for operational security personnel\nthat have contact with passengers include behavior detection methods designed to identify persons\nwho may pose a threat to civil aviation and require additional security measures."
+        },
+        {
+            "code": "SEC 3.4.7",
+            "guidance": null,
+            "iosa_map": [
+                "SEC 3 Security Operations",
+                "3.4 Passengers (Including Supernumeraries) and Cabin Baggage"
+            ],
+            "paragraph": "The Operator shall have a policy and procedures to refuse transportation to any person that does not\nconsent to a search of his or her person or property in accordance with the AOSP."
+        },
+        {
+            "code": "SEC 3.5.1",
+            "guidance": null,
+            "iosa_map": [
+                "SEC 3 Security Operations",
+                "3.5 Special Category Passengers"
+            ],
+            "paragraph": "If the Operator conducts passenger flights, the Operator shall have a policy and a process that\nincorporates risk assessment measures to ensure procedures are in place for the transport of\npotentially disruptive passengers who are obliged to travel because they have been the subject of\njudicial or administrative proceedings. Such procedures shall be designed to take into consideration\nthe assurance of the safety of the aircraft during the flight."
+        },
+        {
+            "code": "SEC 3.6.1",
+            "guidance": null,
+            "iosa_map": [
+                "SEC 3 Security Operations",
+                "3.6 Hold Baggage"
+            ],
+            "paragraph": "If the Operator conducts international passenger flights, the Operator shall have a process to ensure\noriginating hold baggage, including courier baggage, is:\n(i) Subjected to screening capable of detecting explosives and explosive devices prior to being\nloaded into an aircraft for an international passenger flight;\n(ii) Protected from unauthorized interference from the moment of acceptance until loaded on\nboard the aircraft."
+        },
+        {
+            "code": "SEC 3.6.2",
+            "guidance": null,
+            "iosa_map": [
+                "SEC 3 Security Operations",
+                "3.6 Hold Baggage"
+            ],
+            "paragraph": "If the Operator conducts domestic passenger flights, the Operator should have a process to ensure\noriginating hold baggage is:\n(i) Subjected to screening capable of detecting explosives and explosive devices prior to being\nloaded into an aircraft for a domestic passenger flight;\n(ii) Protected from unauthorized interference from the moment of acceptance until they are\nloaded on board the aircraft."
+        },
+        {
+            "code": "SEC 3.6.6",
+            "guidance": null,
+            "iosa_map": [
+                "SEC 3 Security Operations",
+                "3.6 Hold Baggage"
+            ],
+            "paragraph": "If the Operator conducts international passenger flights, the Operator shall have a process to ensure\nprocedures are in place to prevent items of hold baggage from being transported on such flights\nunless such items have been:\n(i) Individually identified as either accompanied or unaccompanied baggage;\n(ii) Subjected to appropriate security controls based on risk assessment."
+        },
+        {
+            "code": "SEC 3.7.1",
+            "guidance": null,
+            "iosa_map": [
+                "SEC 3 Security Operations",
+                "3.7 Cargo Shipments"
+            ],
+            "paragraph": "If the Operator transports revenue or non-revenue cargo, the Operator shall have a process to\nensure cargo shipments for transport on all flights have been subjected to the appropriate security\ncontrols, including screening where required, as established by the applicable state(s) prior to being\nloaded onto an aircraft."
+        },
+        {
+            "code": "SEC 3.8.1",
+            "guidance": null,
+            "iosa_map": [
+                "SEC 3 Security Operations",
+                "3.8 In-Flight, Catering and Other Supplies"
+            ],
+            "paragraph": "If the Operator conducts passenger flights, the Operator shall have a process to ensure in-flight,\ncatering and/or other supplies intended for transport on a passenger flight are subjected to\nappropriate security controls as established by the appropriate state and are thereafter protected\nfrom unauthorized interference until loaded onto the aircraft."
+        },
+        {
+            "code": "SEC 3.9.2",
+            "guidance": null,
+            "iosa_map": [
+                "SEC 3 Security Operations",
+                "3.9 General Protection"
+            ],
+            "paragraph": "If the Operator controls security restricted areas, the Operator shall have processes to ensure\nmerchandise and supplies introduced into such areas are subject to appropriate security controls,\nwhich may include screening or a supply chain security process."
+        },
+        {
+            "code": "SEC 4.1.1",
+            "guidance": null,
+            "iosa_map": [
+                "SEC 4 Security Threat and Contingency Management",
+                "4.1 Threat Management"
+            ],
+            "paragraph": "The Operator shall have processes for maintaining a constant review of the level and nature of\nsecurity and cybersecurity threats to civil aviation, and for identifying direct or potential threats\nagainst the Operator and/or its aircraft operations. For threats that have been identified, such\nprocesses shall include:\n(i) An assessment of associated risks and vulnerabilities;\n(ii) Development of appropriate response measures."
+        },
+        {
+            "code": "SEC 4.1.2",
+            "guidance": null,
+            "iosa_map": [
+                "SEC 4 Security Threat and Contingency Management",
+                "4.1 Threat Management"
+            ],
+            "paragraph": "The Operator shall have a process to ensure the implementation of appropriate security measures in\nresponse to:\n(i) Security threats directed against the Operator;\n(ii) Threat levels issued by applicable aviation security authorities."
+        },
+        {
+            "code": "SEC 4.1.3",
+            "guidance": null,
+            "iosa_map": [
+                "SEC 4 Security Threat and Contingency Management",
+                "4.1 Threat Management"
+            ],
+            "paragraph": "The Operator shall have procedures for sharing, as appropriate, with the State, relevant operators,\nairport authority, air traffic service and external service providers, in a practical and timely manner,\nrelevant information to assist in the implementation of an effective security risk assessment process."
+        },
+        {
+            "code": "SEC 4.2.1",
+            "guidance": null,
+            "iosa_map": [
+                "SEC 4 Security Threat and Contingency Management",
+                "4.2 Contingency Planning"
+            ],
+            "paragraph": "The Operator shall have a contingency plan that provides for a comprehensive and managed\nresponse to aviation security incidents."
+        },
+        {
+            "code": "SEC 4.3.1",
+            "guidance": null,
+            "iosa_map": [
+                "SEC 4 Security Threat and Contingency Management",
+                "4.3 Investigation and Notification"
+            ],
+            "paragraph": "The Operator shall have a process to ensure an investigation is conducted for any of the following:\n(i) Threats or acts of unlawful interference;\n(ii) Failure of implementation of security controls under the responsibility of the Operator;\n(iii) Security incidents, security occurrences or security threats."
+        },
+        {
+            "code": "SEC 4.3.2",
+            "guidance": null,
+            "iosa_map": [
+                "SEC 4 Security Threat and Contingency Management",
+                "4.3 Investigation and Notification"
+            ],
+            "paragraph": "The Operator shall have a process that ensures notification to the applicable aviation security\nauthorities when an act of unlawful interference against the Operator, a reportable security incident\nand/or a reportable security occurrence has been identified."
+        },
+        {
+            "code": "SEC 4.3.3",
+            "guidance": null,
+            "iosa_map": [
+                "SEC 4 Security Threat and Contingency Management",
+                "4.3 Investigation and Notification"
+            ],
+            "paragraph": "The Operator should have a process to ensure security incidents and/or security occurrences are\nreported to IATA for inclusion in the Incident Data Exchange (IDX) Security Dashboard. Such reports\nshould be submitted in accordance with the formal IDX reporting process."
+        }
+    ]
+}

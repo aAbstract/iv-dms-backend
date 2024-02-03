@@ -1,0 +1,55 @@
+[
+    {
+        "code": "DSP 1",
+        "title": "DSP 1 Management and Control",
+        "sub_sections": [
+            "1.1 Management System Overview",
+            "1.2 (Intentionally open)",
+            "1.3 Accountability, Authorities and Responsibilities",
+            "1.4 Communication and Coordination",
+            "1.5 Provision of Resources",
+            "1.6 Documentation System",
+            "1.7 Operations Manual",
+            "1.8 Records System",
+            "1.9 (Intentionally open)",
+            "1.10 Quality Assurance Program",
+            "1.11 Quality Control of Outsourced Operations and Products",
+            "1.12 Safety Management"
+        ]
+    },
+    {
+        "code": "DSP 2",
+        "title": "DSP 2 Training and Qualification",
+        "sub_sections": [
+            "2.1 Training and Evaluation Program",
+            "2.2 Training Elements",
+            "2.3 Line Qualification",
+            "2.4 Special Qualification",
+            "2.5 SMS Training"
+        ]
+    },
+    {
+        "code": "DSP 3",
+        "title": "DSP 3 Line Operations",
+        "sub_sections": [
+            "3.1 General",
+            "3.2 Flight Preparation and Planning",
+            "3.3 Aircraft Performance and Load Planning",
+            "3.4 Icing Conditions",
+            "3.5 Aircraft Tracking",
+            "3.6 Flight Monitoring and In-Flight Management",
+            "3.7 Emergency Response"
+        ]
+    },
+    {
+        "code": "DSP 4",
+        "title": "DSP 4 Operational Control Requirements and Specifications",
+        "sub_sections": [
+            "4.1 Alternate and Isolated Airports",
+            "4.2 Minimum Flight Altitudes and En Route Performance",
+            "4.3 Fuel Planning",
+            "4.4 Oxygen",
+            "4.5 Operations Beyond 60 Minutes from an En Route Alternate Airport and ETOPS/EDTO"
+        ]
+    }
+]
