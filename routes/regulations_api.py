@@ -122,6 +122,7 @@ async def get_iosa_checklist(res: Response, regulation_id: str = Body(), checkli
     code: string,\n
     guidance: string,\n
     iosa_map: string[],\n
+    paragraph: paragraph,\n
     constraints: Constrain[],\n
     }}
     """
