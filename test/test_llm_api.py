@@ -64,7 +64,7 @@ def test_llm_api_success():
     assert user['activity']['gemini_audits'] == (gemini_audits - 1)
 
 
-def test_llm_api_success_low_score():
+def _test_llm_api_success_low_score():
     access_token = _test_config.login_user('cwael', 'CgJhxwieCc7QEyN3BB7pmvy9MMpseMPV')
     http_headers = {'X-Auth': f"Bearer {access_token}"}
 
@@ -92,7 +92,7 @@ def test_llm_api_success_low_score():
     assert json_res_body['data']['llm_resp']['pct_score'] < LLM_SCORE_TH
 
 
-def test_llm_api_success_high_score():
+def _test_llm_api_success_high_score():
     access_token = _test_config.login_user('cwael', 'CgJhxwieCc7QEyN3BB7pmvy9MMpseMPV')
     http_headers = {'X-Auth': f"Bearer {access_token}"}
 

@@ -1,11 +1,12 @@
 # autopep8: off
+import code
 import json
 import os
 import sys
 import pymongo
 import shutil
 from dotenv import load_dotenv
-
+from bson import ObjectId
 
 def load_root_path():
     file_dir = os.path.abspath(__file__)
@@ -22,6 +23,7 @@ from models.manuals import *
 from models.logs import *
 from models.fs_index import *
 from models.ai_tasks import *
+from models.flow_report import *
 # autopep8: on
 
 
@@ -41,6 +43,7 @@ seed_users = [
         phone_number="+201001000000",
         email="cwael@aerosync.com",
         activity=UserActivity(),
+        organization="technokit"
     ),
     User(
         username="eslam",
@@ -50,6 +53,7 @@ seed_users = [
         phone_number="+201001000000",
         email="eslam@aerosync.com",
         activity=UserActivity(),
+        organization="technokit"
     ),
     User(
         username="safwat",
@@ -59,6 +63,7 @@ seed_users = [
         phone_number="+201001000000",
         email="safwat@aerosync.com",
         activity=UserActivity(),
+        organization="technokit"
     ),
     User(
         username="aelhennawy",
@@ -68,6 +73,37 @@ seed_users = [
         phone_number="+201001000000",
         email="aelhennawy@aerosync.com",
         activity=UserActivity(),
+        organization="technokit"
+    ),
+        User(
+        username="galal",
+        disp_name="Mohamed Elgemeie",
+        pass_hash="86d74596bb4c2f6b63ae7c09c212a7ed824ab15371ec06a2126dffc3aaa191659478e432c458d5b6a7c0b21b5bf2120c91480c27e78cf94935135d8c022f42f7",
+        user_role=UserRole.FATTER,
+        phone_number="+201001002310",
+        email="galal@aerosync.com",
+        activity=UserActivity(),
+        organization="technokit"
+    ),
+        User(
+        username="kamal",
+        disp_name="Ahmed kamal",
+        pass_hash="86d74596bb4c2f6b63ae7c09c212a7ed824ab15371ec06a2126dffc3aaa191659478e432c458d5b6a7c0b21b5bf2120c91480c27e78cf94935135d8c022f42f7",
+        user_role=UserRole.CARER,
+        phone_number="+203201000000",
+        email="kamal@aerosync.com",
+        activity=UserActivity(),
+        organization="technokit"
+    ),
+        User(
+        username="sam",
+        disp_name="thomas sam",
+        pass_hash="86d74596bb4c2f6b63ae7c09c212a7ed824ab15371ec06a2126dffc3aaa191659478e432c458d5b6a7c0b21b5bf2120c91480c27e78cf94935135d8c022f42f7",
+        user_role=UserRole.MANER,
+        phone_number="+201001009300",
+        email="sam@aerosync.com",
+        activity=UserActivity(),
+        organization="technokit"
     ),
 ]
 
@@ -90,6 +126,7 @@ seed_regulations = [
                         Constrain(text='The Operator shall have a management system for the flight operations organization that ensures control of flight operations and the management of safety and security outcomes.'),
                         Constrain(text='Sample Constain'),
                     ],
+                    page=1
                 ),
                 IOSAItem(
                     code='FLT 1.1.2',
@@ -104,6 +141,7 @@ seed_regulations = [
                             Constrain(text='Flight operations are conducted in accordance with conditions and restrictions of the Air Operator Certificate (AOC), and in compliance with applicable regulations and standards of the Operator.'),
                         ],
                     )],
+                    page=1
                 ),
                 IOSAItem(
                     code='FLT 1.3.4',
@@ -130,6 +168,7 @@ seed_regulations = [
                             ],
                         ),
                     ],
+                    page=1
                 ),
                 IOSAItem(
                     code='FLT 1.5.2',
@@ -137,6 +176,7 @@ seed_regulations = [
                     iosa_map=['1 Management and Control', '1.5 Provision of Resources'],
                     paragraph='',
                     constraints=[Constrain(text='The Operator shall have a selection process for management and non-management positions within the organization that require the performance of functions relevant to the safety or security of aircraft operations.')],
+                    page=1
                 ),
                 IOSAItem(
                     code='FLT 2.1.35',
@@ -164,6 +204,7 @@ seed_regulations = [
                         ),
                         Constrain(text='The Operator shall have a management system for the flight operations organization that ensures control of flight operations and the management of safety and security outcomes.'),
                     ],
+                    page=1
                 ),
                 IOSAItem(
                     code='FLT 2.1.21',
@@ -171,6 +212,7 @@ seed_regulations = [
                     iosa_map=[],
                     paragraph='',
                     constraints=[Constrain(text='The Operator shall have sufficient instructors, evaluators, line check airmen and support personnel to administer the training and evaluation programs in accordance with requirements of the Operator and/or the State, as applicable.')],
+                    page=1
                 ),
                 IOSAItem(
                     code="FLT 3.1.1",
@@ -187,6 +229,7 @@ seed_regulations = [
                             ],
                         ),
                     ],
+                    page=1
                 ),
             ],
         ),
@@ -203,6 +246,7 @@ seed_regulations = [
                     iosa_map=['1 Management and Control', '1.1 Management System Overview'],
                     paragraph='',
                     constraints=[],
+                    page=1
                 ),
                 IOSAItem(
                     code='DSP 1.1.2',
@@ -210,6 +254,7 @@ seed_regulations = [
                     iosa_map=['1 Management and Control', '1.1 Management System Overview'],
                     paragraph='',
                     constraints=[],
+                    page=1
                 ),
                 IOSAItem(
                     code='DSP 1.1.3',
@@ -217,6 +262,7 @@ seed_regulations = [
                     iosa_map=['1 Management and Control', '1.1 Management System Overview'],
                     paragraph='',
                     constraints=[],
+                    page=1
                 ),
                 IOSAItem(
                     code='DSP 1.1.4',
@@ -224,6 +270,7 @@ seed_regulations = [
                     iosa_map=['1 Management and Control', '1.1 Management System Overview'],
                     paragraph='',
                     constraints=[],
+                    page=1
                 ),
             ],
         ),
@@ -321,6 +368,12 @@ seed_ai_tasks = [
     ),
 ]
 
+# seed flow stage tempaltes
+seed_Flow_stage_templates = [
+    FlowStageTemplate.model_validate(FlowStageTemplateMap.STAGES_4),
+    FlowStageTemplate.model_validate(FlowStageTemplateMap.STAGES_2)
+]
+
 # system logs schema
 seed_log = Log(
     datetime=datetime.now(),
@@ -336,6 +389,7 @@ def seed_routine():
     print("creating users indexes...")
     db.get_collection("users").create_index("username", unique=True)
     db.get_collection("users").create_index("email", unique=True)
+    db.get_collection("users").create_index("organization", unique=False)
 
     print("seeding regulations index...")
     db.get_collection("regulations").insert_one(seed_regulations[0].model_dump())
@@ -345,15 +399,20 @@ def seed_routine():
     iosa_e16r2_id = mdb_result.inserted_id
     print("creating regulations indexes...")
     db.get_collection("regulations").create_index("type", unique=False)
-    with open("data/iosa_flt.json", "r") as f:
-        file_content = f.read()
-        section_json = json.loads(file_content)
 
-        # write to the mongo database
-        db.get_collection("regulations").find_one_and_update(
-            {"_id": iosa_e16r2_id},
-            {"$push": {"sections": section_json}},
-        )
+    codes = ["cab",'cgo','dsp','grh','mnt','org','sec','flt']
+
+    for i in codes:
+        filename = f"iosa_{i}"
+        with open(f"data/{filename}.json", "r") as f:
+            file_content = f.read()
+            section_json = json.loads(file_content)
+
+            # write to the mongo database
+            db.get_collection("regulations").find_one_and_update(
+                {"_id": iosa_e16r2_id},
+                {"$push": {"sections": section_json}},
+            )
 
     print("seeding unstructured manuals...")
     db.get_collection("unstructured_manuals").insert_many(
@@ -383,16 +442,60 @@ def seed_routine():
     print('creating ai tasks indexes...')
     db.get_collection('ai_tasks').create_index('username', unique=False)
 
+    seed_flow_reports = [
+        FlowReport(
+            title=FlowStageTemplateMap.STAGES_4['name'],
+            regulation_id=str(iosa_e16r2_id),
+            code="FLT",
+            sub_sections=[
+                ReportSubSectionWritten(
+                    title="Section 1",
+                    checklist_items=[
+                        ReportItem(
+                            code="FLT 1.2.1",
+                            manual_references = [
+                                ManualReference(
+                                    check_in_code="OMA 2.1.2"
+                                )
+                            ],
+                        )
+                    ]
+                )
+            ],
+            flow_stages=FlowStageTemplateMap.STAGES_4['stages'],
+            status=FlowReportStatus.INPROGRESS,
+            current_stage_index=0,
+            start_date=datetime.now(),
+            end_date = datetime.now(),
+            organization="technokit",
+            creator="cwael"
+        )
+    ]
+    print('seeding flow report...')
+    report_result = db.get_collection("flow_reports").insert_one(
+        seed_flow_reports[0].model_dump()
+    )
+    print('creating flow report indexes...')
+    db.get_collection("flow_reports").create_index("title", unique=False)
+    db.get_collection("flow_reports").create_index("organization", unique=False)
+    db.get_collection("flow_reports").create_index("creator", unique=False)
+
+    print('seeding flow template stages...')
+    db.get_collection('flow_report_stage_templates').insert_many([x.model_dump() for x in seed_Flow_stage_templates])
+    print('creating flow template stages indexes...')
+    db.get_collection("flow_report_stage_templates").create_index("name", unique=True)
+
+
     print('seeding logs...')
     db.get_collection('logs').insert_one(seed_log.model_dump())
     print('creating logs indexes...')
     db.get_collection('logs').create_index([('date', pymongo.DESCENDING)], unique=False)
 
     # seed regulations source map
-    reg_sm_file = ['iosa_flt']
     reg_sm_data = []
-    for sm_file in reg_sm_file:
-        with open(f"data/{sm_file}_map.json", 'r') as f:
+    for sm_file in codes:
+        filename = f"iosa_{sm_file}_map"
+        with open(f"data/{filename}.json", 'r') as f:
             json_obj = json.loads(f.read())
             for x in json_obj:
                 x['regulation_id'] = iosa_e16r2_id
@@ -402,6 +505,30 @@ def seed_routine():
     db.get_collection('regulations_source_maps').insert_many(reg_sm_data)
     print('creating regulations source maps indexes...')
     db.get_collection('regulations_source_maps').create_index('code', unique=True)
+
+
+    # seed flow report changes
+    report =  db.get_collection("flow_reports").find_one({"title": FlowStageTemplateMap.STAGES_4['name']})
+    seed_flow_reports_changes = [
+    FlowReportChange(
+        report_id= str(report_result.inserted_id),
+        organization= report['organization'],
+        user_changes = [
+            UserChange(
+                user_name="cwael",
+                user_comment="I created this",
+                change_type=UserChangeType.CREATE,
+                report_after= report
+                )
+            ]
+        )
+    ]
+
+    print('seeding Flow Report Changes...')
+    db.get_collection('flow_report_changes').insert_many([x.model_dump() for x in seed_flow_reports_changes])
+    print('creating flow report changes...')
+    db.get_collection('flow_report_changes').create_index('organization', unique=False)
+    db.get_collection('flow_report_changes').create_index('report_id', unique=False)
 
 
 seed_routine()

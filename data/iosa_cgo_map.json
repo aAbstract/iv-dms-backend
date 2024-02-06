@@ -1,0 +1,41 @@
+[
+    {
+        "code": "CGO 1",
+        "title": "CGO 1 Management and Control",
+        "sub_sections": [
+            "1.1 Management System Overview",
+            "1.2 Accountability, Authorities and Responsibilities",
+            "1.3 Communication",
+            "1.4 Provision of Resources",
+            "1.5 Documentation System",
+            "1.6 Operational Manuals",
+            "1.7 Records System",
+            "1.8 (Intentionally open)",
+            "1.9 Quality Assurance Program",
+            "1.10 Quality Control of Outsourced Operations and Products",
+            "1.11 Safety Management"
+        ]
+    },
+    {
+        "code": "CGO 2",
+        "title": "CGO 2 Training and Qualification",
+        "sub_sections": [
+            "2.1 Training Program",
+            "2.2 Program Elements",
+            "2.3 SMS Training"
+        ]
+    },
+    {
+        "code": "CGO 3",
+        "title": "CGO 3 Acceptance and Handling",
+        "sub_sections": [
+            "3.1 General Cargo",
+            "3.2 Dangerous Goods",
+            "3.3 Live Animals and Perishables",
+            "3.4 Other Special Cargo",
+            "3.5 Unit Load Device (ULD)",
+            "3.6 (Intentionally open)",
+            "3.7 Security"
+        ]
+    }
+]

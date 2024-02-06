@@ -1,7 +1,7 @@
 from models.runtime import ServiceResponse
 from database.mongo_driver import get_database, validate_bson_id
 from models.regulations import RegulationsMetaData, IOSAItem, IOSASection
-from models.audit_reports import ReportTemplate, ReportSubSection, RegulationType
+from models.flow_report import ReportTemplate, ReportSubSection, RegulationType
 
 
 async def get_regulations_options() -> ServiceResponse:

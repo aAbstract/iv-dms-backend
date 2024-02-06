@@ -46,7 +46,7 @@ def parse_scores_tree(scores_tree: dict) -> list[GTP35TIOSAItemResponse]:
                 GTP35TIOSAItemResponse(
                     text=key,
                     score=value,
-                    pct_score=((value - 1) / (GPT35T_MAX_SCORE - 1)),
+                    pct_score=(value / GPT35T_MAX_SCORE),
                 )
             )
 
@@ -56,16 +56,12 @@ def parse_scores_tree(scores_tree: dict) -> list[GTP35TIOSAItemResponse]:
 def gpt35t_parse_resp(llm_json_res: dict) -> GPT35TAuditResponse:
     scores_tree = llm_json_res['compliance_scores']
     comments = llm_json_res['comments']
-    suggestions = llm_json_res['suggestions']
-    modified = llm_json_res['modified']
     details = parse_scores_tree(scores_tree)
     return GPT35TAuditResponse(
         score=agg_score(details),
         pct_score=agg_pct_score(details),
         comments=comments,
-        suggestions=suggestions,
-        modified=modified,
-        details=details,
+        details=details
     )
 
 
@@ -106,9 +102,11 @@ async def gpt35t_generate(iosa_checklist: str, input_text: str) -> ServiceRespon
             model='gpt-3.5-turbo-1106',
             response_format={'type': 'json_object'},
             n=1,
-            temperature=0.2,
-            frequency_penalty=0.2,
-            presence_penalty=0.3,
+            temperature=0,
+            seed=0,
+            top_p=1,
+            frequency_penalty=0,
+            presence_penalty=0,
             timeout=int(os.environ['API_TIMEOUT']),
             messages=[
                 {'role': 'system', 'content': 'You are an expert IATA Operational Safety Auditor'},
@@ -133,8 +131,8 @@ async def iosa_audit_text(iosa_item: IOSAItem, input_text: str) -> ServiceRespon
     gpt35t_enable = int(os.environ['GPT_35T_ENABLE'])
     if not gpt35t_enable:
         dummy_scores_map = {
-            'FLT 3.1.1': 0.9,
-            'FLT 2.1.35': 0.1,
+            'FLT 3.1.1': 0.8,
+            'FLT 2.1.35': 0.2,
         }
         return ServiceResponse(data={
             'llm_resp': GPT35TAuditResponse(

@@ -151,7 +151,7 @@ def test_get_iosa_checklist_api_sucess():
     json_res_body = json.loads(http_res.content.decode())
     assert 'iosa_checklist' in json_res_body['data']
     obj_keys = set(json_res_body['data']['iosa_checklist'])
-    assert obj_keys == {'constraints', 'iosa_map', 'guidance', 'code', 'paragraph'}
+    assert obj_keys == {'iosa_map', 'guidance', 'code', 'paragraph','page'}
 
 
 def test_get_checklist_template():
@@ -189,7 +189,7 @@ def test_get_checklist_template():
             if len(sub_section['checklist_items']) > 0:
                 checklist_item = sub_section['checklist_items'][0]
                 obj_keys = set(checklist_item.keys())
-                assert obj_keys == {'guidance', 'code', 'constraints', 'iosa_map', 'paragraph'}
+                assert obj_keys == {'guidance', 'code', 'iosa_map', 'paragraph','page'}
 
     check_code('FLT 1')
     check_code('DSP 1')
@@ -231,7 +231,7 @@ def test_get_checklist_template_2():
             if len(sub_section['checklist_items']) > 0:
                 checklist_item = sub_section['checklist_items'][0]
                 obj_keys = set(checklist_item.keys())
-                assert obj_keys == {'guidance', 'code', 'constraints', 'iosa_map', 'paragraph'}
+                assert obj_keys == {'guidance', 'code', 'iosa_map', 'paragraph','page'}
 
     check_code('FLT 3')
 

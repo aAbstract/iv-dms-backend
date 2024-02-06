@@ -7,6 +7,9 @@ class UserRole(str, Enum):
     ADMIN = "ADMIN"
     AUDITOR = "AUDITOR"
     AIRLINES = "AIRLINES"
+    FATTER = "FAT"
+    CARER = "CAR"
+    MANER = "MAN"
 
 class ApiUsageKey(str, Enum):
     GEMINI_AUDITS = 'gemini_audits'
@@ -30,6 +33,7 @@ class User(BaseModel):
     phone_number: str
     email: str
     activity: UserActivity
+    organization: str
 
     class Config:
         use_enum_values = True

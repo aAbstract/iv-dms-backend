@@ -54,7 +54,9 @@ def extract(path):
     all_pages = []
     reader = PdfReader(path)
     pages = reader.pages
-
+    page_number = 0
+    char_count = 0
+    all_page_count = []
     for i in pages:
         parts = []
 
@@ -68,8 +70,11 @@ def extract(path):
         i.extract_text(visitor_text=visitor_body)
         text_body = "".join(parts)
         all_pages.append(text_body)
+        all_page_count.append({"count":char_count, "page":page_number})
+        char_count += len(text_body)
+        page_number+=1
 
-    return all_pages
+    return all_pages , all_page_count
 
 
 def contains_span(span, span_array):
@@ -222,13 +227,15 @@ def extract_section_header(text, first_flt_span, filename):
     }
 
 
-def extract_section_text(text):
-    flts = r"(FLT\s*)([0-9]+(\.[0-9]+)*)([A-Za-z]*)(\-([0-9]+(\.[0-9]+)*)([A-Za-z]*))*"
+def extract_section_text(text,section_code,all_page_count, page_start):
+
+    flts = fr"({section_code}\s*)([0-9]+(\.[0-9]+)*)([A-Za-z]*)(\-([0-9]+(\.[0-9]+)*)([A-Za-z]*))*"
+
     in_text_flts_beg = (
-        r". (FLT\s*)([0-9]+(\.[0-9]+)*)([A-Za-z]*)(\-([0-9]+(\.[0-9]+)*)([A-Za-z]*))*"
+        fr". ({section_code}\s*)([0-9]+(\.[0-9]+)*)([A-Za-z]*)(\-([0-9]+(\.[0-9]+)*)([A-Za-z]*))*"
     )
     in_text_flts_end = (
-        r"(FLT\s*)([0-9]+(\.[0-9]+)*)([A-Za-z]*)(\-([0-9]+(\.[0-9]+)*)([A-Za-z]*))* ."
+        fr"({section_code}\s*)([0-9]+(\.[0-9]+)*)([A-Za-z]*)(\-([0-9]+(\.[0-9]+)*)([A-Za-z]*))* ."
     )
     auditor_actions_reg = r"\nAuditor Actions\n"
     Guidence_reg = r"\nGuidance\n"
@@ -287,6 +294,16 @@ def extract_section_text(text):
             sms_text = paragraph[sms.span()[0]:].strip("\n").strip()
             paragraph = paragraph[: sms.span()[0]]
 
+        page_number = None
+        # find the page number
+        for char_range in range(len(all_page_count)):
+            if(all_page_count[char_range]['count'] >= flts_spans[i][1]):
+                page_number = all_page_count[char_range-1]['page']
+                break
+        if(page_number == None):
+            page_number = all_page_count[-1]['page']
+
+
         # parse header source map
         idxs = header.split(' ')[1].split('.')
         section_index = int(idxs[0]) - 1
@@ -298,7 +315,8 @@ def extract_section_text(text):
                 "guidence": guidence if guidence else None,
                 "iosa_map": [header_source_map[section_index]['title'], header_source_map[section_index]['sub_sections'][sub_section_index]],
                 "paragraph": paragraph.strip(),
-                "constraints": parse_paragraph(paragraph),
+                "page":page_number+page_start
+                # "constraints": parse_paragraph(paragraph),
             }
         )
     header = text[flts_spans[-1][0]: flts_spans[-1][1]].strip("\n").strip()
@@ -328,13 +346,23 @@ def extract_section_text(text):
     section_index = int(idxs[0]) - 1
     sub_section_index = int(idxs[1]) - 1
 
+    page_number = None
+    # find the page number
+    for char_range in range(len(all_page_count)):
+        if(all_page_count[char_range]['count'] >= flts_spans[i][1]):
+            page_number = all_page_count[char_range-1]['page']
+            break
+    if(page_number == None):
+        page_number = all_page_count[-1]['page']
+
     all_sections.append(
         {
             "code": header,
             "guidence": guidence if guidence else None,
             "iosa_map": [header_source_map[section_index]['title'], header_source_map[section_index]['sub_sections'][sub_section_index]],
             "paragraph": paragraph.strip(),
-            "constraints": parse_paragraph(paragraph),
+            "page": page_number+page_start
+            # "constraints": parse_paragraph(paragraph),
         }
     )
 
@@ -342,31 +370,37 @@ def extract_section_text(text):
 
 
 if __name__ == "__main__":
-    filename = 'iosa_flt'
-    all_pages = extract(f"data/{filename}.pdf")
+    codes = ["cab",'cgo','dsp','grh','mnt','org','sec','flt']
+    page_starts = [478,611,288,547,392,40,646,104]
+    for i, g in zip(codes, page_starts):
+        filename = f"iosa_{i}"
+        code = i.upper()
 
-    # remove all unallowed chars
-    for z in range(len(all_pages)):
-        all_pages[z] = clean(all_pages[z])
+        all_pages,all_page_count = extract(f"data/{filename}.pdf")
 
-    all_pages = " ".join(all_pages)
+        # remove all unallowed chars
+        for z in range(len(all_pages)):
+            all_pages[z] = clean(all_pages[z])
 
-    all_sections, first_flt_span = extract_section_text(all_pages)
-    section = extract_section_header(all_pages, first_flt_span, filename)
+        all_pages = " ".join(all_pages)
 
-    section["items"] = all_sections
 
-    # validate
-    section = IOSASection(
-        name="Section 2 Flight Operations",
-        code=section["code"],
-        applicability=section["applicability"],
-        guidance=section["guidance"],
-        items=section["items"],
-    )
+        all_sections, first_flt_span = extract_section_text(all_pages,code,all_page_count,g)
+        section = extract_section_header(all_pages, first_flt_span, filename)
 
-    # write to a separate json file
-    file_path = f"data/{filename}.json"
-    with open(file_path, 'w') as fp:
-        json.dump(section.model_dump(), fp, indent=4)
-    print(f"output file: {file_path}")
+        section["items"] = all_sections
+
+        # validate
+        section = IOSASection(
+            name=section["name"],
+            code=section["code"],
+            applicability=section["applicability"],
+            guidance=section["guidance"],
+            items=section["items"],
+        )
+
+        # write to a separate json file
+        file_path = f"data/{filename}.json"
+        with open(file_path, 'w') as fp:
+            json.dump(section.model_dump(), fp, indent=4)
+        print(f"output file: {file_path}")

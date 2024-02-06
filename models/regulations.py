@@ -19,7 +19,8 @@ class IOSAItem(BaseModel):
     guidance: Optional[str] = None
     iosa_map: list[str] = []
     paragraph: str
-    constraints: list[Constrain]
+    page: int
+    # constraints: list[Constrain]
 
 
 class IOSASection(BaseModel):
@@ -27,7 +28,7 @@ class IOSASection(BaseModel):
     code: str
     applicability: str
     guidance: Optional[str] = None
-    items: list[IOSAItem]
+    items: list[IOSAItem] = []
 
 
 class IOSARegulation(BaseModel):

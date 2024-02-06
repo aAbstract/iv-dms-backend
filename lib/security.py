@@ -32,5 +32,4 @@ async def authorize_api(auth: str, allowed_roles: list[UserRole], func_id: str) 
         err_msg = 'Unauthorized API Access [Restricted Access]'
         await log_man.add_log(func_id, 'ERROR', err_msg)
         return ServiceResponse(success=False, msg=err_msg, status_code=403)
-
     return ServiceResponse(data={'token_claims': token_claims})

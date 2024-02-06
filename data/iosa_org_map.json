@@ -1,0 +1,49 @@
+[
+    {
+        "code": "ORG 1",
+        "title": "ORG 1 Management and Control",
+        "sub_sections": [
+            "1.1 Management System Overview",
+            "1.2 Management Commitment",
+            "1.3 Roles and Responsibilities",
+            "1.4 Safety Performance",
+            "1.5 Resource Management",
+            "1.6 Outsourcing Management",
+            "1.7 Emergency Response"
+        ]
+    },
+    {
+        "code": "ORG 2",
+        "title": "ORG 2 Assurance, Monitoring and Documentation Control",
+        "sub_sections": [
+            "2.1 Quality Assurance",
+            "2.2 External Monitoring",
+            "2.3 Product Control",
+            "2.4 Data Management",
+            "2.5 Documentation System",
+            "2.6 Records System"
+        ]
+    },
+    {
+        "code": "ORG 3",
+        "title": "ORG 3 Risk Management",
+        "sub_sections": [
+            "3.1 Hazard Identification",
+            "3.2 Risk Assessment and Mitigation",
+            "3.3 Flight Data Analysis (FDA)",
+            "3.4 Specific Risk Assessments",
+            "3.5 Occurrence Handling",
+            "3.6 Cybersecurity Risk Management"
+        ]
+    },
+    {
+        "code": "ORG 4",
+        "title": "ORG 4 Improvement and Promotion, Training",
+        "sub_sections": [
+            "4.1 Management Review",
+            "4.2 Safety Communication",
+            "4.3 Training",
+            "4.4 Effectiveness"
+        ]
+    }
+]

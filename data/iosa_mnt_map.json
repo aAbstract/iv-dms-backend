@@ -1,0 +1,65 @@
+[
+    {
+        "code": "MNT 1",
+        "title": "MNT 1 Management and Control",
+        "sub_sections": [
+            "1.1 Management System Overview",
+            "1.2 Accountability, Authorities and Responsibilities",
+            "1.3 Maintenance Program",
+            "1.4 Provision of Resources",
+            "1.5 Communication",
+            "1.6 Documentation System",
+            "1.7 Maintenance Management Manual (MMM)",
+            "1.8 Maintenance Records System",
+            "1.9 Aircraft Systems/Equipment",
+            "1.10 Quality Assurance Program",
+            "1.11 Quality Control of Outsourced Operations and of Products",
+            "1.12 Safety Management"
+        ]
+    },
+    {
+        "code": "MNT 2",
+        "title": "MNT 2 Maintenance Control",
+        "sub_sections": [
+            "2.1 Control System",
+            "2.2 Maintenance Planning",
+            "2.3 Parts Installation",
+            "2.4 Deferred Maintenance",
+            "2.5 Continuing Airworthiness Information",
+            "2.6 Repairs and Modifications",
+            "2.7 Defect Recording and Control",
+            "2.8 Extended Diversion Time Operations (EDTO)",
+            "2.9 Aircraft Recorders",
+            "2.10 Electronic Navigation Data Management",
+            "2.11 Reduced Vertical Separation Minima (RVSM)",
+            "2.12 Reporting to the Authority"
+        ]
+    },
+    {
+        "code": "MNT 3",
+        "title": "MNT 3 Technical Records",
+        "sub_sections": [
+            "3.1 Aircraft Maintenance Records",
+            "3.2 Aircraft Technical Log (ATL)",
+            "3.3 (Intentionally open)",
+            "3.4 Airworthiness Directives"
+        ]
+    },
+    {
+        "code": "MNT 4",
+        "title": "MNT 4 Maintenance Organizations",
+        "sub_sections": [
+            "4.1 Approval",
+            "4.2 Management",
+            "4.3 Quality Assurance",
+            "4.4 Personnel",
+            "4.5 Training Program",
+            "4.6 Facilities and Physical Resources",
+            "4.7 Material Handling",
+            "4.8 (Intentionally open)",
+            "4.9 Procedures Manual",
+            "4.10 Maintenance Release",
+            "4.11 Tooling and Calibration"
+        ]
+    }
+]

@@ -12,7 +12,7 @@ class GPT35TAuditScore(Enum):
     NONE = 0
 
     @classmethod
-    def map_audit_score_lbl(cls, audit_score) -> str:
+    def map_audit_score_lbl(cls, audit_score):
         if audit_score == cls.FULLY_COMPLIANT:
             return 'FULLY_COMPLIANT'
         elif audit_score == cls.PARTIALLY_COMPLIANT:
