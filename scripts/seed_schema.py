@@ -6,12 +6,15 @@ import pymongo
 import shutil
 from glob import glob
 from dotenv import load_dotenv
+import code
+import json
+from bson import ObjectId
+
 def load_root_path():
     file_dir = os.path.abspath(__file__)
     lv1_dir = os.path.dirname(file_dir)
     root_dir = os.path.dirname(lv1_dir)
     sys.path.append(root_dir)
-
 
 load_root_path()
 load_dotenv()
@@ -22,6 +25,7 @@ from models.logs import *
 from models.fs_index import *
 from models.ai_tasks import *
 from models.gpt_35t import *
+from models.flow_reports import *
 # autopep8: on
 
 
@@ -38,6 +42,7 @@ seed_users = [
         user_role=UserRole.AUDITOR,
         phone_number='+201001000000',
         email='cwael@aerosync.com',
+        organization="technokit"
     ),
     User(
         username='eslam',
@@ -46,6 +51,7 @@ seed_users = [
         user_role=UserRole.ADMIN,
         phone_number='+201001000000',
         email='eslam@aerosync.com',
+        organization="technokit"
     ),
     User(
         username='safwat',
@@ -54,6 +60,7 @@ seed_users = [
         user_role=UserRole.ADMIN,
         phone_number='+201001000000',
         email='safwat@aerosync.com',
+        organization="technokit"
     ),
     User(
         username='aelhennawy',
@@ -62,6 +69,16 @@ seed_users = [
         user_role=UserRole.AUDITOR,
         phone_number='+201001000000',
         email='aelhennawy@aerosync.com',
+        organization="technokit"
+    ),
+    User(
+        username='sam',
+        disp_name='Sam Jackson',
+        pass_hash='86d74596bb4c2f6b63ae7c09c212a7ed824ab15371ec06a2126dffc3aaa191659478e432c458d5b6a7c0b21b5bf2120c91480c27e78cf94935135d8c022f42f7',
+        user_role=UserRole.AIRLINES,
+        phone_number='+201193458172',
+        email='sam@aerosync.com',
+        organization="technokit"
     ),
 ]
 
@@ -375,6 +392,38 @@ seed_log = Log(
     description='seeding database',
 )
 
+seed_flow_reports = [
+        FlowReport(
+            title="Test flow report",
+            regulation_id="",
+            code="FLT 1",
+            sub_sections=[
+                ReportSubSectionWritten(
+                    title="Section 1",
+                    checklist_items=[
+                        ReportItem(
+                            code="FLT 1.2.1",
+                            manual_references = [
+                                ManualReference(
+                                    check_in_code="OMA 2.1.2"
+                                )
+                            ],
+                        )
+                    ]
+                )
+            ],
+            status=FlowReportStatus.INPROGRESS,
+            organization="technokit",
+            creator="cwael",
+            user_changes = [
+                UserChange(
+                    user_name="cwael",
+                    user_comment="",
+                    change_type=UserChangeType.CREATE,
+                )
+            ]
+        )
+    ]
 
 def seed_routine():
     print('seeding users...')
@@ -450,5 +499,13 @@ def seed_routine():
     print('creating regulations source maps indexes...')
     db.get_collection('regulations_source_maps').create_index('code', unique=True)
 
+    print('seeding flow reports...')
+    for report in seed_flow_reports:   
+        report = report.model_dump()
+        report['regulation_id'] = iosa_e16r2_id
+        db.get_collection("flow_reports").insert_one(report)
+    print('creating flow report indices...')
+    db.get_collection("flow_reports").create_index("organization", unique=False)
+    db.get_collection("flow_reports").create_index("creator", unique=False)
 
 seed_routine()

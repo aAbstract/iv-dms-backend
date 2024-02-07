@@ -21,5 +21,6 @@ async def login_user(username: str, password: str) -> ServiceResponse:
         'username': user.username,
         'display_name': user.disp_name,
         'role': user.user_role,
+        'organization': user.organization,
     })
     return ServiceResponse(data={'access_token': jwt_token})
