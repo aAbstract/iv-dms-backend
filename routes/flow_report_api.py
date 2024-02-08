@@ -166,3 +166,46 @@ async def delete_flow_report(
             msg=db_service_response.msg,
         )
     return JsonResponse(data=db_service_response.data)
+
+@router.post(f"{_ROOT_ROUTE}/update-flow-report-sub-sections")
+async def update_flow_report_sub_sections(
+    res: Response,
+    flow_report_id: str = Body(embed=True),
+    comment: str = Body(embed=True),
+    sub_sections: list = Body(embed=True),
+    x_auth=Header(alias="X-Auth", default=None),
+) -> JsonResponse:
+    func_id = f"{_MODULE_ID}.update_flow_report_sub_sections"
+    # authorize user
+    auth_service_response = await security_man.authorize_api(
+        x_auth, _ALLOWED_USERS, func_id
+    )
+    if not auth_service_response.success:
+        res.status_code = auth_service_response.status_code
+        return JsonResponse(
+            success=auth_service_response.success,
+            msg=auth_service_response.msg,
+        )
+
+    await log_man.add_log(
+        func_id,
+        "DEBUG",
+        f"received update flow report sub-sections request: username={auth_service_response.data['token_claims']['username']} organization={auth_service_response.data['token_claims']['organization']}",
+    )
+
+    db_service_response = await change_flow_report_sub_sections_db(
+        comment=comment,
+        username=auth_service_response.data["token_claims"]["username"],
+        flow_report_id=flow_report_id,
+        organization=auth_service_response.data["token_claims"]["organization"],
+        sub_sections=sub_sections,
+    )
+
+    if not db_service_response.success:
+        res.status_code = db_service_response.status_code
+        return JsonResponse(
+            success=db_service_response.success,
+            msg=db_service_response.msg,
+        )
+    
+    return JsonResponse(data=db_service_response.data)

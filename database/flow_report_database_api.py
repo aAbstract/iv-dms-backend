@@ -113,7 +113,9 @@ async def create_flow_report_db(
     mdb_result = (
         await get_database().get_collection("flow_reports").insert_one(flow_report_dict)
     )
+
     flow_report_dict["_id"] = str(mdb_result.inserted_id)
+    del flow_report_dict["sub_sections"]
 
     return ServiceResponse(data={"flow_report": flow_report_dict})
 
@@ -126,8 +128,7 @@ async def list_flow_report_db(organization: str, creator: str) -> ServiceRespons
             async for report in get_database()
             .get_collection("flow_reports")
             .find(
-                {"organization": organization, "creator": creator},
-                projection={"sub_sections": 0,"user_changes":0},
+                {"organization": organization, "creator": creator}
             )
             if report.get("status") != FlowReportStatus.DELETED
         ]
@@ -136,13 +137,15 @@ async def list_flow_report_db(organization: str, creator: str) -> ServiceRespons
             report
             async for report in get_database()
             .get_collection("flow_reports")
-            .find({"organization": organization}, projection={"sub_sections": 0})
+            .find({"organization": organization})
             if report.get("status") != FlowReportStatus.DELETED
         ]
 
-    for report in flow_reports:
-        report["_id"] = str(report["_id"])
-        report["regulation_id"] = str(report["regulation_id"])
+    for report in range(len(flow_reports)):
+        flow_reports[report]["_id"] = str(flow_reports[report]["_id"])
+        flow_reports[report]["regulation_id"] = str(flow_reports[report]["regulation_id"])
+        FlowReport.model_validate(flow_reports[report])
+        del flow_reports[report]["sub_sections"] 
 
     return ServiceResponse(data={"flow_reports": flow_reports})
 
@@ -254,5 +257,65 @@ async def get_flow_report_db(
     await get_database().get_collection("flow_reports").update_one(
         {"_id": bson_id}, {"$push":{"user_changes":user_change.model_dump()}}
     )
+
+    return ServiceResponse(data=flow_report)
+
+async def change_flow_report_sub_sections_db(flow_report_id:str,organization:str,username:str,sub_sections:list,comment:str) -> ServiceResponse:
+
+    bson_id = validate_bson_id(flow_report_id)
+    if not bson_id:
+        return ServiceResponse(success=False, msg='Bad flow report ID', status_code=400)
+
+    flow_report = await get_database().get_collection("flow_reports").find_one({"_id":bson_id})
+    
+    if not flow_report:
+        return ServiceResponse(success=False, msg="This flow report ID doesn't exist", status_code=404)
+    
+    flow_report = FlowReport.model_validate(flow_report).model_dump()
+
+    if(flow_report['organization'] != organization):
+        return ServiceResponse(success=False,status_code=403,msg="Your organization can't access this flow report")
+    
+    # this check if any mentioned section by the user exists
+    # and every checklist the user wants to update exists and raises an error if it doesn't
+
+    for input_section in sub_sections:
+        try:
+            ReportSubSectionWritten.model_validate(input_section)
+        except:
+            return ServiceResponse(success=False,status_code=400,msg=f"Bad Sub Section")
+        found = False
+        for i, array_section in enumerate(flow_report['sub_sections']):
+            if input_section['title'] == array_section['title']:
+                found = True
+                for input_item in input_section['checklist_items']:
+                    item_found = False
+                    for j, array_item in enumerate(array_section['checklist_items']):
+                        if input_item['code'] == array_item['code']:
+                            item_found = True
+                            # Replace the matching item in the array
+                            flow_report['sub_sections'][i]['checklist_items'][j] = input_item
+                            break
+                    if not item_found:
+                        return ServiceResponse(success=False,status_code=404,msg=f"Item with code '{input_item['code']}' not found in '{array_section['title']}' section.")
+                break
+        if not found:
+            return ServiceResponse(success=False,status_code=404,msg=f"Section {input_section['title']} doesn't exit")
+
+    flow_report = FlowReport.model_validate(flow_report).model_dump()
+    
+    user_change = UserChange(
+        user_name=username,
+        user_comment=comment,
+        change_type=UserChangeType.UPDATE,
+    ).model_dump()
+
+    flow_report = await get_database().get_collection("flow_reports").find_one_and_update({"_id":bson_id},{"$set":{"sub_sections":flow_report['sub_sections']},
+                                                                                    "$push":{"user_changes":user_change}})
+    
+    FlowReport.model_validate(flow_report)
+
+    flow_report["_id"] = str(flow_report['_id'])
+    del flow_report["sub_sections"]
 
     return ServiceResponse(data=flow_report)
