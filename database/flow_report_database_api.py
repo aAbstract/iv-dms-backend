@@ -119,7 +119,6 @@ async def create_flow_report_db(
 
     return ServiceResponse(data={"flow_report": flow_report_dict})
 
-
 async def list_flow_report_db(organization: str, creator: str) -> ServiceResponse:
 
     if creator:
@@ -148,7 +147,6 @@ async def list_flow_report_db(organization: str, creator: str) -> ServiceRespons
         del flow_reports[report]["sub_sections"] 
 
     return ServiceResponse(data={"flow_reports": flow_reports})
-
 
 async def delete_flow_report_db(
     username: str, user_comment: str, flow_report_id: str, organization: str
@@ -186,7 +184,6 @@ async def delete_flow_report_db(
     )
 
     return ServiceResponse()
-
 
 async def get_flow_report_db(
     flow_report_id: str, organization: str, username: str
@@ -278,7 +275,6 @@ async def change_flow_report_sub_sections_db(flow_report_id:str,organization:str
     
     # this check if any mentioned section by the user exists
     # and every checklist the user wants to update exists and raises an error if it doesn't
-
     for input_section in sub_sections:
         try:
             ReportSubSectionWritten.model_validate(input_section)
@@ -292,8 +288,29 @@ async def change_flow_report_sub_sections_db(flow_report_id:str,organization:str
                     item_found = False
                     for j, array_item in enumerate(array_section['checklist_items']):
                         if input_item['code'] == array_item['code']:
+                            if(input_item.get('fs_index') != None):
+                                fs_index = await get_database().get_collection('fs_index').find_one({'_id': ObjectId(input_item['fs_index'])})
+                                
+                                if not fs_index:
+                                    return ServiceResponse(success=False, status_code=404, msg=f"{input_item['fs_index']} File Index not Found")
+                                
+                                if fs_index['organization'] != organization:
+                                    return ServiceResponse(success=False,status_code=403,msg=f"Your organization can't access this file {input_item['fs_index']}")
+                            
+                            for reference in input_item['manual_references']:
+                                                                
+                                if not validate_bson_id(reference['fs_index']):
+                                    return ServiceResponse(success=False, msg=f"Bad fs index bson ID {reference['fs_index']}", status_code=400)
+                                
+                                fs_index = await get_database().get_collection('fs_index').find_one({'_id': ObjectId(reference['fs_index'])})
+
+                                if not fs_index:
+                                    return ServiceResponse(success=False, status_code=404, msg=f"{input_item['fs_index']} File Index not Found")
+
+                                if fs_index['organization'] != organization:
+                                    return ServiceResponse(success=False,status_code=403,msg=f"Your organization can't access this file {input_item['fs_index']}")
+            
                             item_found = True
-                            # Replace the matching item in the array
                             flow_report['sub_sections'][i]['checklist_items'][j] = input_item
                             break
                     if not item_found:

@@ -25,8 +25,8 @@ class FinalComment(str, Enum):
     DOCIMP = "Documented, Implemented"
 
 class ManualReference(BaseModel):
-    check_in_code: str
-    description: Optional[str] = None
+    fs_index: str
+    pages: list[int] = []
 
 class ReportItem(BaseModel):
     code: str
@@ -34,6 +34,8 @@ class ReportItem(BaseModel):
     final_comment: Optional[FinalComment] = None
     comments: Optional[str] = None
     actions: Optional[str] = None
+    fs_index: Optional[str] = None
+    # attachment ~ fs index id
 
 class ReportSubSectionWritten(BaseModel):
     title: str

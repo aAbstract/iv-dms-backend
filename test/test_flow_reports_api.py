@@ -376,7 +376,7 @@ def test_update_flow_report_sub_sections():
         if x["name"] == "IOSA Standards Manual (ISM) Ed 16-Revision2"
     ][0]["id"]
 
-    # test api
+    # create flow report
     api_url = f"{_test_config.get_api_url()}/flow_report/create-flow-report"
 
     payload = {
@@ -411,6 +411,20 @@ def test_update_flow_report_sub_sections():
     assert "user_changes" in json_res_body["data"]['flow_report']
     change_size = len(json_res_body["data"]["flow_report"]["user_changes"])
     assert json_res_body["data"]["flow_report"]["user_changes"][0]['change_type'] == UserChangeType.CREATE
+    
+    # create fs index
+    api_url = f"{_test_config.get_api_url()}/attachments/create-attachment"
+    http_res = requests.post(api_url, headers=http_headers, files={'file': open('data/sample_attachment.png', 'rb')})
+    assert http_res.status_code == 200
+    json_res_body = json.loads(http_res.content.decode())
+    assert json_res_body['success']
+    assert 'file_id' in json_res_body['data']
+    assert 'url_path' in json_res_body['data']
+    file_id = str(json_res_body['data']['file_id'])
+    # validate create attachment
+    file_url = f"{_test_config.get_file_server_url()}{json_res_body['data']['url_path']}"
+    http_res = requests.get(file_url)
+    assert http_res.status_code == 200
 
     payload = {
         "sub_sections": [
@@ -420,11 +434,12 @@ def test_update_flow_report_sub_sections():
                     {
                         "code": "FLT 1.1.1",
                         "manual_references": [
-                            {"check_in_code": "OMA 2.1.2", "description": "NeW DESC"}
+                            {"fs_index": file_id, "pages":[1,2,3]}
                         ],
                         "final_comment": FinalComment.DOCNOTIMP,
                         "comments": "Test Comment",
                         "actions": "Test actions",
+                        "fs_index":file_id
                     }
                 ],
             }
@@ -449,11 +464,13 @@ def test_update_flow_report_sub_sections():
     assert "_id" in flow_report
     assert "sub_sections" in flow_report
 
-    assert flow_report['sub_sections'][0]['checklist_items'][0]['manual_references'][0] == {"check_in_code": "OMA 2.1.2", "description": "NeW DESC"}
+    assert flow_report['sub_sections'][0]['checklist_items'][0]['manual_references'][0] == {"fs_index":file_id, "pages":[1,2,3]}
     assert flow_report['sub_sections'][0]['checklist_items'][0]['final_comment'] == FinalComment.DOCNOTIMP
     assert flow_report['sub_sections'][0]['checklist_items'][0]['comments'] == "Test Comment"
     assert flow_report['sub_sections'][0]['checklist_items'][0]['actions'] == "Test actions"
-
+    assert flow_report['sub_sections'][0]['checklist_items'][0]['actions'] == "Test actions"
+    assert flow_report['sub_sections'][0]['checklist_items'][0]['fs_index'] == file_id
+                                                                
     # check user change object after
     assert "user_changes" in flow_report
     assert change_size + 1 == len(flow_report["user_changes"])

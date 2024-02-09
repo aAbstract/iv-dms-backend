@@ -39,3 +39,4 @@ class FSIndexFile(BaseModel):
     filename: str
     doc_uuid: str
     doc_status: ChatDOCStatus
+    organization: str
