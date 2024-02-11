@@ -18,6 +18,7 @@ from routes import regulations_api
 from routes import llm_api
 from routes import ai_tasks_api
 from routes import attachments_api
+from routes import flow_report_api
 # autopep8: on
 
 
@@ -47,6 +48,7 @@ server.include_router(regulations_api.router)
 server.include_router(llm_api.router)
 server.include_router(ai_tasks_api.router)
 server.include_router(attachments_api.router)
+server.include_router(flow_report_api.router)
 
 
 @server.get('/api/test')

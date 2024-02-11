@@ -17,6 +17,7 @@ class User(BaseModel):
     user_role: UserRole
     phone_number: str
     email: str
+    organization: str
 
     class Config:
         use_enum_values = True

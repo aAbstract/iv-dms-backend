@@ -36,7 +36,8 @@ async def create_attachment(file: UploadFile, res: Response, x_auth=Header(alias
 
     # save file to server
     username = auth_service_response.data['token_claims']['username']
-    fs_service_response = await fs_index_database_api.create_fs_index_entry(username, IndexFileType.AIRLINES_ATTACHMENT, file.filename, file.file.read())
+    organization = auth_service_response.data['token_claims']['organization']
+    fs_service_response = await fs_index_database_api.create_fs_index_entry(username=username,organization=organization,file_type= IndexFileType.AIRLINES_ATTACHMENT,filename= file.filename,data= file.file.read())
     if not fs_service_response.success:
         res.status_code = fs_service_response.status_code
         return JsonResponse(
