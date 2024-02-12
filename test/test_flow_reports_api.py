@@ -185,7 +185,8 @@ def test_list_flow_report():
         "organization",
         "_id",
         "creator",
-        "user_changes"
+        "user_changes",
+        "type",
     }
 
     # reset db
