@@ -31,8 +31,8 @@ async def lifespan(app: FastAPI):
 
 server = FastAPI(
     title='IV DMS Backend',
-    description='Removed Constraints Field From IOSA Checklists',
-    version="0.32.3",
+    description='Added Psudo Flow Reports API Docs',
+    version="0.33.1",
     lifespan=lifespan,
 )
 server.add_middleware(

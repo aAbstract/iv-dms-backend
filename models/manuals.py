@@ -1,6 +1,6 @@
 from typing import Optional
 from models.regulations import RegulationType
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, ConfigDict
 
 
 class ManualRegulationCode(BaseModel):
@@ -8,8 +8,7 @@ class ManualRegulationCode(BaseModel):
     cat_code: str
     code: str
 
-    class Config:
-        use_enum_values = True
+    model_config = ConfigDict(use_enum_values=True)
 
 
 class ManualSection(BaseModel):

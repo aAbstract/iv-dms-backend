@@ -1,5 +1,5 @@
 from typing import Optional
-from pydantic import BaseModel
+from pydantic import BaseModel, ConfigDict
 from enum import Enum
 from datetime import datetime
 
@@ -37,8 +37,7 @@ class IOSARegulation(BaseModel):
     effective_date: datetime
     sections: list[IOSASection]
 
-    class Config:
-        use_enum_values = True
+    model_config = ConfigDict(use_enum_values=True)
 
 
 class RegulationsMetaData(BaseModel):
@@ -47,8 +46,7 @@ class RegulationsMetaData(BaseModel):
     name: str
     effective_date: datetime
 
-    class Config:
-        use_enum_values = True
+    model_config = ConfigDict(use_enum_values=True)
 
 
 class RegulationsSourceMap(BaseModel):

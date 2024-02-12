@@ -62,7 +62,8 @@ async def parse_pdf(file: UploadFile, res: Response, x_auth=Header(alias='X-Auth
 
     # save file to server
     username = auth_service_response.data['token_claims']['username']
-    fs_service_response = await fs_index_database_api.create_fs_index_entry(username, IndexFileType.AIRLINES_MANUAL, file.filename, file.file.read(), chat_doc_uuid=cd_service_response.data['chat_doc_uuid'])
+    organization = auth_service_response.data['token_claims']['organization']
+    fs_service_response = await fs_index_database_api.create_fs_index_entry(username, organization, IndexFileType.AIRLINES_MANUAL, file.filename, file.file.read(), chat_doc_uuid=cd_service_response.data['chat_doc_uuid'])
     if not fs_service_response.success:
         res.status_code = fs_service_response.status_code
         return JsonResponse(
@@ -92,7 +93,7 @@ async def delete_manual(res: Response, doc_uuid: str = Body(embed=True), x_auth=
         )
     await log_man.add_log(func_id, 'DEBUG', f"received delete manual request: username={auth_service_response.data['token_claims']['username']}, doc_uuid={doc_uuid}")
 
-    fs_service_response = await fs_index_database_api.delete_fs_index_entry(doc_uuid,auth_service_response.data['token_claims']['organization'])
+    fs_service_response = await fs_index_database_api.delete_fs_index_entry(doc_uuid, auth_service_response.data['token_claims']['organization'])
     res.status_code = fs_service_response.status_code
     return JsonResponse(
         success=fs_service_response.success,

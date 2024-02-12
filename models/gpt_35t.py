@@ -2,6 +2,7 @@ from pydantic import BaseModel, computed_field
 from typing import Optional
 from enum import Enum
 from datetime import datetime
+from pydantic import ConfigDict
 
 
 GPT35T_MAX_SCORE = 3
@@ -82,8 +83,7 @@ class GPT35TMessage(BaseModel):
     role: GPT35ContextRole
     content: str
 
-    class Config:
-        use_enum_values = True
+    model_config = ConfigDict(use_enum_values=True)
 
 
 class GPT35TContext(BaseModel):
