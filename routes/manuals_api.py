@@ -77,6 +77,73 @@ async def parse_pdf(file: UploadFile, res: Response, x_auth=Header(alias='X-Auth
         'url_path': fs_service_response.data['url_path'],
     })
 
+@router.post(f"{_ROOT_ROUTE}/create-manual")
+async def create_manual(file: UploadFile, res: Response, x_auth=Header(alias='X-Auth', default=None)):
+    """
+    Create fs index from file
+    """
+    func_id = f"{_MODULE_ID}.create_manual"
+
+    # authorize user
+    auth_service_response = await security_man.authorize_api(x_auth, _ALLOWED_USERS, func_id)
+    if not auth_service_response.success:
+        res.status_code = auth_service_response.status_code
+        return JsonResponse(
+            success=auth_service_response.success,
+            msg=auth_service_response.msg,
+        )
+    username = auth_service_response.data['token_claims']['username']
+    organization = auth_service_response.data['token_claims']['organization']
+    
+    await log_man.add_log(func_id, "DEBUG", f"received create manual request: {file.filename}, username:{username}, organization:{organization}")
+
+    file_ext = os.path.splitext(file.filename)[1]
+    if file_ext != '.pdf':
+        res.status_code = 409
+        return JsonResponse(
+            success=False,
+            msg='Bad File Extention',
+        )
+
+    # save file to server
+    fs_service_response = await fs_index_database_api.create_fs_index_entry(username, organization, IndexFileType.AIRLINES_MANUAL, file.filename, file.file.read())
+    if not fs_service_response.success:
+        res.status_code = fs_service_response.status_code
+        return JsonResponse(
+            success=fs_service_response.success,
+            msg=fs_service_response.msg,
+        )
+
+    return JsonResponse(data={
+        'doc_uuid': "00000000-0000-0000-0000-000000000000",
+        'file_id': fs_service_response.data['file_id'],
+        'url_path': fs_service_response.data['url_path'],
+    })
+
+@router.post(f"{_ROOT_ROUTE}/list-manuals")
+async def list_manuals(res: Response, x_auth=Header(alias='X-Auth', default=None)):
+    """ list all manuals that belong to this organization"""
+    func_id = f"{_MODULE_ID}.list_manuals"
+
+    # authorize user
+    auth_service_response = await security_man.authorize_api(x_auth, [UserRole.ADMIN], func_id)
+    if not auth_service_response.success:
+        res.status_code = auth_service_response.status_code
+        return JsonResponse(
+            success=auth_service_response.success,
+            msg=auth_service_response.msg,
+        )
+    
+    await log_man.add_log(func_id, 'DEBUG', f"received list manuals request: username={auth_service_response.data['token_claims']['username']}, organization={auth_service_response.data['token_claims']['organization']}")
+
+    fs_service_response = await fs_index_database_api.list_fs_index(auth_service_response.data['token_claims']['organization'])
+    res.status_code = fs_service_response.status_code
+    return JsonResponse(
+        success=fs_service_response.success,
+        msg=fs_service_response.msg,
+        data=fs_service_response.data
+    )
+
 
 @router.post(f"{_ROOT_ROUTE}/delete-manual")
 async def delete_manual(res: Response, doc_uuid: str = Body(embed=True), x_auth=Header(alias='X-Auth', default=None)):

@@ -80,6 +80,18 @@ async def delete_fs_index_entry(doc_uuid: str, organization:str) -> ServiceRespo
 
     return ServiceResponse(msg='OK')
 
+async def list_fs_index(organization:str) -> ServiceResponse:
+    fs_index_entries = [
+            fs_index
+            async for fs_index in get_database()
+            .get_collection("fs_index")
+            .find({"organization": organization})
+        ]
+
+    for fs_index in range(len(fs_index_entries)):
+        fs_index_entries[fs_index]["_id"] = str(fs_index_entries[fs_index]["_id"])
+
+    return ServiceResponse(data={"fs_index_entries":fs_index_entries})
 
 async def get_fs_index_entry(chat_doc_uuid: str) -> ServiceResponse:
     fs_index_entry = await get_database().get_collection('fs_index').find_one({'doc_uuid': chat_doc_uuid})

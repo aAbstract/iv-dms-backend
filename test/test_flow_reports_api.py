@@ -167,9 +167,7 @@ def test_list_flow_report():
     # test api
     api_url = f"{_test_config.get_api_url()}/flow_report/list-flow-report"
 
-    payload = {"creator": "cwael"}
-    print(http_headers)
-    http_res = requests.post(api_url, headers=http_headers, json=payload)
+    http_res = requests.post(api_url, headers=http_headers)
 
     assert http_res.status_code == 200
     json_res_body = json.loads(http_res.content.decode())
@@ -501,5 +499,7 @@ def test_update_flow_report_sub_sections():
     assert flow_report["user_changes"][1]["user_comment"] == "Test Comment"
 
     # reset
+    get_database["fs_index"].find_one_and_delete({"_id":ObjectId(file_id)})
+
     flow_report = get_database["flow_reports"].find_one_and_delete({"_id": ObjectId(flow_report["_id"])})
     assert flow_report["_id"]
