@@ -68,7 +68,7 @@ async def create_flow_report(
 
 @router.post(f"{_ROOT_ROUTE}/list-flow-report")
 async def list_flow_report(
-    res: Response, creator: str = Body(embed=True), x_auth=Header(alias="X-Auth", default=None)
+    res: Response, x_auth=Header(alias="X-Auth", default=None)
 ) -> list[FlowReport] | Any:
     func_id = f"{_MODULE_ID}.list_flow_report"
     # authorize user
@@ -89,7 +89,7 @@ async def list_flow_report(
     )
 
     db_service_response = await list_flow_report_db(
-        organization=auth_service_response.data["token_claims"]["organization"], creator=creator
+        organization=auth_service_response.data["token_claims"]["organization"], creator=auth_service_response.data['token_claims']['username']
     )
 
     if not db_service_response.success:

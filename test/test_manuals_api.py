@@ -130,7 +130,6 @@ def test_chat_doc_parse_api():
     assert 'chat_doc_status' in json_res_body['data']
     assert json_res_body['data']['chat_doc_status'] in ['PARSED', 'PARSING', 'PARSING_FAILD']
 
-
 def test_chat_doc_scan_api():
     load_dotenv()
     access_token = _test_config.login_user('cwael', 'CgJhxwieCc7QEyN3BB7pmvy9MMpseMPV')
@@ -214,3 +213,93 @@ def test_get_user_manuals_api_success():
         file_url = f"{_test_config.get_file_server_url()}{example_file['url_path']}"
         http_res = requests.get(file_url)
         assert http_res.status_code == 200
+
+def test_list_fs_index():
+    admin_access_token = _test_config.login_user(
+        "eslam", "CgJhxwieCc7QEyN3BB7pmvy9MMpseMPV"
+    )
+    get_database = _test_config.get_database()
+    assert get_database != None
+
+    # create fs index
+    api_url = f"{_test_config.get_api_url()}/manuals/create-manual"
+    http_headers = {'X-Auth': f"Bearer {admin_access_token}"}
+    http_res = requests.post(api_url, headers=http_headers, files={'file': open('data/nesma_org_cos_rad.pdf', 'rb')})
+    assert http_res.status_code == 200
+    json_res_body = json.loads(http_res.content.decode())
+    assert json_res_body['success']
+    assert 'doc_uuid' in json_res_body['data']
+    assert 'file_id' in json_res_body['data']
+    assert 'url_path' in json_res_body['data']
+    doc_id =json_res_body['data']['doc_uuid']
+    # test api
+    api_url = f"{_test_config.get_api_url()}/manuals/list-manuals"
+
+    http_res = requests.post(api_url, headers=http_headers)
+    print(http_res)
+    assert http_res.status_code == 200
+    json_res_body = json.loads(http_res.content.decode())
+    assert json_res_body["success"]
+    assert "fs_index_entries" in json_res_body["data"]
+    assert isinstance(json_res_body["data"]["fs_index_entries"], list)
+    obj_keys = set(json_res_body["data"]["fs_index_entries"][-1])
+
+    assert obj_keys == {
+        "_id",
+        "id",
+        "username",
+        "datetime",
+        "file_type",
+        "filename",
+        "doc_uuid",
+        "doc_status",
+        "organization",
+    }
+
+    # reset db
+    get_database["fs_index"].find_one_and_delete({"doc_uuid": doc_id})
+    
+def test_delete_manual_fs_index():
+    admin_access_token = _test_config.login_user('eslam', 'CgJhxwieCc7QEyN3BB7pmvy9MMpseMPV')
+    get_database = _test_config.get_database()
+    assert get_database != None
+
+    # create fs index
+    api_url = f"{_test_config.get_api_url()}/manuals/create-manual"
+    http_headers = {'X-Auth': f"Bearer {admin_access_token}"}
+    http_res = requests.post(api_url, headers=http_headers, files={'file': open('data/assignment_2.pdf', 'rb')})
+    assert http_res.status_code == 200
+    json_res_body = json.loads(http_res.content.decode())
+    assert json_res_body['success']
+    assert 'doc_uuid' in json_res_body['data']
+    assert 'file_id' in json_res_body['data']
+    assert 'url_path' in json_res_body['data']
+    doc_id =json_res_body['data']['doc_uuid']
+
+    # delete manual
+    http_headers = {'X-Auth': f"Bearer {admin_access_token}"}
+    api_url = f"{_test_config.get_api_url()}/manuals/delete-manual"
+    http_res = requests.post(api_url, headers=http_headers, json={'doc_uuid': doc_id})
+    assert http_res.status_code == 200
+    json_res_body = json.loads(http_res.content.decode())
+    assert (json_res_body['success'] and json_res_body['msg'] == 'OK')
+
+def test_create_manual_fs_index():
+    admin_access_token = _test_config.login_user('eslam', 'CgJhxwieCc7QEyN3BB7pmvy9MMpseMPV')
+    get_database = _test_config.get_database()
+    assert get_database != None
+
+    # create fs index
+    api_url = f"{_test_config.get_api_url()}/manuals/create-manual"
+    http_headers = {'X-Auth': f"Bearer {admin_access_token}"}
+    http_res = requests.post(api_url, headers=http_headers, files={'file': open('data/assignment_2.pdf', 'rb')})
+    assert http_res.status_code == 200
+    json_res_body = json.loads(http_res.content.decode())
+    assert json_res_body['success']
+    assert 'doc_uuid' in json_res_body['data']
+    assert 'file_id' in json_res_body['data']
+    assert 'url_path' in json_res_body['data']
+    doc_id =json_res_body['data']['doc_uuid']
+    
+    # check if deleted
+    get_database["fs_index"].find_one_and_delete({"doc_uuid": doc_id})
