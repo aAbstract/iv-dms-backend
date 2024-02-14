@@ -2,6 +2,7 @@ import os
 from fastapi import APIRouter, Response, Body, Header
 import lib.log as log_man
 import database.regulations_database_api as regulations_database_api
+import database.fs_index_database_api as fs_index_database_api
 import database.gpt35t_contexts_database_api as gpt35t_contexts_database_api
 from models.users import UserRole
 from models.regulations import IOSAItem
@@ -183,3 +184,73 @@ async def iosa_enhance_unstruct(res: Response, context_id: str = Body(embed=True
         'new_compliance_score': llm_service_response.data['new_compliance_score'],
         'context_id': context_id,
     })
+
+@router.post(f"{_ROOT_ROUTE}/iosa-audit-pages")
+async def iosa_audit_pages(res: Response, regulation_id: str = Body(embed= True), checklist_code: str = Body(embed=True), pages: list[int] = Body(embed = True),doc_uuid: str= Body(embed=True), x_auth=Header(alias='X-Auth', default=None)) -> JsonResponse:
+    """Audit text against pages from an FSIndex entry using Chatdoc ID.\n
+    =================================================================\n
+    interface LLMIOSAItemResponse {\n
+    text: string,\n
+    score: 3 | 2 | 1 | 0,\n
+    score_tag: 'FULLY_COMPLIANT' | 'PARTIALLY_COMPLIANT' | 'NON_COMPLIANT' | 'NONE',\n
+    score_text: string,\n
+    pct_score: float,\n
+    children: LLMIOSAItemResponse[],\n
+    };\n
+    =================================================================\n
+    Returns: {..., data: {\n
+    score: 3 | 2 | 1 | 0,\n
+    score_tag: 'FULLY_COMPLIANT' | 'PARTIALLY_COMPLIANT' | 'NON_COMPLIANT' | 'NONE',\n
+    score_text: string,\n
+    pct_score: float,\n
+    comments: string,\n
+    suggestions: string,\n
+    modified: string,\n
+    details: LLMIOSAItemResponse[],\n
+    }}\n
+    """
+    func_id = f"{_MODULE_ID}.iosa_audit_pages"
+    
+    # authorize user
+    auth_service_response = await security_man.authorize_api(x_auth, _ALLOWED_USERS, func_id)
+    if not auth_service_response.success:
+        res.status_code = auth_service_response.status_code
+        return JsonResponse(
+            success=auth_service_response.success,
+            msg=auth_service_response.msg,
+        )
+    
+    username = auth_service_response.data['token_claims']['username']
+    organization = auth_service_response.data['token_claims']['organization']
+
+    await log_man.add_log(func_id, 'DEBUG', f"received iosa audit pages request: username = {username}, organization= {organization}, regulation_id={regulation_id}, pages: {pages} from {doc_uuid}, checklist_code={checklist_code}")
+
+    # get IOSA item from database
+    db_service_response = await regulations_database_api.get_iosa_checklist(regulation_id, checklist_code)
+    if not db_service_response.success:
+        res.status_code = db_service_response.status_code
+        return JsonResponse(
+            success=db_service_response.success,
+            msg=db_service_response.msg,
+        )
+    iosa_checklist: IOSAItem = db_service_response.data['iosa_checklist']
+
+    # call get pages api
+    get_pages_service_response = await fs_index_database_api.get_pages(organization,pages,doc_uuid)
+    if not get_pages_service_response.success:
+        res.status_code = get_pages_service_response.status_code
+        return JsonResponse(
+            success=get_pages_service_response.success,
+            msg=get_pages_service_response.msg,
+        )
+
+    # call llm api
+    llm_service_response = await gpt_35t_struct.iosa_audit_text(iosa_checklist, get_pages_service_response.data['text'])
+    if not llm_service_response.success:
+        res.status_code = llm_service_response.status_code
+        return JsonResponse(
+            success=llm_service_response.success,
+            msg=llm_service_response.msg,
+        )
+
+    return JsonResponse(data=llm_service_response.data)
