@@ -90,7 +90,7 @@ async def list_fs_index(organization: str) -> ServiceResponse:
         fs_index
         async for fs_index in get_database()
         .get_collection("fs_index")
-        .find({"organization": organization})
+        .find({"$and": [{'organization': organization}, {'file_type': 'AIRLINES_MANUAL'}]})
     ]
 
     # TODO-GALAL: optimize this on database level
