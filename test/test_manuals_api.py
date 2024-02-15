@@ -265,8 +265,9 @@ def test_list_fs_index():
 
     # delete FSIndex
     get_database["fs_index"].find_one_and_delete({"_id": ObjectId(file_id)})
-    file_path = os.path.join("public", "airlines_files", "manuals", str(json_res_body["data"]["fs_index_entries"][-1]['_id']) + ".pdf")
-    os.remove(file_path)
+    # TODO-GALAL: add this later
+    # file_path = os.path.join("public", "airlines_files", "manuals", str(json_res_body["data"]["fs_index_entries"][-1]['_id']) + ".pdf")
+    # os.remove(file_path)
 
 
 def test_delete_manual_fs_index():
