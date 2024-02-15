@@ -126,7 +126,7 @@ async def list_manuals(res: Response, x_auth=Header(alias='X-Auth', default=None
     func_id = f"{_MODULE_ID}.list_manuals"
 
     # authorize user
-    auth_service_response = await security_man.authorize_api(x_auth, [UserRole.ADMIN], func_id)
+    auth_service_response = await security_man.authorize_api(x_auth, [UserRole.ADMIN, UserRole.AUDITOR], func_id)
     if not auth_service_response.success:
         res.status_code = auth_service_response.status_code
         return JsonResponse(
