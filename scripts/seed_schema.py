@@ -346,7 +346,7 @@ seed_fs_index_files = [
         file_type=IndexFileType.AIRLINES_MANUAL,
         filename="nesma_org_cos_rad.pdf",
         doc_uuid=os.environ["INVALID_CHAT_DOC_UUID"],
-        doc_status=ChatDOCStatus.PARSED,
+        doc_status=ChatDOCStatus.PARSING_FAILD,
         organization="technokit",
     ),
     FSIndexFile(
@@ -355,7 +355,7 @@ seed_fs_index_files = [
         file_type=IndexFileType.AIRLINES_MANUAL,
         filename="nesma_org.pdf",
         doc_uuid=os.environ["VALID_CHAT_DOC_UUID"],
-        doc_status=ChatDOCStatus.PARSED,
+        doc_status=ChatDOCStatus.PARSING_FAILD,
         organization="technokit",
     ),
     FSIndexFile(
@@ -373,7 +373,7 @@ seed_fs_index_files = [
         file_type=IndexFileType.AIRLINES_MANUAL,
         filename="nesma_org_cos_rad.pdf",
         doc_uuid=os.environ["INVALID_CHAT_DOC_UUID"],
-        doc_status=ChatDOCStatus.PARSED,
+        doc_status=ChatDOCStatus.PARSING_FAILD,
         organization="technokit",
     ),
     FSIndexFile(
@@ -382,7 +382,7 @@ seed_fs_index_files = [
         file_type=IndexFileType.AIRLINES_MANUAL,
         filename="nesma_org.pdf",
         doc_uuid=os.environ["VALID_CHAT_DOC_UUID"],
-        doc_status=ChatDOCStatus.PARSED,
+        doc_status=ChatDOCStatus.PARSING_FAILD,
         organization="technokit",
     ),
     FSIndexFile(
@@ -400,7 +400,7 @@ seed_fs_index_files = [
         file_type=IndexFileType.AIRLINES_MANUAL,
         filename="nesma_org_cos_rad.pdf",
         doc_uuid=os.environ["INVALID_CHAT_DOC_UUID"],
-        doc_status=ChatDOCStatus.PARSED,
+        doc_status=ChatDOCStatus.PARSING_FAILD,
         organization="technokit",
     ),
     FSIndexFile(
@@ -409,7 +409,7 @@ seed_fs_index_files = [
         file_type=IndexFileType.AIRLINES_MANUAL,
         filename="nesma_org.pdf",
         doc_uuid=os.environ["VALID_CHAT_DOC_UUID"],
-        doc_status=ChatDOCStatus.PARSED,
+        doc_status=ChatDOCStatus.PARSING_FAILD,
         organization="technokit",
     ),
     FSIndexFile(
