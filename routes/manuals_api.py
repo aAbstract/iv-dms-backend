@@ -77,6 +77,7 @@ async def parse_pdf(file: UploadFile, res: Response, x_auth=Header(alias='X-Auth
         'url_path': fs_service_response.data['url_path'],
     })
 
+
 @router.post(f"{_ROOT_ROUTE}/create-manual")
 async def create_manual(file: UploadFile, res: Response, x_auth=Header(alias='X-Auth', default=None)):
     """
@@ -94,7 +95,7 @@ async def create_manual(file: UploadFile, res: Response, x_auth=Header(alias='X-
         )
     username = auth_service_response.data['token_claims']['username']
     organization = auth_service_response.data['token_claims']['organization']
-    
+
     await log_man.add_log(func_id, "DEBUG", f"received create manual request: {file.filename}, username:{username}, organization:{organization}")
 
     file_ext = os.path.splitext(file.filename)[1]
@@ -120,6 +121,7 @@ async def create_manual(file: UploadFile, res: Response, x_auth=Header(alias='X-
         'url_path': fs_service_response.data['url_path'],
     })
 
+
 @router.post(f"{_ROOT_ROUTE}/list-manuals")
 async def list_manuals(res: Response, x_auth=Header(alias='X-Auth', default=None)):
     """ list all manuals that belong to this organization"""
@@ -133,7 +135,7 @@ async def list_manuals(res: Response, x_auth=Header(alias='X-Auth', default=None
             success=auth_service_response.success,
             msg=auth_service_response.msg,
         )
-    
+
     await log_man.add_log(func_id, 'DEBUG', f"received list manuals request: username={auth_service_response.data['token_claims']['username']}, organization={auth_service_response.data['token_claims']['organization']}")
 
     fs_service_response = await fs_index_database_api.list_fs_index(auth_service_response.data['token_claims']['organization'])
@@ -320,6 +322,7 @@ async def scan_pdf(res: Response, background_tasks: BackgroundTasks, regulation_
     background_tasks.add_task(chat_doc_man.scan_doc, fs_index_entry.doc_uuid, fs_index_entry.filename, iosa_checklist, ai_task_id)
     return JsonResponse(data={'ai_task_id': ai_task_id})
 
+
 @router.post(f"{_ROOT_ROUTE}/check-pdf")
 async def check_pdf(res: Response, doc_uuid: str = Body(embed=True), x_auth=Header(alias='X-Auth', default=None)) -> JsonResponse:
     """Check PDF parsing status.\n
@@ -387,13 +390,13 @@ async def get_manuals(res: Response, x_auth=Header(alias='X-Auth', default=None)
         )
     return JsonResponse(data=fs_service_response.data)
 
+
 @router.post(f"{_ROOT_ROUTE}/get-tree")
-async def get_tree(res: Response,doc_uuid:str = Body(embed= True),toc_pages: list[int] = Body(embed= True), x_auth=Header(alias='X-Auth', default=None)) -> JsonResponse:
+async def get_tree(res: Response, doc_uuid: str = Body(embed=True), x_auth=Header(alias='X-Auth', default=None)) -> JsonResponse:
     """Get Tree structure of manual.\n
     =============================================\n
     Input {\n
         doc_uuid: string,\n
-        toc_pages: list[int],\n    
     }
     =============================================\n
     Returns: {..., data: {tree: list[TreeFSIndex]}}
@@ -412,7 +415,8 @@ async def get_tree(res: Response,doc_uuid:str = Body(embed= True),toc_pages: lis
     await log_man.add_log(func_id, 'DEBUG', f"received get docs request: username={username}, organization={organization}")
 
     # get table of content (toc) pages
-    get_pages_service_response = await fs_index_database_api.get_pages(organization,toc_pages,doc_uuid)
+    toc_pages = [3, 4]  # TODO: laod toc_pages from database
+    get_pages_service_response = await fs_index_database_api.get_pages(organization, toc_pages, doc_uuid)
 
     if not get_pages_service_response.success:
         res.status_code = get_pages_service_response.status_code
@@ -430,5 +434,5 @@ async def get_tree(res: Response,doc_uuid:str = Body(embed= True),toc_pages: lis
             success=fs_service_response.success,
             msg=fs_service_response.msg,
         )
-    
+
     return JsonResponse(data=fs_service_response.data)

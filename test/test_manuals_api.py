@@ -134,6 +134,7 @@ def test_chat_doc_parse_api():
     assert 'chat_doc_status' in json_res_body['data']
     assert json_res_body['data']['chat_doc_status'] in ['PARSED', 'PARSING', 'PARSING_FAILD']
 
+
 def test_chat_doc_scan_api():
     load_dotenv()
     access_token = _test_config.login_user('cwael', 'CgJhxwieCc7QEyN3BB7pmvy9MMpseMPV')
@@ -218,6 +219,7 @@ def test_get_user_manuals_api_success():
         http_res = requests.get(file_url)
         assert http_res.status_code == 200
 
+
 def test_list_fs_index():
     admin_access_token = _test_config.login_user(
         "eslam", "CgJhxwieCc7QEyN3BB7pmvy9MMpseMPV"
@@ -263,8 +265,9 @@ def test_list_fs_index():
 
     # delete FSIndex
     get_database["fs_index"].find_one_and_delete({"_id": ObjectId(file_id)})
-    file_path = os.path.join("public","airlines_files","manuals", str(json_res_body["data"]["fs_index_entries"][-1]['_id'])+".pdf")
+    file_path = os.path.join("public", "airlines_files", "manuals", str(json_res_body["data"]["fs_index_entries"][-1]['_id']) + ".pdf")
     os.remove(file_path)
+
 
 def test_delete_manual_fs_index():
     admin_access_token = _test_config.login_user('eslam', 'CgJhxwieCc7QEyN3BB7pmvy9MMpseMPV')
@@ -282,10 +285,10 @@ def test_delete_manual_fs_index():
     assert 'file_id' in json_res_body['data']
     assert 'url_path' in json_res_body['data']
     doc_id = json_res_body['data']['doc_uuid']
-    file_id =  json_res_body['data']['file_id']
-    
+    file_id = json_res_body['data']['file_id']
+
     # to not delete a defualt chatdoc id of some other record during testing
-    get_database["fs_index"].find_one_and_update({"_id": ObjectId(file_id)},{"$set":{ "doc_uuid":"TestDocId" }})
+    get_database["fs_index"].find_one_and_update({"_id": ObjectId(file_id)}, {"$set": {"doc_uuid": "TestDocId"}})
 
     # delete manual
     http_headers = {'X-Auth': f"Bearer {admin_access_token}"}
@@ -294,6 +297,7 @@ def test_delete_manual_fs_index():
     assert http_res.status_code == 200
     json_res_body = json.loads(http_res.content.decode())
     assert (json_res_body['success'] and json_res_body['msg'] == 'OK')
+
 
 def test_create_manual_fs_index():
     admin_access_token = _test_config.login_user('eslam', 'CgJhxwieCc7QEyN3BB7pmvy9MMpseMPV')
@@ -310,12 +314,13 @@ def test_create_manual_fs_index():
     assert 'doc_uuid' in json_res_body['data']
     assert 'file_id' in json_res_body['data']
     assert 'url_path' in json_res_body['data']
-    file_id =json_res_body['data']['file_id']
-    
+    file_id = json_res_body['data']['file_id']
+
     # delete FSIndex
     get_database["fs_index"].find_one_and_delete({"_id": ObjectId(file_id)})
-    file_path = os.path.join("public","airlines_files","manuals", json_res_body['data']['file_id']+".pdf")
+    file_path = os.path.join("public", "airlines_files", "manuals", json_res_body['data']['file_id'] + ".pdf")
     os.remove(file_path)
+
 
 def test_get_tree_structure():
     admin_access_token = _test_config.login_user('eslam', 'CgJhxwieCc7QEyN3BB7pmvy9MMpseMPV')
@@ -323,13 +328,12 @@ def test_get_tree_structure():
     assert get_database != None
     http_headers = {'X-Auth': f"Bearer {admin_access_token}"}
 
-    file = get_database['fs_index'].find_one({"filename":"nesma_OMA.pdf"})
+    file = get_database['fs_index'].find_one({"filename": "nesma_OMA.pdf"})
     assert file['doc_uuid']
     # get tree api
     api_url = f"{_test_config.get_api_url()}/manuals/get-tree"
     payload = {
-        "doc_uuid":file['doc_uuid'],
-        "toc_pages": [3,4]
+        "doc_uuid": file['doc_uuid'],
     }
 
     http_res = requests.post(api_url, headers=http_headers, json=payload)
@@ -338,6 +342,6 @@ def test_get_tree_structure():
     assert json_res_body['success']
     assert 'tree' in json_res_body['data']
     assert isinstance(json_res_body['data']['tree'], list)
-    
+
     for i in json_res_body['data']['tree']:
         FSIndexTree.model_validate(i)
