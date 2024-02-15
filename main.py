@@ -31,8 +31,8 @@ async def lifespan(app: FastAPI):
 
 server = FastAPI(
     title='IV DMS Backend',
-    description='Locked Unparsed Manuals from Get Tree API',
-    version="0.34.5",
+    description='Added Unique UUID Filter to List Manual API',
+    version="0.34.6",
     lifespan=lifespan,
 )
 server.add_middleware(
