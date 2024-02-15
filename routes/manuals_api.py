@@ -414,8 +414,12 @@ async def get_tree(res: Response, doc_uuid: str = Body(embed=True), x_auth=Heade
     organization = auth_service_response.data['token_claims']['organization']
     await log_man.add_log(func_id, 'DEBUG', f"received get docs request: username={username}, organization={organization}")
 
+    # TODO-GALAL: remove this
+    if doc_uuid != os.environ['COMPLETE_CHAT_DOC_UUID']:
+        return JsonResponse(data=[])
+
     # get table of content (toc) pages
-    toc_pages = [3, 4]  # TODO: laod toc_pages from database
+    toc_pages = [3, 4]  # TODO-GALAL: laod toc_pages from database
     get_pages_service_response = await fs_index_database_api.get_pages(organization, toc_pages, doc_uuid)
 
     if not get_pages_service_response.success:
