@@ -40,3 +40,8 @@ class FSIndexFile(BaseModel):
     doc_uuid: str
     doc_status: ChatDOCStatus
     organization: str
+
+class FSIndexTree(BaseModel):
+    name: str
+    pages: list[int]
+    children: Optional[list['FSIndexTree']] = None

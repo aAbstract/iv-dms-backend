@@ -320,7 +320,6 @@ async def scan_pdf(res: Response, background_tasks: BackgroundTasks, regulation_
     background_tasks.add_task(chat_doc_man.scan_doc, fs_index_entry.doc_uuid, fs_index_entry.filename, iosa_checklist, ai_task_id)
     return JsonResponse(data={'ai_task_id': ai_task_id})
 
-
 @router.post(f"{_ROOT_ROUTE}/check-pdf")
 async def check_pdf(res: Response, doc_uuid: str = Body(embed=True), x_auth=Header(alias='X-Auth', default=None)) -> JsonResponse:
     """Check PDF parsing status.\n
@@ -386,4 +385,50 @@ async def get_manuals(res: Response, x_auth=Header(alias='X-Auth', default=None)
             success=fs_service_response.success,
             msg=fs_service_response.msg,
         )
+    return JsonResponse(data=fs_service_response.data)
+
+@router.post(f"{_ROOT_ROUTE}/get-tree")
+async def get_tree(res: Response,doc_uuid:str = Body(embed= True),toc_pages: list[int] = Body(embed= True), x_auth=Header(alias='X-Auth', default=None)) -> JsonResponse:
+    """Get Tree structure of manual.\n
+    =============================================\n
+    Input {\n
+        doc_uuid: string,\n
+        toc_pages: list[int],\n    
+    }
+    =============================================\n
+    Returns: {..., data: {tree: list[TreeFSIndex]}}
+    """
+    func_id = f"{_MODULE_ID}.get_tree"
+    # authorize user
+    auth_service_response = await security_man.authorize_api(x_auth, _ALLOWED_USERS, func_id)
+    if not auth_service_response.success:
+        res.status_code = auth_service_response.status_code
+        return JsonResponse(
+            success=auth_service_response.success,
+            msg=auth_service_response.msg,
+        )
+    username = auth_service_response.data['token_claims']['username']
+    organization = auth_service_response.data['token_claims']['organization']
+    await log_man.add_log(func_id, 'DEBUG', f"received get docs request: username={username}, organization={organization}")
+
+    # get table of content (toc) pages
+    get_pages_service_response = await fs_index_database_api.get_pages(organization,toc_pages,doc_uuid)
+
+    if not get_pages_service_response.success:
+        res.status_code = get_pages_service_response.status_code
+        return JsonResponse(
+            success=get_pages_service_response.success,
+            msg=get_pages_service_response.msg,
+        )
+
+    # get tree
+    fs_service_response = await fs_index_database_api.get_tree_structure(get_pages_service_response.data['text'])
+
+    if not fs_service_response.success:
+        res.status_code = fs_service_response.status_code
+        return JsonResponse(
+            success=fs_service_response.success,
+            msg=fs_service_response.msg,
+        )
+    
     return JsonResponse(data=fs_service_response.data)
