@@ -187,7 +187,7 @@ async def iosa_enhance_unstruct(res: Response, context_id: str = Body(embed=True
 
 
 @router.post(f"{_ROOT_ROUTE}/iosa-audit-pages")
-async def iosa_audit_pages(res: Response, regulation_id: str = Body(embed=True), checklist_code: str = Body(embed=True), pages: list[int] = Body(embed=True), doc_uuid: str = Body(embed=True), x_auth=Header(alias='X-Auth', default=None)) -> JsonResponse:
+async def iosa_audit_pages(res: Response, regulation_id: str = Body(embed=True), checklist_code: str = Body(embed=True), pages: list[tuple[str, int]] = Body(embed=True), x_auth=Header(alias='X-Auth', default=None)) -> JsonResponse:
     """Audit text against pages from an FSIndex entry using Chatdoc ID.\n
     =================================================================\n
     interface LLMIOSAItemResponse {\n
@@ -224,7 +224,7 @@ async def iosa_audit_pages(res: Response, regulation_id: str = Body(embed=True),
     username = auth_service_response.data['token_claims']['username']
     organization = auth_service_response.data['token_claims']['organization']
 
-    await log_man.add_log(func_id, 'DEBUG', f"received iosa audit pages request: username = {username}, organization= {organization}, regulation_id={regulation_id}, pages: {pages} from {doc_uuid}, checklist_code={checklist_code}")
+    await log_man.add_log(func_id, 'DEBUG', f"received iosa audit pages request: username = {username}, organization= {organization}, regulation_id={regulation_id}, pages: {pages}, checklist_code={checklist_code}")
 
     # get IOSA item from database
     db_service_response = await regulations_database_api.get_iosa_checklist(regulation_id, checklist_code)
@@ -237,7 +237,7 @@ async def iosa_audit_pages(res: Response, regulation_id: str = Body(embed=True),
     iosa_checklist: IOSAItem = db_service_response.data['iosa_checklist']
 
     # call get pages api
-    get_pages_service_response = await fs_index_database_api.get_pages(organization, pages, doc_uuid)
+    get_pages_service_response = await fs_index_database_api.get_pages(organization, pages)
     if not get_pages_service_response.success:
         res.status_code = get_pages_service_response.status_code
         return JsonResponse(

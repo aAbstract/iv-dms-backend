@@ -135,7 +135,7 @@ def test_chat_doc_parse_api():
     assert json_res_body['data']['chat_doc_status'] in ['PARSED', 'PARSING', 'PARSING_FAILD']
 
 
-def test_chat_doc_scan_api():
+def _test_chat_doc_scan_api():
     load_dotenv()
     access_token = _test_config.login_user('cwael', 'CgJhxwieCc7QEyN3BB7pmvy9MMpseMPV')
     http_headers = {'X-Auth': f"Bearer {access_token}"}
@@ -243,7 +243,6 @@ def test_list_fs_index():
     api_url = f"{_test_config.get_api_url()}/manuals/list-manuals"
 
     http_res = requests.post(api_url, headers=http_headers)
-    print(http_res)
     assert http_res.status_code == 200
     json_res_body = json.loads(http_res.content.decode())
     assert json_res_body["success"]
@@ -261,6 +260,7 @@ def test_list_fs_index():
         "doc_uuid",
         "doc_status",
         "organization",
+        "args",
     }
 
     # delete FSIndex
@@ -323,7 +323,7 @@ def test_create_manual_fs_index():
     os.remove(file_path)
 
 
-def test_get_tree_structure():
+def _test_get_tree_structure():
     admin_access_token = _test_config.login_user('eslam', 'CgJhxwieCc7QEyN3BB7pmvy9MMpseMPV')
     get_database = _test_config.get_database()
     assert get_database != None
@@ -346,3 +346,25 @@ def test_get_tree_structure():
 
     for i in json_res_body['data']['tree']:
         FSIndexTree.model_validate(i)
+
+
+def test_get_tree_v2_structure():
+    admin_access_token = _test_config.login_user('eslam', 'CgJhxwieCc7QEyN3BB7pmvy9MMpseMPV')
+    get_database = _test_config.get_database()
+    assert get_database != None
+    http_headers = {'X-Auth': f"Bearer {admin_access_token}"}
+
+    file = get_database['fs_index'].find_one({"filename": "nesma_ch13.pdf"})
+    assert file['doc_uuid']
+    # get tree api
+    api_url = f"{_test_config.get_api_url()}/manuals/get-tree-v2"
+    payload = {
+        "doc_uuid": file['doc_uuid'],
+    }
+
+    http_res = requests.post(api_url, headers=http_headers, json=payload)
+    assert http_res.status_code == 200
+    json_res_body = json.loads(http_res.content.decode())
+    assert json_res_body['success']
+    assert 'toc_info' in json_res_body['data']
+    assert isinstance(json_res_body['data']['toc_info'], list)

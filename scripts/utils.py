@@ -1,6 +1,7 @@
 # autopep8: off
 import os
 import sys
+import re
 from dotenv import load_dotenv
 def load_root_path():
     file_dir = os.path.abspath(__file__)
@@ -121,4 +122,31 @@ def gpt35t_output_format(llm_json_res: dict) -> GPT35TAuditResponse:
 def create_output_json_template(iosa_item: IOSAItem):
     pass
 
-# gpt35t_output_format(gpt35t_json_res)
+
+def parse_toc():
+    def extract_chapter_details(line: str) -> tuple[str, int]:
+        chapter_title: str = re.findall(r'(Chapter \d+ [A-Za-z ]+)\s+\.', line)[0]
+        chapter_title = chapter_title.strip()
+        chapter_start_page = re.findall(r'\.\s+(\d+)', line)[0]
+        chapter_start_page = int(chapter_start_page)
+        return chapter_title, chapter_start_page
+
+    # load toc content
+    with open('data/nesma_OMA_toc.txt', 'r') as f:
+        toc_content = f.read()
+        lines = toc_content.split('\n')
+        doc_tree = []
+
+        for line in lines:
+            # chapter case
+            if line.startswith('Chapter'):
+                title, start_page = extract_chapter_details(line)
+                doc_tree.append({
+                    'chapter_title': title,
+                    'page_range': (start_page, -1),
+                })
+
+        print()
+
+
+parse_toc()

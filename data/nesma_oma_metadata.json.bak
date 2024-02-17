@@ -1,0 +1,2836 @@
+[
+  {
+    "filename": "data/nesma_oma_parts/nesma_ch13.pdf",
+    "chapter_title": "Chapter 13 Forms",
+    "include": true,
+    "toc_pages": [
+      3
+    ],
+    "toc_info": [
+      [
+        "13.1 Operation Forms  ",
+        5
+      ],
+      [
+        "13.1.1 Pilot Report  ",
+        5
+      ],
+      [
+        "13.1.2 Journey Log (Voyage Report)  ",
+        6
+      ],
+      [
+        "13.1. 3 Dispatch Release Form  ",
+        8
+      ],
+      [
+        "13.1.4 Pilot in Command's Discretion Report - Extension of Flying Duty Period  ",
+        9
+      ],
+      [
+        "13.1.5 Pilot in Command's Discretion Report - Reduction of Rest (ECAR 121.519)  ",
+        10
+      ],
+      [
+        "13.1.6 Technical Log Form  ",
+        11
+      ],
+      [
+        "13.1. 7 Generic Document Distribution Form  ",
+        12
+      ],
+      [
+        "13.2 Security Forms  ",
+        13
+      ],
+      [
+        "13.2.1 Disruptive Passenger Incident Report Form  ",
+        13
+      ],
+      [
+        "13.2.1.1 Disturbance  Unruly Disruptive Passenger Verbal Warning Form  ",
+        14
+      ],
+      [
+        "13.2.2 Aircraft Security  Check List  ",
+        15
+      ],
+      [
+        "13.2.5  Emergency  Equipment Diagrams  ",
+        37
+      ],
+      [
+        "13.2.5.1 SU -NMG ",
+        37
+      ],
+      [
+        "13.2.5. 2 SU-NML  ",
+        37
+      ],
+      [
+        "13.2.5. 3 SU-NMR  ",
+        38
+      ],
+      [
+        "13.2.6 Aircraft Incident Report  ",
+        39
+      ],
+      [
+        "13.2.7 Flight Crew Checklist for In -Flight Chemical/Biological Weapons  ",
+        40
+      ],
+      [
+        "13.3 Safety Forms  ",
+        41
+      ],
+      [
+        "13.3.1 Confidential Report  ",
+        41
+      ],
+      [
+        "13.3.2 Air Safety Report Form  ",
+        42
+      ],
+      [
+        "13.3.3 Cabin Crew Safety Report  ",
+        44
+      ],
+      [
+        "13.3.4 Voluntary Safety Report  ",
+        46
+      ],
+      [
+        "13.4 Miscellaneous Forms  ",
+        48
+      ],
+      [
+        "13.4.1 Amendment/Question/Suggestion Form  ",
+        48
+      ],
+      [
+        "13.4.2 CFIT Form  ",
+        50
+      ]
+    ]
+  },
+  {
+    "filename": "data/nesma_oma_parts/nesma_ch15.pdf",
+    "chapter_title": "Chapter 15 Aircraft Leasing",
+    "include": true,
+    "toc_pages": [
+      3
+    ],
+    "toc_info": [
+      [
+        "15.1 Definitions  ",
+        4
+      ],
+      [
+        "15.2 Short Term Wet Lease Procedure  ",
+        4
+      ]
+    ]
+  },
+  {
+    "filename": "data/nesma_oma_parts/nesma_ch8.pdf",
+    "chapter_title": "Chapter 8 Operating Procedures",
+    "include": false,
+    "toc_pages": [
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20
+    ],
+    "toc_info": []
+  },
+  {
+    "filename": "data/nesma_oma_parts/nesma_ch6.pdf",
+    "chapter_title": "Chapter 6 Crew Health Precautions",
+    "include": true,
+    "toc_pages": [
+      3
+    ],
+    "toc_info": [
+      [
+        "6.1 General Crew Health Requirements  ",
+        4
+      ],
+      [
+        "6.1.1 General  ",
+        4
+      ],
+      [
+        "6.1.1.1 Statutory Requirements  ",
+        4
+      ],
+      [
+        "6.1.1.2 Illness or Incapacitation While On Duty  ",
+        4
+      ],
+      [
+        "6.1.1.3 International Regulations  ",
+        5
+      ],
+      [
+        "6.1.2 Psychoactive Drugs  ",
+        5
+      ],
+      [
+        "6.1.3 Immunization  ",
+        7
+      ],
+      [
+        "6.1.4 Deep Diving  ",
+        7
+      ],
+      [
+        "6.1.5 Blood Donat ion ",
+        7
+      ],
+      [
+        "6.1.6 Meal Precautions Prior To and During Flight  ",
+        7
+      ],
+      [
+        "6.1.7 Sleep and Rest  ",
+        8
+      ],
+      [
+        "6.1.8 Surgical Operations  ",
+        8
+      ],
+      [
+        "6.1.9 Vision Correction  ",
+        8
+      ],
+      [
+        "6.1.10 Humidity  ",
+        8
+      ],
+      [
+        "6.1.11 Diurnal Rhythm  ",
+        8
+      ],
+      [
+        "6.1.12 Fatigue  ",
+        9
+      ],
+      [
+        "6.1.13 Pregnancy  ",
+        9
+      ],
+      [
+        "6.2 Cosmic Radiation  ",
+        10
+      ],
+      [
+        "6.2.1 Assessment of Cosmic Radiation  ",
+        10
+      ],
+      [
+        "6.2.2 Working Schedules and Record Keeping  ",
+        10
+      ],
+      [
+        "6.2.3 Explanatory Information  ",
+        11
+      ],
+      [
+        "6.2.3.1 Introduction  ",
+        11
+      ],
+      [
+        "6.2.3.2 Impact of Radiations on Health  ",
+        11
+      ],
+      [
+        "6.2.3.3 Requirements and Legal Issues  ",
+        12
+      ],
+      [
+        "6.3 Tropical Medicine  ",
+        13
+      ],
+      [
+        "6.3.1 Tropical Climate  ",
+        13
+      ],
+      [
+        "6.3.2 Hygiene  ",
+        13
+      ],
+      [
+        "6.3.3 Tropical Diseases  ",
+        14
+      ],
+      [
+        "6.3.4 Main Tropical Diseases  ",
+        15
+      ],
+      [
+        "6.3.4.1 Amoebiasis (Amoebic Dysentery)  ",
+        15
+      ],
+      [
+        "6.3.4.2 Malaria  ",
+        15
+      ],
+      [
+        "6.3.4.3 Typhoid and Paratyphoid Fevers  ",
+        16
+      ],
+      [
+        "6.3.4.4 Cholera  ",
+        17
+      ],
+      [
+        "6.3.4.5 Dysentery  ",
+        17
+      ],
+      [
+        "6.3.4.6 Yellow Fever  ",
+        18
+      ],
+      [
+        "6.4 Procedure - Absence Due to Sickness \"Sick Leaves\"  ",
+        19
+      ],
+      [
+        "6.5 In Flight Medical Emergencies and Illness  ",
+        20
+      ],
+      [
+        "6.5.1 Diversion for Medical Reasons  ",
+        20
+      ],
+      [
+        "6.5.2 Medical Conditions That May Require an Unscheduled Landing  ",
+        21
+      ],
+      [
+        "6.5.3 Infectious Disease  ",
+        21
+      ],
+      [
+        "6.5.4 Suspect Food Poisoning  ",
+        22
+      ],
+      [
+        "6.5.4.1 Cutlery on the Flight Deck  ",
+        23
+      ],
+      [
+        "6.5.4.2 Spilled Liquids Etc. on the Flight Deck  ",
+        23
+      ],
+      [
+        "6.5.4.3 Communicable Diseases Procedure s ",
+        23
+      ]
+    ]
+  },
+  {
+    "filename": "data/nesma_oma_parts/nesma_ch0.pdf",
+    "chapter_title": "Chapter 0 Administration and Control of Manual",
+    "include": true,
+    "toc_pages": [
+      3
+    ],
+    "toc_info": [
+      [
+        "0.2 Foreword  ",
+        5
+      ],
+      [
+        "0.2.1 Means  of Compliance with Air Operator Certificate (AOC)  ",
+        6
+      ],
+      [
+        "0.3 Reserved  ",
+        7
+      ],
+      [
+        "0.5 Introduction  ",
+        37
+      ],
+      [
+        "0.5.1 Operations Manuals  ",
+        37
+      ],
+      [
+        "0.5.2 Operations Manual Basis  ",
+        37
+      ],
+      [
+        "0.5.3 Operations Manuals Structure and Content  ",
+        38
+      ],
+      [
+        "0.5.4 Editorial Convention  ",
+        39
+      ],
+      [
+        "0.5.5 Operations Manual Priority  ",
+        39
+      ],
+      [
+        "0.5.6 Acronyms  ",
+        40
+      ],
+      [
+        "0.5.7 Definitions  ",
+        48
+      ],
+      [
+        "0.5.8 Synonyms  ",
+        56
+      ],
+      [
+        "0.6 System of Amendment and Revision  ",
+        57
+      ],
+      [
+        "0.6.1 Amendments to the Operations Manual  ",
+        57
+      ],
+      [
+        "0.6.1.1 Manual Holder Responsibility  ",
+        57
+      ],
+      [
+        "0.6.1.2 Manuals Distribution  ",
+        58
+      ],
+      [
+        "0.6.1.2.1 Operations Manuals Electronic Distribution  ",
+        58
+      ],
+      [
+        "0.6.1.2.2 Outsourced Documents Receipt and Distribution  ",
+        59
+      ],
+      [
+        "0.6.1.2 Manuals Distribution  and is distributed to EFB as illustrated in 8.12.6.2 Process of the ",
+        59
+      ],
+      [
+        "0.6.1.3 Authorized Copies (Controlled Copies)  ",
+        59
+      ],
+      [
+        "0.6.1.4 Non -Authorized Copies (Uncontrolled copies)  ",
+        60
+      ],
+      [
+        "0.6.1.5 Handwritten Amendments  ",
+        60
+      ],
+      [
+        "0.6.1.6 Revisions  ",
+        60
+      ],
+      [
+        "0.6.1.6.1 Normal Revisions  ",
+        60
+      ],
+      [
+        "0.6.1.6.2 Temporary Revisions (TR)  ",
+        60
+      ],
+      [
+        "0.6.3 Filing Instructions  ",
+        62
+      ],
+      [
+        "0.6.4 Comments - Questions - Suggestions  ",
+        62
+      ],
+      [
+        "0.6.5 Flight  Operations Manual Distribution List  ",
+        63
+      ],
+      [
+        "0.6.5.1 Distribution of Other Parts of the Operations Manual  ",
+        64
+      ],
+      [
+        "0.6.6 Record  of Normal  Revisions (NR)  ",
+        65
+      ],
+      [
+        "0.6.7 Record of Temporary Revisions (TR)  ",
+        66
+      ],
+      [
+        "0.6.8 Revision Highlights  ",
+        67
+      ]
+    ]
+  },
+  {
+    "filename": "data/nesma_oma_parts/nesma_ch1.pdf",
+    "chapter_title": "Chapter 1 Organization and Responsibilities",
+    "include": true,
+    "toc_pages": [
+      3,
+      4
+    ],
+    "toc_info": [
+      [
+        "1.1 Organizational Structure  ",
+        5
+      ],
+      [
+        "1.1.1 Company  Organization  ",
+        5
+      ],
+      [
+        "1.1.2 Operations  Department Structure  ",
+        6
+      ],
+      [
+        "1.2 Names and Titles  of Nominated Post -Holders ",
+        7
+      ],
+      [
+        "1.2.1 Managerial Positions Delegation Process  ",
+        7
+      ],
+      [
+        "1.3 Authorities and Responsibilities of Operations Management and Non - Management ",
+        8
+      ],
+      [
+        "1.3.1 Accountable  Executive  ",
+        8
+      ],
+      [
+        "1.3.2 Director of Operations   ",
+        10
+      ],
+      [
+        "1.3.3 Chief Pilot  ",
+        13
+      ],
+      [
+        "1.3.4 Safety & Quality Director  ",
+        14
+      ],
+      [
+        "1.3.5 Operations Training Manager  ",
+        15
+      ],
+      [
+        "1.3.6 Technical Office  ",
+        17
+      ],
+      [
+        "1.3.6.1 Technical office structure  ",
+        17
+      ],
+      [
+        "1.3.6.2 Technical Office Manager  ",
+        17
+      ],
+      [
+        "1.3.6.3 Operations Engineer  ",
+        18
+      ],
+      [
+        "1.3.6.4 Technical Pilot  ",
+        20
+      ],
+      [
+        "1.3.6.5 Senior Flight Dispatcher  ",
+        21
+      ],
+      [
+        "1.3.7 Operation Control Center Manager  ",
+        22
+      ],
+      [
+        "1.3.8 Crew Management System Administrator  ",
+        24
+      ],
+      [
+        "1.3.9 In -Flight Services Manager  ",
+        25
+      ],
+      [
+        "1.3.10 Records Control & Statistics Officer  ",
+        26
+      ],
+      [
+        "1.3.11 Flight Dispatcher instructor  ",
+        27
+      ],
+      [
+        "1.3.12 Flight Dispatchers  ",
+        27
+      ],
+      [
+        "1.3.13 Crew Scheduling Office  ",
+        28
+      ],
+      [
+        "1.3.13.1 Crew Scheduling Manager  ",
+        28
+      ],
+      [
+        "1.3.13.2 Flight/Cabin Crew Scheduling Coordinator  ",
+        29
+      ],
+      [
+        "1.3.13.3 Crew Coordinator  ",
+        30
+      ],
+      [
+        "1.3.14 Quality Assurance Manager  ",
+        30
+      ],
+      [
+        "1.2.5.  ",
+        30
+      ],
+      [
+        "1.3.15 Flight Safety Manager  ",
+        30
+      ],
+      [
+        "1.2.5.  ",
+        30
+      ],
+      [
+        "1.3.16 Security Manager  ",
+        30
+      ],
+      [
+        "1.3.17 Ground Handling Manager  ",
+        30
+      ],
+      [
+        "1.4. Authority, Duties and Responsibilities of the Pilot in Command  ",
+        31
+      ],
+      [
+        "1.4.1  Leadership  ",
+        32
+      ],
+      [
+        "1.4.2  Customer Service/Public Relations  ",
+        32
+      ],
+      [
+        "1.4.3 Commercial Awareness  ",
+        32
+      ],
+      [
+        "1.4.4  Prior to Flight  ",
+        33
+      ],
+      [
+        "1.4.5. Flight Crew Takeoff Briefing  ",
+        34
+      ],
+      [
+        "1.4.6. In -Flight  ",
+        35
+      ],
+      [
+        "1.4.7. After Flight  ",
+        36
+      ],
+      [
+        "1.5 Duties and Responsibilities of Crewmembers other than the Pilot in Command  ",
+        37
+      ],
+      [
+        "1.5.1 General  ",
+        37
+      ],
+      [
+        "1.5.2 First Officer  ",
+        37
+      ],
+      [
+        "1.5.3. Cabin Crew  ",
+        38
+      ],
+      [
+        "1.5.3.1. Cabin Crew \u2013 Duties and Responsibilities  ",
+        39
+      ],
+      [
+        "1.5.4 Chain of Command  ",
+        39
+      ],
+      [
+        "1.6 Management Control  ",
+        40
+      ],
+      [
+        "1.6.1 Provision of Resources ",
+        40
+      ],
+      [
+        "1.6.2 Communication Systems  ",
+        41
+      ],
+      [
+        "1.6.2.1 Meetings  ",
+        42
+      ],
+      [
+        "1.6.2.2 Coordination Process  ",
+        43
+      ],
+      [
+        "1.6.2.3 Management and Control of Electronic Communication Tools  ",
+        44
+      ],
+      [
+        "1.6.2.4 Nesma Airlines Intranet  ",
+        44
+      ],
+      [
+        "1.7 Designated  Common Languages  ",
+        45
+      ],
+      [
+        "1.8 Crew Regulations  ",
+        46
+      ],
+      [
+        "1.8.1 Rules of Conduct  ",
+        46
+      ],
+      [
+        "1.8.2 Falsification, Reproduction, or Alteration of Applications, Certificates, Logbook, ",
+        47
+      ],
+      [
+        "1.8.2.1 Extra Crew Travel Requirements  ",
+        47
+      ],
+      [
+        "1.8.3 Extra Crew Travel General Rules  ",
+        47
+      ],
+      [
+        "1.8.4 Drugs and Alcoholic Drinks  ",
+        48
+      ],
+      [
+        "1.8.4.1 Alcoholic Drinks  ",
+        48
+      ],
+      [
+        "1.8.4.2 Drug Testing Program  ",
+        48
+      ],
+      [
+        "1.8.5 Behavior in Public  ",
+        49
+      ],
+      [
+        "1.8.6 Personal Documents  ",
+        49
+      ],
+      [
+        "1.8.7 Crewmember Certificate  ",
+        49
+      ],
+      [
+        "1.8.8 Company Identity Card  ",
+        49
+      ],
+      [
+        "1.8.9 Uniform  ",
+        50
+      ],
+      [
+        "1.8.9.1 Crewmembers Attire  ",
+        50
+      ],
+      [
+        "1.8.9.1.1 Badges of Rank  ",
+        50
+      ],
+      [
+        "1.8.9.1.2 Captains  ",
+        50
+      ],
+      [
+        "1.8.9.1.3 First Officers  ",
+        50
+      ],
+      [
+        "1.8.9.2 Simulator Attire  ",
+        50
+      ],
+      [
+        "1.8.9.3 Attire When Traveling As Dead Head on Duty or As Extra Crew.  ",
+        50
+      ],
+      [
+        "1.8.10 Crew Baggage  ",
+        50
+      ],
+      [
+        "1.8.11 Customs and Currency Regulations  ",
+        51
+      ],
+      [
+        "1.8.11.1 Violation of Customs or Currency Regulations  ",
+        51
+      ],
+      [
+        "1.8.12 Duty Free Shopping  ",
+        51
+      ],
+      [
+        "1.8.13 Handling of Company Material  ",
+        51
+      ],
+      [
+        "1.8.14 Accident / Illness  ",
+        51
+      ],
+      [
+        "1.8.15 Conduct at Outside Station  ",
+        52
+      ],
+      [
+        "1.8.15.1 Layover  ",
+        52
+      ],
+      [
+        "1.8.15.2 Night Stops  ",
+        52
+      ],
+      [
+        "1.8.16 Crew Hotels/Stopovers Away from Base (Outside Egypt)  ",
+        52
+      ],
+      [
+        "1.8.17 Contact of Crew Abroad  ",
+        53
+      ],
+      [
+        "1.8.18 Smoking Policy  ",
+        53
+      ],
+      [
+        "1.8.19 Local Contact of Crew  ",
+        53
+      ],
+      [
+        "1.8.20 Public Statement by Crewmembers  ",
+        53
+      ],
+      [
+        "1.8.21 Monthly Flight Duty  ",
+        53
+      ],
+      [
+        "1.8.22 Log Books  ",
+        54
+      ],
+      [
+        "1.8.23 Basic Salary  ",
+        54
+      ],
+      [
+        "1.9 The Event of Willful or Deliberate Violation  ",
+        55
+      ]
+    ]
+  },
+  {
+    "filename": "data/nesma_oma_parts/nesma_ch7.pdf",
+    "chapter_title": "Chapter 7 Flight Time Limitations",
+    "include": true,
+    "toc_pages": [
+      3
+    ],
+    "toc_info": [
+      [
+        "7.1 Introduction  ",
+        4
+      ],
+      [
+        "7.1.1 Application, Monitoring and Control (ECAR 121.502 (C))  ",
+        5
+      ],
+      [
+        "7.1.2 Definitions  ",
+        5
+      ],
+      [
+        "7.1.3 Accumulative Duty and Flying Hours  ",
+        6
+      ],
+      [
+        "7.1.3.1 Limitations on Single Flying Duty Periods Flight Crew  ",
+        7
+      ],
+      [
+        "7.1.3.2 Extension of Flying Duty Period by In -Flight Relief  ",
+        8
+      ],
+      [
+        "7.1.3.3 Extension of Flying Duty Period by Split Duty  ",
+        8
+      ],
+      [
+        "7.1.4 Rest Periods  ",
+        9
+      ],
+      [
+        "7.1.5 Rest Period At Out Station  ",
+        9
+      ],
+      [
+        "7.1.6 Rest Period At Base  ",
+        9
+      ],
+      [
+        "7.1.7 Cabin Crew  ",
+        10
+      ],
+      [
+        "7.1.3.2, 7.1.3.3 and 7.1.11) applicable to flight crewmembers, but with the following ",
+        10
+      ],
+      [
+        "7.1.8 Flight Crew - Pre-Flight Reporting Times  ",
+        10
+      ],
+      [
+        "7.1.9 Hours Records Related To Duty and Flying Times  ",
+        10
+      ],
+      [
+        "7.1.10 Extension Flight Duty Period / Reduction of a Rest Period  ",
+        11
+      ],
+      [
+        "7.1.11 Positioning  ",
+        11
+      ],
+      [
+        "7.1.12 Delayed Reporting Time  ",
+        11
+      ],
+      [
+        "7.1.13 Travelling Time  ",
+        12
+      ],
+      [
+        "7.1.14 Weekly Rosters  ",
+        12
+      ],
+      [
+        "7.1.15 Alterations to Ro sters  ",
+        12
+      ],
+      [
+        "7.1.16 Stand -By Duty Maximum Duration  ",
+        12
+      ],
+      [
+        "7.1.17 At Aerodrome  ",
+        12
+      ],
+      [
+        "7.1.18 Flying/Duty Period Recording Process  ",
+        13
+      ],
+      [
+        "7.1.19 Office Duty  ",
+        13
+      ]
+    ]
+  },
+  {
+    "filename": "data/nesma_oma_parts/nesma_ch9.pdf",
+    "chapter_title": "Chapter 9 Dangerous Goods and Weapons",
+    "include": true,
+    "toc_pages": [
+      3
+    ],
+    "toc_info": [
+      [
+        "9.1 Information and General Guidance on the Transport of Dangerous Goods  ",
+        4
+      ],
+      [
+        "9.1.1 Terminology  ",
+        5
+      ],
+      [
+        "9.1.2 Policy for the Transport of Dangerous Goods by Passengers and/or Crew  ",
+        6
+      ],
+      [
+        "9.1.3 Responsibilities  ",
+        7
+      ],
+      [
+        "9.1.4 General Dangerous Goods aboard Aircraft Not Requesting Air Transport Approval ",
+        8
+      ],
+      [
+        "9.1.5 Pre Board Inspection  ",
+        8
+      ],
+      [
+        "9.1.6 Passenger/Crew Dangerous Goods That Are Allowed With Operator Approval, As ",
+        9
+      ],
+      [
+        "9.1.7 Passenger/Crew Dangerous Goods Those Are Acceptable With Operator Approval ",
+        10
+      ],
+      [
+        "9.1.8 Passenger/Crew Dangerous Goods Acceptable Without the Operator's Approval  ",
+        12
+      ],
+      [
+        "9.1.9 Notification of Dg Incidents and Required Reports  ",
+        13
+      ],
+      [
+        "9.1.10 Classification of Dangerous Goods  ",
+        14
+      ],
+      [
+        "9.1.1 1 Provision for Dangerous  Goods Carried By Passengers or Crew  ",
+        16
+      ],
+      [
+        "9.1.12 Dangerous Goods Emergency Procedures  ",
+        18
+      ],
+      [
+        "9.1.12.1 Checklist for Dangerous Goods Incidents  ",
+        18
+      ],
+      [
+        "9.1.12.2 Cabin Crew Checklist for Dangerous Goods Incidents in the Passenger Cabin  ",
+        18
+      ],
+      [
+        "9.1.12.3 Actions after Landing  ",
+        19
+      ],
+      [
+        "9.1.12.4 General Notes  ",
+        19
+      ],
+      [
+        "9.1.12.4.1 Fire ",
+        19
+      ],
+      [
+        "9.1.12.4.2 Spillage or Leakage  ",
+        19
+      ],
+      [
+        "9.1.12.4.3 Smoke Filled Passenger Cabin  ",
+        19
+      ],
+      [
+        "9.1.13 Dangerous Goods Training.  ",
+        20
+      ],
+      [
+        "9.1.14 Notification to Captain  ",
+        21
+      ]
+    ]
+  },
+  {
+    "filename": "data/nesma_oma_parts/nesma_ch5.pdf",
+    "chapter_title": "Chapter 5 Qualification Requirement",
+    "include": true,
+    "toc_pages": [
+      3,
+      4
+    ],
+    "toc_info": [
+      [
+        "5.1 Employment Policy  ",
+        5
+      ],
+      [
+        "5.1.1 Employment Procedures:  ",
+        5
+      ],
+      [
+        "5.1.2 Qualification Requirements (Administrative Requirements)  ",
+        5
+      ],
+      [
+        "5.1.3 Operations Department Employment (General Requirements)  ",
+        6
+      ],
+      [
+        "5.1.4 Licenses/qualification/Competency  ",
+        7
+      ],
+      [
+        "5.1.5 Recurrent Training and Checking  ",
+        7
+      ],
+      [
+        "5.1.6 Difference Course  ",
+        7
+      ],
+      [
+        "5.2 Flight Crew  ",
+        8
+      ],
+      [
+        "5.2.1 General  ",
+        8
+      ],
+      [
+        "5.2.1.1 Licenses  ",
+        8
+      ],
+      [
+        "5.2.1.1.1 Minimum Qualification Requirements  ",
+        8
+      ],
+      [
+        "5.2.1.2 Type rating  ",
+        9
+      ],
+      [
+        "5.2.1.3 Nesma Airlines Proficiency Checks  ",
+        9
+      ],
+      [
+        "5.2.1.4 Line Checks  ",
+        10
+      ],
+      [
+        "5.2.2 Qualifications Requirements  ",
+        11
+      ],
+      [
+        "5.2.2.1 Captain  ",
+        11
+      ],
+      [
+        "5.2.2.2 First Officer (Co -pilot)  ",
+        12
+      ],
+      [
+        "5.2.2.3 Pilot qual ification to operate in either seat  ",
+        13
+      ],
+      [
+        "5.2.2.4 Cruise Pilot or Flight Engineer  ",
+        13
+      ],
+      [
+        "5.2.2.5 Flight Navigator or Radio Operator  ",
+        13
+      ],
+      [
+        "5.2.2.6 Minimum Qualifications for Flight Cr ewmembers  ",
+        13
+      ],
+      [
+        "5.2.3 Other Qualifications Requirements  ",
+        14
+      ],
+      [
+        "5.2.3.1 All Weather Operations (AWO)  ",
+        14
+      ],
+      [
+        "5.2.3.2 ETOPS  ",
+        14
+      ],
+      [
+        "5.2.3.3 TCAS  ",
+        14
+      ],
+      [
+        "5.2.3.4 FANS  ",
+        14
+      ],
+      [
+        "5.2.4 Route and Aerodrome Competence  ",
+        15
+      ],
+      [
+        "5.2.4.1 Route Competence Training  ",
+        15
+      ],
+      [
+        "5.2.4.2 Aerodrome Competence Training  ",
+        16
+      ],
+      [
+        "5.2.5 Crew Resource Management (CRM)  ",
+        17
+      ],
+      [
+        "5.2.6 Emergency and Safety Equipment  ",
+        18
+      ],
+      [
+        "5.2.6.1 First Aid Training  ",
+        18
+      ],
+      [
+        "5.2.7 Dangerous Goods  ",
+        19
+      ],
+      [
+        "5.2.8 Security Training  ",
+        19
+      ],
+      [
+        "5.2.9 Recurrent Training - Recurrent Checking  ",
+        20
+      ],
+      [
+        "5.2.9.1 Recurrent Training  ",
+        20
+      ],
+      [
+        "5.2.9.1.1 Ground and Refresher Training Includes:  ",
+        20
+      ],
+      [
+        "5.2.9.1.2 Aircraft/Flight S imulator Training  ",
+        20
+      ],
+      [
+        "5.2.9.2 Recurrent C hecking  ",
+        21
+      ],
+      [
+        "5.2.10 Operation of More Than One Type or Variant  ",
+        22
+      ],
+      [
+        "5.2.10.1 General  ",
+        22
+      ],
+      [
+        "5.2.11 Re-Qualification Curriculums For Flight Crewmembers Overdue Training Ref: ",
+        22
+      ],
+      [
+        "5.3 Cabin Crew  ",
+        23
+      ],
+      [
+        "5.3.1 Qualification Requirements  ",
+        23
+      ],
+      [
+        "5.3.1.1 Minimum Requirements  ",
+        23
+      ],
+      [
+        "5.3.1.2 Training and Checking Requirements  ",
+        23
+      ],
+      [
+        "5.3.1.3 Senior Cabin Crewmember (Purser)  ",
+        23
+      ],
+      [
+        "5.3.2 Dangerous Goods  ",
+        24
+      ],
+      [
+        "5.3.3 Security Training  ",
+        24
+      ],
+      [
+        "5.3.4 Recurrent Training and Checking  ",
+        24
+      ],
+      [
+        "5.3.5 Operation on More Than One Type or Variant  ",
+        25
+      ],
+      [
+        "5.3.6 Refresher  Policy in Case of Flight Interruption  ",
+        26
+      ],
+      [
+        "5.4 Training, Checking and Supervisory Personnel  ",
+        27
+      ],
+      [
+        "5.4.1 Flight Crew  ",
+        27
+      ],
+      [
+        "5.4.2 Cabin Crew  ",
+        27
+      ],
+      [
+        "5.5 Other Operations Personnel  ",
+        28
+      ],
+      [
+        "5.5.1 Flight Operations Officers (Dispatchers)  ",
+        28
+      ],
+      [
+        "5.6 Command Upgrade  ",
+        29
+      ],
+      [
+        "5.6.1 General  ",
+        29
+      ],
+      [
+        "5.6.2 Minimum Requir ements  ",
+        29
+      ],
+      [
+        "5.6.3 Declination of Upgrade  ",
+        29
+      ],
+      [
+        "5.6.4 Command Upgrade Assessment Program  ",
+        30
+      ],
+      [
+        "5.6.4.1 Administrative Assessment  ",
+        30
+      ],
+      [
+        "5.6.4.2 Command Upgrade Course  ",
+        30
+      ],
+      [
+        "5.6.4.3 Instructors Evaluations  ",
+        31
+      ],
+      [
+        "5.6.4.4 Command Suitability Assessment  ",
+        31
+      ],
+      [
+        "5.6.4.5 Command Suitability Assessment Direct Hire  ",
+        31
+      ],
+      [
+        "5.6.4.6 Oral Test  ",
+        32
+      ],
+      [
+        "5.6.4.7 Command Upgrade Simulator Training  ",
+        32
+      ],
+      [
+        "5.6.5 Service Guarantee  ",
+        32
+      ]
+    ]
+  },
+  {
+    "filename": "data/nesma_oma_parts/nesma_ch10.pdf",
+    "chapter_title": "Chapter 10 Security",
+    "include": true,
+    "toc_pages": [
+      3,
+      4,
+      5
+    ],
+    "toc_info": [
+      [
+        "10.1 Security Instructions and Guidance  ",
+        6
+      ],
+      [
+        "10.1.1 General  ",
+        6
+      ],
+      [
+        "10.1.2 Co-Operation with Airport Authority  ",
+        6
+      ],
+      [
+        "10.1.3 Nesma Airlines Security Policy  ",
+        6
+      ],
+      [
+        "10.1.4 Duty Operations Staff  ",
+        7
+      ],
+      [
+        "10.1.5 Captain and Pursers Responsibilities  ",
+        7
+      ],
+      [
+        "10.1.6 Identification Cards  ",
+        8
+      ],
+      [
+        "10.1.7 Crew Baggage Security  ",
+        8
+      ],
+      [
+        "10.1.8 Security Measures  ",
+        8
+      ],
+      [
+        "10.1.9 Access to Aircraft  ",
+        9
+      ],
+      [
+        "10.1.9.1 Ramp Areas  ",
+        9
+      ],
+      [
+        "10.1.9.2 Persons with Statutory Right of Access  ",
+        9
+      ],
+      [
+        "10.1.9.3 Cockpit Se curity  ",
+        10
+      ],
+      [
+        "10.1.9.4 Admission to Cockpit  ",
+        12
+      ],
+      [
+        "10.1.9.5 Unattended Aircraft  ",
+        13
+      ],
+      [
+        "10.1.9.6 Night Stops  ",
+        13
+      ],
+      [
+        "10.1.9.7 Aircraft Visits by the Public  ",
+        13
+      ],
+      [
+        "10.1.10 Passengers  ",
+        14
+      ],
+      [
+        "10.1.10.1 Personal Searches  ",
+        14
+      ],
+      [
+        "10.1.10.2 Diplomatic Immunity  ",
+        14
+      ],
+      [
+        "10.1.10.3 Passengers Failing to Board after Check -In ",
+        14
+      ],
+      [
+        "10.1.10.4 Passenger Baggage Identification  ",
+        15
+      ],
+      [
+        "10.1.10.5 Rush Baggage  ",
+        16
+      ],
+      [
+        "10.1.10.6 Hand baggage  ",
+        16
+      ],
+      [
+        "10.1.10.7 Firearms & Other Prohibited Weapons.  ",
+        17
+      ],
+      [
+        "10.1.10.7.1  Legal provisions and Regulations.  ",
+        17
+      ],
+      [
+        "10.1. 10.7.2 Acceptance Procedures  ",
+        17
+      ],
+      [
+        "10.1.10.7.3 Protection on the Ground.  ",
+        17
+      ],
+      [
+        "10.1.10.8 Left Behind By Disembarking Passengers from  Transit Flights  ",
+        18
+      ],
+      [
+        "10.1.11 Unruly Passengers  ",
+        19
+      ],
+      [
+        "10.1.11.1 General  ",
+        19
+      ],
+      [
+        "10.1.11.2 General Policy  ",
+        19
+      ],
+      [
+        "10.1.11.3 Nesma Airlines Condi tions of Carriage  ",
+        20
+      ],
+      [
+        "10.1.11.4 Captain Authority  ",
+        20
+      ],
+      [
+        "10.1.11.5 Smoking  ",
+        21
+      ],
+      [
+        "10.1.11.5.1 Passenger Smoking in the Cabin  ",
+        21
+      ],
+      [
+        "10.1.11.5.2 Passenger Smoking in the Toilet  ",
+        21
+      ],
+      [
+        "10.1.11.6 Unruly Passenger Report  ",
+        21
+      ],
+      [
+        "10.1.11.7 Handling Unruly Passengers  ",
+        22
+      ],
+      [
+        "10.1.11.7.1 At Check -in. ",
+        26
+      ],
+      [
+        "10.1.11.7.2 At the Boarding Gate  ",
+        27
+      ],
+      [
+        "10.1.11.7.3 In Flight  ",
+        27
+      ],
+      [
+        "10.1.11.7.3.1 In Flight Security Guards (Sky Marshals)  ",
+        27
+      ],
+      [
+        "10.1.11.7.4 Security  Measures That Must Be Implemented By Cabin Crew against  Unruly ",
+        28
+      ],
+      [
+        "10.1.12 Searching and Guarding o f Aircraft  ",
+        29
+      ],
+      [
+        "10.1.12.1 General  ",
+        29
+      ],
+      [
+        "10.1.12.2 Routine Checking  ",
+        29
+      ],
+      [
+        "10.1.12.2.1  Flight Deck and Exterior  ",
+        29
+      ],
+      [
+        "10.1.12.2.2  Aircraft Inte rior ",
+        29
+      ],
+      [
+        "10.1.12.3 Aircraft Searches  ",
+        30
+      ],
+      [
+        "10.1.12.3.1 Search Technique  ",
+        30
+      ],
+      [
+        "10.1.13 Procedures for Unattended Aircraft  ",
+        31
+      ],
+      [
+        "10.1.13.1 Sealing of Aircraft  ",
+        31
+      ],
+      [
+        "10.1.13.2 Positive  Searching and Guarding for High Risk Sectors  ",
+        31
+      ],
+      [
+        "10.1.13.3 Pre-Flight Search of Aircraft  ",
+        31
+      ],
+      [
+        "10.1.13.4 Hold Baggage  ",
+        31
+      ],
+      [
+        "10.1.13.5 Guarding of Aircraft  ",
+        32
+      ],
+      [
+        "10.1.14 Crew Security  ",
+        33
+      ],
+      [
+        "10.1.15 Inadmissible and Deportee Passengers  ",
+        33
+      ],
+      [
+        "10.1.15.1 Factor which could make inadmissible or deportee passengers a security risk  ",
+        34
+      ],
+      [
+        "10.1.15.2 Security Procedures for Aircraft Safety to Accept Passengers Subject to Judicial ",
+        35
+      ],
+      [
+        "10.1.16 Bomb or Sabotage Threats  ",
+        36
+      ],
+      [
+        "10.1.16.1 Classification and evaluat ion of bomb messages and threat  ",
+        36
+      ],
+      [
+        "10.1.16.1.1 Oral threat  ",
+        36
+      ],
+      [
+        "10.1.16.1.2 Written Threat  ",
+        37
+      ],
+      [
+        "10.1.16.2 Understanding a Bomb Threat  ",
+        37
+      ],
+      [
+        "10.1.16.3 Characteristics of Bomb Threats  ",
+        37
+      ],
+      [
+        "10.1.16.4 Receipt of Bomb Threats  ",
+        38
+      ],
+      [
+        "10.1.16.5 Staff Instruction and Training  ",
+        38
+      ],
+      [
+        "10.1.16.6 Action by Recipient of a Bomb Threat  ",
+        38
+      ],
+      [
+        "10.1.16.7 Bomb Threat Assessment in th e Air  ",
+        40
+      ],
+      [
+        "10.1.16.7.1 Notification of Authorities/ Agencies  ",
+        40
+      ],
+      [
+        "10.1.16.7.2 Bomb threats in flight  ",
+        41
+      ],
+      [
+        "10.1.16.7.3 In-Flight Search Procedures  ",
+        41
+      ],
+      [
+        "10.1.16.7.4 Measures To Minimize Effects of Explosives In Flight  ",
+        41
+      ],
+      [
+        "10.1.16.7.5 Post Landing Procedures  ",
+        42
+      ],
+      [
+        "10.1.16.8 Specific Threats to Aircraft o n the Ground  ",
+        43
+      ],
+      [
+        "10.1.16.8.1  Searching the Aircraft  ",
+        43
+      ],
+      [
+        "10.1.16.8.2 Non Specific Threat s to Aircraft  ",
+        43
+      ],
+      [
+        "10.1.16.8.3 Aircraft on the Ground before  Loading  ",
+        43
+      ],
+      [
+        "10.1.16.8.4 Emergency Procedures On The Ground  ",
+        44
+      ],
+      [
+        "10.1.17 Hijacking/Unlawful Seizure of Aircraft  ",
+        45
+      ],
+      [
+        "10.1.17.1 Characteristics of Hijacks  ",
+        45
+      ],
+      [
+        "10.1.17.2 The Objective  ",
+        45
+      ],
+      [
+        "10.1.17.3 Aircraft Crews in an Unlawful Seizure Situation  ",
+        46
+      ],
+      [
+        "10.1.17.4 Contingency Procedures on Ground  ",
+        47
+      ],
+      [
+        "10.1.17.5 Debriefing Infor mation and Media Releases  ",
+        48
+      ],
+      [
+        "10.1.17.6 Incident Reporting  ",
+        48
+      ],
+      [
+        "10.2 Appendices  ",
+        49
+      ],
+      [
+        "10.2.1 Legal Aspects  ",
+        49
+      ],
+      [
+        "10.2.1.1 General Conditions of Carriage of Passengers and Baggage.  ",
+        49
+      ],
+      [
+        "10.2.1.2 Tokyo Convention And Its Countries (Refer To 10.1.11.4. For Captain Authority)  ",
+        49
+      ],
+      [
+        "10.2.1.3 ECAR 121.575 (Alcoholic Beverages)  ",
+        52
+      ],
+      [
+        "10.2.2 Aircraft Search Checklist In Case Of Bomb Threat  ",
+        53
+      ],
+      [
+        "10.3 Biochemical & Biological W eapons  ",
+        57
+      ],
+      [
+        "10.3.1 Introduction  ",
+        57
+      ],
+      [
+        "10.3.2 Methods of Unlawful Exposure  ",
+        57
+      ],
+      [
+        "10.3.3 Crew Responsibilities  ",
+        57
+      ],
+      [
+        "10.3.4 Identification  ",
+        58
+      ],
+      [
+        "10.3.5 Crew Action  ",
+        59
+      ],
+      [
+        "10.3.5.1 Discovery of A Suspicious Subst ance on An Aircraft In Flight  ",
+        59
+      ],
+      [
+        "10.3.5.2 Discovery of A Suspicious Package/Envelope on An Aircraft In Flight  ",
+        59
+      ]
+    ]
+  },
+  {
+    "filename": "data/nesma_oma_parts/nesma_ch4.pdf",
+    "chapter_title": "Chapter 4 Crew Management",
+    "include": true,
+    "toc_pages": [
+      3
+    ],
+    "toc_info": [
+      [
+        "4.1 Method for Determining Cr ew Composition  ",
+        4
+      ],
+      [
+        "4.2 Crew Management System  ",
+        4
+      ],
+      [
+        "4.3 Management and Administration  ",
+        4
+      ],
+      [
+        "4.4 Scope  ",
+        5
+      ],
+      [
+        "4.4.1 Rule Set Management  ",
+        5
+      ],
+      [
+        "4.4.2 Pairing Management  ",
+        5
+      ],
+      [
+        "4.4.3 Rostering Management  ",
+        5
+      ],
+      [
+        "4.4.4 Tracking  ",
+        5
+      ],
+      [
+        "4.4.5 Crew Connect  ",
+        5
+      ],
+      [
+        "4.4.6 Statistics and Reports  ",
+        5
+      ],
+      [
+        "4.5 System Security and Backup  ",
+        6
+      ],
+      [
+        "4.6 Contingency Plan  ",
+        6
+      ],
+      [
+        "4.7 Crew Scheduling Process  ",
+        7
+      ],
+      [
+        "4.7.1 Flight crew  ",
+        7
+      ],
+      [
+        "4.7.1.1 Relief of Flight Crewmember  ",
+        7
+      ],
+      [
+        "4.7.1.2 Pilot Operating Limitat ions and Pairing Requirements  ",
+        8
+      ],
+      [
+        "4.7.2 Cabin Crew ",
+        9
+      ],
+      [
+        "4.8 Designation of the Pilot in Command  ",
+        10
+      ],
+      [
+        "4.9 Flight Crew Incapacitation  ",
+        10
+      ],
+      [
+        "4.10 Operation on More Than One Type  ",
+        10
+      ]
+    ]
+  },
+  {
+    "filename": "data/nesma_oma_parts/nesma_ch2.pdf",
+    "chapter_title": "Chapter 2 Operational Control and Supervision",
+    "include": true,
+    "toc_pages": [
+      3
+    ],
+    "toc_info": [
+      [
+        "2.1 Supervision of the Operation by the Operator  ",
+        4
+      ],
+      [
+        "2.1.1 General  ",
+        4
+      ],
+      [
+        "2.1.2 License and Qualification Validity  ",
+        7
+      ],
+      [
+        "2.1.3 Competence of Operations Personnel  ",
+        7
+      ],
+      [
+        "2.1.4 Operations Supervision  ",
+        8
+      ],
+      [
+        "2.1.5 Control, Analysis and Storage of Records, Flight Documents, Additional ",
+        9
+      ],
+      [
+        "2.1.5.1  Documents Used for the Preparation and Execution of the Flight  ",
+        9
+      ],
+      [
+        "2.1.5.2 Reports  ",
+        9
+      ],
+      [
+        "2.1.5.3 Flight Recorders Data  ",
+        10
+      ],
+      [
+        "2.1.5.4 Cockpit Voice Recorder Data  ",
+        10
+      ],
+      [
+        "2.1.5.5 Record Storage Period  ",
+        11
+      ],
+      [
+        "2.1.5.6 Maintaining of Records  ",
+        14
+      ],
+      [
+        "2.1.5.7 Legibility of Records  ",
+        14
+      ],
+      [
+        "2.1.5.8 Retrieval of Records  ",
+        14
+      ],
+      [
+        "2.1.5.9 Protection and Security  ",
+        14
+      ],
+      [
+        "2.1.5.10 Disposal  ",
+        14
+      ],
+      [
+        "2.1.5.11 Periodic Audit  ",
+        14
+      ],
+      [
+        "2.2 System of Dissemination of Operational instructions and Information  ",
+        15
+      ],
+      [
+        "2.2.1 Internal Information System (Circulars  or Notices)  ",
+        16
+      ],
+      [
+        "2.2.1.1 Technical Information  ",
+        16
+      ],
+      [
+        "2.2.1.2 Operational Information  ",
+        16
+      ],
+      [
+        "2.2.1.3 Administrative Information  ",
+        16
+      ],
+      [
+        "2.2.1.4 Safety Information  ",
+        16
+      ],
+      [
+        "2.2.2 Airbus Information / Constructor  ",
+        17
+      ],
+      [
+        "2.3 Operational Control  ",
+        19
+      ],
+      [
+        "2.4 Power of Authority  ",
+        20
+      ]
+    ]
+  },
+  {
+    "filename": "data/nesma_oma_parts/nesma_ch3.pdf",
+    "chapter_title": "Chapter 3 Quality System",
+    "include": true,
+    "toc_pages": [
+      3
+    ],
+    "toc_info": [
+      [
+        "3.1 Definitions  ",
+        4
+      ],
+      [
+        "3.2 Corporate Policy  ",
+        5
+      ],
+      [
+        "3.2.1 Quality Standards  ",
+        5
+      ],
+      [
+        "3.3 Auditors  ",
+        6
+      ],
+      [
+        "3.4 Discrepancies  ",
+        7
+      ],
+      [
+        "3.5 Quality Assurance Program  ",
+        8
+      ],
+      [
+        "3.5.1 Purpose  ",
+        8
+      ],
+      [
+        "3.5.2 Scope  ",
+        8
+      ],
+      [
+        "3.5.3 Responsibility  ",
+        9
+      ],
+      [
+        "3.5.4 Executers  ",
+        9
+      ],
+      [
+        "3.5.5 Monitoring and Corrective Action  ",
+        10
+      ],
+      [
+        "3.6 Quality Assurance responsibilities For Sub -Contractors  ",
+        12
+      ],
+      [
+        "3.7 Control of Documents  ",
+        13
+      ],
+      [
+        "3.7.1 Purpose  ",
+        13
+      ],
+      [
+        "3.7.2 Scope  ",
+        13
+      ],
+      [
+        "3.7.3 Responsibilities of the Director of Operations  ",
+        14
+      ],
+      [
+        "3.7.3.1 Library Keepers' Responsibilities  ",
+        14
+      ],
+      [
+        "3.7.3.2 Libraries  ",
+        15
+      ],
+      [
+        "3.7.3.3 A/C library (ECAR 91 -203) ",
+        15
+      ],
+      [
+        "3.7.4 Documentation Management & Control  ",
+        15
+      ],
+      [
+        "3.8 Control of Records  ",
+        16
+      ],
+      [
+        "3.8.1 Purpose  ",
+        16
+      ],
+      [
+        "3.8.2 Scope  ",
+        16
+      ],
+      [
+        "3.8.3 Respon sibility  ",
+        16
+      ],
+      [
+        "3.8.4 Records Management  ",
+        17
+      ]
+    ]
+  },
+  {
+    "filename": "data/nesma_oma_parts/nesma_ch14.pdf",
+    "chapter_title": "Chapter 14 Performance Engineering",
+    "include": true,
+    "toc_pages": [
+      3
+    ],
+    "toc_info": [
+      [
+        "14.1 Scope  ",
+        4
+      ],
+      [
+        "14.2 Acronyms  ",
+        4
+      ],
+      [
+        "14.3 Performance Engineering Terminology  ",
+        4
+      ],
+      [
+        "14.4 Performance Database Control  ",
+        5
+      ],
+      [
+        "14.5 Airport Manager  ",
+        5
+      ],
+      [
+        "14.6 Flight Manual (FM)  ",
+        6
+      ],
+      [
+        "14.6.1 Introduction  ",
+        6
+      ],
+      [
+        "14.6.2 FM Modules  ",
+        6
+      ],
+      [
+        "14.6.2.1 TOD Calculation  ",
+        6
+      ],
+      [
+        "14.6.2.2 TOR Calculation  ",
+        8
+      ],
+      [
+        "14.6.2.3 ASD Calculation  ",
+        8
+      ],
+      [
+        "14.6.2.4 First Segment Gradient  ",
+        9
+      ],
+      [
+        "14.6.2.5 Second Segment Gradient:  ",
+        9
+      ],
+      [
+        "14.6.2.6 Complete Takeoff  ",
+        10
+      ],
+      [
+        "14.6.2.7 Final Takeoff Gradient  ",
+        13
+      ],
+      [
+        "14.6.2.8 Approach Climb Gradient  ",
+        14
+      ],
+      [
+        "14.6.2.9 Landing Climb Gradient  ",
+        15
+      ],
+      [
+        "14.6.2.10 Required Landing Distance (RLD)  ",
+        16
+      ],
+      [
+        "14.6.2.11 Operational Landing Distance  ",
+        18
+      ],
+      [
+        "14.6.2.12 Takeoff Flight Path (TOFP)  ",
+        21
+      ],
+      [
+        "14.6.2.13 Stalling Speed  ",
+        24
+      ],
+      [
+        "14.7 Takeoff and Landing Optimizations (TLO)  ",
+        25
+      ],
+      [
+        "14.6 Flight Manual (FM) . Nesma Airlines bears the responsibility of completely respecting the ",
+        25
+      ],
+      [
+        "14.7.1 Takeoff Optimization  ",
+        25
+      ],
+      [
+        "14.7.2 All Engine Climb Gradient (AECG)  ",
+        27
+      ],
+      [
+        "14.7.3 Landing Optimization  ",
+        29
+      ],
+      [
+        "14.7.3.1 Landing Terminology  ",
+        29
+      ],
+      [
+        "14.7.3.1.1 Landing Distance Available (LDA)  ",
+        29
+      ],
+      [
+        "14.7.3.1.2 Approach Climb  ",
+        30
+      ],
+      [
+        "14.7.3.1.3 Landing Climb  ",
+        30
+      ],
+      [
+        "14.7.3.2 Landing Performance  ",
+        30
+      ],
+      [
+        "14.7.3.3 Establishment of Landing Charts  ",
+        31
+      ],
+      [
+        "14.8 In-Flight Performance (IFP)  ",
+        33
+      ],
+      [
+        "14.8.1 IFP Calculation Typ es ",
+        33
+      ],
+      [
+        "14.8.2 IFP Calculation Options  ",
+        33
+      ],
+      [
+        "14.8.3 Climb  ",
+        34
+      ],
+      [
+        "14.8.4 Cruise  ",
+        37
+      ],
+      [
+        "14.9 Aircraft Performance Monitoring (APM)  ",
+        40
+      ]
+    ]
+  },
+  {
+    "filename": "data/nesma_oma_parts/nesma_ch11.pdf",
+    "chapter_title": "Chapter 11 Safety Management System",
+    "include": true,
+    "toc_pages": [
+      3,
+      4,
+      5
+    ],
+    "toc_info": [
+      [
+        "11.1 Application  of Safety Management System  ",
+        6
+      ],
+      [
+        "11.1.1 Introduction of Safety Management System (SMS Manual)  ",
+        8
+      ],
+      [
+        "11.1.1.1 General  ",
+        8
+      ],
+      [
+        "11.1.1.2 SMS to Be Consistent With Other Requirements  ",
+        8
+      ],
+      [
+        "11.1.1.3 Accessibility  ",
+        8
+      ],
+      [
+        "11.1.1.4 Organization Structure  ",
+        9
+      ],
+      [
+        "11.1.1.4.1 Safety and Quality Department Organization Chart  ",
+        9
+      ],
+      [
+        "11.1.1.5  Responsibilities and Accountabilities  ",
+        10
+      ],
+      [
+        "11.1.1.5 .1 Safety Department Organization  ",
+        10
+      ],
+      [
+        "11.1.1.5 .2 Accountable Executive  ",
+        10
+      ],
+      [
+        "11.1.1.5.2.1 Safety Accountability  ",
+        10
+      ],
+      [
+        "11.1.1.5.2.2 Safety Responsibility  ",
+        10
+      ],
+      [
+        "11.1.1.5 .3 Safety & Quality Director  ",
+        11
+      ],
+      [
+        "11.1.1.5.3.1 Safety Accountability:  ",
+        11
+      ],
+      [
+        "11.1.1.5.3.2 Safety Responsibilities:  ",
+        11
+      ],
+      [
+        "11.1.1.5 .4 Flight Safety Manager  ",
+        12
+      ],
+      [
+        "11.1.1.5.4.1 Safety Responsibility  ",
+        12
+      ],
+      [
+        "11.1.1.5 .5 Flight Safety Assistant  ",
+        13
+      ],
+      [
+        "11.1.1.5 .5.1 Safety Responsibility  ",
+        13
+      ],
+      [
+        "11.1.1.5 .6 All Crewmembers  ",
+        14
+      ],
+      [
+        "11.1.1.5 .7 Safety Committee  ",
+        15
+      ],
+      [
+        "11.1.1.5 .7.1 Safety Committees Objectives : ",
+        15
+      ],
+      [
+        "11.1.1.5 .7.2 The Committees Will Be Attended By:  ",
+        16
+      ],
+      [
+        "11.1.1.5 .8 Emergency Response  ",
+        16
+      ],
+      [
+        "11.1.1 .5.9 Document Control  ",
+        16
+      ],
+      [
+        "11.1.1.5 .10 Record Control  ",
+        16
+      ],
+      [
+        "11.1.1.6  Hazard Identification Processes  ",
+        17
+      ],
+      [
+        "11.1.1.6.1  Introduction  ",
+        17
+      ],
+      [
+        "11.1.1.6 .2 Reactive Safety Method:  ",
+        17
+      ],
+      [
+        "11.1.1.6 .3 Proactive Safety Method:  ",
+        18
+      ],
+      [
+        "11.1.1.6 .4 Reactive Processes  ",
+        19
+      ],
+      [
+        "11.1.1.6 .4.1 Occurrence and Hazard Reporting  ",
+        19
+      ],
+      [
+        "11.1.1.6 .4.2 Nesma Airlines' Safety Reporting Systems Encompass The Following ",
+        19
+      ],
+      [
+        "11.1.1.6 .4.3 Reporting Hazards, Events and Safety Concerns  ",
+        19
+      ],
+      [
+        "11.1.1.6 .4.4 Why Report?  ",
+        19
+      ],
+      [
+        "11.1.1.6 .4.5 What Should Be Reported?  ",
+        20
+      ],
+      [
+        "11.1.1.6 .4.6 When Should A Hazard Report Be Submitte d? ",
+        20
+      ],
+      [
+        "11.1.1.6 .4.7 How A Hazar d Shall Be Reported?  ",
+        21
+      ],
+      [
+        "11.1.2 Voluntary Reporting System  ",
+        22
+      ],
+      [
+        "11.1.3 Cabin Safety  ",
+        22
+      ],
+      [
+        "11.1.3.1 Procedures Include, But Are Not Limited to The Following  ",
+        22
+      ],
+      [
+        "11.1.3.2 In-Flight Emergency Procedures  ",
+        22
+      ],
+      [
+        "11.1.3.3 Hazard and Incident Reporting  ",
+        23
+      ],
+      [
+        "11.1.4 Safety Oversight  ",
+        23
+      ],
+      [
+        "11.1.5 Safety Reporting Culture  ",
+        23
+      ],
+      [
+        "11.1.5.1 Trust  ",
+        23
+      ],
+      [
+        "11.1.5.2 Non-Punitive (Refer To Corporate Safety Reporting Policy)  ",
+        23
+      ],
+      [
+        "11.1.5.3 Inclusive Reporting Base  ",
+        24
+      ],
+      [
+        "11.1.5.4 Independence  ",
+        24
+      ],
+      [
+        "11.1.5.5 Ease of Reporting  ",
+        24
+      ],
+      [
+        "11.1.5.6 Acknowledgment  ",
+        24
+      ],
+      [
+        "11.1.5.7 Promotion  ",
+        24
+      ],
+      [
+        "11.1.6 Types of Incident Reporting Systems  ",
+        25
+      ],
+      [
+        "11.1.6.1 Mandatory Incident Reporting Systems  ",
+        25
+      ],
+      [
+        "11.1.6.2 Voluntary Incident Reporting Systems  ",
+        26
+      ],
+      [
+        "11.1.6.3 Confidential Reporting Systems  ",
+        26
+      ],
+      [
+        "11.1.7 Proactive Safety Assessment  ",
+        27
+      ],
+      [
+        "11.1.8 Assessment Frequency  ",
+        27
+      ],
+      [
+        "11.1.9 Information Sources for Determining Potential Hazards  ",
+        27
+      ],
+      [
+        "11.1.10 Active Monitoring Techniques  ",
+        27
+      ],
+      [
+        "11.1.11 Flight Data Analysis (FDA) Program  ",
+        28
+      ],
+      [
+        "11.1.11.1 Flight Data Analysis (FDA)  ",
+        28
+      ],
+      [
+        "11.1.11.2 Using the FDA Program  ",
+        28
+      ],
+      [
+        "11.1.11.3 FDA Database Is Backed Up On Monthly Basis  ",
+        28
+      ],
+      [
+        "11.2 Safety Risk Assessment and Mitigation Process  ",
+        29
+      ],
+      [
+        "11.2.1 Risk Management . ",
+        29
+      ],
+      [
+        "11.2.2 First Fundamental \u2013 Risk Management  ",
+        31
+      ],
+      [
+        "11.2.3 Second Fundamental - Risk Probability  ",
+        31
+      ],
+      [
+        "11.2.4 Third Fundamental \u2013 Risk Severity  ",
+        31
+      ],
+      [
+        "11.2.5 Fourth Fundamental - Risk Assessment and Tolerability  ",
+        32
+      ],
+      [
+        "11.2.6 Fifth Fundamental \u2013 Risk Control / Mitigation  ",
+        33
+      ],
+      [
+        "11.3 Incident and Accident Investigation  ",
+        36
+      ],
+      [
+        "11.3.1 General  ",
+        36
+      ],
+      [
+        "11.3.2 In-House Investigations  ",
+        37
+      ],
+      [
+        "11.3.3 Scope of Safety Invest igations  ",
+        38
+      ],
+      [
+        "11.3.4 Investigation Policy and Objectives  ",
+        39
+      ],
+      [
+        "11.3.5 Accident/Incident Notification  ",
+        39
+      ],
+      [
+        "11.3. 6 Investigative Procedure  ",
+        40
+      ],
+      [
+        "11.3.7 Information Sources  ",
+        41
+      ],
+      [
+        "11.3.8 Interviews  ",
+        42
+      ],
+      [
+        "11.3.9 Investigation Methodology  ",
+        43
+      ],
+      [
+        "11.3.10 Investigating Human Performance Issues  ",
+        45
+      ],
+      [
+        "11.3.11 Safety Recommendations  ",
+        46
+      ],
+      [
+        "11.4 Safety Performance Monitoring  ",
+        47
+      ],
+      [
+        "11.4.1 Introduction  ",
+        47
+      ],
+      [
+        "11.4.2 Quality Assurance  ",
+        48
+      ],
+      [
+        "11.4.3 Safety Oversight  ",
+        49
+      ],
+      [
+        "11.5 Safety Performance Measurement  ",
+        51
+      ],
+      [
+        "11.5.1 General:  ",
+        51
+      ],
+      [
+        "11.5.2 Safety Health:  ",
+        51
+      ],
+      [
+        "11.5.3 Assessing Safety Health  ",
+        51
+      ],
+      [
+        "11.5.4 Symptoms of Poor Safety Health  ",
+        52
+      ],
+      [
+        "11.5.5 Improving Safety Health  ",
+        52
+      ],
+      [
+        "11.5.6 Statistical Safety Performance Indicators  ",
+        53
+      ],
+      [
+        "11.5.7 Nesma Airlines Key Performance Indicators (KPI\u2019S):  ",
+        53
+      ],
+      [
+        "11.5.8 The Following Are Examples for Cabin Proposed KPI\u2019s  ",
+        54
+      ],
+      [
+        "11.6 Handling of Accidents/Incidents and Occurrences  ",
+        55
+      ],
+      [
+        "11.6.1 Terminology  ",
+        55
+      ],
+      [
+        "11.6.1.1 Accident  ",
+        55
+      ],
+      [
+        "11.6.1.2 Incident  ",
+        55
+      ],
+      [
+        "11.6.1.3 Serious Injury  ",
+        56
+      ],
+      [
+        "11.6.2 Aircraft Accident Procedures  ",
+        56
+      ],
+      [
+        "11.6.2 .1 Pilot  in Command/Crew Post -Accident/Incident Procedures  ",
+        56
+      ],
+      [
+        "11.6.2.2 Preservation, Production and Use of Flight Data  ",
+        56
+      ],
+      [
+        "11.6.2.3 Accident Reporting  ",
+        57
+      ],
+      [
+        "11.6.3 Aircraft Incident Procedures  ",
+        57
+      ],
+      [
+        "11.6.4 Operations Emergency Procedures  ",
+        58
+      ],
+      [
+        "11.6.5 Comp any Investigation  ",
+        59
+      ],
+      [
+        "11.6.5.1 General  ",
+        59
+      ],
+      [
+        "11.6.5.2 Policy  ",
+        59
+      ],
+      [
+        "11.6.5.3 Investigating Board\u2019s Terms of Reference  ",
+        59
+      ],
+      [
+        "11.6.5. 4 Composition of the Investigating Board  ",
+        59
+      ],
+      [
+        "11.6.5.5 Preparation  ",
+        59
+      ],
+      [
+        "11.6.5.6 Reporting the Results of the Investigation  ",
+        60
+      ],
+      [
+        "11.6.5.7 Analysis and Conclusions  ",
+        61
+      ],
+      [
+        "11.6.5.8 Recommendations  ",
+        61
+      ],
+      [
+        "11.6.6 Air Safe ty Reports and the MOR System  ",
+        62
+      ],
+      [
+        "11.6.6.1 Policy  ",
+        62
+      ],
+      [
+        "11.6.6.2 Objective  ",
+        62
+      ],
+      [
+        "11.6.6.3 Occurrences Which Should Be Reported  ",
+        62
+      ],
+      [
+        "11.6.6.4 Co-Ordination of Reporting System  ",
+        63
+      ],
+      [
+        "11.6.6.5 Reporting Procedure  ",
+        63
+      ],
+      [
+        "11.6.6.6 Reporting Responsibility  ",
+        63
+      ],
+      [
+        "11.6.6.7 Handling of Air Safety Reports  ",
+        64
+      ],
+      [
+        "11.6.6.8 Follow -Up and Closure  ",
+        64
+      ],
+      [
+        "11.6.7 Accidents or Occurrences When Dangerous Goods Are Being Carried  ",
+        65
+      ],
+      [
+        "11.6.7.1 Policy  ",
+        65
+      ],
+      [
+        "11.6.7.2 Provision of In formation to the Pilot in Command  ",
+        65
+      ],
+      [
+        "11.6.7.3 Special Noti fication Requirements.  ",
+        66
+      ],
+      [
+        "11.6.7.4 Information to Be Provided By the Pilot in Command  ",
+        66
+      ]
+    ]
+  },
+  {
+    "filename": "data/nesma_oma_parts/nesma_ch12.pdf",
+    "chapter_title": "Chapter 12 Rules of the Air",
+    "include": true,
+    "toc_pages": [
+      3
+    ],
+    "toc_info": [
+      [
+        "12.1 Applicability  ",
+        4
+      ],
+      [
+        "12.1.1 Responsibility for Compliance with the Rules of the Air  ",
+        4
+      ],
+      [
+        "12.1.1.1 Prohibition on Interference with Crewmembers  ",
+        5
+      ],
+      [
+        "12.1.1.2 Reporting Hazardous/Emergency Situations or Conditions  ",
+        5
+      ],
+      [
+        "12.1.12 Carriage of Illegal Substances  ",
+        5
+      ],
+      [
+        "12.2 Protection of Persons and Property  ",
+        5
+      ],
+      [
+        "12.3 Communications  ",
+        6
+      ],
+      [
+        "12.3.1 VMC Conditions  ",
+        6
+      ],
+      [
+        "12.3.2 IMC Conditions  ",
+        6
+      ],
+      [
+        "12.4 Reference  ",
+        7
+      ]
+    ]
+  }
+]

@@ -12,6 +12,7 @@ import database.fs_index_database_api as fs_index_database_api
 import lib.chat_doc as chat_doc_man
 import database.ai_tasks_database_api as ai_tasks_database_api
 from models.ai_tasks import AITaskType
+from database.mongo_driver import get_database
 
 
 _ROOT_ROUTE = f"{os.getenv('API_ROOT')}/manuals"
@@ -416,10 +417,10 @@ async def get_tree(res: Response, doc_uuid: str = Body(embed=True), x_auth=Heade
 
     # TODO-GALAL: remove this
     if doc_uuid != os.environ['COMPLETE_CHAT_DOC_UUID']:
-        return JsonResponse(data=[])
+        return JsonResponse(data={'tree': []})
 
     # get table of content (toc) pages
-    toc_pages = [3, 4]  # TODO-GALAL: laod toc_pages from database
+    toc_pages = [9, 77, 133, 155, 173, 183, 215, 239, 253, 611, 633, 693, 759, 767, 821, 861]  # TODO-GALAL: laod toc_pages from database
     get_pages_service_response = await fs_index_database_api.get_pages(organization, toc_pages, doc_uuid)
 
     if not get_pages_service_response.success:
@@ -440,3 +441,24 @@ async def get_tree(res: Response, doc_uuid: str = Body(embed=True), x_auth=Heade
         )
 
     return JsonResponse(data=fs_service_response.data)
+
+
+@router.post(f"{_ROOT_ROUTE}/get-tree-v2")
+async def get_tree_v2(res: Response, doc_uuid: str = Body(embed=True), x_auth=Header(alias='X-Auth', default=None)) -> JsonResponse:
+    # TODO-GALAL: clean this route
+    func_id = f"{_MODULE_ID}.get_tree_v2"
+    # authorize user
+    auth_service_response = await security_man.authorize_api(x_auth, _ALLOWED_USERS, func_id)
+    if not auth_service_response.success:
+        res.status_code = auth_service_response.status_code
+        return JsonResponse(
+            success=auth_service_response.success,
+            msg=auth_service_response.msg,
+        )
+    await log_man.add_log(func_id, 'DEBUG', f"received get manual content tree request: doc_uuid={doc_uuid}")
+
+    fs_index_entry = await get_database().get_collection('fs_index').find_one({'doc_uuid': doc_uuid})
+    if not fs_index_entry:
+        return JsonResponse(success=False, msg='File Index not Found', status_code=404)
+
+    return JsonResponse(data={'toc_info': fs_index_entry['args']['toc_info']})

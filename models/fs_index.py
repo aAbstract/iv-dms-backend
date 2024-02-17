@@ -40,6 +40,8 @@ class FSIndexFile(BaseModel):
     doc_uuid: str
     doc_status: ChatDOCStatus
     organization: str
+    args: dict = {}
+
 
 class FSIndexTree(BaseModel):
     name: str

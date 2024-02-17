@@ -141,33 +141,25 @@ async def get_user_manuals(username: str) -> ServiceResponse:
     return ServiceResponse(data={'files': files})
 
 
-async def get_pages(organization: str, pages: str, doc_uuid: str) -> ServiceResponse:
-
+async def get_pages(organization: str, pages: list[tuple[str, int]]) -> ServiceResponse:
     # fetch entry from database
-    fs_index_entry = await get_database().get_collection('fs_index').find_one({'doc_uuid': doc_uuid})
-
-    if not fs_index_entry:
+    fs_indices = await get_database().get_collection('fs_index').find({
+        'organization': organization,
+        'doc_uuid': {'$in': [x[0] for x in pages]},
+    }, {
+        '_id': 1,
+        'doc_uuid': 1,
+    }).to_list(length=None)
+    if not fs_indices:
         return ServiceResponse(success=False, status_code=404, msg='File Index not Found')
+    temp_index = {x['doc_uuid']: PdfReader(os.path.join(_PUBLIC_DIR, FILE_TYPE_PATH_MAP[IndexFileType.AIRLINES_MANUAL], str(x['_id']) + '.pdf')) for x in fs_indices}
 
-    if fs_index_entry['organization'] != organization:
-        return ServiceResponse(success=False, status_code=403, msg="Your organization can't access this file")
+    all_pages_text = ''
+    for doc_uuid, page_number in pages:
+        pdf_reader = temp_index[doc_uuid]
+        all_pages_text += pdf_reader.pages[page_number - 1].extract_text()
 
-    file_path = os.path.join(_PUBLIC_DIR, FILE_TYPE_PATH_MAP[IndexFileType.AIRLINES_MANUAL], str(fs_index_entry['_id']) + ".pdf")
-
-    if (not os.path.exists(file_path)):
-        await log_man.add_log("get_pages", 'ERROR', f"Missing file with fs index: ChatDocID={doc_uuid},File ID= {fs_index_entry['_id']+'.pdf'}, organization={organization}")
-        return ServiceResponse(success=False, status_code=400, msg="System File doesn't exist")
-
-    all_pages = []
-
-    reader = PdfReader(file_path)
-    for i in pages:
-        page = reader.pages[i - 1]
-        all_pages.append(page.extract_text())
-
-    all_pages = " ".join(all_pages)
-
-    return ServiceResponse(data={"text": all_pages})
+    return ServiceResponse(data={"text": all_pages_text})
 
 
 async def get_tree_structure(text: str) -> ServiceResponse:

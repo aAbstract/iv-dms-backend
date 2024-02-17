@@ -5,6 +5,7 @@ import sys
 import pymongo
 import shutil
 from glob import glob
+from uuid import uuid4
 from dotenv import load_dotenv
 import code
 import json
@@ -47,7 +48,7 @@ seed_users = [
         user_role=UserRole.AUDITOR,
         phone_number="+201001000000",
         email="cwael@aerosync.com",
-        organization="technokit",
+        organization="AeroSync",
     ),
     User(
         username="eslam",
@@ -56,7 +57,7 @@ seed_users = [
         user_role=UserRole.ADMIN,
         phone_number="+201001000000",
         email="eslam@aerosync.com",
-        organization="technokit",
+        organization="AeroSync",
     ),
     User(
         username="safwat",
@@ -65,7 +66,7 @@ seed_users = [
         user_role=UserRole.ADMIN,
         phone_number="+201001000000",
         email="safwat@aerosync.com",
-        organization="technokit",
+        organization="AeroSync",
     ),
     User(
         username="aelhennawy",
@@ -74,7 +75,7 @@ seed_users = [
         user_role=UserRole.AUDITOR,
         phone_number="+201001000000",
         email="aelhennawy@aerosync.com",
-        organization="technokit",
+        organization="AeroSync",
     ),
     User(
         username="sam",
@@ -83,7 +84,7 @@ seed_users = [
         user_role=UserRole.AIRLINES,
         phone_number="+201193458172",
         email="sam@aerosync.com",
-        organization="technokit",
+        organization="AeroSync",
     ),
 ]
 
@@ -347,7 +348,7 @@ seed_fs_index_files = [
         filename="nesma_org_cos_rad.pdf",
         doc_uuid=os.environ["INVALID_CHAT_DOC_UUID"],
         doc_status=ChatDOCStatus.PARSING_FAILD,
-        organization="technokit",
+        organization="AeroSync",
     ),
     FSIndexFile(
         username="cwael",
@@ -356,7 +357,7 @@ seed_fs_index_files = [
         filename="nesma_org.pdf",
         doc_uuid=os.environ["VALID_CHAT_DOC_UUID"],
         doc_status=ChatDOCStatus.PARSING_FAILD,
-        organization="technokit",
+        organization="AeroSync",
     ),
     FSIndexFile(
         username="cwael",
@@ -365,7 +366,7 @@ seed_fs_index_files = [
         filename="nesma_OMA.pdf",
         doc_uuid=os.environ["COMPLETE_CHAT_DOC_UUID"],
         doc_status=ChatDOCStatus.PARSED,
-        organization="technokit",
+        organization="AeroSync",
     ),
     FSIndexFile(
         username="safwat",
@@ -374,7 +375,7 @@ seed_fs_index_files = [
         filename="nesma_org_cos_rad.pdf",
         doc_uuid=os.environ["INVALID_CHAT_DOC_UUID"],
         doc_status=ChatDOCStatus.PARSING_FAILD,
-        organization="technokit",
+        organization="AeroSync",
     ),
     FSIndexFile(
         username="safwat",
@@ -383,7 +384,7 @@ seed_fs_index_files = [
         filename="nesma_org.pdf",
         doc_uuid=os.environ["VALID_CHAT_DOC_UUID"],
         doc_status=ChatDOCStatus.PARSING_FAILD,
-        organization="technokit",
+        organization="AeroSync",
     ),
     FSIndexFile(
         username="safwat",
@@ -392,7 +393,7 @@ seed_fs_index_files = [
         filename="nesma_OMA.pdf",
         doc_uuid=os.environ["COMPLETE_CHAT_DOC_UUID"],
         doc_status=ChatDOCStatus.PARSED,
-        organization="technokit",
+        organization="AeroSync",
     ),
     FSIndexFile(
         username="aelhennawy",
@@ -401,7 +402,7 @@ seed_fs_index_files = [
         filename="nesma_org_cos_rad.pdf",
         doc_uuid=os.environ["INVALID_CHAT_DOC_UUID"],
         doc_status=ChatDOCStatus.PARSING_FAILD,
-        organization="technokit",
+        organization="AeroSync",
     ),
     FSIndexFile(
         username="aelhennawy",
@@ -410,7 +411,7 @@ seed_fs_index_files = [
         filename="nesma_org.pdf",
         doc_uuid=os.environ["VALID_CHAT_DOC_UUID"],
         doc_status=ChatDOCStatus.PARSING_FAILD,
-        organization="technokit",
+        organization="AeroSync",
     ),
     FSIndexFile(
         username="aelhennawy",
@@ -419,7 +420,7 @@ seed_fs_index_files = [
         filename="nesma_OMA.pdf",
         doc_uuid=os.environ["COMPLETE_CHAT_DOC_UUID"],
         doc_status=ChatDOCStatus.PARSED,
-        organization="technokit",
+        organization="AeroSync",
     ),
 ]
 
@@ -496,7 +497,7 @@ seed_flow_reports = [
             )
         ],
         status=FlowReportStatus.INPROGRESS,
-        organization="technokit",
+        organization="AeroSync",
         creator="cwael",
         user_changes=[
             UserChange(
@@ -546,16 +547,29 @@ def seed_routine():
     db.get_collection("unstructured_manuals").create_index("name", unique=True)
 
     print("seeding fs index...")
-    for fs_index_entry in seed_fs_index_files:
-        mdb_result = db.get_collection("fs_index").insert_one(
-            fs_index_entry.model_dump()
+    f = open('data/nesma_oma_parts/nesma_oma_metadata.json', 'r')
+    json_str = f.read()
+    f.close()
+    json_obj = json.loads(json_str)
+
+    for file_path in glob('data/nesma_oma_parts/*.pdf'):
+        filename = file_path.split('/')[-1]
+        traget_mde = [x for x in json_obj if x['filename'] == f"data/nesma_oma_parts/{filename}"][0]
+        fs_index_entry = FSIndexFile(
+            username='cwael',
+            datetime=datetime.now(),
+            file_type=IndexFileType.AIRLINES_MANUAL,
+            filename=filename,
+            doc_uuid=str(uuid4()),
+            doc_status=ChatDOCStatus.PARSED,
+            organization="AeroSync",
+            args={'toc_info': traget_mde['toc_info']}
         )
+        mdb_result = db.get_collection("fs_index").insert_one(fs_index_entry.model_dump())
         file_id = str(mdb_result.inserted_id)
-        filename = fs_index_entry.filename
-        src_path = f"{os.environ['ENV_DATA']}/{filename}"
         dst_path = f"public/airlines_files/manuals/{file_id}.pdf"
-        shutil.copy2(src_path, dst_path)
-        print(f"file map {src_path} -> {dst_path}")
+        shutil.copy2(file_path, dst_path)
+        print(f"file map {file_path} -> {dst_path}")
 
     print("creating fs index indexes...")
     db.get_collection("fs_index").create_index("doc_uuid", unique=False)

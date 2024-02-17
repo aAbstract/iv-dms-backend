@@ -148,7 +148,7 @@ def test_llm_unstruct_api_success_high_score():
     # TODO-LATER: validate gpt35t context structure
 
 
-def test_llm_pages_api_success():
+def test_llm_pages_api_success_high_score():
     admin_access_token = _test_config.login_user('eslam', 'CgJhxwieCc7QEyN3BB7pmvy9MMpseMPV')
     http_headers = {'X-Auth': f"Bearer {admin_access_token}"}
     get_database = _test_config.get_database()
@@ -164,16 +164,16 @@ def test_llm_pages_api_success():
     regulation_id = [x for x in json_res_body['data']['regulations_options'] if x['name'] == 'IOSA Standards Manual (ISM) Ed 16-Revision2'][0]['id']
 
     # get file
-    file = get_database['fs_index'].find_one({"filename": "nesma_OMA.pdf"})
-    assert file['doc_uuid']
+    file_1 = get_database['fs_index'].find_one({"filename": "nesma_ch1.pdf"})
 
     # call llm api
     api_url = f"{_test_config.get_api_url()}/llm/iosa-audit-pages"
     http_res = requests.post(api_url, headers=http_headers, json={
         'regulation_id': regulation_id,
         'checklist_code': 'FLT 3.1.1',
-        'pages': [119],
-        'doc_uuid': file['doc_uuid']
+        'pages': [
+            (file_1['doc_uuid'], 45),
+        ],
     })
 
     assert http_res.status_code == 200
@@ -182,3 +182,41 @@ def test_llm_pages_api_success():
     assert 'overall_compliance_score' in json_res_body['data']
     assert 'context_id' in json_res_body['data']
     assert json_res_body['data']['overall_compliance_score'] > ((1 - LLM_SCORE_TH) * 100)
+
+
+def test_llm_pages_api_combined_low_score():
+    admin_access_token = _test_config.login_user('eslam', 'CgJhxwieCc7QEyN3BB7pmvy9MMpseMPV')
+    http_headers = {'X-Auth': f"Bearer {admin_access_token}"}
+    get_database = _test_config.get_database()
+    assert get_database != None
+
+    # get regulations options
+    api_url = f"{_test_config.get_api_url()}/regulations/get-options"
+    http_res = requests.post(api_url, headers=http_headers)
+    assert http_res.status_code == 200
+    json_res_body = json.loads(http_res.content.decode())
+    assert json_res_body['success']
+    assert 'regulations_options' in json_res_body['data']
+    regulation_id = [x for x in json_res_body['data']['regulations_options'] if x['name'] == 'IOSA Standards Manual (ISM) Ed 16-Revision2'][0]['id']
+
+    # get file
+    file_1 = get_database['fs_index'].find_one({"filename": "nesma_ch2.pdf"})
+    file_2 = get_database['fs_index'].find_one({"filename": "nesma_ch3.pdf"})
+
+    # call llm api
+    api_url = f"{_test_config.get_api_url()}/llm/iosa-audit-pages"
+    http_res = requests.post(api_url, headers=http_headers, json={
+        'regulation_id': regulation_id,
+        'checklist_code': 'FLT 3.1.1',
+        'pages': [
+            (file_1['doc_uuid'], 10),
+            (file_2['doc_uuid'], 10),
+        ],
+    })
+
+    assert http_res.status_code == 200
+    json_res_body = json.loads(http_res.content.decode())
+    assert 'llm_resp' in json_res_body['data']
+    assert 'overall_compliance_score' in json_res_body['data']
+    assert 'context_id' in json_res_body['data']
+    assert json_res_body['data']['overall_compliance_score'] < (LLM_SCORE_TH * 100)
