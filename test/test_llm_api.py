@@ -3,6 +3,8 @@ import requests
 import os
 from bson import ObjectId
 import _test_config
+from dotenv import load_dotenv
+load_dotenv()
 
 
 LLM_SCORE_TH = 0.4
@@ -149,6 +151,9 @@ def test_llm_unstruct_api_success_high_score():
 
 
 def test_llm_pages_api_success_high_score():
+    if not int(os.environ['GPT_35T_ENABLE']):
+        return
+
     admin_access_token = _test_config.login_user('eslam', 'CgJhxwieCc7QEyN3BB7pmvy9MMpseMPV')
     http_headers = {'X-Auth': f"Bearer {admin_access_token}"}
     get_database = _test_config.get_database()
@@ -185,6 +190,9 @@ def test_llm_pages_api_success_high_score():
 
 
 def test_llm_pages_api_combined_low_score():
+    if not int(os.environ['GPT_35T_ENABLE']):
+        return
+
     admin_access_token = _test_config.login_user('eslam', 'CgJhxwieCc7QEyN3BB7pmvy9MMpseMPV')
     http_headers = {'X-Auth': f"Bearer {admin_access_token}"}
     get_database = _test_config.get_database()
@@ -207,7 +215,7 @@ def test_llm_pages_api_combined_low_score():
     api_url = f"{_test_config.get_api_url()}/llm/iosa-audit-pages"
     http_res = requests.post(api_url, headers=http_headers, json={
         'regulation_id': regulation_id,
-        'checklist_code': 'FLT 3.1.1',
+        'checklist_code': 'FLT 2.1.35',
         'pages': [
             (file_1['doc_uuid'], 10),
             (file_2['doc_uuid'], 10),

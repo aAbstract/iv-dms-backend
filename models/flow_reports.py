@@ -30,6 +30,7 @@ class ManualReference(BaseModel):
 
 class ReportItem(BaseModel):
     code: str
+    page: int
     manual_references: list[ManualReference] = []
     final_comment: Optional[FinalComment] = None
     comments: Optional[str] = None

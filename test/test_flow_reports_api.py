@@ -181,7 +181,7 @@ def test_list_flow_report():
         "code",
         "status",
         "organization",
-        "_id",
+        "id",
         "creator",
         "user_changes",
         "type",
@@ -451,6 +451,7 @@ def test_update_flow_report_sub_sections():
                 "title": "1.1 Management System Overview",
                 "checklist_items": [
                     {
+                        "page": 104,
                         "code": "FLT 1.1.1",
                         "manual_references": [
                             {"fs_index": file_id, "pages": [1, 2, 3]}

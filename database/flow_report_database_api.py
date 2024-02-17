@@ -96,7 +96,7 @@ async def create_flow_report_db(
             if not sub_section_title in sub_section_iosa_item_map:
                 sub_section_iosa_item_map[sub_section_title] = []
             sub_section_iosa_item_map[sub_section_title].append(
-                ReportItem(code=item.code)
+                ReportItem(code=item.code, page=item.page)
             )
 
     flow_report.sub_sections = [
@@ -142,7 +142,10 @@ async def list_flow_report_db(organization: str, creator: str) -> ServiceRespons
         ]
 
     for report in range(len(flow_reports)):
-        flow_reports[report]["_id"] = str(flow_reports[report]["_id"])
+        # TODO-GALAL: fix this later
+        flow_reports[report]["id"] = str(flow_reports[report]["_id"])
+        del flow_reports[report]["_id"]
+        
         flow_reports[report]["regulation_id"] = str(flow_reports[report]["regulation_id"])
         flow_reports[report]['type'] = 'IOSA'  # TODO-LATER: fix this
         FlowReport.model_validate(flow_reports[report])

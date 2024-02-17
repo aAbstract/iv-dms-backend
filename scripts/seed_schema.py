@@ -103,6 +103,7 @@ seed_regulations = [
                 order=2,
                 items=[
                     IOSAItem(
+                        page=1,
                         code="FLT 1.1.1",
                         guidance="Refer to the IRM for the definitions of Operations and Operator.",
                         iosa_map=[
@@ -118,6 +119,7 @@ seed_regulations = [
                         ],
                     ),
                     IOSAItem(
+                        page=1,
                         code="FLT 1.1.2",
                         guidance="Refer to the IRM for the definitions of Accountability, Authority, Post Holder and Responsibility.",
                         iosa_map=[
@@ -143,6 +145,7 @@ seed_regulations = [
                         ],
                     ),
                     IOSAItem(
+                        page=1,
                         code="FLT 1.3.4",
                         guidance="Refer to Guidance associated with ORG 1.3.3 located in ISM Section 1 regarding the need to coordinate and communicate with external entities.",
                         iosa_map=[
@@ -180,6 +183,7 @@ seed_regulations = [
                         ],
                     ),
                     IOSAItem(
+                        page=1,
                         code="FLT 1.5.2",
                         guidance="Refer to Guidance associated with ORG 1.5.3 located in ISM Section 1.",
                         iosa_map=[
@@ -194,6 +198,7 @@ seed_regulations = [
                         ],
                     ),
                     IOSAItem(
+                        page=1,
                         code="FLT 2.1.35",
                         guidance="",
                         iosa_map=[],
@@ -233,6 +238,7 @@ seed_regulations = [
                         ],
                     ),
                     IOSAItem(
+                        page=1,
                         code="FLT 2.1.21",
                         guidance="",
                         iosa_map=[],
@@ -244,6 +250,7 @@ seed_regulations = [
                         ],
                     ),
                     IOSAItem(
+                        page=1,
                         code="FLT 3.1.1",
                         guidance="Refer to the IRM for the definitions of Operations and Operator.",
                         iosa_map=["3 Line Operations", "3.1 Common Language"],
@@ -275,6 +282,7 @@ seed_regulations = [
                 order=3,
                 items=[
                     IOSAItem(
+                        page=1,
                         code="DSP 1.1.1",
                         guidance="",
                         iosa_map=[
@@ -285,6 +293,7 @@ seed_regulations = [
                         constraints=[],
                     ),
                     IOSAItem(
+                        page=1,
                         code="DSP 1.1.2",
                         guidance="",
                         iosa_map=[
@@ -295,6 +304,7 @@ seed_regulations = [
                         constraints=[],
                     ),
                     IOSAItem(
+                        page=1,
                         code="DSP 1.1.3",
                         guidance="",
                         iosa_map=[
@@ -305,6 +315,7 @@ seed_regulations = [
                         constraints=[],
                     ),
                     IOSAItem(
+                        page=1,
                         code="DSP 1.1.4",
                         guidance="",
                         iosa_map=[
@@ -490,7 +501,9 @@ seed_flow_reports = [
                 title="Section 1",
                 checklist_items=[
                     ReportItem(
+                        page=105,
                         code="FLT 1.2.1",
+                        comments='FLT 1.2.1 Seed Comment',
                         manual_references=[],
                     )
                 ],
