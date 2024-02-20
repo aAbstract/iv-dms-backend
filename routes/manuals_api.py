@@ -169,9 +169,28 @@ async def delete_manual(res: Response, doc_uuid: str = Body(embed=True), x_auth=
         success=fs_service_response.success,
         msg=fs_service_response.msg,
     )
-
     # TODO-LATER: remove file from ChatDOC cloud
+@router.post(f"{_ROOT_ROUTE}/rename-manual")
+async def rename_manual(res: Response, doc_uuid: str = Body(embed=True),new_name: str = Body(embed=True), x_auth=Header(alias='X-Auth', default=None)):
+    """ rename an airlines manual from database."""
+    func_id = f"{_MODULE_ID}.rename_manual"
 
+    # authorize user
+    auth_service_response = await security_man.authorize_api(x_auth, [UserRole.ADMIN], func_id)
+    if not auth_service_response.success:
+        res.status_code = auth_service_response.status_code
+        return JsonResponse(
+            success=auth_service_response.success,
+            msg=auth_service_response.msg,
+        )
+    await log_man.add_log(func_id, 'DEBUG', f"received rename manual request: username={auth_service_response.data['token_claims']['username']},organization={auth_service_response.data['token_claims']['organization']}, doc_uuid={doc_uuid}")
+
+    fs_service_response = await fs_index_database_api.rename_fs_index_entry(doc_uuid, auth_service_response.data['token_claims']['organization'],new_name)
+    res.status_code = fs_service_response.status_code
+    return JsonResponse(
+        success=fs_service_response.success,
+        msg=fs_service_response.msg,
+    )
 
 @router.post(f"{_ROOT_ROUTE}/get-page")
 async def get_page(res: Response, manual_id: str = Body(), page_order: int = Body(), x_auth=Header(alias='X-Auth', default=None)) -> JsonResponse:

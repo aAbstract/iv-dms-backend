@@ -84,6 +84,25 @@ async def delete_fs_index_entry(doc_uuid: str, organization: str) -> ServiceResp
 
     return ServiceResponse(msg='OK')
 
+async def rename_fs_index_entry(doc_uuid: str, organization: str, new_name: str) -> ServiceResponse:
+    # fetch entry from database
+    fs_index_entry = await get_database().get_collection('fs_index').find_one({'doc_uuid': doc_uuid})
+    if not fs_index_entry:
+        return ServiceResponse(success=False, status_code=404, msg='File Index not Found')
+    
+    if fs_index_entry['organization'] != organization:
+        return ServiceResponse(success=False, status_code=403, msg="Your organization can't access this file")
+    
+    if not new_name:
+        return ServiceResponse(success=False, status_code=400, msg="You can't rename the file to and empty name")
+
+    # rename fs index filename attribute
+    result = await get_database().get_collection('fs_index').update_one({'doc_uuid': doc_uuid},{'$set':{"filename":new_name}})
+    
+    if not result.acknowledged:
+        return ServiceResponse(success=False, status_code=404, msg='Error renaming File Index Entry')
+
+    return ServiceResponse(msg='OK')
 
 async def list_fs_index(organization: str) -> ServiceResponse:
     fs_index_entries = [

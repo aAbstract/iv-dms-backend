@@ -299,6 +299,42 @@ def test_delete_manual_fs_index():
     json_res_body = json.loads(http_res.content.decode())
     assert (json_res_body['success'] and json_res_body['msg'] == 'OK')
 
+def test_rename_manual_fs_index():
+    admin_access_token = _test_config.login_user('eslam', 'CgJhxwieCc7QEyN3BB7pmvy9MMpseMPV')
+    get_database = _test_config.get_database()
+    assert get_database != None
+
+    # create fs index
+    api_url = f"{_test_config.get_api_url()}/manuals/create-manual"
+    http_headers = {'X-Auth': f"Bearer {admin_access_token}"}
+    http_res = requests.post(api_url, headers=http_headers, files={'file': open('data/non_seeded_sample_file.pdf', 'rb')})
+    assert http_res.status_code == 200
+    json_res_body = json.loads(http_res.content.decode())
+    assert json_res_body['success']
+    assert 'doc_uuid' in json_res_body['data']
+    assert 'file_id' in json_res_body['data']
+    assert 'url_path' in json_res_body['data']
+    doc_id = json_res_body['data']['doc_uuid']
+    file_id = json_res_body['data']['file_id']
+
+    # to not delete a defualt chatdoc id of some other record during testing
+    get_database["fs_index"].find_one_and_update({"_id": ObjectId(file_id)}, {"$set": {"doc_uuid": "TestDocId"}})
+
+    # rename manual
+    http_headers = {'X-Auth': f"Bearer {admin_access_token}"}
+    api_url = f"{_test_config.get_api_url()}/manuals/rename-manual"
+    http_res = requests.post(api_url, headers=http_headers, json={'doc_uuid': "TestDocId","new_name":"TestNewName"})
+    assert http_res.status_code == 200
+    json_res_body = json.loads(http_res.content.decode())
+    assert (json_res_body['success'] and json_res_body['msg'] == 'OK')
+
+    fs_index = get_database["fs_index"].find_one({"_id": ObjectId(file_id)})
+    assert fs_index['filename'] == "TestNewName"
+
+    # delete FSIndex
+    get_database["fs_index"].find_one_and_delete({"_id": ObjectId(file_id)})
+    file_path = os.path.join("public", "airlines_files", "manuals", file_id + ".pdf")
+    os.remove(file_path)
 
 def test_create_manual_fs_index():
     admin_access_token = _test_config.login_user('eslam', 'CgJhxwieCc7QEyN3BB7pmvy9MMpseMPV')

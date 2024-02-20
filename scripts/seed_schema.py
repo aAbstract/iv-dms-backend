@@ -9,6 +9,7 @@ from uuid import uuid4
 from dotenv import load_dotenv
 import code
 import json
+import re
 from bson import ObjectId
 
 
@@ -560,13 +561,12 @@ def seed_routine():
     db.get_collection("unstructured_manuals").create_index("name", unique=True)
 
     print("seeding fs index...")
-    f = open('data/nesma_oma_parts/nesma_oma_metadata.json', 'r')
+    f = open('data/nesma_oma_parts/nesma_oma_metadata_tree.json', 'r')
     json_str = f.read()
     f.close()
     json_obj = json.loads(json_str)
-
-    for file_path in glob('data/nesma_oma_parts/*.pdf'):
-        filename = file_path.split('/')[-1]
+    for file_path in glob(r'data\nesma_oma_parts\*.pdf'):
+        filename = re.split(r'[\\|/]', file_path)[-1]
         traget_mde = [x for x in json_obj if x['filename'] == f"data/nesma_oma_parts/{filename}"][0]
         fs_index_entry = FSIndexFile(
             username='cwael',
