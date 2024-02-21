@@ -404,3 +404,23 @@ def test_get_tree_v2_structure():
     assert json_res_body['success']
     assert 'toc_info' in json_res_body['data']
     assert isinstance(json_res_body['data']['toc_info'], list)
+
+
+def test_get_all_tree_structure():
+    admin_access_token = _test_config.login_user('eslam', 'CgJhxwieCc7QEyN3BB7pmvy9MMpseMPV')
+    get_database = _test_config.get_database()
+    assert get_database != None
+    http_headers = {'X-Auth': f"Bearer {admin_access_token}"}
+
+    # get tree api
+    api_url = f"{_test_config.get_api_url()}/manuals/get-all-trees"
+    payload = {
+    }
+
+    http_res = requests.post(api_url, headers=http_headers, json=payload)
+    assert http_res.status_code == 200
+    json_res_body = json.loads(http_res.content.decode())
+    assert json_res_body['success']
+    assert 'checkins' in json_res_body['data']
+    for checkin in json_res_body['data']['checkins']:
+        FSIndexTree.model_validate(checkin)

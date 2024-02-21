@@ -481,3 +481,32 @@ async def get_tree_v2(res: Response, doc_uuid: str = Body(embed=True), x_auth=He
         return JsonResponse(success=False, msg='File Index not Found', status_code=404)
 
     return JsonResponse(data={'toc_info': fs_index_entry['args']['toc_info']})
+
+@router.post(f"{_ROOT_ROUTE}/get-all-trees")
+async def get_all_trees(res: Response, x_auth=Header(alias='X-Auth', default=None)) -> JsonResponse:
+
+    func_id = f"{_MODULE_ID}.get_all_trees"
+
+    # authorize user
+    auth_service_response = await security_man.authorize_api(x_auth, _ALLOWED_USERS, func_id)
+    if not auth_service_response.success:
+        res.status_code = auth_service_response.status_code
+        return JsonResponse(
+            success=auth_service_response.success,
+            msg=auth_service_response.msg,
+        )
+    username = auth_service_response.data['token_claims']['username']
+    organization = auth_service_response.data['token_claims']['organization']
+    await log_man.add_log(func_id, 'DEBUG', f"received get all trees request: username={username} organization={organization}")
+    
+    # get tree
+    fs_service_response = await fs_index_database_api.get_all_tree_db(organization=organization)
+
+    if not fs_service_response.success:
+        res.status_code = fs_service_response.status_code
+        return JsonResponse(
+            success=fs_service_response.success,
+            msg=fs_service_response.msg,
+        )
+
+    return JsonResponse(data=fs_service_response.data)

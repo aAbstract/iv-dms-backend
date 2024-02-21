@@ -111,7 +111,7 @@ def rearrange_manual_content_tree() -> list[object]:
     for chapter in range(len(data)):
         if chapter != 0:
 
-            if temp_sub4_section.get("name") != None:
+            if temp_sub4_section.get("label") != None:
 
                 if len(all_sub5_section) > 0:
                     temp_sub4_section["pages"].append(get_max(all_sub5_section))
@@ -121,7 +121,7 @@ def rearrange_manual_content_tree() -> list[object]:
                 temp_sub4_section = {"children": [], "pages": []}
                 all_sub5_section = []
 
-            if temp_sub3_section.get("name") != None:
+            if temp_sub3_section.get("label") != None:
 
                 if len(all_sub4_section) > 0:
                     temp_sub3_section["pages"].append(get_max(all_sub4_section))
@@ -131,7 +131,7 @@ def rearrange_manual_content_tree() -> list[object]:
                 temp_sub3_section = {"children": [], "pages": []}
                 all_sub4_section = []
 
-            if temp_sub2_section.get("name") != None:
+            if temp_sub2_section.get("label") != None:
 
                 if len(all_sub3_section) > 0:
                     temp_sub2_section["pages"].append(get_max(all_sub3_section))
@@ -141,7 +141,7 @@ def rearrange_manual_content_tree() -> list[object]:
                 temp_sub2_section = {"children": [], "pages": []}
                 all_sub3_section = []
 
-            if temp_sub1_section.get("name") != None:
+            if temp_sub1_section.get("label") != None:
 
                 if len(all_sub2_section) > 0:
                     temp_sub1_section["pages"].append(get_max(all_sub2_section))
@@ -164,14 +164,14 @@ def rearrange_manual_content_tree() -> list[object]:
             if re.compile(
                 r"(\d+)(\s*)\.(\s*)(\d+)(\s*)\.(\s*)(\d+)(\s*)\.(\s*)(\d+)(\s*)\.(\s*)(\d+)(\s*)\.(\s*)(\d+)(.*)"
             ).fullmatch(i[0]):
-                all_sub5_section.append({"name": i[0].strip(), "pages": [i[1]]})
+                all_sub5_section.append({"label": i[0].strip(), "pages": [i[1]]})
 
             # 1.1.1.1.1
             elif re.compile(
                 r"(\d+)(\s*)\.(\s*)(\d+)(\s*)\.(\s*)(\d+)(\s*)\.(\s*)(\d+)(\s*)\.(\s*)(\d+)(.*)"
             ).fullmatch(i[0]):
 
-                if temp_sub4_section.get("name") != None:
+                if temp_sub4_section.get("label") != None:
 
                     if len(all_sub5_section) > 0:
                         temp_sub4_section["pages"].append(get_max(all_sub5_section))
@@ -182,7 +182,7 @@ def rearrange_manual_content_tree() -> list[object]:
                     all_sub5_section = []
 
                 # current level
-                temp_sub4_section["name"] = i[0].strip()
+                temp_sub4_section["label"] = i[0].strip()
                 temp_sub4_section["pages"].append(i[1])
 
             # 1.1.1.1
@@ -190,7 +190,7 @@ def rearrange_manual_content_tree() -> list[object]:
                 r"(\d+)(\s*)\.(\s*)(\d+)(\s*)\.(\s*)(\d+)(\s*)\.(\s*)(\d+)(.*)"
             ).fullmatch(i[0]):
 
-                if temp_sub4_section.get("name") != None:
+                if temp_sub4_section.get("label") != None:
 
                     if len(all_sub5_section) > 0:
                         temp_sub4_section["pages"].append(get_max(all_sub5_section))
@@ -200,7 +200,7 @@ def rearrange_manual_content_tree() -> list[object]:
                     temp_sub4_section = {"children": [], "pages": []}
                     all_sub5_section = []
 
-                if temp_sub3_section.get("name") != None:
+                if temp_sub3_section.get("label") != None:
 
                     if len(all_sub4_section) > 0:
                         temp_sub3_section["pages"].append(get_max(all_sub4_section))
@@ -211,7 +211,7 @@ def rearrange_manual_content_tree() -> list[object]:
                     all_sub4_section = []
 
                 # current level
-                temp_sub3_section["name"] = i[0].strip()
+                temp_sub3_section["label"] = i[0].strip()
                 temp_sub3_section["pages"].append(i[1])
 
             # 1.1.1
@@ -219,7 +219,7 @@ def rearrange_manual_content_tree() -> list[object]:
                 i[0]
             ):
 
-                if temp_sub4_section.get("name") != None:
+                if temp_sub4_section.get("label") != None:
 
                     if len(all_sub5_section) > 0:
                         temp_sub4_section["pages"].append(get_max(all_sub5_section))
@@ -229,7 +229,7 @@ def rearrange_manual_content_tree() -> list[object]:
                     temp_sub4_section = {"children": [], "pages": []}
                     all_sub5_section = []
 
-                if temp_sub3_section.get("name") != None:
+                if temp_sub3_section.get("label") != None:
 
                     if len(all_sub4_section) > 0:
                         temp_sub3_section["pages"].append(get_max(all_sub4_section))
@@ -239,7 +239,7 @@ def rearrange_manual_content_tree() -> list[object]:
                     temp_sub3_section = {"children": [], "pages": []}
                     all_sub4_section = []
 
-                if temp_sub2_section.get("name") != None:
+                if temp_sub2_section.get("label") != None:
 
                     if len(all_sub3_section) > 0:
                         temp_sub2_section["pages"].append(get_max(all_sub3_section))
@@ -249,13 +249,13 @@ def rearrange_manual_content_tree() -> list[object]:
                     temp_sub2_section = {"children": [], "pages": []}
                     all_sub3_section = []
                 # current level
-                temp_sub2_section["name"] = i[0].strip()
+                temp_sub2_section["label"] = i[0].strip()
                 temp_sub2_section["pages"].append(i[1])
 
             # 1.1
             elif re.compile(r"(\d+)(\s*)\.(\s*)(\d+)(\s*)(.*)").fullmatch(i[0]):
                 # breakpoint()
-                if temp_sub4_section.get("name") != None:
+                if temp_sub4_section.get("label") != None:
 
                     if len(all_sub5_section) > 0:
                         temp_sub4_section["pages"].append(get_max(all_sub5_section))
@@ -265,7 +265,7 @@ def rearrange_manual_content_tree() -> list[object]:
                     temp_sub4_section = {"children": [], "pages": []}
                     all_sub5_section = []
 
-                if temp_sub3_section.get("name") != None:
+                if temp_sub3_section.get("label") != None:
 
                     if len(all_sub4_section) > 0:
                         temp_sub3_section["pages"].append(get_max(all_sub4_section))
@@ -275,7 +275,7 @@ def rearrange_manual_content_tree() -> list[object]:
                     temp_sub3_section = {"children": [], "pages": []}
                     all_sub4_section = []
 
-                if temp_sub2_section.get("name") != None:
+                if temp_sub2_section.get("label") != None:
 
                     if len(all_sub3_section) > 0:
                         temp_sub2_section["pages"].append(get_max(all_sub3_section))
@@ -285,7 +285,7 @@ def rearrange_manual_content_tree() -> list[object]:
                     temp_sub2_section = {"children": [], "pages": []}
                     all_sub3_section = []
 
-                if temp_sub1_section.get("name") != None:
+                if temp_sub1_section.get("label") != None:
 
                     if len(all_sub2_section) > 0:
                         temp_sub1_section["pages"].append(get_max(all_sub2_section))
@@ -295,14 +295,14 @@ def rearrange_manual_content_tree() -> list[object]:
                     temp_sub1_section = {"children": [], "pages": []}
                     all_sub2_section = []
                 # current level
-                temp_sub1_section["name"] = i[0].strip()
+                temp_sub1_section["label"] = i[0].strip()
                 temp_sub1_section["pages"].append(i[1])
 
             else:
                 print("problem in manually parsing chapter")
 
     # breakpoint()
-    if temp_sub4_section.get("name") != None:
+    if temp_sub4_section.get("label") != None:
 
         if len(all_sub5_section) > 0:
             temp_sub4_section["pages"].append(get_max(all_sub5_section))
@@ -312,7 +312,7 @@ def rearrange_manual_content_tree() -> list[object]:
         temp_sub4_section = {"children": [], "pages": []}
         all_sub5_section = []
 
-    if temp_sub3_section.get("name") != None:
+    if temp_sub3_section.get("label") != None:
 
         if len(all_sub4_section) > 0:
             temp_sub3_section["pages"].append(get_max(all_sub4_section))
@@ -322,7 +322,7 @@ def rearrange_manual_content_tree() -> list[object]:
         temp_sub3_section = {"children": [], "pages": []}
         all_sub4_section = []
 
-    if temp_sub2_section.get("name") != None:
+    if temp_sub2_section.get("label") != None:
 
         if len(all_sub3_section) > 0:
             temp_sub2_section["pages"].append(get_max(all_sub3_section))
@@ -332,7 +332,7 @@ def rearrange_manual_content_tree() -> list[object]:
         temp_sub2_section = {"children": [], "pages": []}
         all_sub3_section = []
 
-    if temp_sub1_section.get("name") != None:
+    if temp_sub1_section.get("label") != None:
 
         if len(all_sub2_section) > 0:
             temp_sub1_section["pages"].append(get_max(all_sub2_section))

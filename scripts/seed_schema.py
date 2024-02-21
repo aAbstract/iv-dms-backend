@@ -504,7 +504,7 @@ seed_flow_reports = [
                     ReportItem(
                         page=105,
                         code="FLT 1.2.1",
-                        comments='FLT 1.2.1 Seed Comment',
+                        comments="FLT 1.2.1 Seed Comment",
                         manual_references=[],
                     )
                 ],
@@ -561,24 +561,38 @@ def seed_routine():
     db.get_collection("unstructured_manuals").create_index("name", unique=True)
 
     print("seeding fs index...")
-    f = open('data/nesma_oma_parts/nesma_oma_metadata_tree.json', 'r')
+    f = open("data/nesma_oma_parts/nesma_oma_metadata_tree.json", "r")
     json_str = f.read()
     f.close()
     json_obj = json.loads(json_str)
-    for file_path in glob(r'data\nesma_oma_parts\*.pdf'):
-        filename = re.split(r'[\\|/]', file_path)[-1]
-        traget_mde = [x for x in json_obj if x['filename'] == f"data/nesma_oma_parts/{filename}"][0]
+
+    fs_index_chat_doc_ids = {
+        "nesma_ch15.pdf": "e1fb39f6-9c86-4b58-8ccb-0aebb1dbf075",
+        "nesma_ch12.pdf": "79a57df5-5047-413f-9b88-68abc13b98a5",
+    }
+
+    for file_path in glob(r"data\nesma_oma_parts\*.pdf"):
+        filename = re.split(r"[\\|/]", file_path)[-1]
+        traget_mde = [
+            x for x in json_obj if x["filename"] == f"data/nesma_oma_parts/{filename}"
+        ][0]
         fs_index_entry = FSIndexFile(
-            username='cwael',
+            username="cwael",
             datetime=datetime.now(),
             file_type=IndexFileType.AIRLINES_MANUAL,
             filename=filename,
-            doc_uuid=str(uuid4()),
+            doc_uuid=(
+                fs_index_chat_doc_ids[filename]
+                if fs_index_chat_doc_ids.get(filename) != None
+                else str(uuid4())
+            ),
             doc_status=ChatDOCStatus.PARSED,
             organization="AeroSync",
-            args={'toc_info': traget_mde['toc_info']}
+            args={"toc_info": traget_mde["toc_info"]},
         )
-        mdb_result = db.get_collection("fs_index").insert_one(fs_index_entry.model_dump())
+        mdb_result = db.get_collection("fs_index").insert_one(
+            fs_index_entry.model_dump()
+        )
         file_id = str(mdb_result.inserted_id)
         dst_path = f"public/airlines_files/manuals/{file_id}.pdf"
         shutil.copy2(file_path, dst_path)

@@ -258,3 +258,23 @@ async def get_tree_structure(text: str) -> ServiceResponse:
         all_chapters.append(dict(temp_chapter))
 
     return ServiceResponse(data={'tree': all_chapters})
+
+
+async def get_all_tree_db(organization:str) -> ServiceResponse:
+    fs_index_entries = [
+        fs_index
+        async for fs_index in get_database()
+        .get_collection("fs_index")
+        .find({"$and": [{'organization': organization}, {'file_type': 'AIRLINES_MANUAL'}]}, projection={"_id":0,"doc_uuid": 1,"label":"$filename", "children": "$args.toc_info"})
+    ]
+
+    uuids_set = set()
+    filtred = []
+    for x in fs_index_entries:
+        doc_uuid = x['doc_uuid']
+        if doc_uuid not in uuids_set:
+            uuids_set.add(doc_uuid)
+            FSIndexTree.model_validate(x)
+            filtred.append(x)
+
+    return ServiceResponse(data={"checkins": filtred})

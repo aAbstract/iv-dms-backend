@@ -43,7 +43,12 @@ class FSIndexFile(BaseModel):
     args: dict = {}
 
 
-class FSIndexTree(BaseModel):
-    name: str
+class FSIndexNode(BaseModel):
+    label: str
     pages: list[int]
-    children: Optional[list['FSIndexTree']] = None
+    children: Optional[list['FSIndexNode']] = None
+
+class FSIndexTree(BaseModel):
+    doc_uuid: str
+    label: str
+    children: Optional[list['FSIndexNode']] = None
