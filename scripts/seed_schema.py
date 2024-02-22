@@ -580,7 +580,7 @@ def seed_routine():
         "nesma_ch15.pdf": "e1fb39f6-9c86-4b58-8ccb-0aebb1dbf075",
         "nesma_ch12.pdf": "79a57df5-5047-413f-9b88-68abc13b98a5",
     }
-
+    file_id = ""
     for file_path in glob(r"data\nesma_OMA\*.pdf"):
         filename = re.split(r"[\\|/]", file_path)[-1]
         traget_mde = [
@@ -646,7 +646,7 @@ def seed_routine():
     print("creating regulations source maps indexes...")
     db.get_collection("regulations_source_maps").create_index("code", unique=True)
 
-    print("seeding flow reports...")
+    print("seeding flow reports...", file_id)
     for report in seed_flow_reports:
         report = report.model_dump()
         report["regulation_id"] = str(iosa_e16r2_id)
