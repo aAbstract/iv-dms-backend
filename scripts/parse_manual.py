@@ -102,6 +102,4 @@ def create_manual_content_tree() -> list[tuple[str, int]]:
     f.close()
 
 
-# create_parts_metadata_file()
-# create_manual_toc_tree()
 create_manual_content_tree()

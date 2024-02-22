@@ -1,4 +1,5 @@
 # autopep8: off
+import os
 import uvicorn
 from fastapi import FastAPI
 from fastapi.staticfiles import StaticFiles
@@ -30,9 +31,9 @@ async def lifespan(app: FastAPI):
 
 
 server = FastAPI(
-    title='IV DMS Backend',
-    description='Added IOSA Regulation Pages Links',
-    version="0.36.0",
+    title=os.environ['SERVER_NAME'],
+    description='Added Dev Branch',
+    version="0.37.0",
     lifespan=lifespan,
 )
 server.add_middleware(
@@ -64,4 +65,4 @@ server.mount('/', StaticFiles(directory='public', html=True), name='public')
 
 
 if __name__ == '__main__':
-    uvicorn.run(server, host='0.0.0.0', port=8080)
+    uvicorn.run(server, host='0.0.0.0', port=int(os.environ['SERVER_PORT']))
