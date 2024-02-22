@@ -4,7 +4,7 @@ import os
 from pymongo import MongoClient
 
 _SERVER_ADDR = '127.0.0.1'
-_SERVER_PORT = 8080
+_SERVER_PORT = 8081
 
 
 def get_api_url():
@@ -25,7 +25,7 @@ def login_user(username: str, password: str) -> str:
     return json_res_body['data']['access_token']
 
 def get_database():
-    connection_string = f"mongodb://{os.environ['MDB_USERNAME']}:{os.environ['MDB_PASSWORD']}@127.0.0.1:27018"
+    connection_string = f"mongodb://{os.environ['MDB_USERNAME']}:{os.environ['MDB_PASSWORD']}@127.0.0.1"
     mdb_client = MongoClient(connection_string)
 
     if mdb_client:
