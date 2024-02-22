@@ -40,10 +40,24 @@ class FSIndexFile(BaseModel):
     doc_uuid: str
     doc_status: ChatDOCStatus
     organization: str
+    parent:Optional[str] = ""
     args: dict = {}
 
 
-class FSIndexTree(BaseModel):
-    name: str
+class FSIndexNode(BaseModel):
+    label: str
     pages: list[int]
+    key:str
+    children: Optional[list['FSIndexNode']] = None
+
+class FSIndexTree(BaseModel):
+    doc_uuid: str
+    label: str
+    children: Optional[list['FSIndexNode']] = None
+    key:str
+
+class FSIndexFileTree(BaseModel):
+    label: str
+    pages: list[int]
+    key:str
     children: Optional[list['FSIndexTree']] = None

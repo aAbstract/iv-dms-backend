@@ -7,6 +7,8 @@ import re
 import unicodedata
 from PyPDF2 import PdfReader
 from dotenv import load_dotenv
+
+
 def load_root_path():
     file_dir = os.path.abspath(__file__)
     lv1_dir = os.path.dirname(file_dir)
@@ -17,7 +19,82 @@ def load_root_path():
 load_root_path()
 load_dotenv()
 from models.regulations import *
+
 # autopep8: on
+
+
+def convert_to_markdown(text):
+    def replace_listing(match):
+        listing_type = match.group(1)
+
+        if listing_type.lower() in [
+            "i",
+            "ii",
+            "iii",
+            "iv",
+            "v",
+            "vi",
+            "vii",
+            "viii",
+            "ix",
+            "x",
+            "xi",
+            "xii",
+            "xiii",
+            "xiv",
+            "xv",
+            "xvi",
+            "xvii",
+            "xviii",
+            "xix",
+            "xx",
+            "xxi",
+            "xxii",
+            "xxiii",
+            "xxiv",
+            "xxv",
+            "xxvi",
+            "xxvii",
+            "xxviii",
+            "xxix",
+            "xxx",
+        ]:
+            return f"\n\n\t({listing_type.lower()})"
+        elif listing_type.lower() in [
+            "a",
+            "b",
+            "c",
+            "d",
+            "e",
+            "f",
+            "g",
+            "h",
+            "i",
+            "j",
+            "k",
+            "l",
+            "m",
+            "n",
+            "o",
+            "p",
+            "q",
+            "r",
+            "s",
+            "t",
+            "u",
+            "v",
+            "w",
+            "x",
+            "y",
+            "z",
+        ]:
+            return f"\n\n\t\t({listing_type.lower()})"
+        else:
+            return f"({listing_type})"
+
+    markdown_text = re.sub(r"\w\n\w", " ", text)
+    markdown_text = re.sub(r"\n\((\w+)\)", replace_listing, markdown_text)
+    return markdown_text
 
 
 def clean(text, allowed=list(string.printable)):
@@ -54,6 +131,9 @@ def extract(path):
     all_pages = []
     reader = PdfReader(path)
     pages = reader.pages
+    page_number = 0
+    char_count = 0
+    all_page_count = []
 
     for i in pages:
         parts = []
@@ -68,8 +148,11 @@ def extract(path):
         i.extract_text(visitor_text=visitor_body)
         text_body = "".join(parts)
         all_pages.append(text_body)
+        all_page_count.append({"count":char_count, "page":page_number})
+        char_count += len(text_body)
+        page_number+=1
 
-    return all_pages
+    return all_pages , all_page_count
 
 
 def contains_span(span, span_array):
@@ -207,7 +290,7 @@ def extract_section_header(text, first_flt_span, filename):
     section_name = (
         re.match(section_name_reg, section_header_text).group()[:-1].strip("\n").strip()
     )
-    section_code = section_name[section_name.find("(") + 1: -1].strip("\n").strip()
+    section_code = section_name[section_name.find("(") + 1 : -1].strip("\n").strip()
 
     gg = re.search(general_guidence_reg, section_header_text).span()[0]
     ap = re.search(applicability_reg, section_header_text).span()[0]
@@ -222,16 +305,12 @@ def extract_section_header(text, first_flt_span, filename):
     }
 
 
-def extract_section_text(text, section_code):
+def extract_section_text(text,section_code,all_page_count, page_start):
 
-    flts = fr"({section_code}\s*)([0-9]+(\.[0-9]+)*)([A-Za-z]*)(\-([0-9]+(\.[0-9]+)*)([A-Za-z]*))*"
+    flts = rf"({section_code}\s*)([0-9]+(\.[0-9]+)*)([A-Za-z]*)(\-([0-9]+(\.[0-9]+)*)([A-Za-z]*))*"
 
-    in_text_flts_beg = (
-        fr". ({section_code}\s*)([0-9]+(\.[0-9]+)*)([A-Za-z]*)(\-([0-9]+(\.[0-9]+)*)([A-Za-z]*))*"
-    )
-    in_text_flts_end = (
-        fr"({section_code}\s*)([0-9]+(\.[0-9]+)*)([A-Za-z]*)(\-([0-9]+(\.[0-9]+)*)([A-Za-z]*))* ."
-    )
+    in_text_flts_beg = rf". ({section_code}\s*)([0-9]+(\.[0-9]+)*)([A-Za-z]*)(\-([0-9]+(\.[0-9]+)*)([A-Za-z]*))*"
+    in_text_flts_end = rf"({section_code}\s*)([0-9]+(\.[0-9]+)*)([A-Za-z]*)(\-([0-9]+(\.[0-9]+)*)([A-Za-z]*))* ."
     auditor_actions_reg = r"\nAuditor Actions\n"
     Guidence_reg = r"\nGuidance\n"
     gm_reg = r"\(GM\)"
@@ -244,7 +323,7 @@ def extract_section_text(text, section_code):
 
     # parse header source map
     header_source_map = None
-    with open(f"data/{filename}_map.json", 'r') as f:
+    with open(f"data/parsed_iosa/{filename}_map.json", "r") as f:
         header_source_map = json.loads(f.read())
 
     for i in re.finditer(flts, text):
@@ -265,32 +344,41 @@ def extract_section_text(text, section_code):
     flts_spans = flts_spans_clean[:]
 
     for i in range(0, len(flts_spans) - 1):
-        header = text[flts_spans[i][0]: flts_spans[i][1]].strip("\n").strip()
+        header = text[flts_spans[i][0] : flts_spans[i][1]].strip("\n").strip()
 
-        paragraph = text[flts_spans[i][1]: flts_spans[i + 1][0]]
+        paragraph = text[flts_spans[i][1] : flts_spans[i + 1][0]]
 
         gg = re.search(Guidence_reg, paragraph)
         if gg:
-            guidence = paragraph[gg.span()[0]:].strip("\n").strip()
+            guidence = paragraph[gg.span()[0] :].strip("\n").strip()
             paragraph = paragraph[: gg.span()[0]]
 
         aa = re.search(auditor_actions_reg, paragraph)
         if aa:
-            auditor_actions = paragraph[aa.span()[0]:].strip("\n").strip()
+            auditor_actions = paragraph[aa.span()[0] :].strip("\n").strip()
             paragraph = paragraph[: aa.span()[0]]
 
         gm = re.search(gm_reg, paragraph)
         if gm:
-            gm_text = paragraph[gm.span()[0]:].strip("\n").strip()
+            gm_text = paragraph[gm.span()[0] :].strip("\n").strip()
             paragraph = paragraph[: gm.span()[0]]
 
         sms = re.search(sms_reg, paragraph)
         if sms:
-            sms_text = paragraph[sms.span()[0]:].strip("\n").strip()
+            sms_text = paragraph[sms.span()[0] :].strip("\n").strip()
             paragraph = paragraph[: sms.span()[0]]
 
+        page_number = None
+        # find the page number
+        for char_range in range(len(all_page_count)):
+            if(all_page_count[char_range]['count'] >= flts_spans[i][1]):
+                page_number = all_page_count[char_range-1]['page']
+                break
+        if(page_number == None):
+            page_number = all_page_count[-1]['page']
+
         # parse header source map
-        idxs = header.split(' ')[1].split('.')
+        idxs = header.split(" ")[1].split(".")
         section_index = int(idxs[0]) - 1
         sub_section_index = int(idxs[1]) - 1
 
@@ -298,44 +386,61 @@ def extract_section_text(text, section_code):
             {
                 "code": header,
                 "guidence": guidence if guidence else None,
-                "iosa_map": [header_source_map[section_index]['title'], header_source_map[section_index]['sub_sections'][sub_section_index]],
-                "paragraph": paragraph.strip(),
+                "iosa_map": [
+                    header_source_map[section_index]["title"],
+                    header_source_map[section_index]["sub_sections"][sub_section_index],
+                ],
+                "paragraph": convert_to_markdown(paragraph.strip()),
+                "page": page_number + page_start,
                 # "constraints": parse_paragraph(paragraph),
             }
         )
-    header = text[flts_spans[-1][0]: flts_spans[-1][1]].strip("\n").strip()
-    paragraph: str = text[flts_spans[-1][1]:]
+    header = text[flts_spans[-1][0] : flts_spans[-1][1]].strip("\n").strip()
+    paragraph: str = text[flts_spans[-1][1] :]
     gg = re.search(Guidence_reg, paragraph)
     if gg:
-        guidence = paragraph[gg.span()[0]:].strip("\n").strip()
+        guidence = paragraph[gg.span()[0] :].strip("\n").strip()
         paragraph = paragraph[: gg.span()[0]]
 
     aa = re.search(auditor_actions_reg, paragraph)
     if aa:
-        auditor_actions = paragraph[aa.span()[0]:].strip("\n").strip()
+        auditor_actions = paragraph[aa.span()[0] :].strip("\n").strip()
         paragraph = paragraph[: aa.span()[0]]
 
     gm = re.search(gm_reg, paragraph)
     if gm:
-        gm_text = paragraph[gm.span()[0]:].strip("\n").strip()
+        gm_text = paragraph[gm.span()[0] :].strip("\n").strip()
         paragraph = paragraph[: gm.span()[0]]
 
     sms = re.search(sms_reg, paragraph)
     if sms:
-        sms_text = paragraph[sms.span()[0]:].strip("\n").strip()
+        sms_text = paragraph[sms.span()[0] :].strip("\n").strip()
         paragraph = paragraph[: sms.span()[0]]
 
     # parse header source map
-    idxs = header.split(' ')[1].split('.')
+    idxs = header.split(" ")[1].split(".")
     section_index = int(idxs[0]) - 1
     sub_section_index = int(idxs[1]) - 1
+
+    page_number = None
+    # find the page number
+    for char_range in range(len(all_page_count)):
+        if all_page_count[char_range]["count"] >= flts_spans[i][1]:
+            page_number = all_page_count[char_range - 1]["page"]
+            break
+    if page_number == None:
+        page_number = all_page_count[-1]["page"]
 
     all_sections.append(
         {
             "code": header,
             "guidence": guidence if guidence else None,
-            "iosa_map": [header_source_map[section_index]['title'], header_source_map[section_index]['sub_sections'][sub_section_index]],
-            "paragraph": paragraph.strip(),
+            "iosa_map": [
+                header_source_map[section_index]["title"],
+                header_source_map[section_index]["sub_sections"][sub_section_index],
+            ],
+            "paragraph": convert_to_markdown(paragraph.strip()),
+            "page": page_number + page_start,
             # "constraints": parse_paragraph(paragraph),
         }
     )
@@ -344,12 +449,14 @@ def extract_section_text(text, section_code):
 
 
 if __name__ == "__main__":
-    codes = ["cab", 'cgo', 'dsp', 'grh', 'mnt', 'org', 'sec', 'flt']
-    for i in codes:
+    codes = ["cab", "cgo", "dsp", "grh", "mnt", "org", "sec", "flt"]
+    page_starts = [478, 611, 288, 547, 392, 40, 646, 104]
+
+    for i, g in zip(codes, page_starts):
         filename = f"iosa_{i}"
         code = i.upper()
 
-        all_pages = extract(f"data/{filename}.pdf")
+        all_pages, all_page_count = extract(f"data/parsed_iosa/{filename}.pdf")
 
         # remove all unallowed chars
         for z in range(len(all_pages)):
@@ -357,7 +464,9 @@ if __name__ == "__main__":
 
         all_pages = " ".join(all_pages)
 
-        all_sections, first_flt_span = extract_section_text(all_pages, code)
+        all_sections, first_flt_span = extract_section_text(
+            all_pages, code, all_page_count, g
+        )
         section = extract_section_header(all_pages, first_flt_span, filename)
 
         section["items"] = all_sections
@@ -372,8 +481,8 @@ if __name__ == "__main__":
         )
 
         # write to a separate json file
-        file_path = f"data/{filename}.json"
-        with open(file_path, 'w') as fp:
+        file_path = f"data/parsed_iosa/{filename}.json"
+        with open(file_path, "w") as fp:
             json.dump(section.model_dump(), fp, indent=4)
         print(f"output file: {file_path}")
         # TODO: change data source file names

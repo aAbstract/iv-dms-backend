@@ -98,6 +98,7 @@ async def scan_doc(doc_id: str, filename: str, iosa_item: IOSAItem, ai_task_id: 
             "language": "en",
             "model_type": "gpt-4"
         })
+        breakpoint()
 
         if llm_debug:
             print(f"CHAT_DOC_GPT_4 reponse time: {time.time() - llm_start}s")
@@ -135,6 +136,5 @@ async def scan_doc(doc_id: str, filename: str, iosa_item: IOSAItem, ai_task_id: 
             match['refs'] = [json_res['data']['source_info'][x - 1] for x in match['refs'] if isinstance(x, int)]  # map source info
             match['refs'] = [int(list(x.keys())[0]) + 1 for x in match['refs']]  # map source info to page numbers
             match['refs'] = list(set(match['refs']))  # extract unique page numbers
-
         await ai_tasks_database_api.set_ai_task_status(ai_task_id, AITaskStatus.FINISHED)
-        await ai_tasks_database_api.set_ai_task_resp(ai_task_id, JsonResponse(data={'matches': model_json_answer}))
+        await ai_tasks_database_api.set_ai_task_resp(ai_task_id, JsonResponse(data={'matches': match['refs']}))

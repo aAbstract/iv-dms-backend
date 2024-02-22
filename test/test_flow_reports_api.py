@@ -17,7 +17,13 @@ def load_root_path():
 
 load_root_path()
 load_dotenv()
-from models.flow_reports import (FinalComment, FlowReportStatus, UserChangeType)
+from models.flow_reports import (
+    AuditorActions,
+    FinalComment,
+    FlowReportStatus,
+    UserChangeType,
+)
+
 # autopep8: on
 
 
@@ -95,7 +101,7 @@ def test_create_flow_report():
         "organization",
         "_id",
         "creator",
-        "user_changes"
+        "user_changes",
     }
     assert json_res_body["data"]["flow_report"]["title"] == "Test Title"
 
@@ -106,9 +112,7 @@ def test_create_flow_report():
     assert flow_report["_id"]
     assert flow_report["title"] == "Test Title"
     assert "user_changes" in flow_report
-    assert (
-        flow_report["user_changes"][0]["change_type"] == UserChangeType.CREATE
-    )
+    assert flow_report["user_changes"][0]["change_type"] == UserChangeType.CREATE
 
 
 def test_list_flow_report():
@@ -157,12 +161,12 @@ def test_list_flow_report():
         "organization",
         "_id",
         "creator",
-        "user_changes"
+        "user_changes",
     }
     assert json_res_body["data"]["flow_report"]["title"] == "Test Title"
     assert json_res_body["data"]["flow_report"]["code"] == "FLT 2"
 
-    flow_report_id = json_res_body["data"]['flow_report']["_id"]
+    flow_report_id = json_res_body["data"]["flow_report"]["_id"]
 
     # test api
     api_url = f"{_test_config.get_api_url()}/flow_report/list-flow-report"
@@ -188,7 +192,9 @@ def test_list_flow_report():
     }
 
     # reset db
-    flow_report = get_database["flow_reports"].find_one_and_delete({"_id": ObjectId(flow_report_id)})
+    flow_report = get_database["flow_reports"].find_one_and_delete(
+        {"_id": ObjectId(flow_report_id)}
+    )
     assert flow_report["_id"]
 
 
@@ -229,9 +235,12 @@ def test_get_flow_report():
     assert "flow_report" in json_res_body["data"]
 
     # get status before change
-    assert "user_changes" in json_res_body["data"]['flow_report']
+    assert "user_changes" in json_res_body["data"]["flow_report"]
     change_size = len(json_res_body["data"]["flow_report"]["user_changes"])
-    assert json_res_body["data"]["flow_report"]["user_changes"][0]['change_type'] == UserChangeType.CREATE
+    assert (
+        json_res_body["data"]["flow_report"]["user_changes"][0]["change_type"]
+        == UserChangeType.CREATE
+    )
     obj_keys = set(json_res_body["data"]["flow_report"])
 
     assert obj_keys == {
@@ -242,7 +251,7 @@ def test_get_flow_report():
         "organization",
         "_id",
         "creator",
-        "user_changes"
+        "user_changes",
     }
     assert json_res_body["data"]["flow_report"]["title"] == "Test Title"
     assert json_res_body["data"]["flow_report"]["code"] == "FLT 2"
@@ -276,7 +285,7 @@ def test_get_flow_report():
         "guidance",
         "_id",
         "creator",
-        "user_changes"
+        "user_changes",
     }
 
     # reset flow report
@@ -285,9 +294,7 @@ def test_get_flow_report():
     )
     assert "user_changes" in flow_report
     assert change_size + 1 == len(flow_report["user_changes"])
-    assert (
-        flow_report["user_changes"][1]["change_type"] == UserChangeType.VIEW
-    )
+    assert flow_report["user_changes"][1]["change_type"] == UserChangeType.VIEW
     assert flow_report["_id"]
     assert flow_report["title"] == "Test Title"
     assert flow_report["code"] == "FLT 2"
@@ -332,9 +339,12 @@ def test_delete_flow_report():
     assert "flow_report" in json_res_body["data"]
 
     # get status before change
-    assert "user_changes" in json_res_body["data"]['flow_report']
+    assert "user_changes" in json_res_body["data"]["flow_report"]
     change_size = len(json_res_body["data"]["flow_report"]["user_changes"])
-    assert json_res_body["data"]["flow_report"]["user_changes"][0]['change_type'] == UserChangeType.CREATE
+    assert (
+        json_res_body["data"]["flow_report"]["user_changes"][0]["change_type"]
+        == UserChangeType.CREATE
+    )
 
     obj_keys = set(json_res_body["data"]["flow_report"])
     assert obj_keys == {
@@ -345,7 +355,7 @@ def test_delete_flow_report():
         "organization",
         "_id",
         "creator",
-        "user_changes"
+        "user_changes",
     }
     assert json_res_body["data"]["flow_report"]["title"] == "Test Title"
     assert json_res_body["data"]["flow_report"]["code"] == "FLT 2"
@@ -363,13 +373,13 @@ def test_delete_flow_report():
     json_res_body = json.loads(http_res.content.decode())
     assert json_res_body["success"]
     flow_report = get_database["flow_reports"].find_one({"_id": ObjectId(report_id)})
-    assert flow_report['status'] == FlowReportStatus.DELETED
+    assert flow_report["status"] == FlowReportStatus.DELETED
     assert "user_changes" in flow_report
     assert change_size + 1 == len(flow_report["user_changes"])
-    assert (
-        flow_report["user_changes"][1]["change_type"] == UserChangeType.DELETE
+    assert flow_report["user_changes"][1]["change_type"] == UserChangeType.DELETE
+    flow_report = get_database["flow_reports"].find_one_and_delete(
+        {"_id": ObjectId(report_id)}
     )
-    flow_report = get_database["flow_reports"].find_one_and_delete({"_id": ObjectId(report_id)})
     assert flow_report["_id"]
 
 
@@ -420,28 +430,37 @@ def test_update_flow_report_sub_sections():
         "organization",
         "_id",
         "creator",
-        "user_changes"
+        "user_changes",
     }
     assert json_res_body["data"]["flow_report"]["title"] == "Test Title"
     assert json_res_body["data"]["flow_report"]["code"] == "FLT 1"
-    flow_report_id = json_res_body["data"]["flow_report"]['_id']
+    flow_report_id = json_res_body["data"]["flow_report"]["_id"]
 
     # get status before change
-    assert "user_changes" in json_res_body["data"]['flow_report']
+    assert "user_changes" in json_res_body["data"]["flow_report"]
     change_size = len(json_res_body["data"]["flow_report"]["user_changes"])
-    assert json_res_body["data"]["flow_report"]["user_changes"][0]['change_type'] == UserChangeType.CREATE
+    assert (
+        json_res_body["data"]["flow_report"]["user_changes"][0]["change_type"]
+        == UserChangeType.CREATE
+    )
 
     # create fs index
     api_url = f"{_test_config.get_api_url()}/attachments/create-attachment"
-    http_res = requests.post(api_url, headers=http_headers, files={'file': open('data/sample_attachment.png', 'rb')})
+    http_res = requests.post(
+        api_url,
+        headers=http_headers,
+        files={"file": open("data/sample_attachment.png", "rb")},
+    )
     assert http_res.status_code == 200
     json_res_body = json.loads(http_res.content.decode())
-    assert json_res_body['success']
-    assert 'file_id' in json_res_body['data']
-    assert 'url_path' in json_res_body['data']
-    file_id = str(json_res_body['data']['file_id'])
+    assert json_res_body["success"]
+    assert "file_id" in json_res_body["data"]
+    assert "url_path" in json_res_body["data"]
+    file_id = str(json_res_body["data"]["file_id"])
     # validate create attachment
-    file_url = f"{_test_config.get_file_server_url()}{json_res_body['data']['url_path']}"
+    file_url = (
+        f"{_test_config.get_file_server_url()}{json_res_body['data']['url_path']}"
+    )
     http_res = requests.get(file_url)
     assert http_res.status_code == 200
 
@@ -453,13 +472,15 @@ def test_update_flow_report_sub_sections():
                     {
                         "page": 104,
                         "code": "FLT 1.1.1",
-                        "manual_references": [
-                            {"fs_index": file_id, "pages": [1, 2, 3]}
-                        ],
+                        "manual_references": {"fs_index": file_id, "pages": [1, 2, 3]},
                         "final_comment": FinalComment.DOCNOTIMP,
                         "comments": "Test Comment",
-                        "actions": "Test actions",
-                        "fs_index": file_id
+                        "actions": [
+                            AuditorActions.EX_SYLLABI,
+                            AuditorActions.EX_TRAINING,
+                        ],
+                        "other_actions": "TestOtherActions",
+                        "fs_index": file_id,
                     }
                 ],
             }
@@ -469,7 +490,9 @@ def test_update_flow_report_sub_sections():
     }
 
     # test api
-    api_url = f"{_test_config.get_api_url()}/flow_report/update-flow-report-sub-sections"
+    api_url = (
+        f"{_test_config.get_api_url()}/flow_report/update-flow-report-sub-sections"
+    )
 
     http_res = requests.post(api_url, headers=http_headers, json=payload)
 
@@ -479,28 +502,43 @@ def test_update_flow_report_sub_sections():
 
     # get status after change
     flow_report = get_database["flow_reports"].find_one(
-        {"_id": ObjectId(flow_report_id)})
+        {"_id": ObjectId(flow_report_id)}
+    )
 
     assert "_id" in flow_report
     assert "sub_sections" in flow_report
 
-    assert flow_report['sub_sections'][0]['checklist_items'][0]['manual_references'][0] == {"fs_index": file_id, "pages": [1, 2, 3]}
-    assert flow_report['sub_sections'][0]['checklist_items'][0]['final_comment'] == FinalComment.DOCNOTIMP
-    assert flow_report['sub_sections'][0]['checklist_items'][0]['comments'] == "Test Comment"
-    assert flow_report['sub_sections'][0]['checklist_items'][0]['actions'] == "Test actions"
-    assert flow_report['sub_sections'][0]['checklist_items'][0]['actions'] == "Test actions"
-    assert flow_report['sub_sections'][0]['checklist_items'][0]['fs_index'] == file_id
+    assert flow_report["sub_sections"][0]["checklist_items"][0][
+        "manual_references"
+    ] == {"fs_index": file_id, "pages": [1, 2, 3]}
+    assert (
+        flow_report["sub_sections"][0]["checklist_items"][0]["final_comment"]
+        == FinalComment.DOCNOTIMP
+    )
+    assert (
+        flow_report["sub_sections"][0]["checklist_items"][0]["comments"]
+        == "Test Comment"
+    )
+    assert flow_report["sub_sections"][0]["checklist_items"][0]["actions"] == [
+        AuditorActions.EX_SYLLABI,
+        AuditorActions.EX_TRAINING,
+    ]
+    assert (
+        flow_report["sub_sections"][0]["checklist_items"][0]["other_actions"]
+        == "TestOtherActions"
+    )
+    assert flow_report["sub_sections"][0]["checklist_items"][0]["fs_index"] == file_id
 
     # check user change object after
     assert "user_changes" in flow_report
     assert change_size + 1 == len(flow_report["user_changes"])
-    assert (
-        flow_report["user_changes"][1]["change_type"] == UserChangeType.UPDATE
-    )
+    assert flow_report["user_changes"][1]["change_type"] == UserChangeType.UPDATE
     assert flow_report["user_changes"][1]["user_comment"] == "Test Comment"
 
     # reset
-    get_database["fs_index"].find_one_and_delete({"_id":ObjectId(file_id)})
+    get_database["fs_index"].find_one_and_delete({"_id": ObjectId(file_id)})
 
-    flow_report = get_database["flow_reports"].find_one_and_delete({"_id": ObjectId(flow_report["_id"])})
+    flow_report = get_database["flow_reports"].find_one_and_delete(
+        {"_id": ObjectId(flow_report["_id"])}
+    )
     assert flow_report["_id"]

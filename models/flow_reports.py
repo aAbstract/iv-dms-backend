@@ -24,6 +24,12 @@ class FinalComment(str, Enum):
     NOTDOCIMP = "Not Documented, Implemented"
     DOCIMP = "Documented, Implemented"
 
+class AuditorActions(str, Enum):
+    IDENTIFIED = "IDENTIFIED"
+    INTERVIEWED = "INTERVIEWED"
+    EX_SYLLABI = "EX_SYLLABI"
+    EX_TRAINING = "EX_TRAINING"
+
 class ManualReference(BaseModel):
     fs_index: str
     pages: list[int] = []
@@ -31,10 +37,11 @@ class ManualReference(BaseModel):
 class ReportItem(BaseModel):
     code: str
     page: int
-    manual_references: list[ManualReference] = []
+    manual_references: Optional[dict] = {}
     final_comment: Optional[FinalComment] = None
     comments: Optional[str] = None
-    actions: Optional[str] = None
+    actions: list[AuditorActions] = []
+    other_actions : Optional[str] = None
     fs_index: Optional[str] = None
     # attachment ~ fs index id
 
