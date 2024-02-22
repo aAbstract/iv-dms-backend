@@ -36,7 +36,7 @@ from models.flow_reports import *
 
 # main
 client = pymongo.MongoClient(
-    f"mongodb://{os.environ['MDB_USERNAME']}:{os.environ['MDB_PASSWORD']}@127.0.0.1"
+    f"mongodb://{os.environ['MDB_USERNAME']}:{os.environ['MDB_PASSWORD']}@127.0.0.1:27018"
 )
 db = client.get_database(os.environ["IVDMS_DB"])
 

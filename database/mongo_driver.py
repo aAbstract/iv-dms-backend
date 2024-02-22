@@ -11,7 +11,7 @@ mdb_client: maio.AsyncIOMotorClient | None = None
 async def mongodb_connect():
     func_id = 'mongodb_connect'
     global mdb_client
-    connection_string = f"mongodb://{os.environ['MDB_USERNAME']}:{os.environ['MDB_PASSWORD']}@127.0.0.1"
+    connection_string = f"mongodb://{os.environ['MDB_USERNAME']}:{os.environ['MDB_PASSWORD']}@127.0.0.1:27018"
     mdb_client = maio.AsyncIOMotorClient(connection_string, server_api=ServerApi('1'), serverSelectionTimeoutMS=3000)
     await log_man.add_log(func_id, 'INFO', 'connecting to mongodb server')
     try:
