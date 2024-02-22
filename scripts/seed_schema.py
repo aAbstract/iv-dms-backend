@@ -606,6 +606,7 @@ def seed_routine():
             fs_index_entry.model_dump()
         )
         file_id = str(mdb_result.inserted_id)
+        print(file_id,"OKOKOKOKOKOK")
         dst_path = f"public/airlines_files/manuals/{file_id}.pdf"
         shutil.copy2(file_path, dst_path)
         print(f"file map {file_path} -> {dst_path}")
