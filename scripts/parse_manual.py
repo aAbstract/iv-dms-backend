@@ -2,14 +2,20 @@ import re
 import json
 from glob import glob
 from PyPDF2 import PdfReader
+from faker import Faker
 
 
 TOC_START_PAGE = 3
+Faker.seed(0)
+fake = Faker("en_US") 
 
+def generate_random_hash():
+    concatid = 'ID'
+    return concatid + str(fake.unique.random_int(min=11111111, max=99999999))
 
 def create_parts_metadata_file():
     metadata = []
-    manual_parts = glob("data/nesma_oma_parts/*.pdf")
+    manual_parts = glob("data/nesma_OMA/*.pdf")
     for part_path in manual_parts:
         pdf_reader = PdfReader(part_path)
         part_toc_content = pdf_reader.pages[TOC_START_PAGE - 1].extract_text()
@@ -24,7 +30,7 @@ def create_parts_metadata_file():
             }
         )
 
-    with open("data/nesma_oma_parts/nesma_oma_metadata.json", "w") as f:
+    with open("data/nesma_OMA/nesma_oma_metadata.json", "w") as f:
         f.write(json.dumps(metadata, indent=2))
 
 
@@ -56,7 +62,7 @@ def create_manual_toc_tree():
 
         return toc_info
 
-    f = open("data/nesma_oma_parts/nesma_oma_metadata.json", "r")
+    f = open("data/nesma_OMA/nesma_oma_metadata.json", "r")
     json_str = f.read()
     f.close()
 
@@ -71,7 +77,7 @@ def create_manual_toc_tree():
         toc_info = parse_toc_txt_to_tree(toc_txt)
         mde["toc_info"] = toc_info
 
-    f = open("data/nesma_oma_parts/nesma_oma_metadata.json", "w")
+    f = open("data/nesma_OMA/nesma_oma_metadata.json", "w")
     f.write(json.dumps(json_obj, indent=2))
     f.close()
 
@@ -91,7 +97,7 @@ def rearrange_manual_content_tree() -> list[object]:
         )
         return max_page
 
-    path_to_metadata = "data/nesma_oma_parts/nesma_oma_metadata.json"
+    path_to_metadata = "data/nesma_OMA/nesma_oma_metadata.json"
     all_chapters = []
     all_sub1_sections = []
     all_sub2_section = []
@@ -104,7 +110,7 @@ def rearrange_manual_content_tree() -> list[object]:
     temp_sub2_section = {"children": [], "pages": []}
     temp_sub3_section = {"children": [], "pages": []}
     temp_sub4_section = {"children": [], "pages": []}
-
+    current_offset = 0
     with open(path_to_metadata, "r") as json_file:
         data = json.load(json_file)
 
@@ -157,6 +163,7 @@ def rearrange_manual_content_tree() -> list[object]:
             all_sub1_sections = []
 
         temp_chapter = dict(data[chapter])
+        current_offset = temp_chapter['start_page']
 
         for i in data[chapter]["toc_info"]:
 
@@ -164,7 +171,7 @@ def rearrange_manual_content_tree() -> list[object]:
             if re.compile(
                 r"(\d+)(\s*)\.(\s*)(\d+)(\s*)\.(\s*)(\d+)(\s*)\.(\s*)(\d+)(\s*)\.(\s*)(\d+)(\s*)\.(\s*)(\d+)(.*)"
             ).fullmatch(i[0]):
-                all_sub5_section.append({"label": i[0].strip(), "pages": [i[1]]})
+                all_sub5_section.append({"label": i[0].strip(), "pages": [i[1]+current_offset],"key":generate_random_hash()})
 
             # 1.1.1.1.1
             elif re.compile(
@@ -183,7 +190,8 @@ def rearrange_manual_content_tree() -> list[object]:
 
                 # current level
                 temp_sub4_section["label"] = i[0].strip()
-                temp_sub4_section["pages"].append(i[1])
+                temp_sub4_section["pages"].append(i[1]+current_offset)
+                temp_sub4_section['key'] = generate_random_hash()
 
             # 1.1.1.1
             elif re.compile(
@@ -212,7 +220,8 @@ def rearrange_manual_content_tree() -> list[object]:
 
                 # current level
                 temp_sub3_section["label"] = i[0].strip()
-                temp_sub3_section["pages"].append(i[1])
+                temp_sub3_section["pages"].append(i[1]+current_offset)
+                temp_sub3_section['key'] = generate_random_hash()
 
             # 1.1.1
             elif re.compile(r"(\d+)(\s*)\.(\s*)(\d+)(\s*)\.(\s*)(\d+)(.*)").fullmatch(
@@ -250,7 +259,8 @@ def rearrange_manual_content_tree() -> list[object]:
                     all_sub3_section = []
                 # current level
                 temp_sub2_section["label"] = i[0].strip()
-                temp_sub2_section["pages"].append(i[1])
+                temp_sub2_section["pages"].append(i[1]+current_offset)
+                temp_sub2_section['key'] = generate_random_hash()
 
             # 1.1
             elif re.compile(r"(\d+)(\s*)\.(\s*)(\d+)(\s*)(.*)").fullmatch(i[0]):
@@ -296,8 +306,9 @@ def rearrange_manual_content_tree() -> list[object]:
                     all_sub2_section = []
                 # current level
                 temp_sub1_section["label"] = i[0].strip()
-                temp_sub1_section["pages"].append(i[1])
-
+                temp_sub1_section["pages"].append(i[1]+current_offset)
+                temp_sub1_section['key'] = generate_random_hash()
+                
             else:
                 print("problem in manually parsing chapter")
 
@@ -345,12 +356,12 @@ def rearrange_manual_content_tree() -> list[object]:
     temp_chapter["toc_info"] = all_sub1_sections[:]
     all_chapters.append(dict(temp_chapter))
 
-    with open("data/nesma_oma_parts/nesma_oma_metadata_tree.json", "w") as json_file:
+    with open("data/nesma_OMA/nesma_oma_metadata_tree.json", "w") as json_file:
         json.dump(all_chapters, json_file, indent=4)
 
 
 def create_manual_content_tree() -> list[tuple[str, int]]:
-    f = open("data/nesma_oma_parts/nesma_oma_metadata.json", "r")
+    f = open("data/nesma_OMA/nesma_oma_metadata.json", "r")
     json_str = f.read()
     f.close()
     json_obj = json.loads(json_str)
@@ -374,7 +385,7 @@ def create_manual_content_tree() -> list[tuple[str, int]]:
                     toc_info.append((line, pidx + 1))
         mde["toc_info"] = toc_info
 
-    f = open("data/nesma_oma_parts/nesma_oma_metadata.json", "w")
+    f = open("data/nesma_OMA/nesma_oma_metadata.json", "w")
     f.write(json.dumps(json_obj, indent=2))
     f.close()
 

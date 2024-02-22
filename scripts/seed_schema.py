@@ -361,6 +361,7 @@ seed_fs_index_files = [
         doc_uuid=os.environ["INVALID_CHAT_DOC_UUID"],
         doc_status=ChatDOCStatus.PARSING_FAILD,
         organization="AeroSync",
+        parent="nesma_org_cos_rad.pdf",
     ),
     FSIndexFile(
         username="cwael",
@@ -370,6 +371,7 @@ seed_fs_index_files = [
         doc_uuid=os.environ["VALID_CHAT_DOC_UUID"],
         doc_status=ChatDOCStatus.PARSING_FAILD,
         organization="AeroSync",
+        parent="nesma_org.pdf",
     ),
     FSIndexFile(
         username="cwael",
@@ -379,6 +381,7 @@ seed_fs_index_files = [
         doc_uuid=os.environ["COMPLETE_CHAT_DOC_UUID"],
         doc_status=ChatDOCStatus.PARSED,
         organization="AeroSync",
+        parent="nesma_OMA.pdf",
     ),
     FSIndexFile(
         username="safwat",
@@ -388,6 +391,7 @@ seed_fs_index_files = [
         doc_uuid=os.environ["INVALID_CHAT_DOC_UUID"],
         doc_status=ChatDOCStatus.PARSING_FAILD,
         organization="AeroSync",
+        parent="nesma_org_cos_rad.pdf",
     ),
     FSIndexFile(
         username="safwat",
@@ -397,6 +401,7 @@ seed_fs_index_files = [
         doc_uuid=os.environ["VALID_CHAT_DOC_UUID"],
         doc_status=ChatDOCStatus.PARSING_FAILD,
         organization="AeroSync",
+        parent="nesma_org.pdf",
     ),
     FSIndexFile(
         username="safwat",
@@ -406,6 +411,7 @@ seed_fs_index_files = [
         doc_uuid=os.environ["COMPLETE_CHAT_DOC_UUID"],
         doc_status=ChatDOCStatus.PARSED,
         organization="AeroSync",
+        parent="nesma_OMA.pdf",
     ),
     FSIndexFile(
         username="aelhennawy",
@@ -415,6 +421,7 @@ seed_fs_index_files = [
         doc_uuid=os.environ["INVALID_CHAT_DOC_UUID"],
         doc_status=ChatDOCStatus.PARSING_FAILD,
         organization="AeroSync",
+        parent="nesma_org_cos_rad.pdf",
     ),
     FSIndexFile(
         username="aelhennawy",
@@ -424,6 +431,7 @@ seed_fs_index_files = [
         doc_uuid=os.environ["VALID_CHAT_DOC_UUID"],
         doc_status=ChatDOCStatus.PARSING_FAILD,
         organization="AeroSync",
+        parent="nesma_org.pdf",
     ),
     FSIndexFile(
         username="aelhennawy",
@@ -433,6 +441,7 @@ seed_fs_index_files = [
         doc_uuid=os.environ["COMPLETE_CHAT_DOC_UUID"],
         doc_status=ChatDOCStatus.PARSED,
         organization="AeroSync",
+        parent="nesma_OMA.pdf",
     ),
 ]
 
@@ -505,7 +514,7 @@ seed_flow_reports = [
                         page=105,
                         code="FLT 1.2.1",
                         comments="FLT 1.2.1 Seed Comment",
-                        manual_references=[],
+                        manual_references={},
                     )
                 ],
             )
@@ -561,20 +570,21 @@ def seed_routine():
     db.get_collection("unstructured_manuals").create_index("name", unique=True)
 
     print("seeding fs index...")
-    f = open("data/nesma_oma_parts/nesma_oma_metadata_tree.json", "r")
+    f = open("data/nesma_OMA/nesma_oma_metadata_tree.json", "r")
     json_str = f.read()
     f.close()
     json_obj = json.loads(json_str)
 
+    # TODO-GALAL add the rest of the oma chapters here
     fs_index_chat_doc_ids = {
         "nesma_ch15.pdf": "e1fb39f6-9c86-4b58-8ccb-0aebb1dbf075",
         "nesma_ch12.pdf": "79a57df5-5047-413f-9b88-68abc13b98a5",
     }
 
-    for file_path in glob(r"data\nesma_oma_parts\*.pdf"):
+    for file_path in glob(r"data\nesma_OMA\*.pdf"):
         filename = re.split(r"[\\|/]", file_path)[-1]
         traget_mde = [
-            x for x in json_obj if x["filename"] == f"data/nesma_oma_parts/{filename}"
+            x for x in json_obj if x["filename"] == f"data/nesma_OMA/{filename}"
         ][0]
         fs_index_entry = FSIndexFile(
             username="cwael",
@@ -588,6 +598,7 @@ def seed_routine():
             ),
             doc_status=ChatDOCStatus.PARSED,
             organization="AeroSync",
+            parent="nesma_OMA.pdf",
             args={"toc_info": traget_mde["toc_info"]},
         )
         mdb_result = db.get_collection("fs_index").insert_one(
@@ -597,6 +608,9 @@ def seed_routine():
         dst_path = f"public/airlines_files/manuals/{file_id}.pdf"
         shutil.copy2(file_path, dst_path)
         print(f"file map {file_path} -> {dst_path}")
+    db.get_collection("fs_index").insert_many(
+        [x.model_dump() for x in seed_fs_index_files]
+    )
 
     print("creating fs index indexes...")
     db.get_collection("fs_index").create_index("doc_uuid", unique=False)
@@ -636,9 +650,11 @@ def seed_routine():
     for report in seed_flow_reports:
         report = report.model_dump()
         report["regulation_id"] = str(iosa_e16r2_id)
-        report["sub_sections"][0]["checklist_items"][0]["manual_references"].append(
-            ManualReference(fs_index=file_id, pages=[1, 2, 3]).model_dump()
-        )
+        report["sub_sections"][0]["checklist_items"][0]["manual_references"] = {
+            "fs_index": file_id,
+            "pages": [1, 2, 3],
+        }
+
         db.get_collection("flow_reports").insert_one(report)
     print("creating flow report indices...")
     db.get_collection("flow_reports").create_index("organization", unique=False)

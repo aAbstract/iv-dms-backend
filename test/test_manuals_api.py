@@ -5,7 +5,7 @@ import json
 import requests
 from dotenv import load_dotenv
 import _test_config
-from models.fs_index import FSIndexTree
+from models.fs_index import FSIndexFileTree, FSIndexTree
 
 
 def test_parse_pdf_api_lock():
@@ -261,6 +261,7 @@ def test_list_fs_index():
         "doc_status",
         "organization",
         "args",
+        "parent"
     }
 
     # delete FSIndex
@@ -422,5 +423,6 @@ def test_get_all_tree_structure():
     json_res_body = json.loads(http_res.content.decode())
     assert json_res_body['success']
     assert 'checkins' in json_res_body['data']
+
     for checkin in json_res_body['data']['checkins']:
-        FSIndexTree.model_validate(checkin)
+        FSIndexFileTree.model_validate(checkin)

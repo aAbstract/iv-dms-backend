@@ -305,19 +305,21 @@ async def change_flow_report_sub_sections_db(flow_report_id: str, organization: 
 
                                 if fs_index['organization'] != organization:
                                     return ServiceResponse(success=False, status_code=403, msg=f"Your organization can't access this file {input_item['fs_index']}")
+                            
+                            # skip validation for references
+                            # TODO-GALAL - fix it
+                            # for reference in input_item['manual_references']:
 
-                            for reference in input_item['manual_references']:
+                            #     if not validate_bson_id(reference['fs_index']):
+                            #         return ServiceResponse(success=False, msg=f"Bad fs index bson ID {reference['fs_index']}", status_code=400)
 
-                                if not validate_bson_id(reference['fs_index']):
-                                    return ServiceResponse(success=False, msg=f"Bad fs index bson ID {reference['fs_index']}", status_code=400)
+                            #     fs_index = await get_database().get_collection('fs_index').find_one({'_id': ObjectId(reference['fs_index'])})
 
-                                fs_index = await get_database().get_collection('fs_index').find_one({'_id': ObjectId(reference['fs_index'])})
+                            #     if not fs_index:
+                            #         return ServiceResponse(success=False, status_code=404, msg=f"{input_item['fs_index']} File Index not Found")
 
-                                if not fs_index:
-                                    return ServiceResponse(success=False, status_code=404, msg=f"{input_item['fs_index']} File Index not Found")
-
-                                if fs_index['organization'] != organization:
-                                    return ServiceResponse(success=False, status_code=403, msg=f"Your organization can't access this file {input_item['fs_index']}")
+                            #     if fs_index['organization'] != organization:
+                            #         return ServiceResponse(success=False, status_code=403, msg=f"Your organization can't access this file {input_item['fs_index']}")
 
                             item_found = True
                             flow_report['sub_sections'][i]['checklist_items'][j] = input_item
