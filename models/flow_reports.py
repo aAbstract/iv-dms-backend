@@ -19,11 +19,12 @@ class ReportTemplate(BaseModel):
     sub_sections: list[ReportSubSection] = []
 
 class FinalComment(str, Enum):
-    NOTDOCNOTIMP = "Not Documented, Not Implemented"
-    DOCNOTIMP = "Documented, Not Implemented"
-    NOTDOCIMP = "Not Documented, Implemented"
-    DOCIMP = "Documented, Implemented"
-
+    NOTDOCNOTIMP = "Not Documented not Implemented (Finding)"
+    DOCNOTIMP = "Implemented not Documented (Finding)"
+    NOTDOCIMP = "Documented not Implemented (Finding)"
+    DOCIMP = "Documented and Implemented (Conformity)"
+    N_A = "N/A"
+    
 class AuditorActions(str, Enum):
     IDENTIFIED = "IDENTIFIED"
     INTERVIEWED = "INTERVIEWED"
@@ -36,7 +37,7 @@ class ManualReference(BaseModel):
 
 class ReportItem(BaseModel):
     code: str
-    page: int
+    page: Optional[int] = None
     manual_references: Optional[dict] = {}
     final_comment: Optional[FinalComment] = None
     comments: Optional[str] = None

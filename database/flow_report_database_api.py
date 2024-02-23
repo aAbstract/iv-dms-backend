@@ -121,7 +121,7 @@ async def create_flow_report_db(
 
 
 async def list_flow_report_db(organization: str, creator: str) -> ServiceResponse:
-
+    
     if creator:
         flow_reports = [
             report
@@ -285,6 +285,8 @@ async def change_flow_report_sub_sections_db(flow_report_id: str, organization: 
     # and every checklist the user wants to update exists and raises an error if it doesn't
     # ESLAM: I hope we do not have to debug this section in the future.
     for input_section in sub_sections:
+        ReportSubSectionWritten.model_validate(input_section)
+
         try:
             ReportSubSectionWritten.model_validate(input_section)
         except:
