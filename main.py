@@ -32,8 +32,8 @@ async def lifespan(app: FastAPI):
 
 server = FastAPI(
     title=os.environ['SERVER_NAME'],
-    description='Made manual-refrences a list type',
-    version="0.37.3",
+    description='Renamed Manual refrences to checkins',
+    version="0.37.4",
     lifespan=lifespan,
 )
 server.add_middleware(

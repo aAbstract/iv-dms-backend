@@ -472,7 +472,7 @@ def test_update_flow_report_sub_sections():
                     {
                         "page": 104,
                         "code": "FLT 1.1.1",
-                        "manual_references": [0,1,"anythin you want"],
+                        "checkins": [0,1,"anythin you want"],
                         "final_comment": FinalComment.DOCNOTIMP,
                         "comments": "Test Comment",
                         "actions": [
@@ -509,7 +509,7 @@ def test_update_flow_report_sub_sections():
     assert "sub_sections" in flow_report
 
     assert flow_report["sub_sections"][0]["checklist_items"][0][
-        "manual_references"
+        "checkins"
     ] == [0,1,"anythin you want"]
     assert (
         flow_report["sub_sections"][0]["checklist_items"][0]["final_comment"]
