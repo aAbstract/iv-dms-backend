@@ -516,7 +516,7 @@ seed_flow_reports = [
                         page=105,
                         code="FLT 1.2.1",
                         comments="FLT 1.2.1 Seed Comment",
-                        manual_references={},
+                        manual_references=[],
                     )
                 ],
             )
@@ -686,10 +686,10 @@ def seed_routine():
     for report in seed_flow_reports:
         report = report.model_dump()
         report["regulation_id"] = str(iosa_e16r2_id)
-        report["sub_sections"][0]["checklist_items"][0]["manual_references"] = {
-            "fs_index": file_id,
-            "pages": [1, 2, 3],
-        }
+        report["sub_sections"][0]["checklist_items"][0]["manual_references"] = [
+            {"fs_index": file_id,
+            "pages": [1, 2, 3]}
+        ]
 
         db.get_collection("flow_reports").insert_one(report)
     print("creating flow report indices...")

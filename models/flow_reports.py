@@ -38,7 +38,7 @@ class ManualReference(BaseModel):
 class ReportItem(BaseModel):
     code: str
     page: Optional[int] = None
-    manual_references: Optional[dict] = {}
+    manual_references: Optional[list] = []
     final_comment: Optional[FinalComment] = None
     comments: Optional[str] = None
     actions: list[AuditorActions] = []
