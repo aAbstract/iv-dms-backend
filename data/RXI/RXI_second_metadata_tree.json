@@ -1,0 +1,1464 @@
+[
+    {
+        "filename": "data/RXI/RXI_ch0.pdf",
+        "chapter_title": "0 FRONT MATTER",
+        "start_page": 0,
+        "toc_pages": [
+            2
+        ],
+        "toc_info": [
+            {
+                "children": [],
+                "pages": [
+                    3
+                ],
+                "label": "0.1 TABLE OF CONTENTS",
+                "key": "ID62817860"
+            },
+            {
+                "children": [],
+                "pages": [
+                    9
+                ],
+                "label": "0.2 REVISION  HIGHLIGHTS",
+                "key": "ID67559273"
+            },
+            {
+                "children": [],
+                "pages": [
+                    11
+                ],
+                "label": "0.3 RECORD OF REVISIONS",
+                "key": "ID16544832"
+            },
+            {
+                "children": [],
+                "pages": [
+                    13
+                ],
+                "label": "0.4 RECORD OF TEMPORARY REVISIONS",
+                "key": "ID45862328"
+            },
+            {
+                "children": [],
+                "pages": [
+                    15
+                ],
+                "label": "0.5 LIST OF EFFECTIVE PAGES",
+                "key": "ID79733242"
+            },
+            {
+                "children": [],
+                "pages": [
+                    21
+                ],
+                "label": "0.6 LIST OF TABLES",
+                "key": "ID76331222"
+            },
+            {
+                "children": [],
+                "pages": [
+                    23
+                ],
+                "label": "0.7 LIST OF FIGURES",
+                "key": "ID65460450"
+            },
+            {
+                "children": [],
+                "pages": [
+                    25
+                ],
+                "label": "0.8 LIST OF COMPLIANCE ENTRIES",
+                "key": "ID51821055"
+            },
+            {
+                "children": [],
+                "pages": [
+                    29
+                ],
+                "label": "0.9 MANAGEMENT APPROVAL",
+                "key": "ID75078871"
+            },
+            {
+                "children": [],
+                "pages": [
+                    31
+                ],
+                "label": "0.10 GACA APPROVAL / ACCEPTANCE",
+                "key": "ID59167684"
+            },
+            {
+                "children": [
+                    {
+                        "children": [],
+                        "pages": [
+                            33
+                        ],
+                        "label": "0.11.1 POLICY",
+                        "key": "ID40429997"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            33
+                        ],
+                        "label": "0.11.2 APPLICABILITY",
+                        "key": "ID78849034"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            33
+                        ],
+                        "label": "0.11.3 COMMON LANGUAGE",
+                        "key": "ID29804111"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            34
+                        ],
+                        "label": "0.11.4 USAGE OF TERMS",
+                        "key": "ID48938746"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            34
+                        ],
+                        "label": "0.11.5 HUMAN FACTOR PRINCIPLES",
+                        "key": "ID29867472"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            35
+                        ],
+                        "label": "0.11.6 APPLICABLE REGULATIONS AND STANDARDS",
+                        "key": "ID23839080"
+                    }
+                ],
+                "pages": [
+                    33,
+                    35
+                ],
+                "label": "0.11 INTRODUCTION",
+                "key": "ID89411322"
+            },
+            {
+                "children": [
+                    {
+                        "children": [],
+                        "pages": [
+                            37
+                        ],
+                        "label": "0.12.1 ABBREVIATIONS AND ACRONYMS",
+                        "key": "ID44733502"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            39
+                        ],
+                        "label": "0.12.2 DEFINITIONS",
+                        "key": "ID82590591"
+                    }
+                ],
+                "pages": [
+                    37,
+                    39
+                ],
+                "label": "0.12 ABBREVIATIONS, ACRONYMS AND DEFINITIONS",
+                "key": "ID94107192"
+            },
+            {
+                "children": [
+                    {
+                        "children": [],
+                        "pages": [
+                            43
+                        ],
+                        "label": "0.13.1 MANUAL OWNERSHIP",
+                        "key": "ID30835936"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            43
+                        ],
+                        "label": "0.13.2 MANUAL HOLDER RESPONSIBILITY",
+                        "key": "ID52738413"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            43
+                        ],
+                        "label": "0.13.3 DISTRIBUTION LIST AND AVAILABILITY",
+                        "key": "ID24366902"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            44
+                        ],
+                        "label": "0.13.4 PUBLICATION HIERARCHY",
+                        "key": "ID21008652"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            44
+                        ],
+                        "label": "0.13.5 MANUAL STRUCTURE",
+                        "key": "ID55429431"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            44
+                        ],
+                        "label": "0.13.6 SOURCE OF AMENDMENTS",
+                        "key": "ID74481033"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            44
+                        ],
+                        "label": "0.13.7 REFERENCED AND LINKED DOCUMENTS",
+                        "key": "ID86248031"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            45
+                        ],
+                        "label": "0.13.8 FORMAT AND DOCUMENTATION CONTROL REQUIREMENTS",
+                        "key": "ID24626998"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            45
+                        ],
+                        "label": "0.13.9 ERROR REPORTING AND CORRECTIONS AND SUGGESTIONS FOR IMPROVEMENT",
+                        "key": "ID58596179"
+                    }
+                ],
+                "pages": [
+                    43,
+                    45
+                ],
+                "label": "0.13 SYSTEM OF AMENDMENT AND REVISION",
+                "key": "ID91897039"
+            }
+        ]
+    },
+    {
+        "filename": "data/RXI/RXI_ch1.pdf",
+        "chapter_title": "1 DANGEROUS GOODS - GENERAL",
+        "start_page": 46,
+        "toc_pages": [
+            3
+        ],
+        "toc_info": [
+            {
+                "children": [],
+                "pages": [
+                    47
+                ],
+                "label": "1.1 GENERAL POLICIES ON DANGEROUS GOODS TRANSPORTATION",
+                "key": "ID69384668"
+            },
+            {
+                "children": [],
+                "pages": [
+                    48
+                ],
+                "label": "1.2 DEFINITION OF DANGEROUS GOODS",
+                "key": "ID53550313"
+            },
+            {
+                "children": [],
+                "pages": [
+                    49
+                ],
+                "label": "1.3 MANAGEMENT DEPARTMENTS AND RESPONSIBILITIES",
+                "key": "ID93102972"
+            },
+            {
+                "children": [
+                    {
+                        "children": [],
+                        "pages": [
+                            50
+                        ],
+                        "label": "1.4.1 DANGEROUS GOODS MANAGER",
+                        "key": "ID38555649"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            50
+                        ],
+                        "label": "1.4.2 TRAINING INSTRUCTOR",
+                        "key": "ID85269583"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            51
+                        ],
+                        "label": "1.4.3 COMPLIANCE AGENT(S)",
+                        "key": "ID75134279"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            52
+                        ],
+                        "label": "1.4.4 RAMP SUPERVISOR",
+                        "key": "ID70528407"
+                    }
+                ],
+                "pages": [
+                    50,
+                    52
+                ],
+                "label": "1.4 ROLES AND RESPONSIBILITIES",
+                "key": "ID97067284"
+            },
+            {
+                "children": [],
+                "pages": [
+                    53
+                ],
+                "label": "1.5 CONTACT DETAILS",
+                "key": "ID81086011"
+            },
+            {
+                "children": [],
+                "pages": [
+                    54
+                ],
+                "label": "1.6 DELEGATION OF DUTIES",
+                "key": "ID46073797"
+            },
+            {
+                "children": [
+                    {
+                        "children": [],
+                        "pages": [
+                            55
+                        ],
+                        "label": "1.7.1 COMPLIANCE WITH GACAR",
+                        "key": "ID84756284"
+                    }
+                ],
+                "pages": [
+                    55,
+                    55
+                ],
+                "label": "1.7 REGULATIONS ON DANGEROUS GOODS TRANSPORTATION",
+                "key": "ID19470135"
+            },
+            {
+                "children": [],
+                "pages": [
+                    56
+                ],
+                "label": "1.8 THE SHIPPER'S RESPONSIBILITIES",
+                "key": "ID12995756"
+            },
+            {
+                "children": [],
+                "pages": [
+                    57
+                ],
+                "label": "1.9 TRAINING OF DANGEROUS GOODS TRANSPORT",
+                "key": "ID23629848"
+            },
+            {
+                "children": [],
+                "pages": [
+                    58
+                ],
+                "label": "1.10 DANGEROUS GOODS EXCEPTIONS",
+                "key": "ID64640300"
+            }
+        ]
+    },
+    {
+        "filename": "data/RXI/RXI_ch2.pdf",
+        "chapter_title": "2 CLASSIFICATION AND PACKAGING OF DANGEROUS GOODS",
+        "start_page": 58,
+        "toc_pages": [
+            3,
+            4
+        ],
+        "toc_info": [
+            {
+                "children": [
+                    {
+                        "children": [],
+                        "pages": [
+                            60
+                        ],
+                        "label": "2.1.1  SHIPPER'S RESPONSIBILITY",
+                        "key": "ID11264497"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            60
+                        ],
+                        "label": "2.1.2 CLASS 1 - EXPLOSIVES",
+                        "key": "ID93238547"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            61
+                        ],
+                        "label": "2.1.3 CLASS 2 - GASES",
+                        "key": "ID77358010"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            62
+                        ],
+                        "label": "2.1.4 CLASS 3 - FLAMMABLE LIQUIDS",
+                        "key": "ID55823752"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            62
+                        ],
+                        "label": "2.1.5 CLASS 4 - FLAMMABLE SOLIDS; SUBSTANCES LIABLE TO SPONTANEOUS COMBUSTION; SUBSTANCES WHICH, IN CONTACT WITH WATER, EMIT FLAMMABLE GASES",
+                        "key": "ID43848274"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            63
+                        ],
+                        "label": "2.1.6 CLASS 5 - OXIDIZING SUBSTANCES AND ORGANIC PEROXIDES",
+                        "key": "ID54759301"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            64
+                        ],
+                        "label": "2.1.7 CLASS 6 - TOXIC AND INFECTIOUS SUBSTANCES",
+                        "key": "ID19564717"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            64
+                        ],
+                        "label": "2.1.8 CLASS 7 - RADIOACTIVE MATERIAL",
+                        "key": "ID36755701"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            65
+                        ],
+                        "label": "2.1.9 CLASS 8 - CORROSIVES",
+                        "key": "ID87281113"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            65
+                        ],
+                        "label": "2.1.10 CLASS 9 - MISCELLANEOUS DANGEROUS GOODS",
+                        "key": "ID40867704"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            66
+                        ],
+                        "label": "2.1.11 CLASSIFICATION OF",
+                        "key": "ID43137598"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            69
+                        ],
+                        "label": "2.1.12 TRANSPORT OF SAMPLES FOR FURTHER TESTING",
+                        "key": "ID30236384"
+                    }
+                ],
+                "pages": [
+                    59,
+                    69
+                ],
+                "label": "2.1 CLASSIFICATION OF DANGEROUS GOODS",
+                "key": "ID95032870"
+            },
+            {
+                "children": [],
+                "pages": [
+                    71
+                ],
+                "label": "2.2 IDENTIFICATION OF DANGEROUS GOODS",
+                "key": "ID83989989"
+            },
+            {
+                "children": [],
+                "pages": [
+                    72
+                ],
+                "label": "2.3 SEGREGATION OF INCOMPATIBLE GOODS",
+                "key": "ID71236569"
+            },
+            {
+                "children": [],
+                "pages": [
+                    74
+                ],
+                "label": "2.4 GENERAL REQUIREMENT OF PACKAGING",
+                "key": "ID23353909"
+            },
+            {
+                "children": [
+                    {
+                        "children": [],
+                        "pages": [
+                            76
+                        ],
+                        "label": "2.5.1 GENERAL",
+                        "key": "ID54068112"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            76
+                        ],
+                        "label": "2.5.2 MARKING",
+                        "key": "ID79285749"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            79
+                        ],
+                        "label": "2.5.3 LABELLING",
+                        "key": "ID76782071"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            80
+                        ],
+                        "label": "2.5.4 HAZARD LABEL SPECIFICATIONS",
+                        "key": "ID25748607"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            84
+                        ],
+                        "label": "2.5.5 HANDLING LABELS",
+                        "key": "ID51570614"
+                    }
+                ],
+                "pages": [
+                    76,
+                    84
+                ],
+                "label": "2.5 MARKINGS AND LABELS",
+                "key": "ID21908365"
+            }
+        ]
+    },
+    {
+        "filename": "data/RXI/RXI_ch3.pdf",
+        "chapter_title": "3 CARRIAGE OF DANGEROUS GOODS",
+        "start_page": 86,
+        "toc_pages": [
+            4,
+            5
+        ],
+        "toc_info": [
+            {
+                "children": [],
+                "pages": [
+                    87
+                ],
+                "label": "3.1 GENERAL PRINCIPLES",
+                "key": "ID85100948"
+            },
+            {
+                "children": [
+                    {
+                        "children": [],
+                        "pages": [
+                            88
+                        ],
+                        "label": "3.2.1 FORBIDDEN DANGEROUS GOODS",
+                        "key": "ID27862921"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            88
+                        ],
+                        "label": "3.2.2 DANGEROUS GOODS REQUIRING EXEMPTION",
+                        "key": "ID84587386"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            89
+                        ],
+                        "label": "3.2.3 APPROVAL OF EXEMPTIONS",
+                        "key": "ID55772128"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            89
+                        ],
+                        "label": "3.2.4 RESTRICTIONS ON SPECIFIC DANGEROUS GOODS",
+                        "key": "ID83626749"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            90
+                        ],
+                        "label": "3.2.5 DANGEROUS GOODS IN THE MAIL",
+                        "key": "ID38384401"
+                    }
+                ],
+                "pages": [
+                    88,
+                    90
+                ],
+                "label": "3.2 DANGEROUS GOODS PROHIBITED IN AIR TRANSPORT",
+                "key": "ID50180639"
+            },
+            {
+                "children": [
+                    {
+                        "children": [],
+                        "pages": [
+                            91
+                        ],
+                        "label": "3.3.1 REQUIRED OPERATOR APPROVAL",
+                        "key": "ID84559092"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            91
+                        ],
+                        "label": "3.3.2 FORBIDDEN GOODS",
+                        "key": "ID89979738"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            92
+                        ],
+                        "label": "3.3.3 PROVISIONS FOR CARRIAGE IN THE CABIN",
+                        "key": "ID49719815"
+                    }
+                ],
+                "pages": [
+                    91,
+                    92
+                ],
+                "label": "3.3 DANGEROUS GOODS CARRIED BY PASSENGERS AND CREW",
+                "key": "ID92069315"
+            },
+            {
+                "children": [
+                    {
+                        "children": [],
+                        "pages": [
+                            99
+                        ],
+                        "label": "3.4.1 AIRWORTHINESS AND OPERATIONAL ITEMS",
+                        "key": "ID23409762"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            99
+                        ],
+                        "label": "3.4.2 MEDICAL AID FOR A PATIENT",
+                        "key": "ID91143378"
+                    }
+                ],
+                "pages": [
+                    99,
+                    99
+                ],
+                "label": "3.4 GENERAL EXCEPTIONS",
+                "key": "ID70836527"
+            },
+            {
+                "children": [
+                    {
+                        "children": [],
+                        "pages": [
+                            100
+                        ],
+                        "label": "3.5.1 LOADING OF BATTERY POWERED MOBILITY AIDS",
+                        "key": "ID53664418"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            101
+                        ],
+                        "label": "3.5.2 ADDITIONAL REQUIREMENTS - NON-SPILLABLE BATTERY POWERED MOBILITY AIDS",
+                        "key": "ID88373682"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            101
+                        ],
+                        "label": "3.5.3 ADDITIONAL REQUIREMENTS - SPILLABLE BATTERY POWERED MOBILITY AIDS",
+                        "key": "ID43606183"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            101
+                        ],
+                        "label": "3.5.4 ADDITIONAL REQUIREMENTS - LITHIUM-ION BATTERY POWERED MOBILITY AIDS",
+                        "key": "ID50078477"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            101
+                        ],
+                        "label": "3.5.5 LABELLING OF BATTERY POWERED MOBILITY AIDS",
+                        "key": "ID35789553"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            102
+                        ],
+                        "label": "3.5.6 BATTERY POWERED MOBILITY AIDS - INFORMATION TO COMMANDER",
+                        "key": "ID36530784"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            102
+                        ],
+                        "label": "3.5.7 MEDICAL OXYGEN",
+                        "key": "ID36173524"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            102
+                        ],
+                        "label": "3.5.8 DRY ICE (CARBON DIOXIDE, SOLID)",
+                        "key": "ID15536593"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            102
+                        ],
+                        "label": "3.5.9 AMMUNITION",
+                        "key": "ID93356134"
+                    }
+                ],
+                "pages": [
+                    100,
+                    102
+                ],
+                "label": "3.5 HANDLING OF SPECIFIC DANGEROUS GOODS",
+                "key": "ID62771668"
+            },
+            {
+                "children": [
+                    {
+                        "children": [],
+                        "pages": [
+                            103
+                        ],
+                        "label": "3.6.1 HAZARD LABELS",
+                        "key": "ID46015264"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            106
+                        ],
+                        "label": "3.6.2 HANDLING LABELS",
+                        "key": "ID75070018"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            107
+                        ],
+                        "label": "3.6.3 MARKINGS",
+                        "key": "ID20383576"
+                    }
+                ],
+                "pages": [
+                    103,
+                    107
+                ],
+                "label": "3.6 MARKING AND LABELLING OF PACKAGES",
+                "key": "ID99246442"
+            },
+            {
+                "children": [
+                    {
+                        "children": [],
+                        "pages": [
+                            108
+                        ],
+                        "label": "3.7.1 IDENTIFICATION OF DANGEROUS GOODS THROUGH X-RAY SCREENING",
+                        "key": "ID28589540"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            108
+                        ],
+                        "label": "3.7.2 GHS CONSUMER LABELLING",
+                        "key": "ID31183416"
+                    }
+                ],
+                "pages": [
+                    108,
+                    108
+                ],
+                "label": "3.7 RECOGNITION OF UNDECLARED DANGEROUS GOODS",
+                "key": "ID23167132"
+            }
+        ]
+    },
+    {
+        "filename": "data/RXI/RXI_ch4.pdf",
+        "chapter_title": "4 DANGEROUS GOODS TRANSPORT PROCEDURES",
+        "start_page": 108,
+        "toc_pages": [
+            5
+        ],
+        "toc_info": [
+            {
+                "children": [],
+                "pages": [
+                    109
+                ],
+                "label": "4.1 GENERAL RULES FOR COLLECTION AND TRANSPORTATION",
+                "key": "ID16297494"
+            },
+            {
+                "children": [],
+                "pages": [
+                    110
+                ],
+                "label": "4.2 DELIVERY, COLLECTION AND TRANSPORTATION PROCEDURES",
+                "key": "ID21881857"
+            },
+            {
+                "children": [
+                    {
+                        "children": [],
+                        "pages": [
+                            112
+                        ],
+                        "label": "4.3.1 GENERAL STORAGE REQUIREMENTS",
+                        "key": "ID63629977"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            112
+                        ],
+                        "label": "4.3.2 STORAGE OF SPECIFIC DANGEROUS GOODS",
+                        "key": "ID81518233"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            113
+                        ],
+                        "label": "4.3.3 STORAGE OF DANGEROUS GOODS SPARES",
+                        "key": "ID48106096"
+                    }
+                ],
+                "pages": [
+                    112,
+                    113
+                ],
+                "label": "4.3 STORAGE OF DANGEROUS GOODS",
+                "key": "ID83669204"
+            },
+            {
+                "children": [],
+                "pages": [
+                    114
+                ],
+                "label": "4.4 LOADING OF DANGEROUS GOODS",
+                "key": "ID81144592"
+            },
+            {
+                "children": [],
+                "pages": [
+                    115
+                ],
+                "label": "4.5 DANGEROUS GOODS DOCUMENTS",
+                "key": "ID42719618"
+            },
+            {
+                "children": [
+                    {
+                        "children": [],
+                        "pages": [
+                            116
+                        ],
+                        "label": "4.6.1 GENERAL",
+                        "key": "ID90272885"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            116
+                        ],
+                        "label": "4.6.2 ACCEPTANCE",
+                        "key": "ID67405145"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            117
+                        ],
+                        "label": "4.6.3 LOADING",
+                        "key": "ID88916458"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            120
+                        ],
+                        "label": "4.6.4 INSPECTION",
+                        "key": "ID48049281"
+                    }
+                ],
+                "pages": [
+                    116,
+                    120
+                ],
+                "label": "4.6 HANDLING",
+                "key": "ID39994939"
+            },
+            {
+                "children": [
+                    {
+                        "children": [],
+                        "pages": [
+                            121
+                        ],
+                        "label": "4.7.1 INFORMATION TO THE PILOT-IN-COMMAND",
+                        "key": "ID77234197"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            121
+                        ],
+                        "label": "4.7.2 INFORMATION BY PILOT-IN-COMMAND IN IN-FLIGHT EMERGENCY",
+                        "key": "ID99727745"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            121
+                        ],
+                        "label": "4.7.3 INFORMATION TO PASSENGERS",
+                        "key": "ID97171091"
+                    }
+                ],
+                "pages": [
+                    121,
+                    121
+                ],
+                "label": "4.7 PROVISION OF INFORMATION",
+                "key": "ID71584667"
+            },
+            {
+                "children": [],
+                "pages": [
+                    123
+                ],
+                "label": "4.8 RETENTION OF DOCUMENTS",
+                "key": "ID59076171"
+            }
+        ]
+    },
+    {
+        "filename": "data/RXI/RXI_ch5.pdf",
+        "chapter_title": "5 RADIOACTIVE MATERIAL",
+        "start_page": 124,
+        "toc_pages": [
+            5
+        ],
+        "toc_info": [
+            {
+                "children": [],
+                "pages": [
+                    125
+                ],
+                "label": "5.1 TRANSPORT OF RADIOACTIVE MATERIAL",
+                "key": "ID22167026"
+            },
+            {
+                "children": [],
+                "pages": [
+                    127
+                ],
+                "label": "5.2 LIMITATIONS",
+                "key": "ID54641254"
+            },
+            {
+                "children": [
+                    {
+                        "children": [],
+                        "pages": [
+                            128
+                        ],
+                        "label": "5.3.1 SPECIAL FORM RADIOACTIVE MATERIAL",
+                        "key": "ID26593091"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            129
+                        ],
+                        "label": "5.3.2 LOW SPECIFIC ACTIVITY",
+                        "key": "ID76400546"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            129
+                        ],
+                        "label": "5.3.3 SURFACE CONTAMINATED OBJECT",
+                        "key": "ID89906943"
+                    }
+                ],
+                "pages": [
+                    128,
+                    129
+                ],
+                "label": "5.3 CLASSIFICATION",
+                "key": "ID93357467"
+            },
+            {
+                "children": [],
+                "pages": [
+                    130
+                ],
+                "label": "5.4 IDENTIFICATION",
+                "key": "ID95688055"
+            },
+            {
+                "children": [],
+                "pages": [
+                    131
+                ],
+                "label": "5.5 PACKING",
+                "key": "ID56110352"
+            },
+            {
+                "children": [],
+                "pages": [
+                    132
+                ],
+                "label": "5.6 MARKING AND LABELLING",
+                "key": "ID36663327"
+            },
+            {
+                "children": [],
+                "pages": [
+                    133
+                ],
+                "label": "5.7 DOCUMENTATION",
+                "key": "ID43730800"
+            },
+            {
+                "children": [],
+                "pages": [
+                    134
+                ],
+                "label": "5.8 HANDLING",
+                "key": "ID13286649"
+            },
+            {
+                "children": [],
+                "pages": [
+                    135
+                ],
+                "label": "5.9 RADIOACTIVE MATERIALS INCIDENT REPORTING",
+                "key": "ID47489210"
+            }
+        ]
+    },
+    {
+        "filename": "data/RXI/RXI_ch6.pdf",
+        "chapter_title": "6 EMERGENCY HANDLING OF DANGEROUS GOODS",
+        "start_page": 136,
+        "toc_pages": [
+            5,
+            6
+        ],
+        "toc_info": [
+            {
+                "children": [],
+                "pages": [
+                    137
+                ],
+                "label": "6.1 GENERAL PROVISIONS",
+                "key": "ID26832609"
+            },
+            {
+                "children": [
+                    {
+                        "children": [],
+                        "pages": [
+                            139
+                        ],
+                        "label": "6.2.1 EMERGENCY RESPONSE DRILLS",
+                        "key": "ID61048184"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            142
+                        ],
+                        "label": "6.2.2 EMERGENCY DRILL LETTERS",
+                        "key": "ID33992787"
+                    }
+                ],
+                "pages": [
+                    138,
+                    142
+                ],
+                "label": "6.2 EMERGENCY RESPONSE REQUIREMENTS",
+                "key": "ID40700823"
+            },
+            {
+                "children": [],
+                "pages": [
+                    143
+                ],
+                "label": "6.3 GENERAL EMERGENCY RESPONSE CONSIDERATIONS",
+                "key": "ID55743357"
+            },
+            {
+                "children": [],
+                "pages": [
+                    144
+                ],
+                "label": "6.4 ACCIDENTS AND INCIDENTS REPORT OF DANGEROUS GOODS",
+                "key": "ID68305463"
+            },
+            {
+                "children": [],
+                "pages": [
+                    146
+                ],
+                "label": "6.5 EMERGENCY RESPONSE PROCEDURES IN AIR",
+                "key": "ID19458441"
+            },
+            {
+                "children": [],
+                "pages": [
+                    147
+                ],
+                "label": "6.6 EMERGENCY RESPONSE PROCEDURES OF DANGEROUS GOODS ACCIDENT OR INCIDENT ON THE GROUND",
+                "key": "ID24614423"
+            }
+        ]
+    },
+    {
+        "filename": "data/RXI/RXI_ch7.pdf",
+        "chapter_title": "7 DANGEROUS GOODS SECURITY",
+        "start_page": 148,
+        "toc_pages": [
+            6
+        ],
+        "toc_info": [
+            {
+                "children": [],
+                "pages": [
+                    149
+                ],
+                "label": "7.1 SECURITY RESPONSIBILITIES",
+                "key": "ID30755014"
+            },
+            {
+                "children": [],
+                "pages": [
+                    150
+                ],
+                "label": "7.2 FACILITY SECURITY",
+                "key": "ID40474401"
+            },
+            {
+                "children": [],
+                "pages": [
+                    151
+                ],
+                "label": "7.3 CARGO SECURITY PROCEDURES",
+                "key": "ID17182324"
+            },
+            {
+                "children": [],
+                "pages": [
+                    152
+                ],
+                "label": "7.4 PERSONNEL SECURITY AND TRAINING",
+                "key": "ID88134106"
+            },
+            {
+                "children": [],
+                "pages": [
+                    153
+                ],
+                "label": "7.5 PRE-BOARD INSPECTION OF PASSENGERS",
+                "key": "ID96232854"
+            }
+        ]
+    },
+    {
+        "filename": "data/RXI/RXI_ch8.pdf",
+        "chapter_title": "8 TRAINING",
+        "start_page": 156,
+        "toc_pages": [
+            6
+        ],
+        "toc_info": [
+            {
+                "children": [],
+                "pages": [
+                    157
+                ],
+                "label": "8.1 PURPOSE AND SCOPE",
+                "key": "ID82809948"
+            },
+            {
+                "children": [
+                    {
+                        "children": [],
+                        "pages": [
+                            158
+                        ],
+                        "label": "8.2.1 DELIVERY METHODS",
+                        "key": "ID21042806"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            159
+                        ],
+                        "label": "8.2.2 TRAINING ENVIRONMENT AND TOOLS",
+                        "key": "ID14694294"
+                    }
+                ],
+                "pages": [
+                    158,
+                    159
+                ],
+                "label": "8.2 TRAINING METHODOLOGY",
+                "key": "ID91933065"
+            },
+            {
+                "children": [
+                    {
+                        "children": [],
+                        "pages": [
+                            160
+                        ],
+                        "label": "8.3.1 FLIGHT CREW",
+                        "key": "ID96339356"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            160
+                        ],
+                        "label": "8.3.2 GROUND HANDLING PERSONNEL",
+                        "key": "ID36413920"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            162
+                        ],
+                        "label": "8.3.3 FLIGHT OPERATIONS AND DISPATCH",
+                        "key": "ID92492475"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            162
+                        ],
+                        "label": "8.3.4 CABIN CREW",
+                        "key": "ID88414207"
+                    }
+                ],
+                "pages": [
+                    160,
+                    162
+                ],
+                "label": "8.3 TRAINING CURRICULUM",
+                "key": "ID27813664"
+            },
+            {
+                "children": [
+                    {
+                        "children": [],
+                        "pages": [
+                            164
+                        ],
+                        "label": "8.4.1 TRAINING NEEDS ANALYSIS",
+                        "key": "ID63618349"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            164
+                        ],
+                        "label": "8.4.2 PROGRAM DESIGN",
+                        "key": "ID23396308"
+                    }
+                ],
+                "pages": [
+                    164,
+                    164
+                ],
+                "label": "8.4 PROGRAM DEVELOPMENT",
+                "key": "ID27176365"
+            },
+            {
+                "children": [],
+                "pages": [
+                    165
+                ],
+                "label": "8.5 ASSESSMENT PROCEDURES",
+                "key": "ID60790452"
+            },
+            {
+                "children": [],
+                "pages": [
+                    166
+                ],
+                "label": "8.6 INSTRUCTOR QUALIFICATIONS",
+                "key": "ID26686560"
+            },
+            {
+                "children": [],
+                "pages": [
+                    167
+                ],
+                "label": "8.7 RECORDKEEPING",
+                "key": "ID15995567"
+            },
+            {
+                "children": [],
+                "pages": [
+                    168
+                ],
+                "label": "8.8 EVALUATING PROGRAM EFFECTIVENESS",
+                "key": "ID92380505"
+            }
+        ]
+    },
+    {
+        "filename": "data/RXI/RXI_ch9.pdf",
+        "chapter_title": "9 APPENDIX",
+        "start_page": 168,
+        "toc_pages": [
+            6,
+            7
+        ],
+        "toc_info": [
+            {
+                "children": [],
+                "pages": [
+                    169
+                ],
+                "label": "9.1 SAUDI DANGEROUS GOODS REGULATIONS",
+                "key": "ID14015114"
+            },
+            {
+                "children": [
+                    {
+                        "children": [],
+                        "pages": [
+                            171
+                        ],
+                        "label": "9.2.1 INTRODUCTION",
+                        "key": "ID35937624"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            171
+                        ],
+                        "label": "9.2.2 DGR VARIATION",
+                        "key": "ID27740038"
+                    }
+                ],
+                "pages": [
+                    171,
+                    171
+                ],
+                "label": "9.2 RIYADH AIR DANGEROUS GOODS REGULATIONS VARIATION",
+                "key": "ID37228666"
+            },
+            {
+                "children": [
+                    {
+                        "children": [],
+                        "pages": [
+                            172
+                        ],
+                        "label": "9.3.1 NOTOC",
+                        "key": "ID39374211"
+                    }
+                ],
+                "pages": [
+                    172,
+                    172
+                ],
+                "label": "9.3 FORMS",
+                "key": "ID75432763"
+            },
+            {
+                "children": [],
+                "pages": [
+                    173
+                ],
+                "label": "9.4 HIDDEN SHIPMENT INDICATORS",
+                "key": "ID19309786"
+            }
+        ]
+    }
+]

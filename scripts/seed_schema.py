@@ -582,6 +582,7 @@ def seed_routine():
         "nesma_ch15.pdf": "e1fb39f6-9c86-4b58-8ccb-0aebb1dbf075",
         "nesma_ch12.pdf": "79a57df5-5047-413f-9b88-68abc13b98a5",
     }
+    # nesma
     for file_path in glob(r"data/nesma_OMA/*.pdf"):
         filename = re.split(r"[\\|/]", file_path)[-1]
         traget_mde = [
@@ -609,6 +610,40 @@ def seed_routine():
         dst_path = f"public/airlines_files/manuals/{file_id}.pdf"
         shutil.copy2(file_path, dst_path)
         print(f"file map {file_path} -> {dst_path}")
+    
+    ### RXI
+    f = open(r"data/RXI/RXI_second_metadata_tree.json", "r")
+    json_str = f.read()
+    f.close()
+    json_obj = json.loads(json_str)
+    for file_path in glob(r"data/RXI/*.pdf"):
+        filename = re.split(r"[\\|/]", file_path)[-1]
+        traget_mde = [
+            x for x in json_obj if x["filename"] == f"data/RXI/{filename}"
+        ][0]
+        fs_index_entry = FSIndexFile(
+            username="cwael",
+            datetime=datetime.now(),
+            file_type=IndexFileType.AIRLINES_MANUAL,
+            filename=filename,
+            doc_uuid=(
+                fs_index_chat_doc_ids[filename]
+                if fs_index_chat_doc_ids.get(filename) != None
+                else str(uuid4())
+            ),
+            doc_status=ChatDOCStatus.PARSED,
+            organization="AeroSync",
+            parent="RXI Dangerous Goods Manual - 14FEB2024.pdf",
+            args={"toc_info": traget_mde["toc_info"]},
+        )
+        mdb_result = db.get_collection("fs_index").insert_one(
+            fs_index_entry.model_dump()
+        )
+        file_id = str(mdb_result.inserted_id)
+        dst_path = f"public/airlines_files/manuals/{file_id}.pdf"
+        shutil.copy2(file_path, dst_path)
+        print(f"file map {file_path} -> {dst_path}")
+
     db.get_collection("fs_index").insert_many(
         [x.model_dump() for x in seed_fs_index_files]
     )

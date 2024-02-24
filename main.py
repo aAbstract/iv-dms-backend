@@ -32,8 +32,8 @@ async def lifespan(app: FastAPI):
 
 server = FastAPI(
     title=os.environ['SERVER_NAME'],
-    description='Added Dev Branch',
-    version="0.37.1",
+    description='Seeded RXI PDF File',
+    version="0.37.2",
     lifespan=lifespan,
 )
 server.add_middleware(

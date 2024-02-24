@@ -1,1 +1,1 @@
-docker run -d --name iv-dms-dev-backend-mongo-1  -p 27018:27017 -e MONGO_INITDB_ROOT_USERNAME=root -e MONGO_INITDB_ROOT_PASSWORD=AFoCzNBQ5KaLGznFhdEdvjHUVMpQK76RUygCPKa98FbbiYBeU9VJJhjjXyUXPWu9 -v iv_dms_dev_mdb_data:/data/db -v iv_dms_dev_mdb_config:/data/configdb mongo
+docker run -d --name iv-dms-dev-backend-mongo-1  -p 27017:27017 -e MONGO_INITDB_ROOT_USERNAME=root -e MONGO_INITDB_ROOT_PASSWORD=AFoCzNBQ5KaLGznFhdEdvjHUVMpQK76RUygCPKa98FbbiYBeU9VJJhjjXyUXPWu9 -v iv_dms_dev_mdb_data:/data/db -v iv_dms_dev_mdb_config:/data/configdb mongo
