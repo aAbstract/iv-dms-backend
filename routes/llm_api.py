@@ -125,6 +125,7 @@ async def iosa_audit_unstruct(res: Response, regulation_id: str = Body(), checkl
     return JsonResponse(data={
         'llm_resp': llm_service_response.data['llm_resp'],
         'overall_compliance_score': llm_service_response.data['overall_compliance_score'],
+        'overall_compliance_tag': llm_service_response.data['overall_compliance_tag'],
         'context_id': gpt35t_cdb_service_response.data['context_id'],
     })
 
@@ -263,6 +264,7 @@ async def iosa_audit_pages(res: Response, regulation_id: str = Body(embed=True),
     return JsonResponse(data={
         'llm_resp': llm_service_response.data['llm_resp'],
         'overall_compliance_score': llm_service_response.data['overall_compliance_score'],
+        'overall_compliance_tag': llm_service_response.data['overall_compliance_tag'],
         'manual_ref_text': get_pages_service_response.data['text'],
         'context_id': gpt35t_cdb_service_response.data['context_id'],
     })

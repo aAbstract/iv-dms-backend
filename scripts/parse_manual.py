@@ -264,7 +264,7 @@ def rearrange_manual_content_tree() -> list[object]:
 
             # 1.1
             elif re.compile(r"(\d+)(\s*)\.(\s*)(\d+)(\s*)(.*)").fullmatch(i[0]):
-                # breakpoint()
+
                 if temp_sub4_section.get("label") != None:
 
                     if len(all_sub5_section) > 0:
@@ -312,7 +312,7 @@ def rearrange_manual_content_tree() -> list[object]:
             else:
                 print("problem in manually parsing chapter")
 
-    # breakpoint()
+
     if temp_sub4_section.get("label") != None:
 
         if len(all_sub5_section) > 0:
@@ -394,4 +394,4 @@ def create_manual_content_tree() -> list[tuple[str, int]]:
 # create_parts_metadata_file()
 # create_manual_toc_tree()
 # create_manual_content_tree()
-rearrange_manual_content_tree()
+# rearrange_manual_content_tree()

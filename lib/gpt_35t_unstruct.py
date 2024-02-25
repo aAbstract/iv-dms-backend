@@ -23,10 +23,16 @@ async def gpt35t_generate(iosa_checklist: str, input_text: str) -> ServiceRespon
     user_prompt = f"""    
     OBJECTIVES:
         1- We will present the "ISARP", then the current proposed answer "INPUT_TEXT" from the airlines company manuals. Assess the documentation and whether it sufficiently addresses the requirements of the ISARP, then give a rating to the documentation from 0 to 100 such that 0 is the answer doesn't address any part of the ISARP and 100 means it fully answers all the requirements of the ISARP. Then present your recommendations to change then a model answer that I can copy and paste in the manual to fully address the ISARP.
-        2- In the preparation for the audit, we will be focusing on the documentation, however we may ask you about implementation guidance (i.e. will ask you to provide us with procedures to comprehensively implement a specific standard).
-        3- For each item and sub item in the ISARPs, estimate compliance score and provide explanation for the estimated score.
-        4- Suggest any modifications to improve overall compliance scores.
-        
+        2- Score the documentation on how sufficiently it addresses the requirements of the ISARP, with one of the below scoring tags.
+        3- In the preparation for the audit, we will be focusing on the documentation, however we may ask you about implementation guidance (i.e. will ask you to provide us with procedures to comprehensively implement a specific standard).
+        4- For each item and sub item in the ISARPs, estimate compliance score and provide explanation for the estimated score.
+        5- Suggest any modifications to improve overall compliance scores.
+    
+    Scoring:
+    Fully Compliant (3): All aspects are clearly and accurately addressed.
+    Partially Compliant (2): Some aspects are addressed, but improvements or clarifications are needed.
+    Non Compliant (1): Significant deviations from IOSA standards; a thorough revision is required.
+    
     ISARPs: {iosa_checklist}
     INPUT_TEXT: {input_text}
 
@@ -34,6 +40,7 @@ async def gpt35t_generate(iosa_checklist: str, input_text: str) -> ServiceRespon
         1- "ASSESSMENT": This section provides a detailed evaluation of the documentation presented in the "INPUT_TEXT" against the corresponding ISARP. It involves a systematic analysis of how well the airline's manuals address the specified standards and recommended practices. The assessment should be in technical, professional language, employing aviation terms as appropriate.
         2- "RECOMMENDATIONS": In this part, recommendations are made based on the assessment. These suggestions aim to improve the documentation's alignment with the "ISARPs". Recommendations should be specific, actionable, and directed towards enhancing compliance. The language used here should remain formal and professional, reflecting the technical nature of aviation.
         3- "OVERALL_COMPLIANCE_SCORE": This is just a number that reflects the overall evaluation of the documentation's compliance with the ISARP with no explanation. The scale ranges from 0 to 100, with 0 indicating no adherence to the ISARP requirements and 100 indicating full compliance. The score is a quantitative representation of how well the airline's manuals meet the specified standards.
+        4- "OVERALL_COMPLIANCE_TAG": This is one of the scoring tags that reflect the overall evaluation of the documentation's compliance with the ISARP with no explanation. The value can only be Fully Compliant,  Partially Compliant, Non Compliant.
     """
 
     llm_debug = int(os.environ['LLM_DEBUG'])
@@ -112,22 +119,44 @@ async def iosa_audit_text(iosa_item: IOSAItem, input_text: str) -> ServiceRespon
     # extract OVERALL_COMPLIANCE_SCORE value
     if 'OVERALL_COMPLIANCE_SCORE' not in gpt35t_resp:
         return ServiceResponse(success=False, status_code=503, msg='Missing OVERALL_COMPLIANCE_SCORE Key')
-    re_matches = re.search(r'OVERALL_COMPLIANCE_SCORE:\s+(\d{1,3})|\*\*OVERALL_COMPLIANCE_SCORE:\*\*\s+(\d{1,3})', gpt35t_resp)
-    if not re_matches:
+    # extract OVERALL_COMPLIANCE_TAG value
+    if 'OVERALL_COMPLIANCE_TAG' not in gpt35t_resp:
+        return ServiceResponse(success=False, status_code=503, msg='Missing OVERALL_COMPLIANCE_TAG Key')
+
+    re_matches_score = re.search(r'OVERALL_COMPLIANCE_SCORE:\s+(\d{1,3})|\*\*OVERALL_COMPLIANCE_SCORE:\*\*\s+(\d{1,3})', gpt35t_resp)
+    re_matches_tag = re.search(r'OVERALL_COMPLIANCE_TAG:(\**)\s+Non Compliant|OVERALL_COMPLIANCE_TAG:(\**)\s+Partially Compliant|OVERALL_COMPLIANCE_TAG:(\**)\s+Fully Compliant', gpt35t_resp)
+
+    if not re_matches_score:
         if int(os.environ['LLM_DEBUG']):
             print('=' * 100)
             print(gpt35t_resp)
             print('=' * 100)
-        return ServiceResponse(success=False, status_code=503, msg='Faild to Compute Compliance Score')
-    re_matches = re_matches.groups()
-    first_match = next((x for x in re_matches if x is not None), None)
+        return ServiceResponse(success=False, status_code=503, msg='Failed to Compute Compliance Score')
+    
+    if not re_matches_tag:
+        if int(os.environ['LLM_DEBUG']):
+            print('=' * 100)
+            print(gpt35t_resp)
+            print('=' * 100)
+        return ServiceResponse(success=False, status_code=503, msg='Failed to Compute Compliance Tag')
+
+
+    re_matches_tag = " ".join(re_matches_tag.group().split()[-2:]).strip()
+
+    if re_matches_tag not in ("Fully Compliant","Partially Compliant","Non Compliant"):
+        return ServiceResponse(success=False, status_code=503, msg='Failed to Compute Compliance Tag')
+    ovcomp_tag = str(re_matches_tag)
+
+    re_matches_score = re_matches_score.groups()
+    first_match = next((x for x in re_matches_score if x is not None), None)
     if not first_match:
-        return ServiceResponse(success=False, status_code=503, msg='Faild to Compute Compliance Score')
+        return ServiceResponse(success=False, status_code=503, msg='Failed to Compute Compliance Score')
     ovcomp_score = int(first_match)
 
     return ServiceResponse(data={
         'llm_resp': gpt35t_resp,
         'overall_compliance_score': ovcomp_score,
+        'overall_compliance_tag':ovcomp_tag,
         'conversation': res.data['conversation'],
     })
 

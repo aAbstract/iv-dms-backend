@@ -133,7 +133,8 @@ def test_llm_unstruct_api_success_high_score():
     assert 'context_id' in json_res_body['data']
     assert json_res_body['data']['overall_compliance_score'] > ((1 - LLM_SCORE_TH) * 100)
     old_ocs = json_res_body['data']['overall_compliance_score']
-
+    assert json_res_body['data']['overall_compliance_tag']
+    
     # call enhance llm api
     api_url = f"{_test_config.get_api_url()}/llm/iosa-enhance-unstruct"
     context_id = json_res_body['data']['context_id']
@@ -187,7 +188,7 @@ def test_llm_pages_api_success_high_score():
     assert 'overall_compliance_score' in json_res_body['data']
     assert 'context_id' in json_res_body['data']
     assert json_res_body['data']['overall_compliance_score'] > ((1 - LLM_SCORE_TH) * 100)
-
+    assert json_res_body['data']['overall_compliance_tag']
 
 def test_llm_pages_api_combined_low_score():
     if not int(os.environ['GPT_35T_ENABLE']):
@@ -228,3 +229,4 @@ def test_llm_pages_api_combined_low_score():
     assert 'overall_compliance_score' in json_res_body['data']
     assert 'context_id' in json_res_body['data']
     assert json_res_body['data']['overall_compliance_score'] < (LLM_SCORE_TH * 100)
+    assert json_res_body['data']['overall_compliance_tag']

@@ -98,7 +98,6 @@ async def scan_doc(doc_id: str, filename: str, iosa_item: IOSAItem, ai_task_id: 
             "language": "en",
             "model_type": "gpt-4"
         })
-        breakpoint()
 
         if llm_debug:
             print(f"CHAT_DOC_GPT_4 reponse time: {time.time() - llm_start}s")
