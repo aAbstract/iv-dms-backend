@@ -59,7 +59,7 @@ def convert_to_markdown(text):
             "xxix",
             "xxx",
         ]:
-            return f"\n\n\t({listing_type.lower()})"
+            return f"\n- ({listing_type.lower()})"
         elif listing_type.lower() in [
             "a",
             "b",
@@ -88,14 +88,13 @@ def convert_to_markdown(text):
             "y",
             "z",
         ]:
-            return f"\n\n\t\t({listing_type.lower()})"
+            return f"\n  - ({listing_type.lower()})"
         else:
             return f"({listing_type})"
-
-    markdown_text = re.sub(r"\w\n\w", " ", text)
+        
+    markdown_text = re.sub(r'(?<=\w)\n(?=\w)', " ", text)
     markdown_text = re.sub(r"\n\((\w+)\)", replace_listing, markdown_text)
     return markdown_text
-
 
 def clean(text, allowed=list(string.printable)):
     unicode_dashes = [

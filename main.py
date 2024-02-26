@@ -32,8 +32,8 @@ async def lifespan(app: FastAPI):
 
 server = FastAPI(
     title=os.environ['SERVER_NAME'],
-    description='Added Audit Tags',
-    version="0.37.5",
+    description='Fixed Markdown Nesting',
+    version="0.37.6",
     lifespan=lifespan,
 )
 server.add_middleware(
