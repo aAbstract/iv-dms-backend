@@ -32,8 +32,8 @@ async def lifespan(app: FastAPI):
 
 server = FastAPI(
     title=os.environ['SERVER_NAME'],
-    description='Adjusted iosa_audit_pages',
-    version="0.37.7",
+    description='Fixed Seeded Values',
+    version="0.37.8",
     lifespan=lifespan,
 )
 server.add_middleware(
