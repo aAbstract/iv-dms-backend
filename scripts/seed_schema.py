@@ -581,6 +581,7 @@ def seed_routine():
     fs_index_chat_doc_ids = {
         "nesma_ch15.pdf": "e1fb39f6-9c86-4b58-8ccb-0aebb1dbf075",
         "nesma_ch12.pdf": "79a57df5-5047-413f-9b88-68abc13b98a5",
+        "nesma_ch1.pdf":  "3de78336-42a9-4920-a916-91a4144db589"
     }
     # nesma
     for file_path in glob(r"data/nesma_OMA/*.pdf"):

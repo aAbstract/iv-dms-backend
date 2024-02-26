@@ -10,7 +10,7 @@
             {
                 "children": [],
                 "pages": [
-                    3
+                    1
                 ],
                 "label": "0.1 TABLE OF CONTENTS",
                 "key": "AR535644670356"
@@ -18,7 +18,7 @@
             {
                 "children": [],
                 "pages": [
-                    9
+                    7
                 ],
                 "label": "0.2 REVISION  HIGHLIGHTS",
                 "key": "AR155867125276"
@@ -26,7 +26,7 @@
             {
                 "children": [],
                 "pages": [
-                    11
+                    9
                 ],
                 "label": "0.3 RECORD OF REVISIONS",
                 "key": "AR645882964009"
@@ -34,7 +34,7 @@
             {
                 "children": [],
                 "pages": [
-                    13
+                    11
                 ],
                 "label": "0.4 RECORD OF TEMPORARY REVISIONS",
                 "key": "AR504000103371"
@@ -42,7 +42,7 @@
             {
                 "children": [],
                 "pages": [
-                    15
+                    13
                 ],
                 "label": "0.5 LIST OF EFFECTIVE PAGES",
                 "key": "AR351234627546"
@@ -50,7 +50,7 @@
             {
                 "children": [],
                 "pages": [
-                    21
+                    19
                 ],
                 "label": "0.6 LIST OF TABLES",
                 "key": "AR263602580029"
@@ -58,7 +58,7 @@
             {
                 "children": [],
                 "pages": [
-                    23
+                    21
                 ],
                 "label": "0.7 LIST OF FIGURES",
                 "key": "AR262645450810"
@@ -66,7 +66,7 @@
             {
                 "children": [],
                 "pages": [
-                    25
+                    23
                 ],
                 "label": "0.8 LIST OF COMPLIANCE ENTRIES",
                 "key": "AR217436480576"
@@ -74,7 +74,7 @@
             {
                 "children": [],
                 "pages": [
-                    29
+                    27
                 ],
                 "label": "0.9 MANAGEMENT APPROVAL",
                 "key": "AR989940314115"
@@ -82,7 +82,7 @@
             {
                 "children": [],
                 "pages": [
-                    31
+                    329
                 ],
                 "label": "0.10 GACA APPROVAL / ACCEPTANCE",
                 "key": "AR699133993777"
@@ -92,7 +92,7 @@
                     {
                         "children": [],
                         "pages": [
-                            33
+                            31
                         ],
                         "label": "0.11.1 POLICY",
                         "key": "AR776015931237"
@@ -100,7 +100,7 @@
                     {
                         "children": [],
                         "pages": [
-                            33
+                            31
                         ],
                         "label": "0.11.2 APPLICABILITY",
                         "key": "AR273899674322"
@@ -108,7 +108,7 @@
                     {
                         "children": [],
                         "pages": [
-                            33
+                            31
                         ],
                         "label": "0.11.3 COMMON LANGUAGE",
                         "key": "AR219817367200"
@@ -116,7 +116,7 @@
                     {
                         "children": [],
                         "pages": [
-                            34
+                            32
                         ],
                         "label": "0.11.4 USAGE OF TERMS",
                         "key": "AR191555125954"
@@ -124,7 +124,7 @@
                     {
                         "children": [],
                         "pages": [
-                            34
+                            32
                         ],
                         "label": "0.11.5 HUMAN FACTOR PRINCIPLES",
                         "key": "AR474826052593"
@@ -132,15 +132,15 @@
                     {
                         "children": [],
                         "pages": [
-                            35
+                            33
                         ],
                         "label": "0.11.6 APPLICABLE REGULATIONS AND STANDARDS",
                         "key": "AR727319271966"
                     }
                 ],
                 "pages": [
-                    33,
-                    35
+                    31,
+                    33
                 ],
                 "label": "0.11 INTRODUCTION",
                 "key": "AR888426255868"
@@ -150,7 +150,7 @@
                     {
                         "children": [],
                         "pages": [
-                            37
+                            35
                         ],
                         "label": "0.12.1 ABBREVIATIONS AND ACRONYMS",
                         "key": "AR456573248617"
@@ -158,15 +158,15 @@
                     {
                         "children": [],
                         "pages": [
-                            39
+                            37
                         ],
                         "label": "0.12.2 DEFINITIONS",
                         "key": "AR813814519936"
                     }
                 ],
                 "pages": [
-                    37,
-                    39
+                    35,
+                    37
                 ],
                 "label": "0.12 ABBREVIATIONS, ACRONYMS AND DEFINITIONS",
                 "key": "AR498090676155"
@@ -176,7 +176,7 @@
                     {
                         "children": [],
                         "pages": [
-                            43
+                            42
                         ],
                         "label": "0.13.1 MANUAL OWNERSHIP",
                         "key": "AR720853042568"
@@ -184,7 +184,7 @@
                     {
                         "children": [],
                         "pages": [
-                            43
+                            42
                         ],
                         "label": "0.13.2 MANUAL HOLDER RESPONSIBILITY",
                         "key": "AR598491156941"
@@ -192,7 +192,7 @@
                     {
                         "children": [],
                         "pages": [
-                            43
+                            42
                         ],
                         "label": "0.13.3 DISTRIBUTION LIST AND AVAILABILITY",
                         "key": "AR686058239333"
@@ -200,7 +200,7 @@
                     {
                         "children": [],
                         "pages": [
-                            44
+                            42
                         ],
                         "label": "0.13.4 PUBLICATION HIERARCHY",
                         "key": "AR176654426506"
@@ -208,7 +208,7 @@
                     {
                         "children": [],
                         "pages": [
-                            44
+                            42
                         ],
                         "label": "0.13.5 MANUAL STRUCTURE",
                         "key": "AR209955667567"
@@ -216,7 +216,7 @@
                     {
                         "children": [],
                         "pages": [
-                            44
+                            42
                         ],
                         "label": "0.13.6 SOURCE OF AMENDMENTS",
                         "key": "AR890213125752"
@@ -224,7 +224,7 @@
                     {
                         "children": [],
                         "pages": [
-                            44
+                            42
                         ],
                         "label": "0.13.7 REFERENCED AND LINKED DOCUMENTS",
                         "key": "AR973647252499"
@@ -232,7 +232,7 @@
                     {
                         "children": [],
                         "pages": [
-                            45
+                            43
                         ],
                         "label": "0.13.8 FORMAT AND DOCUMENTATION CONTROL REQUIREMENTS",
                         "key": "AR801175574600"
@@ -240,15 +240,15 @@
                     {
                         "children": [],
                         "pages": [
-                            45
+                            43
                         ],
                         "label": "0.13.9 ERROR REPORTING AND CORRECTIONS AND SUGGESTIONS FOR IMPROVEMENT",
                         "key": "AR781130917644"
                     }
                 ],
                 "pages": [
-                    43,
-                    45
+                    42,
+                    43
                 ],
                 "label": "0.13 SYSTEM OF AMENDMENT AND REVISION",
                 "key": "AR338370763139"
@@ -266,7 +266,7 @@
             {
                 "children": [],
                 "pages": [
-                    47
+                    1
                 ],
                 "label": "1.1 GENERAL POLICIES ON DANGEROUS GOODS TRANSPORTATION",
                 "key": "AR479909656817"
@@ -274,7 +274,7 @@
             {
                 "children": [],
                 "pages": [
-                    48
+                    2
                 ],
                 "label": "1.2 DEFINITION OF DANGEROUS GOODS",
                 "key": "AR911022617393"
@@ -282,7 +282,7 @@
             {
                 "children": [],
                 "pages": [
-                    49
+                    3
                 ],
                 "label": "1.3 MANAGEMENT DEPARTMENTS AND RESPONSIBILITIES",
                 "key": "AR885601966481"
@@ -292,7 +292,7 @@
                     {
                         "children": [],
                         "pages": [
-                            50
+                            4
                         ],
                         "label": "1.4.1 DANGEROUS GOODS MANAGER",
                         "key": "AR354066719766"
@@ -300,7 +300,7 @@
                     {
                         "children": [],
                         "pages": [
-                            50
+                            4
                         ],
                         "label": "1.4.2 TRAINING INSTRUCTOR",
                         "key": "AR992604254398"
@@ -308,7 +308,7 @@
                     {
                         "children": [],
                         "pages": [
-                            51
+                            5
                         ],
                         "label": "1.4.3 COMPLIANCE AGENT(S)",
                         "key": "AR269885487513"
@@ -316,15 +316,15 @@
                     {
                         "children": [],
                         "pages": [
-                            52
+                            6
                         ],
                         "label": "1.4.4 RAMP SUPERVISOR",
                         "key": "AR711561194820"
                     }
                 ],
                 "pages": [
-                    50,
-                    52
+                    4,
+                    6
                 ],
                 "label": "1.4 ROLES AND RESPONSIBILITIES",
                 "key": "AR183569233327"
@@ -332,7 +332,7 @@
             {
                 "children": [],
                 "pages": [
-                    53
+                    7
                 ],
                 "label": "1.5 CONTACT DETAILS",
                 "key": "AR211819373579"
@@ -340,7 +340,7 @@
             {
                 "children": [],
                 "pages": [
-                    54
+                    8
                 ],
                 "label": "1.6 DELEGATION OF DUTIES",
                 "key": "AR651988513874"
@@ -350,15 +350,15 @@
                     {
                         "children": [],
                         "pages": [
-                            55
+                            9
                         ],
                         "label": "1.7.1 COMPLIANCE WITH GACAR",
                         "key": "AR431306365822"
                     }
                 ],
                 "pages": [
-                    55,
-                    55
+                    9,
+                    9
                 ],
                 "label": "1.7 REGULATIONS ON DANGEROUS GOODS TRANSPORTATION",
                 "key": "AR442291992792"
@@ -366,7 +366,7 @@
             {
                 "children": [],
                 "pages": [
-                    56
+                    10
                 ],
                 "label": "1.8 THE SHIPPER'S RESPONSIBILITIES",
                 "key": "AR247289755460"
@@ -374,7 +374,7 @@
             {
                 "children": [],
                 "pages": [
-                    57
+                    11
                 ],
                 "label": "1.9 TRAINING OF DANGEROUS GOODS TRANSPORT",
                 "key": "AR478534572081"
@@ -382,7 +382,7 @@
             {
                 "children": [],
                 "pages": [
-                    58
+                    12
                 ],
                 "label": "1.10 DANGEROUS GOODS EXCEPTIONS",
                 "key": "AR336769910920"
@@ -403,7 +403,7 @@
                     {
                         "children": [],
                         "pages": [
-                            60
+                            2
                         ],
                         "label": "2.1.1  SHIPPER'S RESPONSIBILITY",
                         "key": "AR714997195097"
@@ -411,7 +411,7 @@
                     {
                         "children": [],
                         "pages": [
-                            60
+                            2
                         ],
                         "label": "2.1.2 CLASS 1 - EXPLOSIVES",
                         "key": "AR427167519806"
@@ -419,7 +419,7 @@
                     {
                         "children": [],
                         "pages": [
-                            61
+                            3
                         ],
                         "label": "2.1.3 CLASS 2 - GASES",
                         "key": "AR211806572236"
@@ -427,7 +427,7 @@
                     {
                         "children": [],
                         "pages": [
-                            62
+                            4
                         ],
                         "label": "2.1.4 CLASS 3 - FLAMMABLE LIQUIDS",
                         "key": "AR989845472052"
@@ -435,7 +435,7 @@
                     {
                         "children": [],
                         "pages": [
-                            62
+                            4
                         ],
                         "label": "2.1.5 CLASS 4 - FLAMMABLE SOLIDS; SUBSTANCES LIABLE TO SPONTANEOUS COMBUSTION; SUBSTANCES WHICH, IN CONTACT WITH WATER, EMIT FLAMMABLE GASES",
                         "key": "AR460656599916"
@@ -443,7 +443,7 @@
                     {
                         "children": [],
                         "pages": [
-                            63
+                            5
                         ],
                         "label": "2.1.6 CLASS 5 - OXIDIZING SUBSTANCES AND ORGANIC PEROXIDES",
                         "key": "AR375576518457"
@@ -451,7 +451,7 @@
                     {
                         "children": [],
                         "pages": [
-                            64
+                            6
                         ],
                         "label": "2.1.7 CLASS 6 - TOXIC AND INFECTIOUS SUBSTANCES",
                         "key": "AR314221529747"
@@ -459,7 +459,7 @@
                     {
                         "children": [],
                         "pages": [
-                            64
+                            6
                         ],
                         "label": "2.1.8 CLASS 7 - RADIOACTIVE MATERIAL",
                         "key": "AR146272846716"
@@ -467,7 +467,7 @@
                     {
                         "children": [],
                         "pages": [
-                            65
+                            7
                         ],
                         "label": "2.1.9 CLASS 8 - CORROSIVES",
                         "key": "AR397399283262"
@@ -475,7 +475,7 @@
                     {
                         "children": [],
                         "pages": [
-                            65
+                            7
                         ],
                         "label": "2.1.10 CLASS 9 - MISCELLANEOUS DANGEROUS GOODS",
                         "key": "AR186172240195"
@@ -483,7 +483,7 @@
                     {
                         "children": [],
                         "pages": [
-                            66
+                            8
                         ],
                         "label": "2.1.11 CLASSIFICATION OF",
                         "key": "AR854526245991"
@@ -491,15 +491,15 @@
                     {
                         "children": [],
                         "pages": [
-                            69
+                            11
                         ],
                         "label": "2.1.12 TRANSPORT OF SAMPLES FOR FURTHER TESTING",
                         "key": "AR256098915967"
                     }
                 ],
                 "pages": [
-                    59,
-                    69
+                    1,
+                    11
                 ],
                 "label": "2.1 CLASSIFICATION OF DANGEROUS GOODS",
                 "key": "AR991424094521"
@@ -507,7 +507,7 @@
             {
                 "children": [],
                 "pages": [
-                    71
+                    13
                 ],
                 "label": "2.2 IDENTIFICATION OF DANGEROUS GOODS",
                 "key": "AR278085568434"
@@ -515,7 +515,7 @@
             {
                 "children": [],
                 "pages": [
-                    72
+                    14
                 ],
                 "label": "2.3 SEGREGATION OF INCOMPATIBLE GOODS",
                 "key": "AR153731708047"
@@ -523,7 +523,7 @@
             {
                 "children": [],
                 "pages": [
-                    74
+                    16
                 ],
                 "label": "2.4 GENERAL REQUIREMENT OF PACKAGING",
                 "key": "AR200628796143"
@@ -533,7 +533,7 @@
                     {
                         "children": [],
                         "pages": [
-                            76
+                            18
                         ],
                         "label": "2.5.1 GENERAL",
                         "key": "AR860757279616"
@@ -541,7 +541,7 @@
                     {
                         "children": [],
                         "pages": [
-                            76
+                            18
                         ],
                         "label": "2.5.2 MARKING",
                         "key": "AR689665897912"
@@ -549,7 +549,7 @@
                     {
                         "children": [],
                         "pages": [
-                            79
+                            21
                         ],
                         "label": "2.5.3 LABELLING",
                         "key": "AR683525601028"
@@ -557,7 +557,7 @@
                     {
                         "children": [],
                         "pages": [
-                            80
+                            22
                         ],
                         "label": "2.5.4 HAZARD LABEL SPECIFICATIONS",
                         "key": "AR372295067628"
@@ -565,15 +565,15 @@
                     {
                         "children": [],
                         "pages": [
-                            84
+                            26
                         ],
                         "label": "2.5.5 HANDLING LABELS",
                         "key": "AR350982826842"
                     }
                 ],
                 "pages": [
-                    76,
-                    84
+                    18,
+                    26
                 ],
                 "label": "2.5 MARKINGS AND LABELS",
                 "key": "AR883767881277"
@@ -592,7 +592,7 @@
             {
                 "children": [],
                 "pages": [
-                    87
+                    1
                 ],
                 "label": "3.1 GENERAL PRINCIPLES",
                 "key": "AR857984616397"
@@ -602,7 +602,7 @@
                     {
                         "children": [],
                         "pages": [
-                            88
+                            2
                         ],
                         "label": "3.2.1 FORBIDDEN DANGEROUS GOODS",
                         "key": "AR414248592953"
@@ -610,7 +610,7 @@
                     {
                         "children": [],
                         "pages": [
-                            88
+                            2
                         ],
                         "label": "3.2.2 DANGEROUS GOODS REQUIRING EXEMPTION",
                         "key": "AR654212144200"
@@ -618,7 +618,7 @@
                     {
                         "children": [],
                         "pages": [
-                            89
+                            3
                         ],
                         "label": "3.2.3 APPROVAL OF EXEMPTIONS",
                         "key": "AR818321479959"
@@ -626,7 +626,7 @@
                     {
                         "children": [],
                         "pages": [
-                            89
+                            3
                         ],
                         "label": "3.2.4 RESTRICTIONS ON SPECIFIC DANGEROUS GOODS",
                         "key": "AR884189151928"
@@ -634,15 +634,15 @@
                     {
                         "children": [],
                         "pages": [
-                            90
+                            4
                         ],
                         "label": "3.2.5 DANGEROUS GOODS IN THE MAIL",
                         "key": "AR505360440353"
                     }
                 ],
                 "pages": [
-                    88,
-                    90
+                    2,
+                    4
                 ],
                 "label": "3.2 DANGEROUS GOODS PROHIBITED IN AIR TRANSPORT",
                 "key": "AR574751820859"
@@ -652,7 +652,7 @@
                     {
                         "children": [],
                         "pages": [
-                            91
+                            5
                         ],
                         "label": "3.3.1 REQUIRED OPERATOR APPROVAL",
                         "key": "AR238297046093"
@@ -660,7 +660,7 @@
                     {
                         "children": [],
                         "pages": [
-                            91
+                            5
                         ],
                         "label": "3.3.2 FORBIDDEN GOODS",
                         "key": "AR757445467451"
@@ -668,15 +668,15 @@
                     {
                         "children": [],
                         "pages": [
-                            92
+                            6
                         ],
                         "label": "3.3.3 PROVISIONS FOR CARRIAGE IN THE CABIN",
                         "key": "AR478889793486"
                     }
                 ],
                 "pages": [
-                    91,
-                    92
+                    5,
+                    6
                 ],
                 "label": "3.3 DANGEROUS GOODS CARRIED BY PASSENGERS AND CREW",
                 "key": "AR467947185975"
@@ -686,7 +686,7 @@
                     {
                         "children": [],
                         "pages": [
-                            99
+                            13
                         ],
                         "label": "3.4.1 AIRWORTHINESS AND OPERATIONAL ITEMS",
                         "key": "AR129334810356"
@@ -694,15 +694,15 @@
                     {
                         "children": [],
                         "pages": [
-                            99
+                            13
                         ],
                         "label": "3.4.2 MEDICAL AID FOR A PATIENT",
                         "key": "AR410605576825"
                     }
                 ],
                 "pages": [
-                    99,
-                    99
+                    13,
+                    13
                 ],
                 "label": "3.4 GENERAL EXCEPTIONS",
                 "key": "AR320899121865"
@@ -712,7 +712,7 @@
                     {
                         "children": [],
                         "pages": [
-                            100
+                            14
                         ],
                         "label": "3.5.1 LOADING OF BATTERY POWERED MOBILITY AIDS",
                         "key": "AR520079875035"
@@ -720,7 +720,7 @@
                     {
                         "children": [],
                         "pages": [
-                            101
+                            15
                         ],
                         "label": "3.5.2 ADDITIONAL REQUIREMENTS - NON-SPILLABLE BATTERY POWERED MOBILITY AIDS",
                         "key": "AR299207412735"
@@ -728,7 +728,7 @@
                     {
                         "children": [],
                         "pages": [
-                            101
+                            15
                         ],
                         "label": "3.5.3 ADDITIONAL REQUIREMENTS - SPILLABLE BATTERY POWERED MOBILITY AIDS",
                         "key": "AR580690778276"
@@ -736,7 +736,7 @@
                     {
                         "children": [],
                         "pages": [
-                            101
+                            15
                         ],
                         "label": "3.5.4 ADDITIONAL REQUIREMENTS - LITHIUM-ION BATTERY POWERED MOBILITY AIDS",
                         "key": "AR179039940618"
@@ -744,7 +744,7 @@
                     {
                         "children": [],
                         "pages": [
-                            101
+                            15
                         ],
                         "label": "3.5.5 LABELLING OF BATTERY POWERED MOBILITY AIDS",
                         "key": "AR970536676308"
@@ -752,7 +752,7 @@
                     {
                         "children": [],
                         "pages": [
-                            102
+                            16
                         ],
                         "label": "3.5.6 BATTERY POWERED MOBILITY AIDS - INFORMATION TO COMMANDER",
                         "key": "AR354625752269"
@@ -760,7 +760,7 @@
                     {
                         "children": [],
                         "pages": [
-                            102
+                            16
                         ],
                         "label": "3.5.7 MEDICAL OXYGEN",
                         "key": "AR809360548912"
@@ -768,7 +768,7 @@
                     {
                         "children": [],
                         "pages": [
-                            102
+                            16
                         ],
                         "label": "3.5.8 DRY ICE (CARBON DIOXIDE, SOLID)",
                         "key": "AR774830437492"
@@ -776,15 +776,15 @@
                     {
                         "children": [],
                         "pages": [
-                            102
+                            16
                         ],
                         "label": "3.5.9 AMMUNITION",
                         "key": "AR191343630515"
                     }
                 ],
                 "pages": [
-                    100,
-                    102
+                    14,
+                    16
                 ],
                 "label": "3.5 HANDLING OF SPECIFIC DANGEROUS GOODS",
                 "key": "AR884708312345"
@@ -794,7 +794,7 @@
                     {
                         "children": [],
                         "pages": [
-                            103
+                            17
                         ],
                         "label": "3.6.1 HAZARD LABELS",
                         "key": "AR319996845175"
@@ -802,7 +802,7 @@
                     {
                         "children": [],
                         "pages": [
-                            106
+                            20
                         ],
                         "label": "3.6.2 HANDLING LABELS",
                         "key": "AR242433829094"
@@ -810,15 +810,15 @@
                     {
                         "children": [],
                         "pages": [
-                            107
+                            21
                         ],
                         "label": "3.6.3 MARKINGS",
                         "key": "AR211575590556"
                     }
                 ],
                 "pages": [
-                    103,
-                    107
+                    17,
+                    21
                 ],
                 "label": "3.6 MARKING AND LABELLING OF PACKAGES",
                 "key": "AR244369759151"
@@ -828,7 +828,7 @@
                     {
                         "children": [],
                         "pages": [
-                            108
+                            22
                         ],
                         "label": "3.7.1 IDENTIFICATION OF DANGEROUS GOODS THROUGH X-RAY SCREENING",
                         "key": "AR776987344602"
@@ -836,15 +836,15 @@
                     {
                         "children": [],
                         "pages": [
-                            108
+                            22
                         ],
                         "label": "3.7.2 GHS CONSUMER LABELLING",
                         "key": "AR321657436734"
                     }
                 ],
                 "pages": [
-                    108,
-                    108
+                    22,
+                    22
                 ],
                 "label": "3.7 RECOGNITION OF UNDECLARED DANGEROUS GOODS",
                 "key": "AR239876449640"
@@ -862,7 +862,7 @@
             {
                 "children": [],
                 "pages": [
-                    109
+                    1
                 ],
                 "label": "4.1 GENERAL RULES FOR COLLECTION AND TRANSPORTATION",
                 "key": "AR897884574705"
@@ -870,7 +870,7 @@
             {
                 "children": [],
                 "pages": [
-                    110
+                    2
                 ],
                 "label": "4.2 DELIVERY, COLLECTION AND TRANSPORTATION PROCEDURES",
                 "key": "AR635629246913"
@@ -880,7 +880,7 @@
                     {
                         "children": [],
                         "pages": [
-                            112
+                            4
                         ],
                         "label": "4.3.1 GENERAL STORAGE REQUIREMENTS",
                         "key": "AR178974800994"
@@ -888,7 +888,7 @@
                     {
                         "children": [],
                         "pages": [
-                            112
+                            4
                         ],
                         "label": "4.3.2 STORAGE OF SPECIFIC DANGEROUS GOODS",
                         "key": "AR858164705215"
@@ -896,15 +896,15 @@
                     {
                         "children": [],
                         "pages": [
-                            113
+                            5
                         ],
                         "label": "4.3.3 STORAGE OF DANGEROUS GOODS SPARES",
                         "key": "AR708209415674"
                     }
                 ],
                 "pages": [
-                    112,
-                    113
+                    4,
+                    5
                 ],
                 "label": "4.3 STORAGE OF DANGEROUS GOODS",
                 "key": "AR910879447393"
@@ -912,7 +912,7 @@
             {
                 "children": [],
                 "pages": [
-                    114
+                    6
                 ],
                 "label": "4.4 LOADING OF DANGEROUS GOODS",
                 "key": "AR791543962844"
@@ -920,7 +920,7 @@
             {
                 "children": [],
                 "pages": [
-                    115
+                    7
                 ],
                 "label": "4.5 DANGEROUS GOODS DOCUMENTS",
                 "key": "AR185241902569"
@@ -930,7 +930,7 @@
                     {
                         "children": [],
                         "pages": [
-                            116
+                            8
                         ],
                         "label": "4.6.1 GENERAL",
                         "key": "AR444602117727"
@@ -938,7 +938,7 @@
                     {
                         "children": [],
                         "pages": [
-                            116
+                            8
                         ],
                         "label": "4.6.2 ACCEPTANCE",
                         "key": "AR589356982111"
@@ -946,7 +946,7 @@
                     {
                         "children": [],
                         "pages": [
-                            117
+                            9
                         ],
                         "label": "4.6.3 LOADING",
                         "key": "AR176310080044"
@@ -954,15 +954,15 @@
                     {
                         "children": [],
                         "pages": [
-                            120
+                            12
                         ],
                         "label": "4.6.4 INSPECTION",
                         "key": "AR624375321653"
                     }
                 ],
                 "pages": [
-                    116,
-                    120
+                    8,
+                    12
                 ],
                 "label": "4.6 HANDLING",
                 "key": "AR189368976960"
@@ -972,7 +972,7 @@
                     {
                         "children": [],
                         "pages": [
-                            121
+                            13
                         ],
                         "label": "4.7.1 INFORMATION TO THE PILOT-IN-COMMAND",
                         "key": "AR880343710519"
@@ -980,7 +980,7 @@
                     {
                         "children": [],
                         "pages": [
-                            121
+                            13
                         ],
                         "label": "4.7.2 INFORMATION BY PILOT-IN-COMMAND IN IN-FLIGHT EMERGENCY",
                         "key": "AR544852278344"
@@ -988,15 +988,15 @@
                     {
                         "children": [],
                         "pages": [
-                            121
+                            13
                         ],
                         "label": "4.7.3 INFORMATION TO PASSENGERS",
                         "key": "AR395435179253"
                     }
                 ],
                 "pages": [
-                    121,
-                    121
+                    13,
+                    13
                 ],
                 "label": "4.7 PROVISION OF INFORMATION",
                 "key": "AR764115270353"
@@ -1004,7 +1004,7 @@
             {
                 "children": [],
                 "pages": [
-                    123
+                    15
                 ],
                 "label": "4.8 RETENTION OF DOCUMENTS",
                 "key": "AR629649377426"
@@ -1022,7 +1022,7 @@
             {
                 "children": [],
                 "pages": [
-                    125
+                    1
                 ],
                 "label": "5.1 TRANSPORT OF RADIOACTIVE MATERIAL",
                 "key": "AR737826219453"
@@ -1030,7 +1030,7 @@
             {
                 "children": [],
                 "pages": [
-                    127
+                    3
                 ],
                 "label": "5.2 LIMITATIONS",
                 "key": "AR876342962937"
@@ -1040,7 +1040,7 @@
                     {
                         "children": [],
                         "pages": [
-                            128
+                            4
                         ],
                         "label": "5.3.1 SPECIAL FORM RADIOACTIVE MATERIAL",
                         "key": "AR957075997055"
@@ -1048,7 +1048,7 @@
                     {
                         "children": [],
                         "pages": [
-                            129
+                            5
                         ],
                         "label": "5.3.2 LOW SPECIFIC ACTIVITY",
                         "key": "AR974648864498"
@@ -1056,15 +1056,15 @@
                     {
                         "children": [],
                         "pages": [
-                            129
+                            5
                         ],
                         "label": "5.3.3 SURFACE CONTAMINATED OBJECT",
                         "key": "AR285814067495"
                     }
                 ],
                 "pages": [
-                    128,
-                    129
+                    4,
+                    5
                 ],
                 "label": "5.3 CLASSIFICATION",
                 "key": "AR337338379737"
@@ -1072,7 +1072,7 @@
             {
                 "children": [],
                 "pages": [
-                    130
+                    6
                 ],
                 "label": "5.4 IDENTIFICATION",
                 "key": "AR290835841240"
@@ -1080,7 +1080,7 @@
             {
                 "children": [],
                 "pages": [
-                    131
+                    7
                 ],
                 "label": "5.5 PACKING",
                 "key": "AR692401917240"
@@ -1088,7 +1088,7 @@
             {
                 "children": [],
                 "pages": [
-                    132
+                    8
                 ],
                 "label": "5.6 MARKING AND LABELLING",
                 "key": "AR241036823926"
@@ -1096,7 +1096,7 @@
             {
                 "children": [],
                 "pages": [
-                    133
+                    9
                 ],
                 "label": "5.7 DOCUMENTATION",
                 "key": "AR843155275724"
@@ -1104,7 +1104,7 @@
             {
                 "children": [],
                 "pages": [
-                    134
+                    10
                 ],
                 "label": "5.8 HANDLING",
                 "key": "AR124746856992"
@@ -1112,7 +1112,7 @@
             {
                 "children": [],
                 "pages": [
-                    135
+                    11
                 ],
                 "label": "5.9 RADIOACTIVE MATERIALS INCIDENT REPORTING",
                 "key": "AR860461036348"
@@ -1131,7 +1131,7 @@
             {
                 "children": [],
                 "pages": [
-                    137
+                    1
                 ],
                 "label": "6.1 GENERAL PROVISIONS",
                 "key": "AR825413332615"
@@ -1141,7 +1141,7 @@
                     {
                         "children": [],
                         "pages": [
-                            139
+                            3
                         ],
                         "label": "6.2.1 EMERGENCY RESPONSE DRILLS",
                         "key": "AR836263344175"
@@ -1149,15 +1149,15 @@
                     {
                         "children": [],
                         "pages": [
-                            142
+                            6
                         ],
                         "label": "6.2.2 EMERGENCY DRILL LETTERS",
                         "key": "AR279692583242"
                     }
                 ],
                 "pages": [
-                    138,
-                    142
+                    2,
+                    6
                 ],
                 "label": "6.2 EMERGENCY RESPONSE REQUIREMENTS",
                 "key": "AR537846828206"
@@ -1165,7 +1165,7 @@
             {
                 "children": [],
                 "pages": [
-                    143
+                    7
                 ],
                 "label": "6.3 GENERAL EMERGENCY RESPONSE CONSIDERATIONS",
                 "key": "AR869433114814"
@@ -1173,7 +1173,7 @@
             {
                 "children": [],
                 "pages": [
-                    144
+                    8
                 ],
                 "label": "6.4 ACCIDENTS AND INCIDENTS REPORT OF DANGEROUS GOODS",
                 "key": "AR613675698321"
@@ -1181,7 +1181,7 @@
             {
                 "children": [],
                 "pages": [
-                    146
+                    10
                 ],
                 "label": "6.5 EMERGENCY RESPONSE PROCEDURES IN AIR",
                 "key": "AR200195494754"
@@ -1189,7 +1189,7 @@
             {
                 "children": [],
                 "pages": [
-                    147
+                    11
                 ],
                 "label": "6.6 EMERGENCY RESPONSE PROCEDURES OF DANGEROUS GOODS ACCIDENT OR INCIDENT ON THE GROUND",
                 "key": "AR924302680661"
@@ -1207,7 +1207,7 @@
             {
                 "children": [],
                 "pages": [
-                    149
+                    1
                 ],
                 "label": "7.1 SECURITY RESPONSIBILITIES",
                 "key": "AR708307830199"
@@ -1215,7 +1215,7 @@
             {
                 "children": [],
                 "pages": [
-                    150
+                    2
                 ],
                 "label": "7.2 FACILITY SECURITY",
                 "key": "AR258346383194"
@@ -1223,7 +1223,7 @@
             {
                 "children": [],
                 "pages": [
-                    151
+                    3
                 ],
                 "label": "7.3 CARGO SECURITY PROCEDURES",
                 "key": "AR949661086056"
@@ -1231,7 +1231,7 @@
             {
                 "children": [],
                 "pages": [
-                    152
+                    4
                 ],
                 "label": "7.4 PERSONNEL SECURITY AND TRAINING",
                 "key": "AR643485747870"
@@ -1239,7 +1239,7 @@
             {
                 "children": [],
                 "pages": [
-                    153
+                    5
                 ],
                 "label": "7.5 PRE-BOARD INSPECTION OF PASSENGERS",
                 "key": "AR782638806562"
@@ -1257,7 +1257,7 @@
             {
                 "children": [],
                 "pages": [
-                    157
+                    1
                 ],
                 "label": "8.1 PURPOSE AND SCOPE",
                 "key": "AR851081912244"
@@ -1267,7 +1267,7 @@
                     {
                         "children": [],
                         "pages": [
-                            158
+                            2
                         ],
                         "label": "8.2.1 DELIVERY METHODS",
                         "key": "AR255512536619"
@@ -1275,15 +1275,15 @@
                     {
                         "children": [],
                         "pages": [
-                            159
+                            3
                         ],
                         "label": "8.2.2 TRAINING ENVIRONMENT AND TOOLS",
                         "key": "AR453487089206"
                     }
                 ],
                 "pages": [
-                    158,
-                    159
+                    2,
+                    3
                 ],
                 "label": "8.2 TRAINING METHODOLOGY",
                 "key": "AR761193930187"
@@ -1293,7 +1293,7 @@
                     {
                         "children": [],
                         "pages": [
-                            160
+                            4
                         ],
                         "label": "8.3.1 FLIGHT CREW",
                         "key": "AR199805762892"
@@ -1301,7 +1301,7 @@
                     {
                         "children": [],
                         "pages": [
-                            160
+                            4
                         ],
                         "label": "8.3.2 GROUND HANDLING PERSONNEL",
                         "key": "AR763952686582"
@@ -1309,7 +1309,7 @@
                     {
                         "children": [],
                         "pages": [
-                            162
+                            6
                         ],
                         "label": "8.3.3 FLIGHT OPERATIONS AND DISPATCH",
                         "key": "AR876441252990"
@@ -1317,15 +1317,15 @@
                     {
                         "children": [],
                         "pages": [
-                            162
+                            6
                         ],
                         "label": "8.3.4 CABIN CREW",
                         "key": "AR284346047292"
                     }
                 ],
                 "pages": [
-                    160,
-                    162
+                    4,
+                    6
                 ],
                 "label": "8.3 TRAINING CURRICULUM",
                 "key": "AR933116385982"
@@ -1335,7 +1335,7 @@
                     {
                         "children": [],
                         "pages": [
-                            164
+                            8
                         ],
                         "label": "8.4.1 TRAINING NEEDS ANALYSIS",
                         "key": "AR603474992438"
@@ -1343,15 +1343,15 @@
                     {
                         "children": [],
                         "pages": [
-                            164
+                            8
                         ],
                         "label": "8.4.2 PROGRAM DESIGN",
                         "key": "AR890126472760"
                     }
                 ],
                 "pages": [
-                    164,
-                    164
+                    8,
+                    8
                 ],
                 "label": "8.4 PROGRAM DEVELOPMENT",
                 "key": "AR356952530712"
@@ -1359,7 +1359,7 @@
             {
                 "children": [],
                 "pages": [
-                    165
+                    9
                 ],
                 "label": "8.5 ASSESSMENT PROCEDURES",
                 "key": "AR853605400855"
@@ -1367,7 +1367,7 @@
             {
                 "children": [],
                 "pages": [
-                    166
+                    10
                 ],
                 "label": "8.6 INSTRUCTOR QUALIFICATIONS",
                 "key": "AR147250711412"
@@ -1375,7 +1375,7 @@
             {
                 "children": [],
                 "pages": [
-                    167
+                    11
                 ],
                 "label": "8.7 RECORDKEEPING",
                 "key": "AR736895704307"
@@ -1383,7 +1383,7 @@
             {
                 "children": [],
                 "pages": [
-                    168
+                    12
                 ],
                 "label": "8.8 EVALUATING PROGRAM EFFECTIVENESS",
                 "key": "AR959015937793"
@@ -1402,7 +1402,7 @@
             {
                 "children": [],
                 "pages": [
-                    169
+                    1
                 ],
                 "label": "9.1 SAUDI DANGEROUS GOODS REGULATIONS",
                 "key": "AR891344301352"
@@ -1412,7 +1412,7 @@
                     {
                         "children": [],
                         "pages": [
-                            171
+                            3
                         ],
                         "label": "9.2.1 INTRODUCTION",
                         "key": "AR181743360938"
@@ -1420,15 +1420,15 @@
                     {
                         "children": [],
                         "pages": [
-                            171
+                            3
                         ],
                         "label": "9.2.2 DGR VARIATION",
                         "key": "AR881023628231"
                     }
                 ],
                 "pages": [
-                    171,
-                    171
+                    3,
+                    3
                 ],
                 "label": "9.2 RIYADH AIR DANGEROUS GOODS REGULATIONS VARIATION",
                 "key": "AR291700654774"
@@ -1438,15 +1438,15 @@
                     {
                         "children": [],
                         "pages": [
-                            172
+                            4
                         ],
                         "label": "9.3.1 NOTOC",
                         "key": "AR774947290482"
                     }
                 ],
                 "pages": [
-                    172,
-                    172
+                    4,
+                    4
                 ],
                 "label": "9.3 FORMS",
                 "key": "AR601414641531"
@@ -1454,7 +1454,7 @@
             {
                 "children": [],
                 "pages": [
-                    173
+                    5
                 ],
                 "label": "9.4 HIDDEN SHIPMENT INDICATORS",
                 "key": "AR114355893510"

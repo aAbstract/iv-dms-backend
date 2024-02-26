@@ -129,13 +129,13 @@ def rearrange_manual_content_tree() -> list[object]:
     temp_sub2_section = {"children": [], "pages": []}
     temp_sub3_section = {"children": [], "pages": []}
     temp_sub4_section = {"children": [], "pages": []}
-    current_offset = 0
+    # current_offset = 0
     with open(path_to_metadata, "r") as json_file:
         data = json.load(json_file)
 
     for chapter in range(len(data)):
         if chapter != 0:
-
+            
             if temp_sub4_section.get("label") != None:
 
                 if len(all_sub5_section) > 0:
@@ -182,7 +182,7 @@ def rearrange_manual_content_tree() -> list[object]:
             all_sub1_sections = []
 
         temp_chapter = dict(data[chapter])
-        current_offset = temp_chapter['start_page']
+        # current_offset = temp_chapter['start_page']
 
         for i in data[chapter]["toc_info"]:
 
@@ -190,7 +190,7 @@ def rearrange_manual_content_tree() -> list[object]:
             if re.compile(
                 r"(\d+)(\s*)\.(\s*)(\d+)(\s*)\.(\s*)(\d+)(\s*)\.(\s*)(\d+)(\s*)\.(\s*)(\d+)(\s*)\.(\s*)(\d+)(.*)"
             ).fullmatch(i[0]):
-                all_sub5_section.append({"label": i[0].strip(), "pages": [i[1]+current_offset],"key":generate_random_hash()})
+                all_sub5_section.append({"label": i[0].strip(), "pages": [i[1]],"key":generate_random_hash()})
 
             # 1.1.1.1.1
             elif re.compile(
@@ -209,7 +209,7 @@ def rearrange_manual_content_tree() -> list[object]:
 
                 # current level
                 temp_sub4_section["label"] = i[0].strip()
-                temp_sub4_section["pages"].append(i[1]+current_offset)
+                temp_sub4_section["pages"].append(i[1])
                 temp_sub4_section['key'] = generate_random_hash()
 
             # 1.1.1.1
@@ -239,7 +239,7 @@ def rearrange_manual_content_tree() -> list[object]:
 
                 # current level
                 temp_sub3_section["label"] = i[0].strip()
-                temp_sub3_section["pages"].append(i[1]+current_offset)
+                temp_sub3_section["pages"].append(i[1])
                 temp_sub3_section['key'] = generate_random_hash()
 
             # 1.1.1
@@ -278,7 +278,7 @@ def rearrange_manual_content_tree() -> list[object]:
                     all_sub3_section = []
                 # current level
                 temp_sub2_section["label"] = i[0].strip()
-                temp_sub2_section["pages"].append(i[1]+current_offset)
+                temp_sub2_section["pages"].append(i[1])
                 temp_sub2_section['key'] = generate_random_hash()
 
             # 1.1
@@ -325,7 +325,7 @@ def rearrange_manual_content_tree() -> list[object]:
                     all_sub2_section = []
                 # current level
                 temp_sub1_section["label"] = i[0].strip()
-                temp_sub1_section["pages"].append(i[1]+current_offset)
+                temp_sub1_section["pages"].append(i[1])
                 temp_sub1_section['key'] = generate_random_hash()
                 
             else:
@@ -383,4 +383,4 @@ def rearrange_manual_content_tree() -> list[object]:
 # create_parts_metadata_file()
 # create_manual_toc_tree()
 # create_manual_content_tree()
-# rearrange_manual_content_tree()
+rearrange_manual_content_tree()
