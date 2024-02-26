@@ -177,9 +177,9 @@ def test_llm_pages_api_success_high_score():
     http_res = requests.post(api_url, headers=http_headers, json={
         'regulation_id': regulation_id,
         'checklist_code': 'FLT 3.1.1',
-        'pages': [
-            (file_1['doc_uuid'], 45),
-        ],
+        'pagesMapper': {
+            file_1['doc_uuid']: [45]
+        },
     })
 
     assert http_res.status_code == 200
@@ -217,10 +217,10 @@ def test_llm_pages_api_combined_low_score():
     http_res = requests.post(api_url, headers=http_headers, json={
         'regulation_id': regulation_id,
         'checklist_code': 'FLT 2.1.35',
-        'pages': [
-            (file_1['doc_uuid'], 10),
-            (file_2['doc_uuid'], 10),
-        ],
+        'pagesMapper': {
+            file_1['doc_uuid']: [10],
+            file_2['doc_uuid']: [10],
+        },
     })
 
     assert http_res.status_code == 200

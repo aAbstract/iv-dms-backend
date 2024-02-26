@@ -237,7 +237,8 @@ async def get_user_manuals(username: str) -> ServiceResponse:
     return ServiceResponse(data={"files": files})
 
 
-async def get_pages(organization: str, pages: list[tuple[str, int]]) -> ServiceResponse:
+async def get_pages(organization: str, pages: dict[str, set[int]]) -> ServiceResponse:
+
     # fetch entry from database
     fs_indices = (
         await get_database()
@@ -245,7 +246,7 @@ async def get_pages(organization: str, pages: list[tuple[str, int]]) -> ServiceR
         .find(
             {
                 "organization": organization,
-                "doc_uuid": {"$in": [x[0] for x in pages]},
+                "doc_uuid": {"$in": [x for x in pages.keys()]},
             },
             {
                 "_id": 1,
@@ -258,21 +259,25 @@ async def get_pages(organization: str, pages: list[tuple[str, int]]) -> ServiceR
         return ServiceResponse(
             success=False, status_code=404, msg="File Index not Found"
         )
-    temp_index = {
-        x["doc_uuid"]: PdfReader(
+
+    all_pages_text = ""
+
+    for fs_index in fs_indices:
+        pdf_reader = PdfReader(
             os.path.join(
                 _PUBLIC_DIR,
                 FILE_TYPE_PATH_MAP[IndexFileType.AIRLINES_MANUAL],
-                str(x["_id"]) + ".pdf",
+                str(fs_index["_id"]) + ".pdf",
             )
         )
-        for x in fs_indices
-    }
-
-    all_pages_text = ""
-    for doc_uuid, page_number in pages:
-        pdf_reader = temp_index[doc_uuid]
-        all_pages_text += pdf_reader.pages[page_number - 1].extract_text()
+        
+        # iterate over each page and extract the text
+        for page in pages[fs_index["doc_uuid"]]:
+            if page > len(pdf_reader.pages) or page <= 0:
+                return ServiceResponse(
+                    success=False, status_code=404, msg=f"Page Number is our of range for Document {fs_index['doc_uuid']} page {page}"
+                )
+            all_pages_text += pdf_reader.pages[page - 1].extract_text()
 
     return ServiceResponse(data={"text": all_pages_text})
 
@@ -389,6 +394,30 @@ async def get_all_tree_db(organization: str) -> ServiceResponse:
         )
     ]
 
+    # TODO-GALAL DO assign the doc_uuid to the children of a chapter in the scripts instead of here
+    def populate_docuuid(uuid, children_list):
+        for child in children_list:
+            child["doc_uuid"] = uuid
+            if child.get("children") != None:
+                for sub1_child in child["children"]:
+                    sub1_child["doc_uuid"] = uuid
+                    if sub1_child.get("children") != None:
+                        for sub2_child in sub1_child["children"]:
+                            sub2_child["doc_uuid"] = uuid
+                            if sub2_child.get("children") != None:
+                                for sub3_child in sub2_child["children"]:
+                                    sub3_child["doc_uuid"] = uuid
+                                    if sub3_child.get("children") != None:
+                                        for sub4_child in sub3_child["children"]:
+                                            sub4_child["doc_uuid"] = uuid
+                                            if sub4_child.get("children") != None:
+                                                # TODO: This might never happen so check the manuals
+                                                # if there is a nested five level section
+                                                for sub5_child in sub4_child[
+                                                    "children"
+                                                ]:
+                                                    sub5_child["doc_uuid"] = uuid
+
     uuids_set = set()
     filtered = []
 
@@ -404,24 +433,7 @@ async def get_all_tree_db(organization: str) -> ServiceResponse:
 
             if any([obj["label"] == x["parent"] for obj in filtered]):
 
-                new_min = min(
-                    [obj for obj in filtered if obj["label"] == x["parent"]][0][
-                        "pages"
-                    ][0],
-                    x["children"][0]["pages"][0],
-                )
-                new_max = max(
-                    [obj for obj in filtered if obj["label"] == x["parent"]][0][
-                        "pages"
-                    ][-1],
-                    x["children"][-1]["pages"][-1],
-                )
-
-                [obj for obj in filtered if obj["label"] == x["parent"]][0]["pages"] = [
-                    new_min,
-                    new_max,
-                ]
-
+                populate_docuuid(doc_uuid, x["children"])
                 [obj for obj in filtered if obj["label"] == x["parent"]][0][
                     "children"
                 ].append(
@@ -436,14 +448,11 @@ async def get_all_tree_db(organization: str) -> ServiceResponse:
                 )
 
             else:
+                populate_docuuid(doc_uuid, x["children"])
 
                 filtered.append(
                     {
                         "label": x["parent"],
-                        "pages": [
-                            x["children"][0]["pages"][0],
-                            x["children"][-1]["pages"][-1],
-                        ],
                         "key": x["parent"].split(".pdf")[0],
                         "children": [
                             {

@@ -10,8 +10,8 @@ fake = Faker("en_US")
 TOC_START_PAGE = 2
 
 def generate_random_hash():
-    concatid = 'ID'
-    return concatid + str(fake.unique.random_int(min=11111111, max=99999999))
+    concatid = 'AR'
+    return concatid + str(fake.unique.random_int(min=111111111111, max=999999999999))
 
 def create_parts_metadata_file():
     metadata = []
@@ -378,35 +378,6 @@ def rearrange_manual_content_tree() -> list[object]:
     with open("data/RXI/RXI_second_metadata_tree.json", "w") as json_file:
         json.dump(all_chapters, json_file, indent=4)
 
-
-def create_manual_content_tree() -> list[tuple[str, int]]:
-    f = open("data/nesma_OMA/nesma_oma_metadata.json", "r")
-    json_str = f.read()
-    f.close()
-    json_obj = json.loads(json_str)
-    for mde in json_obj:
-        if not mde["include"]:
-            continue
-
-        toc_info = []
-        pdf_reader = PdfReader(mde["filename"])
-        for pidx, page in enumerate(pdf_reader.pages):
-            page_content = page.extract_text()
-            toc_epattern = f" {'.'*32} "
-            if toc_epattern in page_content:
-                continue
-
-            chapter_number = mde["chapter_title"].split(" ")[1]
-            page_lines = page_content.split("\n")
-            for line in page_lines:
-                reps = "{1,2}"
-                if re.findall(rf"^({chapter_number}(?:\.\d{reps})+)", line):
-                    toc_info.append((line, pidx + 1))
-        mde["toc_info"] = toc_info
-
-    f = open("data/nesma_OMA/nesma_oma_metadata.json", "w")
-    f.write(json.dumps(json_obj, indent=2))
-    f.close()
 
 
 # create_parts_metadata_file()

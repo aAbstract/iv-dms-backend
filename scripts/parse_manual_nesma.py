@@ -10,8 +10,8 @@ Faker.seed(0)
 fake = Faker("en_US") 
 
 def generate_random_hash():
-    concatid = 'ID'
-    return concatid + str(fake.unique.random_int(min=11111111, max=99999999))
+    concatid = 'NE'
+    return concatid + str(fake.unique.random_int(min=111111111111, max=999999999999))
 
 def create_parts_metadata_file():
     metadata = []

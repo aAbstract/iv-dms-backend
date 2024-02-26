@@ -58,6 +58,5 @@ class FSIndexTree(BaseModel):
 
 class FSIndexFileTree(BaseModel):
     label: str
-    pages: list[int]
     key:str
     children: Optional[list['FSIndexTree']] = None
