@@ -10,3 +10,4 @@ pip install motor
 pip install PyPDF2
 pip install aiofiles
 pip install openai
+pip install faker

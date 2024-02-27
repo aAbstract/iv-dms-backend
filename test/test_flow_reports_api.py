@@ -472,7 +472,7 @@ def test_update_flow_report_sub_sections():
                     {
                         "page": 104,
                         "code": "FLT 1.1.1",
-                        "checkins": [0,1,"anythin you want"],
+                        "checkins": [0, 1, "anythin you want"],
                         "final_comment": FinalComment.DOCNOTIMP,
                         "comments": "Test Comment",
                         "actions": [
@@ -481,6 +481,7 @@ def test_update_flow_report_sub_sections():
                         ],
                         "other_actions": "TestOtherActions",
                         "fs_index": file_id,
+                        "url_path": file_url,
                     }
                 ],
             }
@@ -508,9 +509,11 @@ def test_update_flow_report_sub_sections():
     assert "_id" in flow_report
     assert "sub_sections" in flow_report
 
-    assert flow_report["sub_sections"][0]["checklist_items"][0][
-        "checkins"
-    ] == [0,1,"anythin you want"]
+    assert flow_report["sub_sections"][0]["checklist_items"][0]["checkins"] == [
+        0,
+        1,
+        "anythin you want",
+    ]
     assert (
         flow_report["sub_sections"][0]["checklist_items"][0]["final_comment"]
         == FinalComment.DOCNOTIMP
@@ -528,6 +531,7 @@ def test_update_flow_report_sub_sections():
         == "TestOtherActions"
     )
     assert flow_report["sub_sections"][0]["checklist_items"][0]["fs_index"] == file_id
+    assert flow_report["sub_sections"][0]["checklist_items"][0]["url_path"] == file_url
 
     # check user change object after
     assert "user_changes" in flow_report

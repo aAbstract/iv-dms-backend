@@ -32,8 +32,8 @@ async def lifespan(app: FastAPI):
 
 server = FastAPI(
     title=os.environ['SERVER_NAME'],
-    description='Changed Scan-pdf route',
-    version="0.37.9",
+    description='url_path is added to get flow report route',
+    version="0.37.10",
     lifespan=lifespan,
 )
 server.add_middleware(
