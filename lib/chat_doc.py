@@ -1,3 +1,4 @@
+import database.fs_index_database_api
 import time
 import re
 from uuid import uuid4
@@ -11,7 +12,8 @@ from models.fs_index import ChatDOCStatus
 from models.ai_tasks import AITaskStatus
 from models.httpio import JsonResponse
 import database.ai_tasks_database_api as ai_tasks_database_api
-
+from database.mongo_driver import get_database
+import database.fs_index_database_api as  fs_index_database_api
 
 async def parse_doc(filename: str, file_ptr: BinaryIO) -> ServiceResponse:
     chat_doc_enable = int(os.environ['CHAT_DOC_ENABLE'])
@@ -64,7 +66,7 @@ async def scan_doc(doc_id: str, filename: str, iosa_item: IOSAItem, ai_task_id: 
     if not chat_doc_enable:
         await ai_tasks_database_api.set_ai_task_status(ai_task_id, AITaskStatus.FINISHED)
         await ai_tasks_database_api.set_ai_task_resp(ai_task_id, JsonResponse(data={
-            'matches': [{'text': 'ChatDOC API Disabled', 'refs': [0]}],
+            'manual_refrences':{},
         }))
         return
 
@@ -113,7 +115,6 @@ async def scan_doc(doc_id: str, filename: str, iosa_item: IOSAItem, ai_task_id: 
             await ai_tasks_database_api.set_ai_task_status(ai_task_id, AITaskStatus.FAILD)
             await ai_tasks_database_api.set_ai_task_resp(ai_task_id, JsonResponse(success=False, msg=f"ChatDOC API Error: {http_res.content.decode()}"))
             return
-
         # clean answer text
         model_answer = re.sub(r'\["[0-9]+"\]', '', json_res['data']['answer'])
         model_answer = re.sub(r'"\[<span data-index="([0-9]+)">[0-9]+</span>\]"', r'\1', model_answer)
@@ -135,5 +136,14 @@ async def scan_doc(doc_id: str, filename: str, iosa_item: IOSAItem, ai_task_id: 
             match['refs'] = [json_res['data']['source_info'][x - 1] for x in match['refs'] if isinstance(x, int)]  # map source info
             match['refs'] = [int(list(x.keys())[0]) + 1 for x in match['refs']]  # map source info to page numbers
             match['refs'] = list(set(match['refs']))  # extract unique page numbers
+
+        # get keys
+        get_keys_service_response = await fs_index_database_api.get_keys_from_toc_tree(doc_id, match['refs'])
+
+        if not get_keys_service_response.success:
+            await ai_tasks_database_api.set_ai_task_status(ai_task_id, AITaskStatus.FAILD)
+            await ai_tasks_database_api.set_ai_task_resp(ai_task_id, JsonResponse(success=False, msg=f"Get Keys Error: {get_keys_service_response.msg}"))
+            return
+
         await ai_tasks_database_api.set_ai_task_status(ai_task_id, AITaskStatus.FINISHED)
-        await ai_tasks_database_api.set_ai_task_resp(ai_task_id, JsonResponse(data={'matches': match['refs']}))
+        await ai_tasks_database_api.set_ai_task_resp(ai_task_id, JsonResponse(data={'manual_refrences': get_keys_service_response.data}))

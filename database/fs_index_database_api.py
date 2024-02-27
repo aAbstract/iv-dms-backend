@@ -270,12 +270,14 @@ async def get_pages(organization: str, pages: dict[str, set[int]]) -> ServiceRes
                 str(fs_index["_id"]) + ".pdf",
             )
         )
-        
+
         # iterate over each page and extract the text
         for page in pages[fs_index["doc_uuid"]]:
             if page > len(pdf_reader.pages) or page <= 0:
                 return ServiceResponse(
-                    success=False, status_code=404, msg=f"Page Number is our of range for Document {fs_index['doc_uuid']} page {page}"
+                    success=False,
+                    status_code=404,
+                    msg=f"Page Number is our of range for Document {fs_index['doc_uuid']} page {page}",
                 )
             all_pages_text += pdf_reader.pages[page - 1].extract_text()
 
@@ -472,3 +474,124 @@ async def get_all_tree_db(organization: str) -> ServiceResponse:
             # filtered.append(x)
 
     return ServiceResponse(data={"checkins": filtered})
+
+async def get_keys_from_toc_tree(doc_uuid: str, pages: list[int]) -> ServiceResponse:
+
+    fs_index = (
+        await get_database().get_collection("fs_index").find_one({"doc_uuid": doc_uuid})
+    )
+
+    if fs_index["args"].get("toc_info") == None:
+        return ServiceResponse(
+            success=False,
+            status_code=400,
+            msg=f"Document with doc_uuid {doc_uuid} does not have a toc tree",
+        )
+
+    manual_refrences = {}
+
+    def check_if_contains_page(db_page_list):
+        if len(db_page_list) == 1:
+            for page in pages:
+                if page == db_page_list[0]:
+                    return True
+            return False
+        elif len(db_page_list) == 2:
+            for page in pages:
+                if page >= min(db_page_list) and page <= max(db_page_list):
+                    return True
+            return False
+        else:
+            return False
+
+    def add_key(key, value, label):
+        manual_refrences[key] = {
+            "pages": value,
+            "label": label,
+            "doc_uuid": doc_uuid,
+        }
+
+
+    for child in fs_index["args"]["toc_info"]:
+        if child.get("children") != []:
+            for sub1_child in child["children"]:
+                if sub1_child.get("children") != []:
+                    for sub2_child in sub1_child["children"]:
+                        if sub2_child.get("children") != []:
+                            for sub3_child in sub2_child["children"]:
+                                if sub3_child.get("children") != []:
+                                    for sub4_child in sub3_child["children"]:
+                                        if sub4_child.get("children") != []:
+                                            for sub5_child in sub4_child["children"]:
+                                                if sub5_child.get("children") != []:
+                                                    for sub6_child in sub5_child[
+                                                        "children"
+                                                    ]:
+                                                        if check_if_contains_page(
+                                                            sub6_child["pages"]
+                                                        ):
+                                                            add_key(
+                                                                sub6_child["key"],
+                                                                sub6_child["pages"],
+                                                                sub6_child["label"],
+                                                            )
+                                                else:
+                                                    if check_if_contains_page(
+                                                        sub5_child["pages"]
+                                                    ):
+                                                        
+                                                        add_key(
+                                                            sub5_child["key"],
+                                                            sub5_child["pages"],
+                                                            sub5_child["label"],
+                                                        )
+                                        else:
+                                            if check_if_contains_page(
+                                                sub4_child["pages"]
+                                            ):
+                                                
+                                                add_key(
+                                                    sub4_child["key"],
+                                                    sub4_child["pages"],
+                                                    sub4_child["label"],
+                                                )
+                                else:
+                                    if check_if_contains_page(sub3_child["pages"]):
+                                        
+                                        add_key(
+                                            sub3_child["key"],
+                                            sub3_child["pages"],
+                                            sub3_child["label"],
+                                        )
+
+                        else:
+                            if check_if_contains_page(sub2_child["pages"]):
+                                
+                                add_key(
+                                    sub2_child["key"],
+                                    sub2_child["pages"],
+                                    sub2_child["label"],
+                                )
+                else:
+                    if check_if_contains_page(sub1_child["pages"]):
+                        
+                        add_key(
+                            sub1_child["key"], sub1_child["pages"], sub1_child["label"]
+                        )
+        else:
+            if check_if_contains_page(child["pages"]):
+                
+                add_key(
+                    child["key"],
+                    child["pages"],
+                    child["label"],
+                )
+
+    if(manual_refrences == {}):
+        return ServiceResponse(
+            success=False,
+            status_code=400,
+            msg=f"Pages {' '.join(pages)} were not found in {doc_uuid}",
+        )
+
+    return ServiceResponse(data = manual_refrences)
