@@ -260,8 +260,8 @@ def test_list_fs_index():
         "doc_uuid",
         "doc_status",
         "organization",
-        "args",
-        "parent"
+        "parent",
+        "url_path"
     }
 
     # delete FSIndex

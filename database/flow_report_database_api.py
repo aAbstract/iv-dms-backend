@@ -299,6 +299,8 @@ async def change_flow_report_sub_sections_db(flow_report_id: str, organization: 
                     item_found = False
                     for j, array_item in enumerate(array_section['checklist_items']):
                         if input_item['code'] == array_item['code']:
+
+                            # check ownership of single attachment
                             if (input_item.get('fs_index') != None):
                                 fs_index = await get_database().get_collection('fs_index').find_one({'_id': ObjectId(input_item['fs_index'])})
 
@@ -307,21 +309,30 @@ async def change_flow_report_sub_sections_db(flow_report_id: str, organization: 
 
                                 if fs_index['organization'] != organization:
                                     return ServiceResponse(success=False, status_code=403, msg=f"Your organization can't access this file {input_item['fs_index']}")
-                            
-                            # skip validation for references
-                            # TODO-GALAL - fix it
-                            # for reference in input_item['manual_references']:
 
-                            #     if not validate_bson_id(reference['fs_index']):
-                            #         return ServiceResponse(success=False, msg=f"Bad fs index bson ID {reference['fs_index']}", status_code=400)
+                            # check ownership of manual refrences
+                            for checkin in input_item['checkins']:
+                                
+                                # ownership of contexts user based or organization based?
+                                # TODO-GALAL
+                                context = await get_database().get_collection('gpt35t_contexts').find_one({'_id': ObjectId(checkin['context_id'])})
 
-                            #     fs_index = await get_database().get_collection('fs_index').find_one({'_id': ObjectId(reference['fs_index'])})
+                                if not context:
+                                    return ServiceResponse(success=False, status_code=404, msg=f"GPT context {checkin['doc_uuid']} not Found")
 
-                            #     if not fs_index:
-                            #         return ServiceResponse(success=False, status_code=404, msg=f"{input_item['fs_index']} File Index not Found")
+                                if context['organization'] != organization:
+                                    return ServiceResponse(success=False, status_code=403, msg=f"You organization can't access this GPT context {checkin['context_id']}")
 
-                            #     if fs_index['organization'] != organization:
-                            #         return ServiceResponse(success=False, status_code=403, msg=f"Your organization can't access this file {input_item['fs_index']}")
+
+                                for refrence in checkin['manual_references'].values():
+
+                                    fs_index = await get_database().get_collection('fs_index').find_one({'doc_uuid': refrence['doc_uuid']})
+
+                                    if not fs_index:
+                                        return ServiceResponse(success=False, status_code=404, msg=f"Doc UUID {refrence['doc_uuid']} not Found")
+
+                                    if fs_index['organization'] != organization:
+                                        return ServiceResponse(success=False, status_code=403, msg=f"Your organization can't access this file {refrence['doc_uuid']}")
 
                             item_found = True
                             flow_report['sub_sections'][i]['checklist_items'][j] = input_item

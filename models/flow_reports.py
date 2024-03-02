@@ -34,11 +34,23 @@ class AuditorActions(str, Enum):
 class ManualReference(BaseModel):
     fs_index: str
     pages: list[int] = []
+    
+class Checkin(BaseModel):
+    description: str
+    label: str
+    pages: Optional[list] = []
+    manual_references: Optional[dict] = {}
+    isComplying: Optional[bool]
+    isComplied: Optional[bool]
+    comments: Optional[str]
+    pct_score: Optional[int]
+    context_id: Optional[str]
+    overall_compliance_tag: Optional[str]
 
 class ReportItem(BaseModel):
     code: str
     page: Optional[int] = None
-    checkins: Optional[list] = []
+    checkins: Optional[list[Checkin]] = []
     final_comment: Optional[FinalComment] = None
     comments: Optional[str] = None
     actions: list[AuditorActions] = []

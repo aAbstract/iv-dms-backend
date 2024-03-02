@@ -1,0 +1,20 @@
+[
+  {
+    "filename": "data/RXI_EMERGENCY_RESPONSE/RXI_EMERGENCY_RESPONSE_ch0.pdf",
+    "chapter_title": "0 FRONT MATTER",
+    "start_page": 0,
+    "toc_pages": [2,3]
+  },
+  {
+    "filename": "data/RXI_EMERGENCY_RESPONSE/RXI_EMERGENCY_RESPONSE_ch1.pdf",
+    "chapter_title": "1 POLICY AND MANAGEMENT",
+    "start_page": 0,
+    "toc_pages": [3]
+  },
+  {
+    "filename": "data/RXI_EMERGENCY_RESPONSE/RXI_EMERGENCY_RESPONSE_ch2.pdf",
+    "chapter_title": "2 CRISIS NOTIFICATION AND ACTIVATION",
+    "start_page": 0,
+    "toc_pages": [3]
+  }
+]

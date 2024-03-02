@@ -61,7 +61,7 @@ async def check_doc(chat_doc_uuid: str) -> ServiceResponse:
         })
 
 
-async def scan_doc(doc_id: str, filename: str, iosa_item: IOSAItem, ai_task_id: str):
+async def scan_doc(doc_id: str, filename: str, iosa_item: IOSAItem, ai_task_id: str,organization:str):
     chat_doc_enable = int(os.environ['CHAT_DOC_ENABLE'])
     if not chat_doc_enable:
         await ai_tasks_database_api.set_ai_task_status(ai_task_id, AITaskStatus.FINISHED)
@@ -138,7 +138,7 @@ async def scan_doc(doc_id: str, filename: str, iosa_item: IOSAItem, ai_task_id: 
             match['refs'] = list(set(match['refs']))  # extract unique page numbers
 
         # get keys
-        get_keys_service_response = await fs_index_database_api.get_keys_from_toc_tree(doc_id, match['refs'])
+        get_keys_service_response = await fs_index_database_api.get_keys_from_toc_tree(doc_id, match['refs'], organization)
 
         if not get_keys_service_response.success:
             await ai_tasks_database_api.set_ai_task_status(ai_task_id, AITaskStatus.FAILD)

@@ -74,11 +74,13 @@ async def create_fs_index_entry(
     file_path = os.path.join(_PUBLIC_DIR, FILE_TYPE_PATH_MAP[file_type], disk_filename)
     async with aiofiles.open(file_path, "wb") as f:
         await f.write(data)
-    url_path = f"/{FILE_TYPE_PATH_MAP[file_type]}/{disk_filename}"
 
+    url_path = fr"/{FILE_TYPE_PATH_MAP[file_type]}/{disk_filename}"
+
+    fs_index_entry = fs_index_entry.model_dump()
     return ServiceResponse(
         data={
-            "url_path": url_path,
+            "url_path": url_path.replace("\\","/"),
             "file_id": file_id,
         }
     )
@@ -170,7 +172,7 @@ async def list_fs_index(organization: str) -> ServiceResponse:
         async for fs_index in get_database()
         .get_collection("fs_index")
         .find(
-            {"$and": [{"organization": organization}, {"file_type": "AIRLINES_MANUAL"}]}
+            {"$and": [{"organization": organization}, {"file_type": "AIRLINES_MANUAL"}]},{"args":0}
         )
     ]
 
@@ -186,11 +188,12 @@ async def list_fs_index(organization: str) -> ServiceResponse:
 
     for fs_index in range(len(filtred)):
         filtred[fs_index]["_id"] = str(filtred[fs_index]["_id"])
+        filtred[fs_index]["url_path"] = f"/airlines_files/manuals/{filtred[fs_index]['_id']}.pdf"
 
     return ServiceResponse(data={"fs_index_entries": filtred})
 
 
-async def get_fs_index_entry(chat_doc_uuid: str) -> ServiceResponse:
+async def get_fs_index_entry(chat_doc_uuid: str,organization: str) -> ServiceResponse:
     fs_index_entry = (
         await get_database()
         .get_collection("fs_index")
@@ -200,6 +203,14 @@ async def get_fs_index_entry(chat_doc_uuid: str) -> ServiceResponse:
         return ServiceResponse(
             success=False, msg="File Index not Found", status_code=404
         )
+    
+    if fs_index_entry["organization"] != organization:
+        return ServiceResponse(
+            success=False,
+            status_code=403,
+            msg="Your organization can't access this file",
+        )
+    
     return ServiceResponse(
         data={"fs_index_entry": FSIndexFile.model_validate(fs_index_entry)}
     )
@@ -475,12 +486,23 @@ async def get_all_tree_db(organization: str) -> ServiceResponse:
 
     return ServiceResponse(data={"checkins": filtered})
 
-async def get_keys_from_toc_tree(doc_uuid: str, pages: list[int]) -> ServiceResponse:
+async def get_keys_from_toc_tree(doc_uuid: str, pages: list[int], organization : str) -> ServiceResponse:
 
     fs_index = (
         await get_database().get_collection("fs_index").find_one({"doc_uuid": doc_uuid})
     )
-
+    if not fs_index:
+        return ServiceResponse(
+            success=False, msg="File Index not Found", status_code=404
+        )
+    
+    if fs_index["organization"] != organization:
+        return ServiceResponse(
+            success=False,
+            status_code=403,
+            msg="Your organization can't access this file",
+        )
+    
     if fs_index["args"].get("toc_info") == None:
         return ServiceResponse(
             success=False,

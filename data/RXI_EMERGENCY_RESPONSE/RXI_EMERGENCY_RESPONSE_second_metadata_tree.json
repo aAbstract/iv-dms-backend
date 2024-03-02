@@ -1,0 +1,649 @@
+[
+    {
+        "filename": "data/RXI_EMERGENCY_RESPONSE/RXI_EMERGENCY_RESPONSE_ch0.pdf",
+        "chapter_title": "0 FRONT MATTER",
+        "start_page": 0,
+        "toc_pages": [
+            2,
+            3
+        ],
+        "toc_info": [
+            {
+                "children": [],
+                "pages": [
+                    3
+                ],
+                "label": "0.1 FRONT MATTER",
+                "key": "ER535644670356"
+            },
+            {
+                "children": [],
+                "pages": [
+                    9
+                ],
+                "label": "0.2 REVISION HIGHLIGHTS",
+                "key": "ER155867125276"
+            },
+            {
+                "children": [],
+                "pages": [
+                    11
+                ],
+                "label": "0.3 RECORD OF REVISIONS",
+                "key": "ER645882964009"
+            },
+            {
+                "children": [],
+                "pages": [
+                    13
+                ],
+                "label": "0.4 RECORD OF TEMPORARY REVISIONS",
+                "key": "ER504000103371"
+            },
+            {
+                "children": [],
+                "pages": [
+                    15
+                ],
+                "label": "0.5 LIST OF EFFECTIVE PAGES",
+                "key": "ER351234627546"
+            },
+            {
+                "children": [],
+                "pages": [
+                    19
+                ],
+                "label": "0.6 LIST OF TABLES",
+                "key": "ER263602580029"
+            },
+            {
+                "children": [],
+                "pages": [
+                    21
+                ],
+                "label": "0.7 LIST OF FIGURES",
+                "key": "ER262645450810"
+            },
+            {
+                "children": [],
+                "pages": [
+                    23
+                ],
+                "label": "0.8 LIST OF COMPLIANCE ENTRIES",
+                "key": "ER217436480576"
+            },
+            {
+                "children": [],
+                "pages": [
+                    25
+                ],
+                "label": "0.9 MANAGEMENT APPROVAL",
+                "key": "ER989940314115"
+            },
+            {
+                "children": [],
+                "pages": [
+                    27
+                ],
+                "label": "0.10 GACA ACCEPTANCE",
+                "key": "ER699133993777"
+            },
+            {
+                "children": [
+                    {
+                        "children": [],
+                        "pages": [
+                            29
+                        ],
+                        "label": "0.11.1 POLICY",
+                        "key": "ER776015931237"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            29
+                        ],
+                        "label": "0.11.2 APPLICABILITY",
+                        "key": "ER273899674322"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            29
+                        ],
+                        "label": "0.11.3 COMMON LANGUAGE",
+                        "key": "ER219817367200"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            29
+                        ],
+                        "label": "0.11.4 USAGE OF TERMS",
+                        "key": "ER191555125954"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            30
+                        ],
+                        "label": "0.11.5 HUMAN FACTOR PRINCIPLES",
+                        "key": "ER474826052593"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            30
+                        ],
+                        "label": "0.11.6 APPLICABLE REGULATIONS AND STANDARDS",
+                        "key": "ER727319271966"
+                    }
+                ],
+                "pages": [
+                    29,
+                    30
+                ],
+                "label": "0.11 INTRODUCTION",
+                "key": "ER888426255868"
+            },
+            {
+                "children": [
+                    {
+                        "children": [],
+                        "pages": [
+                            31
+                        ],
+                        "label": "0.12.1 ABBREVIATIONS AND ACRONYMS",
+                        "key": "ER456573248617"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            33
+                        ],
+                        "label": "0.12.2 DEFINITIONS",
+                        "key": "ER813814519936"
+                    }
+                ],
+                "pages": [
+                    31,
+                    33
+                ],
+                "label": "0.12 ACRONYMS AND DEFINITIONS",
+                "key": "ER498090676155"
+            },
+            {
+                "children": [
+                    {
+                        "children": [],
+                        "pages": [
+                            39
+                        ],
+                        "label": "0.13.1 MANUAL OWNERSHIP",
+                        "key": "ER720853042568"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            39
+                        ],
+                        "label": "0.13.2 MANUAL HOLDER RESPONSIBILITY",
+                        "key": "ER598491156941"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            39
+                        ],
+                        "label": "0.13.3 DISTRIBUTION LIST AND AVAILABILITY",
+                        "key": "ER686058239333"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            40
+                        ],
+                        "label": "0.13.4 PUBLICATION HIERARCHY",
+                        "key": "ER176654426506"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            40
+                        ],
+                        "label": "0.13.5 MANUAL STRUCTURE",
+                        "key": "ER209955667567"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            40
+                        ],
+                        "label": "0.13.6 SOURCE OF AMENDMENTS",
+                        "key": "ER890213125752"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            40
+                        ],
+                        "label": "0.13.7 REFERENCED AND LINKED DOCUMENTS",
+                        "key": "ER973647252499"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            41
+                        ],
+                        "label": "0.13.8 FORMAT AND DOCUMENTATION CONTROL REQUIREMENTS",
+                        "key": "ER801175574600"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            41
+                        ],
+                        "label": "0.13.9 ERROR REPORTING AND CORRECTIONS AND SUGGESTIONS FOR IMPROVEMENT",
+                        "key": "ER781130917644"
+                    }
+                ],
+                "pages": [
+                    39,
+                    41
+                ],
+                "label": "0.13 SYSTEM OF AMENDMENT AND REVISION",
+                "key": "ER338370763139"
+            },
+            {
+                "children": [
+                    {
+                        "children": [],
+                        "pages": [
+                            1
+                        ],
+                        "label": "1.1.1 RELATED POLICIES",
+                        "key": "ER911022617393"
+                    }
+                ],
+                "pages": [
+                    1,
+                    1
+                ],
+                "label": "1.1 EMERGENCY RESPONSE POLICY",
+                "key": "ER479909656817"
+            },
+            {
+                "children": [],
+                "pages": [
+                    4
+                ],
+                "label": "1.2 STRATEGIC OBJECTIVES OF THE CORPORATE EMERGENCY RESPONSE PLAN",
+                "key": "ER885601966481"
+            },
+            {
+                "children": [
+                    {
+                        "children": [],
+                        "pages": [
+                            5
+                        ],
+                        "label": "1.3.1 EMERGENCY CATEGORIES",
+                        "key": "ER354066719766"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            5
+                        ],
+                        "label": "1.3.2 DESCRIPTION",
+                        "key": "ER992604254398"
+                    }
+                ],
+                "pages": [
+                    5,
+                    5
+                ],
+                "label": "1.3 TYPES OF EMERGENCIES",
+                "key": "ER183569233327"
+            },
+            {
+                "children": [
+                    {
+                        "children": [],
+                        "pages": [
+                            11
+                        ],
+                        "label": "1.4.1 COMPOSITION",
+                        "key": "ER711561194820"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            11
+                        ],
+                        "label": "1.4.2 DEPUTIES",
+                        "key": "ER211819373579"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            12
+                        ],
+                        "label": "1.4.3 VP CORPORATE",
+                        "key": "ER651988513874"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            12
+                        ],
+                        "label": "1.4.4 ROLES",
+                        "key": "ER442291992792"
+                    }
+                ],
+                "pages": [
+                    11,
+                    12
+                ],
+                "label": "1.4 CRISIS MANAGEMENT",
+                "key": "ER269885487513"
+            },
+            {
+                "children": [],
+                "pages": [
+                    16
+                ],
+                "label": "1.5 AIRCRAFT RECOVERY",
+                "key": "ER431306365822"
+            },
+            {
+                "children": [],
+                "pages": [
+                    1
+                ],
+                "label": "2.1 EMERGENCY PHASES",
+                "key": "ER247289755460"
+            },
+            {
+                "children": [
+                    {
+                        "children": [],
+                        "pages": [
+                            2
+                        ],
+                        "label": "2.2.1 INITIAL ASSESSMENT TEAM",
+                        "key": "ER336769910920"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            4
+                        ],
+                        "label": "2.2.2 CRISIS MANAGEMENT TEAM NOTIFICATION",
+                        "key": "ER991424094521"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            4
+                        ],
+                        "label": "2.2.3 NOTIFICATION TO AUTHORITY",
+                        "key": "ER714997195097"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            6
+                        ],
+                        "label": "2.2.4 NOTIFICATION TO BLAKE",
+                        "key": "ER427167519806"
+                    }
+                ],
+                "pages": [
+                    2,
+                    6
+                ],
+                "label": "2.2 NOTIFICATION SYSTEM",
+                "key": "ER478534572081"
+            },
+            {
+                "children": [],
+                "pages": [
+                    1
+                ],
+                "label": "3.1 LOCATION AND FACILITIES OF THE CRISIS MANAGEMENT CENTER",
+                "key": "ER211806572236"
+            },
+            {
+                "children": [],
+                "pages": [
+                    3
+                ],
+                "label": "3.2 SUPPORT PROCESS",
+                "key": "ER989845472052"
+            },
+            {
+                "children": [
+                    {
+                        "children": [],
+                        "pages": [
+                            2
+                        ],
+                        "label": "4.1.1 EMERGENCY CATEGORY",
+                        "key": "ER375576518457"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            3
+                        ],
+                        "label": "4.1.2 EMERGENCY CATEGORY",
+                        "key": "ER314221529747"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            3
+                        ],
+                        "label": "4.1.3 EMERGENCY CATEGORY",
+                        "key": "ER146272846716"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            3
+                        ],
+                        "label": "4.1.5 EMERGENCY CATEGORY",
+                        "key": "ER397399283262"
+                    }
+                ],
+                "pages": [
+                    1,
+                    3
+                ],
+                "label": "4.1 CRISIS MANAGEMENT OVERVIEW",
+                "key": "ER460656599916"
+            },
+            {
+                "children": [],
+                "pages": [
+                    1
+                ],
+                "label": "5.1 INTRODUCTION",
+                "key": "ER186172240195"
+            }
+        ]
+    },
+    {
+        "filename": "data/RXI_EMERGENCY_RESPONSE/RXI_EMERGENCY_RESPONSE_ch1.pdf",
+        "chapter_title": "1 POLICY AND MANAGEMENT",
+        "start_page": 0,
+        "toc_pages": [
+            3
+        ],
+        "toc_info": [
+            {
+                "children": [
+                    {
+                        "children": [],
+                        "pages": [
+                            1
+                        ],
+                        "label": "1.1.1 RELATED POLICIES",
+                        "key": "ER256098915967"
+                    }
+                ],
+                "pages": [
+                    1,
+                    1
+                ],
+                "label": "1.1 EMERGENCY RESPONSE POLICY",
+                "key": "ER854526245991"
+            },
+            {
+                "children": [],
+                "pages": [
+                    4
+                ],
+                "label": "1.2 STRATEGIC OBJECTIVES OF THE CORPORATE EMERGENCY RESPONSE PLAN",
+                "key": "ER278085568434"
+            },
+            {
+                "children": [
+                    {
+                        "children": [],
+                        "pages": [
+                            5
+                        ],
+                        "label": "1.3.1 EMERGENCY CATEGORIES",
+                        "key": "ER200628796143"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            5
+                        ],
+                        "label": "1.3.2 DESCRIPTION",
+                        "key": "ER883767881277"
+                    }
+                ],
+                "pages": [
+                    5,
+                    5
+                ],
+                "label": "1.3 TYPES OF EMERGENCIES",
+                "key": "ER153731708047"
+            },
+            {
+                "children": [
+                    {
+                        "children": [],
+                        "pages": [
+                            11
+                        ],
+                        "label": "1.4.1 COMPOSITION",
+                        "key": "ER689665897912"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            11
+                        ],
+                        "label": "1.4.2 DEPUTIES",
+                        "key": "ER683525601028"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            12
+                        ],
+                        "label": "1.4.3 VP CORPORATE",
+                        "key": "ER372295067628"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            12
+                        ],
+                        "label": "1.4.4 ROLES",
+                        "key": "ER350982826842"
+                    }
+                ],
+                "pages": [
+                    11,
+                    12
+                ],
+                "label": "1.4 CRISIS MANAGEMENT",
+                "key": "ER860757279616"
+            },
+            {
+                "children": [],
+                "pages": [
+                    16
+                ],
+                "label": "1.5 AIRCRAFT RECOVERY",
+                "key": "ER857984616397"
+            }
+        ]
+    },
+    {
+        "filename": "data/RXI_EMERGENCY_RESPONSE/RXI_EMERGENCY_RESPONSE_ch2.pdf",
+        "chapter_title": "2 CRISIS NOTIFICATION AND ACTIVATION",
+        "start_page": 0,
+        "toc_pages": [
+            3
+        ],
+        "toc_info": [
+            {
+                "children": [],
+                "pages": [
+                    1
+                ],
+                "label": "2.1 EMERGENCY PHASES",
+                "key": "ER574751820859"
+            },
+            {
+                "children": [
+                    {
+                        "children": [],
+                        "pages": [
+                            2
+                        ],
+                        "label": "2.2.1 INITIAL ASSESSMENT TEAM",
+                        "key": "ER654212144200"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            4
+                        ],
+                        "label": "2.2.2 CRISIS MANAGEMENT TEAM NOTIFICATION",
+                        "key": "ER818321479959"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            4
+                        ],
+                        "label": "2.2.3 NOTIFICATION TO AUTHORITY",
+                        "key": "ER884189151928"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            6
+                        ],
+                        "label": "2.2.4 NOTIFICATION TO BLAKE",
+                        "key": "ER505360440353"
+                    }
+                ],
+                "pages": [
+                    2,
+                    6
+                ],
+                "label": "2.2 NOTIFICATION SYSTEM",
+                "key": "ER414248592953"
+            }
+        ]
+    }
+]

@@ -1,0 +1,62 @@
+[
+  {
+    "filename": "data/RXI_DANGEROUS_GOODS/RXI_DANGEROUS_GOODS_ch0.pdf",
+    "chapter_title": "0 FRONT MATTER",
+    "start_page": 0,
+    "toc_pages": 2
+  },
+  {
+    "filename": "data/RXI_DANGEROUS_GOODS/RXI_DANGEROUS_GOODS_ch1.pdf",
+    "chapter_title": "1 DANGEROUS GOODS",
+    "start_page": 0,
+    "toc_pages": 2
+  },
+  {
+    "filename": "data/RXI_DANGEROUS_GOODS/RXI_DANGEROUS_GOODS_ch2.pdf",
+    "chapter_title": "2 CLASSIFICATION AND PACKAGING OF DANGEROUS GOODS",
+    "start_page": 0,
+    "toc_pages": 2
+  },
+  {
+    "filename": "data/RXI_DANGEROUS_GOODS/RXI_DANGEROUS_GOODS_ch3.pdf",
+    "chapter_title": "3 CARRIAGE OF DANGEROUS GOODS",
+    "start_page": 0,
+    "toc_pages": 2
+  },
+  {
+    "filename": "data/RXI_DANGEROUS_GOODS/RXI_DANGEROUS_GOODS_ch4.pdf",
+    "chapter_title": "4 DANGEROUS GOODS TRANSPORT PROCEDURES",
+    "start_page": 0,
+    "toc_pages": 2
+  },
+  {
+    "filename": "data/RXI_DANGEROUS_GOODS/RXI_DANGEROUS_GOODS_ch5.pdf",
+    "chapter_title": "5 RADIOACTIVE MATERIAL",
+    "start_page": 0,
+    "toc_pages": 2
+  },
+  {
+    "filename": "data/RXI_DANGEROUS_GOODS/RXI_DANGEROUS_GOODS_ch6.pdf",
+    "chapter_title": "6 EMERGENCY HANDLING OF DANGEROUS GOODS",
+    "start_page": 0,
+    "toc_pages": 2
+  },
+  {
+    "filename": "data/RXI_DANGEROUS_GOODS/RXI_DANGEROUS_GOODS_ch7.pdf",
+    "chapter_title": "7 DANGEROUS GOODS SECURITY",
+    "start_page": 0,
+    "toc_pages": 2
+  },
+  {
+    "filename": "data/RXI_DANGEROUS_GOODS/RXI_DANGEROUS_GOODS_ch8.pdf",
+    "chapter_title": "8 TRAINING",
+    "start_page": 0,
+    "toc_pages": 2
+  },
+  {
+    "filename": "data/RXI_DANGEROUS_GOODS/RXI_DANGEROUS_GOODS_ch9.pdf",
+    "chapter_title": "9 APPENDIX",
+    "start_page": 0,
+    "toc_pages": 2
+  }
+]

@@ -91,3 +91,4 @@ class GPT35TContext(BaseModel):
     username: str
     datetime: datetime
     conversation: list[GPT35TMessage]
+    organization: str

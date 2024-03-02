@@ -493,6 +493,7 @@ seed_gpt35t_context = GPT35TContext(
             content="Dummy GPT35-TURBO-1106 Response",
         ),
     ],
+    organization="AeroSync"
 )
 
 # system logs schema
@@ -612,16 +613,19 @@ def seed_routine():
         shutil.copy2(file_path, dst_path)
         print(f"file map {file_path} -> {dst_path}")
     
-    ### RXI
-    f = open(r"data/RXI/RXI_second_metadata_tree.json", "r")
+    ### RXI Dangerous Goods
+    f = open(r"data/RXI_DANGEROUS_GOODS/RXI_DANGEROUS_GOODS_second_metadata_tree.json", "r")
     json_str = f.read()
     f.close()
     json_obj = json.loads(json_str)
-    for file_path in glob(r"data/RXI/*.pdf"):
+
+    for file_path in glob(r"data/RXI_DANGEROUS_GOODS/*.pdf"):
         filename = re.split(r"[\\|/]", file_path)[-1]
+
         traget_mde = [
-            x for x in json_obj if x["filename"] == f"data/RXI/{filename}"
+            x for x in json_obj if x["filename"] == f"data/RXI_DANGEROUS_GOODS/{filename}"
         ][0]
+
         fs_index_entry = FSIndexFile(
             username="cwael",
             datetime=datetime.now(),
@@ -644,6 +648,45 @@ def seed_routine():
         dst_path = f"public/airlines_files/manuals/{file_id}.pdf"
         shutil.copy2(file_path, dst_path)
         print(f"file map {file_path} -> {dst_path}")
+
+    ### RXI EMEergency Response
+    f = open(r"data/RXI_EMERGENCY_RESPONSE/RXI_EMERGENCY_RESPONSE_second_metadata_tree.json", "r")
+    json_str = f.read()
+    f.close()
+    json_obj = json.loads(json_str)
+
+    for file_path in glob(r"data/RXI_EMERGENCY_RESPONSE/*.pdf"):
+        filename = re.split(r"[\\|/]", file_path)[-1]
+
+        traget_mde = [
+            x for x in json_obj if x["filename"] == f"data/RXI_EMERGENCY_RESPONSE/{filename}"
+        ][0]
+
+        fs_index_entry = FSIndexFile(
+            username="cwael",
+            datetime=datetime.now(),
+            file_type=IndexFileType.AIRLINES_MANUAL,
+            filename=filename,
+            doc_uuid=(
+                fs_index_chat_doc_ids[filename]
+                if fs_index_chat_doc_ids.get(filename) != None
+                else str(uuid4())
+            ),
+            doc_status=ChatDOCStatus.PARSED,
+            organization="AeroSync",
+            parent="RXI Dangerous Goods Manual - 14FEB2024.pdf",
+            args={"toc_info": traget_mde["toc_info"]},
+        )
+        mdb_result = db.get_collection("fs_index").insert_one(
+            fs_index_entry.model_dump()
+        )
+        file_id = str(mdb_result.inserted_id)
+        dst_path = f"public/airlines_files/manuals/{file_id}.pdf"
+        shutil.copy2(file_path, dst_path)
+        print(f"file map {file_path} -> {dst_path}")
+
+
+
 
     db.get_collection("fs_index").insert_many(
         [x.model_dump() for x in seed_fs_index_files]
@@ -687,10 +730,7 @@ def seed_routine():
     for report in seed_flow_reports:
         report = report.model_dump()
         report["regulation_id"] = str(iosa_e16r2_id)
-        report["sub_sections"][0]["checklist_items"][0]["checkins"] = [
-            {"fs_index": file_id,
-            "pages": [1, 2, 3]}
-        ]
+        report["sub_sections"][0]["checklist_items"][0]["checkins"] = []
 
         db.get_collection("flow_reports").insert_one(report)
     print("creating flow report indices...")

@@ -15,7 +15,7 @@ def generate_random_hash():
 
 def create_parts_metadata_file():
     metadata = []
-    manual_parts = glob("data/RXI/*.pdf")
+    manual_parts = glob("data/RXI_DANGEROUS_GOODS/*.pdf")
 
 
     for part_path in manual_parts:
@@ -38,7 +38,7 @@ def create_parts_metadata_file():
         )
 
 
-    with open("data/RXI/RXI_metadata.json", "w") as f:
+    with open("data/RXI_DANGEROUS_GOODS/RXI_DANGEROUS_GOODS_metadata.json", "w") as f:
         f.write(json.dumps(metadata, indent=2))
 
 
@@ -82,7 +82,7 @@ def create_manual_toc_tree():
 
         return toc_info
 
-    f = open("data/RXI/RXI_metadata.json", "r")
+    f = open("data/RXI_DANGEROUS_GOODS/RXI_DANGEROUS_GOODS_metadata.json", "r")
     json_str = f.read()
     f.close()
 
@@ -96,7 +96,7 @@ def create_manual_toc_tree():
         toc_info = parse_toc_txt_to_tree(toc_txt)
         mde["toc_info"] = toc_info
 
-    f = open("data/RXI/RXI_second_metadata.json", "w")
+    f = open("data/RXI_DANGEROUS_GOODS/RXI_DANGEROUS_GOODS_second_metadata.json", "w")
     f.write(json.dumps(json_obj, indent=2))
     f.close()
 
@@ -116,7 +116,7 @@ def rearrange_manual_content_tree() -> list[object]:
         )
         return max_page
 
-    path_to_metadata = "data/RXI/RXI_second_metadata.json"
+    path_to_metadata = "data/RXI_DANGEROUS_GOODS/RXI_DANGEROUS_GOODS_second_metadata.json"
     all_chapters = []
     all_sub1_sections = []
     all_sub2_section = []
@@ -375,12 +375,12 @@ def rearrange_manual_content_tree() -> list[object]:
     temp_chapter["toc_info"] = all_sub1_sections[:]
     all_chapters.append(dict(temp_chapter))
 
-    with open("data/RXI/RXI_second_metadata_tree.json", "w") as json_file:
+    with open("data/RXI_DANGEROUS_GOODS/RXI_DANGEROUS_GOODS_second_metadata_tree.json", "w") as json_file:
         json.dump(all_chapters, json_file, indent=4)
 
 
 
-# create_parts_metadata_file()
+create_parts_metadata_file()
 # create_manual_toc_tree()
 # create_manual_content_tree()
 rearrange_manual_content_tree()

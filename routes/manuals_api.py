@@ -119,7 +119,7 @@ async def create_manual(file: UploadFile, res: Response, x_auth=Header(alias='X-
     return JsonResponse(data={
         'doc_uuid': "00000000-0000-0000-0000-000000000000",
         'file_id': fs_service_response.data['file_id'],
-        'url_path': fs_service_response.data['url_path'],
+        'url_path': fs_service_response.data['url_path']
     })
 
 
@@ -306,9 +306,10 @@ async def scan_pdf(res: Response, background_tasks: BackgroundTasks, regulation_
             success=auth_service_response.success,
             msg=auth_service_response.msg,
         )
-
+    
+    organization = auth_service_response.data['token_claims']['organization']
     # get fs index entry
-    fs_service_response = await fs_index_database_api.get_fs_index_entry(chat_doc_uuid=doc_uuid)
+    fs_service_response = await fs_index_database_api.get_fs_index_entry(chat_doc_uuid=doc_uuid,organization=organization)
     if not fs_service_response.success:
         res.status_code = fs_service_response.status_code
         return JsonResponse(
@@ -339,7 +340,7 @@ async def scan_pdf(res: Response, background_tasks: BackgroundTasks, regulation_
 
     # run FastAPI background task
     ai_task_id = ait_db_service_response.data['ai_task_id']
-    background_tasks.add_task(chat_doc_man.scan_doc, fs_index_entry.doc_uuid, fs_index_entry.filename, iosa_checklist, ai_task_id)
+    background_tasks.add_task(chat_doc_man.scan_doc, fs_index_entry.doc_uuid, fs_index_entry.filename, iosa_checklist, ai_task_id,organization)
     return JsonResponse(data={'ai_task_id': ai_task_id})
 
 
