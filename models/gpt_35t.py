@@ -7,6 +7,10 @@ from pydantic import ConfigDict
 
 GPT35T_MAX_SCORE = 3
 
+class GPT35TAuditTag(str, Enum):
+    FULLY_COMPLIANT = "Fully Compliant"
+    PARTIALLY_COMPLIANT =  "Partially Compliant"
+    NON_COMPLIANT = "Non Compliant"
 
 class GPT35TAuditScore(Enum):
     FULLY_COMPLIANT = GPT35T_MAX_SCORE
@@ -17,11 +21,11 @@ class GPT35TAuditScore(Enum):
     @classmethod
     def map_audit_score_lbl(cls, audit_score) -> str:
         if audit_score == cls.FULLY_COMPLIANT:
-            return 'FULLY_COMPLIANT'
+            return GPT35TAuditTag.FULLY_COMPLIANT
         elif audit_score == cls.PARTIALLY_COMPLIANT:
-            return 'PARTIALLY_COMPLIANT'
+            return GPT35TAuditTag.PARTIALLY_COMPLIANT
         elif audit_score == cls.NON_COMPLIANT:
-            return 'NON_COMPLIANT'
+            return GPT35TAuditTag.NON_COMPLIANT
         else:
             return 'NONE'
 

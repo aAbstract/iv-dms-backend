@@ -33,7 +33,7 @@ def create_parts_metadata_file():
                 "filename": part_path.replace("\\","/"),
                 "chapter_title": chapter_title,
                 "start_page":0,
-                "toc_pages":TOC_START_PAGE
+                "toc_pages":[TOC_START_PAGE]
             }
         )
 
@@ -52,9 +52,8 @@ def create_manual_toc_tree():
         for line in lines:
             if toc_epattern in line:
                 if re.compile(r"(\s*)(\d+)\..").match(line.split()[0]):
-
                     page_number = int(line.split("-")[-1].strip())
-                    section_name = re.findall(r"\s[A-Za-z ]+\s+", line)[0].strip()
+                    section_name = re.findall(r"\s+[A-Za-z]+\s+", line)[0].strip()
 
                     section_code = line[:line.find(section_name[0])].strip()
 
@@ -381,6 +380,5 @@ def rearrange_manual_content_tree() -> list[object]:
 
 
 # create_parts_metadata_file()
-# create_manual_toc_tree()
-# create_manual_content_tree()
-rearrange_manual_content_tree()
+create_manual_toc_tree()
+# rearrange_manual_content_tree()

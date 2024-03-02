@@ -3,18 +3,80 @@
     "filename": "data/RXI_EMERGENCY_RESPONSE/RXI_EMERGENCY_RESPONSE_ch0.pdf",
     "chapter_title": "0 FRONT MATTER",
     "start_page": 0,
-    "toc_pages": [2,3]
+    "toc_pages": [
+      2,3
+    ]
   },
   {
     "filename": "data/RXI_EMERGENCY_RESPONSE/RXI_EMERGENCY_RESPONSE_ch1.pdf",
     "chapter_title": "1 POLICY AND MANAGEMENT",
     "start_page": 0,
-    "toc_pages": [3]
+    "toc_pages": [
+      3
+    ]
   },
   {
     "filename": "data/RXI_EMERGENCY_RESPONSE/RXI_EMERGENCY_RESPONSE_ch2.pdf",
     "chapter_title": "2 CRISIS NOTIFICATION AND ACTIVATION",
     "start_page": 0,
-    "toc_pages": [3]
+    "toc_pages": [
+      3
+    ]
+  },
+  {
+    "filename": "data/RXI_EMERGENCY_RESPONSE/RXI_EMERGENCY_RESPONSE_ch3.pdf",
+    "chapter_title": "3 CRISIS MANAGEMENT CENTER",
+    "start_page": 0,
+    "toc_pages": [
+      3
+    ]
+  },
+  {
+    "filename": "data/RXI_EMERGENCY_RESPONSE/RXI_EMERGENCY_RESPONSE_ch4.pdf",
+    "chapter_title": "4 CRISIS MANAGEMENT",
+    "start_page": 0,
+    "toc_pages": [
+      3
+    ]
+  },
+  {
+    "filename": "data/RXI_EMERGENCY_RESPONSE/RXI_EMERGENCY_RESPONSE_ch5.pdf",
+    "chapter_title": "5 GO TEAM",
+    "start_page": 0,
+    "toc_pages": [
+      3,4
+    ]
+  },
+  {
+    "filename": "data/RXI_EMERGENCY_RESPONSE/RXI_EMERGENCY_RESPONSE_ch6.pdf",
+    "chapter_title": "6 CRISIS COMMUNICATIONS",
+    "start_page": 0,
+    "toc_pages": [
+      4,5
+    ]
+  },
+  {
+    "filename": "data/RXI_EMERGENCY_RESPONSE/RXI_EMERGENCY_RESPONSE_ch7.pdf",
+    "chapter_title": "7 FAMILY ASSISTANCE PROGRAM",
+    "start_page": 0,
+    "toc_pages": [
+      5
+    ]
+  },
+  {
+    "filename": "data/RXI_EMERGENCY_RESPONSE/RXI_EMERGENCY_RESPONSE_ch8.pdf",
+    "chapter_title": "8 TRAINING",
+    "start_page": 0,
+    "toc_pages": [
+      5,6
+    ]
+  },
+  {
+    "filename": "data/RXI_EMERGENCY_RESPONSE/RXI_EMERGENCY_RESPONSE_ch9.pdf",
+    "chapter_title": "9 APPENDIX",
+    "start_page": 0,
+    "toc_pages": [
+      6,7
+    ]
   }
 ]

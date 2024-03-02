@@ -1158,6 +1158,14 @@
         "documentation": {}
     },
     {
+        "label": "GPT35TAuditTag",
+        "importPath": "models.gpt_35t",
+        "description": "models.gpt_35t",
+        "isExtraImport": true,
+        "detail": "models.gpt_35t",
+        "documentation": {}
+    },
+    {
         "label": "*",
         "importPath": "models.gpt_35t",
         "description": "models.gpt_35t",
@@ -1167,6 +1175,14 @@
     },
     {
         "label": "*",
+        "importPath": "models.gpt_35t",
+        "description": "models.gpt_35t",
+        "isExtraImport": true,
+        "detail": "models.gpt_35t",
+        "documentation": {}
+    },
+    {
+        "label": "GPT35TAuditTag",
         "importPath": "models.gpt_35t",
         "description": "models.gpt_35t",
         "isExtraImport": true,
@@ -2638,7 +2654,7 @@
         "kind": 6,
         "importPath": "models.flow_reports",
         "description": "models.flow_reports",
-        "peekOfCode": "class Checkin(BaseModel):\n    description: str\n    label: str\n    pages: Optional[list] = []\n    manual_references: Optional[dict] = {}\n    isComplying: Optional[bool]\n    isComplied: Optional[bool]\n    comments: Optional[str]\n    pct_score: Optional[int]\n    context_id: Optional[str]",
+        "peekOfCode": "class Checkin(BaseModel):\n    description: str\n    label: str\n    pages: Optional[list] = []\n    manual_references: Optional[dict] = {}\n    isComplying: Optional[bool]\n    isComplied: Optional[bool]\n    comments: Optional[str]\n    pct_score: Optional[float|int]\n    context_id: Optional[str]",
         "detail": "models.flow_reports",
         "documentation": {}
     },
@@ -2769,11 +2785,20 @@
         "documentation": {}
     },
     {
+        "label": "GPT35TAuditTag",
+        "kind": 6,
+        "importPath": "models.gpt_35t",
+        "description": "models.gpt_35t",
+        "peekOfCode": "class GPT35TAuditTag(str, Enum):\n    FULLY_COMPLIANT = \"Fully Compliant\"\n    PARTIALLY_COMPLIANT =  \"Partially Compliant\"\n    NON_COMPLIANT = \"Non Compliant\"\nclass GPT35TAuditScore(Enum):\n    FULLY_COMPLIANT = GPT35T_MAX_SCORE\n    PARTIALLY_COMPLIANT = GPT35T_MAX_SCORE - 1\n    NON_COMPLIANT = GPT35T_MAX_SCORE - 2\n    NONE = 0\n    @classmethod",
+        "detail": "models.gpt_35t",
+        "documentation": {}
+    },
+    {
         "label": "GPT35TAuditScore",
         "kind": 6,
         "importPath": "models.gpt_35t",
         "description": "models.gpt_35t",
-        "peekOfCode": "class GPT35TAuditScore(Enum):\n    FULLY_COMPLIANT = GPT35T_MAX_SCORE\n    PARTIALLY_COMPLIANT = GPT35T_MAX_SCORE - 1\n    NON_COMPLIANT = GPT35T_MAX_SCORE - 2\n    NONE = 0\n    @classmethod\n    def map_audit_score_lbl(cls, audit_score) -> str:\n        if audit_score == cls.FULLY_COMPLIANT:\n            return 'FULLY_COMPLIANT'\n        elif audit_score == cls.PARTIALLY_COMPLIANT:",
+        "peekOfCode": "class GPT35TAuditScore(Enum):\n    FULLY_COMPLIANT = GPT35T_MAX_SCORE\n    PARTIALLY_COMPLIANT = GPT35T_MAX_SCORE - 1\n    NON_COMPLIANT = GPT35T_MAX_SCORE - 2\n    NONE = 0\n    @classmethod\n    def map_audit_score_lbl(cls, audit_score) -> str:\n        if audit_score == cls.FULLY_COMPLIANT:\n            return GPT35TAuditTag.FULLY_COMPLIANT\n        elif audit_score == cls.PARTIALLY_COMPLIANT:",
         "detail": "models.gpt_35t",
         "documentation": {}
     },
@@ -2827,7 +2852,7 @@
         "kind": 5,
         "importPath": "models.gpt_35t",
         "description": "models.gpt_35t",
-        "peekOfCode": "GPT35T_MAX_SCORE = 3\nclass GPT35TAuditScore(Enum):\n    FULLY_COMPLIANT = GPT35T_MAX_SCORE\n    PARTIALLY_COMPLIANT = GPT35T_MAX_SCORE - 1\n    NON_COMPLIANT = GPT35T_MAX_SCORE - 2\n    NONE = 0\n    @classmethod\n    def map_audit_score_lbl(cls, audit_score) -> str:\n        if audit_score == cls.FULLY_COMPLIANT:\n            return 'FULLY_COMPLIANT'",
+        "peekOfCode": "GPT35T_MAX_SCORE = 3\nclass GPT35TAuditTag(str, Enum):\n    FULLY_COMPLIANT = \"Fully Compliant\"\n    PARTIALLY_COMPLIANT =  \"Partially Compliant\"\n    NON_COMPLIANT = \"Non Compliant\"\nclass GPT35TAuditScore(Enum):\n    FULLY_COMPLIANT = GPT35T_MAX_SCORE\n    PARTIALLY_COMPLIANT = GPT35T_MAX_SCORE - 1\n    NON_COMPLIANT = GPT35T_MAX_SCORE - 2\n    NONE = 0",
         "detail": "models.gpt_35t",
         "documentation": {}
     },
@@ -3709,7 +3734,7 @@
         "kind": 2,
         "importPath": "scripts.parse_manual_RXI_EMERGENCY_RESPONSE",
         "description": "scripts.parse_manual_RXI_EMERGENCY_RESPONSE",
-        "peekOfCode": "def create_manual_toc_tree():\n    def parse_toc_txt_to_tree(toc_text: str) -> list[tuple[str, str, int]]:\n        lines = toc_text.split(\"\\n\")\n        toc_epattern = \"...\"\n        toc_info = []\n        for line in lines:\n            if toc_epattern in line:\n                if re.compile(r\"(\\s*)(\\d+)\\..\").match(line.split()[0]):\n                    page_number = int(line.split(\"-\")[-1].strip())\n                    section_name = re.findall(r\"\\s[A-Za-z ]+\\s+\", line)[0].strip()",
+        "peekOfCode": "def create_manual_toc_tree():\n    def parse_toc_txt_to_tree(toc_text: str) -> list[tuple[str, str, int]]:\n        lines = toc_text.split(\"\\n\")\n        toc_epattern = \"...\"\n        toc_info = []\n        for line in lines:\n            if toc_epattern in line:\n                if re.compile(r\"(\\s*)(\\d+)\\..\").match(line.split()[0]):\n                    page_number = int(line.split(\"-\")[-1].strip())\n                    section_name = re.findall(r\"\\s+[A-Za-z]+\\s+\", line)[0].strip()",
         "detail": "scripts.parse_manual_RXI_EMERGENCY_RESPONSE",
         "documentation": {}
     },
@@ -4312,7 +4337,7 @@
         "kind": 2,
         "importPath": "test.test_llm_api",
         "description": "test.test_llm_api",
-        "peekOfCode": "def test_llm_api_lock():\n    api_url = f\"{_test_config.get_api_url()}/llm/iosa-audit\"\n    http_headers = {'X-Auth': 'Bearer fake_token'}\n    http_res = requests.post(api_url, headers=http_headers, json={\n        'regulation_id': '000000000000000000000000',\n        'checklist_code': 'XXX 0.0.0',\n        'text': 'some text',\n    })\n    assert http_res.status_code == 403\n    json_res_body = json.loads(http_res.content.decode())",
+        "peekOfCode": "def test_llm_api_lock():\n    api_url = f\"{_test_config.get_api_url()}/llm/iosa-audit\"\n    http_headers = {\"X-Auth\": \"Bearer fake_token\"}\n    http_res = requests.post(\n        api_url,\n        headers=http_headers,\n        json={\n            \"regulation_id\": \"000000000000000000000000\",\n            \"checklist_code\": \"XXX 0.0.0\",\n            \"text\": \"some text\",",
         "detail": "test.test_llm_api",
         "documentation": {}
     },
@@ -4321,7 +4346,7 @@
         "kind": 2,
         "importPath": "test.test_llm_api",
         "description": "test.test_llm_api",
-        "peekOfCode": "def test_llm_api_success():\n    access_token = _test_config.login_user('cwael', 'CgJhxwieCc7QEyN3BB7pmvy9MMpseMPV')\n    http_headers = {'X-Auth': f\"Bearer {access_token}\"}\n    # get regulations options\n    api_url = f\"{_test_config.get_api_url()}/regulations/get-options\"\n    http_res = requests.post(api_url, headers=http_headers)\n    assert http_res.status_code == 200\n    json_res_body = json.loads(http_res.content.decode())\n    assert json_res_body['success']\n    assert 'regulations_options' in json_res_body['data']",
+        "peekOfCode": "def test_llm_api_success():\n    access_token = _test_config.login_user(\"cwael\", \"CgJhxwieCc7QEyN3BB7pmvy9MMpseMPV\")\n    http_headers = {\"X-Auth\": f\"Bearer {access_token}\"}\n    # get regulations options\n    api_url = f\"{_test_config.get_api_url()}/regulations/get-options\"\n    http_res = requests.post(api_url, headers=http_headers)\n    assert http_res.status_code == 200\n    json_res_body = json.loads(http_res.content.decode())\n    assert json_res_body[\"success\"]\n    assert \"regulations_options\" in json_res_body[\"data\"]",
         "detail": "test.test_llm_api",
         "documentation": {}
     },
@@ -4330,7 +4355,7 @@
         "kind": 2,
         "importPath": "test.test_llm_api",
         "description": "test.test_llm_api",
-        "peekOfCode": "def test_llm_api_success_low_score():\n    access_token = _test_config.login_user('cwael', 'CgJhxwieCc7QEyN3BB7pmvy9MMpseMPV')\n    http_headers = {'X-Auth': f\"Bearer {access_token}\"}\n    # get regulations options\n    api_url = f\"{_test_config.get_api_url()}/regulations/get-options\"\n    http_res = requests.post(api_url, headers=http_headers)\n    assert http_res.status_code == 200\n    json_res_body = json.loads(http_res.content.decode())\n    assert json_res_body['success']\n    assert 'regulations_options' in json_res_body['data']",
+        "peekOfCode": "def test_llm_api_success_low_score():\n    access_token = _test_config.login_user(\"cwael\", \"CgJhxwieCc7QEyN3BB7pmvy9MMpseMPV\")\n    http_headers = {\"X-Auth\": f\"Bearer {access_token}\"}\n    # get regulations options\n    api_url = f\"{_test_config.get_api_url()}/regulations/get-options\"\n    http_res = requests.post(api_url, headers=http_headers)\n    assert http_res.status_code == 200\n    json_res_body = json.loads(http_res.content.decode())\n    assert json_res_body[\"success\"]\n    assert \"regulations_options\" in json_res_body[\"data\"]",
         "detail": "test.test_llm_api",
         "documentation": {}
     },
@@ -4339,7 +4364,7 @@
         "kind": 2,
         "importPath": "test.test_llm_api",
         "description": "test.test_llm_api",
-        "peekOfCode": "def test_llm_api_success_high_score():\n    access_token = _test_config.login_user('cwael', 'CgJhxwieCc7QEyN3BB7pmvy9MMpseMPV')\n    http_headers = {'X-Auth': f\"Bearer {access_token}\"}\n    # get regulations options\n    api_url = f\"{_test_config.get_api_url()}/regulations/get-options\"\n    http_res = requests.post(api_url, headers=http_headers)\n    assert http_res.status_code == 200\n    json_res_body = json.loads(http_res.content.decode())\n    assert json_res_body['success']\n    assert 'regulations_options' in json_res_body['data']",
+        "peekOfCode": "def test_llm_api_success_high_score():\n    access_token = _test_config.login_user(\"cwael\", \"CgJhxwieCc7QEyN3BB7pmvy9MMpseMPV\")\n    http_headers = {\"X-Auth\": f\"Bearer {access_token}\"}\n    # get regulations options\n    api_url = f\"{_test_config.get_api_url()}/regulations/get-options\"\n    http_res = requests.post(api_url, headers=http_headers)\n    assert http_res.status_code == 200\n    json_res_body = json.loads(http_res.content.decode())\n    assert json_res_body[\"success\"]\n    assert \"regulations_options\" in json_res_body[\"data\"]",
         "detail": "test.test_llm_api",
         "documentation": {}
     },
@@ -4348,7 +4373,7 @@
         "kind": 2,
         "importPath": "test.test_llm_api",
         "description": "test.test_llm_api",
-        "peekOfCode": "def test_llm_unstruct_api_success_high_score():\n    access_token = _test_config.login_user('cwael', 'CgJhxwieCc7QEyN3BB7pmvy9MMpseMPV')\n    http_headers = {'X-Auth': f\"Bearer {access_token}\"}\n    get_database = _test_config.get_database()\n    assert get_database != None\n    # get regulations options\n    api_url = f\"{_test_config.get_api_url()}/regulations/get-options\"\n    http_res = requests.post(api_url, headers=http_headers)\n    assert http_res.status_code == 200\n    json_res_body = json.loads(http_res.content.decode())",
+        "peekOfCode": "def test_llm_unstruct_api_success_high_score():\n    access_token = _test_config.login_user(\"cwael\", \"CgJhxwieCc7QEyN3BB7pmvy9MMpseMPV\")\n    http_headers = {\"X-Auth\": f\"Bearer {access_token}\"}\n    get_database = _test_config.get_database()\n    assert get_database != None\n    # get regulations options\n    api_url = f\"{_test_config.get_api_url()}/regulations/get-options\"\n    http_res = requests.post(api_url, headers=http_headers)\n    assert http_res.status_code == 200\n    json_res_body = json.loads(http_res.content.decode())",
         "detail": "test.test_llm_api",
         "documentation": {}
     },
@@ -4357,7 +4382,7 @@
         "kind": 2,
         "importPath": "test.test_llm_api",
         "description": "test.test_llm_api",
-        "peekOfCode": "def test_llm_pages_api_success_high_score():\n    if not int(os.environ['GPT_35T_ENABLE']):\n        return\n    admin_access_token = _test_config.login_user('eslam', 'CgJhxwieCc7QEyN3BB7pmvy9MMpseMPV')\n    http_headers = {'X-Auth': f\"Bearer {admin_access_token}\"}\n    get_database = _test_config.get_database()\n    assert get_database != None\n    # get regulations options\n    api_url = f\"{_test_config.get_api_url()}/regulations/get-options\"\n    http_res = requests.post(api_url, headers=http_headers)",
+        "peekOfCode": "def test_llm_pages_api_success_high_score():\n    if not int(os.environ[\"GPT_35T_ENABLE\"]):\n        return\n    admin_access_token = _test_config.login_user(\n        \"eslam\", \"CgJhxwieCc7QEyN3BB7pmvy9MMpseMPV\"\n    )\n    http_headers = {\"X-Auth\": f\"Bearer {admin_access_token}\"}\n    get_database = _test_config.get_database()\n    assert get_database != None\n    # get regulations options",
         "detail": "test.test_llm_api",
         "documentation": {}
     },
@@ -4366,7 +4391,7 @@
         "kind": 2,
         "importPath": "test.test_llm_api",
         "description": "test.test_llm_api",
-        "peekOfCode": "def test_llm_pages_api_combined_low_score():\n    if not int(os.environ['GPT_35T_ENABLE']):\n        return\n    admin_access_token = _test_config.login_user('eslam', 'CgJhxwieCc7QEyN3BB7pmvy9MMpseMPV')\n    http_headers = {'X-Auth': f\"Bearer {admin_access_token}\"}\n    get_database = _test_config.get_database()\n    assert get_database != None\n    # get regulations options\n    api_url = f\"{_test_config.get_api_url()}/regulations/get-options\"\n    http_res = requests.post(api_url, headers=http_headers)",
+        "peekOfCode": "def test_llm_pages_api_combined_low_score():\n    if not int(os.environ[\"GPT_35T_ENABLE\"]):\n        return\n    admin_access_token = _test_config.login_user(\n        \"eslam\", \"CgJhxwieCc7QEyN3BB7pmvy9MMpseMPV\"\n    )\n    http_headers = {\"X-Auth\": f\"Bearer {admin_access_token}\"}\n    get_database = _test_config.get_database()\n    assert get_database != None\n    # get regulations options",
         "detail": "test.test_llm_api",
         "documentation": {}
     },
@@ -4375,7 +4400,7 @@
         "kind": 2,
         "importPath": "test.test_llm_api",
         "description": "test.test_llm_api",
-        "peekOfCode": "def test_llm_unstruct_generate():\n    access_token = _test_config.login_user('cwael', 'CgJhxwieCc7QEyN3BB7pmvy9MMpseMPV')\n    http_headers = {'X-Auth': f\"Bearer {access_token}\"}\n    get_database = _test_config.get_database()\n    assert get_database != None\n    # get regulations options\n    api_url = f\"{_test_config.get_api_url()}/regulations/get-options\"\n    http_res = requests.post(api_url, headers=http_headers)\n    assert http_res.status_code == 200\n    json_res_body = json.loads(http_res.content.decode())",
+        "peekOfCode": "def test_llm_unstruct_generate():\n    access_token = _test_config.login_user(\"cwael\", \"CgJhxwieCc7QEyN3BB7pmvy9MMpseMPV\")\n    http_headers = {\"X-Auth\": f\"Bearer {access_token}\"}\n    get_database = _test_config.get_database()\n    assert get_database != None\n    # get regulations options\n    api_url = f\"{_test_config.get_api_url()}/regulations/get-options\"\n    http_res = requests.post(api_url, headers=http_headers)\n    assert http_res.status_code == 200\n    json_res_body = json.loads(http_res.content.decode())",
         "detail": "test.test_llm_api",
         "documentation": {}
     },
@@ -4384,7 +4409,7 @@
         "kind": 5,
         "importPath": "test.test_llm_api",
         "description": "test.test_llm_api",
-        "peekOfCode": "LLM_SCORE_TH = 0.4\ndef test_llm_api_lock():\n    api_url = f\"{_test_config.get_api_url()}/llm/iosa-audit\"\n    http_headers = {'X-Auth': 'Bearer fake_token'}\n    http_res = requests.post(api_url, headers=http_headers, json={\n        'regulation_id': '000000000000000000000000',\n        'checklist_code': 'XXX 0.0.0',\n        'text': 'some text',\n    })\n    assert http_res.status_code == 403",
+        "peekOfCode": "LLM_SCORE_TH = 0.4\ndef test_llm_api_lock():\n    api_url = f\"{_test_config.get_api_url()}/llm/iosa-audit\"\n    http_headers = {\"X-Auth\": \"Bearer fake_token\"}\n    http_res = requests.post(\n        api_url,\n        headers=http_headers,\n        json={\n            \"regulation_id\": \"000000000000000000000000\",\n            \"checklist_code\": \"XXX 0.0.0\",",
         "detail": "test.test_llm_api",
         "documentation": {}
     },
@@ -4753,7 +4778,7 @@
         "kind": 5,
         "importPath": "main",
         "description": "main",
-        "peekOfCode": "server = FastAPI(\n    title=os.environ['SERVER_NAME'],\n    description='Huge update',\n    version=\"0.37.11\",\n    lifespan=lifespan,\n)\nserver.add_middleware(\n    CORSMiddleware,\n    allow_origins=['*'],\n    allow_methods=['*'],",
+        "peekOfCode": "server = FastAPI(\n    title=os.environ['SERVER_NAME'],\n    description='enhanche route fixed',\n    version=\"0.37.12\",\n    lifespan=lifespan,\n)\nserver.add_middleware(\n    CORSMiddleware,\n    allow_origins=['*'],\n    allow_methods=['*'],",
         "detail": "main",
         "documentation": {}
     }

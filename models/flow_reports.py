@@ -43,7 +43,7 @@ class Checkin(BaseModel):
     isComplying: Optional[bool]
     isComplied: Optional[bool]
     comments: Optional[str]
-    pct_score: Optional[int]
+    pct_score: Optional[float|int]
     context_id: Optional[str]
     overall_compliance_tag: Optional[str]
 

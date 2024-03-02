@@ -249,7 +249,8 @@ async def iosa_enhance_text(gpt35t_context: GPT35TContext) -> ServiceResponse:
     if not gpt35t_enable:
         return ServiceResponse(data={
             'llm_resp': 'LLM 35T-1106 Disabled',
-            'new_compliance_score': 100,
+            'overall_compliance_score': 100,
+            'overall_compliance_tag':GPT35TAuditTag.FULLY_COMPLIANT,
             'conversation': [],
         })
 
@@ -346,8 +347,8 @@ async def iosa_enhance_text(gpt35t_context: GPT35TContext) -> ServiceResponse:
 
     return ServiceResponse(data={
         'llm_resp': text,
-        'new_compliance_score': ovcomp_score,
-        'new_compliance_tag': ovcomp_tag,
+        'overall_compliance_score': ovcomp_score,
+        'overall_compliance_tag': ovcomp_tag,
         'conversation': gpt35t_context.conversation,
     })
 
@@ -362,7 +363,9 @@ async def iosa_generate_text(iosa_item: IOSAItem) -> ServiceResponse:
         return ServiceResponse(data={
             'llm_resp': 'LLM 35T-1106 Disabled',
             'overall_compliance_score': dummy_scores_map.get(iosa_item.code, 0),
-            'conversation': [],
+            'overall_compliance_tag': GPT35TAuditTag.FULLY_COMPLIANT,
+            'context_id': "",
+            'conversation':[]
         })
 
     res = await gpt35t_generate_iosa(iosa_item.paragraph)
@@ -370,7 +373,6 @@ async def iosa_generate_text(iosa_item: IOSAItem) -> ServiceResponse:
         return res
 
     # post processing
-    # replace unwanted keywords
     gpt35t_resp: str = res.data['gpt35t_resp']
 
     # extract NEW_TEXT value
