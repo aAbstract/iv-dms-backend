@@ -149,7 +149,7 @@ async def list_manuals(res: Response, x_auth=Header(alias='X-Auth', default=None
 
 
 @router.post(f"{_ROOT_ROUTE}/delete-manual")
-async def delete_manual(res: Response, doc_uuid: str = Body(embed=True), x_auth=Header(alias='X-Auth', default=None)):
+async def delete_manual(res: Response, fs_index: str = Body(embed=True), x_auth=Header(alias='X-Auth', default=None)):
     """ Delete an airlines manual from database. [ALPHA] """
     func_id = f"{_MODULE_ID}.delete_manual"
 
@@ -161,9 +161,9 @@ async def delete_manual(res: Response, doc_uuid: str = Body(embed=True), x_auth=
             success=auth_service_response.success,
             msg=auth_service_response.msg,
         )
-    await log_man.add_log(func_id, 'DEBUG', f"received delete manual request: username={auth_service_response.data['token_claims']['username']}, doc_uuid={doc_uuid}")
+    await log_man.add_log(func_id, 'DEBUG', f"received delete manual request: username={auth_service_response.data['token_claims']['username']}, fs_index={fs_index}")
 
-    fs_service_response = await fs_index_database_api.delete_fs_index_entry(doc_uuid, auth_service_response.data['token_claims']['organization'])
+    fs_service_response = await fs_index_database_api.delete_fs_index_entry(fs_index, auth_service_response.data['token_claims']['organization'])
     res.status_code = fs_service_response.status_code
     return JsonResponse(
         success=fs_service_response.success,

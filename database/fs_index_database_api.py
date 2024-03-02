@@ -10,7 +10,7 @@ from models.fs_index import (
     IndexFileType,
 )
 from models.runtime import ServiceResponse
-from database.mongo_driver import get_database
+from database.mongo_driver import get_database, validate_bson_id
 from PyPDF2 import PdfReader
 import re
 import lib.log as log_man
@@ -86,10 +86,15 @@ async def create_fs_index_entry(
     )
 
 
-async def delete_fs_index_entry(doc_uuid: str, organization: str) -> ServiceResponse:
+async def delete_fs_index_entry(fs_index: str, organization: str) -> ServiceResponse:
+
+    bson_id = validate_bson_id(fs_index)
+    if not bson_id:
+        return ServiceResponse(success=False, msg='Bad flow report ID', status_code=400)
+    
     # fetch entry from database
     fs_index_entry = (
-        await get_database().get_collection("fs_index").find_one({"doc_uuid": doc_uuid})
+        await get_database().get_collection("fs_index").find_one({"_id": bson_id})
     )
     if not fs_index_entry:
         return ServiceResponse(
@@ -115,7 +120,7 @@ async def delete_fs_index_entry(doc_uuid: str, organization: str) -> ServiceResp
     result = (
         await get_database()
         .get_collection("fs_index")
-        .delete_one({"doc_uuid": doc_uuid})
+        .delete_one({"_id": bson_id})
     )
     if not result.deleted_count:
         return ServiceResponse(

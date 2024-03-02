@@ -286,16 +286,12 @@ def test_delete_manual_fs_index():
     assert 'doc_uuid' in json_res_body['data']
     assert 'file_id' in json_res_body['data']
     assert 'url_path' in json_res_body['data']
-    doc_id = json_res_body['data']['doc_uuid']
     file_id = json_res_body['data']['file_id']
-
-    # to not delete a defualt chatdoc id of some other record during testing
-    get_database["fs_index"].find_one_and_update({"_id": ObjectId(file_id)}, {"$set": {"doc_uuid": "TestDocId"}})
 
     # delete manual
     http_headers = {'X-Auth': f"Bearer {admin_access_token}"}
     api_url = f"{_test_config.get_api_url()}/manuals/delete-manual"
-    http_res = requests.post(api_url, headers=http_headers, json={'doc_uuid': "TestDocId"})
+    http_res = requests.post(api_url, headers=http_headers, json={'fs_index': file_id})
     assert http_res.status_code == 200
     json_res_body = json.loads(http_res.content.decode())
     assert (json_res_body['success'] and json_res_body['msg'] == 'OK')
