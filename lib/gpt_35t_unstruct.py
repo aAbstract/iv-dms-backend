@@ -31,7 +31,7 @@ async def gpt35t_generate(iosa_checklist: str, input_text: str) -> ServiceRespon
     Scoring:
     Fully Compliant (3): All aspects are clearly and accurately addressed.
     Partially Compliant (2): Some aspects are addressed, but improvements or clarifications are needed.
-    Non Compliant (1): Significant deviations from IOSA standards; a thorough revision is required.
+    Non Compliant (1):  All aspects are irrelevant and aren't related to the IOSA standards.
     
     ISARPs: {iosa_checklist}
     INPUT_TEXT: {input_text}
@@ -113,7 +113,7 @@ async def gpt35t_generate_iosa(iosa_checklist: str) -> ServiceResponse:
     ### Scoring Tags ###
         Fully Compliant (3): All aspects are clearly and accurately addressed.
         Partially Compliant (2): Some aspects are addressed, but improvements or clarifications are needed.
-        Non Compliant (1): Significant deviations from IOSA standards; a thorough revision is required.
+        Non Compliant (1): All aspects are irrelevant and aren't related to the IOSA standards
 
     ### ISARP ### 	
     {iosa_checklist}
