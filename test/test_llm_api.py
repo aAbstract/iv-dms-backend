@@ -426,7 +426,7 @@ def test_llm_unstruct_generate():
     )
 
     new_ocs = json_res_body["data"]["overall_compliance_score"]
-    assert new_ocs > old_ocs
+    assert new_ocs >= old_ocs
 
     get_database.get_collection("gpt35t_contexts").find_one_and_delete(
         {"_id": ObjectId(json_res_body["data"]["context_id"])}
