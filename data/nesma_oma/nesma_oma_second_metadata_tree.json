@@ -1,6 +1,6 @@
 [
     {
-        "filename": "data/nesma_OMA/nesma_ch13.pdf",
+        "filename": "data/nesma_oma/nesma_oma_ch13.pdf",
         "chapter_title": "Chapter 13 Forms",
         "include": true,
         "start_page": 764,
@@ -231,7 +231,7 @@
         ]
     },
     {
-        "filename": "data/nesma_OMA/nesma_ch15.pdf",
+        "filename": "data/nesma_oma/nesma_oma_ch15.pdf",
         "chapter_title": "Chapter 15 Aircraft Leasing",
         "include": true,
         "start_page": 858,
@@ -258,7 +258,7 @@
         ]
     },
     {
-        "filename": "data/nesma_OMA/nesma_ch8.pdf",
+        "filename": "data/nesma_oma/nesma_oma_ch8.pdf",
         "chapter_title": "Chapter 8 Operating Procedures",
         "include": false,
         "start_page": 250,
@@ -285,7 +285,7 @@
         "toc_info": []
     },
     {
-        "filename": "data/nesma_OMA/nesma_ch6.pdf",
+        "filename": "data/nesma_oma/nesma_oma_ch6.pdf",
         "chapter_title": "Chapter 6 Crew Health Precautions",
         "include": true,
         "start_page": 212,
@@ -664,7 +664,7 @@
         ]
     },
     {
-        "filename": "data/nesma_OMA/nesma_ch0.pdf",
+        "filename": "data/nesma_oma/nesma_oma_ch0.pdf",
         "chapter_title": "Chapter 0 Administration and Control of Manual",
         "include": true,
         "start_page": 6,
@@ -945,7 +945,7 @@
         ]
     },
     {
-        "filename": "data/nesma_OMA/nesma_ch1.pdf",
+        "filename": "data/nesma_oma/nesma_oma_ch1.pdf",
         "chapter_title": "Chapter 1 Organization and Responsibilities",
         "include": true,
         "start_page": 74,
@@ -1727,7 +1727,7 @@
         ]
     },
     {
-        "filename": "data/nesma_OMA/nesma_ch7.pdf",
+        "filename": "data/nesma_oma/nesma_oma_ch7.pdf",
         "chapter_title": "Chapter 7 Flight Time Limitations",
         "include": true,
         "start_page": 236,
@@ -1936,7 +1936,7 @@
         ]
     },
     {
-        "filename": "data/nesma_OMA/nesma_ch9.pdf",
+        "filename": "data/nesma_oma/nesma_oma_ch9.pdf",
         "chapter_title": "Chapter 9 Dangerous Goods and Weapons",
         "include": true,
         "start_page": 608,
@@ -2129,7 +2129,7 @@
         ]
     },
     {
-        "filename": "data/nesma_OMA/nesma_ch5.pdf",
+        "filename": "data/nesma_oma/nesma_oma_ch5.pdf",
         "chapter_title": "Chapter 5 Qualification Requirement",
         "include": true,
         "start_page": 180,
@@ -2735,7 +2735,7 @@
         ]
     },
     {
-        "filename": "data/nesma_OMA/nesma_ch10.pdf",
+        "filename": "data/nesma_oma/nesma_oma_ch10.pdf",
         "chapter_title": "Chapter 10 Security",
         "include": true,
         "start_page": 630,
@@ -3607,7 +3607,7 @@
         ]
     },
     {
-        "filename": "data/nesma_OMA/nesma_ch4.pdf",
+        "filename": "data/nesma_oma/nesma_oma_ch4.pdf",
         "chapter_title": "Chapter 4 Crew Management",
         "include": true,
         "start_page": 170,
@@ -3784,7 +3784,7 @@
         ]
     },
     {
-        "filename": "data/nesma_OMA/nesma_ch2.pdf",
+        "filename": "data/nesma_oma/nesma_oma_ch2.pdf",
         "chapter_title": "Chapter 2 Operational Control and Supervision",
         "include": true,
         "start_page": 130,
@@ -4011,7 +4011,7 @@
         ]
     },
     {
-        "filename": "data/nesma_OMA/nesma_ch3.pdf",
+        "filename": "data/nesma_oma/nesma_oma_ch3.pdf",
         "chapter_title": "Chapter 3 Quality System",
         "include": true,
         "start_page": 152,
@@ -4232,7 +4232,7 @@
         ]
     },
     {
-        "filename": "data/nesma_OMA/nesma_ch14.pdf",
+        "filename": "data/nesma_oma/nesma_oma_ch14.pdf",
         "chapter_title": "Chapter 14 Performance Engineering",
         "include": true,
         "start_page": 818,
@@ -4559,7 +4559,7 @@
         ]
     },
     {
-        "filename": "data/nesma_OMA/nesma_ch11.pdf",
+        "filename": "data/nesma_oma/nesma_oma_ch11.pdf",
         "chapter_title": "Chapter 11 Safety Management System",
         "include": true,
         "start_page": 690,
@@ -5647,7 +5647,7 @@
         ]
     },
     {
-        "filename": "data/nesma_OMA/nesma_ch12.pdf",
+        "filename": "data/nesma_oma/nesma_oma_ch12.pdf",
         "chapter_title": "Chapter 12 Rules of the Air",
         "include": true,
         "start_page": 756,

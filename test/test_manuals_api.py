@@ -362,7 +362,7 @@ def _test_get_tree_structure():
     assert get_database != None
     http_headers = {'X-Auth': f"Bearer {admin_access_token}"}
 
-    file = get_database['fs_index'].find_one({"filename": "nesma_OMA.pdf"})
+    file = get_database['fs_index'].find_one({"filename": "nesma_oma.pdf"})
     assert file['doc_uuid']
     # get tree api
     api_url = f"{_test_config.get_api_url()}/manuals/get-tree"
@@ -387,7 +387,7 @@ def test_get_tree_v2_structure():
     assert get_database != None
     http_headers = {'X-Auth': f"Bearer {admin_access_token}"}
 
-    file = get_database['fs_index'].find_one({"filename": "nesma_ch13.pdf"})
+    file = get_database['fs_index'].find_one({"filename": "nesma_oma_ch13.pdf"})
     assert file['doc_uuid']
     # get tree api
     api_url = f"{_test_config.get_api_url()}/manuals/get-tree-v2"

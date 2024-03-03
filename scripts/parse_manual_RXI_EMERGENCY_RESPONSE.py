@@ -10,7 +10,7 @@ fake = Faker("en_US")
 TOC_START_PAGE = 2
 
 def generate_random_hash():
-    concatid = 'ER'
+    concatid = 'RXI_ER'
     return concatid + str(fake.unique.random_int(min=111111111111, max=999999999999))
 
 def create_parts_metadata_file():
@@ -43,7 +43,7 @@ def create_parts_metadata_file():
 
 
 def create_manual_toc_tree():
-    def parse_toc_txt_to_tree(toc_text: str) -> list[tuple[str, str, int]]:
+    def parse_toc_txt_to_tree(toc_text: str,title:str) -> list[tuple[str, str, int]]:
         lines = toc_text.split("\n")
 
         toc_epattern = "..."
@@ -52,8 +52,9 @@ def create_manual_toc_tree():
         for line in lines:
             if toc_epattern in line:
                 if re.compile(r"(\s*)(\d+)\..").match(line.split()[0]):
+
                     page_number = int(line.split("-")[-1].strip())
-                    section_name = re.findall(r"\s+[A-Za-z]+\s+", line)[0].strip()
+                    section_name = re.findall(r"""\s+[A-Za-z ,"'-]+\s+""", line)[0].strip()
 
                     section_code = line[:line.find(section_name[0])].strip()
 
@@ -76,8 +77,8 @@ def create_manual_toc_tree():
                 #     page_number = int(page_number[0])
                 # else:
                 #     page_number = -1
-
-                    toc_info.append((section_code + " "+ section_name, page_number))
+                    if(title[0] == section_code[0]):
+                        toc_info.append((section_code + " "+ section_name, page_number))
 
         return toc_info
 
@@ -92,7 +93,7 @@ def create_manual_toc_tree():
         pdf_reader = PdfReader("data/RXI Emergency Response Manual Dated 30.01.2024.pdf")
         for pidx in mde["toc_pages"]:
             toc_txt += pdf_reader.pages[pidx].extract_text() +"\n"
-        toc_info = parse_toc_txt_to_tree(toc_txt)
+        toc_info = parse_toc_txt_to_tree(toc_txt,mde['chapter_title'])
         mde["toc_info"] = toc_info
 
     f = open("data/RXI_EMERGENCY_RESPONSE/RXI_EMERGENCY_RESPONSE_second_metadata.json", "w")
@@ -380,5 +381,6 @@ def rearrange_manual_content_tree() -> list[object]:
 
 
 # create_parts_metadata_file()
-create_manual_toc_tree()
-# rearrange_manual_content_tree()
+# create_manual_toc_tree()
+rearrange_manual_content_tree()
+print("Complete Parse of RXI_EMERGENCY_RESPONSE")

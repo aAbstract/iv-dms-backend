@@ -7,24 +7,33 @@ from faker import Faker
 
 Faker.seed(0)
 fake = Faker("en_US") 
-TOC_START_PAGE = 2
+TOC_START_PAGE = [2,3,4,5]
 
 def generate_random_hash():
-    concatid = 'RXI_DG'
+    concatid = 'RXI_FDAP'
     return concatid + str(fake.unique.random_int(min=111111111111, max=999999999999))
 
+def clean(text):
+    new_text = text[:]
+    new_text = new_text.replace('\u2013', '-')
+    new_text = new_text.replace('"', "'")
+
+    return new_text
+        
 def create_parts_metadata_file():
     metadata = []
-    manual_parts = glob("data/RXI_DANGEROUS_GOODS/*.pdf")
-
+    manual_parts = glob(r"data/RXI_FLIGHT_DATA_ANALYSIS_PROGRAM/*.pdf")
 
     for part_path in manual_parts:
+
         pdf_reader = PdfReader(part_path)
         part_toc_content = pdf_reader.pages[0].extract_text()
         
 
         chapter_title= ""
-        for match in re.finditer(r"(\d+) (\w| )+", part_toc_content):
+        for match in re.finditer(r"(\d+)(\s+)(\w| )+", part_toc_content):
+            print(match)
+            print(part_toc_content)
             chapter_title = match.group().strip()
             break
 
@@ -38,12 +47,12 @@ def create_parts_metadata_file():
         )
 
 
-    with open("data/RXI_DANGEROUS_GOODS/RXI_DANGEROUS_GOODS_metadata.json", "w") as f:
+    with open("data/RXI_FLIGHT_DATA_ANALYSIS_PROGRAM/RXI_FLIGHT_DATA_ANALYSIS_PROGRAM_metadata.json", "w") as f:
         f.write(json.dumps(metadata, indent=2))
 
 
 def create_manual_toc_tree():
-    def parse_toc_txt_to_tree(toc_text: str) -> list[tuple[str, str, int]]:
+    def parse_toc_txt_to_tree(toc_text: str,title:str) -> list[tuple[str, str, int]]:
         lines = toc_text.split("\n")
 
         toc_epattern = "..."
@@ -54,8 +63,13 @@ def create_manual_toc_tree():
                 if re.compile(r"(\s*)(\d+)\..").match(line.split()[0]):
 
                     page_number = int(line.split("-")[-1].strip())
-                    section_name = re.findall(r"\s[A-Za-z ]+\s+", line)[0].strip()
-
+                    start = re.findall(r"""[A-Za-z]+""", line)
+                    start = line.find(start[0])
+                    end = line.find("..")
+                    section_name = line[start:end].strip()
+                    section_name = clean(section_name)
+                    # [0].strip()
+                    
                     section_code = line[:line.find(section_name[0])].strip()
 
                     # section_name = line.split()[1]
@@ -77,12 +91,12 @@ def create_manual_toc_tree():
                 #     page_number = int(page_number[0])
                 # else:
                 #     page_number = -1
-
-                    toc_info.append((section_code + " "+ section_name, page_number))
+                    if(title[0] == section_code[0]):
+                        toc_info.append((section_code + " "+ section_name, page_number))
 
         return toc_info
 
-    f = open("data/RXI_DANGEROUS_GOODS/RXI_DANGEROUS_GOODS_metadata.json", "r")
+    f = open("data/RXI_FLIGHT_DATA_ANALYSIS_PROGRAM/RXI_FLIGHT_DATA_ANALYSIS_PROGRAM_metadata.json", "r")
     json_str = f.read()
     f.close()
 
@@ -90,13 +104,13 @@ def create_manual_toc_tree():
     json_obj = json.loads(json_str)
     for mde in json_obj:
         toc_txt = ""
-        pdf_reader = PdfReader("data/RXI Dangerous Goods Manual - 14FEB2024.pdf")
+        pdf_reader = PdfReader("data/RXI Flight Data Analysis Program_30.01.24.pdf")
         for pidx in mde["toc_pages"]:
             toc_txt += pdf_reader.pages[pidx].extract_text() +"\n"
-        toc_info = parse_toc_txt_to_tree(toc_txt)
+        toc_info = parse_toc_txt_to_tree(toc_txt,mde['chapter_title'])
         mde["toc_info"] = toc_info
 
-    f = open("data/RXI_DANGEROUS_GOODS/RXI_DANGEROUS_GOODS_second_metadata.json", "w")
+    f = open("data/RXI_FLIGHT_DATA_ANALYSIS_PROGRAM/RXI_FLIGHT_DATA_ANALYSIS_PROGRAM_second_metadata.json", "w")
     f.write(json.dumps(json_obj, indent=2))
     f.close()
 
@@ -116,7 +130,7 @@ def rearrange_manual_content_tree() -> list[object]:
         )
         return max_page
 
-    path_to_metadata = "data/RXI_DANGEROUS_GOODS/RXI_DANGEROUS_GOODS_second_metadata.json"
+    path_to_metadata = "data/RXI_FLIGHT_DATA_ANALYSIS_PROGRAM/RXI_FLIGHT_DATA_ANALYSIS_PROGRAM_second_metadata.json"
     all_chapters = []
     all_sub1_sections = []
     all_sub2_section = []
@@ -375,13 +389,12 @@ def rearrange_manual_content_tree() -> list[object]:
     temp_chapter["toc_info"] = all_sub1_sections[:]
     all_chapters.append(dict(temp_chapter))
 
-    with open("data/RXI_DANGEROUS_GOODS/RXI_DANGEROUS_GOODS_second_metadata_tree.json", "w") as json_file:
+    with open("data/RXI_FLIGHT_DATA_ANALYSIS_PROGRAM/RXI_FLIGHT_DATA_ANALYSIS_PROGRAM_second_metadata_tree.json", "w") as json_file:
         json.dump(all_chapters, json_file, indent=4)
 
 
 
 # create_parts_metadata_file()
 # create_manual_toc_tree()
-# create_manual_content_tree()
 rearrange_manual_content_tree()
-print("Complete Parse of RXI_DANGEROUS_GOODS")
+print("Complete Parse of RXI_FLIGHT_DATA_ANALYSIS_PROGRAM")

@@ -14,7 +14,7 @@
                     3
                 ],
                 "label": "0.1 FRONT MATTER",
-                "key": "ER535644670356"
+                "key": "RXI_ER535644670356"
             },
             {
                 "children": [],
@@ -22,7 +22,7 @@
                     9
                 ],
                 "label": "0.2 REVISION HIGHLIGHTS",
-                "key": "ER155867125276"
+                "key": "RXI_ER155867125276"
             },
             {
                 "children": [],
@@ -30,7 +30,7 @@
                     11
                 ],
                 "label": "0.3 RECORD OF REVISIONS",
-                "key": "ER645882964009"
+                "key": "RXI_ER645882964009"
             },
             {
                 "children": [],
@@ -38,7 +38,7 @@
                     13
                 ],
                 "label": "0.4 RECORD OF TEMPORARY REVISIONS",
-                "key": "ER504000103371"
+                "key": "RXI_ER504000103371"
             },
             {
                 "children": [],
@@ -46,7 +46,7 @@
                     15
                 ],
                 "label": "0.5 LIST OF EFFECTIVE PAGES",
-                "key": "ER351234627546"
+                "key": "RXI_ER351234627546"
             },
             {
                 "children": [],
@@ -54,7 +54,7 @@
                     19
                 ],
                 "label": "0.6 LIST OF TABLES",
-                "key": "ER263602580029"
+                "key": "RXI_ER263602580029"
             },
             {
                 "children": [],
@@ -62,7 +62,7 @@
                     21
                 ],
                 "label": "0.7 LIST OF FIGURES",
-                "key": "ER262645450810"
+                "key": "RXI_ER262645450810"
             },
             {
                 "children": [],
@@ -70,7 +70,7 @@
                     23
                 ],
                 "label": "0.8 LIST OF COMPLIANCE ENTRIES",
-                "key": "ER217436480576"
+                "key": "RXI_ER217436480576"
             },
             {
                 "children": [],
@@ -78,7 +78,7 @@
                     25
                 ],
                 "label": "0.9 MANAGEMENT APPROVAL",
-                "key": "ER989940314115"
+                "key": "RXI_ER989940314115"
             },
             {
                 "children": [],
@@ -86,7 +86,7 @@
                     27
                 ],
                 "label": "0.10 GACA ACCEPTANCE",
-                "key": "ER699133993777"
+                "key": "RXI_ER699133993777"
             },
             {
                 "children": [
@@ -96,7 +96,7 @@
                             29
                         ],
                         "label": "0.11.1 POLICY",
-                        "key": "ER776015931237"
+                        "key": "RXI_ER776015931237"
                     },
                     {
                         "children": [],
@@ -104,7 +104,7 @@
                             29
                         ],
                         "label": "0.11.2 APPLICABILITY",
-                        "key": "ER273899674322"
+                        "key": "RXI_ER273899674322"
                     },
                     {
                         "children": [],
@@ -112,7 +112,7 @@
                             29
                         ],
                         "label": "0.11.3 COMMON LANGUAGE",
-                        "key": "ER219817367200"
+                        "key": "RXI_ER219817367200"
                     },
                     {
                         "children": [],
@@ -120,7 +120,7 @@
                             29
                         ],
                         "label": "0.11.4 USAGE OF TERMS",
-                        "key": "ER191555125954"
+                        "key": "RXI_ER191555125954"
                     },
                     {
                         "children": [],
@@ -128,7 +128,7 @@
                             30
                         ],
                         "label": "0.11.5 HUMAN FACTOR PRINCIPLES",
-                        "key": "ER474826052593"
+                        "key": "RXI_ER474826052593"
                     },
                     {
                         "children": [],
@@ -136,7 +136,7 @@
                             30
                         ],
                         "label": "0.11.6 APPLICABLE REGULATIONS AND STANDARDS",
-                        "key": "ER727319271966"
+                        "key": "RXI_ER727319271966"
                     }
                 ],
                 "pages": [
@@ -144,7 +144,7 @@
                     30
                 ],
                 "label": "0.11 INTRODUCTION",
-                "key": "ER888426255868"
+                "key": "RXI_ER888426255868"
             },
             {
                 "children": [
@@ -154,7 +154,7 @@
                             31
                         ],
                         "label": "0.12.1 ABBREVIATIONS AND ACRONYMS",
-                        "key": "ER456573248617"
+                        "key": "RXI_ER456573248617"
                     },
                     {
                         "children": [],
@@ -162,15 +162,15 @@
                             33
                         ],
                         "label": "0.12.2 DEFINITIONS",
-                        "key": "ER813814519936"
+                        "key": "RXI_ER813814519936"
                     }
                 ],
                 "pages": [
                     31,
                     33
                 ],
-                "label": "0.12 ACRONYMS AND DEFINITIONS",
-                "key": "ER498090676155"
+                "label": "0.12 ABBREVIATIONS, ACRONYMS AND DEFINITIONS",
+                "key": "RXI_ER498090676155"
             },
             {
                 "children": [
@@ -180,7 +180,7 @@
                             39
                         ],
                         "label": "0.13.1 MANUAL OWNERSHIP",
-                        "key": "ER720853042568"
+                        "key": "RXI_ER720853042568"
                     },
                     {
                         "children": [],
@@ -188,7 +188,7 @@
                             39
                         ],
                         "label": "0.13.2 MANUAL HOLDER RESPONSIBILITY",
-                        "key": "ER598491156941"
+                        "key": "RXI_ER598491156941"
                     },
                     {
                         "children": [],
@@ -196,7 +196,7 @@
                             39
                         ],
                         "label": "0.13.3 DISTRIBUTION LIST AND AVAILABILITY",
-                        "key": "ER686058239333"
+                        "key": "RXI_ER686058239333"
                     },
                     {
                         "children": [],
@@ -204,7 +204,7 @@
                             40
                         ],
                         "label": "0.13.4 PUBLICATION HIERARCHY",
-                        "key": "ER176654426506"
+                        "key": "RXI_ER176654426506"
                     },
                     {
                         "children": [],
@@ -212,7 +212,7 @@
                             40
                         ],
                         "label": "0.13.5 MANUAL STRUCTURE",
-                        "key": "ER209955667567"
+                        "key": "RXI_ER209955667567"
                     },
                     {
                         "children": [],
@@ -220,7 +220,7 @@
                             40
                         ],
                         "label": "0.13.6 SOURCE OF AMENDMENTS",
-                        "key": "ER890213125752"
+                        "key": "RXI_ER890213125752"
                     },
                     {
                         "children": [],
@@ -228,7 +228,7 @@
                             40
                         ],
                         "label": "0.13.7 REFERENCED AND LINKED DOCUMENTS",
-                        "key": "ER973647252499"
+                        "key": "RXI_ER973647252499"
                     },
                     {
                         "children": [],
@@ -236,7 +236,7 @@
                             41
                         ],
                         "label": "0.13.8 FORMAT AND DOCUMENTATION CONTROL REQUIREMENTS",
-                        "key": "ER801175574600"
+                        "key": "RXI_ER801175574600"
                     },
                     {
                         "children": [],
@@ -244,7 +244,7 @@
                             41
                         ],
                         "label": "0.13.9 ERROR REPORTING AND CORRECTIONS AND SUGGESTIONS FOR IMPROVEMENT",
-                        "key": "ER781130917644"
+                        "key": "RXI_ER781130917644"
                     }
                 ],
                 "pages": [
@@ -252,225 +252,7 @@
                     41
                 ],
                 "label": "0.13 SYSTEM OF AMENDMENT AND REVISION",
-                "key": "ER338370763139"
-            },
-            {
-                "children": [
-                    {
-                        "children": [],
-                        "pages": [
-                            1
-                        ],
-                        "label": "1.1.1 RELATED POLICIES",
-                        "key": "ER911022617393"
-                    }
-                ],
-                "pages": [
-                    1,
-                    1
-                ],
-                "label": "1.1 EMERGENCY RESPONSE POLICY",
-                "key": "ER479909656817"
-            },
-            {
-                "children": [],
-                "pages": [
-                    4
-                ],
-                "label": "1.2 STRATEGIC OBJECTIVES OF THE CORPORATE EMERGENCY RESPONSE PLAN",
-                "key": "ER885601966481"
-            },
-            {
-                "children": [
-                    {
-                        "children": [],
-                        "pages": [
-                            5
-                        ],
-                        "label": "1.3.1 EMERGENCY CATEGORIES",
-                        "key": "ER354066719766"
-                    },
-                    {
-                        "children": [],
-                        "pages": [
-                            5
-                        ],
-                        "label": "1.3.2 DESCRIPTION",
-                        "key": "ER992604254398"
-                    }
-                ],
-                "pages": [
-                    5,
-                    5
-                ],
-                "label": "1.3 TYPES OF EMERGENCIES",
-                "key": "ER183569233327"
-            },
-            {
-                "children": [
-                    {
-                        "children": [],
-                        "pages": [
-                            11
-                        ],
-                        "label": "1.4.1 COMPOSITION",
-                        "key": "ER711561194820"
-                    },
-                    {
-                        "children": [],
-                        "pages": [
-                            11
-                        ],
-                        "label": "1.4.2 DEPUTIES",
-                        "key": "ER211819373579"
-                    },
-                    {
-                        "children": [],
-                        "pages": [
-                            12
-                        ],
-                        "label": "1.4.3 VP CORPORATE",
-                        "key": "ER651988513874"
-                    },
-                    {
-                        "children": [],
-                        "pages": [
-                            12
-                        ],
-                        "label": "1.4.4 ROLES",
-                        "key": "ER442291992792"
-                    }
-                ],
-                "pages": [
-                    11,
-                    12
-                ],
-                "label": "1.4 CRISIS MANAGEMENT",
-                "key": "ER269885487513"
-            },
-            {
-                "children": [],
-                "pages": [
-                    16
-                ],
-                "label": "1.5 AIRCRAFT RECOVERY",
-                "key": "ER431306365822"
-            },
-            {
-                "children": [],
-                "pages": [
-                    1
-                ],
-                "label": "2.1 EMERGENCY PHASES",
-                "key": "ER247289755460"
-            },
-            {
-                "children": [
-                    {
-                        "children": [],
-                        "pages": [
-                            2
-                        ],
-                        "label": "2.2.1 INITIAL ASSESSMENT TEAM",
-                        "key": "ER336769910920"
-                    },
-                    {
-                        "children": [],
-                        "pages": [
-                            4
-                        ],
-                        "label": "2.2.2 CRISIS MANAGEMENT TEAM NOTIFICATION",
-                        "key": "ER991424094521"
-                    },
-                    {
-                        "children": [],
-                        "pages": [
-                            4
-                        ],
-                        "label": "2.2.3 NOTIFICATION TO AUTHORITY",
-                        "key": "ER714997195097"
-                    },
-                    {
-                        "children": [],
-                        "pages": [
-                            6
-                        ],
-                        "label": "2.2.4 NOTIFICATION TO BLAKE",
-                        "key": "ER427167519806"
-                    }
-                ],
-                "pages": [
-                    2,
-                    6
-                ],
-                "label": "2.2 NOTIFICATION SYSTEM",
-                "key": "ER478534572081"
-            },
-            {
-                "children": [],
-                "pages": [
-                    1
-                ],
-                "label": "3.1 LOCATION AND FACILITIES OF THE CRISIS MANAGEMENT CENTER",
-                "key": "ER211806572236"
-            },
-            {
-                "children": [],
-                "pages": [
-                    3
-                ],
-                "label": "3.2 SUPPORT PROCESS",
-                "key": "ER989845472052"
-            },
-            {
-                "children": [
-                    {
-                        "children": [],
-                        "pages": [
-                            2
-                        ],
-                        "label": "4.1.1 EMERGENCY CATEGORY",
-                        "key": "ER375576518457"
-                    },
-                    {
-                        "children": [],
-                        "pages": [
-                            3
-                        ],
-                        "label": "4.1.2 EMERGENCY CATEGORY",
-                        "key": "ER314221529747"
-                    },
-                    {
-                        "children": [],
-                        "pages": [
-                            3
-                        ],
-                        "label": "4.1.3 EMERGENCY CATEGORY",
-                        "key": "ER146272846716"
-                    },
-                    {
-                        "children": [],
-                        "pages": [
-                            3
-                        ],
-                        "label": "4.1.5 EMERGENCY CATEGORY",
-                        "key": "ER397399283262"
-                    }
-                ],
-                "pages": [
-                    1,
-                    3
-                ],
-                "label": "4.1 CRISIS MANAGEMENT OVERVIEW",
-                "key": "ER460656599916"
-            },
-            {
-                "children": [],
-                "pages": [
-                    1
-                ],
-                "label": "5.1 INTRODUCTION",
-                "key": "ER186172240195"
+                "key": "RXI_ER338370763139"
             }
         ]
     },
@@ -490,7 +272,7 @@
                             1
                         ],
                         "label": "1.1.1 RELATED POLICIES",
-                        "key": "ER256098915967"
+                        "key": "RXI_ER911022617393"
                     }
                 ],
                 "pages": [
@@ -498,7 +280,7 @@
                     1
                 ],
                 "label": "1.1 EMERGENCY RESPONSE POLICY",
-                "key": "ER854526245991"
+                "key": "RXI_ER479909656817"
             },
             {
                 "children": [],
@@ -506,7 +288,7 @@
                     4
                 ],
                 "label": "1.2 STRATEGIC OBJECTIVES OF THE CORPORATE EMERGENCY RESPONSE PLAN",
-                "key": "ER278085568434"
+                "key": "RXI_ER885601966481"
             },
             {
                 "children": [
@@ -516,7 +298,7 @@
                             5
                         ],
                         "label": "1.3.1 EMERGENCY CATEGORIES",
-                        "key": "ER200628796143"
+                        "key": "RXI_ER354066719766"
                     },
                     {
                         "children": [],
@@ -524,7 +306,7 @@
                             5
                         ],
                         "label": "1.3.2 DESCRIPTION",
-                        "key": "ER883767881277"
+                        "key": "RXI_ER992604254398"
                     }
                 ],
                 "pages": [
@@ -532,7 +314,7 @@
                     5
                 ],
                 "label": "1.3 TYPES OF EMERGENCIES",
-                "key": "ER153731708047"
+                "key": "RXI_ER183569233327"
             },
             {
                 "children": [
@@ -542,7 +324,7 @@
                             11
                         ],
                         "label": "1.4.1 COMPOSITION",
-                        "key": "ER689665897912"
+                        "key": "RXI_ER711561194820"
                     },
                     {
                         "children": [],
@@ -550,15 +332,15 @@
                             11
                         ],
                         "label": "1.4.2 DEPUTIES",
-                        "key": "ER683525601028"
+                        "key": "RXI_ER211819373579"
                     },
                     {
                         "children": [],
                         "pages": [
                             12
                         ],
-                        "label": "1.4.3 VP CORPORATE",
-                        "key": "ER372295067628"
+                        "label": "1.4.3 VP CORPORATE SAFETY, SECURITY, QUALITY AND ENVIRONMENT",
+                        "key": "RXI_ER651988513874"
                     },
                     {
                         "children": [],
@@ -566,7 +348,7 @@
                             12
                         ],
                         "label": "1.4.4 ROLES",
-                        "key": "ER350982826842"
+                        "key": "RXI_ER442291992792"
                     }
                 ],
                 "pages": [
@@ -574,7 +356,7 @@
                     12
                 ],
                 "label": "1.4 CRISIS MANAGEMENT",
-                "key": "ER860757279616"
+                "key": "RXI_ER269885487513"
             },
             {
                 "children": [],
@@ -582,7 +364,7 @@
                     16
                 ],
                 "label": "1.5 AIRCRAFT RECOVERY",
-                "key": "ER857984616397"
+                "key": "RXI_ER431306365822"
             }
         ]
     },
@@ -600,7 +382,7 @@
                     1
                 ],
                 "label": "2.1 EMERGENCY PHASES",
-                "key": "ER574751820859"
+                "key": "RXI_ER247289755460"
             },
             {
                 "children": [
@@ -610,7 +392,7 @@
                             2
                         ],
                         "label": "2.2.1 INITIAL ASSESSMENT TEAM",
-                        "key": "ER654212144200"
+                        "key": "RXI_ER336769910920"
                     },
                     {
                         "children": [],
@@ -618,7 +400,7 @@
                             4
                         ],
                         "label": "2.2.2 CRISIS MANAGEMENT TEAM NOTIFICATION",
-                        "key": "ER818321479959"
+                        "key": "RXI_ER991424094521"
                     },
                     {
                         "children": [],
@@ -626,7 +408,7 @@
                             4
                         ],
                         "label": "2.2.3 NOTIFICATION TO AUTHORITY",
-                        "key": "ER884189151928"
+                        "key": "RXI_ER714997195097"
                     },
                     {
                         "children": [],
@@ -634,7 +416,7 @@
                             6
                         ],
                         "label": "2.2.4 NOTIFICATION TO BLAKE",
-                        "key": "ER505360440353"
+                        "key": "RXI_ER427167519806"
                     }
                 ],
                 "pages": [
@@ -642,7 +424,1155 @@
                     6
                 ],
                 "label": "2.2 NOTIFICATION SYSTEM",
-                "key": "ER414248592953"
+                "key": "RXI_ER478534572081"
+            }
+        ]
+    },
+    {
+        "filename": "data/RXI_EMERGENCY_RESPONSE/RXI_EMERGENCY_RESPONSE_ch3.pdf",
+        "chapter_title": "3 CRISIS MANAGEMENT CENTER",
+        "start_page": 0,
+        "toc_pages": [
+            3
+        ],
+        "toc_info": [
+            {
+                "children": [],
+                "pages": [
+                    1
+                ],
+                "label": "3.1 LOCATION AND FACILITIES OF THE CRISIS MANAGEMENT CENTER",
+                "key": "RXI_ER211806572236"
+            },
+            {
+                "children": [],
+                "pages": [
+                    3
+                ],
+                "label": "3.2 SUPPORT PROCESS",
+                "key": "RXI_ER989845472052"
+            }
+        ]
+    },
+    {
+        "filename": "data/RXI_EMERGENCY_RESPONSE/RXI_EMERGENCY_RESPONSE_ch4.pdf",
+        "chapter_title": "4 CRISIS MANAGEMENT",
+        "start_page": 0,
+        "toc_pages": [
+            3
+        ],
+        "toc_info": [
+            {
+                "children": [
+                    {
+                        "children": [],
+                        "pages": [
+                            2
+                        ],
+                        "label": "4.1.1 EMERGENCY CATEGORY 'A' - CATASTROPHIC AIRCRAFT ACCIDENT",
+                        "key": "RXI_ER375576518457"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            3
+                        ],
+                        "label": "4.1.2 EMERGENCY CATEGORY 'B' - MISSING AIRCRAFT",
+                        "key": "RXI_ER314221529747"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            3
+                        ],
+                        "label": "4.1.3 EMERGENCY CATEGORY 'C' - SERIOUS INCIDENTS - STANDBY",
+                        "key": "RXI_ER146272846716"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            3
+                        ],
+                        "label": "4.1.4 EMERGENCY CATEGORY 'D' - SERIOUS INCIDENT NOT COVERED UNDER CATEGORY C",
+                        "key": "RXI_ER397399283262"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            3
+                        ],
+                        "label": "4.1.5 EMERGENCY CATEGORY 'E' - NATURAL DISASTER AND PANDEMIC",
+                        "key": "RXI_ER186172240195"
+                    }
+                ],
+                "pages": [
+                    1,
+                    3
+                ],
+                "label": "4.1 CRISIS MANAGEMENT OVERVIEW",
+                "key": "RXI_ER460656599916"
+            }
+        ]
+    },
+    {
+        "filename": "data/RXI_EMERGENCY_RESPONSE/RXI_EMERGENCY_RESPONSE_ch5.pdf",
+        "chapter_title": "5 GO TEAM",
+        "start_page": 0,
+        "toc_pages": [
+            3,
+            4
+        ],
+        "toc_info": [
+            {
+                "children": [
+                    {
+                        "children": [],
+                        "pages": [
+                            1
+                        ],
+                        "label": "5.1.1 THE 'GOLDEN' RULES",
+                        "key": "RXI_ER256098915967"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            1
+                        ],
+                        "label": "5.1.2 GO TEAM",
+                        "key": "RXI_ER278085568434"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            3
+                        ],
+                        "label": "5.1.3 GO AIRCRAFT",
+                        "key": "RXI_ER153731708047"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            3
+                        ],
+                        "label": "5.1.4 GO TEAM LEADER",
+                        "key": "RXI_ER200628796143"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            3
+                        ],
+                        "label": "5.1.5 GO KIT",
+                        "key": "RXI_ER883767881277"
+                    }
+                ],
+                "pages": [
+                    1,
+                    3
+                ],
+                "label": "5.1 INTRODUCTION",
+                "key": "RXI_ER854526245991"
+            },
+            {
+                "children": [
+                    {
+                        "children": [],
+                        "pages": [
+                            5
+                        ],
+                        "label": "5.2.1 GO TEAM LEADER",
+                        "key": "RXI_ER689665897912"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            5
+                        ],
+                        "label": "5.2.2 INVESTIGATION COORDINATOR",
+                        "key": "RXI_ER683525601028"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            5
+                        ],
+                        "label": "5.2.3 TECHNICAL COORDINATOR",
+                        "key": "RXI_ER372295067628"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            6
+                        ],
+                        "label": "5.2.4 MAINTENANCE MECHANIC-FIELD",
+                        "key": "RXI_ER350982826842"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            6
+                        ],
+                        "label": "5.2.5 OPERATIONS COORDINATOR",
+                        "key": "RXI_ER857984616397"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            6
+                        ],
+                        "label": "5.2.6 SECURITY COORDINATOR",
+                        "key": "RXI_ER574751820859"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            6
+                        ],
+                        "label": "5.2.7 MEDIA COORDINATOR",
+                        "key": "RXI_ER414248592953"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            6
+                        ],
+                        "label": "5.2.8 BAGGAGE COORDINATOR",
+                        "key": "RXI_ER654212144200"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            6
+                        ],
+                        "label": "5.2.9 IT COORDINATOR",
+                        "key": "RXI_ER818321479959"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            7
+                        ],
+                        "label": "5.2.10 MEDICAL COORDINATOR",
+                        "key": "RXI_ER884189151928"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            7
+                        ],
+                        "label": "5.2.11 SUPPORT COORDINATOR",
+                        "key": "RXI_ER505360440353"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            7
+                        ],
+                        "label": "5.2.12 CARE TEAM",
+                        "key": "RXI_ER467947185975"
+                    }
+                ],
+                "pages": [
+                    5,
+                    7
+                ],
+                "label": "5.2 MAJOR RESPONSIBILITIES",
+                "key": "RXI_ER860757279616"
+            },
+            {
+                "children": [
+                    {
+                        "children": [],
+                        "pages": [
+                            9
+                        ],
+                        "label": "5.3.1 THE DEPLOYMENT OF GO TEAMS",
+                        "key": "RXI_ER757445467451"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            10
+                        ],
+                        "label": "5.3.2 ACTIONS ON ARRIVAL",
+                        "key": "RXI_ER478889793486"
+                    }
+                ],
+                "pages": [
+                    9,
+                    10
+                ],
+                "label": "5.3 DEPLOYMENT OF GO TEAMS",
+                "key": "RXI_ER238297046093"
+            },
+            {
+                "children": [],
+                "pages": [
+                    12
+                ],
+                "label": "5.4 PARTICIPANTS IN THE INVESTIGATION",
+                "key": "RXI_ER320899121865"
+            }
+        ]
+    },
+    {
+        "filename": "data/RXI_EMERGENCY_RESPONSE/RXI_EMERGENCY_RESPONSE_ch6.pdf",
+        "chapter_title": "6 CRISIS COMMUNICATIONS",
+        "start_page": 0,
+        "toc_pages": [
+            4,
+            5
+        ],
+        "toc_info": [
+            {
+                "children": [],
+                "pages": [
+                    1
+                ],
+                "label": "6.1 INTRODUCTION",
+                "key": "RXI_ER129334810356"
+            },
+            {
+                "children": [],
+                "pages": [
+                    2
+                ],
+                "label": "6.2 CRISIS COMMUNICATION STRATEGY",
+                "key": "RXI_ER410605576825"
+            },
+            {
+                "children": [
+                    {
+                        "children": [],
+                        "pages": [
+                            4
+                        ],
+                        "label": "6.3.1 STEP 1 - SELECTION OF PERSONNEL",
+                        "key": "RXI_ER520079875035"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            4
+                        ],
+                        "label": "6.3.2 STEP 2 - DEVELOP SUITABLE PRESS RELEASE TEMPLATES",
+                        "key": "RXI_ER299207412735"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            4
+                        ],
+                        "label": "6.3.3 STEP 3 - DEVELOP THE ONLINE COMMUNICATION STRATEGY",
+                        "key": "RXI_ER580690778276"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            4
+                        ],
+                        "label": "6.3.4 STEP 4 - NOMINATION OF COMPANY SPOKESPERSONS",
+                        "key": "RXI_ER179039940618"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            4
+                        ],
+                        "label": "6.3.5 STEP 5 - TRAINING AND VALIDATION",
+                        "key": "RXI_ER970536676308"
+                    }
+                ],
+                "pages": [
+                    4,
+                    4
+                ],
+                "label": "6.3 PREPARING THE CRISIS COMMUNICATION PLAN (CCP)",
+                "key": "RXI_ER884708312345"
+            },
+            {
+                "children": [
+                    {
+                        "children": [],
+                        "pages": [
+                            5
+                        ],
+                        "label": "6.4.1 GENERAL (PRELIMINARY STAGE)",
+                        "key": "RXI_ER809360548912"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            5
+                        ],
+                        "label": "6.4.2 SPECIFIC (DURING ACTUAL CRISIS OR EXERCISE)",
+                        "key": "RXI_ER774830437492"
+                    }
+                ],
+                "pages": [
+                    5,
+                    5
+                ],
+                "label": "6.4 MEDIA COMMUNICATION COORDINATOR ROLES AND RESPONSIBILITIES",
+                "key": "RXI_ER354625752269"
+            },
+            {
+                "children": [
+                    {
+                        "children": [],
+                        "pages": [
+                            6
+                        ],
+                        "label": "6.5.1 CONTENTS",
+                        "key": "RXI_ER244369759151"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            6
+                        ],
+                        "label": "6.5.2 UPDATING AND DEACTIVATION",
+                        "key": "RXI_ER319996845175"
+                    }
+                ],
+                "pages": [
+                    6,
+                    6
+                ],
+                "label": "6.5 WEB SITE MANAGEMENT - DARK SITE",
+                "key": "RXI_ER191343630515"
+            }
+        ]
+    },
+    {
+        "filename": "data/RXI_EMERGENCY_RESPONSE/RXI_EMERGENCY_RESPONSE_ch7.pdf",
+        "chapter_title": "7 FAMILY ASSISTANCE PROGRAM",
+        "start_page": 0,
+        "toc_pages": [
+            5
+        ],
+        "toc_info": [
+            {
+                "children": [
+                    {
+                        "children": [],
+                        "pages": [
+                            1
+                        ],
+                        "label": "7.1.1 PURPOSE",
+                        "key": "RXI_ER211575590556"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            1
+                        ],
+                        "label": "7.1.2 SCOPE",
+                        "key": "RXI_ER239876449640"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            1
+                        ],
+                        "label": "7.1.3 OBJECTIVE",
+                        "key": "RXI_ER776987344602"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            2
+                        ],
+                        "label": "7.1.4 DEFINITION OF FAMILY / NECT OF KIN",
+                        "key": "RXI_ER321657436734"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            4
+                        ],
+                        "label": "7.1.5 FAMILY ASSISTANCE PROGRAM OVERVIEW",
+                        "key": "RXI_ER897884574705"
+                    }
+                ],
+                "pages": [
+                    1,
+                    4
+                ],
+                "label": "7.1 INTRODUCTION",
+                "key": "RXI_ER242433829094"
+            },
+            {
+                "children": [],
+                "pages": [
+                    5
+                ],
+                "label": "7.2 KEY REQUIREMENTS",
+                "key": "RXI_ER635629246913"
+            },
+            {
+                "children": [],
+                "pages": [
+                    6
+                ],
+                "label": "7.3 INTEGRATION WITH EXTERNAL AGENCIES",
+                "key": "RXI_ER910879447393"
+            },
+            {
+                "children": [
+                    {
+                        "children": [],
+                        "pages": [
+                            7
+                        ],
+                        "label": "7.4.1 GOAL",
+                        "key": "RXI_ER858164705215"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            7
+                        ],
+                        "label": "7.4.2 GENERAL PRINCIPALS FOR PLANNING",
+                        "key": "RXI_ER708209415674"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            8
+                        ],
+                        "label": "7.4.3 LOCATION",
+                        "key": "RXI_ER791543962844"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            8
+                        ],
+                        "label": "7.4.4 FACILITIES",
+                        "key": "RXI_ER185241902569"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            10
+                        ],
+                        "label": "7.4.5 LAYOUT OF FAMILY ASSISTANCE CENTER (FAC)",
+                        "key": "RXI_ER189368976960"
+                    }
+                ],
+                "pages": [
+                    7,
+                    10
+                ],
+                "label": "7.4 FAMILY ASSISTANCE CENTER (FAC)",
+                "key": "RXI_ER178974800994"
+            },
+            {
+                "children": [
+                    {
+                        "children": [],
+                        "pages": [
+                            11
+                        ],
+                        "label": "7.5.1 NOTIFICATION AND ACTIVATION OF CT / FAT",
+                        "key": "RXI_ER589356982111"
+                    }
+                ],
+                "pages": [
+                    11,
+                    11
+                ],
+                "label": "7.5 CARE TEAM (CT) / FAMILY ASSISTANCE TEAM (FAT)",
+                "key": "RXI_ER444602117727"
+            },
+            {
+                "children": [
+                    {
+                        "children": [],
+                        "pages": [
+                            12
+                        ],
+                        "label": "7.6.1 RECOVERY AND IDENTIFICATION OF HUMAN REMAINS AND PERSONAL EFFECTS",
+                        "key": "RXI_ER624375321653"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            12
+                        ],
+                        "label": "7.6.2 PASSENGER PERSONAL PROPERTY, CARGO, AND MAIL",
+                        "key": "RXI_ER764115270353"
+                    }
+                ],
+                "pages": [
+                    12,
+                    12
+                ],
+                "label": "7.6 HANDLING OF PASSENGERS AND NEXT OF KIN (NOK)",
+                "key": "RXI_ER176310080044"
+            },
+            {
+                "children": [
+                    {
+                        "children": [],
+                        "pages": [
+                            13
+                        ],
+                        "label": "7.7.1 DISASTER RECOVERY SERVICES",
+                        "key": "RXI_ER544852278344"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            14
+                        ],
+                        "label": "7.7.2 DISASTER HUMAN SERVICES",
+                        "key": "RXI_ER395435179253"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            17
+                        ],
+                        "label": "7.7.3 BLAKE INTERNATIONAL CALL CENTER",
+                        "key": "RXI_ER629649377426"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            18
+                        ],
+                        "label": "7.7.4 CRISIS COMMUNICATIONS",
+                        "key": "RXI_ER737826219453"
+                    }
+                ],
+                "pages": [
+                    13,
+                    18
+                ],
+                "label": "7.7 BLAKE EMERGENCY SERVICES",
+                "key": "RXI_ER880343710519"
+            }
+        ]
+    },
+    {
+        "filename": "data/RXI_EMERGENCY_RESPONSE/RXI_EMERGENCY_RESPONSE_ch8.pdf",
+        "chapter_title": "8 TRAINING",
+        "start_page": 0,
+        "toc_pages": [
+            5,
+            6
+        ],
+        "toc_info": [
+            {
+                "children": [
+                    {
+                        "children": [],
+                        "pages": [
+                            1
+                        ],
+                        "label": "8.1.1 OBJECTIVE",
+                        "key": "RXI_ER337338379737"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            1
+                        ],
+                        "label": "8.1.2 FAMILIARIZATION",
+                        "key": "RXI_ER957075997055"
+                    }
+                ],
+                "pages": [
+                    1,
+                    1
+                ],
+                "label": "8.1 INTRODUCTION",
+                "key": "RXI_ER876342962937"
+            },
+            {
+                "children": [
+                    {
+                        "children": [],
+                        "pages": [
+                            2
+                        ],
+                        "label": "8.2.1 INITIAL TRAINING",
+                        "key": "RXI_ER285814067495"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            2
+                        ],
+                        "label": "8.2.2 SPECIALIZED EMERGENCY TRAINING",
+                        "key": "RXI_ER290835841240"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            3
+                        ],
+                        "label": "8.2.3 REFRESHER / RE-TRAINING PROGRAM",
+                        "key": "RXI_ER692401917240"
+                    }
+                ],
+                "pages": [
+                    2,
+                    3
+                ],
+                "label": "8.2 TYPES OF TRAINING",
+                "key": "RXI_ER974648864498"
+            },
+            {
+                "children": [
+                    {
+                        "children": [],
+                        "pages": [
+                            4
+                        ],
+                        "label": "8.3.1 RECOMMENDED TRAINING CONTENT FOR CRISIS MANAGEMENT TEAM",
+                        "key": "RXI_ER843155275724"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            4
+                        ],
+                        "label": "8.3.2 RECOMMENDED TRAINING CONTENT FOR EMERGENCY COMMUNICATION TEAM",
+                        "key": "RXI_ER124746856992"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            5
+                        ],
+                        "label": "8.3.3 RECOMMENDED TRAINING CONTENT FOR OPERATIONS CONTROL CENTER STAFF",
+                        "key": "RXI_ER860461036348"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            5
+                        ],
+                        "label": "8.3.4 RECOMMENDED TRAINING CONTENT FOR STATION STAFF",
+                        "key": "RXI_ER825413332615"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            6
+                        ],
+                        "label": "8.3.5 RECOMMENDED TRAINING CONTENT FOR GO TEAM",
+                        "key": "RXI_ER537846828206"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            6
+                        ],
+                        "label": "8.3.6 RECOMMENDED TRAINING CONTENT FOR FAMILY ASSISTANCE TRAINING",
+                        "key": "RXI_ER836263344175"
+                    }
+                ],
+                "pages": [
+                    4,
+                    6
+                ],
+                "label": "8.3 TRAINING CURRICULUM",
+                "key": "RXI_ER241036823926"
+            },
+            {
+                "children": [
+                    {
+                        "children": [],
+                        "pages": [
+                            8
+                        ],
+                        "label": "8.4.1 INTRODUCTION",
+                        "key": "RXI_ER869433114814"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            8
+                        ],
+                        "label": "8.4.2 PLANNING",
+                        "key": "RXI_ER613675698321"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            9
+                        ],
+                        "label": "8.4.3 NOTIFICATION",
+                        "key": "RXI_ER200195494754"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            10
+                        ],
+                        "label": "8.4.4 TYPE OF SIMULATION EXERCISES",
+                        "key": "RXI_ER924302680661"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            12
+                        ],
+                        "label": "8.4.5 POST ACTIVATION",
+                        "key": "RXI_ER708307830199"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            13
+                        ],
+                        "label": "8.4.6 SIMULATION EXERCISE REPORT",
+                        "key": "RXI_ER258346383194"
+                    }
+                ],
+                "pages": [
+                    8,
+                    13
+                ],
+                "label": "8.4 EXERCISE DEVELOPMENT",
+                "key": "RXI_ER279692583242"
+            },
+            {
+                "children": [],
+                "pages": [
+                    15
+                ],
+                "label": "8.5 TRAINING DOCUMENTATION",
+                "key": "RXI_ER949661086056"
+            }
+        ]
+    },
+    {
+        "filename": "data/RXI_EMERGENCY_RESPONSE/RXI_EMERGENCY_RESPONSE_ch9.pdf",
+        "chapter_title": "9 APPENDIX",
+        "start_page": 0,
+        "toc_pages": [
+            6,
+            7
+        ],
+        "toc_info": [
+            {
+                "children": [],
+                "pages": [
+                    1
+                ],
+                "label": "9.1 APPENDIX 1 - INITIAL ASSESSMENT TEAM CONTACT DIRECTORY",
+                "key": "RXI_ER643485747870"
+            },
+            {
+                "children": [],
+                "pages": [
+                    2
+                ],
+                "label": "9.2 APPENDIX 2 - CRISIS MANAGEMENT CENTER PREPARATION CHECKLIST",
+                "key": "RXI_ER782638806562"
+            },
+            {
+                "children": [],
+                "pages": [
+                    3
+                ],
+                "label": "9.3 APPENDIX 3 - BLAKE EMERGENCY NOTIFICATION",
+                "key": "RXI_ER851081912244"
+            },
+            {
+                "children": [],
+                "pages": [
+                    4
+                ],
+                "label": "9.4 APPENDIX 4 - BLAKE ACTIVATION INSTRUCTION",
+                "key": "RXI_ER761193930187"
+            },
+            {
+                "children": [
+                    {
+                        "children": [],
+                        "pages": [
+                            5
+                        ],
+                        "label": "9.5.1 MASTER CHECKLIST",
+                        "key": "RXI_ER453487089206"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            5
+                        ],
+                        "label": "9.5.2 AE - CHECKLIST",
+                        "key": "RXI_ER933116385982"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            5
+                        ],
+                        "label": "9.5.3 VPCSSQE - CHECKLIST",
+                        "key": "RXI_ER199805762892"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            5
+                        ],
+                        "label": "9.5.4 VPFO - CHECKLIST",
+                        "key": "RXI_ER763952686582"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            5
+                        ],
+                        "label": "9.5.5 VP TECHNICAL OPERATIONS - CHECKLIST",
+                        "key": "RXI_ER876441252990"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            5
+                        ],
+                        "label": "9.5.6 VP TREASURY - CHECKLIST",
+                        "key": "RXI_ER284346047292"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            5
+                        ],
+                        "label": "9.5.7 VP GROUND OPERATIONS - CHECKLIST",
+                        "key": "RXI_ER356952530712"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            5
+                        ],
+                        "label": "9.5.8 VP HR - CHECKLIST",
+                        "key": "RXI_ER603474992438"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            5
+                        ],
+                        "label": "9.5.9 DIRECTOR CORPORATE SAFETY - CHECKLIST",
+                        "key": "RXI_ER890126472760"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            5
+                        ],
+                        "label": "9.5.10 DIRECTOR CORPORATE SECURITY - CHECKLIST",
+                        "key": "RXI_ER853605400855"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            5
+                        ],
+                        "label": "9.5.11 MANAGER CRISIS AND RESILIENCE MANAGEMENT - CHECKLIST",
+                        "key": "RXI_ER147250711412"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            5
+                        ],
+                        "label": "9.5.12 GENERAL COUNSEL - CHECKLIST",
+                        "key": "RXI_ER736895704307"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            5
+                        ],
+                        "label": "9.5.13 DIRECTOR OCC - CHECKLIST",
+                        "key": "RXI_ER959015937793"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            5
+                        ],
+                        "label": "9.5.14 DIRECTOR CABIN CREW - CHECKLIST",
+                        "key": "RXI_ER891344301352"
+                    }
+                ],
+                "pages": [
+                    5,
+                    5
+                ],
+                "label": "9.5 EMERGENCY CATEGORY 'A' - CATASTROPHIC AIRCRAFT ACCIDENT - CHECKLIST",
+                "key": "RXI_ER255512536619"
+            },
+            {
+                "children": [
+                    {
+                        "children": [],
+                        "pages": [
+                            6
+                        ],
+                        "label": "9.6.1 MASTER CHECKLIST",
+                        "key": "RXI_ER181743360938"
+                    }
+                ],
+                "pages": [
+                    6,
+                    6
+                ],
+                "label": "9.6 EMERGENCY CATEGORY 'B' - MISSING AIRCRAFT - CHECKLIST",
+                "key": "RXI_ER291700654774"
+            },
+            {
+                "children": [
+                    {
+                        "children": [],
+                        "pages": [
+                            7
+                        ],
+                        "label": "9.7.1 MASTER CHECKLIST",
+                        "key": "RXI_ER601414641531"
+                    }
+                ],
+                "pages": [
+                    7,
+                    7
+                ],
+                "label": "9.7 EMERGENCY CATEGORY 'C' - SERIOUS INCIDENTS - STANDBY",
+                "key": "RXI_ER881023628231"
+            },
+            {
+                "children": [
+                    {
+                        "children": [],
+                        "pages": [
+                            8
+                        ],
+                        "label": "9.8.1 MASTER CHECKLIST",
+                        "key": "RXI_ER114355893510"
+                    }
+                ],
+                "pages": [
+                    8,
+                    8
+                ],
+                "label": "9.8 EMERGENCY CATEGORY 'D' - SERIOUS INCIDENT NOT COVERED IN CATEGORY C",
+                "key": "RXI_ER774947290482"
+            },
+            {
+                "children": [
+                    {
+                        "children": [],
+                        "pages": [
+                            9
+                        ],
+                        "label": "9.9.1 MASTER CHECKLIST",
+                        "key": "RXI_ER469717613078"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            9
+                        ],
+                        "label": "9.9.2 AE - CHECKLIST",
+                        "key": "RXI_ER164656005548"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            9
+                        ],
+                        "label": "9.9.3 VPCSSQE - CHECKLIST",
+                        "key": "RXI_ER569866940068"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            9
+                        ],
+                        "label": "9.9.4 VP TREASURY - CHECKLIST",
+                        "key": "RXI_ER713213991971"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            9
+                        ],
+                        "label": "9.9.5 VP GROUND OPERATION - CHECKLIST",
+                        "key": "RXI_ER255961264116"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            9
+                        ],
+                        "label": "9.9.6 VP HR - CHECKLIST",
+                        "key": "RXI_ER128234379005"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            9
+                        ],
+                        "label": "9.9.7 DIRECTOR CABIN CREW - CHECKLIST",
+                        "key": "RXI_ER569291844242"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            9
+                        ],
+                        "label": "9.9.8 DIRECTOR CORPORATE SAFETY - CHECKLIST",
+                        "key": "RXI_ER112469081586"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            9
+                        ],
+                        "label": "9.9.9 DIRECTOR CORPORATE SECURITY - CHECKLIST",
+                        "key": "RXI_ER124913094459"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            9
+                        ],
+                        "label": "9.9.10 MANAGER CRISIS AND RESILIENCE MANAGEMENT - CHECKLIST",
+                        "key": "RXI_ER943120682961"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            9
+                        ],
+                        "label": "9.9.11 GENERAL COUNSEL - CHECKLIST",
+                        "key": "RXI_ER853379090522"
+                    },
+                    {
+                        "children": [],
+                        "pages": [
+                            9
+                        ],
+                        "label": "9.9.12 OCC - CHECKLIST",
+                        "key": "RXI_ER783395237976"
+                    }
+                ],
+                "pages": [
+                    9,
+                    9
+                ],
+                "label": "9.9 EMERGENCY CATEGORY 'E' - NATURAL DISASTER AND PANDEMIC",
+                "key": "RXI_ER153562031655"
             }
         ]
     }

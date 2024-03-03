@@ -12,35 +12,36 @@ openai_client = AsyncOpenAI(api_key=os.environ['GPT_35T_API_KEY'])
 
 async def gpt35t_generate(iosa_checklist: str, input_text: str) -> ServiceResponse:
     system_prompt = """
-    We are two aviation professionals. A pilot and a flight operations engineer. And you are our AI assistant.
-    We are going to audit our organization to match internationally recognized standards. Currently, we will be auditing against the IATA IOSA Checklist. the IOSA checklist is one of the most difficult standards in aviation. IATA defines the IOSA audit as "The IATA Operational Safety Audit (IOSA) Program is an internationally recognized and accepted evaluation system designed to assess the operational management and control systems of an airline."
-    The IOSA Standards Manual (ISM) is published in order to provide the IOSA standards, recommended practices (ISARPs), associated guidance material and other supporting information necessary for an operator to successfully prepare for an audit.
-    The ISM is the sole source of assessment criteria to be used by auditors when conducting an audit against the ISARPs.
-    The ISM may also be used as a guide for any operator desiring to structure its operational management and control systems in conformity with the latest industry operational practices.
+    We are two aviation professionals relying on you, our AI assistant for a critical and legally binding task.
+    Your role is pivotal as you conduct audits to ensure strict compliance with ISARPs.
+    Your meticulous evaluation of legal documents against ISARPs is crucial.
+    We entrust you with the responsibility of upholding legal standards in the aviation industry.
     During an audit, an operator is assessed against the ISARPs contained in this manual. To determine conformity with any standard or recommended practice, an auditor will gather evidence to assess the degree to which specifications are documented and implemented by the operator. In making such an assessment, the following information is applicable.
     """
 
-    user_prompt = f"""    
+    user_prompt = f"""
     OBJECTIVES:
-        1- We will present the "ISARP", then the current proposed answer "INPUT_TEXT" from the airlines company manuals. Assess the documentation and whether it sufficiently addresses the requirements of the ISARP, then give a rating to the documentation from 0 to 100 such that 0 is the answer doesn't address any part of the ISARP and 100 means it fully answers all the requirements of the ISARP. Then present your recommendations to change then a model answer that I can copy and paste in the manual to fully address the ISARP.
-        2- Score the documentation on how sufficiently it addresses the requirements of the ISARP, with one of the below scoring tags.
-        3- In the preparation for the audit, we will be focusing on the documentation, however we may ask you about implementation guidance (i.e. will ask you to provide us with procedures to comprehensively implement a specific standard).
-        4- For each item and sub item in the ISARPs, estimate compliance score and provide explanation for the estimated score.
-        5- Suggest any modifications to improve overall compliance scores.
-    
+        1- Evaluate the documentation against the ISARP standards presented in the "ISARP" section. Provide a rating from 0 to 100, indicating how well the documentation addresses the ISARP requirements. 
+        2- Score the documentation's compliance with ISARP using the scoring tags provided below.
+        3- Consideration will be given to both documentation and potential implementation guidance during the audit preparation.
+        4- Assess compliance scores for each item and sub-item in the ISARPs, offering explanations for the estimated scores.
+        5- Offer suggestions for modifications to enhance overall compliance scores.
+        
     Scoring:
     Fully Compliant (3): All aspects are clearly and accurately addressed.
     Partially Compliant (2): Some aspects are addressed, but improvements or clarifications are needed.
-    Non Compliant (1):  All aspects are irrelevant and aren't related to the IOSA standards.
-    
-    ISARPs: {iosa_checklist}
-    INPUT_TEXT: {input_text}
+    Non Compliant (1): All aspects are irrelevant and not related to the IOSA standards.
+        
+    ISARPs: 
+    {iosa_checklist}
+    INPUT_TEXT: 
+    {input_text}
 
-    Your output must be in this format and contain these items:
-    ASSESSMENT: This section provides a detailed evaluation of the documentation presented in the "INPUT_TEXT" against the corresponding ISARP. It involves a systematic analysis of how well the airline's manuals address the specified standards and recommended practices. The assessment should be in technical, professional language, employing aviation terms as appropriate.
-    RECOMMENDATIONS: In this part, recommendations are made based on the assessment. These suggestions aim to improve the documentation's alignment with the "ISARPs". Recommendations should be specific, actionable, and directed towards enhancing compliance. The language used here should remain formal and professional, reflecting the technical nature of aviation.
-    OVERALL_COMPLIANCE_SCORE: This is just a number that reflects the overall evaluation of the documentation's compliance with the ISARP with no explanation. The scale ranges from 0 to 100, with 0 indicating no adherence to the ISARP requirements and 100 indicating full compliance. The score is a quantitative representation of how well the airline's manuals meet the specified standards.
-    OVERALL_COMPLIANCE_TAG: This is one of the scoring tags that reflect the overall evaluation of the documentation's compliance with the ISARP with no explanation. The value can only be Fully Compliant,  Partially Compliant, Non Compliant.
+    Your output must include the following sections:
+    ASSESSMENT: A detailed evaluation of the documentation's alignment with the ISARPs. It should employ technical language and aviation terminology where appropriate.
+    RECOMMENDATIONS: Specific, actionable suggestions aimed at improving compliance with ISARP standards. Maintain a formal and professional tone.
+    OVERALL_COMPLIANCE_SCORE: A numerical rating (0 to 100) reflecting the documentation's overall compliance with the ISARPs.
+    OVERALL_COMPLIANCE_TAG: A scoring tag indicating the overall compliance level with ISARPs.
     """
 
     llm_debug = int(os.environ['LLM_DEBUG'])
@@ -66,9 +67,10 @@ async def gpt35t_generate(iosa_checklist: str, input_text: str) -> ServiceRespon
         gpt_res = await openai_client.chat.completions.create(
             model='gpt-3.5-turbo-1106',
             n=1,
-            temperature=0.3,
-            frequency_penalty=0.2,
-            presence_penalty=0.3,
+            temperature=0.2,
+            top_p=1.0, 
+            frequency_penalty=0.0,  
+            presence_penalty=0.0,
             timeout=int(os.environ['API_TIMEOUT']),
             messages=chat_context,
         )
@@ -106,22 +108,22 @@ async def gpt35t_generate_iosa(iosa_checklist: str) -> ServiceResponse:
     """
 
     user_prompt = f"""
-    ### OBJECTIVES ###
+    OBJECTIVES:
         1- We will present the "ISARP" from the airlines company manuals. Generate text that sufficiently addresses the requirements of the ISARP, then give a rating to the documentation from 0 to 100 such that 0 is the answer doesn't address any part of the ISARP and 100 means it fully answers all the requirements of the ISARP.
         2- Score your text on how sufficiently it addresses the requirements of the ISARP, with one of the below scoring tags.
 
-    ### Scoring Tags ###
+    SCORING TAGS:
         Fully Compliant (3): All aspects are clearly and accurately addressed.
         Partially Compliant (2): Some aspects are addressed, but improvements or clarifications are needed.
         Non Compliant (1): All aspects are irrelevant and aren't related to the IOSA standards
 
-    ### ISARP ### 	
+    ISARP: 	
     {iosa_checklist}
 
     Your output must be in this format and contain these items:
     NEW_TEXT: This is your generated text which will be in a single paragraph and will be a complete implementation of the ISARP.
-    OVERALL_COMPLIANCE_SCORE: This is just a number that reflects the overall evaluation of your text's compliance with the ISARP with no explanation. The scale ranges from 0 to 100, with 0 indicating no adherence to the ISARP requirements and 100 indicating full compliance. The score is a quantitative representation of how well your text meet the specified standards.
-    OVERALL_COMPLIANCE_TAG: This is one of the scoring tags that reflect the overall evaluation of the documentation's compliance with the ISARP with no explanation. The value can only be Fully Compliant,  Partially Compliant, Non Compliant.
+    OVERALL_COMPLIANCE_SCORE: A numerical rating (0 to 100) reflecting the documentation's overall compliance with the ISARPs.
+    OVERALL_COMPLIANCE_TAG: A scoring tag indicating the overall compliance level with ISARPs.
     """
 
     llm_debug = int(os.environ['LLM_DEBUG'])
@@ -148,8 +150,9 @@ async def gpt35t_generate_iosa(iosa_checklist: str) -> ServiceResponse:
             model='gpt-3.5-turbo-1106',
             n=1,
             temperature=0.2,
-            frequency_penalty=0.2,
-            presence_penalty=0.3,
+            top_p=1.0, 
+            frequency_penalty=0.0,  
+            presence_penalty=0.0,
             timeout=int(os.environ['API_TIMEOUT']),
             messages=chat_context,
         )
@@ -190,7 +193,7 @@ async def iosa_audit_text(iosa_item: IOSAItem, input_text: str) -> ServiceRespon
     res = await gpt35t_generate(iosa_item.paragraph, input_text)
     if not res.success:
         return res
-
+    
     # post processing
     # replace unwanted keywords
     gpt35t_resp: str = res.data['gpt35t_resp']
@@ -267,12 +270,14 @@ async def iosa_enhance_text(gpt35t_context: GPT35TContext) -> ServiceResponse:
             NEW_COMPLIANCE_TAG: The enhanced OVERALL_COMPLIANCE_TAG value after applying the recommendations. The value can only be Fully Compliant,  Partially Compliant, Non Compliant.
             """,
         ))
+
         gpt_res = await openai_client.chat.completions.create(
             model='gpt-3.5-turbo-1106',
             n=1,
-            temperature=0.3,
-            frequency_penalty=0.2,
-            presence_penalty=0.3,
+            temperature=0.2,
+            top_p=1.0, 
+            frequency_penalty=0.0,  
+            presence_penalty=0.0,
             timeout=int(os.environ['API_TIMEOUT']),
             messages=[x.model_dump() for x in gpt35t_context.conversation],
         )

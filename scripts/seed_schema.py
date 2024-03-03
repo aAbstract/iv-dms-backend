@@ -11,6 +11,7 @@ import code
 import json
 import re
 from bson import ObjectId
+from subprocess import Popen, PIPE
 
 
 def load_root_path():
@@ -33,6 +34,18 @@ from models.flow_reports import *
 
 # autopep8: on
 
+# seed manual files
+cmds = [
+    "python scripts/parse_iosa_section.py",
+    "python scripts/parse_manual_nesma.py",
+    "python scripts/parse_manual_RXI_DANGEROUS_GOODS.py",
+    "python scripts/parse_manual_RXI_EMERGENCY_RESPONSE.py",
+    "python scripts/parse_manual_RXI_FLIGHT_DATA_ANALYSIS_PROGRAM.py",
+]
+
+for cmd in cmds:
+    p = Popen(cmd, stdout=PIPE, shell=True)
+    out, err = p.communicate()
 
 # main
 client = pymongo.MongoClient(
@@ -379,11 +392,11 @@ seed_fs_index_files = [
         username="cwael",
         datetime=datetime.now(),
         file_type=IndexFileType.AIRLINES_MANUAL,
-        filename="nesma_OMA.pdf",
+        filename="nesma_oma.pdf",
         doc_uuid=os.environ["COMPLETE_CHAT_DOC_UUID"],
         doc_status=ChatDOCStatus.PARSED,
         organization="AeroSync",
-        parent="nesma_OMA.pdf",
+        parent="nesma_oma.pdf",
     ),
     FSIndexFile(
         username="safwat",
@@ -409,11 +422,11 @@ seed_fs_index_files = [
         username="safwat",
         datetime=datetime.now(),
         file_type=IndexFileType.AIRLINES_MANUAL,
-        filename="nesma_OMA.pdf",
+        filename="nesma_oma.pdf",
         doc_uuid=os.environ["COMPLETE_CHAT_DOC_UUID"],
         doc_status=ChatDOCStatus.PARSED,
         organization="AeroSync",
-        parent="nesma_OMA.pdf",
+        parent="nesma_oma.pdf",
     ),
     FSIndexFile(
         username="aelhennawy",
@@ -439,11 +452,11 @@ seed_fs_index_files = [
         username="aelhennawy",
         datetime=datetime.now(),
         file_type=IndexFileType.AIRLINES_MANUAL,
-        filename="nesma_OMA.pdf",
+        filename="nesma_oma.pdf",
         doc_uuid=os.environ["COMPLETE_CHAT_DOC_UUID"],
         doc_status=ChatDOCStatus.PARSED,
         organization="AeroSync",
-        parent="nesma_OMA.pdf",
+        parent="nesma_oma.pdf",
     ),
 ]
 
@@ -493,7 +506,7 @@ seed_gpt35t_context = GPT35TContext(
             content="Dummy GPT35-TURBO-1106 Response",
         ),
     ],
-    organization="AeroSync"
+    organization="AeroSync",
 )
 
 # system logs schema
@@ -573,93 +586,119 @@ def seed_routine():
     db.get_collection("unstructured_manuals").create_index("name", unique=True)
 
     print("seeding fs index...")
-    f = open("data/nesma_OMA/nesma_oma_metadata_tree.json", "r")
-    json_str = f.read()
-    f.close()
-    json_obj = json.loads(json_str)
 
     # TODO-GALAL add the rest of the oma chapters here
     fs_index_chat_doc_ids = {
-        "nesma_ch15.pdf": "e1fb39f6-9c86-4b58-8ccb-0aebb1dbf075",
-        "nesma_ch12.pdf": "79a57df5-5047-413f-9b88-68abc13b98a5",
-        "nesma_ch1.pdf":  "3de78336-42a9-4920-a916-91a4144db589"
+        "nesma_oma_ch15.pdf": "e1fb39f6-9c86-4b58-8ccb-0aebb1dbf075",
+        "nesma_oma_ch12.pdf": "79a57df5-5047-413f-9b88-68abc13b98a5",
+        "nesma_oma_ch1.pdf": "3de78336-42a9-4920-a916-91a4144db589",
     }
+    custom_manuals = [
+        {
+            "path": r"data/nesma_oma/",
+            "file_name":"nesma_oma",
+            "parent": "nesma_oma.pdf"
+        },
+        {
+            "path": r"data/RXI_DANGEROUS_GOODS/",
+            "file_name":"RXI_DANGEROUS_GOODS",
+            "parent": "RXI Dangerous Goods Manual - 14FEB2024.pdf",
+        },
+        {
+            "path": r"data/RXI_EMERGENCY_RESPONSE/",
+            "file_name":"RXI_EMERGENCY_RESPONSE",
+            "parent": "RXI Emergency Response Manual Dated 30.01.2024.pdf",
+        },
+        {
+            "path": r"data/RXI_FLIGHT_DATA_ANALYSIS_PROGRAM/",
+            "file_name":"RXI_FLIGHT_DATA_ANALYSIS_PROGRAM",
+            "parent": "RXI Flight Data Analysis Program_30.01.24.pdf",
+        },
+    ]
+    for manual in custom_manuals:
+        f = open(manual['path']+manual['file_name']+"_second_metadata_tree.json", "r")
+        json_str = f.read()
+        f.close()
+        json_obj = json.loads(json_str)
+
+        for file_path in glob(manual['path'] + r"*.pdf"):
+            filename = re.split(r"[\\|/]", file_path)[-1]
+            traget_mde = [
+                x for x in json_obj if x["filename"] == manual['path'] + filename
+            ][0]
+            fs_index_entry = FSIndexFile(
+                username="cwael",
+                datetime=datetime.now(),
+                file_type=IndexFileType.AIRLINES_MANUAL,
+                filename=filename,
+                doc_uuid=(
+                    fs_index_chat_doc_ids[filename]
+                    if fs_index_chat_doc_ids.get(filename) != None
+                    else str(uuid4())
+                ),
+                doc_status=ChatDOCStatus.PARSED,
+                organization="AeroSync",
+                parent=manual['parent'],
+                args={"toc_info": traget_mde["toc_info"]},
+            )
+            mdb_result = db.get_collection("fs_index").insert_one(
+                fs_index_entry.model_dump()
+            )
+            file_id = str(mdb_result.inserted_id)
+            dst_path = f"public/airlines_files/manuals/{file_id}.pdf"
+            shutil.copy2(file_path, dst_path)
+            print(f"file map {file_path} -> {dst_path}")
+
     # nesma
-    for file_path in glob(r"data/nesma_OMA/*.pdf"):
-        filename = re.split(r"[\\|/]", file_path)[-1]
-        traget_mde = [
-            x for x in json_obj if x["filename"] == f"data/nesma_OMA/{filename}"
-        ][0]
-        fs_index_entry = FSIndexFile(
-            username="cwael",
-            datetime=datetime.now(),
-            file_type=IndexFileType.AIRLINES_MANUAL,
-            filename=filename,
-            doc_uuid=(
-                fs_index_chat_doc_ids[filename]
-                if fs_index_chat_doc_ids.get(filename) != None
-                else str(uuid4())
-            ),
-            doc_status=ChatDOCStatus.PARSED,
-            organization="AeroSync",
-            parent="nesma_OMA.pdf",
-            args={"toc_info": traget_mde["toc_info"]},
-        )
-        mdb_result = db.get_collection("fs_index").insert_one(
-            fs_index_entry.model_dump()
-        )
-        file_id = str(mdb_result.inserted_id)
-        dst_path = f"public/airlines_files/manuals/{file_id}.pdf"
-        shutil.copy2(file_path, dst_path)
-        print(f"file map {file_path} -> {dst_path}")
-    
-    ### RXI Dangerous Goods
-    f = open(r"data/RXI_DANGEROUS_GOODS/RXI_DANGEROUS_GOODS_second_metadata_tree.json", "r")
-    json_str = f.read()
-    f.close()
-    json_obj = json.loads(json_str)
 
-    for file_path in glob(r"data/RXI_DANGEROUS_GOODS/*.pdf"):
-        filename = re.split(r"[\\|/]", file_path)[-1]
-
-        traget_mde = [
-            x for x in json_obj if x["filename"] == f"data/RXI_DANGEROUS_GOODS/{filename}"
-        ][0]
-
-        fs_index_entry = FSIndexFile(
-            username="cwael",
-            datetime=datetime.now(),
-            file_type=IndexFileType.AIRLINES_MANUAL,
-            filename=filename,
-            doc_uuid=(
-                fs_index_chat_doc_ids[filename]
-                if fs_index_chat_doc_ids.get(filename) != None
-                else str(uuid4())
-            ),
-            doc_status=ChatDOCStatus.PARSED,
-            organization="AeroSync",
-            parent="RXI Dangerous Goods Manual - 14FEB2024.pdf",
-            args={"toc_info": traget_mde["toc_info"]},
-        )
-        mdb_result = db.get_collection("fs_index").insert_one(
-            fs_index_entry.model_dump()
-        )
-        file_id = str(mdb_result.inserted_id)
-        dst_path = f"public/airlines_files/manuals/{file_id}.pdf"
-        shutil.copy2(file_path, dst_path)
-        print(f"file map {file_path} -> {dst_path}")
-
-    # ### RXI EMEergency Response
-    # f = open(r"data/RXI_EMERGENCY_RESPONSE/RXI_EMERGENCY_RESPONSE_second_metadata_tree.json", "r")
+    # f = open("data/nesma_oma/nesma_oma_metadata_tree.json", "r")
     # json_str = f.read()
     # f.close()
     # json_obj = json.loads(json_str)
 
-    # for file_path in glob(r"data/RXI_EMERGENCY_RESPONSE/*.pdf"):
+    # for file_path in glob(r"data/nesma_oma/*.pdf"):
+    #     filename = re.split(r"[\\|/]", file_path)[-1]
+    #     traget_mde = [
+    #         x for x in json_obj if x["filename"] == f"data/nesma_oma/{filename}"
+    #     ][0]
+    #     fs_index_entry = FSIndexFile(
+    #         username="cwael",
+    #         datetime=datetime.now(),
+    #         file_type=IndexFileType.AIRLINES_MANUAL,
+    #         filename=filename,
+    #         doc_uuid=(
+    #             fs_index_chat_doc_ids[filename]
+    #             if fs_index_chat_doc_ids.get(filename) != None
+    #             else str(uuid4())
+    #         ),
+    #         doc_status=ChatDOCStatus.PARSED,
+    #         organization="AeroSync",
+    #         parent="nesma_oma.pdf",
+    #         args={"toc_info": traget_mde["toc_info"]},
+    #     )
+    #     mdb_result = db.get_collection("fs_index").insert_one(
+    #         fs_index_entry.model_dump()
+    #     )
+    #     file_id = str(mdb_result.inserted_id)
+    #     dst_path = f"public/airlines_files/manuals/{file_id}.pdf"
+    #     shutil.copy2(file_path, dst_path)
+    #     print(f"file map {file_path} -> {dst_path}")
+
+    # ### RXI Dangerous Goods
+    # f = open(
+    #     r"data/RXI_DANGEROUS_GOODS/RXI_DANGEROUS_GOODS_second_metadata_tree.json", "r"
+    # )
+    # json_str = f.read()
+    # f.close()
+    # json_obj = json.loads(json_str)
+
+    # for file_path in glob(r"data/RXI_DANGEROUS_GOODS/*.pdf"):
     #     filename = re.split(r"[\\|/]", file_path)[-1]
 
     #     traget_mde = [
-    #         x for x in json_obj if x["filename"] == f"data/RXI_EMERGENCY_RESPONSE/{filename}"
+    #         x
+    #         for x in json_obj
+    #         if x["filename"] == f"data/RXI_DANGEROUS_GOODS/{filename}"
     #     ][0]
 
     #     fs_index_entry = FSIndexFile(
@@ -685,8 +724,46 @@ def seed_routine():
     #     shutil.copy2(file_path, dst_path)
     #     print(f"file map {file_path} -> {dst_path}")
 
+    # ### RXI EMEergency Response
+    # f = open(
+    #     r"data/RXI_EMERGENCY_RESPONSE/RXI_EMERGENCY_RESPONSE_second_metadata_tree.json",
+    #     "r",
+    # )
+    # json_str = f.read()
+    # f.close()
+    # json_obj = json.loads(json_str)
 
+    # for file_path in glob(r"data/RXI_EMERGENCY_RESPONSE/*.pdf"):
+    #     filename = re.split(r"[\\|/]", file_path)[-1]
 
+    #     traget_mde = [
+    #         x
+    #         for x in json_obj
+    #         if x["filename"] == rf"data/RXI_EMERGENCY_RESPONSE/{filename}"
+    #     ][0]
+
+    #     fs_index_entry = FSIndexFile(
+    #         username="cwael",
+    #         datetime=datetime.now(),
+    #         file_type=IndexFileType.AIRLINES_MANUAL,
+    #         filename=filename,
+    #         doc_uuid=(
+    #             fs_index_chat_doc_ids[filename]
+    #             if fs_index_chat_doc_ids.get(filename) != None
+    #             else str(uuid4())
+    #         ),
+    #         doc_status=ChatDOCStatus.PARSED,
+    #         organization="AeroSync",
+    #         parent="RXI Emergency Response Manual Dated 30.01.2024.pdf",
+    #         args={"toc_info": traget_mde["toc_info"]},
+    #     )
+    #     mdb_result = db.get_collection("fs_index").insert_one(
+    #         fs_index_entry.model_dump()
+    #     )
+    #     file_id = str(mdb_result.inserted_id)
+    #     dst_path = f"public/airlines_files/manuals/{file_id}.pdf"
+    #     shutil.copy2(file_path, dst_path)
+    #     print(f"file map {file_path} -> {dst_path}")
 
     db.get_collection("fs_index").insert_many(
         [x.model_dump() for x in seed_fs_index_files]

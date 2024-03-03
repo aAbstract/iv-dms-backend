@@ -1,6 +1,9 @@
 .pytest_cache
 **/__pycache__
-data/nesma_OMA.pdf
+data/nesma_oma.pdf
+data/RXI Dangerous Goods Manual - 14FEB2024.pdf
+data/RXI Emergency Response Manual Dated 30.01.2024.pdf
+data/RXI Flight Data Analysis Program_30.01.24.pdf
 public/airlines_files/manuals/*.pdf
 public/airlines_files/attachments/*
 !public/airlines_files/attachments/*.txt

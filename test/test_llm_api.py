@@ -5,6 +5,8 @@ from bson import ObjectId
 import _test_config
 from dotenv import load_dotenv
 from models.gpt_35t import GPT35TAuditTag
+from time import sleep
+import logging
 
 load_dotenv()
 
@@ -265,7 +267,7 @@ def test_llm_pages_api_success_high_score():
     ][0]["id"]
 
     # get file
-    file_1 = get_database["fs_index"].find_one({"filename": "nesma_ch1.pdf"})
+    file_1 = get_database["fs_index"].find_one({"filename": "nesma_oma_ch1.pdf"})
 
     # call llm api
     api_url = f"{_test_config.get_api_url()}/llm/iosa-audit-pages"
@@ -318,8 +320,8 @@ def test_llm_pages_api_combined_low_score():
     ][0]["id"]
 
     # get file
-    file_1 = get_database["fs_index"].find_one({"filename": "nesma_ch2.pdf"})
-    file_2 = get_database["fs_index"].find_one({"filename": "nesma_ch3.pdf"})
+    file_1 = get_database["fs_index"].find_one({"filename": "nesma_oma_ch2.pdf"})
+    file_2 = get_database["fs_index"].find_one({"filename": "nesma_oma_ch3.pdf"})
 
     # call llm api
     api_url = f"{_test_config.get_api_url()}/llm/iosa-audit-pages"
@@ -434,3 +436,188 @@ def test_llm_unstruct_generate():
     )
 
     # TODO-LATER: validate gpt35t context structure
+
+def _test_llm_stress_fully_compliant():
+    
+    access_token = _test_config.login_user("cwael", "CgJhxwieCc7QEyN3BB7pmvy9MMpseMPV")
+    http_headers = {"X-Auth": f"Bearer {access_token}"}
+    get_database = _test_config.get_database()
+    assert get_database != None
+
+    # get regulations options
+    api_url = f"{_test_config.get_api_url()}/regulations/get-options"
+    http_res = requests.post(api_url, headers=http_headers)
+    assert http_res.status_code == 200
+    json_res_body = json.loads(http_res.content.decode())
+    assert json_res_body["success"]
+    assert "regulations_options" in json_res_body["data"]
+    regulation_id = [
+        x
+        for x in json_res_body["data"]["regulations_options"]
+        if x["name"] == "IOSA Standards Manual (ISM) Ed 16-Revision2"
+    ][0]["id"]
+
+    correct = []
+    for text in _test_config.full_compliant_text:
+        # call audit llm api
+        api_url = f"{_test_config.get_api_url()}/llm/iosa-audit-unstruct"
+        http_res = requests.post(
+            api_url,
+            headers=http_headers,
+            json={
+                "regulation_id": regulation_id,
+                "checklist_code": "FLT 3.1.1",
+                "text": text,
+            },
+        )
+        if(http_res.status_code == 200):
+            json_res_body = json.loads(http_res.content.decode())
+            
+            assert "overall_compliance_score" in json_res_body["data"]
+            assert "context_id" in json_res_body["data"]
+            if(json_res_body["data"]["overall_compliance_tag"] in ["Non Compliant", "Partially Compliant","Fully Compliant"]):
+                correct.append(json_res_body["data"]["overall_compliance_tag"] )
+            else:    
+                correct.append("Failed")
+        else:
+            correct.append("Failed")
+
+    benchmark = {
+        "percentage":correct.count("Fully Compliant") / len(correct),
+        "count":len(correct),
+        "correct":correct.count("Fully Compliant") ,
+        "incorrect": len(correct) - correct.count("Fully Compliant"),
+        "Failed":correct.count("Failed"),
+        "Fully Compliant":correct.count("Fully Compliant"),
+        "Partially Compliant":correct.count("Partially Compliant"),
+        "Non Compliant":correct.count("Non Compliant"),
+    }
+
+    file_path = r"data/llm_benchmarks/improved/fully_compliant.json"
+
+    # Writing dictionary object to JSON file
+    with open(file_path, "w") as json_file:
+        json.dump(benchmark, json_file)
+
+def _test_llm_stress_partially_compliant():
+
+    access_token = _test_config.login_user("cwael", "CgJhxwieCc7QEyN3BB7pmvy9MMpseMPV")
+    http_headers = {"X-Auth": f"Bearer {access_token}"}
+    get_database = _test_config.get_database()
+    assert get_database != None
+
+    # get regulations options
+    api_url = f"{_test_config.get_api_url()}/regulations/get-options"
+    http_res = requests.post(api_url, headers=http_headers)
+    assert http_res.status_code == 200
+    json_res_body = json.loads(http_res.content.decode())
+    assert json_res_body["success"]
+    assert "regulations_options" in json_res_body["data"]
+    regulation_id = [
+        x
+        for x in json_res_body["data"]["regulations_options"]
+        if x["name"] == "IOSA Standards Manual (ISM) Ed 16-Revision2"
+    ][0]["id"]
+
+    correct = []
+    for text in _test_config.partial_compliant_text:
+        # call audit llm api
+        api_url = f"{_test_config.get_api_url()}/llm/iosa-audit-unstruct"
+        http_res = requests.post(
+            api_url,
+            headers=http_headers,
+            json={
+                "regulation_id": regulation_id,
+                "checklist_code": "FLT 3.1.1",
+                "text": text,
+            },
+        )
+        if(http_res.status_code == 200):
+            json_res_body = json.loads(http_res.content.decode())
+            
+            assert "overall_compliance_score" in json_res_body["data"]
+            assert "context_id" in json_res_body["data"]
+            if(json_res_body["data"]["overall_compliance_tag"] in["Non Compliant", "Partially Compliant","Fully Compliant"]):
+                correct.append(json_res_body["data"]["overall_compliance_tag"] )
+            else:    
+                correct.append("Failed")
+        else:
+            correct.append("Failed")
+
+    benchmark = {
+        "percentage":correct.count("Partially Compliant") / len(correct),
+        "count":len(correct),
+        "correct":correct.count("Partially Compliant") ,
+        "incorrect": len(correct) - correct.count("Partially Compliant"),
+        "Failed":correct.count("Failed"),
+        "Fully Compliant":correct.count("Fully Compliant"),
+        "Partially Compliant":correct.count("Partially Compliant"),
+        "Non Compliant":correct.count("Non Compliant"),
+    }
+
+    file_path = r"data/llm_benchmarks/improved/partially_compliant.json"
+
+    # Writing dictionary object to JSON file
+    with open(file_path, "w") as json_file:
+        json.dump(benchmark, json_file)
+
+def _test_llm_stress_non_compliant():
+    access_token = _test_config.login_user("cwael", "CgJhxwieCc7QEyN3BB7pmvy9MMpseMPV")
+    http_headers = {"X-Auth": f"Bearer {access_token}"}
+    get_database = _test_config.get_database()
+    assert get_database != None
+
+    # get regulations options
+    api_url = f"{_test_config.get_api_url()}/regulations/get-options"
+    http_res = requests.post(api_url, headers=http_headers)
+    assert http_res.status_code == 200
+    json_res_body = json.loads(http_res.content.decode())
+    assert json_res_body["success"]
+    assert "regulations_options" in json_res_body["data"]
+    regulation_id = [
+        x
+        for x in json_res_body["data"]["regulations_options"]
+        if x["name"] == "IOSA Standards Manual (ISM) Ed 16-Revision2"
+    ][0]["id"]
+
+    correct = []
+    for text in _test_config.non_compliant_text:
+        # call audit llm api
+        api_url = f"{_test_config.get_api_url()}/llm/iosa-audit-unstruct"
+        http_res = requests.post(
+            api_url,
+            headers=http_headers,
+            json={
+                "regulation_id": regulation_id,
+                "checklist_code": "FLT 3.1.1",
+                "text": text,
+            },
+        )
+        if(http_res.status_code == 200):
+            json_res_body = json.loads(http_res.content.decode())
+            
+            assert "overall_compliance_score" in json_res_body["data"]
+            assert "context_id" in json_res_body["data"]
+            if(json_res_body["data"]["overall_compliance_tag"] in["Non Compliant", "Partially Compliant","Fully Compliant"]):
+                correct.append(json_res_body["data"]["overall_compliance_tag"] )
+            else:    
+                correct.append("Failed")
+        else:
+            correct.append("Failed")
+
+    benchmark = {
+        "percentage":correct.count("Non Compliant") / len(correct),
+        "count":len(correct),
+        "correct":correct.count("Non Compliant") ,
+        "incorrect": len(correct) - correct.count("Non Compliant"),
+        "Failed":correct.count("Failed"),
+        "Fully Compliant":correct.count("Fully Compliant"),
+        "Partially Compliant":correct.count("Partially Compliant"),
+        "Non Compliant":correct.count("Non Compliant"),
+    }
+
+    file_path = r"data/llm_benchmarks/improved/non_compliant.json"
+
+    # Writing dictionary object to JSON file
+    with open(file_path, "w") as json_file:
+        json.dump(benchmark, json_file)

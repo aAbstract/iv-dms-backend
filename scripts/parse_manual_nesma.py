@@ -15,7 +15,7 @@ def generate_random_hash():
 
 def create_parts_metadata_file():
     metadata = []
-    manual_parts = glob("data/nesma_OMA/*.pdf")
+    manual_parts = glob("data/nesma_oma/*.pdf")
     for part_path in manual_parts:
         pdf_reader = PdfReader(part_path)
         part_toc_content = pdf_reader.pages[TOC_START_PAGE - 1].extract_text()
@@ -30,7 +30,7 @@ def create_parts_metadata_file():
             }
         )
 
-    with open("data/nesma_OMA/nesma_oma_metadata.json", "w") as f:
+    with open("data/nesma_oma/nesma_oma_metadata.json", "w") as f:
         f.write(json.dumps(metadata, indent=2))
 
 
@@ -62,7 +62,7 @@ def create_manual_toc_tree():
 
         return toc_info
 
-    f = open("data/nesma_OMA/nesma_oma_metadata.json", "r")
+    f = open("data/nesma_oma/nesma_oma_metadata.json", "r")
     json_str = f.read()
     f.close()
 
@@ -77,7 +77,7 @@ def create_manual_toc_tree():
         toc_info = parse_toc_txt_to_tree(toc_txt)
         mde["toc_info"] = toc_info
 
-    f = open("data/nesma_OMA/nesma_oma_metadata.json", "w")
+    f = open("data/nesma_oma/nesma_oma_metadata.json", "w")
     f.write(json.dumps(json_obj, indent=2))
     f.close()
 
@@ -97,7 +97,7 @@ def rearrange_manual_content_tree() -> list[object]:
         )
         return max_page
 
-    path_to_metadata = "data/nesma_OMA/nesma_oma_metadata.json"
+    path_to_metadata = "data/nesma_oma/nesma_oma_metadata.json"
     all_chapters = []
     all_sub1_sections = []
     all_sub2_section = []
@@ -356,12 +356,12 @@ def rearrange_manual_content_tree() -> list[object]:
     temp_chapter["toc_info"] = all_sub1_sections[:]
     all_chapters.append(dict(temp_chapter))
 
-    with open("data/nesma_OMA/nesma_oma_metadata_tree.json", "w") as json_file:
+    with open("data/nesma_oma/nesma_oma_second_metadata_tree.json", "w") as json_file:
         json.dump(all_chapters, json_file, indent=4)
 
 
 def create_manual_content_tree() -> list[tuple[str, int]]:
-    f = open("data/nesma_OMA/nesma_oma_metadata.json", "r")
+    f = open("data/nesma_oma/nesma_oma_metadata.json", "r")
     json_str = f.read()
     f.close()
     json_obj = json.loads(json_str)
@@ -385,7 +385,7 @@ def create_manual_content_tree() -> list[tuple[str, int]]:
                     toc_info.append((line, pidx + 1))
         mde["toc_info"] = toc_info
 
-    f = open("data/nesma_OMA/nesma_oma_metadata.json", "w")
+    f = open("data/nesma_oma/nesma_oma_metadata.json", "w")
     f.write(json.dumps(json_obj, indent=2))
     f.close()
 
