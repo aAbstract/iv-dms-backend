@@ -11,7 +11,7 @@ import code
 import json
 import re
 from bson import ObjectId
-from subprocess import Popen, PIPE
+from subprocess import run
 
 
 def load_root_path():
@@ -35,17 +35,16 @@ from models.flow_reports import *
 # autopep8: on
 
 # seed manual files
-cmds = [
-    "python scripts/parse_iosa_section.py",
-    "python scripts/parse_manual_nesma.py",
-    "python scripts/parse_manual_RXI_DANGEROUS_GOODS.py",
-    "python scripts/parse_manual_RXI_EMERGENCY_RESPONSE.py",
-    "python scripts/parse_manual_RXI_FLIGHT_DATA_ANALYSIS_PROGRAM.py",
+commands = [
+    ['python',"scripts/parse_iosa_section.py"],
+    ['python',"scripts/parse_manual_nesma.py"],
+    ['python',"scripts/parse_manual_RXI_DANGEROUS_GOODS.py"],
+    ['python',"scripts/parse_manual_RXI_EMERGENCY_RESPONSE.py"],
+    ['python',"scripts/parse_manual_RXI_FLIGHT_DATA_ANALYSIS_PROGRAM.py"],
 ]
 
-for cmd in cmds:
-    p = Popen(cmd, stdout=PIPE, shell=True)
-    out, err = p.communicate()
+for command in commands:
+    run(command)
 
 # main
 client = pymongo.MongoClient(
