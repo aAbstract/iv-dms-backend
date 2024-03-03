@@ -169,6 +169,14 @@
         "documentation": {}
     },
     {
+        "label": "validate_bson_id",
+        "importPath": "database.mongo_driver",
+        "description": "database.mongo_driver",
+        "isExtraImport": true,
+        "detail": "database.mongo_driver",
+        "documentation": {}
+    },
+    {
         "label": "get_database",
         "importPath": "database.mongo_driver",
         "description": "database.mongo_driver",
@@ -1108,6 +1116,14 @@
         "documentation": {}
     },
     {
+        "label": "PdfReader",
+        "importPath": "PyPDF2",
+        "description": "PyPDF2",
+        "isExtraImport": true,
+        "detail": "PyPDF2",
+        "documentation": {}
+    },
+    {
         "label": "re",
         "kind": 6,
         "isExtraImport": true,
@@ -1254,6 +1270,14 @@
         "isExtraImport": true,
         "importPath": "time",
         "description": "time",
+        "detail": "time",
+        "documentation": {}
+    },
+    {
+        "label": "sleep",
+        "importPath": "time",
+        "description": "time",
+        "isExtraImport": true,
         "detail": "time",
         "documentation": {}
     },
@@ -2250,6 +2274,22 @@
         "documentation": {}
     },
     {
+        "label": "glob",
+        "importPath": "glob",
+        "description": "glob",
+        "isExtraImport": true,
+        "detail": "glob",
+        "documentation": {}
+    },
+    {
+        "label": "Faker",
+        "importPath": "faker",
+        "description": "faker",
+        "isExtraImport": true,
+        "detail": "faker",
+        "documentation": {}
+    },
+    {
         "label": "Faker",
         "importPath": "faker",
         "description": "faker",
@@ -2283,6 +2323,14 @@
         "documentation": {}
     },
     {
+        "label": "run",
+        "importPath": "subprocess",
+        "description": "subprocess",
+        "isExtraImport": true,
+        "detail": "subprocess",
+        "documentation": {}
+    },
+    {
         "label": "threading",
         "kind": 6,
         "isExtraImport": true,
@@ -2307,6 +2355,24 @@
         "importPath": "_test_config",
         "description": "_test_config",
         "detail": "_test_config",
+        "documentation": {}
+    },
+    {
+        "label": "logging",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "logging",
+        "description": "logging",
+        "detail": "logging",
+        "documentation": {}
+    },
+    {
+        "label": "random",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "random",
+        "description": "random",
+        "detail": "random",
         "documentation": {}
     },
     {
@@ -2546,7 +2612,7 @@
         "kind": 5,
         "importPath": "lib.gpt_35t_unstruct",
         "description": "lib.gpt_35t_unstruct",
-        "peekOfCode": "openai_client = AsyncOpenAI(api_key=os.environ['GPT_35T_API_KEY'])\nasync def gpt35t_generate(iosa_checklist: str, input_text: str) -> ServiceResponse:\n    system_prompt = \"\"\"\n    We are two aviation professionals. A pilot and a flight operations engineer. And you are our AI assistant.\n    We are going to audit our organization to match internationally recognized standards. Currently, we will be auditing against the IATA IOSA Checklist. the IOSA checklist is one of the most difficult standards in aviation. IATA defines the IOSA audit as \"The IATA Operational Safety Audit (IOSA) Program is an internationally recognized and accepted evaluation system designed to assess the operational management and control systems of an airline.\"\n    The IOSA Standards Manual (ISM) is published in order to provide the IOSA standards, recommended practices (ISARPs), associated guidance material and other supporting information necessary for an operator to successfully prepare for an audit.\n    The ISM is the sole source of assessment criteria to be used by auditors when conducting an audit against the ISARPs.\n    The ISM may also be used as a guide for any operator desiring to structure its operational management and control systems in conformity with the latest industry operational practices.\n    During an audit, an operator is assessed against the ISARPs contained in this manual. To determine conformity with any standard or recommended practice, an auditor will gather evidence to assess the degree to which specifications are documented and implemented by the operator. In making such an assessment, the following information is applicable.\n    \"\"\"",
+        "peekOfCode": "openai_client = AsyncOpenAI(api_key=os.environ['GPT_35T_API_KEY'])\nasync def gpt35t_generate(iosa_checklist: str, input_text: str) -> ServiceResponse:\n    system_prompt = \"\"\"\n    We are two aviation professionals relying on you, our AI assistant for a critical and legally binding task.\n    Your role is pivotal as you conduct audits to ensure strict compliance with ISARPs.\n    Your meticulous evaluation of legal documents against ISARPs is crucial.\n    We entrust you with the responsibility of upholding legal standards in the aviation industry.\n    During an audit, an operator is assessed against the ISARPs contained in this manual. To determine conformity with any standard or recommended practice, an auditor will gather evidence to assess the degree to which specifications are documented and implemented by the operator. In making such an assessment, the following information is applicable.\n    \"\"\"\n    user_prompt = f\"\"\"",
         "detail": "lib.gpt_35t_unstruct",
         "documentation": {}
     },
@@ -3599,7 +3665,7 @@
         "kind": 2,
         "importPath": "scripts.parse_manual_nesma",
         "description": "scripts.parse_manual_nesma",
-        "peekOfCode": "def generate_random_hash():\n    concatid = 'NE'\n    return concatid + str(fake.unique.random_int(min=111111111111, max=999999999999))\ndef create_parts_metadata_file():\n    metadata = []\n    manual_parts = glob(\"data/nesma_OMA/*.pdf\")\n    for part_path in manual_parts:\n        pdf_reader = PdfReader(part_path)\n        part_toc_content = pdf_reader.pages[TOC_START_PAGE - 1].extract_text()\n        chapter_title = re.findall(r\"Chapter \\d+ [A-Za-z ]+\", part_toc_content)[",
+        "peekOfCode": "def generate_random_hash():\n    concatid = 'NE'\n    return concatid + str(fake.unique.random_int(min=111111111111, max=999999999999))\ndef create_parts_metadata_file():\n    metadata = []\n    manual_parts = glob(\"data/nesma_oma/*.pdf\")\n    for part_path in manual_parts:\n        pdf_reader = PdfReader(part_path)\n        part_toc_content = pdf_reader.pages[TOC_START_PAGE - 1].extract_text()\n        chapter_title = re.findall(r\"Chapter \\d+ [A-Za-z ]+\", part_toc_content)[",
         "detail": "scripts.parse_manual_nesma",
         "documentation": {}
     },
@@ -3608,7 +3674,7 @@
         "kind": 2,
         "importPath": "scripts.parse_manual_nesma",
         "description": "scripts.parse_manual_nesma",
-        "peekOfCode": "def create_parts_metadata_file():\n    metadata = []\n    manual_parts = glob(\"data/nesma_OMA/*.pdf\")\n    for part_path in manual_parts:\n        pdf_reader = PdfReader(part_path)\n        part_toc_content = pdf_reader.pages[TOC_START_PAGE - 1].extract_text()\n        chapter_title = re.findall(r\"Chapter \\d+ [A-Za-z ]+\", part_toc_content)[\n            0\n        ].strip()\n        metadata.append(",
+        "peekOfCode": "def create_parts_metadata_file():\n    metadata = []\n    manual_parts = glob(\"data/nesma_oma/*.pdf\")\n    for part_path in manual_parts:\n        pdf_reader = PdfReader(part_path)\n        part_toc_content = pdf_reader.pages[TOC_START_PAGE - 1].extract_text()\n        chapter_title = re.findall(r\"Chapter \\d+ [A-Za-z ]+\", part_toc_content)[\n            0\n        ].strip()\n        metadata.append(",
         "detail": "scripts.parse_manual_nesma",
         "documentation": {}
     },
@@ -3635,7 +3701,7 @@
         "kind": 2,
         "importPath": "scripts.parse_manual_nesma",
         "description": "scripts.parse_manual_nesma",
-        "peekOfCode": "def create_manual_content_tree() -> list[tuple[str, int]]:\n    f = open(\"data/nesma_OMA/nesma_oma_metadata.json\", \"r\")\n    json_str = f.read()\n    f.close()\n    json_obj = json.loads(json_str)\n    for mde in json_obj:\n        if not mde[\"include\"]:\n            continue\n        toc_info = []\n        pdf_reader = PdfReader(mde[\"filename\"])",
+        "peekOfCode": "def create_manual_content_tree() -> list[tuple[str, int]]:\n    f = open(\"data/nesma_oma/nesma_oma_metadata.json\", \"r\")\n    json_str = f.read()\n    f.close()\n    json_obj = json.loads(json_str)\n    for mde in json_obj:\n        if not mde[\"include\"]:\n            continue\n        toc_info = []\n        pdf_reader = PdfReader(mde[\"filename\"])",
         "detail": "scripts.parse_manual_nesma",
         "documentation": {}
     },
@@ -3644,7 +3710,7 @@
         "kind": 5,
         "importPath": "scripts.parse_manual_nesma",
         "description": "scripts.parse_manual_nesma",
-        "peekOfCode": "TOC_START_PAGE = 3\nFaker.seed(0)\nfake = Faker(\"en_US\") \ndef generate_random_hash():\n    concatid = 'NE'\n    return concatid + str(fake.unique.random_int(min=111111111111, max=999999999999))\ndef create_parts_metadata_file():\n    metadata = []\n    manual_parts = glob(\"data/nesma_OMA/*.pdf\")\n    for part_path in manual_parts:",
+        "peekOfCode": "TOC_START_PAGE = 3\nFaker.seed(0)\nfake = Faker(\"en_US\") \ndef generate_random_hash():\n    concatid = 'NE'\n    return concatid + str(fake.unique.random_int(min=111111111111, max=999999999999))\ndef create_parts_metadata_file():\n    metadata = []\n    manual_parts = glob(\"data/nesma_oma/*.pdf\")\n    for part_path in manual_parts:",
         "detail": "scripts.parse_manual_nesma",
         "documentation": {}
     },
@@ -3653,7 +3719,7 @@
         "kind": 5,
         "importPath": "scripts.parse_manual_nesma",
         "description": "scripts.parse_manual_nesma",
-        "peekOfCode": "fake = Faker(\"en_US\") \ndef generate_random_hash():\n    concatid = 'NE'\n    return concatid + str(fake.unique.random_int(min=111111111111, max=999999999999))\ndef create_parts_metadata_file():\n    metadata = []\n    manual_parts = glob(\"data/nesma_OMA/*.pdf\")\n    for part_path in manual_parts:\n        pdf_reader = PdfReader(part_path)\n        part_toc_content = pdf_reader.pages[TOC_START_PAGE - 1].extract_text()",
+        "peekOfCode": "fake = Faker(\"en_US\") \ndef generate_random_hash():\n    concatid = 'NE'\n    return concatid + str(fake.unique.random_int(min=111111111111, max=999999999999))\ndef create_parts_metadata_file():\n    metadata = []\n    manual_parts = glob(\"data/nesma_oma/*.pdf\")\n    for part_path in manual_parts:\n        pdf_reader = PdfReader(part_path)\n        part_toc_content = pdf_reader.pages[TOC_START_PAGE - 1].extract_text()",
         "detail": "scripts.parse_manual_nesma",
         "documentation": {}
     },
@@ -3662,7 +3728,7 @@
         "kind": 2,
         "importPath": "scripts.parse_manual_RXI_DANGEROUS_GOODS",
         "description": "scripts.parse_manual_RXI_DANGEROUS_GOODS",
-        "peekOfCode": "def generate_random_hash():\n    concatid = 'AR'\n    return concatid + str(fake.unique.random_int(min=111111111111, max=999999999999))\ndef create_parts_metadata_file():\n    metadata = []\n    manual_parts = glob(\"data/RXI_DANGEROUS_GOODS/*.pdf\")\n    for part_path in manual_parts:\n        pdf_reader = PdfReader(part_path)\n        part_toc_content = pdf_reader.pages[0].extract_text()\n        chapter_title= \"\"",
+        "peekOfCode": "def generate_random_hash():\n    concatid = 'RXI_DG'\n    return concatid + str(fake.unique.random_int(min=111111111111, max=999999999999))\ndef create_parts_metadata_file():\n    metadata = []\n    manual_parts = glob(\"data/RXI_DANGEROUS_GOODS/*.pdf\")\n    for part_path in manual_parts:\n        pdf_reader = PdfReader(part_path)\n        part_toc_content = pdf_reader.pages[0].extract_text()\n        chapter_title= \"\"",
         "detail": "scripts.parse_manual_RXI_DANGEROUS_GOODS",
         "documentation": {}
     },
@@ -3698,7 +3764,7 @@
         "kind": 5,
         "importPath": "scripts.parse_manual_RXI_DANGEROUS_GOODS",
         "description": "scripts.parse_manual_RXI_DANGEROUS_GOODS",
-        "peekOfCode": "fake = Faker(\"en_US\") \nTOC_START_PAGE = 2\ndef generate_random_hash():\n    concatid = 'AR'\n    return concatid + str(fake.unique.random_int(min=111111111111, max=999999999999))\ndef create_parts_metadata_file():\n    metadata = []\n    manual_parts = glob(\"data/RXI_DANGEROUS_GOODS/*.pdf\")\n    for part_path in manual_parts:\n        pdf_reader = PdfReader(part_path)",
+        "peekOfCode": "fake = Faker(\"en_US\") \nTOC_START_PAGE = 2\ndef generate_random_hash():\n    concatid = 'RXI_DG'\n    return concatid + str(fake.unique.random_int(min=111111111111, max=999999999999))\ndef create_parts_metadata_file():\n    metadata = []\n    manual_parts = glob(\"data/RXI_DANGEROUS_GOODS/*.pdf\")\n    for part_path in manual_parts:\n        pdf_reader = PdfReader(part_path)",
         "detail": "scripts.parse_manual_RXI_DANGEROUS_GOODS",
         "documentation": {}
     },
@@ -3707,7 +3773,7 @@
         "kind": 5,
         "importPath": "scripts.parse_manual_RXI_DANGEROUS_GOODS",
         "description": "scripts.parse_manual_RXI_DANGEROUS_GOODS",
-        "peekOfCode": "TOC_START_PAGE = 2\ndef generate_random_hash():\n    concatid = 'AR'\n    return concatid + str(fake.unique.random_int(min=111111111111, max=999999999999))\ndef create_parts_metadata_file():\n    metadata = []\n    manual_parts = glob(\"data/RXI_DANGEROUS_GOODS/*.pdf\")\n    for part_path in manual_parts:\n        pdf_reader = PdfReader(part_path)\n        part_toc_content = pdf_reader.pages[0].extract_text()",
+        "peekOfCode": "TOC_START_PAGE = 2\ndef generate_random_hash():\n    concatid = 'RXI_DG'\n    return concatid + str(fake.unique.random_int(min=111111111111, max=999999999999))\ndef create_parts_metadata_file():\n    metadata = []\n    manual_parts = glob(\"data/RXI_DANGEROUS_GOODS/*.pdf\")\n    for part_path in manual_parts:\n        pdf_reader = PdfReader(part_path)\n        part_toc_content = pdf_reader.pages[0].extract_text()",
         "detail": "scripts.parse_manual_RXI_DANGEROUS_GOODS",
         "documentation": {}
     },
@@ -3716,7 +3782,7 @@
         "kind": 2,
         "importPath": "scripts.parse_manual_RXI_EMERGENCY_RESPONSE",
         "description": "scripts.parse_manual_RXI_EMERGENCY_RESPONSE",
-        "peekOfCode": "def generate_random_hash():\n    concatid = 'ER'\n    return concatid + str(fake.unique.random_int(min=111111111111, max=999999999999))\ndef create_parts_metadata_file():\n    metadata = []\n    manual_parts = glob(\"data/RXI_EMERGENCY_RESPONSE/*.pdf\")\n    for part_path in manual_parts:\n        pdf_reader = PdfReader(part_path)\n        part_toc_content = pdf_reader.pages[0].extract_text()\n        chapter_title= \"\"",
+        "peekOfCode": "def generate_random_hash():\n    concatid = 'RXI_ER'\n    return concatid + str(fake.unique.random_int(min=111111111111, max=999999999999))\ndef create_parts_metadata_file():\n    metadata = []\n    manual_parts = glob(\"data/RXI_EMERGENCY_RESPONSE/*.pdf\")\n    for part_path in manual_parts:\n        pdf_reader = PdfReader(part_path)\n        part_toc_content = pdf_reader.pages[0].extract_text()\n        chapter_title= \"\"",
         "detail": "scripts.parse_manual_RXI_EMERGENCY_RESPONSE",
         "documentation": {}
     },
@@ -3734,7 +3800,7 @@
         "kind": 2,
         "importPath": "scripts.parse_manual_RXI_EMERGENCY_RESPONSE",
         "description": "scripts.parse_manual_RXI_EMERGENCY_RESPONSE",
-        "peekOfCode": "def create_manual_toc_tree():\n    def parse_toc_txt_to_tree(toc_text: str) -> list[tuple[str, str, int]]:\n        lines = toc_text.split(\"\\n\")\n        toc_epattern = \"...\"\n        toc_info = []\n        for line in lines:\n            if toc_epattern in line:\n                if re.compile(r\"(\\s*)(\\d+)\\..\").match(line.split()[0]):\n                    page_number = int(line.split(\"-\")[-1].strip())\n                    section_name = re.findall(r\"\\s+[A-Za-z]+\\s+\", line)[0].strip()",
+        "peekOfCode": "def create_manual_toc_tree():\n    def parse_toc_txt_to_tree(toc_text: str,title:str) -> list[tuple[str, str, int]]:\n        lines = toc_text.split(\"\\n\")\n        toc_epattern = \"...\"\n        toc_info = []\n        for line in lines:\n            if toc_epattern in line:\n                if re.compile(r\"(\\s*)(\\d+)\\..\").match(line.split()[0]):\n                    page_number = int(line.split(\"-\")[-1].strip())\n                    section_name = re.findall(r\"\"\"\\s+[A-Za-z ,\"'-]+\\s+\"\"\", line)[0].strip()",
         "detail": "scripts.parse_manual_RXI_EMERGENCY_RESPONSE",
         "documentation": {}
     },
@@ -3752,7 +3818,7 @@
         "kind": 5,
         "importPath": "scripts.parse_manual_RXI_EMERGENCY_RESPONSE",
         "description": "scripts.parse_manual_RXI_EMERGENCY_RESPONSE",
-        "peekOfCode": "fake = Faker(\"en_US\") \nTOC_START_PAGE = 2\ndef generate_random_hash():\n    concatid = 'ER'\n    return concatid + str(fake.unique.random_int(min=111111111111, max=999999999999))\ndef create_parts_metadata_file():\n    metadata = []\n    manual_parts = glob(\"data/RXI_EMERGENCY_RESPONSE/*.pdf\")\n    for part_path in manual_parts:\n        pdf_reader = PdfReader(part_path)",
+        "peekOfCode": "fake = Faker(\"en_US\") \nTOC_START_PAGE = 2\ndef generate_random_hash():\n    concatid = 'RXI_ER'\n    return concatid + str(fake.unique.random_int(min=111111111111, max=999999999999))\ndef create_parts_metadata_file():\n    metadata = []\n    manual_parts = glob(\"data/RXI_EMERGENCY_RESPONSE/*.pdf\")\n    for part_path in manual_parts:\n        pdf_reader = PdfReader(part_path)",
         "detail": "scripts.parse_manual_RXI_EMERGENCY_RESPONSE",
         "documentation": {}
     },
@@ -3761,8 +3827,71 @@
         "kind": 5,
         "importPath": "scripts.parse_manual_RXI_EMERGENCY_RESPONSE",
         "description": "scripts.parse_manual_RXI_EMERGENCY_RESPONSE",
-        "peekOfCode": "TOC_START_PAGE = 2\ndef generate_random_hash():\n    concatid = 'ER'\n    return concatid + str(fake.unique.random_int(min=111111111111, max=999999999999))\ndef create_parts_metadata_file():\n    metadata = []\n    manual_parts = glob(\"data/RXI_EMERGENCY_RESPONSE/*.pdf\")\n    for part_path in manual_parts:\n        pdf_reader = PdfReader(part_path)\n        part_toc_content = pdf_reader.pages[0].extract_text()",
+        "peekOfCode": "TOC_START_PAGE = 2\ndef generate_random_hash():\n    concatid = 'RXI_ER'\n    return concatid + str(fake.unique.random_int(min=111111111111, max=999999999999))\ndef create_parts_metadata_file():\n    metadata = []\n    manual_parts = glob(\"data/RXI_EMERGENCY_RESPONSE/*.pdf\")\n    for part_path in manual_parts:\n        pdf_reader = PdfReader(part_path)\n        part_toc_content = pdf_reader.pages[0].extract_text()",
         "detail": "scripts.parse_manual_RXI_EMERGENCY_RESPONSE",
+        "documentation": {}
+    },
+    {
+        "label": "generate_random_hash",
+        "kind": 2,
+        "importPath": "scripts.parse_manual_RXI_FLIGHT_DATA_ANALYSIS_PROGRAM",
+        "description": "scripts.parse_manual_RXI_FLIGHT_DATA_ANALYSIS_PROGRAM",
+        "peekOfCode": "def generate_random_hash():\n    concatid = 'RXI_FDAP'\n    return concatid + str(fake.unique.random_int(min=111111111111, max=999999999999))\ndef clean(text):\n    new_text = text[:]\n    new_text = new_text.replace('\\u2013', '-')\n    new_text = new_text.replace('\"', \"'\")\n    return new_text\ndef create_parts_metadata_file():\n    metadata = []",
+        "detail": "scripts.parse_manual_RXI_FLIGHT_DATA_ANALYSIS_PROGRAM",
+        "documentation": {}
+    },
+    {
+        "label": "clean",
+        "kind": 2,
+        "importPath": "scripts.parse_manual_RXI_FLIGHT_DATA_ANALYSIS_PROGRAM",
+        "description": "scripts.parse_manual_RXI_FLIGHT_DATA_ANALYSIS_PROGRAM",
+        "peekOfCode": "def clean(text):\n    new_text = text[:]\n    new_text = new_text.replace('\\u2013', '-')\n    new_text = new_text.replace('\"', \"'\")\n    return new_text\ndef create_parts_metadata_file():\n    metadata = []\n    manual_parts = glob(r\"data/RXI_FLIGHT_DATA_ANALYSIS_PROGRAM/*.pdf\")\n    for part_path in manual_parts:\n        pdf_reader = PdfReader(part_path)",
+        "detail": "scripts.parse_manual_RXI_FLIGHT_DATA_ANALYSIS_PROGRAM",
+        "documentation": {}
+    },
+    {
+        "label": "create_parts_metadata_file",
+        "kind": 2,
+        "importPath": "scripts.parse_manual_RXI_FLIGHT_DATA_ANALYSIS_PROGRAM",
+        "description": "scripts.parse_manual_RXI_FLIGHT_DATA_ANALYSIS_PROGRAM",
+        "peekOfCode": "def create_parts_metadata_file():\n    metadata = []\n    manual_parts = glob(r\"data/RXI_FLIGHT_DATA_ANALYSIS_PROGRAM/*.pdf\")\n    for part_path in manual_parts:\n        pdf_reader = PdfReader(part_path)\n        part_toc_content = pdf_reader.pages[0].extract_text()\n        chapter_title= \"\"\n        for match in re.finditer(r\"(\\d+)(\\s+)(\\w| )+\", part_toc_content):\n            print(match)\n            print(part_toc_content)",
+        "detail": "scripts.parse_manual_RXI_FLIGHT_DATA_ANALYSIS_PROGRAM",
+        "documentation": {}
+    },
+    {
+        "label": "create_manual_toc_tree",
+        "kind": 2,
+        "importPath": "scripts.parse_manual_RXI_FLIGHT_DATA_ANALYSIS_PROGRAM",
+        "description": "scripts.parse_manual_RXI_FLIGHT_DATA_ANALYSIS_PROGRAM",
+        "peekOfCode": "def create_manual_toc_tree():\n    def parse_toc_txt_to_tree(toc_text: str,title:str) -> list[tuple[str, str, int]]:\n        lines = toc_text.split(\"\\n\")\n        toc_epattern = \"...\"\n        toc_info = []\n        for line in lines:\n            if toc_epattern in line:\n                if re.compile(r\"(\\s*)(\\d+)\\..\").match(line.split()[0]):\n                    page_number = int(line.split(\"-\")[-1].strip())\n                    start = re.findall(r\"\"\"[A-Za-z]+\"\"\", line)",
+        "detail": "scripts.parse_manual_RXI_FLIGHT_DATA_ANALYSIS_PROGRAM",
+        "documentation": {}
+    },
+    {
+        "label": "rearrange_manual_content_tree",
+        "kind": 2,
+        "importPath": "scripts.parse_manual_RXI_FLIGHT_DATA_ANALYSIS_PROGRAM",
+        "description": "scripts.parse_manual_RXI_FLIGHT_DATA_ANALYSIS_PROGRAM",
+        "peekOfCode": "def rearrange_manual_content_tree() -> list[object]:\n    def get_max(obj_list):\n        max_page = max(\n            obj_list,\n            key=lambda x: (\n                x.get(\"pages\")[0] if len(x.get(\"pages\")) == 1 else x.get(\"pages\")[1]\n            ),\n        )\n        max_page = (\n            max_page[\"pages\"][0]",
+        "detail": "scripts.parse_manual_RXI_FLIGHT_DATA_ANALYSIS_PROGRAM",
+        "documentation": {}
+    },
+    {
+        "label": "fake",
+        "kind": 5,
+        "importPath": "scripts.parse_manual_RXI_FLIGHT_DATA_ANALYSIS_PROGRAM",
+        "description": "scripts.parse_manual_RXI_FLIGHT_DATA_ANALYSIS_PROGRAM",
+        "peekOfCode": "fake = Faker(\"en_US\") \nTOC_START_PAGE = [2,3,4,5]\ndef generate_random_hash():\n    concatid = 'RXI_FDAP'\n    return concatid + str(fake.unique.random_int(min=111111111111, max=999999999999))\ndef clean(text):\n    new_text = text[:]\n    new_text = new_text.replace('\\u2013', '-')\n    new_text = new_text.replace('\"', \"'\")\n    return new_text",
+        "detail": "scripts.parse_manual_RXI_FLIGHT_DATA_ANALYSIS_PROGRAM",
+        "documentation": {}
+    },
+    {
+        "label": "TOC_START_PAGE",
+        "kind": 5,
+        "importPath": "scripts.parse_manual_RXI_FLIGHT_DATA_ANALYSIS_PROGRAM",
+        "description": "scripts.parse_manual_RXI_FLIGHT_DATA_ANALYSIS_PROGRAM",
+        "peekOfCode": "TOC_START_PAGE = [2,3,4,5]\ndef generate_random_hash():\n    concatid = 'RXI_FDAP'\n    return concatid + str(fake.unique.random_int(min=111111111111, max=999999999999))\ndef clean(text):\n    new_text = text[:]\n    new_text = new_text.replace('\\u2013', '-')\n    new_text = new_text.replace('\"', \"'\")\n    return new_text\ndef create_parts_metadata_file():",
+        "detail": "scripts.parse_manual_RXI_FLIGHT_DATA_ANALYSIS_PROGRAM",
         "documentation": {}
     },
     {
@@ -3816,6 +3945,15 @@
         "importPath": "scripts.seed_schema",
         "description": "scripts.seed_schema",
         "peekOfCode": "def seed_routine():\n    print(\"seeding users...\")\n    db.get_collection(\"users\").insert_many([x.model_dump() for x in seed_users])\n    print(\"creating users indexes...\")\n    db.get_collection(\"users\").create_index(\"username\", unique=True)\n    db.get_collection(\"users\").create_index(\"email\", unique=True)\n    print(\"seeding regulations index...\")\n    db.get_collection(\"regulations\").insert_one(seed_regulations[0].model_dump())\n    mdb_result = db.get_collection(\"regulations\").insert_one(\n        seed_regulations[1].model_dump()",
+        "detail": "scripts.seed_schema",
+        "documentation": {}
+    },
+    {
+        "label": "commands",
+        "kind": 5,
+        "importPath": "scripts.seed_schema",
+        "description": "scripts.seed_schema",
+        "peekOfCode": "commands = [\n    ['python',\"scripts/parse_iosa_section.py\"],\n    ['python',\"scripts/parse_manual_nesma.py\"],\n    ['python',\"scripts/parse_manual_RXI_DANGEROUS_GOODS.py\"],\n    ['python',\"scripts/parse_manual_RXI_EMERGENCY_RESPONSE.py\"],\n    ['python',\"scripts/parse_manual_RXI_FLIGHT_DATA_ANALYSIS_PROGRAM.py\"],\n]\nfor command in commands:\n    run(command, shell=True, check=True)\n# main",
         "detail": "scripts.seed_schema",
         "documentation": {}
     },
@@ -4544,7 +4682,7 @@
         "kind": 2,
         "importPath": "test.test_manuals_api",
         "description": "test.test_manuals_api",
-        "peekOfCode": "def test_get_tree_v2_structure():\n    admin_access_token = _test_config.login_user('eslam', 'CgJhxwieCc7QEyN3BB7pmvy9MMpseMPV')\n    get_database = _test_config.get_database()\n    assert get_database != None\n    http_headers = {'X-Auth': f\"Bearer {admin_access_token}\"}\n    file = get_database['fs_index'].find_one({\"filename\": \"nesma_ch13.pdf\"})\n    assert file['doc_uuid']\n    # get tree api\n    api_url = f\"{_test_config.get_api_url()}/manuals/get-tree-v2\"\n    payload = {",
+        "peekOfCode": "def test_get_tree_v2_structure():\n    admin_access_token = _test_config.login_user('eslam', 'CgJhxwieCc7QEyN3BB7pmvy9MMpseMPV')\n    get_database = _test_config.get_database()\n    assert get_database != None\n    http_headers = {'X-Auth': f\"Bearer {admin_access_token}\"}\n    file = get_database['fs_index'].find_one({\"filename\": \"nesma_oma_ch13.pdf\"})\n    assert file['doc_uuid']\n    # get tree api\n    api_url = f\"{_test_config.get_api_url()}/manuals/get-tree-v2\"\n    payload = {",
         "detail": "test.test_manuals_api",
         "documentation": {}
     },
@@ -4697,7 +4835,7 @@
         "kind": 2,
         "importPath": "test._test_config",
         "description": "test._test_config",
-        "peekOfCode": "def get_api_url():\n    return f\"http://{_SERVER_ADDR}:{_SERVER_PORT}/api\"\ndef get_file_server_url():\n    return f\"http://{_SERVER_ADDR}:{_SERVER_PORT}\"\ndef login_user(username: str, password: str) -> str:\n    api_url = f\"{get_api_url()}/auth/login\"\n    http_res = requests.post(api_url, json={\n        'username': username,\n        'password': password,\n    })",
+        "peekOfCode": "def get_api_url():\n    return f\"http://{_SERVER_ADDR}:{_SERVER_PORT}/api\"\ndef get_file_server_url():\n    return f\"http://{_SERVER_ADDR}:{_SERVER_PORT}\"\ndef login_user(username: str, password: str) -> str:\n    api_url = f\"{get_api_url()}/auth/login\"\n    http_res = requests.post(\n        api_url,\n        json={\n            \"username\": username,",
         "detail": "test._test_config",
         "documentation": {}
     },
@@ -4706,7 +4844,7 @@
         "kind": 2,
         "importPath": "test._test_config",
         "description": "test._test_config",
-        "peekOfCode": "def get_file_server_url():\n    return f\"http://{_SERVER_ADDR}:{_SERVER_PORT}\"\ndef login_user(username: str, password: str) -> str:\n    api_url = f\"{get_api_url()}/auth/login\"\n    http_res = requests.post(api_url, json={\n        'username': username,\n        'password': password,\n    })\n    json_res_body = json.loads(http_res.content.decode())\n    return json_res_body['data']['access_token']",
+        "peekOfCode": "def get_file_server_url():\n    return f\"http://{_SERVER_ADDR}:{_SERVER_PORT}\"\ndef login_user(username: str, password: str) -> str:\n    api_url = f\"{get_api_url()}/auth/login\"\n    http_res = requests.post(\n        api_url,\n        json={\n            \"username\": username,\n            \"password\": password,\n        },",
         "detail": "test._test_config",
         "documentation": {}
     },
@@ -4715,7 +4853,7 @@
         "kind": 2,
         "importPath": "test._test_config",
         "description": "test._test_config",
-        "peekOfCode": "def login_user(username: str, password: str) -> str:\n    api_url = f\"{get_api_url()}/auth/login\"\n    http_res = requests.post(api_url, json={\n        'username': username,\n        'password': password,\n    })\n    json_res_body = json.loads(http_res.content.decode())\n    return json_res_body['data']['access_token']\ndef get_database():\n    connection_string = f\"mongodb://{os.environ['MDB_USERNAME']}:{os.environ['MDB_PASSWORD']}@127.0.0.1\"",
+        "peekOfCode": "def login_user(username: str, password: str) -> str:\n    api_url = f\"{get_api_url()}/auth/login\"\n    http_res = requests.post(\n        api_url,\n        json={\n            \"username\": username,\n            \"password\": password,\n        },\n    )\n    json_res_body = json.loads(http_res.content.decode())",
         "detail": "test._test_config",
         "documentation": {}
     },
@@ -4724,7 +4862,7 @@
         "kind": 2,
         "importPath": "test._test_config",
         "description": "test._test_config",
-        "peekOfCode": "def get_database():\n    connection_string = f\"mongodb://{os.environ['MDB_USERNAME']}:{os.environ['MDB_PASSWORD']}@127.0.0.1\"\n    mdb_client = MongoClient(connection_string)\n    if mdb_client:\n        return mdb_client[os.environ['IVDMS_DB']]\n    return None\n# test data\nexample_prompt = '''The Flight Instructors, Check Airman and Examiners are considered to be the foundation and\nthe pillars on which the entire safe and efficient flight operations stand.\nCareful selection system for Instructor Pilot, Check Airman and Examiners is developed to",
+        "peekOfCode": "def get_database():\n    connection_string = (\n        f\"mongodb://{os.environ['MDB_USERNAME']}:{os.environ['MDB_PASSWORD']}@127.0.0.1\"\n    )\n    mdb_client = MongoClient(connection_string)\n    if mdb_client:\n        return mdb_client[os.environ[\"IVDMS_DB\"]]\n    return None\nimport random\n# FLT 3.1.1",
         "detail": "test._test_config",
         "documentation": {}
     },
@@ -4733,7 +4871,7 @@
         "kind": 5,
         "importPath": "test._test_config",
         "description": "test._test_config",
-        "peekOfCode": "_SERVER_ADDR = '127.0.0.1'\n_SERVER_PORT = 8081\ndef get_api_url():\n    return f\"http://{_SERVER_ADDR}:{_SERVER_PORT}/api\"\ndef get_file_server_url():\n    return f\"http://{_SERVER_ADDR}:{_SERVER_PORT}\"\ndef login_user(username: str, password: str) -> str:\n    api_url = f\"{get_api_url()}/auth/login\"\n    http_res = requests.post(api_url, json={\n        'username': username,",
+        "peekOfCode": "_SERVER_ADDR = \"127.0.0.1\"\n_SERVER_PORT = 8081\ndef get_api_url():\n    return f\"http://{_SERVER_ADDR}:{_SERVER_PORT}/api\"\ndef get_file_server_url():\n    return f\"http://{_SERVER_ADDR}:{_SERVER_PORT}\"\ndef login_user(username: str, password: str) -> str:\n    api_url = f\"{get_api_url()}/auth/login\"\n    http_res = requests.post(\n        api_url,",
         "detail": "test._test_config",
         "documentation": {}
     },
@@ -4742,7 +4880,52 @@
         "kind": 5,
         "importPath": "test._test_config",
         "description": "test._test_config",
-        "peekOfCode": "_SERVER_PORT = 8081\ndef get_api_url():\n    return f\"http://{_SERVER_ADDR}:{_SERVER_PORT}/api\"\ndef get_file_server_url():\n    return f\"http://{_SERVER_ADDR}:{_SERVER_PORT}\"\ndef login_user(username: str, password: str) -> str:\n    api_url = f\"{get_api_url()}/auth/login\"\n    http_res = requests.post(api_url, json={\n        'username': username,\n        'password': password,",
+        "peekOfCode": "_SERVER_PORT = 8081\ndef get_api_url():\n    return f\"http://{_SERVER_ADDR}:{_SERVER_PORT}/api\"\ndef get_file_server_url():\n    return f\"http://{_SERVER_ADDR}:{_SERVER_PORT}\"\ndef login_user(username: str, password: str) -> str:\n    api_url = f\"{get_api_url()}/auth/login\"\n    http_res = requests.post(\n        api_url,\n        json={",
+        "detail": "test._test_config",
+        "documentation": {}
+    },
+    {
+        "label": "text",
+        "kind": 5,
+        "importPath": "test._test_config",
+        "description": "test._test_config",
+        "peekOfCode": "text = \"The Operator shall ensure the designation of a common language(s) for use by all flight crew members for communication: (i) On the flight deck during line operations; (ii) If the Operator conducts passenger flights with cabin crew, between the flight crew and cabin crew during line operations; (iii) During flight crew training and evaluation activities.\"\nrandom_sentences = [\n    \"The importance of effective communication in aviation cannot be overstated.\",\n    \"Pilots undergo rigorous training to handle various scenarios during flights.\",\n    \"Weather conditions play a crucial role in flight planning and execution.\",\n    \"Modern aircraft are equipped with advanced avionics systems for navigation and communication.\",\n    \"Air traffic control guides pilots through crowded airspace to ensure safe flights.\",\n    \"Maintaining situational awareness is paramount for flight crew members.\",\n    \"Crew resource management techniques enhance teamwork and decision-making in aviation.\",\n    \"Emergency procedures are practiced regularly to ensure quick and effective responses.\",",
+        "detail": "test._test_config",
+        "documentation": {}
+    },
+    {
+        "label": "random_sentences",
+        "kind": 5,
+        "importPath": "test._test_config",
+        "description": "test._test_config",
+        "peekOfCode": "random_sentences = [\n    \"The importance of effective communication in aviation cannot be overstated.\",\n    \"Pilots undergo rigorous training to handle various scenarios during flights.\",\n    \"Weather conditions play a crucial role in flight planning and execution.\",\n    \"Modern aircraft are equipped with advanced avionics systems for navigation and communication.\",\n    \"Air traffic control guides pilots through crowded airspace to ensure safe flights.\",\n    \"Maintaining situational awareness is paramount for flight crew members.\",\n    \"Crew resource management techniques enhance teamwork and decision-making in aviation.\",\n    \"Emergency procedures are practiced regularly to ensure quick and effective responses.\",\n    \"Pilots rely on a combination of instruments and visual cues for navigation.\",",
+        "detail": "test._test_config",
+        "documentation": {}
+    },
+    {
+        "label": "partial_compliant_text",
+        "kind": 5,
+        "importPath": "test._test_config",
+        "description": "test._test_config",
+        "peekOfCode": "partial_compliant_text = []\nfor i in range(20):\n    for sentence in text.split(';'):\n        sentence = sentence.strip()\n        if sentence:\n            paragraph = [sentence] + random.sample(random_sentences, 3)\n            partial_compliant_text.append(' '.join(paragraph))\n# test data\nfull_compliant_text = [\"The Operator must guarantee the choice of a shared language(s) for communication among all flight crew members: (i) While on the flight deck during line operations; (ii) If the Operator operates passenger flights with cabin crew, between the flight crew and cabin crew during line operations; (iii) Throughout flight crew training and assessment exercises.\",\n    \"The Operator is required to ensure the adoption of a common language(s) for communication among all flight crew members: (i) On the flight deck during line operations; (ii) When the Operator conducts passenger flights with cabin crew, between the flight crew and cabin crew during line operations; (iii) Throughout flight crew training and assessment activities.\",",
+        "detail": "test._test_config",
+        "documentation": {}
+    },
+    {
+        "label": "full_compliant_text",
+        "kind": 5,
+        "importPath": "test._test_config",
+        "description": "test._test_config",
+        "peekOfCode": "full_compliant_text = [\"The Operator must guarantee the choice of a shared language(s) for communication among all flight crew members: (i) While on the flight deck during line operations; (ii) If the Operator operates passenger flights with cabin crew, between the flight crew and cabin crew during line operations; (iii) Throughout flight crew training and assessment exercises.\",\n    \"The Operator is required to ensure the adoption of a common language(s) for communication among all flight crew members: (i) On the flight deck during line operations; (ii) When the Operator conducts passenger flights with cabin crew, between the flight crew and cabin crew during line operations; (iii) Throughout flight crew training and assessment activities.\",\n    \"The Operator needs to ensure the selection of a common language(s) for communication among all flight crew members: (i) On the flight deck during line operations; (ii) If the Operator operates passenger flights with cabin crew, between the flight crew and cabin crew during line operations; (iii) During flight crew training and evaluation sessions.\",\n    \"The Operator should ensure the designation of a shared language(s) for use by all flight crew members for communication: (i) On the flight deck during line operations; (ii) If the Operator conducts passenger flights with cabin crew, between the flight crew and cabin crew during line operations; (iii) During flight crew training and assessment activities.\",\n    \"The Operator must ensure the establishment of a common language(s) for use by all flight crew members for communication: (i) On the flight deck during line operations; (ii) If the Operator carries out passenger flights with cabin crew, between the flight crew and cabin crew during line operations; (iii) During flight crew training and evaluation procedures.\",\n    \"The Operator is responsible for ensuring the selection of a common language(s) for communication among all flight crew members: (i) While on the flight deck during line operations; (ii) If the Operator conducts passenger flights with cabin crew, between the flight crew and cabin crew during line operations; (iii) During flight crew training and evaluation activities.\",\n    \"The Operator must ensure the appointment of a common language(s) for communication among all flight crew members: (i) On the flight deck during line operations; (ii) If the Operator operates passenger flights with cabin crew, between the flight crew and cabin crew during line operations; (iii) Throughout flight crew training and assessment sessions.\",\n    \"The Operator should ensure the designation of a shared language(s) for use by all flight crew members for communication: (i) On the flight deck during line operations; (ii) If the Operator conducts passenger flights with cabin crew, between the flight crew and cabin crew during line operations; (iii) During flight crew training and evaluation exercises.\",\n    \"The Operator is required to ensure the selection of a common language(s) for communication among all flight crew members: (i) While on the flight deck during line operations; (ii) If the Operator conducts passenger flights with cabin crew, between the flight crew and cabin crew during line operations; (iii) During flight crew training and assessment sessions.\",\n    \"The Operator needs to ensure the establishment of a common language(s) for communication among all flight crew members: (i) On the flight deck during line operations; (ii) If the Operator operates passenger flights with cabin crew, between the flight crew and cabin crew during line operations; (iii) During flight crew training and evaluation activities.\",",
+        "detail": "test._test_config",
+        "documentation": {}
+    },
+    {
+        "label": "non_compliant_text",
+        "kind": 5,
+        "importPath": "test._test_config",
+        "description": "test._test_config",
+        "peekOfCode": "non_compliant_text = [\n    \"In a faraway kingdom, there lived a beautiful princess named Aurora. She was cursed by an evil sorceress and fell into a deep sleep. Only true love's kiss could awaken her from her slumber. Many brave knights attempted to rescue her, but it was a humble peasant boy who ultimately broke the curse and saved the kingdom.\",\n    \"Once upon a time, there was a young boy named Jack who lived in a small village. Jack was known for his mischievous nature and his love for adventure. One day, he stumbled upon a mysterious map that led to a hidden treasure. Determined to find it, Jack embarked on a thrilling journey filled with danger and excitement.\",\n    \"In a faraway kingdom, there lived a beautiful princess named Aurora. She was cursed by an evil sorceress and fell into a deep sleep. Only true love's kiss could awaken her from her slumber. Many brave knights attempted to rescue her, but it was a humble peasant boy who ultimately broke the curse and saved the kingdom.\",\n    \"A group of friends decided to go on a camping trip deep into the forest. Little did they know, they would encounter a legendary creature that was said to haunt the woods. As they huddled around the campfire, sharing ghost stories, they heard rustling in the bushes. Suddenly, a giant creature emerged, but instead of attacking them, it began to dance and entertain them with its antics.\",\n    \"There was once a village that was plagued by a terrible drought. The crops withered, and the people were starving. In desperation, they turned to their wise elder for help. Through his guidance, they discovered a hidden underground spring that provided them with an endless supply of water. The village flourished once again, and they never forgot the lesson of perseverance and resourcefulness.\",\n    \"A young girl named Lily had always dreamed of becoming a famous painter. Despite her humble beginnings, she never gave up on her passion for art. With determination and hard work, she honed her skills and eventually gained recognition for her breathtaking paintings. Her story inspired many others to pursue their dreams, no matter how impossible they may seem.\",\n    \"In a bustling city, there was a street performer named Max who entertained passersby with his juggling skills. One day, a talent scout noticed his performance and offered him a chance to audition for a popular circus. Nervous but excited, Max wowed the judges with his act and secured a spot in the circus troupe. He traveled the world, bringing joy to audiences everywhere.\",\n    \"Deep in the ocean, there lived a curious mermaid named Marina. She longed to explore the world above the waves but was forbidden by her father, the king of the sea. Despite his warnings, Marina ventured to the surface and befriended a human prince. Together, they discovered the beauty of both land and sea, proving that friendship knows no boundaries.\",\n    \"In a magical forest, there was a tree that was said to grant wishes to those who could reach its highest branches. Many travelers attempted to climb the tree, but none succeeded. One day, a kind-hearted orphan girl stumbled upon the tree and made a selfless wish for the happiness of all living creatures. To her surprise, the tree began to glow, and her wish was granted.\",",
         "detail": "test._test_config",
         "documentation": {}
     },
@@ -4751,7 +4934,7 @@
         "kind": 5,
         "importPath": "test._test_config",
         "description": "test._test_config",
-        "peekOfCode": "example_prompt = '''The Flight Instructors, Check Airman and Examiners are considered to be the foundation and\nthe pillars on which the entire safe and efficient flight operations stand.\nCareful selection system for Instructor Pilot, Check Airman and Examiners is developed to\nensure a high standard product of the training and checking process. The Instructor Pilot must\nbe basically a Role Model.\nThe initial selection therefore shall be based on many factors, included but not limited to:\n1) Desire to do the job.\n2) Self-discipline.\n3) Experience and proficiency.\n4) High standard of aviation knowledge.",
+        "peekOfCode": "example_prompt = \"\"\"The Flight Instructors, Check Airman and Examiners are considered to be the foundation and\nthe pillars on which the entire safe and efficient flight operations stand.\nCareful selection system for Instructor Pilot, Check Airman and Examiners is developed to\nensure a high standard product of the training and checking process. The Instructor Pilot must\nbe basically a Role Model.\nThe initial selection therefore shall be based on many factors, included but not limited to:\n1) Desire to do the job.\n2) Self-discipline.\n3) Experience and proficiency.\n4) High standard of aviation knowledge.",
         "detail": "test._test_config",
         "documentation": {}
     },
@@ -4778,7 +4961,7 @@
         "kind": 5,
         "importPath": "main",
         "description": "main",
-        "peekOfCode": "server = FastAPI(\n    title=os.environ['SERVER_NAME'],\n    description='enhanche route fixed',\n    version=\"0.37.12\",\n    lifespan=lifespan,\n)\nserver.add_middleware(\n    CORSMiddleware,\n    allow_origins=['*'],\n    allow_methods=['*'],",
+        "peekOfCode": "server = FastAPI(\n    title=os.environ['SERVER_NAME'],\n    description='Fix seeder',\n    version=\"0.38.3\",\n    lifespan=lifespan,\n)\nserver.add_middleware(\n    CORSMiddleware,\n    allow_origins=['*'],\n    allow_methods=['*'],",
         "detail": "main",
         "documentation": {}
     }

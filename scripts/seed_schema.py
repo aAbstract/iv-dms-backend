@@ -44,7 +44,7 @@ commands = [
 ]
 
 for command in commands:
-    run(command)
+    run(command, shell=True, check=True)
 
 # main
 client = pymongo.MongoClient(
