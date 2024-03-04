@@ -131,7 +131,7 @@ async def delete_fs_index_entry(fs_index: str, organization: str) -> ServiceResp
 
 
 async def rename_fs_index_entry(
-    fs_index: str, organization: str, new_name: str
+    fs_index: str, organization: str, file_name: str
 ) -> ServiceResponse:
     bson_id = validate_bson_id(fs_index)
     if not bson_id:
@@ -154,7 +154,7 @@ async def rename_fs_index_entry(
             msg="Your organization can't access this file",
         )
 
-    if not new_name:
+    if not file_name:
         return ServiceResponse(
             success=False,
             status_code=400,
@@ -165,7 +165,7 @@ async def rename_fs_index_entry(
     result = (
         await get_database()
         .get_collection("fs_index")
-        .update_one({"_id": bson_id}, {"$set": {"filename": new_name}})
+        .update_one({"_id": bson_id}, {"$set": {"filename": file_name}})
     )
 
     if not result.acknowledged:

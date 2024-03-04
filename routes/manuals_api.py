@@ -171,7 +171,7 @@ async def delete_manual(res: Response, fs_index: str = Body(embed=True), x_auth=
     )
     # TODO-LATER: remove file from ChatDOC cloud
 @router.post(f"{_ROOT_ROUTE}/rename-manual")
-async def rename_manual(res: Response, fs_index: str = Body(embed=True),new_name: str = Body(embed=True), x_auth=Header(alias='X-Auth', default=None)):
+async def rename_manual(res: Response, fs_index: str = Body(embed=True),file_name: str = Body(embed=True), x_auth=Header(alias='X-Auth', default=None)):
     """ rename an airlines manual from database."""
     func_id = f"{_MODULE_ID}.rename_manual"
 
@@ -185,7 +185,7 @@ async def rename_manual(res: Response, fs_index: str = Body(embed=True),new_name
         )
     await log_man.add_log(func_id, 'DEBUG', f"received rename manual request: username={auth_service_response.data['token_claims']['username']},organization={auth_service_response.data['token_claims']['organization']}, fs_index={fs_index}")
 
-    fs_service_response = await fs_index_database_api.rename_fs_index_entry(fs_index, auth_service_response.data['token_claims']['organization'],new_name)
+    fs_service_response = await fs_index_database_api.rename_fs_index_entry(fs_index, auth_service_response.data['token_claims']['organization'],file_name)
     res.status_code = fs_service_response.status_code
     return JsonResponse(
         success=fs_service_response.success,

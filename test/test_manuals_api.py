@@ -316,7 +316,7 @@ def test_rename_manual_fs_index():
     # rename manual
     http_headers = {'X-Auth': f"Bearer {admin_access_token}"}
     api_url = f"{_test_config.get_api_url()}/manuals/rename-manual"
-    http_res = requests.post(api_url, headers=http_headers, json={'fs_index': file_id,"new_name":"TestNewName"})
+    http_res = requests.post(api_url, headers=http_headers, json={'fs_index': file_id,"file_name":"TestNewName"})
     assert http_res.status_code == 200
     json_res_body = json.loads(http_res.content.decode())
     assert (json_res_body['success'] and json_res_body['msg'] == 'OK')
