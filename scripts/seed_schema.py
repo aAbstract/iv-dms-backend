@@ -101,6 +101,15 @@ seed_users = [
         email="sam@aerosync.com",
         organization="AeroSync",
     ),
+    User(
+        username="mahmoud",
+        disp_name="Mahmoud Gabr",
+        pass_hash="86d74596bb4c2f6b63ae7c09c212a7ed824ab15371ec06a2126dffc3aaa191659478e432c458d5b6a7c0b21b5bf2120c91480c27e78cf94935135d8c022f42f7",
+        user_role=UserRole.ADMIN,
+        phone_number="+201279227552",
+        email="mahmoudGabr@aerosync.com",
+        organization="AeroSync",
+    ),
 ]
 
 # regulations schema
