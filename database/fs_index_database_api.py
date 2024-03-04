@@ -131,11 +131,16 @@ async def delete_fs_index_entry(fs_index: str, organization: str) -> ServiceResp
 
 
 async def rename_fs_index_entry(
-    doc_uuid: str, organization: str, new_name: str
+    fs_index: str, organization: str, new_name: str
 ) -> ServiceResponse:
+    bson_id = validate_bson_id(fs_index)
+    if not bson_id:
+        return ServiceResponse(success=False, msg='Bad flow report ID', status_code=400)
+
+
     # fetch entry from database
     fs_index_entry = (
-        await get_database().get_collection("fs_index").find_one({"doc_uuid": doc_uuid})
+        await get_database().get_collection("fs_index").find_one({"_id": bson_id})
     )
     if not fs_index_entry:
         return ServiceResponse(
@@ -153,14 +158,14 @@ async def rename_fs_index_entry(
         return ServiceResponse(
             success=False,
             status_code=400,
-            msg="You can't rename the file to and empty name",
+            msg="You can't rename the file to an empty name",
         )
 
     # rename fs index filename attribute
     result = (
         await get_database()
         .get_collection("fs_index")
-        .update_one({"doc_uuid": doc_uuid}, {"$set": {"filename": new_name}})
+        .update_one({"_id": bson_id}, {"$set": {"filename": new_name}})
     )
 
     if not result.acknowledged:

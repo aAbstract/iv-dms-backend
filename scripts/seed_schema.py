@@ -35,6 +35,8 @@ from models.flow_reports import *
 # autopep8: on
 
 # seed manual files
+# change these to python instead of python3 when using in your machine
+# set back to pyhton3 for the linux dev server
 commands = [
     "python3 scripts/parse_iosa_section.py",
     "python3 scripts/parse_manual_nesma.py",
@@ -42,6 +44,13 @@ commands = [
     "python3 scripts/parse_manual_RXI_EMERGENCY_RESPONSE.py",
     "python3 scripts/parse_manual_RXI_FLIGHT_DATA_ANALYSIS_PROGRAM.py",
 ]
+# commands = [
+#     "python scripts/parse_iosa_section.py",
+#     "python scripts/parse_manual_nesma.py",
+#     "python scripts/parse_manual_RXI_DANGEROUS_GOODS.py",
+#     "python scripts/parse_manual_RXI_EMERGENCY_RESPONSE.py",
+#     "python scripts/parse_manual_RXI_FLIGHT_DATA_ANALYSIS_PROGRAM.py",
+# ]
 
 for command in commands:
     os.system(command)
