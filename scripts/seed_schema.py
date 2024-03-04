@@ -43,6 +43,8 @@ commands = [
     "python3 scripts/parse_manual_RXI_DANGEROUS_GOODS.py",
     "python3 scripts/parse_manual_RXI_EMERGENCY_RESPONSE.py",
     "python3 scripts/parse_manual_RXI_FLIGHT_DATA_ANALYSIS_PROGRAM.py",
+    "python3 scripts/parse_manual_RXI_CORPORATE_SAFETY_MANAGEMENT_MANUAL.py",
+    "python3 scripts/parse_manual_RXI_OPERATIONS_MANUAL_PART_C.py",
 ]
 # commands = [
 #     "python scripts/parse_iosa_section.py",
@@ -50,6 +52,8 @@ commands = [
 #     "python scripts/parse_manual_RXI_DANGEROUS_GOODS.py",
 #     "python scripts/parse_manual_RXI_EMERGENCY_RESPONSE.py",
 #     "python scripts/parse_manual_RXI_FLIGHT_DATA_ANALYSIS_PROGRAM.py",
+#     "python scripts/parse_manual_RXI_CORPORATE_SAFETY_MANAGEMENT_MANUAL.py",
+#     "python scripts/parse_manual_RXI_OPERATIONS_MANUAL_PART_C.py",
 # ]
 
 for command in commands:
@@ -631,6 +635,17 @@ def seed_routine():
             "file_name":"RXI_FLIGHT_DATA_ANALYSIS_PROGRAM",
             "parent": "RXI Flight Data Analysis Program_30.01.24.pdf",
         },
+        {
+            "path": r"data/RXI_CORPORATE_SAFETY_MANAGEMENT_MANUAL/",
+            "file_name":"RXI_CORPORATE_SAFETY_MANAGEMENT_MANUAL",
+            "parent": "RXI Corporate Safety Management Manual Ver.0 - 18 DEC 23.pdf",
+        },
+        {
+            "path": r"data/RXI_OPERATIONS_MANUAL_PART_C/",
+            "file_name":"RXI_OPERATIONS_MANUAL_PART_C",
+            "parent": "RXI OMC _08.02.24.pdf",
+        },
+        
     ]
     for manual in custom_manuals:
         f = open(manual['path']+manual['file_name']+"_second_metadata_tree.json", "r")

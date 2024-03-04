@@ -1,0 +1,256 @@
+[
+  {
+    "filename": "data/RXI_OPERATIONS_MANUAL_PART_C/RXI_OPERATIONS_MANUAL_PART_C_ch0.pdf",
+    "chapter_title": "0 FRONT MATTER",
+    "start_page": 0,
+    "toc_pages": [2, 3, 4, 5, 6],
+    "toc_info": [
+      ["0.1 TABLE OF CONTENTS", 3],
+      ["0.2 REVISION HIGHLIGHTS", 9],
+      ["0.3 RECORD OF REVISIONS", 11],
+      ["0.4 RECORD OF OPERATIONS MANUAL NOTICE (OMN)", 13],
+      ["0.5 LIST OF EFFECTIVE PAGES", 15],
+      ["0.6 LIST OF TABLES", 23],
+      ["0.7 LIST OF FIGURES", 25],
+      ["0.8 LIST OF COMPLIANCE ENTRIES", 27],
+      ["0.9 MANAGEMENT APPROVAL", 29],
+      ["0.10 GACA APPROVAL", 31],
+      ["0.11 INTRODUCTION", 33],
+      ["0.11.1 POLICY", 33],
+      ["0.11.2 APPLICABILITY", 33],
+      ["0.11.3 COMMON LANGUAGE", 33],
+      ["0.11.4 USAGE OF TERMS", 33],
+      ["0.11.5 HUMAN FACTOR PRINCIPLES", 33],
+      ["0.11.6 APPLICABLE REGULATIONS AND STANDARDS", 34],
+      ["0.12 ABBREVIATIONS, ACRONYMS AND DEFINITIONS", 35],
+      ["0.12.1 ABBREVIATIONS AND ACRONYMS", 35],
+      ["0.12.2 DEFINITIONS", 40],
+      ["0.13 SYSTEM OF AMENDMENT AND REVISION", 45]
+    ]
+  },
+  {
+    "filename": "data/RXI_OPERATIONS_MANUAL_PART_C/RXI_OPERATIONS_MANUAL_PART_C_ch1.pdf",
+    "chapter_title": "1 MINIMUM FLIGHT LEVEL / ALTITUDE",
+    "start_page": 0,
+    "toc_pages": [2, 3, 4, 5, 6],
+    "toc_info": [
+      ["1.1 AERONAUTICAL CHARTS", 1],
+      ["1.2 OPERATIONAL FLIGHT PLAN", 2],
+      ["1.2.1 ENROUTE", 2],
+      ["1.2.2 TERMINAL AREA", 2],
+      ["1.2.3 TEMPERATURE CORRECTIONS", 2],
+      ["1.2.4 ABNORMAL OPERATIONS", 2]
+    ]
+  },
+  {
+    "filename": "data/RXI_OPERATIONS_MANUAL_PART_C/RXI_OPERATIONS_MANUAL_PART_C_ch10.pdf",
+    "chapter_title": "10 AERODROME CATEGORIZATION",
+    "start_page": 0,
+    "toc_pages": [2, 3, 4, 5, 6],
+    "toc_info": [
+      ["10.1 CATEGORY A AERODROME", 1],
+      ["10.2 CATEGORY B AERODROME", 2],
+      ["10.3 CATEGORY C AERODROME (SPECIAL AERODROME)", 3],
+      ["10.4 CREW QUALIFICATION, BRIEFING AND TRAINING REQUIREMENTS", 4]
+    ]
+  },
+  {
+    "filename": "data/RXI_OPERATIONS_MANUAL_PART_C/RXI_OPERATIONS_MANUAL_PART_C_ch11.pdf",
+    "chapter_title": "11 ROUTE AND AERODROME INFORMATION",
+    "start_page": 0,
+    "toc_pages": [2, 3, 4, 5, 6],
+    "toc_info": [
+      ["11.1 ROUTE INFORMATION", 1],
+      ["11.2 AERODROME CLASSIFICATION", 2],
+      ["11.2.1 DESTINATION AERODROMES", 3],
+      ["11.2.2 ALTERNATE AERODROMES", 3],
+      ["11.2.3 EMERGENCY AERODROMES", 4],
+      ["11.3 AERODROME AUTHORIZATION", 5],
+      ["11.3.1 CATEGORY C (SPECIAL AERODROME) AUTHORIZATION", 5],
+      ["11.3.2 ISOLATED AERODROME AUTHORIZATION", 5],
+      ["11.3.3 REQUIRED NAVIGATION PERFORMANCE - (RNP - AR) - AUTHORIZED AERODROMES", 5],
+      ["11.3.4 AERODROME DATA AND AUTHORIZATION TABLE", 5],
+      ["11.4 AREA BRIEFINGS", 7],
+      ["11.4.1 AFRICA", 7],
+      ["11.4.2 ASIA", 10],
+      ["11.4.3 EUROPE", 16]
+    ]
+  },
+  {
+    "filename": "data/RXI_OPERATIONS_MANUAL_PART_C/RXI_OPERATIONS_MANUAL_PART_C_ch12.pdf",
+    "chapter_title": "12 DRIFTDOWN / DEPRESSURIZATION",
+    "start_page": 0,
+    "toc_pages": [2, 3, 4, 5, 6],
+    "toc_info": [
+      ["12.1 DRIFTDOWN", 1],
+      ["12.1.1 DRIFTDOWN PROFILE", 1],
+      ["12.2 DEPRESSURIZATION", 3],
+      ["12.2.1 DEPRESSURIZATION PROFILE", 3],
+      ["12.3 AREA BASED AND NONSTANDARD DRIFTDOWN / DEPRESSURIZATION", 4]
+    ]
+  },
+  {
+    "filename": "data/RXI_OPERATIONS_MANUAL_PART_C/RXI_OPERATIONS_MANUAL_PART_C_ch13.pdf",
+    "chapter_title": "13 COMPANY AIRSPACE RESTRICTIONS",
+    "start_page": 0,
+    "toc_pages": [2, 3, 4, 5, 6],
+    "toc_info": [
+      ["13.1 AFRICA", 1],
+      ["13.2 ASIA", 3],
+      ["13.3 EUROPE", 4],
+      ["13.4 MIDDLE EAST", 5]
+    ]
+  },
+  {
+    "filename": "data/RXI_OPERATIONS_MANUAL_PART_C/RXI_OPERATIONS_MANUAL_PART_C_ch14.pdf",
+    "chapter_title": "14 ADVERSE WEATHER",
+    "start_page": 0,
+    "toc_pages": [2, 3, 4, 5, 6],
+    "toc_info": [
+      ["14.1 HIGH DENSITY ALTITUDE OPERATION", 1],
+      ["14.1.1 GENERAL INFORMATION", 1],
+      ["14.1.2 PRE-DEPARTURE", 1],
+      ["14.1.3 CALCULATION OF LANDING LIMITED WEIGHT", 2],
+      ["14.2 COLD WEATHER OPERATIONS", 3],
+      ["14.2.1 COLD SOAKED FUEL AND UPPER WING ICE", 3],
+      ["14.2.2 ALTITUDE CORRECTIONS", 3]
+    ]
+  },
+  {
+    "filename": "data/RXI_OPERATIONS_MANUAL_PART_C/RXI_OPERATIONS_MANUAL_PART_C_ch15.pdf",
+    "chapter_title": "15 EMERGENCY",
+    "start_page": 0,
+    "toc_pages": [2, 3, 4, 5, 6],
+    "toc_info": [
+      ["15.1 COMMUNICATION FAILURE", 1],
+      ["15.2 UNLAWFUL INTERFERENCE", 2],
+      ["15.3 EMERGENCY DESCENT", 3],
+      ["15.4 DISTRESS AND URGENCY COMMUNICATIONS", 4],
+      ["15.5 INTERCEPTION", 5]
+    ]
+  },
+  {
+    "filename": "data/RXI_OPERATIONS_MANUAL_PART_C/RXI_OPERATIONS_MANUAL_PART_C_ch2.pdf",
+    "chapter_title": "2 OPERATING MINIMA FOR DEPARTURE, DESTINATION AND ALTERNATE AERODROMES",
+    "start_page": 0,
+    "toc_pages": [2, 3, 4, 5, 6],
+    "toc_info": [["2.1 Operating MINIMA FRO DEPARTURE, DESTINATION AND ALTERNATE AERODROMES", 1]]
+  },
+  {
+    "filename": "data/RXI_OPERATIONS_MANUAL_PART_C/RXI_OPERATIONS_MANUAL_PART_C_ch3.pdf",
+    "chapter_title": "3 COMMUNICATION FACILITIES AND NAVIGATION AIDS",
+    "start_page": 0,
+    "toc_pages": [2, 3, 4, 5, 6],
+    "toc_info": [
+      ["3.1 COMMUNICATIONS SERVICE PROVIDER", 1],
+      ["3.2 AIRCRAFT EQUIPMENT", 2],
+      ["3.3 AIRCRAFT CAPABILITY", 3],
+      ["3.4 AIR TRAFFIC SERVICES (ATS)", 4],
+      ["3.5 PERFORMANCE BASED COMMUNICATIONS AND SURVEILLANCE (PBCS)", 5],
+      ["3.6.1 ADS-B (AUTOMATIC DEPENDENT SURVEILLANCE -BROADCAST)", 6],
+      ["3.6.2 ADS-C (AUTOMATIC DEPENDENT SURVEILLANCE -CONTRACT)", 6],
+      ["3.6.3 FLIGHT PLAN AND OPERATIONAL REQUIREMENTS", 7],
+      ["3.7 FUTURE AIR NAVIGATION SYSTEMS (FANS)", 8],
+      ["3.8 CONTROLLER PILOT DATALINK COMMUNICATIONS (CPDLC)", 9],
+      ["3.8.1 PRE-DEPARTURE CLEARANCES (PDC)", 9],
+      ["3.8.2 DEPARTURE CLEARANCE (DCL)", 9],
+      ["3.8.3 CPDLC DCL", 9],
+      ["3.9 DIGITAL ATIS/ VOLMET", 10],
+      ["3.10 COMPANY COMMUNICATIONS", 11],
+      ["3.11 SELCAL", 12],
+      ["3.11.1 AIRCRAFT SELCAL CODES", 12],
+      ["3.12 SURVEILLANCE", 13],
+      ["3.12.1 FLIGHT FOLLOWING", 13],
+      ["3.12.2 FLIGHT MONITORING", 13],
+      ["3.12.3 AIRCRAFT TRACKING", 13]
+    ]
+  },
+  {
+    "filename": "data/RXI_OPERATIONS_MANUAL_PART_C/RXI_OPERATIONS_MANUAL_PART_C_ch4.pdf",
+    "chapter_title": "4 RUNWAY DATA AND AERODROME FACILITIES",
+    "start_page": 0,
+    "toc_pages": [2, 3, 4, 5, 6],
+    "toc_info": [
+      ["4.1 AERODROME REFERENCE CODE", 1],
+      ["4.2 RUNWAY REQUIREMENTS", 2],
+      ["4.3 MINIMUM PAVEMENT STRENGTH", 3],
+      ["4.4 RUNWAY PERFORMANCE CALCULATION", 4],
+      ["4.4.1 GLOBAL REPORTING FORMAT (GRF)", 4]
+    ]
+  },
+  {
+    "filename": "data/RXI_OPERATIONS_MANUAL_PART_C/RXI_OPERATIONS_MANUAL_PART_C_ch5.pdf",
+    "chapter_title": "5 APPROACH, MISSED APPROACH AND DEPARTURE PROCESDURES AND NOICE ABATEMENT",
+    "start_page": 0,
+    "toc_pages": [2, 3, 4, 5, 6],
+    "toc_info": [
+      ["5.1 CHART LEGENDS AND SYMBOLS", 1],
+      ["5.2 CUSTOMIZED CHARTS", 2],
+      ["5.3 DUPLICATE PROCEDURE IDENTIFICATION", 3],
+      ["5.4 DISPLACED THRESHOLD -  GUIDANCE TABLE", 4]
+    ]
+  },
+  {
+    "filename": "data/RXI_OPERATIONS_MANUAL_PART_C/RXI_OPERATIONS_MANUAL_PART_C_ch6.pdf",
+    "chapter_title": "6 COMMUNICATION FAILURE PROCEDURES",
+    "start_page": 0,
+    "toc_pages": [2, 3, 4, 5, 6],
+    "toc_info": [
+      ["6.1 ENROUTE", 1],
+      ["6.2 TERMINAL AREA", 2]
+    ]
+  },
+  {
+    "filename": "data/RXI_OPERATIONS_MANUAL_PART_C/RXI_OPERATIONS_MANUAL_PART_C_ch7.pdf",
+    "chapter_title": "7 SEARCH AND RESCUE FACILITIES",
+    "start_page": 0,
+    "toc_pages": [2, 3, 4, 5, 6],
+    "toc_info": [["7.1 SEARCH AND RESCUE FACILITIES", 1]]
+  },
+  {
+    "filename": "data/RXI_OPERATIONS_MANUAL_PART_C/RXI_OPERATIONS_MANUAL_PART_C_ch8.pdf",
+    "chapter_title": "8 AERONAUTICAL INFORMATION",
+    "start_page": 0,
+    "toc_pages": [2, 3, 4, 5, 6],
+    "toc_info": [
+      ["8.1 STRUCTURE AND CONTENTS OF THE AIP", 1],
+      ["8.2 THE AIRAC CYCLE", 2],
+      ["8.2.1 SIGNIFICANT DATES", 2],
+      ["8.2.2 EFFECTIVE DATES", 3],
+      ["8.3 DISTRIBUTION OF AERONAUTICAL DATA", 4],
+      ["8.3.1 LIDO FLIGHT PLANNING SYSTEM", 4],
+      ["8.3.2 DIGITAL CHARTS AND MANUALS", 4],
+      ["8.3.3 BOEING - ONBOARD PERFORMANCE TOOL (OPT)", 4],
+      ["8.4 SPECIAL CREW BRIEFING (SCB)", 5],
+      ["8.4.1 SCENARIOS FOR ISSUE OF A SCB", 5],
+      ["8.4.2 SCB CONTENTS GUIDANCE", 5],
+      ["8.4.3 DISTRIBUTION AND ACCESS", 6],
+      ["8.4.4 SPECIAL CREW BRIEF SAMPLE", 7],
+      ["8.5 COMPANY AND CREW INFORMATION BRIEFINGS (CCI)", 9],
+      ["8.5.1 CCI CONTENTS GUIDANCE", 9],
+      ["8.6 OFP FORMAT AND DESCRIPTION", 10],
+      ["8.6.1 MAIN OFP", 10],
+      ["8.6.2 INFO OFP", 11],
+      ["8.6.3 SUMMARY OFP", 11]
+    ]
+  },
+  {
+    "filename": "data/RXI_OPERATIONS_MANUAL_PART_C/RXI_OPERATIONS_MANUAL_PART_C_ch9.pdf",
+    "chapter_title": "9 CHARTS MANUALS AND NAVIGATION DATABASES",
+    "start_page": 0,
+    "toc_pages": [2, 3, 4, 5, 6],
+    "toc_info": [
+      ["9.1 DIGITAL CHARTS PROVISIONS", 1],
+      ["9.1.1 DIGITAL CHARTS AMENDMENT CYCLE", 1],
+      ["9.1.2 DIGITAL CHARTS ERRORS", 1],
+      ["9.2 PAPER CHARTS PROVISION", 2],
+      ["9.3 ROUTE MANUAL", 3],
+      ["9.4 JEPPESEN FLITEDECK PRO X", 4],
+      ["9.5 MANDATORY USAGE POLICY", 5],
+      ["9.6 FLIGHT MANAGEMENT SYSTEM NAVIGATIONS DATABASE", 6],
+      ["9.6.1 NAVIGATION DATABASE SELECTION", 6],
+      ["9.6.2 EGPWS TERRAIN DATABASE VALIDATION", 6],
+      ["9.6.3 NAVIGATION DATABASE ERRORS", 6]
+    ]
+  }
+]
