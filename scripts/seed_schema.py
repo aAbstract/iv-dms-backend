@@ -36,15 +36,15 @@ from models.flow_reports import *
 
 # seed manual files
 commands = [
-    ['python',"scripts/parse_iosa_section.py"],
-    ['python',"scripts/parse_manual_nesma.py"],
-    ['python',"scripts/parse_manual_RXI_DANGEROUS_GOODS.py"],
-    ['python',"scripts/parse_manual_RXI_EMERGENCY_RESPONSE.py"],
-    ['python',"scripts/parse_manual_RXI_FLIGHT_DATA_ANALYSIS_PROGRAM.py"],
+    "python scripts/parse_iosa_section.py",
+    "python scripts/parse_manual_nesma.py",
+    "python scripts/parse_manual_RXI_DANGEROUS_GOODS.py",
+    "python scripts/parse_manual_RXI_EMERGENCY_RESPONSE.py",
+    "python scripts/parse_manual_RXI_FLIGHT_DATA_ANALYSIS_PROGRAM.py",
 ]
 
 for command in commands:
-    run(command, shell=True, check=True)
+    os.system(command)
 
 # main
 client = pymongo.MongoClient(
