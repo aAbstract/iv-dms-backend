@@ -310,16 +310,6 @@ async def iosa_enhance_text(gpt35t_context: GPT35TContext) -> ServiceResponse:
     if 'NEW_COMPLIANCE_TAG' not in gpt35t_resp:
         return ServiceResponse(success=False, status_code=503, msg='Missing NEW_COMPLIANCE_TAG Key')
     
-    re_matches_text = re.search(r"MODIFIED_TEXT:(.*)?", gpt35t_resp)
-    if not re_matches_text:
-        if int(os.environ['LLM_DEBUG']):
-            print('=' * 100)
-            print(gpt35t_resp)
-            print('=' * 100)
-        return ServiceResponse(success=False, status_code=503, msg='Failed to Compute Generated Text')
-    text = re_matches_text.group()
-    text = re.sub(r"MODIFIED_TEXT:","",text).strip()
-    
     re_matches_score = re.search(r'NEW_COMPLIANCE_SCORE:\s+(\d{1,3})|\*\*NEW_COMPLIANCE_SCORE:\*\*\s+(\d{1,3})', gpt35t_resp)
     re_matches_tag = re.search(r'NEW_COMPLIANCE_TAG:(\**)\s+Non Compliant|NEW_COMPLIANCE_TAG:(\**)\s+Partially Compliant|NEW_COMPLIANCE_TAG:(\**)\s+Fully Compliant', gpt35t_resp)
 
@@ -343,12 +333,15 @@ async def iosa_enhance_text(gpt35t_context: GPT35TContext) -> ServiceResponse:
         return ServiceResponse(success=False, status_code=503, msg='Failed to Compute Compliance Tag')
     ovcomp_tag = str(re_matches_tag)
 
-    re_matches_score = re_matches_score.groups()
-    first_match = next((x for x in re_matches_score if x is not None), None)
+    re_groups_score = re_matches_score.groups()
+    first_match = next((x for x in re_groups_score if x is not None), None)
     if not first_match:
         return ServiceResponse(success=False, status_code=503, msg='Failed to Compute Compliance Score')
     ovcomp_score = int(first_match)
 
+    # remove the scores and tags from the response text
+    text = gpt35t_resp[:re_matches_score.span()[0]]
+    text = re.sub(r"MODIFIED_TEXT:","",text).strip()
 
     return ServiceResponse(data={
         'llm_resp': text,
@@ -390,16 +383,6 @@ async def iosa_generate_text(iosa_item: IOSAItem) -> ServiceResponse:
     if 'OVERALL_COMPLIANCE_TAG' not in gpt35t_resp:
         return ServiceResponse(success=False, status_code=503, msg='Missing OVERALL_COMPLIANCE_TAG Key')
 
-    re_matches_text = re.search(r"NEW_TEXT:(.*)?", gpt35t_resp)
-    if not re_matches_text:
-        if int(os.environ['LLM_DEBUG']):
-            print('=' * 100)
-            print(gpt35t_resp)
-            print('=' * 100)
-        return ServiceResponse(success=False, status_code=503, msg='Failed to Compute Generated Text')
-    text = re_matches_text.group()
-    text = re.sub(r"NEW_TEXT:","",text).strip()
-
     re_matches_score = re.search(r'OVERALL_COMPLIANCE_SCORE:\s+(\d{1,3})|\*\*OVERALL_COMPLIANCE_SCORE:\*\*\s+(\d{1,3})', gpt35t_resp)
     re_matches_tag = re.search(r'OVERALL_COMPLIANCE_TAG:(\**)\s+Non Compliant|OVERALL_COMPLIANCE_TAG:(\**)\s+Partially Compliant|OVERALL_COMPLIANCE_TAG:(\**)\s+Fully Compliant', gpt35t_resp)
 
@@ -423,11 +406,16 @@ async def iosa_generate_text(iosa_item: IOSAItem) -> ServiceResponse:
         return ServiceResponse(success=False, status_code=503, msg='Failed to Compute Compliance Tag')
     ovcomp_tag = str(re_matches_tag)
 
-    re_matches_score = re_matches_score.groups()
-    first_match = next((x for x in re_matches_score if x is not None), None)
+    re_groups_score = re_matches_score.groups()
+    first_match = next((x for x in re_groups_score if x is not None), None)
     if not first_match:
         return ServiceResponse(success=False, status_code=503, msg='Failed to Compute Compliance Score')
     ovcomp_score = int(first_match)
+
+    # remove the scores and tags from the response text
+    text = gpt35t_resp[:re_matches_score.span()[0]]
+
+    text = re.sub(r"NEW_TEXT:","",text).strip()
 
     return ServiceResponse(data={
         'llm_resp': text,
