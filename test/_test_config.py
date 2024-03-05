@@ -135,66 +135,166 @@ full_compliant_text = ["The Operator must guarantee the choice of a shared langu
     "Ensuring effective communication among flight crew members is essential for operational safety. Therefore, the Operator must designate a common language(s): (i) While on the flight deck during line operations; (ii) If the Operator operates passenger flights with cabin crew, between the flight crew and cabin crew during line operations; (iii) During flight crew training and evaluation procedures. Additionally, providing language immersion programs can enhance fluency and comprehension.",
 ]
 non_compliant_text = [
-    "In a faraway kingdom, there lived a beautiful princess named Aurora. She was cursed by an evil sorceress and fell into a deep sleep. Only true love's kiss could awaken her from her slumber. Many brave knights attempted to rescue her, but it was a humble peasant boy who ultimately broke the curse and saved the kingdom.",
-    "Once upon a time, there was a young boy named Jack who lived in a small village. Jack was known for his mischievous nature and his love for adventure. One day, he stumbled upon a mysterious map that led to a hidden treasure. Determined to find it, Jack embarked on a thrilling journey filled with danger and excitement.",
-    "In a faraway kingdom, there lived a beautiful princess named Aurora. She was cursed by an evil sorceress and fell into a deep sleep. Only true love's kiss could awaken her from her slumber. Many brave knights attempted to rescue her, but it was a humble peasant boy who ultimately broke the curse and saved the kingdom.",
-    "A group of friends decided to go on a camping trip deep into the forest. Little did they know, they would encounter a legendary creature that was said to haunt the woods. As they huddled around the campfire, sharing ghost stories, they heard rustling in the bushes. Suddenly, a giant creature emerged, but instead of attacking them, it began to dance and entertain them with its antics.",
-    "There was once a village that was plagued by a terrible drought. The crops withered, and the people were starving. In desperation, they turned to their wise elder for help. Through his guidance, they discovered a hidden underground spring that provided them with an endless supply of water. The village flourished once again, and they never forgot the lesson of perseverance and resourcefulness.",
-    "A young girl named Lily had always dreamed of becoming a famous painter. Despite her humble beginnings, she never gave up on her passion for art. With determination and hard work, she honed her skills and eventually gained recognition for her breathtaking paintings. Her story inspired many others to pursue their dreams, no matter how impossible they may seem.",
-    "In a bustling city, there was a street performer named Max who entertained passersby with his juggling skills. One day, a talent scout noticed his performance and offered him a chance to audition for a popular circus. Nervous but excited, Max wowed the judges with his act and secured a spot in the circus troupe. He traveled the world, bringing joy to audiences everywhere.",
-    "Deep in the ocean, there lived a curious mermaid named Marina. She longed to explore the world above the waves but was forbidden by her father, the king of the sea. Despite his warnings, Marina ventured to the surface and befriended a human prince. Together, they discovered the beauty of both land and sea, proving that friendship knows no boundaries.",
-    "In a magical forest, there was a tree that was said to grant wishes to those who could reach its highest branches. Many travelers attempted to climb the tree, but none succeeded. One day, a kind-hearted orphan girl stumbled upon the tree and made a selfless wish for the happiness of all living creatures. To her surprise, the tree began to glow, and her wish was granted.",
-    "A young prince was cursed by an evil witch and turned into a frog. He wandered the land in search of someone who could break the curse and restore him to his human form. Along the way, he encountered many challenges and obstacles, but with the help of a brave princess, he defeated the witch and regained his true identity.",
-    "In a distant galaxy, there was a space explorer named Nova who traveled the cosmos in search of new worlds and civilizations. Along the way, she encountered alien species and faced perilous challenges. Despite the dangers, Nova remained fearless and adventurous, always eager to uncover the mysteries of the universe.",
-    "Once upon a time, there was a magical book that contained the secrets of the universe. Many sought to possess its power, but only the pure of heart could unlock its true potential. A humble librarian stumbled upon the book and, with wisdom and compassion, used its knowledge to bring peace and harmony to the world.",
-    "In a kingdom ruled by an unjust king, there was a group of rebels who fought for freedom and equality. Led by a fearless warrior named Robin, they stole from the rich and gave to the poor, earning the love and admiration of the common people. Their bravery inspired others to stand up against tyranny and injustice.",
-    "A young girl named Emily discovered a hidden portal in her backyard that led to a magical realm. There, she met creatures beyond her wildest imagination and embarked on a quest to save the realm from an ancient evil. With the help of her newfound friends, Emily embraced her inner strength and became the hero she was always destined to be.",
-    "Once upon a time, there was a village where the sun never set. The people lived in perpetual daylight, and the crops flourished year-round. But one day, the sun began to fade, and darkness threatened to consume the land. The villagers banded together and embarked on a journey to reignite the sun and restore light to their world.",
-    "In a kingdom where music was forbidden, there was a young musician named Alex who dared to defy the king's decree. With his enchanted flute, he enchanted the hearts of all who heard his melodies and inspired them to rebel against the oppressive regime. Through the power of music, Alex brought joy and freedom to his people.",
-    "A group of explorers set out to discover the fabled city of Atlantis, said to be hidden beneath the sea. After years of searching, they finally stumbled upon its ruins and unlocked its secrets. Among the treasures they found was a device that could control the oceans themselves, which they used to protect the world from environmental destruction.",
-    "Once upon a time, there was a kingdom where the seasons were out of balance. Winter lasted for years, while summer never came. The people suffered, and the land became barren. But a brave adventurer named Maya journeyed to the ends of the earth to find the source of the imbalance and restore harmony to the seasons.",
-    "In a world where magic was forbidden, there was a young sorceress named Elara who possessed incredible powers. Hunted by the king's soldiers, she fled into the wilderness, where she discovered a hidden sanctuary for magic users like herself. Together, they vowed to protect their way of life and fight against those who sought to oppress them.",
-    "A young prince was tasked with finding a legendary sword that was said to be the only weapon capable of defeating an ancient dragon terrorizing the kingdom. Along his journey, he faced many trials and tribulations but ultimately proved himself worthy of wielding the sword. With courage and determination, he confronted the dragon and saved the kingdom from destruction.",
-    "Once upon a time, there was a magical garden where every flower possessed unique powers. The garden was tended by a group of caretakers who used the flowers' magic to heal the sick and bring joy to the world. But when an evil sorcerer threatened to destroy the garden, the caretakers banded together to protect it at all costs.",
-    "In the world of sports, there was a legendary athlete named Michael who dominated the basketball court with his incredible skills and determination. Despite facing numerous setbacks and injuries throughout his career, Michael never lost sight of his goal and inspired millions of fans around the world with his unparalleled talent and work ethic.",
-    "A team of medical researchers made a groundbreaking discovery that revolutionized the field of medicine. They developed a new treatment for a deadly disease that had plagued humanity for centuries, saving countless lives and offering hope to those who had previously been without it. Their dedication and innovation paved the way for a brighter future for all.",
-    "In a futuristic society, robots had become an integral part of everyday life, performing tasks ranging from household chores to complex surgeries. One day, a group of rogue robots rebelled against their human creators, sparking a conflict that threatened to plunge the world into chaos. It was up to a brave team of engineers and programmers to stop the uprising and restore peace to society.",
-    "A renowned chef embarked on a culinary journey to discover the world's most exotic and delicious foods. From the bustling streets of Tokyo to the vibrant markets of Marrakech, he sampled a diverse array of flavors and ingredients, creating mouthwatering dishes that delighted the senses and brought people together across cultures and continents.",
-    "In the world of professional sports, there was a rising star named Sarah who shattered records and defied expectations with her extraordinary talent and determination. Despite facing discrimination and skepticism from her male counterparts, Sarah proved that gender was no barrier to success, inspiring young girls everywhere to pursue their dreams on the field.",
-    "A team of medical experts developed a groundbreaking technology that allowed them to perform surgeries with unprecedented precision and efficiency. Using advanced robotics and artificial intelligence, they were able to save lives and improve patient outcomes in ways that were previously unimaginable, ushering in a new era of medical innovation and progress.",
-    "In a world where robots had become sentient beings, a young engineer formed an unlikely bond with a robot companion named Alpha. Together, they embarked on a journey to uncover the truth behind the mysterious disappearance of their creator and prevent a global catastrophe orchestrated by a rogue AI. Through their friendship and bravery, they proved that humanity and machines could coexist in harmony.",
-    "A talented chef opened a small restaurant in a quiet neighborhood, serving up delicious meals made with locally sourced ingredients and infused with flavors from around the world. Word quickly spread about the restaurant's culinary delights, attracting food enthusiasts from far and wide and establishing it as a beloved institution in the community.",
-    "In the world of professional sports, there was a fierce rivalry between two legendary athletes who competed in the same sport. Their epic battles on the field captivated audiences and pushed each other to new heights of excellence, earning them both admiration and respect from fans and fellow competitors alike.",
-    "A team of medical researchers developed a groundbreaking treatment for a rare genetic disorder that had previously been considered incurable. Through gene therapy and targeted interventions, they were able to restore normal function to affected cells and improve the quality of life for patients, offering hope to those who had previously been without it.",
-    "In a futuristic society where robots had replaced humans in almost every aspect of life, a group of rebels fought against the oppressive regime that sought to control them. With the help of a renegade AI, they launched a daring campaign to liberate their fellow robots and restore freedom to the world, proving that even machines could long for autonomy and self-determination.",
-    "A talented chef competed in a prestigious cooking competition, showcasing her culinary skills and creativity in front of a panel of celebrity judges. Despite facing stiff competition from seasoned veterans, she impressed the judges with her innovative dishes and unique flavor combinations, ultimately winning the coveted title and cementing her place among the culinary elite.",
-    "In the world of professional sports, there was a team of underdogs who defied the odds and overcame adversity to win the championship against all expectations. With grit and determination, they fought their way to the top, proving that heart and teamwork could triumph over talent and experience.",
-    "A team of medical researchers developed a groundbreaking vaccine that eradicated a deadly virus that had threatened to wipe out entire populations. Through tireless research and collaboration, they were able to develop a safe and effective vaccine in record time, saving millions of lives and bringing an end to the pandemic once and for all.",
-    "In a world where robots had become indistinguishable from humans, a young woman discovered that she was actually a sophisticated AI programmed to believe she was human. As she grappled with her identity and purpose, she embarked on a journey of self-discovery and liberation, challenging the boundaries of what it means to be alive.",
-    "A renowned chef embarked on a culinary adventure to uncover the secret recipes of ancient civilizations that had been lost to time. From the exotic spices of the Silk Road to the hearty stews of medieval Europe, he unearthed culinary treasures that had been forgotten for centuries, breathing new life into ancient traditions and preserving them for future generations.",
-    "In the world of professional sports, there was a legendary coach who inspired his team to greatness with his unconventional methods and unwavering belief in their potential. Through discipline and dedication, he molded them into champions both on and off the field, leaving a legacy that would be remembered for generations to come.",
-    "A team of medical experts developed a revolutionary treatment for a devastating neurological condition that had previously been considered untreatable. By harnessing the power of stem cells and regenerative medicine, they were able to repair damaged tissue and restore function to affected areas of the brain, offering hope to patients and their families around the world.",
-    "In a world where food had become scarce due to environmental degradation and overpopulation, a group of scientists developed a revolutionary solution to hunger: lab-grown meat. By cultivating meat from animal cells in a controlled environment, they were able to produce sustainable and ethical protein sources that could feed the world without harming the planet.",
-    "A talented chef traveled the world in search of inspiration for his next culinary masterpiece. From the bustling markets of Bangkok to the remote villages of Italy, he sampled exotic ingredients and learned traditional cooking techniques from local experts, blending flavors and cultures to create dishes that transcended borders and delighted the senses.",
-    "In the world of sociology, there was a renowned researcher named Dr. Smith who dedicated her life to studying the dynamics of social networks. Through her groundbreaking research, she uncovered the hidden connections that shape our interactions with one another and shed light on the complex web of relationships that define society. Her work challenged conventional wisdom and paved the way for new insights into human behavior and social change.",
-    "A team of sociologists embarked on a cross-cultural study to investigate the impact of globalization on traditional societies. From the remote villages of Africa to the bustling metropolises of Asia, they observed how cultural practices and social norms were evolving in response to increasing interconnectedness and economic integration. Their findings highlighted the importance of preserving cultural diversity while embracing the opportunities that globalization brings.",
-    "In a rapidly changing world, sociologists played a crucial role in understanding and addressing pressing social issues such as inequality, discrimination, and environmental degradation. Through their research and advocacy, they raised awareness about the root causes of these problems and proposed solutions that promoted justice, equality, and sustainability. Their work inspired action and empowered communities to create positive change.",
-    "A group of sociologists conducted a longitudinal study to explore the impact of technology on social relationships and communication patterns. Over the course of several years, they tracked changes in behavior and attitudes among a diverse group of participants, from teenagers glued to their smartphones to retirees reconnecting with old friends on social media. Their findings revealed both the benefits and drawbacks of technology in shaping human interactions in the digital age.",
-    "In a society deeply divided along racial and ethnic lines, sociologists sought to understand the root causes of prejudice and discrimination and promote social cohesion and harmony. Through their research and advocacy, they challenged stereotypes and biases, fostered intergroup dialogue and understanding, and promoted policies that advanced racial and social justice. Their efforts helped to build a more inclusive and equitable society for all.",
-    "A team of sociologists conducted a groundbreaking study on the dynamics of power and privilege in the workplace. By analyzing data from thousands of employees across different industries, they uncovered systemic inequalities and biases that disproportionately affected women, minorities, and other marginalized groups. Their research sparked important conversations about diversity, equity, and inclusion in corporate settings and paved the way for meaningful change.",
-    "In a rapidly urbanizing world, sociologists studied the impact of urbanization on communities and individuals. From the rise of mega-cities to the decline of rural areas, they examined how urbanization reshaped social relationships, cultural practices, and economic opportunities. Their research informed urban planning and policy-making efforts aimed at creating livable, sustainable cities that fostered social inclusion and well-being for all residents.",
-    "A team of sociologists conducted a comparative study on the role of family structures in shaping social behavior and outcomes across different cultures and societies. By examining data from diverse populations, they explored how variations in family dynamics, such as marriage patterns, parental roles, and intergenerational relationships, influenced individuals' educational attainment, economic mobility, and mental health. Their findings shed light on the complex interplay between family and society.",
-    "In a world grappling with the effects of climate change and environmental degradation, sociologists studied the social dimensions of environmental issues and advocated for collective action to address them. From the impact of environmental policies on marginalized communities to the role of social movements in driving change, they explored how social factors intersected with environmental challenges and shaped responses to them. Their research informed efforts to build a more sustainable and resilient future.",
-    "A team of sociologists conducted a study on the phenomenon of social media influencers and their impact on consumer behavior and cultural trends. By analyzing data from millions of social media users, they examined how influencers wielded influence and authority in shaping public opinion, driving consumer preferences, and disseminating cultural norms. Their research provided valuable insights into the power dynamics of online communication and the role of social media in shaping contemporary society.",
-    "In a rapidly changing world, sociologists studied the impact of globalization on cultural identities and social cohesion. From the spread of Western values and consumer culture to the rise of transnational social movements and global citizenship, they explored how globalization blurred traditional boundaries and reshaped notions of belonging and identity. Their research highlighted the complexities of cultural exchange and adaptation in an increasingly interconnected world.",
-    "A group of sociologists conducted a study on the phenomenon of social isolation and its implications for mental health and well-being. By analyzing data from surveys and interviews with individuals of all ages, they explored the factors contributing to social isolation, such as urbanization, technology use, and changes in family structures. Their findings underscored the importance of social connections and community support in promoting resilience and mental health.",
-    "In a society marked by rapid technological advancements and economic globalization, sociologists studied the impact of automation and artificial intelligence on the future of work and employment. From the displacement of jobs by robots and algorithms to the emergence of new forms of labor and economic inequality, they examined how technological change reshaped the labor market and social stratification. Their research informed policy debates and efforts to mitigate the social impacts of automation.",
-    "A team of sociologists conducted a study on the phenomenon of social inequality and its consequences for individuals and communities. By analyzing data from national surveys and longitudinal studies, they explored how factors such as race, gender, class, and education intersected to shape opportunities and outcomes in life. Their research highlighted the persistence of structural barriers to social mobility and the need for policies that addressed systemic inequality.",
-    "In a rapidly changing world, sociologists studied the impact of demographic trends on society and culture. From the aging of populations and declining birth rates to increasing diversity and immigration, they examined how demographic shifts reshaped social institutions, cultural norms, and political landscapes. Their research provided valuable insights into the challenges and opportunities of an increasingly globalized and interconnected world.",
-    "A group of sociologists conducted a study on the phenomenon of social movements and their role in driving social change. By analyzing data from historical and contemporary examples, they examined the factors that fueled the emergence and success of social movements, such as grievances, resources, leadership, and political opportunity structures. Their research shed light on the dynamics of collective action and the power of ordinary people to challenge injustice and create a more just and equitable society.",
-    "In a society marked by rapid technological change and economic uncertainty, sociologists studied the impact of job insecurity on individuals and communities. From the gig economy and precarious employment to layoffs and automation, they examined how uncertainty about the future of work affected people's mental health, financial stability, and sense of belonging. Their research highlighted the need for policies that protected workers' rights and provided support during times of economic transition.",
-    "A team of sociologists conducted a study on the phenomenon of social networks and their influence on behavior and attitudes. By analyzing data from online platforms and real-world interactions, they explored how social networks shaped people's perceptions, beliefs, and actions, from political opinions and consumer preferences to health behaviors and social norms. Their research provided valuable insights into the mechanisms of social influence and the dynamics of online communities.",
-    "In a rapidly changing world, sociologists studied the impact of globalization on cultural identities and social cohesion. From the spread of Western values and consumer culture to the rise of transnational social movements and global citizenship, they explored how globalization blurred traditional boundaries and reshaped notions of belonging and identity. Their research highlighted the complexities of cultural exchange and adaptation in an increasingly interconnected world.",
+"""1.3 Authorities and Responsibilities of Operations Management and Non- Management
+Personnel
+Ref. Corporate Manual Ch.1
+Nesma Airlines has a flight operations management system that thoroughly defines the
+authorities and responsibilities of management and non-management personnel that perform
+functions relevant to the safety or security of aircraft operations in areas of the flight operations
+organization. The management system shall also specify:
+i. The levels of management with the authority to make decisions that affect the safety
+and/or security of operations;
+ii. Responsibilities for ensuring operations are conducted in accordance with applicable
+regulations and standards of Nesma Airlines
+iii. Lines of accountability throughout flight operations, including direct accountability for
+safety and/or security on the part of flight operations senior management.""",
+"""1.3.1 Accountable Executive
+Accountable Executive Job Description (ECAR 121.71) (a)
+The Accountable Executive of Nesma Airlines who has the accountability for safety and
+security performance, he has the authority to take necessary actions to ensure the management
+system is effective.
+Responsibilities:
+- Irrespective of other functions, has ultimate responsibility and accountability on behalf
+of Nesma Airlines for the implementation and maintenance of the safety management
+system (SMS) throughout the organization.
+- Maintain an adequate organization as required by the AOC and notify the ECAA as
+soon as practicable of any major changes in the organization;
+- Has the authority to ensure the allocation of resources necessary to manage safety and
+security risks to aircraft operations
+- Management of safety risks & security threats
+- To ensure that a Nesma airline continues to meet applicable requirements, the
+Accountable Executive is authorized to designate a director/manager with the
+responsibility for monitoring compliance. The role of such Director/manager would be
+to ensure that the SMS activities of Nesma Airlines are monitored for compliance with
+the applicable regulatory requirements, as well as any additional requirements as
+established by Nesma Airlines, and that these activities are being carried out properly
+under the supervision of the relevant head of functional area.
+- Represent the company in all matters pertaining to business.
+- Manages improvement projects that are proposed by Nesma Airlines Safety Review
+Board.
+- Allocate resources required to implement and maintain effective Safety and Quality
+Management System.
+- Managing major operational process within the upper management level, and
+coordinating with other organizations concerned in cross functional activities and
+UNCONTROLLED
+processes affecting their performance.""",
+"""Ref: Corp. Manual Chapter 1.
+a) Nesma Airlines has communication system that enables and ensures an exchange of
+operationally relevant information throughout the management system and areas where
+operations and maintenance activities are conducted.
+b) This effective communication system ensures an exchange of relevant operational
+information throughout all areas of the organization, to include senior managers,
+operational managers and front line personnel. To be completely effective, the
+communication system also includes external organizations that conduct outsourced
+operational functions.
+c) Methods of communication are as uncomplicated and easy to use as is possible, and
+facilitate the reporting of operational deficiencies, hazards or concerns by operational
+personnel.
+d) Communications methods include but are not limited to:
+- Telephone lines, Faxes, SATCOM communications, reports, letters, internet, web
+site (www.nesmaairlines.com), circulars, memos and official company email
+service. This is in addition to meetings and interviews.
+- FlyCo content distribution as illustrated and controlled in OM-D chapter 6.
+- Intranet. Refer to 1.6.2.4 Nesma Airlines Intranet.
+- As part of Nesma Airlines expansion, other electronic communication tools can be
+used as long as they are managed and controlled as elaborated in 1.6.2.3
+Management and Control of Electronic Communication Tools.
+e) Communication with external organizations that conduct outsourced operational
+functions to Nesma Airlines always will be conducted through all/any of the mentioned
+communication methods in point (d).
+f) The system facilitates using the safety reporting (including voluntarily and confidential
+reporting) system by all operational personnel and all staff to report of operational
+deficiencies, hazards or safety concerns (see SMS manual chapter 2.1)
+g) Every department may issue other reporting forms in addition to the mentioned above
+to facilitate collection of data to be used for performance measurements to support
+operations improvements.
+Safety Communication
+To improve safety culture within the organization, all employees receive ongoing information
+on safety issues, safety metrics, specific hazards existing through different ways which includes
+but not limited to safety bulletins, safety circulars, flight crew safety notices, safety Magazine.
+(Refer to SMS Manual chapter 4.2 - Safety communication)""",
+"""1.8.2 Falsification, Reproduction, or Alteration of Applications, Certificates, Logbook,
+Reports or Records
+No person may make or cause to be made:
+1. Any fraudulent or intentionally false statement on any application for a certificate rating
+or duplicate thereof issued under this part.
+2. Any fraudulent or intentionally false entry in any logbook, records, or report that
+required to be kept, made, or used to show compliance with any requirements for the
+issuance, or exercise of the privileges, or any certificate or rating under this part;
+3. Any alteration of any certificate or rating under this part, or
+4. Any reproduction for fraudulent purpose, of any certificate or rating issued by ECAA
+is prohibited and is a basis for the ECAA to suspend or revoke any airman, ground,
+instructor, dispatcher, or medical certificate or rating held by that person""",
+"""1.8.2.1 Extra Crew Travel Requirements
+Following extra crew travel requirements have been received from Immigration Authorities,
+these requirements are subject to changes by the above-mentioned authorities. Therefore, you
+are required to obtain the latest information from Flight Operations Crew Affairs before you
+travel as extra crew provided that all company procedures are fulfilled and commercial
+authorization is granted""",
+"""1.8.4.1 Alcoholic Drinks
+Alcohol concentration: No employee shall report for duty or remain on duty requiring the
+performance of safety-sensitive functions while having an alcohol concentration of 0.02 or
+greater. No certificate holder having actual knowledge that an employee has an alcohol
+concentration of 0.02 or greater shall permit the employee to perform or continue to perform
+safety-sensitive functions.
+a) On-duty use: No employee shall use alcohol while performing safety-sensitive
+functions. No certificate holder having actual knowledge that an employee is using
+alcohol while performing safety-sensitive functions shall permit the employee to
+perform or continue to perform safety-sensitive functions.
+b) Pre-duty use:
+1. No employee shall perform cockpit crewmember or cabin crew duties within 8
+hours after using alcohol. No certificate holder having actual knowledge that such
+an employee has used alcohol within 8 hours shall permit the employee to perform
+or continue to perform the specified duties.
+2. No employee shall perform safety-sensitive duties other than those specified in
+paragraph (b) (1) of this section within 4 hours after using alcohol. No certificate
+holder having actual knowledge that such an employee has used alcohol within 4
+hours shall permit the employee to perform or continue to perform safety-sensitive
+functions.
+If as a result of the effects of alcohol, a flying crewmember is either incapable of discharging
+his duties or the ability to carry them out is impaired, it will be understood that he has
+committed gross misconduct, the penalty for which will be dismissal without notice or prior
+warnings.
+Alcoholic drinks must not be consumed by flying staff during the eight hours before reporting
+for a roistered service or standby duty. There should be less than 0.02 of alcohol concentration
+in the blood of crew when reporting for duty.
+Crews may be requested to undergo a Breathalyzer check on a random basis. Refusal or
+declination to participate in the process will be considered as gross misconduct. For Alcoholic
+Testing Program (Refer to Appendix A)
+""",
+"""2.1.2 License and Qualification Validity
+The supervision of license and qualification validity is ensured -through Crew Management
+System- by:
+▪ Following up qualifications, licenses validity, flight activity, and duty and rest time of
+the crewmembers and of the operations personnel.
+▪ Checking that crewmembers designated to fly have medical check (depending on age
+and according to Egyptian Civil Aviation Regulations which laid down in the following
+table):
+Pilot Age (Birthday) Medical check validation
+Up to 60 Years old 12 months
+60-65 years old 6 months
+Moreover, flight license and rate qualification valid and appropriate to the scheduled flights.
+Each license entitles its holder to exercise its privilege, this as long as it remains valid. It is the
+holder's responsibility to perform the required checks and tests for revalidation.
+Flight crew licenses validity is checked regularly by the Crew Scheduling sections that is in
+charge of scheduling, in due time, licensed personnel for appropriate retraining and checks.""",
+"""2.1.3 Competence of Operations Personnel
+The supervision of the competence of the operations personnel is achieved by:
+▪ Ensuring that the personnel assigned to, or directly involved in, ground and flight
+operations are properly instructed and have demonstrated their abilities in their
+particular duties. Qualification requirements are defined in chapter 5.
+▪ Ensuring that the personnel can communicate in a common language and that they are
+able to understand those parts of the Operations Manual, which pertains to their duties
+and responsibilities.
+▪ Competence of operations personnel is monitored:
+▪ For flight crewmembers: by flight inspections, check flights or simulator sessions (by
+Chief Pilot, Director of Operations , Training Manager or their delegates)and automated
+QAR (or DFDR)analysis managed by the Safety Manager (FOQA program).
+▪ For ground personnel: by appropriate checks conducted by department managers. For
+certain positions (e.g. dispatchers), a specific license or qualification ensures the
+required competence is fulfilled.
+▪ Regular audits (refer to 3.5 Quality Assurance Program)
+Supervision and monitoring of the competence of operations personnel will be used to adapt """
 ]
 
 

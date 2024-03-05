@@ -458,6 +458,7 @@ def _test_llm_stress_fully_compliant():
     ][0]["id"]
 
     correct = []
+    average = []
     for text in _test_config.full_compliant_text:
         # call audit llm api
         api_url = f"{_test_config.get_api_url()}/llm/iosa-audit-unstruct"
@@ -476,14 +477,19 @@ def _test_llm_stress_fully_compliant():
             assert "overall_compliance_score" in json_res_body["data"]
             assert "context_id" in json_res_body["data"]
             if(json_res_body["data"]["overall_compliance_tag"] in ["Non Compliant", "Partially Compliant","Fully Compliant"]):
-                correct.append(json_res_body["data"]["overall_compliance_tag"] )
+                correct.append(json_res_body["data"]["overall_compliance_tag"])
+                average.append(json_res_body["data"]["overall_compliance_score"])
             else:    
                 correct.append("Failed")
+                average.append(sum(average) // len(average))
         else:
             correct.append("Failed")
+            average.append(sum(average) // len(average))
+
 
     benchmark = {
         "percentage":correct.count("Fully Compliant") / len(correct),
+        "threshold":sum(average) // len(average),
         "count":len(correct),
         "correct":correct.count("Fully Compliant") ,
         "incorrect": len(correct) - correct.count("Fully Compliant"),
@@ -493,7 +499,7 @@ def _test_llm_stress_fully_compliant():
         "Non Compliant":correct.count("Non Compliant"),
     }
 
-    file_path = r"data/llm_benchmarks/improved/fully_compliant.json"
+    file_path = r"data/llm_benchmarks/FLT 3.1.1/improved/fully_compliant.json"
 
     # Writing dictionary object to JSON file
     with open(file_path, "w") as json_file:
@@ -520,6 +526,8 @@ def _test_llm_stress_partially_compliant():
     ][0]["id"]
 
     correct = []
+    average = []
+
     for text in _test_config.partial_compliant_text:
         # call audit llm api
         api_url = f"{_test_config.get_api_url()}/llm/iosa-audit-unstruct"
@@ -539,13 +547,19 @@ def _test_llm_stress_partially_compliant():
             assert "context_id" in json_res_body["data"]
             if(json_res_body["data"]["overall_compliance_tag"] in["Non Compliant", "Partially Compliant","Fully Compliant"]):
                 correct.append(json_res_body["data"]["overall_compliance_tag"] )
+                average.append(json_res_body["data"]["overall_compliance_score"])
+
             else:    
+                average.append(sum(average) // len(average))
                 correct.append("Failed")
         else:
             correct.append("Failed")
+            average.append(sum(average) // len(average))
+
 
     benchmark = {
         "percentage":correct.count("Partially Compliant") / len(correct),
+        "threshold":sum(average) // len(average),
         "count":len(correct),
         "correct":correct.count("Partially Compliant") ,
         "incorrect": len(correct) - correct.count("Partially Compliant"),
@@ -555,7 +569,7 @@ def _test_llm_stress_partially_compliant():
         "Non Compliant":correct.count("Non Compliant"),
     }
 
-    file_path = r"data/llm_benchmarks/improved/partially_compliant.json"
+    file_path = r"data/llm_benchmarks/FLT 3.1.1/improved/partially_compliant.json"
 
     # Writing dictionary object to JSON file
     with open(file_path, "w") as json_file:
@@ -579,7 +593,7 @@ def _test_llm_stress_non_compliant():
         for x in json_res_body["data"]["regulations_options"]
         if x["name"] == "IOSA Standards Manual (ISM) Ed 16-Revision2"
     ][0]["id"]
-
+    average = []
     correct = []
     for text in _test_config.non_compliant_text:
         # call audit llm api
@@ -600,13 +614,18 @@ def _test_llm_stress_non_compliant():
             assert "context_id" in json_res_body["data"]
             if(json_res_body["data"]["overall_compliance_tag"] in["Non Compliant", "Partially Compliant","Fully Compliant"]):
                 correct.append(json_res_body["data"]["overall_compliance_tag"] )
+                average.append(json_res_body["data"]["overall_compliance_score"])
+
             else:    
+                average.append(sum(average) // len(average))
                 correct.append("Failed")
         else:
+            average.append(sum(average) // len(average))
             correct.append("Failed")
 
     benchmark = {
         "percentage":correct.count("Non Compliant") / len(correct),
+        "threshold":sum(average) // len(average),
         "count":len(correct),
         "correct":correct.count("Non Compliant") ,
         "incorrect": len(correct) - correct.count("Non Compliant"),
@@ -616,7 +635,7 @@ def _test_llm_stress_non_compliant():
         "Non Compliant":correct.count("Non Compliant"),
     }
 
-    file_path = r"data/llm_benchmarks/improved/non_compliant.json"
+    file_path = r"data/llm_benchmarks/FLT 3.1.1/improved/non_compliant.json"
 
     # Writing dictionary object to JSON file
     with open(file_path, "w") as json_file:

@@ -239,6 +239,13 @@ async def iosa_audit_text(iosa_item: IOSAItem, input_text: str) -> ServiceRespon
     # remove the scores and tags from the response text
     text = gpt35t_resp[:re_matches_score.span()[0]]
 
+    if(ovcomp_score<=40):
+        ovcomp_tag = "Non Compliant"
+    elif(ovcomp_score<=80):
+        ovcomp_tag = "Partially Compliant"
+    elif(ovcomp_score<=100):
+        ovcomp_tag = "Fully Compliant"
+
     return ServiceResponse(data={
         'llm_resp': text,
         'overall_compliance_score': ovcomp_score,
@@ -343,6 +350,13 @@ async def iosa_enhance_text(gpt35t_context: GPT35TContext) -> ServiceResponse:
     text = gpt35t_resp[:re_matches_score.span()[0]]
     text = re.sub(r"MODIFIED_TEXT:","",text).strip()
 
+    if(ovcomp_score<=40):
+        ovcomp_tag = "Non Compliant"
+    elif(ovcomp_score<=80):
+        ovcomp_tag = "Partially Compliant"
+    elif(ovcomp_score<=100):
+        ovcomp_tag = "Fully Compliant"
+
     return ServiceResponse(data={
         'llm_resp': text,
         'overall_compliance_score': ovcomp_score,
@@ -416,6 +430,13 @@ async def iosa_generate_text(iosa_item: IOSAItem) -> ServiceResponse:
     text = gpt35t_resp[:re_matches_score.span()[0]]
 
     text = re.sub(r"NEW_TEXT:","",text).strip()
+
+    if(ovcomp_score<=40):
+        ovcomp_tag = "Non Compliant"
+    elif(ovcomp_score<=80):
+        ovcomp_tag = "Partially Compliant"
+    elif(ovcomp_score<=100):
+        ovcomp_tag = "Fully Compliant"
 
     return ServiceResponse(data={
         'llm_resp': text,
