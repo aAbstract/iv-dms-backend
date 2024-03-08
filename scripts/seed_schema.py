@@ -602,7 +602,7 @@ def seed_routine():
             )
     gacar_id = db.get_collection("regulations").insert_one(seed_regulations[2].model_dump()).inserted_id
     gacar_sections_files = [
-        x for x in glob("data/gacar/gacar_part*.json")
+        x for x in glob("data/gacar/GACAR*.json") if "map" not in x
     ]
     for gacar_sections_file in gacar_sections_files:
             with open(gacar_sections_file, "r") as f:
@@ -629,7 +629,7 @@ def seed_routine():
         "nesma_oma_ch1.pdf": "3de78336-42a9-4920-a916-91a4144db589",
     }
 
-    # RXI
+    # # RXI
     for idx, file_path in enumerate(glob(r"data/RXI/*.pdf")):
 
         filename = re.split(r"[\\|/]", file_path)[-1]
@@ -724,6 +724,16 @@ def seed_routine():
             json_obj = json.loads(f.read())
             for x in json_obj:
                 x["regulation_id"] = iosa_e16r2_id
+            reg_sm_data += json_obj
+
+    # seed regulations source map
+    reg_sm_files = [x for x in glob("data/gacar/GACAR*_map.json")]
+
+    for sm_file in reg_sm_files:
+        with open(sm_file, "r") as f:
+            json_obj = json.loads(f.read())
+            for x in json_obj:
+                x["regulation_id"] = gacar_id
             reg_sm_data += json_obj
 
     print("seeding regulations source maps...")
