@@ -32,8 +32,8 @@ async def lifespan(app: FastAPI):
 
 server = FastAPI(
     title=os.environ['SERVER_NAME'],
-    description='Update iosa item',
-    version="0.38.9",
+    description='One pdf structure + gacar',
+    version="0.38.10",
     lifespan=lifespan,
 )
 server.add_middleware(

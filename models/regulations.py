@@ -5,13 +5,14 @@ from datetime import datetime
 
 
 class RegulationType(str, Enum):
-    IOSA = 'IOSA'
-    ECAR = 'ECAR'
+    IOSA = "IOSA"
+    ECAR = "ECAR"
+    GACAR = "GACAR"
 
 
 class Constrain(BaseModel):
     text: str
-    children: list['Constrain'] = []
+    children: list["Constrain"] = []
 
 
 class IOSAItem(BaseModel):
@@ -21,6 +22,7 @@ class IOSAItem(BaseModel):
     paragraph: str
     page: int
     constraints: Optional[list[Constrain]] = []
+
 
 class IOSASection(BaseModel):
     name: str
