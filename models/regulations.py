@@ -20,8 +20,7 @@ class IOSAItem(BaseModel):
     iosa_map: list[str] = []
     paragraph: str
     page: int
-    # constraints: list[Constrain]
-
+    constraints: Optional[list[Constrain]] = []
 
 class IOSASection(BaseModel):
     name: str

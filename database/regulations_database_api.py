@@ -104,11 +104,12 @@ async def get_iosa_checklist(regulation_id: str, checklist_code: str) -> Service
 
     try:
         iosa_checklist = await get_database().get_collection('regulations').aggregate(mdb_query).next()
+        iosa_checklist['iosa_checklist']['constraints'] = parse_paragraph(iosa_checklist['iosa_checklist']["paragraph"])
         iosa_checklist = IOSAItem.model_validate(iosa_checklist['iosa_checklist'])
     except:
         return ServiceResponse(success=False, msg='Checklist Code not Found', status_code=404)
 
-    return ServiceResponse(data={'iosa_checklist': iosa_checklist,"constraints":parse_paragraph(iosa_checklist.paragraph)})
+    return ServiceResponse(data={'iosa_checklist': iosa_checklist})
 
 async def get_checklist_template(regulation_id: str, checklist_template_code: str) -> ServiceResponse:
     bson_id = validate_bson_id(regulation_id)

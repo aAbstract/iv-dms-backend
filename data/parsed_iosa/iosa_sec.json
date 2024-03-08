@@ -12,7 +12,8 @@
                 "1.1 Management System Overview"
             ],
             "paragraph": "The Operator shall have a security management system (SeMS) that includes, as a minimum, the following key elements:\n- (i) Senior management and corporate commitment;\n- (ii) Resource management;\n- (iii) Threat assessment and risk management;\n- (iv) Management of emergencies and incidents (resilience);\n- (v) Quality control and quality assurance;\n- (vi) Air Operator Security Program (AOSP).",
-            "page": 646
+            "page": 646,
+            "constraints": []
         },
         {
             "code": "SEC 1.1.2",
@@ -22,7 +23,8 @@
                 "1.1 Management System Overview"
             ],
             "paragraph": "The Operator shall have a senior management official designated as the head of security with direct access to the highest level of management within the organization. Such senior management official,\nregardless of other functions and reporting structure, shall:\n- (i) Be responsible for ensuring implementation and maintenance of the AOSP; \n- (ii) Have overall accountability for ensuring operations are conducted in accordance with conditions and restrictions of the AOSP and in compliance with applicable regulations and standards of the Operator.",
-            "page": 647
+            "page": 647,
+            "constraints": []
         },
         {
             "code": "SEC 1.1.3",
@@ -32,7 +34,8 @@
                 "1.1 Management System Overview"
             ],
             "paragraph": "The Operator shall have a corporate security policy that states the commitment of the organization to a culture that has security as a fundamental operational priority. Such policy shall be communicated throughout the organization and commit the organization to:\n- (i) The provision of resources necessary for the successful implementation of the policy;\n- (ii) Compliance with applicable regulations and standards of the Operator;\n- (iii) The promotion of security awareness and the establishment of a security culture;\n- (iv) The establishment of security objectives and security performance standards;\n- (v) Continual improvement of the SeMS;\n- (vi) Periodic review of the policy to ensure continuing relevance to the organization.",
-            "page": 648
+            "page": 648,
+            "constraints": []
         },
         {
             "code": "SEC 1.2.1",
@@ -42,7 +45,8 @@
                 "1.2 Air Operator Security Program (AOSP)"
             ],
             "paragraph": "The Operator shall have a formal Air Operator Security Program (AOSP) that includes:\n- (i) The requirements of the civil aviation security program of the State of the Operator\n(hereinafter, the State);\n- (ii) Supplementary Station Procedures (SSP) that meet the requirements of other states where operations are conducted;\n- (iii) The security standards of the Operator.",
-            "page": 649
+            "page": 649,
+            "constraints": []
         },
         {
             "code": "SEC 1.3.1",
@@ -52,7 +56,8 @@
                 "1.3 Authorities and Responsibilities"
             ],
             "paragraph": "The Operator shall ensure the SeMS defines the authorities and responsibilities of management personnel within the SeMS and provides a general description of security responsibilities for categories of non-management personnel within the SeMS as documented in the AOSP. The SeMS shall specify:\n- (i) The levels of management with the authority to make decisions that affect operational security;\n- (ii) Responsibilities for ensuring security functions are performed and procedures are implemented in accordance with applicable regulations and standards of the Operator;\n- (iii) Lines of accountability throughout the SeMS, including direct accountability for security on the part of senior management;\n- (iv) Responsibilities of members of management, irrespective of other functions, as well as of non-management personnel, with respect to security performance of the SeMS.",
-            "page": 650
+            "page": 650,
+            "constraints": []
         },
         {
             "code": "SEC 1.3.2",
@@ -62,7 +67,8 @@
                 "1.3 Authorities and Responsibilities"
             ],
             "paragraph": "The Operator shall have a process or procedure for delegation of duties and assignment of responsibilities within the SeMS that ensures managerial continuity is maintained when managers with operational security responsibilities are unable to carry out work duties.",
-            "page": 651
+            "page": 651,
+            "constraints": []
         },
         {
             "code": "SEC 1.3.3",
@@ -72,7 +78,8 @@
                 "1.3 Authorities and Responsibilities"
             ],
             "paragraph": "The Operator shall ensure a delegation of duties and assignment of responsibility for liaison with applicable aviation security authorities and other relevant external entities.",
-            "page": 651
+            "page": 651,
+            "constraints": []
         },
         {
             "code": "SEC 1.4.1",
@@ -82,7 +89,8 @@
                 "1.4 Communication"
             ],
             "paragraph": "The Operator shall have a system that enables effective communication of security information throughout the management system and all areas where operations are conducted.",
-            "page": 652
+            "page": 652,
+            "constraints": []
         },
         {
             "code": "SEC 1.5.2",
@@ -92,7 +100,8 @@
                 "1.5 Provision of Resources"
             ],
             "paragraph": "The Operator shall have a selection process for management and non-management positions within the scope of AOSP, to include positions within the organization of the Operator and if applicable,\nservice providers selected by the Operator that conduct operational security functions. Such process shall ensure candidates are selected on the basis of knowledge, skills, training and experience appropriate for the position.",
-            "page": 653
+            "page": 653,
+            "constraints": []
         },
         {
             "code": "SEC 1.5.3",
@@ -102,7 +111,8 @@
                 "1.5 Provision of Resources"
             ],
             "paragraph": "If permitted by the State, the Operator shall ensure a process has been established that requires operational security personnel in the organization of the Operator and, if applicable, service providers selected by the Operator to conduct operational security functions, to be subjected to pre-\nemployment and recurring background checks in accordance with requirements of applicable aviation security authorities. The requirement for a background check shall be applicable to personnel who:\n- (i) Engage in the implementation of security controls;\n- (ii) Have unescorted access to the security restricted area of an airport;\n- (iii) Have unescorted access to other security areas and searched aircraft;\n- (iv) Have access to sensitive aviation security information.",
-            "page": 653
+            "page": 653,
+            "constraints": []
         },
         {
             "code": "SEC 1.6.3",
@@ -112,7 +122,8 @@
                 "1.6 Documentation System"
             ],
             "paragraph": "The Operator shall have a system for the management and control of documentation and/or data used directly in the conduct or support of operations, and in the implementation of the AOSP and its associated SSPs to ensure that they:\n- (i) Meet all required elements specified in Table 1.1 ;\n- (ii) Contain legible and accurate information;\n- (iii) Presented in a format appropriate for use in operations.",
-            "page": 654
+            "page": 654,
+            "constraints": []
         },
         {
             "code": "SEC 1.6.4",
@@ -122,7 +133,8 @@
                 "1.6 Documentation System"
             ],
             "paragraph": "If the Operator has external service providers conduct outsourced operational security functions, the Operator shall have a process to ensure such external service providers receive information regarding security directives and instructions in a timely and secure manner that meets requirements of the AOSP and its associated SSPs.",
-            "page": 655
+            "page": 655,
+            "constraints": []
         },
         {
             "code": "SEC 1.8.1",
@@ -132,7 +144,8 @@
                 "1.8 Records System"
             ],
             "paragraph": "The Operator shall have a system for the management and control of operational security records to ensure the content and retention of such records is in accordance with requirements of the aviation security authority of the State, as applicable, and to ensure security records are subjected to standardized processes for:\n- (i) Identification;\n- (ii) Legibility;\n- (iii) Maintenance;\n- (iv) Retrieval;\n- (v) Protection, integrity and security;\n- (vi) Disposal, deletion (electronic records) and archiving, including retention and storage as mandated by the State.",
-            "page": 655
+            "page": 655,
+            "constraints": []
         },
         {
             "code": "SEC 1.8.2",
@@ -142,7 +155,8 @@
                 "1.8 Records System"
             ],
             "paragraph": "If the Operator uses an electronic system for the management and control of records, the Operator shall ensure the system provides for a scheduled generation of backup record files.",
-            "page": 656
+            "page": 656,
+            "constraints": []
         },
         {
             "code": "SEC 1.9.1",
@@ -152,7 +166,8 @@
                 "1.9 Management Review"
             ],
             "paragraph": "The Operator shall have a security review committee for the purpose of ensuring:\n- (i) Senior management oversight of security in operations;\n- (ii) Continual improvement of the SeMS;\n- (iii) Security threats are being identified and controlled;\n- (iv) The promotion of security awareness.",
-            "page": 656
+            "page": 656,
+            "constraints": []
         },
         {
             "code": "SEC 1.9.2",
@@ -162,7 +177,8 @@
                 "1.9 Management Review"
             ],
             "paragraph": "The Operator shall have processes to monitor and assess its SeMS processes in order to maintain or continually improve the overall effectiveness of the SeMS.",
-            "page": 657
+            "page": 657,
+            "constraints": []
         },
         {
             "code": "SEC 1.10.1",
@@ -172,7 +188,8 @@
                 "1.10 Quality Assurance/Quality Control Programs"
             ],
             "paragraph": "The Operator shall have a quality assurance program that provides for the auditing and evaluation of the management system and operational security functions at a determined frequency following a regularly performed risk assessment to ensure the organization is:\n- (i) Complying with the AOSP and its associated SSPs and other applicable regulations and standards;\n- (ii) Satisfying stated operational needs;\n- (iii) Identifying areas requiring improvement;\n- (iv) Identifying threats to operations;\n- (v) Assessing the effectiveness of security risk management and controls.",
-            "page": 657
+            "page": 657,
+            "constraints": []
         },
         {
             "code": "SEC 1.10.2",
@@ -182,7 +199,8 @@
                 "1.10 Quality Assurance/Quality Control Programs"
             ],
             "paragraph": "The Operator shall have a process for addressing findings resulting from audits of operational security functions that ensures:\n- (i) Identification of root cause(s);\n- (ii) Development of corrective action, as appropriate, to address findings;\n- (iii) Implementation of corrective action in appropriate operational security area(s);\n- (iv) Evaluation of corrective action to determine effectiveness.",
-            "page": 658
+            "page": 658,
+            "constraints": []
         },
         {
             "code": "SEC 1.10.3A",
@@ -192,7 +210,8 @@
                 "1.10 Quality Assurance/Quality Control Programs"
             ],
             "paragraph": "The Operator shall have a process to ensure significant issues arising from quality assurance audits of operational security functions are subject to a regular review by senior security management.",
-            "page": 659
+            "page": 659,
+            "constraints": []
         },
         {
             "code": "SEC 1.10.3B",
@@ -202,7 +221,8 @@
                 "1.10 Quality Assurance/Quality Control Programs"
             ],
             "paragraph": "The Operator shall have an audit planning process and sufficient resources, including auditors as specified in ORG 2.1.8 , to ensure audits are:\n- (i) Scheduled in accordance with a security risk assessment at intervals to meet regulatory and management system requirements;\n- (ii) Conducted within the scheduled interval (subject to a change in risk).",
-            "page": 660
+            "page": 660,
+            "constraints": []
         },
         {
             "code": "SEC 1.10.5",
@@ -212,7 +232,8 @@
                 "1.10 Quality Assurance/Quality Control Programs"
             ],
             "paragraph": "If required and/or authorized by the aviation security authority, the Operator shall have a process for conducting security tests that assess the effectiveness and proper implementation of security controls of which the Operator is in direct control.",
-            "page": 660
+            "page": 660,
+            "constraints": []
         },
         {
             "code": "SEC 1.10.6",
@@ -222,7 +243,8 @@
                 "1.10 Quality Assurance/Quality Control Programs"
             ],
             "paragraph": "If required and/or authorized by the aviation security authority, the Operator shall have a process to perform or participate in periodic operational security exercises in order to:\n- (i) Evaluate the effectiveness of procedures designed for response to security incidents;\n- (ii) Practice implementation of security procedures by applicable personnel.",
-            "page": 661
+            "page": 661,
+            "constraints": []
         },
         {
             "code": "SEC 1.11.1A",
@@ -232,7 +254,8 @@
                 "1.11 Quality Control of Outsourced Operations and Products"
             ],
             "paragraph": "If the Operator has external service providers conduct outsourced aviation security functions, the Operator should ensure a service provider selection process is in place that ensures:\n- (i) Security-relevant selection criteria are established;\n- (ii) Service providers are evaluated against these criteria prior to selection.",
-            "page": 662
+            "page": 662,
+            "constraints": []
         },
         {
             "code": "SEC 1.11.1B",
@@ -242,7 +265,8 @@
                 "1.11 Quality Control of Outsourced Operations and Products"
             ],
             "paragraph": "If the Operator has external service providers conduct outsourced operational security functions, the Operator shall have a process to ensure a contract or agreement is executed with such external service providers. Such contract or agreement shall identify the application of specific documented requirements that can be monitored by the Operator to ensure requirements that affect the security of its operations are being fulfilled by the service provider.",
-            "page": 662
+            "page": 662,
+            "constraints": []
         },
         {
             "code": "SEC 1.11.2",
@@ -252,7 +276,8 @@
                 "1.11 Quality Control of Outsourced Operations and Products"
             ],
             "paragraph": "If the Operator has external service providers conducting outsourced operational security functions,\nthe Operator shall have processes to monitor such external service providers to ensure requirements that affect the security of operations are being fulfilled.",
-            "page": 663
+            "page": 663,
+            "constraints": []
         },
         {
             "code": "SEC 1.11.4",
@@ -262,7 +287,8 @@
                 "1.11 Quality Control of Outsourced Operations and Products"
             ],
             "paragraph": "If the Operator has operational security functions conducted by external organizations not under the control of the Operator, the Operator shall have methods, as permitted by the applicable civil aviation security authority, for the monitoring of such functions to ensure, as permitted, implementation of outsourced security measures is in compliance with its AOSP.",
-            "page": 663
+            "page": 663,
+            "constraints": []
         },
         {
             "code": "SEC 1.12.1",
@@ -272,7 +298,8 @@
                 "1.12 Operational Reporting"
             ],
             "paragraph": "The Operator shall have an operational security reporting system that is implemented throughout the organization in a manner that:\n- (i) Encourages and facilitates personnel to report security incidents and security occurrences pertaining to the Operator;\n- (ii) Ensures mandatory reporting in accordance with applicable regulations;\n- (iii) Includes analysis and management action as necessary to address security issues identified through the reporting system.",
-            "page": 664
+            "page": 664,
+            "constraints": []
         },
         {
             "code": "SEC 1.12.2",
@@ -282,7 +309,8 @@
                 "1.12 Operational Reporting"
             ],
             "paragraph": "The Operator shall have a process to ensure security information, security incidents, security occurrences and acts of unlawful interference that have been reported by personnel in accordance with SEC 1.12.1 or are derived from states or other relevant sources are reviewed by operational and security management to ensure:\n- (i) Root cause is identified;\n- (ii) A security risk assessment is conducted;\n- (iii) Corrective action is determined;\n- (iv) When applicable, corrective action is implemented and monitored to ensure effectiveness in preventing future incidents or occurrences.",
-            "page": 665
+            "page": 665,
+            "constraints": []
         },
         {
             "code": "SEC 2.1.1",
@@ -292,7 +320,8 @@
                 "2.1 Training Program"
             ],
             "paragraph": "The Operator shall have a security training program that is approved or accepted by the State and meets applicable requirements of other states. Such program shall consist of initial, recurrent and,\nwhere applicable, requalification training that comprises, as appropriate, theoretical training, practical training and an assessment of competencies to ensure:\n- (i) Personnel, employed by or under the control of the Operator who implement security controls understand security awareness and reporting, and have the competence to perform their duties;\n- (ii) Flight and cabin crew members, as well as frontline aircraft ground handling and cargo handling personnel, are able to act in the most appropriate manner to minimize the consequences of acts of unlawful interference and disruptive passenger behavior.",
-            "page": 666
+            "page": 666,
+            "constraints": []
         },
         {
             "code": "SEC 2.1.2",
@@ -302,7 +331,8 @@
                 "2.1 Training Program"
             ],
             "paragraph": "If the Operator has operational security functions conducted by external service providers selected by the Operator (outsourcing), the Operator shall have a process to ensure such external service providers have a security training program that:\n- (i) Is acceptable to the Operator;\n- (ii) Consists of initial, recurrent and, where applicable, requalification training;\n- (iii) Includes, as appropriate, theoretical and practical training;\n- (iv) Includes an assessment of competencies;\n- (v) Ensures personnel have a common understanding of security awareness and reporting.",
-            "page": 667
+            "page": 667,
+            "constraints": []
         },
         {
             "code": "SEC 2.1.4",
@@ -312,7 +342,8 @@
                 "2.1 Training Program"
             ],
             "paragraph": "The Operator shall ensure personnel who perform security functions, crew members and appropriate operational personnel, as specified in SEC 2.1.1 , complete recurrent security training on a frequency in accordance with requirements of the security program of the State and, if applicable, other states where operations are conducted or, if there is no regulatory mandate, not less than once every 36 months.",
-            "page": 667
+            "page": 667,
+            "constraints": []
         },
         {
             "code": "SEC 2.1.5",
@@ -322,7 +353,8 @@
                 "2.1 Training Program"
             ],
             "paragraph": "If the Operator manages a security screening system, the Operator shall ensure personnel who manage or operate the screening system:\n- (i) Are approved and/or certified in accordance with requirements of the applicable aviation security authority;\n- (ii) Complete initial and recurrent training that includes training in the identification of explosives, weapons or other dangerous items or devices.",
-            "page": 668
+            "page": 668,
+            "constraints": []
         },
         {
             "code": "SEC 2.1.6",
@@ -332,7 +364,8 @@
                 "2.1 Training Program"
             ],
             "paragraph": "The security training program of the Operator shall include a process for reviewing and updating or revising security training courses to ensure:\n- (i) Continual improvement of curriculum, including content and applicability to the operational environment;\n- (ii) Incorporation of regulatory amendments or operational changes.",
-            "page": 668
+            "page": 668,
+            "constraints": []
         },
         {
             "code": "SEC 2.1.7",
@@ -342,7 +375,8 @@
                 "2.1 Training Program"
             ],
             "paragraph": "The Operator shall ensure the completion of required security training by operational personnel is documented and retained in a records system in accordance with SEC 1.8.1 .",
-            "page": 669
+            "page": 669,
+            "constraints": []
         },
         {
             "code": "SEC 2.1.8",
@@ -352,7 +386,8 @@
                 "2.1 Training Program"
             ],
             "paragraph": "The Operator shall ensure operational personnel complete security awareness training that focuses on preventative measures and techniques in relation to passengers, baggage, cargo, mail,\nequipment, stores and supplies, as applicable, and permits such personnel to contribute to the prevention and reporting of acts of sabotage, other forms of unlawful interference and security occurrences.",
-            "page": 669
+            "page": 669,
+            "constraints": []
         },
         {
             "code": "SEC 3.1.1",
@@ -362,7 +397,8 @@
                 "3.1 Access Control"
             ],
             "paragraph": "If the Operator has exclusive control over airport airside areas and/or security restricted areas, the Operator shall ensure an identification verification system is in place that prevents personnel and vehicles from unauthorized access. Such identification system shall include:\n- (i) Designated checkpoints where identification is verified before access is permitted;\n- (ii) A requirement for authorized personnel to prominently display an identification badge.",
-            "page": 670
+            "page": 670,
+            "constraints": []
         },
         {
             "code": "SEC 3.1.2",
@@ -372,7 +408,8 @@
                 "3.1 Access Control"
             ],
             "paragraph": "The Operator shall ensure measures are in place to control and supervise personnel and vehicles moving to and from the aircraft in security restricted areas to prevent unauthorized access to the aircraft.",
-            "page": 670
+            "page": 670,
+            "constraints": []
         },
         {
             "code": "SEC 3.1.3",
@@ -382,7 +419,8 @@
                 "3.1 Access Control"
             ],
             "paragraph": "The Operator shall ensure access control measures and security screening measures as mandated by the State are in place to prevent the introduction of unauthorized weapons, explosives or other dangerous devices or items on board an aircraft by persons other than passengers.",
-            "page": 671
+            "page": 671,
+            "constraints": []
         },
         {
             "code": "SEC 3.3.1",
@@ -392,7 +430,8 @@
                 "3.3 Carriage of Weapons"
             ],
             "paragraph": "If the carriage of weapons on board an aircraft by law enforcement officers and/or other authorized persons acting in the performance of their duties is approved by the Operator, the State and/or other applicable authorities, the Operator shall have a policy and procedures, in accordance with the laws of the state(s) involved, for such carriage of weapons.",
-            "page": 672
+            "page": 672,
+            "constraints": []
         },
         {
             "code": "SEC 3.3.3",
@@ -402,7 +441,8 @@
                 "3.3 Carriage of Weapons"
             ],
             "paragraph": "If the carriage of weapons in hold baggage on board an aircraft for a passenger flight is approved by the Operator, the Operator shall have procedures for the carriage of such weapons to ensure:\n- (i) If the weapon is a firearm or capable of discharging a projectile, the passenger or an authorized and duly qualified person has declared the weapon to be not loaded;\n- (ii) The weapon is stowed in a place that is inaccessible to any unauthorized person during flight;\n- (iii) The carriage of a weapon is legally permitted by all state(s) involved, including the State and state(s) of flight departure, transit and arrival.",
-            "page": 673
+            "page": 673,
+            "constraints": []
         },
         {
             "code": "SEC 3.4.1",
@@ -412,7 +452,8 @@
                 "3.4 Passengers (Including Supernumeraries) and Cabin Baggage"
             ],
             "paragraph": "If the Operator conducts passenger flights, the Operator shall have a process to ensure originating passengers and their cabin baggage are subjected to screening prior to boarding a passenger aircraft for;\n- (i) An international flight;\n- (ii) As required by the applicable aviation security authority, a domestic flight.",
-            "page": 674
+            "page": 674,
+            "constraints": []
         },
         {
             "code": "SEC 3.4.3",
@@ -422,7 +463,8 @@
                 "3.4 Passengers (Including Supernumeraries) and Cabin Baggage"
             ],
             "paragraph": "If the Operator conducts passenger flights, the Operator shall have a process to ensure transfer and transit passengers and their cabin baggage either:\n- (i) Are subjected to screening prior to boarding a passenger aircraft, or\n- (ii) Have been screened to an appropriate level at the point of origin and subsequently protected from unauthorized interference from the point of screening at the originating airport to the departing aircraft at the transfer or transit airport.",
-            "page": 674
+            "page": 674,
+            "constraints": []
         },
         {
             "code": "SEC 3.4.4",
@@ -432,7 +474,8 @@
                 "3.4 Passengers (Including Supernumeraries) and Cabin Baggage"
             ],
             "paragraph": "If the Operator conducts passenger flights, the Operator shall have a process to ensure passengers and their cabin baggage are subjected to additional security controls in accordance with requirements of the applicable aviation security authority when flights are under an increased security threat.",
-            "page": 675
+            "page": 675,
+            "constraints": []
         },
         {
             "code": "SEC 3.4.5",
@@ -442,7 +485,8 @@
                 "3.4 Passengers (Including Supernumeraries) and Cabin Baggage"
             ],
             "paragraph": "If the Operator conducts passenger flights, the Operator shall have a process to ensure passengers and their cabin baggage, which have already been subjected to screening, are:\n- (i) Protected from unauthorized interference from the point of screening until they board a passenger aircraft;\n- (ii) Subjected to re-screening if the potential for unauthorized interference has been determined to exist.",
-            "page": 676
+            "page": 676,
+            "constraints": []
         },
         {
             "code": "SEC 3.4.6",
@@ -452,7 +496,8 @@
                 "3.4 Passengers (Including Supernumeraries) and Cabin Baggage"
             ],
             "paragraph": "The Operator should ensure security practices and/or procedures for operational security personnel that have contact with passengers include behavior detection methods designed to identify persons who may pose a threat to civil aviation and require additional security measures.",
-            "page": 676
+            "page": 676,
+            "constraints": []
         },
         {
             "code": "SEC 3.4.7",
@@ -462,7 +507,8 @@
                 "3.4 Passengers (Including Supernumeraries) and Cabin Baggage"
             ],
             "paragraph": "The Operator shall have a policy and procedures to refuse transportation to any person that does not consent to a search of his or her person or property in accordance with the AOSP.",
-            "page": 677
+            "page": 677,
+            "constraints": []
         },
         {
             "code": "SEC 3.5.1",
@@ -472,7 +518,8 @@
                 "3.5 Special Category Passengers"
             ],
             "paragraph": "If the Operator conducts passenger flights, the Operator shall have a policy and a process that incorporates risk assessment measures to ensure procedures are in place for the transport of potentially disruptive passengers who are obliged to travel because they have been the subject of judicial or administrative proceedings. Such procedures shall be designed to take into consideration the assurance of the safety of the aircraft during the flight.",
-            "page": 678
+            "page": 678,
+            "constraints": []
         },
         {
             "code": "SEC 3.6.1",
@@ -482,7 +529,8 @@
                 "3.6 Hold Baggage"
             ],
             "paragraph": "If the Operator conducts international passenger flights, the Operator shall have a process to ensure originating hold baggage, including courier baggage, is:\n- (i) Subjected to screening capable of detecting explosives and explosive devices prior to being loaded into an aircraft for an international passenger flight;\n- (ii) Protected from unauthorized interference from the moment of acceptance until loaded on board the aircraft.",
-            "page": 679
+            "page": 679,
+            "constraints": []
         },
         {
             "code": "SEC 3.6.2",
@@ -492,7 +540,8 @@
                 "3.6 Hold Baggage"
             ],
             "paragraph": "If the Operator conducts domestic passenger flights, the Operator should have a process to ensure originating hold baggage is:\n- (i) Subjected to screening capable of detecting explosives and explosive devices prior to being loaded into an aircraft for a domestic passenger flight;\n- (ii) Protected from unauthorized interference from the moment of acceptance until they are loaded on board the aircraft.",
-            "page": 680
+            "page": 680,
+            "constraints": []
         },
         {
             "code": "SEC 3.6.6",
@@ -502,7 +551,8 @@
                 "3.6 Hold Baggage"
             ],
             "paragraph": "If the Operator conducts international passenger flights, the Operator shall have a process to ensure procedures are in place to prevent items of hold baggage from being transported on such flights unless such items have been:\n- (i) Individually identified as either accompanied or unaccompanied baggage;\n- (ii) Subjected to appropriate security controls based on risk assessment.",
-            "page": 680
+            "page": 680,
+            "constraints": []
         },
         {
             "code": "SEC 3.7.1",
@@ -512,7 +562,8 @@
                 "3.7 Cargo Shipments"
             ],
             "paragraph": "If the Operator transports revenue or non-revenue cargo, the Operator shall have a process to ensure cargo shipments for transport on all flights have been subjected to the appropriate security controls, including screening where required, as established by the applicable state(s) prior to being loaded onto an aircraft.",
-            "page": 681
+            "page": 681,
+            "constraints": []
         },
         {
             "code": "SEC 3.8.1",
@@ -522,7 +573,8 @@
                 "3.8 In-Flight, Catering and Other Supplies"
             ],
             "paragraph": "If the Operator conducts passenger flights, the Operator shall have a process to ensure in-flight,\ncatering and/or other supplies intended for transport on a passenger flight are subjected to appropriate security controls as established by the appropriate state and are thereafter protected from unauthorized interference until loaded onto the aircraft.",
-            "page": 681
+            "page": 681,
+            "constraints": []
         },
         {
             "code": "SEC 3.9.2",
@@ -532,7 +584,8 @@
                 "3.9 General Protection"
             ],
             "paragraph": "If the Operator controls security restricted areas, the Operator shall have processes to ensure merchandise and supplies introduced into such areas are subject to appropriate security controls,\nwhich may include screening or a supply chain security process.",
-            "page": 681
+            "page": 681,
+            "constraints": []
         },
         {
             "code": "SEC 4.1.1",
@@ -542,7 +595,8 @@
                 "4.1 Threat Management"
             ],
             "paragraph": "The Operator shall have processes for maintaining a constant review of the level and nature of security and cybersecurity threats to civil aviation, and for identifying direct or potential threats against the Operator and/or its aircraft operations. For threats that have been identified, such processes shall include:\n- (i) An assessment of associated risks and vulnerabilities;\n- (ii) Development of appropriate response measures.",
-            "page": 682
+            "page": 682,
+            "constraints": []
         },
         {
             "code": "SEC 4.1.2",
@@ -552,7 +606,8 @@
                 "4.1 Threat Management"
             ],
             "paragraph": "The Operator shall have a process to ensure the implementation of appropriate security measures in response to:\n- (i) Security threats directed against the Operator;\n- (ii) Threat levels issued by applicable aviation security authorities.",
-            "page": 684
+            "page": 684,
+            "constraints": []
         },
         {
             "code": "SEC 4.1.3",
@@ -562,7 +617,8 @@
                 "4.1 Threat Management"
             ],
             "paragraph": "The Operator shall have procedures for sharing, as appropriate, with the State, relevant operators,\nairport authority, air traffic service and external service providers, in a practical and timely manner,\nrelevant information to assist in the implementation of an effective security risk assessment process.",
-            "page": 684
+            "page": 684,
+            "constraints": []
         },
         {
             "code": "SEC 4.2.1",
@@ -572,7 +628,8 @@
                 "4.2 Contingency Planning"
             ],
             "paragraph": "The Operator shall have a contingency plan that provides for a comprehensive and managed response to aviation security incidents.",
-            "page": 685
+            "page": 685,
+            "constraints": []
         },
         {
             "code": "SEC 4.3.1",
@@ -582,7 +639,8 @@
                 "4.3 Investigation and Notification"
             ],
             "paragraph": "The Operator shall have a process to ensure an investigation is conducted for any of the following:\n- (i) Threats or acts of unlawful interference;\n- (ii) Failure of implementation of security controls under the responsibility of the Operator;\n- (iii) Security incidents, security occurrences or security threats.",
-            "page": 685
+            "page": 685,
+            "constraints": []
         },
         {
             "code": "SEC 4.3.2",
@@ -592,7 +650,8 @@
                 "4.3 Investigation and Notification"
             ],
             "paragraph": "The Operator shall have a process that ensures notification to the applicable aviation security authorities when an act of unlawful interference against the Operator, a reportable security incident and/or a reportable security occurrence has been identified.",
-            "page": 685
+            "page": 685,
+            "constraints": []
         },
         {
             "code": "SEC 4.3.3",
@@ -602,7 +661,8 @@
                 "4.3 Investigation and Notification"
             ],
             "paragraph": "The Operator should have a process to ensure security incidents and/or security occurrences are reported to IATA for inclusion in the Incident Data Exchange (IDX) Security Dashboard. Such reports should be submitted in accordance with the formal IDX reporting process.",
-            "page": 685
+            "page": 685,
+            "constraints": []
         }
     ]
 }
