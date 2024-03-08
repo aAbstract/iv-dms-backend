@@ -558,6 +558,7 @@ seed_flow_reports = [
         ],
         status=FlowReportStatus.INPROGRESS,
         organization="AeroSync",
+        airline="",
         creator="cwael",
         user_changes=[
             UserChange(
@@ -568,6 +569,11 @@ seed_flow_reports = [
         ],
     )
 ]
+
+seed_airlines = Airline(
+        name="AeroSync",
+        organization="AeroSync"
+    )
 
 
 def seed_routine():
@@ -835,12 +841,17 @@ def seed_routine():
     print("creating regulations source maps indexes...")
     db.get_collection("regulations_source_maps").create_index("code", unique=True)
 
+    print("seeding airlines...")
+    airline_id = db.get_collection("airlines").insert_one(seed_airlines.model_dump()).inserted_id
+    print("creating airlines indexes...")
+    db.get_collection("airlines").create_index("organization", unique=False)
+    
     print("seeding flow reports...")
     for report in seed_flow_reports:
         report = report.model_dump()
         report["regulation_id"] = str(iosa_e16r2_id)
         report["sub_sections"][0]["checklist_items"][0]["checkins"] = []
-
+        report['airline'] = str(airline_id)
         db.get_collection("flow_reports").insert_one(report)
     print("creating flow report indices...")
     db.get_collection("flow_reports").create_index("organization", unique=False)

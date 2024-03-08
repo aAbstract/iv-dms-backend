@@ -2,7 +2,7 @@ from models.runtime import ServiceResponse
 from database.mongo_driver import get_database, validate_bson_id
 from models.regulations import RegulationsMetaData, IOSAItem, IOSASection
 from models.flow_reports import ReportTemplate, ReportSubSection, RegulationType
-
+from lib.pdf import parse_paragraph
 
 async def get_regulations_options() -> ServiceResponse:
     mdb_query = [
@@ -108,8 +108,7 @@ async def get_iosa_checklist(regulation_id: str, checklist_code: str) -> Service
     except:
         return ServiceResponse(success=False, msg='Checklist Code not Found', status_code=404)
 
-    return ServiceResponse(data={'iosa_checklist': iosa_checklist})
-
+    return ServiceResponse(data={'iosa_checklist': iosa_checklist,"constraints":parse_paragraph(iosa_checklist.paragraph)})
 
 async def get_checklist_template(regulation_id: str, checklist_template_code: str) -> ServiceResponse:
     bson_id = validate_bson_id(regulation_id)

@@ -2,6 +2,7 @@ from bson import ObjectId
 from models.runtime import ServiceResponse
 from database.mongo_driver import get_database
 from models.flow_reports import (
+    Airline,
     FlowReport,
     FlowReportStatus,
     ReportItem,
@@ -20,6 +21,7 @@ async def create_flow_report_db(
     checklist_template_code: str,
     organization: str,
     username: str,
+    airline_id:str
 ) -> ServiceResponse:
 
     bson_id = validate_bson_id(regulation_id)
@@ -70,6 +72,24 @@ async def create_flow_report_db(
 
     iosa_section = IOSASection.model_validate(iosa_section["sections"][0])
 
+    # validate airline
+    airline_id = validate_bson_id(airline_id)
+    if not airline_id:
+        return ServiceResponse(success=False, msg="Bad Airline ID", status_code=400)
+
+    # get airline
+    airline = await get_database().get_collection("airlines").find_one({"_id": airline_id})
+
+    if not airline:
+        return ServiceResponse(
+            success=False, msg="This airline ID doesn't exist", status_code=404
+        )
+    
+    if airline['organization'] != organization:
+        return ServiceResponse(
+            success=False, msg="Your organization can't access this airline", status_code=403
+        )
+    
     # construct flow report
     flow_report = FlowReport(
         title=title,
@@ -78,6 +98,7 @@ async def create_flow_report_db(
         sub_sections=[],
         status=FlowReportStatus.INPROGRESS,
         organization=organization,
+        airline=str(airline['_id']),
         creator=username,
         user_changes=[
             UserChange(
@@ -115,40 +136,53 @@ async def create_flow_report_db(
     )
 
     flow_report_dict["_id"] = str(mdb_result.inserted_id)
+    airline["id"] = str(airline["_id"])
+    del airline["_id"]
+    flow_report_dict["airline"] = airline
     del flow_report_dict["sub_sections"]
 
     return ServiceResponse(data={"flow_report": flow_report_dict})
 
 
-async def list_flow_report_db(organization: str, creator: str) -> ServiceResponse:
-    
+async def list_flow_report_db(organization: str, creator: str ="") -> ServiceResponse:
+
+    query = {"organization": organization}
+
     if creator:
-        flow_reports = [
-            report
-            async for report in get_database()
-            .get_collection("flow_reports")
-            .find(
-                {"organization": organization, "creator": creator}
-            )
-            if report.get("status") != FlowReportStatus.DELETED
-        ]
-    else:
-        flow_reports = [
-            report
-            async for report in get_database()
-            .get_collection("flow_reports")
-            .find({"organization": organization})
-            if report.get("status") != FlowReportStatus.DELETED
-        ]
+        query["creator"] = creator
+
+    flow_reports = [
+        report
+        async for report in get_database()
+        .get_collection("flow_reports")
+        .find(query)
+        if report.get("status") != FlowReportStatus.DELETED
+    ]
 
     for report in range(len(flow_reports)):
         # TODO-GALAL: fix this later
         flow_reports[report]["id"] = str(flow_reports[report]["_id"])
         del flow_reports[report]["_id"]
+
+        flow_reports[report]["regulation_id"] = str(
+            flow_reports[report]["regulation_id"]
+        )
+        flow_reports[report]["type"] = "IOSA"  # TODO-LATER: fix this
+
+        airline = await get_database().get_collection("airlines").find_one({"_id":ObjectId(flow_reports[report]["airline"])})
+
+        if not airline:
+            return ServiceResponse(
+                        success=False,
+                        msg="Airline id couln't be found",
+                        status_code=400,
+                    )
         
-        flow_reports[report]["regulation_id"] = str(flow_reports[report]["regulation_id"])
-        flow_reports[report]['type'] = 'IOSA'  # TODO-LATER: fix this
+        airline["id"] = str(airline["_id"])
+        del airline["_id"]
         FlowReport.model_validate(flow_reports[report])
+        
+        flow_reports[report]["airline"] = airline
         del flow_reports[report]["sub_sections"]
 
     return ServiceResponse(data={"flow_reports": flow_reports})
@@ -186,7 +220,11 @@ async def delete_flow_report_db(
     )
 
     await get_database().get_collection("flow_reports").update_one(
-        {"_id": bson_id}, {"$set": {"status": FlowReportStatus.DELETED}, "$push": {"user_changes": user_change.model_dump()}}
+        {"_id": bson_id},
+        {
+            "$set": {"status": FlowReportStatus.DELETED},
+            "$push": {"user_changes": user_change.model_dump()},
+        },
     )
 
     return ServiceResponse()
@@ -250,6 +288,16 @@ async def get_flow_report_db(
     flow_report["applicability"] = iosa_section.applicability
     flow_report["guidance"] = iosa_section.guidance
     flow_report["_id"] = flow_report_id
+    airline = await get_database().get_collection("airlines").find_one({"_id":ObjectId(flow_report["airline"])})
+    if not airline:
+        return ServiceResponse(
+                    success=False,
+                    msg="Airline id couldn't be found",
+                    status_code=400,
+                )
+    airline["id"] = str(airline["_id"])
+    del airline["_id"]
+    flow_report["airline"] = airline
 
     # create flow report user change
     user_change = UserChange(
@@ -265,21 +313,35 @@ async def get_flow_report_db(
     return ServiceResponse(data=flow_report)
 
 
-async def change_flow_report_sub_sections_db(flow_report_id: str, organization: str, username: str, sub_sections: list, comment: str) -> ServiceResponse:
+async def change_flow_report_sub_sections_db(
+    flow_report_id: str,
+    organization: str,
+    username: str,
+    sub_sections: list,
+    comment: str,
+) -> ServiceResponse:
 
     bson_id = validate_bson_id(flow_report_id)
     if not bson_id:
-        return ServiceResponse(success=False, msg='Bad flow report ID', status_code=400)
+        return ServiceResponse(success=False, msg="Bad flow report ID", status_code=400)
 
-    flow_report = await get_database().get_collection("flow_reports").find_one({"_id": bson_id})
+    flow_report = (
+        await get_database().get_collection("flow_reports").find_one({"_id": bson_id})
+    )
 
     if not flow_report:
-        return ServiceResponse(success=False, msg="This flow report ID doesn't exist", status_code=404)
+        return ServiceResponse(
+            success=False, msg="This flow report ID doesn't exist", status_code=404
+        )
 
     flow_report = FlowReport.model_validate(flow_report).model_dump()
 
-    if (flow_report['organization'] != organization):
-        return ServiceResponse(success=False, status_code=403, msg="Your organization can't access this flow report")
+    if flow_report["organization"] != organization:
+        return ServiceResponse(
+            success=False,
+            status_code=403,
+            msg="Your organization can't access this flow report",
+        )
 
     # this check if any mentioned section by the user exists
     # and every checklist the user wants to update exists and raises an error if it doesn't
@@ -290,58 +352,105 @@ async def change_flow_report_sub_sections_db(flow_report_id: str, organization: 
         try:
             ReportSubSectionWritten.model_validate(input_section)
         except:
-            return ServiceResponse(success=False, status_code=400, msg=f"Bad Sub Section")
+            return ServiceResponse(
+                success=False, status_code=400, msg=f"Bad Sub Section"
+            )
         found = False
-        for i, array_section in enumerate(flow_report['sub_sections']):
-            if input_section['title'] == array_section['title']:
+        for i, array_section in enumerate(flow_report["sub_sections"]):
+            if input_section["title"] == array_section["title"]:
                 found = True
-                for input_item in input_section['checklist_items']:
+                for input_item in input_section["checklist_items"]:
                     item_found = False
-                    for j, array_item in enumerate(array_section['checklist_items']):
-                        if input_item['code'] == array_item['code']:
+                    for j, array_item in enumerate(array_section["checklist_items"]):
+                        if input_item["code"] == array_item["code"]:
 
                             # check ownership of single attachment
-                            if (input_item.get('fs_index') != None):
-                                fs_index = await get_database().get_collection('fs_index').find_one({'_id': ObjectId(input_item['fs_index'])})
+                            if input_item.get("fs_index") != None:
+                                fs_index = (
+                                    await get_database()
+                                    .get_collection("fs_index")
+                                    .find_one({"_id": ObjectId(input_item["fs_index"])})
+                                )
 
                                 if not fs_index:
-                                    return ServiceResponse(success=False, status_code=404, msg=f"{input_item['fs_index']} File Index not Found")
+                                    return ServiceResponse(
+                                        success=False,
+                                        status_code=404,
+                                        msg=f"{input_item['fs_index']} File Index not Found",
+                                    )
 
-                                if fs_index['organization'] != organization:
-                                    return ServiceResponse(success=False, status_code=403, msg=f"Your organization can't access this file {input_item['fs_index']}")
+                                if fs_index["organization"] != organization:
+                                    return ServiceResponse(
+                                        success=False,
+                                        status_code=403,
+                                        msg=f"Your organization can't access this file {input_item['fs_index']}",
+                                    )
 
                             # check ownership of manual refrences
-                            for checkin in input_item['checkins']:
-                                
+                            for checkin in input_item["checkins"]:
+
                                 # ownership of contexts user based or organization based?
                                 # TODO-GALAL
-                                context = await get_database().get_collection('gpt35t_contexts').find_one({'_id': ObjectId(checkin['context_id'])})
+                                context = (
+                                    await get_database()
+                                    .get_collection("gpt35t_contexts")
+                                    .find_one({"_id": ObjectId(checkin["context_id"])})
+                                )
 
                                 if not context:
-                                    return ServiceResponse(success=False, status_code=404, msg=f"GPT context {checkin['doc_uuid']} not Found")
+                                    return ServiceResponse(
+                                        success=False,
+                                        status_code=404,
+                                        msg=f"GPT context {checkin['doc_uuid']} not Found",
+                                    )
 
-                                if context['organization'] != organization:
-                                    return ServiceResponse(success=False, status_code=403, msg=f"You organization can't access this GPT context {checkin['context_id']}")
+                                if context["organization"] != organization:
+                                    return ServiceResponse(
+                                        success=False,
+                                        status_code=403,
+                                        msg=f"You organization can't access this GPT context {checkin['context_id']}",
+                                    )
 
+                                for refrence in checkin["manual_references"].values():
 
-                                for refrence in checkin['manual_references'].values():
-
-                                    fs_index = await get_database().get_collection('fs_index').find_one({'doc_uuid': refrence['doc_uuid']})
+                                    fs_index = (
+                                        await get_database()
+                                        .get_collection("fs_index")
+                                        .find_one({"doc_uuid": refrence["doc_uuid"]})
+                                    )
 
                                     if not fs_index:
-                                        return ServiceResponse(success=False, status_code=404, msg=f"Doc UUID {refrence['doc_uuid']} not Found")
+                                        return ServiceResponse(
+                                            success=False,
+                                            status_code=404,
+                                            msg=f"Doc UUID {refrence['doc_uuid']} not Found",
+                                        )
 
-                                    if fs_index['organization'] != organization:
-                                        return ServiceResponse(success=False, status_code=403, msg=f"Your organization can't access this file {refrence['doc_uuid']}")
+                                    if fs_index["organization"] != organization:
+                                        return ServiceResponse(
+                                            success=False,
+                                            status_code=403,
+                                            msg=f"Your organization can't access this file {refrence['doc_uuid']}",
+                                        )
 
                             item_found = True
-                            flow_report['sub_sections'][i]['checklist_items'][j] = input_item
+                            flow_report["sub_sections"][i]["checklist_items"][
+                                j
+                            ] = input_item
                             break
                     if not item_found:
-                        return ServiceResponse(success=False, status_code=404, msg=f"Item with code '{input_item['code']}' not found in '{array_section['title']}' section.")
+                        return ServiceResponse(
+                            success=False,
+                            status_code=404,
+                            msg=f"Item with code '{input_item['code']}' not found in '{array_section['title']}' section.",
+                        )
                 break
         if not found:
-            return ServiceResponse(success=False, status_code=404, msg=f"Section {input_section['title']} doesn't exit")
+            return ServiceResponse(
+                success=False,
+                status_code=404,
+                msg=f"Section {input_section['title']} doesn't exit",
+            )
 
     flow_report = FlowReport.model_validate(flow_report).model_dump()
 
@@ -351,12 +460,77 @@ async def change_flow_report_sub_sections_db(flow_report_id: str, organization: 
         change_type=UserChangeType.UPDATE,
     ).model_dump()
 
-    flow_report = await get_database().get_collection("flow_reports").find_one_and_update({"_id": bson_id}, {"$set": {"sub_sections": flow_report['sub_sections']},
-                                                                                                             "$push": {"user_changes": user_change}})
-
+    flow_report = (
+        await get_database()
+        .get_collection("flow_reports")
+        .find_one_and_update(
+            {"_id": bson_id},
+            {
+                "$set": {"sub_sections": flow_report["sub_sections"]},
+                "$push": {"user_changes": user_change},
+            },
+        )
+    )
     FlowReport.model_validate(flow_report)
 
-    flow_report["_id"] = str(flow_report['_id'])
+    airline = await get_database().get_collection("airlines").find_one({"_id": ObjectId(flow_report['airline'])})
+
+    flow_report["_id"] = str(flow_report["_id"])
     del flow_report["sub_sections"]
 
+    airline["id"] = str(airline["_id"])
+    del airline["_id"]
+    flow_report["airline"] = airline
+
     return ServiceResponse(data=flow_report)
+
+
+async def list_airlines_db(organization: str) -> ServiceResponse:
+
+    airlines = [ airline async for  airline in get_database().get_collection("airlines").find({"organization": organization}) if Airline.model_validate(airline)]
+    for airline in airlines:
+        airline["id"] = str(airline["_id"])
+        del airline["_id"]
+    return ServiceResponse(data={"airlines": airlines})
+
+
+async def create_airlines_db(organization: str, name: str) -> ServiceResponse:
+
+    if not name:
+        return ServiceResponse(
+            success=False, status_code=400, msg=f"Can't create empty airline name"
+        )
+    name = name.strip()
+
+    airline_obj = await get_database().get_collection("airlines").find_one({"organization": organization,"name":name})
+    
+    if airline_obj != None:
+        return ServiceResponse(
+                success=False, status_code=400, msg=f"Airline Name already Exists"
+            )
+
+    await get_database().get_collection("airlines").insert_one(
+        Airline(organization=organization, name=name).model_dump()
+    )
+    
+    return ServiceResponse()
+
+
+async def delete_airlines_db(organization: str, id: str) -> ServiceResponse:
+
+    bson_id = validate_bson_id(id)
+    if not bson_id:
+        return ServiceResponse(success=False, msg="Bad Airline ID", status_code=400)
+
+    airline_obj = await get_database().get_collection("airlines").find_one({"_id": bson_id})
+    
+    if airline_obj == None:
+        return ServiceResponse(
+            success=False,
+            status_code=403,
+            msg=f"No airline with this ID",
+        )
+
+    await get_database().get_collection("airlines").delete_one({"_id": bson_id})
+    
+    return ServiceResponse()

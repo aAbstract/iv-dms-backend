@@ -28,6 +28,7 @@ async def create_flow_report(
     regulation_id: str = Body(embed=True),
     title: str = Body(embed=True),
     checklist_template_code: str = Body(embed=True),
+    airline:str= Body(embed=True),
     x_auth=Header(alias="X-Auth", default=None),
 ) -> FlowReport | Any:
     func_id = f"{_MODULE_ID}.create_flow_report"
@@ -53,6 +54,7 @@ async def create_flow_report(
         title=title,
         checklist_template_code=checklist_template_code,
         organization=auth_service_response.data["token_claims"]["organization"],
+        airline_id=airline,
         username=auth_service_response.data["token_claims"]["username"],
     )
 
@@ -213,6 +215,117 @@ async def update_flow_report_sub_sections(
         flow_report_id=flow_report_id,
         organization=auth_service_response.data["token_claims"]["organization"],
         sub_sections=sub_sections,
+    )
+
+    if not db_service_response.success:
+        res.status_code = db_service_response.status_code
+        return JsonResponse(
+            success=db_service_response.success,
+            msg=db_service_response.msg,
+        )
+
+    return JsonResponse(data=db_service_response.data)
+
+@router.post(f"{_ROOT_ROUTE}/create-airline")
+async def create_airline(
+    res: Response,
+    name: str = Body(embed=True),
+    x_auth=Header(alias="X-Auth", default=None),
+) -> FlowReport | Any:
+    func_id = f"{_MODULE_ID}.create_airline"
+
+    # authorize user
+    auth_service_response = await security_man.authorize_api(
+        x_auth, _ALLOWED_USERS, func_id
+    )
+    if not auth_service_response.success:
+        res.status_code = auth_service_response.status_code
+        return JsonResponse(
+            success=auth_service_response.success,
+            msg=auth_service_response.msg,
+        )
+
+    await log_man.add_log(
+        func_id,
+        "DEBUG",
+        f"received create airline request: username={auth_service_response.data['token_claims']['username']} organization={auth_service_response.data['token_claims']['organization']} name={name}",
+    )
+
+    db_service_response = await create_airlines_db(
+        name = name,
+        organization=auth_service_response.data["token_claims"]["organization"],
+    )
+
+    if not db_service_response.success:
+        res.status_code = db_service_response.status_code
+        return JsonResponse(
+            success=db_service_response.success,
+            msg=db_service_response.msg,
+        )
+
+    return JsonResponse(data=db_service_response.data)
+
+@router.post(f"{_ROOT_ROUTE}/list-airlines")
+async def list_airlines(
+    res: Response,
+    x_auth=Header(alias="X-Auth", default=None),
+) -> FlowReport | Any:
+    func_id = f"{_MODULE_ID}.list_airlines"
+    # authorize user
+    auth_service_response = await security_man.authorize_api(
+        x_auth, _ALLOWED_USERS, func_id
+    )
+    if not auth_service_response.success:
+        res.status_code = auth_service_response.status_code
+        return JsonResponse(
+            success=auth_service_response.success,
+            msg=auth_service_response.msg,
+        )
+
+    await log_man.add_log(
+        func_id,
+        "DEBUG",
+        f"received list airlines request: username={auth_service_response.data['token_claims']['username']} organization={auth_service_response.data['token_claims']['organization']}",
+    )
+
+    db_service_response = await list_airlines_db(organization=auth_service_response.data["token_claims"]["organization"])
+
+    if not db_service_response.success:
+        res.status_code = db_service_response.status_code
+        return JsonResponse(
+            success=db_service_response.success,
+            msg=db_service_response.msg,
+        )
+
+    return JsonResponse(data=db_service_response.data)
+
+@router.post(f"{_ROOT_ROUTE}/delete-airline")
+async def delete_airline(
+    res: Response,
+    id: str = Body(embed=True),
+    x_auth=Header(alias="X-Auth", default=None),
+) -> FlowReport | Any:
+    func_id = f"{_MODULE_ID}.delete_airline"
+    # authorize user
+    auth_service_response = await security_man.authorize_api(
+        x_auth, _ALLOWED_USERS, func_id
+    )
+    if not auth_service_response.success:
+        res.status_code = auth_service_response.status_code
+        return JsonResponse(
+            success=auth_service_response.success,
+            msg=auth_service_response.msg,
+        )
+
+    await log_man.add_log(
+        func_id,
+        "DEBUG",
+        f"received delete airline request: username={auth_service_response.data['token_claims']['username']} organization={auth_service_response.data['token_claims']['organization']} id= {id}",
+    )
+
+    db_service_response = await delete_airlines_db(
+        id = id,
+        organization=auth_service_response.data["token_claims"]["organization"],
     )
 
     if not db_service_response.success:

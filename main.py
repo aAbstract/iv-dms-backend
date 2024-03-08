@@ -32,8 +32,8 @@ async def lifespan(app: FastAPI):
 
 server = FastAPI(
     title=os.environ['SERVER_NAME'],
-    description='Updated GPT instruct post processing',
-    version="0.38.7",
+    description='Fixed airline service and updated checklist route',
+    version="0.38.8",
     lifespan=lifespan,
 )
 server.add_middleware(

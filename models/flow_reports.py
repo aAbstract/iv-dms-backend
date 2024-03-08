@@ -89,6 +89,7 @@ class FlowReport(BaseModel):
     sub_sections: list[ReportSubSectionWritten] = []
     status: FlowReportStatus
     organization: str
+    airline:str
     creator: str
     user_changes: list[UserChange] = []
 
@@ -96,3 +97,7 @@ class FlowReportChange(BaseModel):
     report_id: str
     organization: str
     user_changes: list[UserChange] = []
+
+class Airline(BaseModel):
+    name: str
+    organization: str

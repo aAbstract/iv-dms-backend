@@ -76,6 +76,8 @@ def test_create_flow_report():
         if x["name"] == "IOSA Standards Manual (ISM) Ed 16-Revision2"
     ][0]["id"]
 
+    airline = get_database.get_collection("airlines").insert_one({"organization":"AeroSync","name":"AeroSync Test"})
+
     # test api
     api_url = f"{_test_config.get_api_url()}/flow_report/create-flow-report"
 
@@ -83,8 +85,9 @@ def test_create_flow_report():
         "regulation_id": regulation_id,
         "title": "Test Title",
         "checklist_template_code": "FLT 2",
+        "airline":str(airline.inserted_id)
     }
-    print(payload)
+
     http_res = requests.post(api_url, headers=http_headers, json=payload)
 
     assert http_res.status_code == 200
@@ -102,8 +105,10 @@ def test_create_flow_report():
         "_id",
         "creator",
         "user_changes",
+        "airline"
     }
     assert json_res_body["data"]["flow_report"]["title"] == "Test Title"
+    assert json_res_body["data"]["flow_report"]["airline"]["name"] == "AeroSync Test"
 
     flow_report = get_database["flow_reports"].find_one_and_delete(
         {"_id": ObjectId(json_res_body["data"]["flow_report"]["_id"])}
@@ -113,6 +118,7 @@ def test_create_flow_report():
     assert flow_report["title"] == "Test Title"
     assert "user_changes" in flow_report
     assert flow_report["user_changes"][0]["change_type"] == UserChangeType.CREATE
+    get_database.get_collection("airlines").delete_one({"_id": airline.inserted_id})
 
 
 def test_list_flow_report():
@@ -136,6 +142,8 @@ def test_list_flow_report():
         if x["name"] == "IOSA Standards Manual (ISM) Ed 16-Revision2"
     ][0]["id"]
 
+    airline = get_database.get_collection("airlines").insert_one({"organization":"AeroSync","name":"AeroSync Test"})
+
     # create flow report
     api_url = f"{_test_config.get_api_url()}/flow_report/create-flow-report"
 
@@ -143,6 +151,7 @@ def test_list_flow_report():
         "regulation_id": regulation_id,
         "title": "Test Title",
         "checklist_template_code": "FLT 2",
+        "airline":str(airline.inserted_id)
     }
 
     http_res = requests.post(api_url, headers=http_headers, json=payload)
@@ -162,10 +171,11 @@ def test_list_flow_report():
         "_id",
         "creator",
         "user_changes",
+        "airline"
     }
     assert json_res_body["data"]["flow_report"]["title"] == "Test Title"
     assert json_res_body["data"]["flow_report"]["code"] == "FLT 2"
-
+    assert json_res_body["data"]["flow_report"]["airline"]["name"] == "AeroSync Test"
     flow_report_id = json_res_body["data"]["flow_report"]["_id"]
 
     # test api
@@ -189,6 +199,7 @@ def test_list_flow_report():
         "creator",
         "user_changes",
         "type",
+        "airline"
     }
 
     # reset db
@@ -196,6 +207,7 @@ def test_list_flow_report():
         {"_id": ObjectId(flow_report_id)}
     )
     assert flow_report["_id"]
+    get_database.get_collection("airlines").delete_one({"_id": airline.inserted_id})
 
 
 def test_get_flow_report():
@@ -203,6 +215,8 @@ def test_get_flow_report():
         "cwael", "CgJhxwieCc7QEyN3BB7pmvy9MMpseMPV"
     )
     http_headers = {"X-Auth": f"Bearer {admin_access_token}"}
+    get_database = _test_config.get_database()
+    assert get_database != None
 
     # create flow report
     # get regulations options
@@ -218,6 +232,8 @@ def test_get_flow_report():
         if x["name"] == "IOSA Standards Manual (ISM) Ed 16-Revision2"
     ][0]["id"]
 
+    airline = get_database.get_collection("airlines").insert_one({"organization":"AeroSync","name":"AeroSync Test"})
+
     # test api
     api_url = f"{_test_config.get_api_url()}/flow_report/create-flow-report"
 
@@ -225,6 +241,7 @@ def test_get_flow_report():
         "regulation_id": regulation_id,
         "title": "Test Title",
         "checklist_template_code": "FLT 2",
+        "airline":str(airline.inserted_id)
     }
 
     http_res = requests.post(api_url, headers=http_headers, json=payload)
@@ -252,9 +269,12 @@ def test_get_flow_report():
         "_id",
         "creator",
         "user_changes",
+        "airline"
     }
     assert json_res_body["data"]["flow_report"]["title"] == "Test Title"
     assert json_res_body["data"]["flow_report"]["code"] == "FLT 2"
+    assert json_res_body["data"]["flow_report"]["airline"]['name'] == "AeroSync Test"
+
     flow_report = json_res_body["data"]["flow_report"]
     assert flow_report["_id"]
 
@@ -286,7 +306,9 @@ def test_get_flow_report():
         "_id",
         "creator",
         "user_changes",
+        "airline"
     }
+    assert json_res_body['data']["airline"]['name'] == "AeroSync Test"
 
     # reset flow report
     flow_report = get_database["flow_reports"].find_one_and_delete(
@@ -298,6 +320,8 @@ def test_get_flow_report():
     assert flow_report["_id"]
     assert flow_report["title"] == "Test Title"
     assert flow_report["code"] == "FLT 2"
+
+    get_database.get_collection("airlines").delete_one({"_id": airline.inserted_id})
 
 
 def test_delete_flow_report():
@@ -322,6 +346,8 @@ def test_delete_flow_report():
         if x["name"] == "IOSA Standards Manual (ISM) Ed 16-Revision2"
     ][0]["id"]
 
+    airline = get_database.get_collection("airlines").insert_one({"organization":"AeroSync","name":"AeroSync Test"})
+
     # test api
     api_url = f"{_test_config.get_api_url()}/flow_report/create-flow-report"
 
@@ -329,6 +355,7 @@ def test_delete_flow_report():
         "regulation_id": regulation_id,
         "title": "Test Title",
         "checklist_template_code": "FLT 2",
+        "airline":str(airline.inserted_id)
     }
 
     http_res = requests.post(api_url, headers=http_headers, json=payload)
@@ -356,9 +383,11 @@ def test_delete_flow_report():
         "_id",
         "creator",
         "user_changes",
+        "airline"
     }
     assert json_res_body["data"]["flow_report"]["title"] == "Test Title"
     assert json_res_body["data"]["flow_report"]["code"] == "FLT 2"
+    assert json_res_body["data"]["flow_report"]["airline"]['name'] == "AeroSync Test"
 
     # delete flow report
     # test api
@@ -382,6 +411,7 @@ def test_delete_flow_report():
     )
     assert flow_report["_id"]
 
+    get_database.get_collection("airlines").delete_one({"_id": airline.inserted_id})
 
 def test_update_flow_report_sub_sections():
     admin_access_token = _test_config.login_user(
@@ -405,6 +435,8 @@ def test_update_flow_report_sub_sections():
         if x["name"] == "IOSA Standards Manual (ISM) Ed 16-Revision2"
     ][0]["id"]
 
+    airline = get_database.get_collection("airlines").insert_one({"organization":"AeroSync","name":"AeroSync Test"})
+
     # create flow report
     api_url = f"{_test_config.get_api_url()}/flow_report/create-flow-report"
 
@@ -412,6 +444,7 @@ def test_update_flow_report_sub_sections():
         "regulation_id": regulation_id,
         "title": "Test Title",
         "checklist_template_code": "FLT 1",
+        "airline":str(airline.inserted_id),
     }
 
     http_res = requests.post(api_url, headers=http_headers, json=payload)
@@ -431,9 +464,12 @@ def test_update_flow_report_sub_sections():
         "_id",
         "creator",
         "user_changes",
+        "airline"
     }
     assert json_res_body["data"]["flow_report"]["title"] == "Test Title"
     assert json_res_body["data"]["flow_report"]["code"] == "FLT 1"
+    assert json_res_body["data"]["flow_report"]["airline"]['name'] == "AeroSync Test"
+
     flow_report_id = json_res_body["data"]["flow_report"]["_id"]
 
     # get status before change
@@ -541,3 +577,134 @@ def test_update_flow_report_sub_sections():
         {"_id": ObjectId(flow_report["_id"])}
     )
     assert flow_report["_id"]
+    get_database.get_collection("airlines").delete_one({"_id": airline.inserted_id})
+
+def test_list_airlines():
+    admin_access_token = _test_config.login_user(
+        "eslam", "CgJhxwieCc7QEyN3BB7pmvy9MMpseMPV"
+    )
+    http_headers = {"X-Auth": f"Bearer {admin_access_token}"}
+    get_database = _test_config.get_database()
+    assert get_database != None
+
+    # create airline
+    api_url = f"{_test_config.get_api_url()}/flow_report/create-airline"
+
+    payload = {
+        "name":"AeroSync Test"
+    }
+
+    http_res = requests.post(api_url, headers=http_headers, json=payload)
+
+    assert http_res.status_code == 200
+    json_res_body = json.loads(http_res.content.decode())
+    assert json_res_body["success"]
+
+    airline = get_database.get_collection("airlines").find_one({"organization":"AeroSync","name":"AeroSync Test"})
+    assert "AeroSync Test" == airline['name']
+    assert "AeroSync" == airline['organization']
+    
+
+    # list airlines
+    api_url = f"{_test_config.get_api_url()}/flow_report/list-airlines"
+
+    payload = {}
+
+    http_res = requests.post(api_url, headers=http_headers, json=payload)
+
+    assert http_res.status_code == 200
+    json_res_body = json.loads(http_res.content.decode())
+    assert json_res_body["success"]
+    assert "airlines" in json_res_body["data"]
+    assert  isinstance(json_res_body["data"]['airlines'], list)
+    assert json_res_body["data"]['airlines'][-1]["id"]
+    assert json_res_body["data"]['airlines'][-1]["name"] == "AeroSync Test"
+    assert json_res_body["data"]['airlines'][-1]["organization"] == "AeroSync"
+    get_database.get_collection("airlines").delete_one({"_id": airline["_id"]})
+
+
+def test_create_airlines():
+    admin_access_token = _test_config.login_user(
+        "eslam", "CgJhxwieCc7QEyN3BB7pmvy9MMpseMPV"
+    )
+    http_headers = {"X-Auth": f"Bearer {admin_access_token}"}
+    get_database = _test_config.get_database()
+    assert get_database != None
+
+    # create airline
+    api_url = f"{_test_config.get_api_url()}/flow_report/create-airline"
+
+    payload = {
+        "name":"AeroSync Test"
+    }
+
+    http_res = requests.post(api_url, headers=http_headers, json=payload)
+
+    assert http_res.status_code == 200
+    json_res_body = json.loads(http_res.content.decode())
+    assert json_res_body["success"]
+
+    airline = get_database.get_collection("airlines").find_one({"organization":"AeroSync","name":"AeroSync Test"})
+    assert "AeroSync Test" == airline['name']
+    assert "AeroSync" == airline['organization']
+    
+    get_database.get_collection("airlines").delete_one({"_id": airline["_id"]})
+   
+
+
+def test_delete_airlines():
+    admin_access_token = _test_config.login_user(
+        "eslam", "CgJhxwieCc7QEyN3BB7pmvy9MMpseMPV"
+    )
+    http_headers = {"X-Auth": f"Bearer {admin_access_token}"}
+    get_database = _test_config.get_database()
+    assert get_database != None
+    
+
+    # create airline
+    api_url = f"{_test_config.get_api_url()}/flow_report/create-airline"
+
+    payload = {
+        "name":"AeroSync Test"
+    }
+
+    http_res = requests.post(api_url, headers=http_headers, json=payload)
+
+    assert http_res.status_code == 200
+    json_res_body = json.loads(http_res.content.decode())
+    assert json_res_body["success"]
+
+
+    # list airlines
+    api_url = f"{_test_config.get_api_url()}/flow_report/list-airlines"
+
+    payload = {}
+
+    http_res = requests.post(api_url, headers=http_headers, json=payload)
+
+    assert http_res.status_code == 200
+    json_res_body = json.loads(http_res.content.decode())
+    assert json_res_body["success"]
+    assert "airlines" in json_res_body["data"]
+    assert  isinstance(json_res_body["data"]['airlines'], list)
+    assert json_res_body["data"]['airlines'][-1]["id"]
+    assert json_res_body["data"]['airlines'][-1]["name"] == "AeroSync Test"
+    assert json_res_body["data"]['airlines'][-1]["organization"] == "AeroSync"
+
+    id = json_res_body["data"]['airlines'][-1]["id"]
+
+    # delete airline
+    api_url = f"{_test_config.get_api_url()}/flow_report/delete-airline"
+
+    payload = {
+        "id":id
+    }
+
+    http_res = requests.post(api_url, headers=http_headers, json=payload)
+
+    assert http_res.status_code == 200
+    json_res_body = json.loads(http_res.content.decode())
+    assert json_res_body["success"]
+
+    airline = get_database.get_collection("airlines").find_one({"_id":ObjectId(id)})
+    assert not airline

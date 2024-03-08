@@ -224,7 +224,7 @@ async def iosa_enhance_unstruct(res: Response,overall_compliance_tag:str=Body(em
     })
 
 @router.post(f"{_ROOT_ROUTE}/iosa-audit-pages")
-async def iosa_audit_pages(res: Response, regulation_id: str = Body(embed=True), checklist_code: str = Body(embed=True), pagesMapper: dict[str, set[int]] = Body(embed=True), x_auth=Header(alias='X-Auth', default=None)) -> JsonResponse:
+async def iosa_audit_pages(res: Response, regulation_id: str = Body(embed=True), checklist_code: str = Body(embed=True), text: str = Body(embed = True), pagesMapper: dict[str, set[int]] = Body(embed=True), x_auth=Header(alias='X-Auth', default=None)) -> JsonResponse:
     """Audit text against pages from an FSIndex entry using Chatdoc ID.\n
     =================================================================\n
     interface LLMIOSAItemResponse {\n
@@ -263,6 +263,7 @@ async def iosa_audit_pages(res: Response, regulation_id: str = Body(embed=True),
 
     await log_man.add_log(func_id, 'DEBUG', f"received iosa audit pages request: username = {username}, organization= {organization}, regulation_id={regulation_id}, pagesMapper: {pagesMapper}, checklist_code={checklist_code}")
 
+   
     # get IOSA item from database
     db_service_response = await regulations_database_api.get_iosa_checklist(regulation_id, checklist_code)
     if not db_service_response.success:
@@ -282,6 +283,10 @@ async def iosa_audit_pages(res: Response, regulation_id: str = Body(embed=True),
             msg=get_pages_service_response.msg,
         )
     text_to_audit = get_pages_service_response.data['text']
+    
+    # Select sent text if sent from front
+    if text.strip():
+       iosa_checklist.paragraph = text.strip()
 
     llm_service_response = await gpt_35t_unstruct.iosa_audit_text(iosa_checklist, text_to_audit)
     if not llm_service_response.success:

@@ -139,6 +139,7 @@ async def get_iosa_checklist(res: Response, regulation_id: str = Body(), checkli
             success=db_service_response.success,
             msg=db_service_response.msg,
         )
+    
     return JsonResponse(data=db_service_response.data)
 
 

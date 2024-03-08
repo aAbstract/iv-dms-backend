@@ -178,6 +178,7 @@ async def gpt35t_generate_iosa(iosa_checklist: str) -> ServiceResponse:
         return ServiceResponse(success=False, status_code=503, msg=f"LLM 35T-1106 Error: {e}")
 
 async def iosa_audit_text(iosa_item: IOSAItem, input_text: str) -> ServiceResponse:
+
     gpt35t_enable = int(os.environ['GPT_35T_ENABLE'])
     if not gpt35t_enable:
         dummy_scores_map = {
