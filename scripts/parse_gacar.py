@@ -2,8 +2,9 @@ from pandas import read_csv
 import json
 import re
 
+
 def clean(text):
-    new_text= text[:]
+    new_text = text[:]
     replacements = {
         "\u201d": "'",
         "\u201c": "'",
@@ -135,12 +136,13 @@ def clean(text):
         "\u206c": "",
         "\u206d": "",
         "\u206e": "",
-        "\u206f": ""
+        "\u206f": "",
     }
     for escape, replacement in replacements.items():
         text = text.replace(escape, replacement)
 
     return new_text
+
 
 def convert_to_markdown(text):
     def replace_listing(match):
@@ -210,46 +212,41 @@ def convert_to_markdown(text):
             return f"\n  - ({listing_type.lower()})"
         else:
             return f"({listing_type})"
-        
-    markdown_text = re.sub(r'(?<=\w)\n(?=\w)', " ", text)
+
+    markdown_text = re.sub(r"(?<=\w)\n(?=\w)", " ", text)
     markdown_text = re.sub(r"\n\((\w+)\)", replace_listing, markdown_text)
     return markdown_text
 
+
 df = read_csv("data/gacar/gacar_117.csv")
 unique_set = {}
-g = {
-    "name": "",
-    "code": "",
-    "applicability":"",
-    "guidance":"",
-    "items":[]
-    }
-g_map = {
-        "code":"",
-        "title":"GACAR Part 117",
-        "sub_sections":[]
-    }
+g = {"name": "", "code": "", "applicability": "", "guidance": "", "items": []}
+g_map = {"code": "", "title": "GACAR Part 117", "sub_sections": []}
 # this is heavly relient on the excels structure
 # revise before inputting other excel sheets
 for i in df.values:
-    if not g['name'] or g['code']:
-        g['code'] = "GACAR "+ str(i[1])
-        g_map['code'] = "GACAR "+ str(i[1])
-        g['name'] = "GACAR Part " + str(i[1])
+    if not g["name"] or g["code"]:
+        g["code"] = "GACAR " + str(i[1])
+        g_map["code"] = "GACAR " + str(i[1])
+        g["name"] = "GACAR Part " + str(i[1])
 
-    if("GACAR "+str(i[3]) in unique_set):
-        unique_set["GACAR "+str(i[3])]['paragraph'] += "\n" + i[-1]
+    if "GACAR " + str(i[3]) in unique_set:
+        unique_set["GACAR " + str(i[3])]["paragraph"] += "\n" + i[-1]
     else:
-        g_map['sub_sections'].append("GACAR "+str(i[3]))
-        unique_set["GACAR "+str(i[3])] = {"paragraph":i[6] +"\n"+i[-1],"code":"GACAR "+str(i[3])}
+        g_map["sub_sections"].append("GACAR " + str(i[3]))
+        unique_set["GACAR " + str(i[3])] = {
+            "paragraph": i[6] + "\n" + i[-1],
+            "code": "GACAR " + str(i[3]),
+            "iosa_map":["GACAR " + str(i[3])]
+        }
 
 for i in unique_set.values():
-    i['paragraph'] = convert_to_markdown(clean(i['paragraph']))
+    i["paragraph"] = convert_to_markdown(clean(i["paragraph"]))
     g["items"].append(i)
 
 # write to a separate json file
-with open(fr"data/gacar/GACAR_117.json", "w") as fp:
+with open(rf"data/gacar/GACAR_117.json", "w") as fp:
     json.dump(g, fp, indent=4)
 
-with open(fr"data/gacar/GACAR_117_map.json", "w") as fp:
+with open(rf"data/gacar/GACAR_117_map.json", "w") as fp:
     json.dump([g_map], fp, indent=4)

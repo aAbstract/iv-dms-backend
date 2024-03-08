@@ -41,14 +41,16 @@ async def create_flow_report_db(
         return ServiceResponse(
             success=False, msg="Bad Regulation Type", status_code=400
         )
-
     # get IOSA section
     if " " not in checklist_template_code:
         return ServiceResponse(
             success=False, msg="Bad Checklist Template Code", status_code=400
         )
-
-    section_code, _ = checklist_template_code.split(" ")
+    if regulation['type'] == RegulationType.GACAR:
+        section_code = checklist_template_code
+    else:
+        section_code, _ = checklist_template_code.split(" ")
+    
     iosa_section = (
         await get_database()
         .get_collection("regulations")
@@ -112,7 +114,11 @@ async def create_flow_report_db(
     sub_section_iosa_item_map = {}
     for item in iosa_section.items:
         if item.code.startswith(checklist_template_code):
-            sub_section_title = item.iosa_map[1]
+
+            if regulation['type'] == RegulationType.GACAR:
+                sub_section_title = item.iosa_map[0]
+            else:
+                sub_section_title = item.iosa_map[1]
 
             if not sub_section_title in sub_section_iosa_item_map:
                 sub_section_iosa_item_map[sub_section_title] = []
@@ -246,6 +252,15 @@ async def get_flow_report_db(
         return ServiceResponse(
             success=False, msg="This flow report ID doesn't exist", status_code=404
         )
+    
+    # get type from regulation
+    regulation = (
+        await get_database().get_collection("regulations").find_one({"_id": ObjectId(flow_report["regulation_id"])})
+    )
+    if not regulation:
+        return ServiceResponse(
+            success=False, msg="This Regulation ID doesn't exist", status_code=404
+        )
 
     flow_report["_id"] = str(flow_report["_id"])
     flow_report["regulation_id"] = str(flow_report["regulation_id"])
@@ -258,6 +273,14 @@ async def get_flow_report_db(
             status_code=403,
             msg="Your organization can't access this flow report",
         )
+    
+
+    if regulation['type'] == RegulationType.GACAR:
+        section_code = flow_report["code"]
+    else:
+        section_code = flow_report["code"].split()[0]
+    
+    
     # get applicability and general guidence
     iosa_section = (
         await get_database()
@@ -265,7 +288,7 @@ async def get_flow_report_db(
         .find_one(
             {
                 "_id": ObjectId(flow_report["regulation_id"]),
-                "sections.code": flow_report["code"].split()[0],
+                "sections.code": section_code,
             },
             projection={"_id": 0, "sections.$": 1},
         )
