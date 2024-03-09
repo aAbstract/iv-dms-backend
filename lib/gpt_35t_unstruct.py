@@ -237,7 +237,7 @@ async def iosa_audit_text(iosa_item: IOSAItem, input_text: str) -> ServiceRespon
 
     # remove the scores and tags from the response text
     text = gpt35t_resp[:re_matches_score.span()[0]]
-
+    ovcomp_tag= ""
     if(ovcomp_score<=3):
         ovcomp_tag = "Non Compliant"
     elif(ovcomp_score<=6):
