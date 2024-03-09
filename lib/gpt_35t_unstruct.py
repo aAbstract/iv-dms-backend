@@ -38,7 +38,7 @@ async def gpt35t_generate(iosa_checklist: str, input_text: str) -> ServiceRespon
     Your output must include the following sections:
     ASSESSMENT: A detailed evaluation of the documentation's alignment with the ISARPs. It should employ technical language and aviation terminology where appropriate.
     RECOMMENDATIONS: Specific, actionable suggestions aimed at improving compliance with ISARP standards. Maintain a formal and professional tone.
-    OVERALL_COMPLIANCE_SCORE: A numerical rating (0 to 100) reflecting the documentation's overall compliance with the ISARPs.
+    OVERALL_COMPLIANCE_SCORE: A numerical rating (0 to 10) reflecting the documentation's overall compliance with the ISARPs.
     OVERALL_COMPLIANCE_TAG: A scoring tag indicating the overall compliance level with ISARPs.
     """
 
