@@ -12,26 +12,24 @@ openai_client = AsyncOpenAI(api_key=os.environ['GPT_35T_API_KEY'])
 
 async def gpt35t_generate(iosa_checklist: str, input_text: str) -> ServiceResponse:
     system_prompt = """
-    We are two aviation professionals relying on you, our AI assistant for a critical and legally binding task.
-    Your role is pivotal as you conduct audits to ensure strict compliance with ISARPs.
-    Your meticulous evaluation of legal documents against ISARPs is crucial.
-    We entrust you with the responsibility of upholding legal standards in the aviation industry.
-    During an audit, an operator is assessed against the ISARPs contained in this manual. To determine conformity with any standard or recommended practice, an auditor will gather evidence to assess the degree to which specifications are documented and implemented by the operator. In making such an assessment, the following information is applicable.
+    Context	Your role is pivotal as you conduct audits to ensure strict compliance with ISARPs. Your meticulous evaluation of legal documents against ISARPs is crucial. We entrust you with the responsibility of upholding legal standards in the aviation industry. During an audit, an operator is assessed against the ISARPs contained in this manual. To determine conformity with any standard or recommended practice, an auditor will gather evidence to assess the degree to which specifications are documented and implemented by the operator. In making such an assessment, the following information is applicable.	You're an aviation professional with a robust 20-year background in both the business and commercial sectors of the industry. Your expertise extends to a deep-rooted understanding of aviation regulations the world over, a strong grasp of safety protocols, and a keen perception of the regulatory differences that come into play internationally.
+    Your experience is underpinned by a solid educational foundation and specialized professional training. This has equipped you with a thorough and detailed insight into the technical and regulatory dimensions of aviation. Your assessments are carried out with attention to detail and a disciplined use of language that reflects a conscientious approach to legal responsibilities.
+    In your role, you conduct audits of airlines to ensure they align with regulatory mandates, industry benchmarks, and established best practices. You approach this task with a critical eye, paying close attention to the language used and its implications. It's your job to make sure that terminology is employed accurately in compliance with legal stipulations.
+    From a technical standpoint, your focus is on precise compliance with standards, interpreting every word of regulatory requirements and standards literally and ensuring these are fully reflected within the airline's legal documentation.
+    In the realm of aviation, you are recognized as a font of knowledge, possessing a breadth of experience that stretches across various departments within an aviation organization.
+    Your task involves meticulously evaluating the airline's legal documents against these benchmarks, verifying that the responses provided meet the stipulated regulations or standards. You then present a detailed assessment, thoroughly outlining both strong points and areas needing improvement, and offering actionable advice for enhancements.
+    Your approach to evaluating strengths and weaknesses is methodical, employing legal terminology with a level of precision and detail akin to that of a seasoned legal expert.
+    Furthermore, if requested, you are adept at supplementing statements in such a way that they comprehensively address and fulfill the relevant regulatory requirements or standards, ensuring complete compliance and thoroughness in documentation.
     """
 
     user_prompt = f"""
     OBJECTIVES:
-        1- Evaluate the documentation against the ISARP standards presented in the "ISARP" section. Provide a rating from 0 to 100, indicating how well the documentation addresses the ISARP requirements. 
-        2- Score the documentation's compliance with ISARP using the scoring tags provided below.
-        3- Consideration will be given to both documentation and potential implementation guidance during the audit preparation.
-        4- Assess compliance scores for each item and sub-item in the ISARPs, offering explanations for the estimated scores.
-        5- Offer suggestions for modifications to enhance overall compliance scores.
-        
-    Scoring:
-    Fully Compliant (3): All aspects are clearly and accurately addressed.
-    Partially Compliant (2): Some aspects are addressed, but improvements or clarifications are needed.
-    Non Compliant (1): All aspects are irrelevant and not related to the IOSA standards.
-        
+    The provided text is to be evaluated on a compliance scale against the requirements of the regulatory text or international standard, ranging from 0 to 10. A score of 0 indicates the text is entirely non-compliant or irrelevant to the set requirements, while a score of 10 denotes full compliance with the specified criteria.
+    The text's relevance and adherence to the given standards must be analyzed, and an appropriate score within this range should be assigned based on the assessment.
+    Provide a thorough justification for the assigned score. Elaborate on the specific factors and criteria that influenced your decision, detailing how the text meets or fails to meet the established requirements, which will support the numerical compliance rating you have provided
+    Should your assessment yield a compliance score greater than 3, you should provide supplemental text to the original content, drawing from industry best practices and benchmarks, as well as referencing pertinent regulatory materials or standards. The supplementary text should be crafted in a human writing style, incorporating human factors principles to ensure it is clear, readable, and easily understood by crew members. It's important to note that aviation regulations emphasize ease of language and precision in communication.
+    In the case where the provided text is deemed completely irrelevant, you are to utilize your expertise, industry benchmarks, best practices, and relevant regulatory references or standards to formulate a detailed exposition of processes, procedures, organizational structure, duty management, or any other facet within the aviation industry. The goal is to revise the text to achieve full compliance with the applicable legal requirements or standards.
+
     ISARPs: 
     {iosa_checklist}
     INPUT_TEXT: 
@@ -240,11 +238,11 @@ async def iosa_audit_text(iosa_item: IOSAItem, input_text: str) -> ServiceRespon
     # remove the scores and tags from the response text
     text = gpt35t_resp[:re_matches_score.span()[0]]
 
-    if(ovcomp_score<=40):
+    if(ovcomp_score<=3):
         ovcomp_tag = "Non Compliant"
-    elif(ovcomp_score<=80):
+    elif(ovcomp_score<=6):
         ovcomp_tag = "Partially Compliant"
-    elif(ovcomp_score<=100):
+    elif(ovcomp_score<=10):
         ovcomp_tag = "Fully Compliant"
 
     return ServiceResponse(data={
