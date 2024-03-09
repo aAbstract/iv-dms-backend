@@ -215,19 +215,19 @@ async def iosa_audit_text(iosa_item: IOSAItem, input_text: str) -> ServiceRespon
             print('=' * 100)
         return ServiceResponse(success=False, status_code=503, msg='Failed to Compute Compliance Score')
     
-    if not re_matches_tag:
-        if int(os.environ['LLM_DEBUG']):
-            print('=' * 100)
-            print(gpt35t_resp)
-            print('=' * 100)
-        return ServiceResponse(success=False, status_code=503, msg='Failed to Compute Compliance Tag')
+    # if not re_matches_tag:
+    #     if int(os.environ['LLM_DEBUG']):
+    #         print('=' * 100)
+    #         print(gpt35t_resp)
+    #         print('=' * 100)
+    #     return ServiceResponse(success=False, status_code=503, msg='Failed to Compute Compliance Tag')
 
 
-    re_matches_tag = " ".join(re_matches_tag.group().split()[-2:]).strip()
+    # re_matches_tag = " ".join(re_matches_tag.group().split()[-2:]).strip()
 
-    if re_matches_tag not in ("Fully Compliant","Partially Compliant","Non Compliant"):
-        return ServiceResponse(success=False, status_code=503, msg='Failed to Compute Compliance Tag')
-    ovcomp_tag = str(re_matches_tag)
+    # if re_matches_tag not in ("Fully Compliant","Partially Compliant","Non Compliant"):
+    #     return ServiceResponse(success=False, status_code=503, msg='Failed to Compute Compliance Tag')
+    # ovcomp_tag = str(re_matches_tag)
 
     re_groups_score = re_matches_score.groups()
     first_match = next((x for x in re_groups_score if x is not None), None)
