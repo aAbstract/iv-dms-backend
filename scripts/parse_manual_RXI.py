@@ -254,7 +254,7 @@ def rearrange_manual_content_tree(metadata,code):
 
         for i in data[chapter]["toc_info"]:
             i[0] = i[0].strip()
-            # breakpoint()
+
             # 1.1.1.1.1
             if re.compile(
                 r"(\d+)( *)\.( *)(\d+)( *)\.( *)(\d+)( *)\.( *)(\d+)( *)\.( *)(\d+)( *)((.| )+)"
@@ -484,7 +484,7 @@ def create_parts_metadata_file(file_path,code):
 
     for i in all_pages:
         for g in re.finditer(
-            r"(?<=(\n))( *)(\d+)( *)((( *)\.( *)(\d+)( *))*)( +)(([^0-9\s]| )+)( *)(?=(\n))", i[0]
+            r"(?<=(\n))( *)(\d+)( *)((( *)\.( *)(\d+)( *))*)( +)(([^0-9\s]| )+)", i[0]
         ):
 
             if share_common_chars(string.ascii_letters, g.group()):

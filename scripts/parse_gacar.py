@@ -144,6 +144,35 @@ def clean(text):
     return new_text
 
 
+def convert_to_listing(text):
+    romans = {
+        "(a)": "(i)",
+        "(b)": "(ii)",
+        "(c)": "(iii)",
+        "(d)": "(iv)",
+        "(e)": "(v)",
+        "(f)": "(vi)",
+        "(g)": "(vii)",
+        "(h)": "(viii)",
+    }
+    alphas = {
+        "(1)": "(a)",
+        "(2)": "(b)",
+        "(3)": "(c)",
+        "(4)": "(d)",
+        "(5)": "(e)",
+        "(6)": "(f)",
+        "(7)": "(g)",
+        "(8)": "(h)",
+    }
+    for i,g in romans.items():
+        text = text.replace(i,g)
+
+    for i,g in alphas.items():
+        text = text.replace(i,g)
+
+    return text
+
 def convert_to_markdown(text):
     def replace_listing(match):
         listing_type = match.group(1)
@@ -222,26 +251,27 @@ df = read_csv("data/gacar/gacar_117.csv")
 unique_set = {}
 g = {"name": "", "code": "", "applicability": "", "guidance": "", "items": []}
 g_map = {"code": "", "title": "GACAR Part 117", "sub_sections": []}
+
 # this is heavly relient on the excels structure
 # revise before inputting other excel sheets
 for i in df.values:
     if not g["name"] or g["code"]:
-        g["code"] = "GACAR " + str(i[1])
-        g_map["code"] = "GACAR " + str(i[1])
+        g["code"] = "G-" + str(i[1])
+        g_map["code"] = "G-" + str(i[1]) + " " + str(i[1])
         g["name"] = "GACAR Part " + str(i[1])
 
-    if "GACAR " + str(i[3]) in unique_set:
-        unique_set["GACAR " + str(i[3])]["paragraph"] += "\n" + i[-1]
+    if (g["code"] + " " + str(i[3])) in unique_set:
+        unique_set[g["code"] + " " + str(i[3])]["paragraph"] += "\n" + i[-1]
     else:
-        g_map["sub_sections"].append("GACAR " + str(i[3]))
-        unique_set["GACAR " + str(i[3])] = {
+        g_map["sub_sections"].append(str(i[3]))
+        unique_set[g["code"] + " " + str(i[3])] = {
             "paragraph": i[6] + "\n" + i[-1],
-            "code": "GACAR " + str(i[3]),
-            "iosa_map":["GACAR " + str(i[3])]
+            "code": g["code"] + " " + str(i[3]),
+            "iosa_map": [str(i[3])],
         }
 
 for i in unique_set.values():
-    i["paragraph"] = convert_to_markdown(clean(i["paragraph"]))
+    i["paragraph"] = convert_to_markdown(convert_to_listing(clean(i["paragraph"])))
     g["items"].append(i)
 
 # write to a separate json file

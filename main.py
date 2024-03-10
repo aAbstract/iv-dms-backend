@@ -32,8 +32,8 @@ async def lifespan(app: FastAPI):
 
 server = FastAPI(
     title=os.environ['SERVER_NAME'],
-    description='fixed gacar',
-    version="0.38.11",
+    description='parsed gacar',
+    version="0.38.12",
     lifespan=lifespan,
 )
 server.add_middleware(

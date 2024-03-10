@@ -46,10 +46,8 @@ async def create_flow_report_db(
         return ServiceResponse(
             success=False, msg="Bad Checklist Template Code", status_code=400
         )
-    if regulation['type'] == RegulationType.GACAR:
-        section_code = checklist_template_code
-    else:
-        section_code, _ = checklist_template_code.split(" ")
+    
+    section_code, _ = checklist_template_code.split(" ")
     
     iosa_section = (
         await get_database()
@@ -113,12 +111,12 @@ async def create_flow_report_db(
 
     sub_section_iosa_item_map = {}
     for item in iosa_section.items:
-        if item.code.startswith(checklist_template_code):
+        # the dot here prevents the match between flt 1 and flt 11.1
+        # where flt 11.1 doesn't start with  "flt 1." 
+        # bug flt 11.1 starts with  "flt 1" which is incorrect 
+        if item.code.startswith(checklist_template_code+"."):
 
-            if regulation['type'] == RegulationType.GACAR:
-                sub_section_title = item.iosa_map[0]
-            else:
-                sub_section_title = item.iosa_map[1]
+            sub_section_title = item.iosa_map[-1]
 
             if not sub_section_title in sub_section_iosa_item_map:
                 sub_section_iosa_item_map[sub_section_title] = []
@@ -275,10 +273,7 @@ async def get_flow_report_db(
         )
     
 
-    if regulation['type'] == RegulationType.GACAR:
-        section_code = flow_report["code"]
-    else:
-        section_code = flow_report["code"].split()[0]
+    section_code = flow_report["code"].split()[0]
     
     
     # get applicability and general guidence

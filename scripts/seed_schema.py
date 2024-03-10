@@ -40,6 +40,7 @@ from models.flow_reports import *
 commands = [
     "python3 scripts/parse_iosa_section.py",
     "python3 scripts/parse_manual_nesma.py",
+    "python3 scripts/parse_gacar.py",
 ]
 # commands = [
 #     "python scripts/parse_iosa_section.py",
