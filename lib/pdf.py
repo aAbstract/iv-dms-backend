@@ -333,7 +333,7 @@ def parse_paragraph(paragraph):
         items_labled.append([items[i + 1], "t"])
 
     constraints = []
-
+    
     for i in range(len(items_labled)):
         if items_labled[i][1] == "t":
             constraints.append(
