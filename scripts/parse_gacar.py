@@ -261,11 +261,11 @@ for i in df.values:
         g["name"] = "GACAR Part " + str(i[1])
 
     if (g["code"] + " " + str(i[3])) in unique_set:
-        unique_set[g["code"] + " " + str(i[3])]["paragraph"] += "\n" + i[-1]
+        unique_set[g["code"] + " " + str(i[3])]["paragraph"] +=  i[-1]+";\n"
     else:
         g_map["sub_sections"].append(str(i[3]))
         unique_set[g["code"] + " " + str(i[3])] = {
-            "paragraph": i[6] + ":\n" + i[-1],
+            "paragraph": i[6] + ":\n" + i[-1] + ";\n",
             "code": g["code"] + " " + str(i[3]),
             "iosa_map": [str(i[3])],
         }
