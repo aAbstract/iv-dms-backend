@@ -5,13 +5,13 @@ import database.regulations_database_api as regulations_database_api
 import database.fs_index_database_api as fs_index_database_api
 import database.gpt35t_contexts_database_api as gpt35t_contexts_database_api
 from models.users import UserRole
-from models.regulations import IOSAItem
+from models.regulations import IOSAItem, RegulationType
 from models.httpio import JsonResponse
 import lib.security as security_man
 import lib.gpt_35t_unstruct as gpt_35t_unstruct
 import lib.gpt_35t_struct as gpt_35t_struct
 from models.gpt_35t import GPT35TAuditTag
-
+import lib.sonnet_unstruct as sonnet_unstruct
 
 _ROOT_ROUTE = f"{os.getenv('API_ROOT')}/llm"
 _MODULE_ID = 'routes.llm_api'
@@ -107,9 +107,11 @@ async def iosa_audit_unstruct(res: Response, regulation_id: str = Body(), checkl
             success=db_service_response.success,
             msg=db_service_response.msg,
         )
+    
     iosa_checklist: IOSAItem = db_service_response.data['iosa_checklist']
+    regulation_type: RegulationType = db_service_response.data['regulation_type']
 
-    llm_service_response = await gpt_35t_unstruct.iosa_audit_text(iosa_checklist, text)
+    llm_service_response = await sonnet_unstruct.llm_audit_item(iosa_checklist, text,regulation_type)
     if not llm_service_response.success:
         res.status_code = llm_service_response.status_code
         return JsonResponse(
@@ -128,7 +130,7 @@ async def iosa_audit_unstruct(res: Response, regulation_id: str = Body(), checkl
         'llm_resp': llm_service_response.data['llm_resp'],
         'overall_compliance_score': llm_service_response.data['overall_compliance_score'],
         'overall_compliance_tag': llm_service_response.data['overall_compliance_tag'],
-        'context_id': gpt35t_cdb_service_response.data['context_id'],
+        'context_id': gpt35t_cdb_service_response.data['context_id']
     })
 
 
@@ -220,7 +222,7 @@ async def iosa_enhance_unstruct(res: Response,overall_compliance_tag:str=Body(em
         'llm_resp': llm_service_response.data['llm_resp'],
         'overall_compliance_score': llm_service_response.data['overall_compliance_score'],
         'overall_compliance_tag': llm_service_response.data['overall_compliance_tag'],
-        'context_id': context_id,
+        'context_id': context_id
     })
 
 @router.post(f"{_ROOT_ROUTE}/iosa-audit-pages")
@@ -273,6 +275,7 @@ async def iosa_audit_pages(res: Response, regulation_id: str = Body(embed=True),
             msg=db_service_response.msg,
         )
     iosa_checklist: IOSAItem = db_service_response.data['iosa_checklist']
+    regulation_type: RegulationType = db_service_response.data['regulation_type']
 
     # call get pages api
     get_pages_service_response = await fs_index_database_api.get_pages(organization, pagesMapper)
@@ -288,7 +291,7 @@ async def iosa_audit_pages(res: Response, regulation_id: str = Body(embed=True),
     if text.strip():
        iosa_checklist.paragraph = text.strip()
 
-    llm_service_response = await gpt_35t_unstruct.iosa_audit_text(iosa_checklist, text_to_audit)
+    llm_service_response = await sonnet_unstruct.llm_audit_item(iosa_checklist, text_to_audit,regulation_type)
     if not llm_service_response.success:
         res.status_code = llm_service_response.status_code
         return JsonResponse(

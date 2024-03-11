@@ -259,7 +259,6 @@ async def get_user_manuals(username: str) -> ServiceResponse:
 
 
 async def get_pages(organization: str, pages: dict[str, set[int]]) -> ServiceResponse:
-
     # fetch entry from database
     fs_indices = (
         await get_database()

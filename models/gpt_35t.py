@@ -81,6 +81,7 @@ class GPT35ContextRole(str, Enum):
     SYSTEM = 'system'
     USER = 'user'
     ASSISTANT = 'assistant'
+    TEXT= 'text'
 
 
 class GPT35TMessage(BaseModel):

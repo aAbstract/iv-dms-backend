@@ -10,6 +10,13 @@ class RegulationType(str, Enum):
     GACAR = "GACAR"
 
 
+RegulationTypeDefinitions = {
+    RegulationType.IOSA: """The IATA Operational Safety Audit (IOSA) is a globally recognized evaluation system developed by the International Air Transport Association (IATA) to assess airlines' operational management and safety control systems. It covers various areas including flight operations, maintenance, ground handling, and security, ensuring compliance with international safety standards.""",
+    RegulationType.GACAR: """GACAR is the General Civil Aviation Authority Regulations in the United Arab Emirates, likely outlines specific guidelines or standards related to aviation operations, safety, or certification processes. These regulations could cover areas such as aircraft maintenance, pilot training requirements, airworthiness standards, or operational procedures.""",
+    RegulationType.ECAR: """ECAR stands for Egyptian Civil Aviation Regulations, which are the set of rules and standards governing aviation activities in Egypt. These regulations cover various aspects of aviation safety, security, operations, and maintenance to ensure compliance with international standards set by organizations like the International Civil Aviation Organization (ICAO).""",
+}
+
+
 class Constrain(BaseModel):
     text: str
     children: list["Constrain"] = []

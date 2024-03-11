@@ -32,8 +32,8 @@ async def lifespan(app: FastAPI):
 
 server = FastAPI(
     title=os.environ['SERVER_NAME'],
-    description='parsed gacar',
-    version="0.38.12",
+    description='sonnet feature',
+    version="0.39.0",
     lifespan=lifespan,
 )
 server.add_middleware(

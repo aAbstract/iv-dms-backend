@@ -12,3 +12,4 @@ pip install aiofiles
 pip install openai
 pip install faker
 pip install pandas
+pip install anthropic
