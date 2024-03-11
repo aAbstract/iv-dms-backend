@@ -4,7 +4,7 @@ from glob import glob
 from PyPDF2 import PdfReader
 from faker import Faker
 import string
-
+from random import random
 
 
 def clean(text):
@@ -449,10 +449,8 @@ def rearrange_manual_content_tree(metadata,code):
     temp_chapter["toc_info"] = all_sub1_sections[:]
     all_chapters.append(dict(temp_chapter))
     return all_chapters
-    # with open(fr"data/RXI/{filename}_meta_data_tree.json", "w") as json_file:
-    #     json.dump(all_chapters, json_file, indent=4)
 
-def create_parts_metadata_file(file_path,code):
+def create_parts_metadata_file(file_path):
     metadata = []
     pdf_reader = PdfReader(file_path)
     all_pages = []
@@ -495,5 +493,5 @@ def create_parts_metadata_file(file_path,code):
                         "filename": file_path,
                         "toc_info": metadata,
                     }
-                ],code)[0]['toc_info']
+                ],str(int(random()*10000)))[0]['toc_info']
   

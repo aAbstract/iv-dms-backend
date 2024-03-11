@@ -14,7 +14,7 @@ from database.mongo_driver import get_database, validate_bson_id
 from PyPDF2 import PdfReader
 import re
 import lib.log as log_man
-
+from lib.pdf import create_parts_metadata_file
 
 _PUBLIC_DIR = "public"
 
@@ -62,6 +62,7 @@ async def create_fs_index_entry(
         ),
         organization=organization,
     )
+    
     mdb_result = (
         await get_database()
         .get_collection("fs_index")
@@ -69,15 +70,20 @@ async def create_fs_index_entry(
     )
     file_id = str(mdb_result.inserted_id)
 
+
     # save file to disk
     disk_filename = f"{file_id}{file_ext}"
     file_path = os.path.join(_PUBLIC_DIR, FILE_TYPE_PATH_MAP[file_type], disk_filename)
     async with aiofiles.open(file_path, "wb") as f:
         await f.write(data)
-
     url_path = fr"/{FILE_TYPE_PATH_MAP[file_type]}/{disk_filename}"
 
-    fs_index_entry = fs_index_entry.model_dump()
+    try:
+        metadata = {"toc_info": create_parts_metadata_file(file_path)}
+        await get_database().get_collection("fs_index").update_one({"_id":mdb_result.inserted_id},{"$set":{"args":metadata}})
+    except:
+        pass
+
     return ServiceResponse(
         data={
             "url_path": url_path.replace("\\","/"),

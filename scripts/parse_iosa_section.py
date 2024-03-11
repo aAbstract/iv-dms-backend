@@ -466,6 +466,7 @@ if __name__ == "__main__":
         all_sections, first_flt_span = extract_section_text(
             all_pages, code, all_page_count, g
         )
+        # all_tables = extract_tables(all_pages,all_page_count)
         section = extract_section_header(all_pages, first_flt_span, filename)
 
         section["items"] = all_sections

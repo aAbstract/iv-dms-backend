@@ -13,7 +13,6 @@ import re
 from parse_manual_RXI import create_parts_metadata_file
 from subprocess import run
 
-
 def load_root_path():
     file_dir = os.path.abspath(__file__)
     lv1_dir = os.path.dirname(file_dir)
@@ -45,6 +44,7 @@ commands = [
 # commands = [
 #     "python scripts/parse_iosa_section.py",
 #     "python scripts/parse_manual_nesma.py",
+#     "python scripts/parse_gacar.py",
 # ]
 
 for command in commands:
@@ -631,7 +631,7 @@ def seed_routine():
     }
 
     # # RXI
-    for idx, file_path in enumerate(glob(r"data/RXI/*.pdf")):
+    for file_path in glob(r"data/RXI/*.pdf"):
 
         filename = re.split(r"[\\|/]", file_path)[-1]
 
@@ -648,7 +648,7 @@ def seed_routine():
             doc_status=ChatDOCStatus.PARSED,
             organization="AeroSync",
             parent=filename,
-            args={"toc_info": create_parts_metadata_file(file_path,str(idx))},
+            args={"toc_info": create_parts_metadata_file(file_path)},
         )
 
         mdb_result = db.get_collection("fs_index").insert_one(

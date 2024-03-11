@@ -32,8 +32,8 @@ async def lifespan(app: FastAPI):
 
 server = FastAPI(
     title=os.environ['SERVER_NAME'],
-    description='sonnet feature',
-    version="0.39.0",
+    description='auto parse feature',
+    version="0.39.1",
     lifespan=lifespan,
 )
 server.add_middleware(

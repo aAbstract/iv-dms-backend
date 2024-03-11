@@ -147,7 +147,7 @@ async def llm_audit_item(iosa_item: IOSAItem, input_text: str,regulation_type:st
 
     # check if token limit is reached
     tokens = count_tokens(text)
-    text += str(tokens)
+
     if(tokens >= 10000):
         text+= f"\n\n\n\n**Warning**\n\n**Your Prompt Reached {tokens} Tokens**\n\n**Prompts shouldn't pass 200000 Tokens.**"
     ovcomp_tag= ""
