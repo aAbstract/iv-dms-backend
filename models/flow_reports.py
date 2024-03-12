@@ -55,6 +55,7 @@ class ReportItem(BaseModel):
     comments: Optional[str] = None
     actions: list[AuditorActions] = []
     other_actions : Optional[str] = None
+    recommendations: Optional[str] = None
     fs_index: Optional[str] = None
     url_path: Optional[str] = None
     # attachment ~ fs index id
