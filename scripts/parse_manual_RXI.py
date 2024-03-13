@@ -5,7 +5,7 @@ from PyPDF2 import PdfReader
 from faker import Faker
 import string
 from random import random
-
+import numpy as np
 
 def clean(text):
     new_text= text[:]
@@ -461,12 +461,66 @@ def rearrange_manual_content_tree(metadata,code):
 #     result_list = [[key, input_list[index][1]] for key, index in index_dict.items()]
 
 #     return result_list
+def get_header_footer(file_path):
+    def find_common_numbers(list_of_lists):
+        if not list_of_lists:
+            return []
+        common_numbers = set(list_of_lists[0])
+
+        for sublist in list_of_lists[1:]:
+            common_numbers = common_numbers.intersection(sublist)
+
+        return list(common_numbers)
+    
+    def split_by_mean(numbers):
+        if not numbers:
+            return [], []
+
+        # Calculate the mean of the numbers
+        mean = sum(numbers) / len(numbers)
+
+        # Initialize two lists for numbers greater than or equal to the mean and less than the mean
+        greater_or_equal = []
+        less_than = []
+
+        # Iterate through the numbers and split them based on their relation to the mean
+        for num in numbers:
+            if num >= mean:
+                greater_or_equal.append(num)
+            else:
+                less_than.append(num)
+
+        return greater_or_equal, less_than
+
+    pdf_reader = PdfReader(file_path)
+
+    headers = []
+    footers = []
+    for page in pdf_reader.pages:
+        parts = []
+
+        def visitor_body(text, cm, tm, fontDict, fontSize):
+
+            y = tm[5]
+            parts.append(y)
+
+        page.extract_text(visitor_text=visitor_body)
+       
+        if parts !=[]:
+            headers.append(np.percentile(parts, 87))
+            footers.append(np.percentile(parts,34))
+
+    header= sum(headers)/ len(headers)
+    footer  = sum(footers)/ len(footers)
+    return header, footer
 
 def create_parts_metadata_file(file_path):
     metadata = []
+    water_marks= ["DRAFT"]
     pdf_reader = PdfReader(file_path)
     all_pages = []
     page_number = 1
+    header , footer = get_header_footer(file_path)
 
     for page in pdf_reader.pages:
         parts = []
@@ -484,23 +538,85 @@ def create_parts_metadata_file(file_path):
 
             y = tm[5]
 
-            if (y > 45) and (y < 720):
+            if (y > footer) and (y < header) and (text not in water_marks):
                 parts.append(text)
 
         page.extract_text(visitor_text=visitor_body)
         text_body = clean("".join(parts))
+
         all_pages.append(["\n" + text_body + "\n", page_number])
         page_number += 1
 
     
     for i in all_pages:
         for g in re.finditer(
-            r"(?<=(\n))( *)(\d+)( *)((( *)\.( *)(\d+)( *))*)( +)(([^0-9\s]| |([0-9][a-zA-Z]))+)( *)(?=(\n))", i[0]
+            r"(?<=(\n))( *)(\d+)( *)((( *)\.( *)(\d+)( *))*)( +)((([^0-9\s])| |([0-9][a-zA-Z-\.,]))+)( *)(?=(\n))", i[0]
         ):
             
             if share_common_chars(string.ascii_letters, g.group().strip()) and ("..." not in g.group()):
 
                 metadata.append([g.group().strip(), i[1]])
+
+    # exit()
+    # small after big then remove if small is bigger than big
+    # temp_metadata = []
+    # last_head = ""
+    # ignore_first = True
+
+    # for i in range(len(metadata)-1):
+
+    #     # ask if header is equal to last header
+    #     # ask if header is equal to last small
+    #     # ((([^0-9\s])| |([0-9][a-zA-Z-\.,]))+
+    #     if re.compile(r"( *)(\d+)( *)\.( *)(\d+)( *)").match(metadata[i][0]): 
+    #         if not ignore_first:
+    #             print(metadata[i][0])
+    #             temp_metadata.append(metadata[i])
+
+            
+    #     elif(re.compile(r"( *)(\d+)( *)").match(metadata[i][0])):
+    #         if ignore_first:
+    #             ignore_first = False
+
+    #             temp_metadata.append(metadata[i])
+    #             last_head = metadata[i][0]
+
+    #         elif(int(last_head[0]) != int(metadata[i][0][0])):
+    #             if(int(metadata[i][0][0]) == int(metadata[i+1][0][0])):
+    #                 last_head = metadata[i][0]
+
+    #                 temp_metadata.append(metadata[i])
+    #             else:
+    #                 continue
+
+
+
+        # print(last_small,i[0],last_was_small)
+        # if re.compile(r"( *)(\d+)( *)\.( *)(\d+)( *)((.| )+)").fullmatch(i[0]):  
+        #     last_small = i[0]
+        #     last_was_small = True
+        #     print("Nothing1")
+
+        # elif(re.compile(r"( *)\d+( *)((.| )+)").fullmatch(i[0])):
+        #     if(last_was_small):
+        #         if(int(last_small[0]) >= int(i[0][0])):
+        #             print("removed")
+        #             continue
+        #         else:
+        #             print(int(last_small[0]), int(i[0][0]))
+        #             print("error1")
+        #     else:
+        #         print("error2")
+
+        #     last_was_small = False
+        # else:
+        #     print("Nothing2")
+        #     last_small = ""
+        #     last_was_small = False
+        # temp_metadata.append(i)
+    # print(temp_metadata)
+
+    # metadata = temp_metadata[:]
 
     # metadata = remove_duplicates_keep_highest_index(metadata)
 

@@ -111,6 +111,7 @@ async def llm_audit_item(iosa_item: IOSAItem, input_text: str,regulation_type:st
     # replace unwanted keywords
     llm_response: str = res.data['llm_response']
     llm_response = llm_response.replace('INPUT_TEXT', 'Manual Answer')
+    llm_response = llm_response.replace('REGULATION_TEXT', regulation_type + " Standard")
 
     # extract OVERALL_COMPLIANCE_SCORE value
     if 'OVERALL_COMPLIANCE_SCORE' not in llm_response:
@@ -131,8 +132,7 @@ async def llm_audit_item(iosa_item: IOSAItem, input_text: str,regulation_type:st
         return ServiceResponse(success=False, status_code=503, msg='Failed to Compute Compliance Score')
     ovcomp_score = int(first_match)
 
-    # remove the scores and tags from the response text
-    text = llm_response[re_matches_score.span()[1]:].strip()
+    text = llm_response[:].strip()
 
     def count_tokens(text):
         token_count = 0

@@ -129,7 +129,7 @@ async def list_manuals(res: Response, x_auth=Header(alias='X-Auth', default=None
     func_id = f"{_MODULE_ID}.list_manuals"
 
     # authorize user
-    auth_service_response = await security_man.authorize_api(x_auth, [UserRole.ADMIN, UserRole.AUDITOR], func_id)
+    auth_service_response = await security_man.authorize_api(x_auth, _ALLOWED_USERS, func_id)
     if not auth_service_response.success:
         res.status_code = auth_service_response.status_code
         return JsonResponse(
@@ -154,7 +154,7 @@ async def delete_manual(res: Response, fs_index: str = Body(embed=True), x_auth=
     func_id = f"{_MODULE_ID}.delete_manual"
 
     # authorize user
-    auth_service_response = await security_man.authorize_api(x_auth, [UserRole.ADMIN], func_id)
+    auth_service_response = await security_man.authorize_api(x_auth, _ALLOWED_USERS, func_id)
     if not auth_service_response.success:
         res.status_code = auth_service_response.status_code
         return JsonResponse(
@@ -176,7 +176,7 @@ async def rename_manual(res: Response, fs_index: str = Body(embed=True),file_nam
     func_id = f"{_MODULE_ID}.rename_manual"
 
     # authorize user
-    auth_service_response = await security_man.authorize_api(x_auth, [UserRole.ADMIN], func_id)
+    auth_service_response = await security_man.authorize_api(x_auth, _ALLOWED_USERS, func_id)
     if not auth_service_response.success:
         res.status_code = auth_service_response.status_code
         return JsonResponse(
