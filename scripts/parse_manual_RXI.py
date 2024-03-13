@@ -450,6 +450,18 @@ def rearrange_manual_content_tree(metadata,code):
     all_chapters.append(dict(temp_chapter))
     return all_chapters
 
+# def remove_duplicates_keep_highest_index(input_list):
+#     index_dict = {}
+
+#     for pair in input_list:
+#         key = pair[0]
+#         value = pair[1]
+#         index_dict[key] = max(index_dict.get(key, -1), input_list.index(pair))
+
+#     result_list = [[key, input_list[index][1]] for key, index in index_dict.items()]
+
+#     return result_list
+
 def create_parts_metadata_file(file_path):
     metadata = []
     pdf_reader = PdfReader(file_path)
@@ -472,7 +484,7 @@ def create_parts_metadata_file(file_path):
 
             y = tm[5]
 
-            if (y > 35) and (y < 720):
+            if (y > 45) and (y < 720):
                 parts.append(text)
 
         page.extract_text(visitor_text=visitor_body)
@@ -480,13 +492,17 @@ def create_parts_metadata_file(file_path):
         all_pages.append(["\n" + text_body + "\n", page_number])
         page_number += 1
 
+    
     for i in all_pages:
         for g in re.finditer(
-            r"(?<=(\n))( *)(\d+)( *)((( *)\.( *)(\d+)( *))*)( +)(([^0-9\s]| )+)", i[0]
+            r"(?<=(\n))( *)(\d+)( *)((( *)\.( *)(\d+)( *))*)( +)(([^0-9\s]| |([0-9][a-zA-Z]))+)( *)(?=(\n))", i[0]
         ):
+            
+            if share_common_chars(string.ascii_letters, g.group().strip()) and ("..." not in g.group()):
 
-            if share_common_chars(string.ascii_letters, g.group()):
-                metadata.append([g.group(), i[1]])
+                metadata.append([g.group().strip(), i[1]])
+
+    # metadata = remove_duplicates_keep_highest_index(metadata)
 
     return rearrange_manual_content_tree([
                     {
