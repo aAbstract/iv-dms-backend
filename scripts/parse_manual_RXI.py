@@ -462,36 +462,6 @@ def rearrange_manual_content_tree(metadata,code):
 
 #     return result_list
 def get_header_footer(file_path):
-    def find_common_numbers(list_of_lists):
-        if not list_of_lists:
-            return []
-        common_numbers = set(list_of_lists[0])
-
-        for sublist in list_of_lists[1:]:
-            common_numbers = common_numbers.intersection(sublist)
-
-        return list(common_numbers)
-    
-    def split_by_mean(numbers):
-        if not numbers:
-            return [], []
-
-        # Calculate the mean of the numbers
-        mean = sum(numbers) / len(numbers)
-
-        # Initialize two lists for numbers greater than or equal to the mean and less than the mean
-        greater_or_equal = []
-        less_than = []
-
-        # Iterate through the numbers and split them based on their relation to the mean
-        for num in numbers:
-            if num >= mean:
-                greater_or_equal.append(num)
-            else:
-                less_than.append(num)
-
-        return greater_or_equal, less_than
-
     pdf_reader = PdfReader(file_path)
 
     headers = []

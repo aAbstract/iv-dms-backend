@@ -4,6 +4,8 @@ from PyPDF2 import PdfReader
 import re
 from faker import Faker
 from random import random
+import numpy as np
+
 
 def convert_to_markdown(text):
     def replace_listing(match):
@@ -651,12 +653,36 @@ def rearrange_manual_content_tree(metadata,code):
     temp_chapter["toc_info"] = all_sub1_sections[:]
     all_chapters.append(dict(temp_chapter))
     return all_chapters
+def get_header_footer(file_path):
+    pdf_reader = PdfReader(file_path)
+
+    headers = []
+    footers = []
+    for page in pdf_reader.pages:
+        parts = []
+
+        def visitor_body(text, cm, tm, fontDict, fontSize):
+
+            y = tm[5]
+            parts.append(y)
+
+        page.extract_text(visitor_text=visitor_body)
+       
+        if parts !=[]:
+            headers.append(np.percentile(parts, 87))
+            footers.append(np.percentile(parts,34))
+
+    header= sum(headers)/ len(headers)
+    footer  = sum(footers)/ len(footers)
+    return header, footer
 
 def create_parts_metadata_file(file_path):
     metadata = []
+    water_marks= ["DRAFT"]
     pdf_reader = PdfReader(file_path)
     all_pages = []
     page_number = 1
+    header , footer = get_header_footer(file_path)
 
     for page in pdf_reader.pages:
         parts = []
@@ -674,21 +700,24 @@ def create_parts_metadata_file(file_path):
 
             y = tm[5]
 
-            if (y > 35) and (y < 720):
+            if (y > footer) and (y < header) and (text not in water_marks):
                 parts.append(text)
 
         page.extract_text(visitor_text=visitor_body)
         text_body = clean("".join(parts))
+
         all_pages.append(["\n" + text_body + "\n", page_number])
         page_number += 1
 
+    
     for i in all_pages:
         for g in re.finditer(
-            r"(?<=(\n))( *)(\d+)( *)((( *)\.( *)(\d+)( *))*)( +)(([^0-9\s]| )+)", i[0]
+            r"(?<=(\n))( *)(\d+)( *)((( *)\.( *)(\d+)( *))*)( +)((([^0-9\s])| |([0-9][a-zA-Z-\.,]))+)( *)(?=(\n))", i[0]
         ):
+            
+            if share_common_chars(string.ascii_letters, g.group().strip()) and ("..." not in g.group()):
 
-            if share_common_chars(string.ascii_letters, g.group()):
-                metadata.append([g.group(), i[1]])
+                metadata.append([g.group().strip(), i[1]])
 
     return rearrange_manual_content_tree([
                     {

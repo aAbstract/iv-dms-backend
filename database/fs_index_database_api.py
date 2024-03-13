@@ -306,7 +306,7 @@ async def get_pages(organization: str, pages: dict[str, set[int]]) -> ServiceRes
                     msg=f"Page Number is our of range for Document {fs_index['doc_uuid']} page {page}",
                 )
             all_pages_text += pdf_reader.pages[page - 1].extract_text()
-
+    all_pages_text = all_pages_text.replace("UNCONTROLLED IF PRINTED"," ")
     return ServiceResponse(data={"text": all_pages_text})
 
 
