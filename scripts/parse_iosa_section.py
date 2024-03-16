@@ -446,17 +446,86 @@ def extract_section_text(text,section_code,all_page_count, page_start):
 
     return all_sections, flts_spans[0][0]
 
+def extract_tables(text,section_code,all_page_count, page_start):
+
+    tables = r"Table( *)([0-9]+)( *)\.( *)([0-9]+)( *)-( *)(([^\s]| )*)(?=(\n))"
+
+  
+    all_sections = []
+    flts_spans = []
+
+    # parse header source map
+    header_source_map = None
+    with open(f"data/parsed_iosa/{filename}_map.json", "r") as f:
+        header_source_map = json.loads(f.read())
+
+    for i in re.finditer(tables, text):
+        flts_spans.append(i.span())
+
+
+    for i in range(0, len(flts_spans) - 1):
+        header = text[flts_spans[i][0] : flts_spans[i][1]].strip("\n").strip()
+
+        paragraph = text[flts_spans[i][1] : flts_spans[i + 1][0]]
+
+        page_number = None
+        # find the page number
+        for char_range in range(len(all_page_count)):
+            if(all_page_count[char_range]['count'] >= flts_spans[i][1]):
+                page_number = all_page_count[char_range-1]['page']
+                break
+        if(page_number == None):
+            page_number = all_page_count[-1]['page']
+   
+        all_sections.append(
+            {
+                "code": section_code+' '+ header,
+                "guidence": None,
+                "iosa_map": [
+                    header_source_map[0]["title"],
+                ],
+                "paragraph": convert_to_markdown(paragraph.strip()),
+                "page": page_number + page_start,
+                # "constraints": parse_paragraph(paragraph),
+            }
+        )
+    header = text[flts_spans[-1][0] : flts_spans[-1][1]].strip("\n").strip()
+    paragraph: str = text[flts_spans[-1][1] :]
+
+    page_number = None
+    i = len(flts_spans) - 1
+    # find the page number
+    for char_range in range(len(all_page_count)):
+        if all_page_count[char_range]["count"] >= flts_spans[i][1]:
+            page_number = all_page_count[char_range - 1]["page"]
+            break
+    if page_number == None:
+        page_number = all_page_count[-1]["page"]
+
+    all_sections.append(
+        {
+            "code":section_code+' '+  header,
+            "guidence": None,
+            "iosa_map": [
+                header_source_map[0]["title"],
+            ],
+            "paragraph": convert_to_markdown(paragraph.strip()),
+            "page": page_number + page_start,
+            # "constraints": parse_paragraph(paragraph),
+        }
+    )
+
+    return all_sections
 
 if __name__ == "__main__":
-    codes = ["cab", "cgo", "dsp", "grh", "mnt", "org", "sec", "flt"]
-    page_starts = [478, 611, 288, 547, 392, 40, 646, 104]
-
+    codes = ["cgo", "org", "dsp", "grh", "mnt", "cab", "sec", "flt"]
+    page_starts = [611, 40, 288, 547, 392, 478, 646, 104]
+    table_starts = {"ORG":101,"FLT":276,"DSP":381,"MNT":450,"CAB":537,"CGO":644}
     for i, g in zip(codes, page_starts):
         filename = f"iosa_{i}"
         code = i.upper()
 
         all_pages, all_page_count = extract(f"data/parsed_iosa/{filename}.pdf")
-
         # remove all unallowed chars
         for z in range(len(all_pages)):
             all_pages[z] = clean(all_pages[z])
@@ -466,11 +535,22 @@ if __name__ == "__main__":
         all_sections, first_flt_span = extract_section_text(
             all_pages, code, all_page_count, g
         )
-        # all_tables = extract_tables(all_pages,all_page_count)
+
+        if(table_starts.get(code)):
+            all_tables, all_table_count =  extract(f"data/parsed_iosa/{filename}_tables.pdf")
+            # remove all unallowed chars
+            for z in range(len(all_tables)):
+                all_tables[z] = clean(all_tables[z])
+            all_tables = " ".join(all_tables)
+
+            all_tables = extract_tables(
+                all_tables, code, all_table_count, table_starts[code]
+            )
+            all_sections = all_sections + all_tables
+
         section = extract_section_header(all_pages, first_flt_span, filename)
 
         section["items"] = all_sections
-
         # validate
         section = IOSASection(
             name=section["name"],

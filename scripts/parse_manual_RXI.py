@@ -527,69 +527,6 @@ def create_parts_metadata_file(file_path):
 
                 metadata.append([g.group().strip(), i[1]])
 
-    # exit()
-    # small after big then remove if small is bigger than big
-    # temp_metadata = []
-    # last_head = ""
-    # ignore_first = True
-
-    # for i in range(len(metadata)-1):
-
-    #     # ask if header is equal to last header
-    #     # ask if header is equal to last small
-    #     # ((([^0-9\s])| |([0-9][a-zA-Z-\.,]))+
-    #     if re.compile(r"( *)(\d+)( *)\.( *)(\d+)( *)").match(metadata[i][0]): 
-    #         if not ignore_first:
-    #             print(metadata[i][0])
-    #             temp_metadata.append(metadata[i])
-
-            
-    #     elif(re.compile(r"( *)(\d+)( *)").match(metadata[i][0])):
-    #         if ignore_first:
-    #             ignore_first = False
-
-    #             temp_metadata.append(metadata[i])
-    #             last_head = metadata[i][0]
-
-    #         elif(int(last_head[0]) != int(metadata[i][0][0])):
-    #             if(int(metadata[i][0][0]) == int(metadata[i+1][0][0])):
-    #                 last_head = metadata[i][0]
-
-    #                 temp_metadata.append(metadata[i])
-    #             else:
-    #                 continue
-
-
-
-        # print(last_small,i[0],last_was_small)
-        # if re.compile(r"( *)(\d+)( *)\.( *)(\d+)( *)((.| )+)").fullmatch(i[0]):  
-        #     last_small = i[0]
-        #     last_was_small = True
-        #     print("Nothing1")
-
-        # elif(re.compile(r"( *)\d+( *)((.| )+)").fullmatch(i[0])):
-        #     if(last_was_small):
-        #         if(int(last_small[0]) >= int(i[0][0])):
-        #             print("removed")
-        #             continue
-        #         else:
-        #             print(int(last_small[0]), int(i[0][0]))
-        #             print("error1")
-        #     else:
-        #         print("error2")
-
-        #     last_was_small = False
-        # else:
-        #     print("Nothing2")
-        #     last_small = ""
-        #     last_was_small = False
-        # temp_metadata.append(i)
-    # print(temp_metadata)
-
-    # metadata = temp_metadata[:]
-
-    # metadata = remove_duplicates_keep_highest_index(metadata)
-
     return rearrange_manual_content_tree([
                     {
                         "filename": file_path,

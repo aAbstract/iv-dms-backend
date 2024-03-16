@@ -1180,6 +1180,86 @@
             "paragraph": "The Operator should ensure all passenger aircraft in its fleet are equipped with one or more universal precaution kits for use by cabin crew members in managing:\n- (i) Episodes of ill health associated with a case of suspected communicable disease;\n- (ii) Cases of illness involving contact with body fluids.",
             "page": 536,
             "constraints": []
+        },
+        {
+            "code": "CAB Table 5.1-Operations Manual (OM) Content Specifications",
+            "guidance": null,
+            "iosa_map": [
+                "CAB 1 Management and Control"
+            ],
+            "paragraph": "The content of the OM shall address the following areas of cabin operations:\n- (i) Compliance or conformity with:\n  - (a) Applicable laws, regulations and rules;\n  - (b) Standard operating procedures for each phase of flight.\n- (ii) Administration of first aid, to include guidelines for:\n  - (a) Life threatening medical emergencies;\n  - (b) Cardiopulmonary resuscitation (CPR);\n  - (c) Injuries and illnesses;\n  - (d) Use of medical equipment (e.g. Automatic External Defibrillator, if applicable).\n- (iii) Response to emergency, abnormal, suspected security situations:\n  - (a) Aircraft emergency evacuation;\n  - (b) Cabin decompression, if applicable;\n  - (c) Onboard fires, smoke and fumes;\n  - (d) Emergency landing, ditching;\n  - (e) Leakage or spillage of suspected dangerous goods;\n  - (f) Suspected bomb or explosives, least risk bomb locations (specific to aircraft type);\n  - (g) Cabin search;\n  - (h) Hijacking or unlawful intervention.\n- (iv) Use of cabin systems and equipment, to include malfunctions:\n  - (a) Oxygen systems, if applicable;\n  - (b) Communication systems;\n  - (c) Entry and exit doors;\n  - (d) Lifesaving equipment.\n- (v) Dangerous goods manual or parts relevant to the cabin crew, to include:\n  - (a) Dangerous goods prohibited in passenger and crew baggage;\n  - (b) Information/instructions for dangerous goods permitted in passenger and crew baggage;\n  - (c) Action to be taken in the event of an emergency.\n- (vi) Use of emergency, survival equipment.\n- (vii) Cabin crew training program:\n  - (a) Abnormal and emergency situations, emergency evacuation;\n  - (b) Use of emergency and lifesaving equipment;\n  - (c) Lack of oxygen, loss of pressurization (as applicable);\n  - (d) Other cabin crew member assignments and functions;\n  - (e) Dangerous goods;\n  - (f) Human performance, crew resource management (CRM).\n- (viii) Limitations pertaining to flight time, flight duty periods and rest periods.",
+            "page": 537,
+            "constraints": []
+        },
+        {
+            "code": "CAB Table 5.2-Elements of an Advanced Qualification Program (AQP)",
+            "guidance": null,
+            "iosa_map": [
+                "CAB 1 Management and Control"
+            ],
+            "paragraph": "The following elements shall be included as part of an AQP as specified in CAB 2.1.1B :\n- (i) Training program and curricula approved or accepted by the State.\n- (ii) Training and/or evaluation which is conducted to the maximum extent possible in a cabin crew environment. Qualification and continuing qualification curricula must include an event management evaluation (EME), which consists of a partial or full phase of flight scenario systematically designed to target specific technical and crew resource management (CRM) skills.\n- (iii) Mandatory evaluation of CRM proficiency and substandard performance on CRM factors must be corrected by additional training. For pass/fail purposes, flight attendants must also demonstrate proficiency in an EME, which tests both technical and CRM skills together.\n- (iv) Specific training for instructors and/or evaluators, together with explicit training and evaluation strategies to verify the proficiency and standardization of such personnel for crew oriented,\nscenario-based training and evaluation tasks.\n- (v) Integrated use of cabin training equipment, including cabin procedures trainers. Operators are encouraged to use a suite of equipment matched on the basis of analysis to the training requirements at any given stage of a curriculum.\n- (vi) Curriculum elements that are:\n  - (a) Defined;\n  - (b) Crew member-specific or personnel-specific;\n  - (c) As applicable, specific to aircraft type. (see Note 1)\nNote 1: Applicable curricula must specify the make, model and series aircraft (or variant) and each crew member position or other positions to be covered by that curriculum. Positions to be covered by the program must include all flight attendant positions, instructors and evaluators and could include other positions, such as flight crew, aircraft dispatchers and other operations personnel.\n- (vii) Separate curricula for indoctrination, qualification and continuing qualification.\n- (viii) CRM Training/Evaluation and Data Collection (feedback) to determine program effectiveness to include:\n  - (a) State-approved or -accepted Crew Resource Management (CRM) Training applicable to positions for which training is provided under the program;\n  - (b) State-approved or -accepted training on and evaluation of skills and proficiency of each person being trained under the program to use their crew resource management (CRM)\nskills and their technical skills in an actual or simulated operations scenario. As applicable,\ntraining and evaluation is conducted via CBT and/or in an approved training device;\n  - (c) Data collection procedures that will ensure the certificate holder provides information from its crew members, instructors and evaluators that will enable the State to determine whether the training and evaluations are working to accomplish the overall objectives of the curriculum;\n  - (d) Performance proficiency data collection on students, instructors, and evaluators and the conduct of airline internal analysis of such information for the purpose of curriculum refinement and validation.\n- (ix) Training devices and simulators used under the program are evaluated against applicable published standards and approved or accepted by the State to ensure adequacy for training/qualification performed.\n- (x) Program approval to include:\n  - (a) A demonstration to the Authority of how the program will provide an equivalent or superior level of safety for each curriculum item that differs from traditional training programs approved or accepted by the State.",
+            "page": 538,
+            "constraints": []
+        },
+        {
+            "code": "CAB Table 5.2-Elements of an Advanced Qualification Program (AQP)",
+            "guidance": null,
+            "iosa_map": [
+                "CAB 1 Management and Control"
+            ],
+            "paragraph": "(b) For every requirement that is replaced by the program curriculum, a demonstration to the Authority of how the new curriculum provides an equivalent or superior level of safety for each requirement that is replaced. Each traditional training program requirement that is not specifically addressed in the program curriculum continues to apply to the Operator.\n  - (c) A requirement that training, qualification, or evaluation by a person who provides training by arrangement:  Training Centers  must be approved or accepted by the State.\n- (xi) Records in sufficient detail to establish the training, qualification and certification of each person qualified under the program in accordance with the approved training, qualification and certification requirements.",
+            "page": 539,
+            "constraints": []
+        },
+        {
+            "code": "CAB Table 5.3-Requirements of an Advanced Qualification Program (AQP)",
+            "guidance": null,
+            "iosa_map": [
+                "CAB 1 Management and Control"
+            ],
+            "paragraph": "AQP allows development of proficiency-based training programs that encourage innovation in the methods and technologies used during instruction and evaluation, as well as efficient management of the training systems. Since these innovations may require some deviations from traditional regulations, the approved qualification standards may replace the applicable portions of the existing regulations and/or training guidance. These deviations or variances will be documented in the approved AQP documentation.\nAdditionally, an approved AQP Entry Level Analysis may be documented to achieve the most effective use of training resources. An Entry Level Analysis may also be used to identify where training is not needed or to justify alternative curriculum tracks or modules targeted at expected differences in entry background.\nIn an AQP, criticality and currency determination guides how and when training objectives are trained,\nvalidated or evaluated. A task factor analysis will be documented within the approved training qualification standards.\nThe specifications in this table apply to an AQP as specified in CAB 2.1.1B , and are in addition to those delineated in Table 5.2:\n- (i) Proficiency Objectives The Operator shall conduct a job task analysis beginning with the development of a comprehensive task listing for each duty position. The task listing covers the full range of conditions and contingencies - internal to the aircraft, external to the aircraft, normal, abnormal, and emergency -\nto which the cabin crew could be exposed within the Operator's sphere of operations. Proficiency objectives are then extracted from the task and subtask analysis, respectively, for each duty position, and include identification of applicable performance, standards, and conditions. The documentation of proficiency objectives also identifies the references used, respectively, in defining performance, standards, and conditions for each.\nAn operator may elect to categorize certain proficiency objectives as currency items. Currency items refer to activities on which proficiency is maintained by virtue of frequent exercise during routine operations. Such items do not need to be addressed for training or proficiency evaluation purposes in periodic training sessions. However, verification is required that proficiency on such items is being maintained. Such verification might be obtained during line checks.\nAn operator could also elect to categorize proficiency objectives, including currency items, as critical or non-critical, based on operational significance and the consequences of error. This categorization is employed to determine the time interval within which training and evaluation on such items must occur for continuing qualification curricula. Critical proficiency objectives are trained and evaluated during an evaluation period the initial duration of which cannot exceed thirteen months. Each such evaluation period includes at least one training session. Non-critical terminal proficiency objectives may be distributed over a continuing qualification cycle the initial duration of which cannot exceed twenty-six months.\n- (ii) Continuing Qualification Cycles and Evaluation Periods After initial qualification, which incorporates training and evaluation on all proficiency objectives,\nfollow-on training will occur within a scheduling interval called a continuing qualification cycle. This is the time period during which all terminal and supporting proficiency objectives are trained,\nvalidated, or evaluated. The initial approval for a continuing qualification cycle is no more than 26 months in duration, divided into two 13-month evaluation periods. All critical proficiency objectives are accomplished during each evaluation period, and all currency proficiency objectives are accomplished during each continuing qualification cycle.\nThe initial duration of a continuing qualification cycle is 26 months, which may be subsequently and incrementally extended by the Authority to a maximum of 39 months, contingent upon the results of performance proficiency data from each such cycle.\n- (iii) Training Sessions Each evaluation period must include a minimum of one training session but may include more.\nInitially, training sessions cannot be more than 13 months apart.",
+            "page": 540,
+            "constraints": []
+        },
+        {
+            "code": "CAB Table 5.3-Requirements of an Advanced Qualification Program (AQP)",
+            "guidance": null,
+            "iosa_map": [
+                "CAB 1 Management and Control"
+            ],
+            "paragraph": "(iv) Proficiency Evaluations A proficiency evaluation must be completed during each evaluation period. Typically, the proficiency evaluation will occur during a required training session; however, if more than one training session is completed during an evaluation period, the proficiency evaluation may be divided among training sessions or otherwise allocated to one or more such sessions. \nTables 5.4-5.7 (Intentionally open)",
+            "page": 541,
+            "constraints": []
+        },
+        {
+            "code": "CAB Table 5.8-Guidance Material: Medical Kit Contents",
+            "guidance": null,
+            "iosa_map": [
+                "CAB 1 Management and Control"
+            ],
+            "paragraph": "The equipment contents of a medical kit on passenger aircraft would typically include:\n List of contents;\n Stethoscope;\n Sphygmomanometer (electronic preferred);\n Airways, oropharyngeal (appropriate range of sizes);\n Syringes (appropriate range of sizes);\n Needles (appropriate range of sizes);\n Intravenous catheters (appropriate range of sizes);\n System for delivering intravenous fluids;\n Antiseptic wipes, gloves (disposable);\n Sharps disposal box;\n Urinary catheter with sterile lubricating gel;\n Venous tourniquet;\n Sponge gauze;\n Tape adhesive;\n Surgical mask;\n Emergency tracheal catheter (or large gauge intravenous cannula);\n Umbilical cord clamp;\n Thermometers (non-mercury);\n Basic life support cards;\n Bag-valve mask;\n Torch (flashlight) and batteries (operator may choose to have one per aircraft in an easily accessible location).\nThe carriage of AEDs would be determined by an operator on the basis of a risk assessment, taking into account the particular nature of the operation.\nThe drug contents of a medical kit would typically include:\n Epinephrine 1:1000;\n Epinephrine 1:10,000 (can be a dilution of epinephrine 1:1,000);\n Antihistaminic (injectable);\n Anti-psychotic drug (e.g. haloperidol);\n Dextrose (50% injectable), 50 ml (single dose ampule or equivalent);\n Nitroglycerine (tablets or spray);\n Major analgesic (injectable or oral);\n Sedative anticonvulsant (injectable);\n Antiemetic injectable, or oral dissolvable (e.g. Ondansetron);\n Bronchial dilator inhaler with disposable collapsible spacer;\n Atropine (injectable);\n Adrenocortical steroid (injectable or similar oral absorption equivalent);\n Diuretic (injectable);\n Sodium chloride 0.9% (1000 ml recommended);\n Acetyl salicylic acid (aspirin) for oral use;\n Oral beta blocker.",
+            "page": 543,
+            "constraints": []
+        },
+        {
+            "code": "CAB Table 5.8-Guidance Material: Medical Kit Contents",
+            "guidance": null,
+            "iosa_map": [
+                "CAB 1 Management and Control"
+            ],
+            "paragraph": "Note: Auto-injectors are easier to use and, when available and cost effective, could be used by the cabin crew under orders from the operator s ground medical advisor (if there are no health professional on board).\nNote: Where legally and economically possible and where technically available and as effective, new methods of administration (e.g. nasal spray, sub-lingual spray, oral dissolving) should be considered as a replacement for injections (e.g. intra-nasal rather than injectable sedative anticonvulsant). Such new methods would facilitate treatment by an assisting volunteer that might not have been trained to administer injections (this could include a cabin crew member under direction from ground based medical services).",
+            "page": 544,
+            "constraints": []
+        },
+        {
+            "code": "Table 5.9-Guidance Material: Universal Precaution Kit Contents",
+            "guidance": null,
+            "iosa_map": [
+                "CAB 1 Management and Control"
+            ],
+            "paragraph": "One or two universal precaution kits per aircraft would typically be adequate for normal operations;\nadditional kits would be carried at times of increased public health risk (e.g. an outbreak of a serious communicable disease with pandemic potential).\nThe contents of an aircraft universal precaution kit would typically include:\n Dry powder that can convert small liquid spill into a granulated gel;\n Germicidal disinfectant for surface cleaning;\n Skin wipes;\n Face/eye mask (separate or combined);\n Gloves (disposable);\n Impermeable full-length long-sleeved gown that fastens at the back;\n Large absorbent towel;\n Pick-up scoop with scraper;\n Bio-hazard disposal waste bag;\n Instructions.",
+            "page": 545,
+            "constraints": []
         }
     ]
 }

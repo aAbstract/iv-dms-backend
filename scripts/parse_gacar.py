@@ -1,3 +1,4 @@
+from glob import glob
 from pandas import read_csv
 import json
 import re
@@ -165,13 +166,14 @@ def convert_to_listing(text):
         "(7)": "(g)",
         "(8)": "(h)",
     }
-    for i,g in romans.items():
-        text = text.replace(i,g)
+    for i, g in romans.items():
+        text = text.replace(i, g)
 
-    for i,g in alphas.items():
-        text = text.replace(i,g)
+    for i, g in alphas.items():
+        text = text.replace(i, g)
 
     return text
+
 
 def convert_to_markdown(text):
     def replace_listing(match):
@@ -246,37 +248,48 @@ def convert_to_markdown(text):
     markdown_text = re.sub(r"\n\((\w+)\)", replace_listing, markdown_text)
     return markdown_text
 
+section_columns = {
+    "117":"Subpart Section",
+    "109": "Subpart/ Appendix SECTION",
+    "91": "Subpart/ Appendix SECTION"
+}
 
-df = read_csv("data/gacar/gacar_117.csv")
-unique_set = {}
-g = {"name": "", "code": "", "applicability": "", "guidance": "", "items": []}
-g_map = {"code": "", "title": "GACAR Part 117", "sub_sections": []}
+for file in glob("data/gacar/*.csv"):
 
-# this is heavly relient on the excels structure
-# revise before inputting other excel sheets
-for i in df.values:
-    if not g["name"] or g["code"]:
-        g["code"] = "G-" + str(i[1])
-        g_map["code"] = "G-" + str(i[1]) + " " + str(i[1])
-        g["name"] = "GACAR Part " + str(i[1])
+    df = read_csv(file) 
+    
+    gacar_code = re.split(r"[\\|/]",file)[-1].split(".")[0]
 
-    if (g["code"] + " " + str(i[3])) in unique_set:
-        unique_set[g["code"] + " " + str(i[3])]["paragraph"] +=  i[-1]+";\n"
-    else:
-        g_map["sub_sections"].append(str(i[3]))
-        unique_set[g["code"] + " " + str(i[3])] = {
-            "paragraph": i[6] + ":\n" + i[-1] + ";\n",
-            "code": g["code"] + " " + str(i[3]),
-            "iosa_map": [str(i[3])],
-        }
+    df = df[df["REGULATION  STATEMENT"].notna()].reset_index()
+    df = df[df[section_columns[gacar_code]].notna()].reset_index()
 
-for i in unique_set.values():
-    i["paragraph"] = convert_to_markdown(convert_to_listing(clean(i["paragraph"])))
-    g["items"].append(i)
+    unique_gacar_headers = {}
+    header = {"name": f"GACAR Part {gacar_code}", "code": f"G-{gacar_code}", "applicability": "", "guidance": "", "items": []}
+    temp_checklist_item = {"code": f"G-{gacar_code} {gacar_code}", "title": f"GACAR Part {gacar_code}", "sub_sections": []}
 
-# write to a separate json file
-with open(rf"data/gacar/GACAR_117.json", "w") as fp:
-    json.dump(g, fp, indent=4)
+    for i in range(len(df)):
+        
+        new_code = str(df[section_columns[gacar_code]][i]).strip()
+        
+        header_code = header["code"] + " " + new_code
 
-with open(rf"data/gacar/GACAR_117_map.json", "w") as fp:
-    json.dump([g_map], fp, indent=4)
+        if header_code in unique_gacar_headers:
+            unique_gacar_headers[header_code]["paragraph"] += df["REGULATION  STATEMENT"][i] + ";\n"
+        else:
+            temp_checklist_item["sub_sections"].append(header_code)
+            unique_gacar_headers[header_code] = {
+                "paragraph":df["REGULATION  STATEMENT"][i] + ";\n",
+                "code":header_code,
+                "iosa_map": [header_code],
+            }
+
+    for i in unique_gacar_headers.values():
+        i["paragraph"] = convert_to_markdown(convert_to_listing(clean(i["paragraph"])))
+        header["items"].append(i)
+
+    # write to a separate json file
+    with open(rf"data/gacar/GACAR_{gacar_code}.json", "w") as fp:
+        json.dump(header, fp, indent=4)
+
+    with open(rf"data/gacar/GACAR_{gacar_code}_map.json", "w") as fp:
+        json.dump([temp_checklist_item], fp, indent=4)

@@ -3,86 +3,181 @@ import json
 from glob import glob
 from PyPDF2 import PdfReader
 from faker import Faker
+import string
+from random import random
+import numpy as np
+
+def clean(text):
+    new_text= text[:]
+    replacements = {
+        "\u201d": "'",
+        "\u201c": "'",
+        "\u2019": "'",
+        "\u2013": "-",
+        "\u2026": "...",
+        "\u2014": "--",
+        "\u2018": "'",
+        "\u201a": "'",
+        "\u201e": "'",
+        "\u200b": "",
+        "\u00a0": " ",
+        "\u00ae": "(R)",
+        "\u2122": "(TM)",
+        "\u00e9": "e",
+        "\u00e2": "a",
+        "\u00ae": "(R)",
+        "\u2010": "-",
+        "\u2011": "-",
+        "\u2012": "-",
+        "\u2013": "-",
+        "\u2014": "--",
+        "\u2015": "--",
+        "\u2016": "|",
+        "\u2017": "_",
+        "\u2018": "'",
+        "\u2019": "'",
+        "\u201a": ",",
+        "\u201b": "'",
+        "\u201c": '"',
+        "\u201d": '"',
+        "\u201e": '"',
+        "\u201f": '"',
+        "\u2020": "*",
+        "\u2021": "*",
+        "\u2022": "*",
+        "\u2023": "*",
+        "\u2024": ".",
+        "\u2025": "..",
+        "\u2026": "...",
+        "\u2027": ".",
+        "\u2030": "%",
+        "\u2031": "‰",
+        "\u2032": "'",
+        "\u2033": "''",
+        "\u2034": "'''",
+        "\u2035": "'",
+        "\u2036": "''",
+        "\u2037": "'''",
+        "\u2038": "^",
+        "\u2039": "<",
+        "\u203a": ">",
+        "\u203b": "*",
+        "\u203c": "!!",
+        "\u203d": "?",
+        "\u203e": "-",
+        "\u203f": "_",
+        "\u2040": "-",
+        "\u2041": "^",
+        "\u2042": "*",
+        "\u2043": "-",
+        "\u2044": "/",
+        "\u2045": "[",
+        "\u2046": "]",
+        "\u2047": "??",
+        "\u2048": "?!",
+        "\u2049": "!?",
+        "\u204a": "-",
+        "\u204b": "-",
+        "\u204c": "-",
+        "\u204d": "-",
+        "\u204e": "*",
+        "\u204f": "_",
+        "\u2050": "-",
+        "\u2051": "-",
+        "\u2052": "%",
+        "\u2053": "~",
+        "\u2054": "-",
+        "\u2055": "*",
+        "\u2056": "^",
+        "\u2057": "*",
+        "\u2058": "^",
+        "\u2059": "^",
+        "\u205a": "-",
+        "\u205b": "-",
+        "\u205c": "-",
+        "\u205d": "-",
+        "\u205e": "-",
+        "\u205f": " ",
+        "\u2060": " ",
+        "\u2061": " ",
+        "\u2062": " ",
+        "\u2063": " ",
+        "\u2064": " ",
+        "\u2065": " ",
+        "\u2066": " ",
+        "\u2067": " ",
+        "\u2068": " ",
+        "\u2069": " ",
+        "\u206a": " ",
+        "\u206b": " ",
+        "\u206c": " ",
+        "\u206d": " ",
+        "\u206e": " ",
+        "\u206f": " ",
+        "\ufeff": "",
+        "\u3000": " ",
+        "\u200b": "",
+        "\u200c": "",
+        "\u200d": "",
+        "\u200e": "",
+        "\u200f": "",
+        "\u202a": "",
+        "\u202b": "",
+        "\u202c": "",
+        "\u202d": "",
+        "\u202e": "",
+        "\u2060": "",
+        "\u2061": "",
+        "\u2062": "",
+        "\u2063": "",
+        "\u2064": "",
+        "\u2066": "",
+        "\u2067": "",
+        "\u2068": "",
+        "\u2069": "",
+        "\u206a": "",
+        "\u206b": "",
+        "\u206c": "",
+        "\u206d": "",
+        "\u206e": "",
+        "\u206f": ""
+    }
+    for escape, replacement in replacements.items():
+        text = text.replace(escape, replacement)
+
+    return new_text
 
 
-TOC_START_PAGE = 3
-Faker.seed(0)
-fake = Faker("en_US") 
+def starts_with_matching_substring(child, parent):
 
-def generate_random_hash():
-    concatid = 'NE'
-    return concatid + str(fake.unique.random_int(min=111111111111, max=999999999999))
+    for i in range(len(child)):
+        for j in range(i+1, len(child)+1):
+            substring = child[i:j]
 
-def create_parts_metadata_file():
-    metadata = []
-    manual_parts = glob("data/nesma_oma/*.pdf")
-    for part_path in manual_parts:
-        pdf_reader = PdfReader(part_path)
-        part_toc_content = pdf_reader.pages[TOC_START_PAGE - 1].extract_text()
-        chapter_title = re.findall(r"Chapter \d+ [A-Za-z ]+", part_toc_content)[
-            0
-        ].strip()
-        metadata.append(
-            {
-                "filename": part_path,
-                "chapter_title": chapter_title,
-                "toc_pages": (TOC_START_PAGE, -1),
-            }
-        )
+            if parent.startswith(substring):
+                return True
+        return False
 
-    with open("data/nesma_oma/nesma_oma_metadata.json", "w") as f:
-        f.write(json.dumps(metadata, indent=2))
+def filter_children(parent, children):
 
+    temp_parent = parent[:].strip()
+    if "Chapter" in temp_parent:
 
-def create_manual_toc_tree():
-    def parse_toc_txt_to_tree(toc_text: str) -> list[tuple[str, str, int]]:
-        lines = toc_text.split("\n")
-        toc_epattern = f" {'.'*32} "
-        toc_info = []
-        for line in lines:
-            if toc_epattern in line:
-                section_code = line.split(" ")[0]
-                if section_code == "Chapter":
-                    continue
-                if section_code == toc_epattern:
-                    continue
+        temp_parent = temp_parent.replace("Chapter", "").strip()
 
-                section_name = re.findall(f"\s[A-Za-z ]+\s+", line)
-                if not section_name:
-                    continue
-                section_name = section_name[0].strip()
+    return [
+            child for child in children if starts_with_matching_substring(child['label'].strip(), temp_parent)
+        ]
 
-                page_number = re.findall(r"\s(\d+)", line)
-                if page_number:
-                    page_number = int(page_number[0])
-                else:
-                    page_number = -1
+  
+def rearrange_manual_content_tree(metadata,code):
+    Faker.seed(0)
+    fake = Faker("en_US")
 
-                toc_info.append((section_code, section_name, page_number))
+    def generate_random_hash():
+        concatid = code
+        return concatid + str(fake.unique.random_int(min=111111111111, max=999999999999))
 
-        return toc_info
-
-    f = open("data/nesma_oma/nesma_oma_metadata.json", "r")
-    json_str = f.read()
-    f.close()
-
-    json_obj = json.loads(json_str)
-    for mde in json_obj:
-        if not mde["include"]:
-            continue
-        toc_txt = ""
-        pdf_reader = PdfReader(mde["filename"])
-        for pidx in mde["toc_pages"]:
-            toc_txt += pdf_reader.pages[pidx - 1].extract_text()
-        toc_info = parse_toc_txt_to_tree(toc_txt)
-        mde["toc_info"] = toc_info
-
-    f = open("data/nesma_oma/nesma_oma_metadata.json", "w")
-    f.write(json.dumps(json_obj, indent=2))
-    f.close()
-
-
-def rearrange_manual_content_tree() -> list[object]:
     def get_max(obj_list):
         max_page = max(
             obj_list,
@@ -97,7 +192,6 @@ def rearrange_manual_content_tree() -> list[object]:
         )
         return max_page
 
-    path_to_metadata = "data/nesma_oma/nesma_oma_metadata.json"
     all_chapters = []
     all_sub1_sections = []
     all_sub2_section = []
@@ -110,10 +204,8 @@ def rearrange_manual_content_tree() -> list[object]:
     temp_sub2_section = {"children": [], "pages": []}
     temp_sub3_section = {"children": [], "pages": []}
     temp_sub4_section = {"children": [], "pages": []}
-    # current_offset = 0
-    with open(path_to_metadata, "r") as json_file:
-        data = json.load(json_file)
 
+    data = metadata
     for chapter in range(len(data)):
         if chapter != 0:
 
@@ -122,7 +214,7 @@ def rearrange_manual_content_tree() -> list[object]:
                 if len(all_sub5_section) > 0:
                     temp_sub4_section["pages"].append(get_max(all_sub5_section))
 
-                temp_sub4_section["children"] = all_sub5_section[:]
+                temp_sub4_section["children"] = filter_children(temp_sub4_section['label'],all_sub5_section[:])
                 all_sub4_section.append(dict(temp_sub4_section))
                 temp_sub4_section = {"children": [], "pages": []}
                 all_sub5_section = []
@@ -132,7 +224,7 @@ def rearrange_manual_content_tree() -> list[object]:
                 if len(all_sub4_section) > 0:
                     temp_sub3_section["pages"].append(get_max(all_sub4_section))
 
-                temp_sub3_section["children"] = all_sub4_section[:]
+                temp_sub3_section["children"] = filter_children(temp_sub3_section['label'],all_sub4_section[:])
                 all_sub3_section.append(dict(temp_sub3_section))
                 temp_sub3_section = {"children": [], "pages": []}
                 all_sub4_section = []
@@ -142,7 +234,7 @@ def rearrange_manual_content_tree() -> list[object]:
                 if len(all_sub3_section) > 0:
                     temp_sub2_section["pages"].append(get_max(all_sub3_section))
 
-                temp_sub2_section["children"] = all_sub3_section[:]
+                temp_sub2_section["children"] = filter_children(temp_sub2_section['label'],all_sub3_section[:])
                 all_sub2_section.append(dict(temp_sub2_section))
                 temp_sub2_section = {"children": [], "pages": []}
                 all_sub3_section = []
@@ -152,7 +244,7 @@ def rearrange_manual_content_tree() -> list[object]:
                 if len(all_sub2_section) > 0:
                     temp_sub1_section["pages"].append(get_max(all_sub2_section))
 
-                temp_sub1_section["children"] = all_sub2_section[:]
+                temp_sub1_section["children"] = filter_children(temp_sub1_section['label'],all_sub2_section[:])
                 all_sub1_sections.append(dict(temp_sub1_section))
                 temp_sub1_section = {"children": [], "pages": []}
                 all_sub2_section = []
@@ -163,19 +255,26 @@ def rearrange_manual_content_tree() -> list[object]:
             all_sub1_sections = []
 
         temp_chapter = dict(data[chapter])
-        # current_offset = temp_chapter['start_page']
 
         for i in data[chapter]["toc_info"]:
-
-            # 1.1.1.1.1.1
-            if re.compile(
-                r"(\d+)(\s*)\.(\s*)(\d+)(\s*)\.(\s*)(\d+)(\s*)\.(\s*)(\d+)(\s*)\.(\s*)(\d+)(\s*)\.(\s*)(\d+)(.*)"
-            ).fullmatch(i[0]):
-                all_sub5_section.append({"label": i[0].strip(), "pages": [i[1]],"key":generate_random_hash()})
+            i[0] = i[0].strip()
 
             # 1.1.1.1.1
+            if re.compile(
+                r"(\d+)( *)\.( *)(\d+)( *)\.( *)(\d+)( *)\.( *)(\d+)( *)\.( *)(\d+)( *)((.| )+)"
+            ).fullmatch(i[0]):
+
+                all_sub5_section.append(
+                    {
+                        "label": i[0],
+                        "pages": [i[1]],
+                        "key": generate_random_hash(),
+                    }
+                )
+
+            # 1.1.1.1
             elif re.compile(
-                r"(\d+)(\s*)\.(\s*)(\d+)(\s*)\.(\s*)(\d+)(\s*)\.(\s*)(\d+)(\s*)\.(\s*)(\d+)(.*)"
+                r"( *)(\d+)( *)\.( *)(\d+)( *)\.( *)(\d+)( *)\.( *)(\d+)( *)((.| )+)"
             ).fullmatch(i[0]):
 
                 if temp_sub4_section.get("label") != None:
@@ -183,19 +282,19 @@ def rearrange_manual_content_tree() -> list[object]:
                     if len(all_sub5_section) > 0:
                         temp_sub4_section["pages"].append(get_max(all_sub5_section))
 
-                    temp_sub4_section["children"] = all_sub5_section[:]
+                    temp_sub4_section["children"] = filter_children(temp_sub4_section['label'],all_sub5_section[:])
                     all_sub4_section.append(dict(temp_sub4_section))
                     temp_sub4_section = {"children": [], "pages": []}
                     all_sub5_section = []
 
                 # current level
-                temp_sub4_section["label"] = i[0].strip()
+                temp_sub4_section["label"] = i[0]
                 temp_sub4_section["pages"].append(i[1])
-                temp_sub4_section['key'] = generate_random_hash()
+                temp_sub4_section["key"] = generate_random_hash()
 
-            # 1.1.1.1
+            # 1.1.1
             elif re.compile(
-                r"(\d+)(\s*)\.(\s*)(\d+)(\s*)\.(\s*)(\d+)(\s*)\.(\s*)(\d+)(.*)"
+                r"( *)(\d+)( *)\.( *)(\d+)( *)\.( *)(\d+)( *)((.| )+)"
             ).fullmatch(i[0]):
 
                 if temp_sub4_section.get("label") != None:
@@ -203,7 +302,7 @@ def rearrange_manual_content_tree() -> list[object]:
                     if len(all_sub5_section) > 0:
                         temp_sub4_section["pages"].append(get_max(all_sub5_section))
 
-                    temp_sub4_section["children"] = all_sub5_section[:]
+                    temp_sub4_section["children"] = filter_children(temp_sub4_section['label'],all_sub5_section[:])
                     all_sub4_section.append(dict(temp_sub4_section))
                     temp_sub4_section = {"children": [], "pages": []}
                     all_sub5_section = []
@@ -213,18 +312,18 @@ def rearrange_manual_content_tree() -> list[object]:
                     if len(all_sub4_section) > 0:
                         temp_sub3_section["pages"].append(get_max(all_sub4_section))
 
-                    temp_sub3_section["children"] = all_sub4_section[:]
+                    temp_sub3_section["children"] = filter_children(temp_sub3_section['label'],all_sub4_section[:])
                     all_sub3_section.append(dict(temp_sub3_section))
                     temp_sub3_section = {"children": [], "pages": []}
                     all_sub4_section = []
 
                 # current level
-                temp_sub3_section["label"] = i[0].strip()
+                temp_sub3_section["label"] = i[0]
                 temp_sub3_section["pages"].append(i[1])
-                temp_sub3_section['key'] = generate_random_hash()
+                temp_sub3_section["key"] = generate_random_hash()
 
-            # 1.1.1
-            elif re.compile(r"(\d+)(\s*)\.(\s*)(\d+)(\s*)\.(\s*)(\d+)(.*)").fullmatch(
+            # 1.1
+            elif re.compile(r"( *)(\d+)( *)\.( *)(\d+)( *)((.| )+)").fullmatch(
                 i[0]
             ):
 
@@ -233,7 +332,7 @@ def rearrange_manual_content_tree() -> list[object]:
                     if len(all_sub5_section) > 0:
                         temp_sub4_section["pages"].append(get_max(all_sub5_section))
 
-                    temp_sub4_section["children"] = all_sub5_section[:]
+                    temp_sub4_section["children"] = filter_children(temp_sub4_section['label'],all_sub5_section[:])
                     all_sub4_section.append(dict(temp_sub4_section))
                     temp_sub4_section = {"children": [], "pages": []}
                     all_sub5_section = []
@@ -243,7 +342,7 @@ def rearrange_manual_content_tree() -> list[object]:
                     if len(all_sub4_section) > 0:
                         temp_sub3_section["pages"].append(get_max(all_sub4_section))
 
-                    temp_sub3_section["children"] = all_sub4_section[:]
+                    temp_sub3_section["children"] = filter_children(temp_sub3_section['label'],all_sub4_section[:])
                     all_sub3_section.append(dict(temp_sub3_section))
                     temp_sub3_section = {"children": [], "pages": []}
                     all_sub4_section = []
@@ -253,24 +352,24 @@ def rearrange_manual_content_tree() -> list[object]:
                     if len(all_sub3_section) > 0:
                         temp_sub2_section["pages"].append(get_max(all_sub3_section))
 
-                    temp_sub2_section["children"] = all_sub3_section[:]
+                    temp_sub2_section["children"] = filter_children(temp_sub2_section['label'],all_sub3_section[:])
                     all_sub2_section.append(dict(temp_sub2_section))
                     temp_sub2_section = {"children": [], "pages": []}
                     all_sub3_section = []
                 # current level
-                temp_sub2_section["label"] = i[0].strip()
+                temp_sub2_section["label"] = i[0]
                 temp_sub2_section["pages"].append(i[1])
-                temp_sub2_section['key'] = generate_random_hash()
+                temp_sub2_section["key"] = generate_random_hash()
 
-            # 1.1
-            elif re.compile(r"(\d+)(\s*)\.(\s*)(\d+)(\s*)(.*)").fullmatch(i[0]):
+            # 1
+            elif i[0].startswith("Chapter"):
 
                 if temp_sub4_section.get("label") != None:
 
                     if len(all_sub5_section) > 0:
                         temp_sub4_section["pages"].append(get_max(all_sub5_section))
 
-                    temp_sub4_section["children"] = all_sub5_section[:]
+                    temp_sub4_section["children"] = filter_children(temp_sub4_section['label'],all_sub5_section[:])
                     all_sub4_section.append(dict(temp_sub4_section))
                     temp_sub4_section = {"children": [], "pages": []}
                     all_sub5_section = []
@@ -280,7 +379,7 @@ def rearrange_manual_content_tree() -> list[object]:
                     if len(all_sub4_section) > 0:
                         temp_sub3_section["pages"].append(get_max(all_sub4_section))
 
-                    temp_sub3_section["children"] = all_sub4_section[:]
+                    temp_sub3_section["children"] = filter_children(temp_sub3_section['label'],all_sub4_section[:])
                     all_sub3_section.append(dict(temp_sub3_section))
                     temp_sub3_section = {"children": [], "pages": []}
                     all_sub4_section = []
@@ -290,7 +389,7 @@ def rearrange_manual_content_tree() -> list[object]:
                     if len(all_sub3_section) > 0:
                         temp_sub2_section["pages"].append(get_max(all_sub3_section))
 
-                    temp_sub2_section["children"] = all_sub3_section[:]
+                    temp_sub2_section["children"] = filter_children(temp_sub2_section['label'],all_sub3_section[:])
                     all_sub2_section.append(dict(temp_sub2_section))
                     temp_sub2_section = {"children": [], "pages": []}
                     all_sub3_section = []
@@ -300,25 +399,23 @@ def rearrange_manual_content_tree() -> list[object]:
                     if len(all_sub2_section) > 0:
                         temp_sub1_section["pages"].append(get_max(all_sub2_section))
 
-                    temp_sub1_section["children"] = all_sub2_section[:]
+                    temp_sub1_section["children"] = filter_children(temp_sub1_section['label'],all_sub2_section[:])
                     all_sub1_sections.append(dict(temp_sub1_section))
                     temp_sub1_section = {"children": [], "pages": []}
                     all_sub2_section = []
                 # current level
-                temp_sub1_section["label"] = i[0].strip()
+                temp_sub1_section["label"] = i[0]
                 temp_sub1_section["pages"].append(i[1])
-                temp_sub1_section['key'] = generate_random_hash()
-                
+                temp_sub1_section["key"] = generate_random_hash()
+
             else:
                 print("problem in manually parsing chapter")
-
 
     if temp_sub4_section.get("label") != None:
 
         if len(all_sub5_section) > 0:
             temp_sub4_section["pages"].append(get_max(all_sub5_section))
-
-        temp_sub4_section["children"] = all_sub5_section[:]
+        temp_sub4_section["children"] = filter_children(temp_sub4_section['label'],all_sub5_section[:])
         all_sub4_section.append(dict(temp_sub4_section))
         temp_sub4_section = {"children": [], "pages": []}
         all_sub5_section = []
@@ -328,7 +425,7 @@ def rearrange_manual_content_tree() -> list[object]:
         if len(all_sub4_section) > 0:
             temp_sub3_section["pages"].append(get_max(all_sub4_section))
 
-        temp_sub3_section["children"] = all_sub4_section[:]
+        temp_sub3_section["children"] = filter_children(temp_sub3_section['label'],all_sub4_section[:])
         all_sub3_section.append(dict(temp_sub3_section))
         temp_sub3_section = {"children": [], "pages": []}
         all_sub4_section = []
@@ -338,7 +435,7 @@ def rearrange_manual_content_tree() -> list[object]:
         if len(all_sub3_section) > 0:
             temp_sub2_section["pages"].append(get_max(all_sub3_section))
 
-        temp_sub2_section["children"] = all_sub3_section[:]
+        temp_sub2_section["children"] = filter_children(temp_sub2_section['label'],all_sub3_section[:])
         all_sub2_section.append(dict(temp_sub2_section))
         temp_sub2_section = {"children": [], "pages": []}
         all_sub3_section = []
@@ -348,50 +445,73 @@ def rearrange_manual_content_tree() -> list[object]:
         if len(all_sub2_section) > 0:
             temp_sub1_section["pages"].append(get_max(all_sub2_section))
 
-        temp_sub1_section["children"] = all_sub2_section[:]
+        temp_sub1_section["children"] = filter_children(temp_sub1_section['label'],all_sub2_section[:])
         all_sub1_sections.append(dict(temp_sub1_section))
         temp_sub1_section = {"children": [], "pages": []}
         all_sub2_section = []
 
     temp_chapter["toc_info"] = all_sub1_sections[:]
     all_chapters.append(dict(temp_chapter))
+    return all_chapters
 
-    with open("data/nesma_oma/nesma_oma_second_metadata_tree.json", "w") as json_file:
-        json.dump(all_chapters, json_file, indent=4)
+def get_header_footer(file_path):
+    pdf_reader = PdfReader(file_path)
 
+    headers = []
+    footers = []
+    for page in pdf_reader.pages:
+        parts = []
 
-def create_manual_content_tree() -> list[tuple[str, int]]:
-    f = open("data/nesma_oma/nesma_oma_metadata.json", "r")
-    json_str = f.read()
-    f.close()
-    json_obj = json.loads(json_str)
-    for mde in json_obj:
-        if not mde["include"]:
-            continue
+        def visitor_body(text, cm, tm, fontDict, fontSize):
 
-        toc_info = []
-        pdf_reader = PdfReader(mde["filename"])
-        for pidx, page in enumerate(pdf_reader.pages):
-            page_content = page.extract_text()
-            toc_epattern = f" {'.'*32} "
-            if toc_epattern in page_content:
-                continue
+            y = tm[5]
+            parts.append(y)
 
-            chapter_number = mde["chapter_title"].split(" ")[1]
-            page_lines = page_content.split("\n")
-            for line in page_lines:
-                reps = "{1,2}"
-                if re.findall(rf"^({chapter_number}(?:\.\d{reps})+)", line):
-                    toc_info.append((line, pidx + 1))
-        mde["toc_info"] = toc_info
+        page.extract_text(visitor_text=visitor_body)
+       
+        if parts !=[]:
+            headers.append(np.percentile(parts, 87))
+            footers.append(np.percentile(parts,34))
 
-    f = open("data/nesma_oma/nesma_oma_metadata.json", "w")
-    f.write(json.dumps(json_obj, indent=2))
-    f.close()
+    header= sum(headers)/ len(headers)
+    footer  = sum(footers)/ len(footers)
+    return header, footer
 
+def create_parts_metadata_file(file_path):
+    metadata = []
+    water_marks= ["DRAFT"]
+    pdf_reader = PdfReader(file_path)
+    all_pages = []
+    page_number = 1
+    # header , footer = get_header_footer(file_path)
 
-# create_manual_content_tree()
-# create_parts_metadata_file()
-# create_manual_toc_tree()
-# create_manual_content_tree()
-rearrange_manual_content_tree()
+    for page in pdf_reader.pages:
+        parts = []
+
+        def visitor_body(text, cm, tm, fontDict, fontSize):
+
+            y = tm[5]
+
+            # if (y > footer) and (y < header) and (text not in water_marks):
+            parts.append(text)
+
+        page.extract_text(visitor_text=visitor_body)
+        text_body = clean("".join(parts))
+
+        all_pages.append(["\n" + text_body + "\n", page_number])
+        page_number += 1
+    
+    for i in all_pages:
+        for g in re.finditer(
+            r"(?<=(\n))((( *)Chapter( *)(\d+)( *)(([a-zA-Z]| )+)( *))|(( *)(\d+)( *)((( *)\.( *)(\d+)( *))+)( +)((([^0-9\s])| |([0-9][a-zA-Z-\.,]))+)( *)))(?=(\n))", i[0]
+        ):
+
+            metadata.append([g.group().strip(), i[1]])
+
+    return rearrange_manual_content_tree([
+                    {
+                        "filename": file_path,
+                        "toc_info": metadata,
+                    }
+                ],str(int(random()*10000)))[0]['toc_info']
+

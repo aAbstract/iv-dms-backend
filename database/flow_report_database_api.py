@@ -114,7 +114,8 @@ async def create_flow_report_db(
         # the dot here prevents the match between flt 1 and flt 11.1
         # where flt 11.1 doesn't start with  "flt 1." 
         # bug flt 11.1 starts with  "flt 1" which is incorrect 
-        if item.code.startswith(checklist_template_code+"."):
+
+        if item.code.startswith(checklist_template_code+".") or ("Table" in item.code):
 
             sub_section_title = item.iosa_map[-1]
 

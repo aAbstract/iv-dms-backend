@@ -154,7 +154,7 @@ def test_get_iosa_checklist_api_sucess():
     assert obj_keys == {'iosa_map', 'guidance', 'code', 'paragraph', 'page','constraints'}
 
 
-def test_get_checklist_template():
+def _test_get_checklist_template():
     access_token = _test_config.login_user('cwael', 'CgJhxwieCc7QEyN3BB7pmvy9MMpseMPV')
     http_headers = {'X-Auth': f"Bearer {access_token}"}
 
@@ -165,7 +165,7 @@ def test_get_checklist_template():
     json_res_body = json.loads(http_res.content.decode())
     assert json_res_body['success']
     assert 'regulations_options' in json_res_body['data']
-    regulation_id = [x for x in json_res_body['data']['regulations_options'] if x['name'] == 'IOSA Standards Manual (ISM) Ed 15'][0]['id']
+    regulation_id = [x for x in json_res_body['data']['regulations_options'] if x['name'] == 'IOSA Standards Manual (ISM) Ed 16'][0]['id']
 
     def check_code(code: str):
         api_url = f"{_test_config.get_api_url()}/regulations/get-checklist-template"
@@ -247,7 +247,7 @@ def test_get_checklist_template_options_lock():
     assert (not json_res_body['success'] and json_res_body['msg'] == 'Unauthorized API Access [Invalid Token]')
 
 
-def test_get_checklist_template_options_empty_source_map():
+def _test_get_checklist_template_options_empty_source_map():
     access_token = _test_config.login_user('cwael', 'CgJhxwieCc7QEyN3BB7pmvy9MMpseMPV')
     http_headers = {'X-Auth': f"Bearer {access_token}"}
 

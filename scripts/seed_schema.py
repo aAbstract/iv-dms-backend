@@ -10,8 +10,10 @@ from dotenv import load_dotenv
 import code
 import json
 import re
-from parse_manual_RXI import create_parts_metadata_file
+from parse_manual_RXI import create_parts_metadata_file as RXI_parser
+from parse_manual_nesma import create_parts_metadata_file as nesma_parser
 from subprocess import run
+
 
 def load_root_path():
     file_dir = os.path.abspath(__file__)
@@ -37,13 +39,14 @@ from models.flow_reports import *
 # change these to python instead of python3 when using in your machine
 # set back to pyhton3 for the linux dev server
 commands = [
+    "rm public/airlines_files/manuals/*.pdf",
+    "shopt -s extglob",
+    "rm public/airlines_files/attachments/!(*.txt)",
     "python3 scripts/parse_iosa_section.py",
-    "python3 scripts/parse_manual_nesma.py",
     "python3 scripts/parse_gacar.py",
 ]
 # commands = [
 #     "python scripts/parse_iosa_section.py",
-#     "python scripts/parse_manual_nesma.py",
 #     "python scripts/parse_gacar.py",
 # ]
 
@@ -120,255 +123,10 @@ seed_users = [
 seed_regulations = [
     IOSARegulation(
         type=RegulationType.IOSA,
-        name="IOSA Standards Manual (ISM) Ed 15",
-        effective_date=datetime.strptime("1 Nov 2023", "%d %b %Y"),
-        sections=[
-            IOSASection(
-                name="Section 2 Flight Operations",
-                code="FLT",
-                applicability="addresses safety and security requirements for flight operations, and is applicable to an operator that uses two-pilot, multi-engine aircraft with a maximum certificated takeoff mass in excess of 5,700 kg (12,566 lbs.).",
-                guidance="The definitions of technical terms used in this ISM Section 2, as well as the list of abbreviations and acronyms, are found in the IATA Reference Manual for Audit Programs (IRM).",
-                order=2,
-                items=[
-                    IOSAItem(
-                        page=1,
-                        code="FLT 1.1.1",
-                        guidance="Refer to the IRM for the definitions of Operations and Operator.",
-                        iosa_map=[
-                            "1 Management and Control",
-                            "1.1 Management System Overview",
-                        ],
-                        paragraph="",
-                        constraints=[
-                            Constrain(
-                                text="The Operator shall have a management system for the flight operations organization that ensures control of flight operations and the management of safety and security outcomes."
-                            ),
-                            Constrain(text="Sample Constain"),
-                        ],
-                    ),
-                    IOSAItem(
-                        page=1,
-                        code="FLT 1.1.2",
-                        guidance="Refer to the IRM for the definitions of Accountability, Authority, Post Holder and Responsibility.",
-                        iosa_map=[
-                            "1 Management and Control",
-                            "1.1 Management System Overview",
-                        ],
-                        paragraph="",
-                        constraints=[
-                            Constrain(
-                                text="The Operator shall have one or more designated managers in the flight operations organization that, if required, are post holders acceptable to the Authority, and have the responsibility for ensuring:",
-                                children=[
-                                    Constrain(
-                                        text="The management and supervision of all flight operations activities."
-                                    ),
-                                    Constrain(
-                                        text="The management of safety and security risks to flight operations."
-                                    ),
-                                    Constrain(
-                                        text="Flight operations are conducted in accordance with conditions and restrictions of the Air Operator Certificate (AOC), and in compliance with applicable regulations and standards of the Operator."
-                                    ),
-                                ],
-                            )
-                        ],
-                    ),
-                    IOSAItem(
-                        page=1,
-                        code="FLT 1.3.4",
-                        guidance="Refer to Guidance associated with ORG 1.3.3 located in ISM Section 1 regarding the need to coordinate and communicate with external entities.",
-                        iosa_map=[
-                            "1 Management and Control",
-                            "1.3 Accountability, Authorities and Responsibilities",
-                        ],
-                        paragraph="",
-                        constraints=[
-                            Constrain(
-                                text="The Operator shall ensure pilot flight crew members complete an evaluation that includes a demonstration of knowledge of the operations approved as part of the Air Operator Certificate (AOC). Such evaluation shall include a demonstration of knowledge of:",
-                                children=[
-                                    Constrain(
-                                        text="Approaches authorized by the Authority."
-                                    ),
-                                    Constrain(
-                                        text="Ceiling and visibility requirements for takeoff, approach and landing."
-                                    ),
-                                    Constrain(
-                                        text="Allowance for inoperative ground components."
-                                    ),
-                                    Constrain(
-                                        text="Wind limitations (crosswind, tailwind and, if applicable, headwind)."
-                                    ),
-                                ],
-                            ),
-                            Constrain(
-                                text="Sample Constrain",
-                                children=[
-                                    Constrain(text="item 1"),
-                                    Constrain(text="item 2"),
-                                    Constrain(text="item 3"),
-                                    Constrain(text="item 4"),
-                                ],
-                            ),
-                        ],
-                    ),
-                    IOSAItem(
-                        page=1,
-                        code="FLT 1.5.2",
-                        guidance="Refer to Guidance associated with ORG 1.5.3 located in ISM Section 1.",
-                        iosa_map=[
-                            "1 Management and Control",
-                            "1.5 Provision of Resources",
-                        ],
-                        paragraph="",
-                        constraints=[
-                            Constrain(
-                                text="The Operator shall have a selection process for management and non-management positions within the organization that require the performance of functions relevant to the safety or security of aircraft operations."
-                            )
-                        ],
-                    ),
-                    IOSAItem(
-                        page=1,
-                        code="FLT 2.1.35",
-                        guidance="",
-                        iosa_map=[],
-                        paragraph="",
-                        constraints=[
-                            Constrain(
-                                text="The Operator shall have an initial training program for instructors, evaluators and line check airmen,to include:",
-                                children=[
-                                    Constrain(
-                                        text="An instructor course that addresses as a minimum",
-                                        children=[
-                                            Constrain(
-                                                text="The fundamentals of teaching and evaluation"
-                                            ),
-                                            Constrain(text="Lesson plan management"),
-                                            Constrain(text="Briefing and debriefing"),
-                                            Constrain(text="Human performance issues"),
-                                            Constrain(
-                                                text="Company policies and procedures"
-                                            ),
-                                            Constrain(
-                                                text="Simulator serviceability and training in simulator operation"
-                                            ),
-                                            Constrain(
-                                                text="If the Operator conducts training flights, dangers associated with simulating system failures in flight"
-                                            ),
-                                            Constrain(
-                                                text="As applicable, the simulated or actual weather and environmental conditions necessary to conduct each simulator or aircraft training/evaluation session to be administered"
-                                            ),
-                                        ],
-                                    )
-                                ],
-                            ),
-                            Constrain(
-                                text="The Operator shall have a management system for the flight operations organization that ensures control of flight operations and the management of safety and security outcomes."
-                            ),
-                        ],
-                    ),
-                    IOSAItem(
-                        page=1,
-                        code="FLT 2.1.21",
-                        guidance="",
-                        iosa_map=[],
-                        paragraph="",
-                        constraints=[
-                            Constrain(
-                                text="The Operator shall have sufficient instructors, evaluators, line check airmen and support personnel to administer the training and evaluation programs in accordance with requirements of the Operator and/or the State, as applicable."
-                            )
-                        ],
-                    ),
-                    IOSAItem(
-                        page=1,
-                        code="FLT 3.1.1",
-                        guidance="Refer to the IRM for the definitions of Operations and Operator.",
-                        iosa_map=["3 Line Operations", "3.1 Common Language"],
-                        paragraph="",
-                        constraints=[
-                            Constrain(
-                                text="The Operator shall ensure the designation of a common language(s) for use by all flight crew members for communication:",
-                                children=[
-                                    Constrain(
-                                        text="On the flight deck during line operations"
-                                    ),
-                                    Constrain(
-                                        text="If the Operator conducts passenger flights with cabin crew, between the flight crew and cabin crew during line operations"
-                                    ),
-                                    Constrain(
-                                        text="During flight crew training and evaluation activities"
-                                    ),
-                                ],
-                            ),
-                        ],
-                    ),
-                ],
-            ),
-            IOSASection(
-                name="Section 3 Operational Control and Flight Dispatch",
-                code="DSP",
-                applicability="addresses the requirements for operational control of flights conducted by multi-engine aircraft and is applicable to an operator that conducts such flights, whether operational control functions are conducted by the operator or conducted for the operator by an external organization (outsourced).",
-                guidance="For the purposes of this section authority is defined as the delegated power or right to command or direct, to make specific decisions, to grant permission and/or provide approval, or to control or modify a process.",
-                order=3,
-                items=[
-                    IOSAItem(
-                        page=1,
-                        code="DSP 1.1.1",
-                        guidance="",
-                        iosa_map=[
-                            "1 Management and Control",
-                            "1.1 Management System Overview",
-                        ],
-                        paragraph="",
-                        constraints=[],
-                    ),
-                    IOSAItem(
-                        page=1,
-                        code="DSP 1.1.2",
-                        guidance="",
-                        iosa_map=[
-                            "1 Management and Control",
-                            "1.1 Management System Overview",
-                        ],
-                        paragraph="",
-                        constraints=[],
-                    ),
-                    IOSAItem(
-                        page=1,
-                        code="DSP 1.1.3",
-                        guidance="",
-                        iosa_map=[
-                            "1 Management and Control",
-                            "1.1 Management System Overview",
-                        ],
-                        paragraph="",
-                        constraints=[],
-                    ),
-                    IOSAItem(
-                        page=1,
-                        code="DSP 1.1.4",
-                        guidance="",
-                        iosa_map=[
-                            "1 Management and Control",
-                            "1.1 Management System Overview",
-                        ],
-                        paragraph="",
-                        constraints=[],
-                    ),
-                ],
-            ),
-        ],
-    ),
-    IOSARegulation(
-        type=RegulationType.IOSA,
         name="IOSA Standards Manual (ISM) Ed 16-Revision2",
         effective_date=datetime.strptime("1 Nov 2023", "%d %b %Y"),
         sections=[],
-    ),  
-    IOSARegulation(
-        type=RegulationType.GACAR,
-        name="GACAR Standards Manual",
-        effective_date=datetime.strptime("1 Nov 2023", "%d %b %Y"),
-        sections=[],
-    ),
+    )
 ]
 
 # unstructured manuals schema
@@ -567,10 +325,12 @@ seed_flow_reports = [
     )
 ]
 
-seed_airlines = Airline(
-        name="AeroSync",
-        organization="AeroSync"
-    )
+seed_airlines = [
+    Airline(name="Riyadh Air", organization="AeroSync"),
+    Airline(name="Nesma Air", organization="AeroSync"),
+    Airline(name="Air Cairo", organization="AeroSync"),
+    Airline(name="AeroSync", organization="AeroSync"),
+]
 
 
 def seed_routine():
@@ -581,14 +341,14 @@ def seed_routine():
     db.get_collection("users").create_index("email", unique=True)
 
     print("seeding regulations index...")
-    db.get_collection("regulations").insert_one(seed_regulations[0].model_dump())
     mdb_result = db.get_collection("regulations").insert_one(
-        seed_regulations[1].model_dump()
+        seed_regulations[0].model_dump()
     )
     iosa_e16r2_id = mdb_result.inserted_id
     print("creating regulations indexes...")
     db.get_collection("regulations").create_index("type", unique=False)
 
+    reg_sm_data = []
     iosa_sections_files = [
         x for x in glob("data/parsed_iosa/iosa_*.json") if "map" not in x
     ]
@@ -601,19 +361,32 @@ def seed_routine():
                 {"_id": iosa_e16r2_id},
                 {"$push": {"sections": section_json}},
             )
-    gacar_id = db.get_collection("regulations").insert_one(seed_regulations[2].model_dump()).inserted_id
-    gacar_sections_files = [
-        x for x in glob("data/gacar/GACAR*.json") if "map" not in x
-    ]
-    for gacar_sections_file in gacar_sections_files:
-            with open(gacar_sections_file, "r") as f:
-                file_content = f.read()
-                section_json = json.loads(file_content)
-                # write to the mongo database
-                db.get_collection("regulations").find_one_and_update(
-                    {"_id": gacar_id},
-                    {"$push": {"sections": section_json}},
-                )
+
+    for gacar_map_file in glob("data/gacar/GACAR*_map.json"):
+        gacar_file = gacar_map_file.replace("_map", "")
+        gacar_code = re.split(r"[\\|/]", gacar_file)[-1].split(".")[0]
+        with open(gacar_file, "r") as f:
+            file_content = f.read()
+            section_json = json.loads(file_content)
+            temp_gacar = IOSARegulation(
+                type=RegulationType.GACAR,
+                name=f"GACAR {gacar_code} Standards Manual",
+                effective_date=datetime.strptime("1 Nov 2023", "%d %b %Y"),
+                sections=[section_json],
+            )
+
+            gacar_id = (
+                db.get_collection("regulations")
+                .insert_one(temp_gacar.model_dump())
+                .inserted_id
+            )
+
+        # seed regulations source map
+        with open(gacar_map_file, "r") as f:
+            json_obj = json.loads(f.read())
+            for x in json_obj:
+                x["regulation_id"] = gacar_id
+            reg_sm_data += json_obj
 
     print("seeding unstructured manuals...")
     db.get_collection("unstructured_manuals").insert_many(
@@ -630,9 +403,9 @@ def seed_routine():
         "nesma_oma_ch1.pdf": "3de78336-42a9-4920-a916-91a4144db589",
     }
 
-    # # RXI
+    # # # RXI
     for file_path in glob(r"data/RXI/*.pdf"):
-
+        
         filename = re.split(r"[\\|/]", file_path)[-1]
 
         fs_index_entry = FSIndexFile(
@@ -648,7 +421,7 @@ def seed_routine():
             doc_status=ChatDOCStatus.PARSED,
             organization="AeroSync",
             parent=filename,
-            args={"toc_info": create_parts_metadata_file(file_path)},
+            args={"toc_info": RXI_parser(file_path)},
         )
 
         mdb_result = db.get_collection("fs_index").insert_one(
@@ -660,17 +433,11 @@ def seed_routine():
         shutil.copy2(file_path, dst_path)
         print(f"file map {file_path} -> {dst_path}")
 
-    # nesma
-    f = open(r"data/nesma_oma/nesma_oma_second_metadata_tree.json", "r")
-    json_str = f.read()
-    f.close()
-    json_obj = json.loads(json_str)
-
-    for file_path in glob(r"data/nesma_oma/*.pdf"):
+    # # Nesma
+    for file_path in glob(r"data/nesma/*.pdf"):
+        
         filename = re.split(r"[\\|/]", file_path)[-1]
-        traget_mde = [
-            x for x in json_obj if x["filename"] == r"data/nesma_oma/" + filename
-        ][0]
+
         fs_index_entry = FSIndexFile(
             username="cwael",
             datetime=datetime.now(),
@@ -683,20 +450,22 @@ def seed_routine():
             ),
             doc_status=ChatDOCStatus.PARSED,
             organization="AeroSync",
-            parent="nesma_oma.pdf",
-            args={"toc_info": traget_mde["toc_info"]},
+            parent=filename,
+            args={"toc_info": nesma_parser(file_path)},
         )
+
         mdb_result = db.get_collection("fs_index").insert_one(
             fs_index_entry.model_dump()
         )
+
         file_id = str(mdb_result.inserted_id)
         dst_path = f"public/airlines_files/manuals/{file_id}.pdf"
         shutil.copy2(file_path, dst_path)
         print(f"file map {file_path} -> {dst_path}")
 
-    db.get_collection("fs_index").insert_many(
-        [x.model_dump() for x in seed_fs_index_files]
-    )
+    # db.get_collection("fs_index").insert_many(
+    #     [x.model_dump() for x in seed_fs_index_files]
+    # )
 
     print("creating fs index indexes...")
     db.get_collection("fs_index").create_index("doc_uuid", unique=False)
@@ -719,22 +488,11 @@ def seed_routine():
 
     # seed regulations source map
     reg_sm_files = [x for x in glob("data/parsed_iosa/iosa_*_map.json")]
-    reg_sm_data = []
     for sm_file in reg_sm_files:
         with open(sm_file, "r") as f:
             json_obj = json.loads(f.read())
             for x in json_obj:
                 x["regulation_id"] = iosa_e16r2_id
-            reg_sm_data += json_obj
-
-    # seed regulations source map
-    reg_sm_files = [x for x in glob("data/gacar/GACAR*_map.json")]
-
-    for sm_file in reg_sm_files:
-        with open(sm_file, "r") as f:
-            json_obj = json.loads(f.read())
-            for x in json_obj:
-                x["regulation_id"] = gacar_id
             reg_sm_data += json_obj
 
     print("seeding regulations source maps...")
@@ -743,16 +501,19 @@ def seed_routine():
     db.get_collection("regulations_source_maps").create_index("code", unique=True)
 
     print("seeding airlines...")
-    airline_id = db.get_collection("airlines").insert_one(seed_airlines.model_dump()).inserted_id
+    for airline in seed_airlines:
+        airline_id = (
+            db.get_collection("airlines").insert_one(airline.model_dump()).inserted_id
+        )
     print("creating airlines indexes...")
     db.get_collection("airlines").create_index("organization", unique=False)
-    
+
     print("seeding flow reports...")
     for report in seed_flow_reports:
         report = report.model_dump()
         report["regulation_id"] = str(iosa_e16r2_id)
         report["sub_sections"][0]["checklist_items"][0]["checkins"] = []
-        report['airline'] = str(airline_id)
+        report["airline"] = str(airline_id)
         db.get_collection("flow_reports").insert_one(report)
     print("creating flow report indices...")
     db.get_collection("flow_reports").create_index("organization", unique=False)

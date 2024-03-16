@@ -1,0 +1,225 @@
+{
+    "name": "GACAR Part 109",
+    "code": "G-109",
+    "applicability": "",
+    "guidance": "",
+    "items": [
+        {
+            "paragraph": "Except as provided in paragraphs (iii) and (iv) of this section, this part prescribes rules\r\ngoverning the offering, preparation, and transportation of dangerous goods by air in the Kingdom\r\nof Saudi Arabia.;\nThis part applies to\u2014;\n  - (a) Aircraft operators involved in the transportation of dangerous goods to, from, or within\r\nthe Kingdom of Saudi Arabia and to any aircraft registered in the Kingdom of Saudi Arabia;;\n  - (b) Any person who performs, attempts to perform or is required to perform any function\r\nsubject to this part including operators, ground handling agents, shippers, freight forwarders\r\nand their flight and nonflight employees, agents, and subsidiary and contract personnel;;\n  - (c) Any person who offers any dangerous goods for transportation by air; and;\n  - (d) Air passenger who carry dangerous goods on their person or in their carry-on or checked\r\nbaggage.;\n- (iii) Operators certificated under General Authority of Civil Aviation (GACA) Regulation\r(GACAR) Part 119 or 133, and foreign air carriers authorized under GACAR Part 129, who have\r\nnot been authorized by the President to transport dangerous goods by air must only comply with\r\nthe following sections of this part:;\n  - (a) GACAR \u00a7 109.83, Information for Passengers;;\n  - (b) GACAR \u00a7 109.85, Information for Other Persons;;\n  - (c) GACAR \u00a7\u00a7 109.101 through 109.103, Subpart F \u2013 Dangerous Goods Training;;\n  - (d) GACAR \u00a7 109.113, Operator\u2019s Dangerous Goods Manual;;\n  - (e) GACAR \u00a7 109.121, Dangerous Goods Accident and Incident Reporting Requirements;;\n  - (f) GACAR \u00a7 109.123, Dangerous Goods Discrepancy Reporting; and;\n  - (g) GACAR \u00a7 109.125, Dangerous Goods Training Records.;\n- (iv) Operators not certificated under GACAR Part 119 or 133, and foreign-registered aircraft not\r\nauthorized under GACAR Part 129, who transport dangerous goods by air must only comply with\r\nthe following sections of this part:;\n  - (a) GACAR \u00a7 109.3, General Limitations on the Transport of Dangerous Goods;;\n  - (b) GACAR \u00a7 109.5, Exceptions for Operators, Crew Members and Passengers;;\n  - (c) GACAR \u00a7 109.89, Information in the Event of an Aircraft Accident or Incident;;\n  - (d) GACAR \u00a7 109.91, Information in the Event of an In-Flight Emergency; and;\n  - (e) GACAR \u00a7 109.121, Dangerous Goods Reporting Requirements.;\n- (v) For the purposes of this part, the preparation of dangerous goods for transportation by air\r\nincludes:;\n  - (a) Classifying;;\n  - (b) Packing;;\n  - (c) Marking; and;\n  - (d) Labeling.;\n- (vi) For the purposes of this part, a shipper means any person who is the sender and/or preparer of\r\ndangerous goods for transportation by air.;\n",
+            "code": "G-109 109.1",
+            "iosa_map": [
+                "G-109 109.1"
+            ]
+        },
+        {
+            "paragraph": "(i) No person may offer, accept, prepare or transport dangerous goods by air except as provided for\r\nin this part and in the Technical Instructions for the Safe Transport of Dangerous Goods by Air\r\n(Technical Instructions), as amended, published by the Council of the International Civil Aviation\r\nOrganization (ICAO)(ICAO Doc. 9284).;\n- (ii) No person may offer, accept, prepare or transport by air any article or substance identified in the\r\nTechnical Instructions as forbidden for transport by air under any circumstances.;\n- (iii) Except as provided in GACAR \u00a7 109.5, no person may offer, accept, prepare or transport the\r\nfollowing dangerous goods without the approval of the President or unless the Technical\r\nInstructions indicate they may be transported under an approval issued by the state of origin:;\n  - (a) Articles and substances identified in the Technical Instructions as forbidden for transport\r\nin normal circumstances or;\n  - (b) Infected live animals.;\n- (iv) Unless authorized by the President, the transport of alcoholic beverages for delivery to any\r\ndestination in Saudi Arabia is forbidden.;\n",
+            "code": "G-109 109.3",
+            "iosa_map": [
+                "G-109 109.3"
+            ]
+        },
+        {
+            "paragraph": "(i) Subject to paragraphs (ii) and (iii) of this section, this part does not apply to those dangerous\r\ngoods identified in Parts 1 and 8 of the Technical Instructions, including articles and substances,\r\nwhen they are\u2014;\n  - (a) Not subject to the Technical Instructions in accordance with Part 1 of those instructions,;\n  - (b) Required aboard the aircraft in accordance with airworthiness and operational\r\nrequirements,;\n  - (c) Required aboard the aircraft for specialized purposes,;\n  - (d) Carried by passengers or crew members in accordance with Part 8 of the Technical\r\nInstructions, or;\n  - (e) In baggage that was separated from its owner.;\n- (ii) Articles and substances intended as replacement parts for items specified in paragraphs (i)(b)\r\nand (c) of this section, or which have been removed for replacement, must be transported on the\r\naircraft in accordance with this part except as specified in Chapter 2, Paragraph 2.2 of Part 1 of the\r\nTechnical Instructions.;\n- (iii) Dangerous goods excepted from this part under paragraph (i) of this section may be carried\r\nonboard an aircraft only if those goods are transported in accordance with the applicable requirements of Parts 1 and 8 of the Technical Instructions.;\n",
+            "code": "G-109 109.5",
+            "iosa_map": [
+                "G-109 109.5"
+            ]
+        },
+        {
+            "paragraph": "(i) No person may prepare dangerous goods for transport by air unless he holds a Dangerous\r\nGoods Preparer Certificate (DGPC) issued by the President under GACAR \u00a7 109.41.;\n- (ii) A shipper not certificated under GACAR \u00a7 109.41 must use the services of a dangerous goods\r\npreparer certificated under GACAR \u00a7 109.41.;\n- (iii) No person may transport dangerous goods by air unless authorized under GACAR \u00a7 109.43.;\n- (iv) In addition to the certificate or authorization required under paragraph (i), (ii), or (iii) of this\r\nsection, no person may accept, process or transport\u2014;\n  - (a) Class 1 explosive materials without an authorization from the Ministry of Interior or;\n  - (b) Class 7 radioactive materials without an authorization from the KSA Nuclear and\r\nRadiological Regulatory Commission (NRRC).;\n",
+            "code": "G-109 109.7",
+            "iosa_map": [
+                "G-109 109.7"
+            ]
+        },
+        {
+            "paragraph": "Each holder of a certificate or authorization issued under this part must establish dangerous goods\r\nsecurity measures, acceptable to the President, to minimize theft or misuse of dangerous goods that\r\nmay endanger persons, property, or the environment;\n",
+            "code": "G-109 109.9",
+            "iosa_map": [
+                "G-109 109.9"
+            ]
+        },
+        {
+            "paragraph": "(i) An operator, shipper, freight forwarder, or other person certificated or authorized under this part\r\nmust permit the GACA to carry out inspections, in the Kingdom of Saudi Arabia and elsewhere, as\r\nmay be necessary to determine compliance with this part.;\n- (ii) A GACA inspector may examine, take samples from, or seize dangerous goods that he has\r\nreasonable grounds to suspect are being transported in violation of this part.;\n- (iii) A GACA inspector may open, or require to be opened, any baggage or package, which he has\r\nreasonable grounds to suspect may contain dangerous goods being transported in violation of\r\nthis part. Any package opened during an inspection must, before being forwarded to the recipient,\r\nbe returned by a qualified person to a condition that complies with the Technical Instructions.;\n- (iv) Any sample taken or goods seized by a GACA inspector under this section may be retained for\r\nas long as the GACA considers it necessary under the circumstances and may be disposed of in\r\nsuch manner as the GACA considers appropriate.;\nEach person seeking certification under GACAR \u00a7 109.41 must prepare and maintain a dangerous\r\ngoods manual approved by the President that\u2014;\n- (i) Contains procedures and information, as described in paragraph (ii) of this section, to assist\r\neach person performing or directly supervising the following job functions involving preparing\r\nitems for transport on an aircraft:;\n  - (a) Classification of dangerous goods,;\n  - (b) Listing of dangerous goods,;\n  - (c) Verifying compliance with limitations,;\n  - (d) Packing of dangerous goods,;\n  - (e) Labeling and marking,;\n  - (f) Recognition of undeclared dangerous goods,;\n  - (g) Provision of information to passengers and crew,;\n  - (h) Storing and loading, and;(9) Handling emergencies.;\n- (ii) Ensures that the procedures and information described in this paragraph are sufficient to assist\r\nthe person in\u2014;\n  - (a) Preparing packages, overpacks and freight containers of dangerous goods;;\n  - (b) Properly labeling and marking packages, overpacks and freight containers of dangerous\r\ngoods; and;\n  - (c) Preparing the dangerous goods transport document and declaration, except when otherwise specified in the Technical Instructions.;\n- (iii) Provides details of the training programs required by GACAR \u00a7 109.101.;\n- (iv) The dangerous goods manual required by this section may be a separate manual or part of a\r\nmanual and must contain that part of the information appropriate for each group of personnel.;\n",
+            "code": "G-109 109.11",
+            "iosa_map": [
+                "G-109 109.11"
+            ]
+        },
+        {
+            "paragraph": "(i) Each person offering dangerous goods for transportation by air must completely and accurately\r\ndescribe the contents of each package containing dangerous goods to any other person to whom\r\nthe person presents dangerous goods for transport by air.;\n- (ii) The shipper of any dangerous goods by air must provide a written undertaking to re-ship the\r\nconsignment, at the shipper's cost and liability if the shipment is not cleared and received by the\r\nconsignee within 10 working days from the arrival of the consignment at any destination in Saudi\r\nArabia.;\n- (iii) Each shipper must accurately and completely describe the contents of each package or overpack\r\ncontaining dangerous goods to any person certificated or authorized under this part to whom the\r\nperson presents dangerous goods for transport by air.;\n",
+            "code": "G-109 109.21",
+            "iosa_map": [
+                "G-109 109.21"
+            ]
+        },
+        {
+            "paragraph": "(i) The holder of a DGPC issued under GACAR \u00a7 109.41 preparing dangerous goods for transport\r\nby air must ensure that the goods are packed as provided for in this subpart and the Technical\r\nInstructions.;\n- (ii) Packaging used for the transport of dangerous goods by air must meet the following\r\nrequirements:;\n  - (a) Packaging must\u2014;\n- (i) Be of good quality and securely closed to prevent leakage that may occur in normal\r\nconditions of transport, or caused by changes in temperature, humidity, or pressure, or by\r\nvibration.;\n- (ii) Be suitable for the contents of the packaging and be resistant to any chemical or other\r\naction of such dangerous goods in direct contact.;\n- (iii) Meet the material and construction specifications in the Technical Instructions.;\n- (iv) Be tested in accordance with the provisions of the Technical Instructions.;\n- (v) Be capable of withstanding, without leakage, the pressure stated in the Technical\r\nInstructions, where retention of a liquid is a basic function.;\n  - (b) Inner packagings must be packed, secured, or cushioned to prevent their breakage or\r\nleakage and to control their movement within the outer packaging during normal conditions\r\nof air transport. Cushioning and absorbent materials must not react dangerously with the\r\ncontents of the packagings.;\n  - (c) Packaging must not be reused until it has been inspected and found free from corrosion or\r\nother damage. Where the package is re-used, all necessary measures must be taken to prevent\r\ncontamination of subsequent contents.;\n  - (d) If, because of the nature of its former contents, uncleaned empty packaging may present a\r\ndanger, it must be tightly closed and treated according to the danger it constitutes.;\n  - (e) Harmful quantities of a dangerous substance must not adhere to the outside package.;\n",
+            "code": "G-109 109.23",
+            "iosa_map": [
+                "G-109 109.23"
+            ]
+        },
+        {
+            "paragraph": "Each DGPC holder preparing dangerous goods for transport by air must ensure that the package is\r\nlabeled with the appropriate labels in accordance with the Technical Instructions. The label must\r\nmeet the visual requirements and specifications in the Technical Instructions, communicating\r\ninformation about the class of dangerous goods inside a package and any special handling\r\nrequirements for that package or class of dangerous goods.;\n",
+            "code": "G-109 109.25",
+            "iosa_map": [
+                "G-109 109.25"
+            ]
+        },
+        {
+            "paragraph": "(i) Each DGPC holder preparing dangerous goods for transport by air must ensure that\u2014;\n  - (a) The package is marked with the proper shipping name of its contents and, when assigned,\r\nthe United Nations (UN) number and other markings as specified in the Technical\r\nInstructions.;\n  - (b) Each packaging manufactured to a specification provided for in the Technical Instructions\r\nis marked in accordance with the Technical Instructions. Packaging must not be marked with\r\na packaging specification marking unless it meets the appropriate packaging specification in\r\nthe Technical Instructions.;\n- (ii) Both the Arabic and English languages must be used for the markings on dangerous goods packages;\n",
+            "code": "G-109 109.27",
+            "iosa_map": [
+                "G-109 109.27"
+            ]
+        },
+        {
+            "paragraph": "(i) The holder of a DGPC issued under GACAR \u00a7 109.41 preparing any package or overpack of\r\ndangerous goods for transport by air must\u2014;\n  - (a) Ensure that the dangerous goods are not forbidden for transport by air and are properly\r\nclassified, packed, marked, and labeled as required by this part and the Technical Instructions.;\n  - (b) Complete, sign, and provide to the operator or ground handling agent a GACA-approved\r\ndangerous goods transport document, containing the information required by the Technical\r\nInstructions, unless the dangerous goods are specifically excluded in the Technical\r\nInstructions from the requirement to have a dangerous goods transport document.;\n  - (c) Sign a declaration, attached to the dangerous goods transport document, indicating that\r\nthe dangerous goods are fully and accurately described by their proper shipping names and\r\nthat they are classified, packed, marked, labeled, and in proper condition for transport by air in\r\naccordance with this part and the Technical Instructions.;\n  - (d) Provide the shipper\u2019s documents required under GACAR \u00a7 109.21 to the operator.;\n- (ii) Both the Arabic and English languages must be used on the dangerous goods transport\r\ndocument and declaration required under paragraphs (i)(b) and (c) of this section.;\n",
+            "code": "G-109 109.29",
+            "iosa_map": [
+                "G-109 109.29"
+            ]
+        },
+        {
+            "paragraph": "(i) A person seeking a DGPC must submit the following to the GACA:;\n  - (a) An application in a form and manner acceptable to the President,;\n  - (b) A dangerous goods manual as required under GACAR \u00a7 109.111, and;\n  - (c) The qualifications of staff responsible for the handling of dangerous goods.;\n- (ii) If the President finds the documents and facilities satisfactory, the GACA may issue a DGPC,\r\nwhich is valid for 2 years. Certificate holders must promptly advise the GACA of any changes to\r\ntheir facilities, or procedures.;\n- (iii) The DGPC holder must prominently display its certificate at locations where dangerous goods\r\nare prepared for transport by air and at its principal place of business.;\n",
+            "code": "G-109 109.41",
+            "iosa_map": [
+                "G-109 109.41"
+            ]
+        },
+        {
+            "paragraph": "(i) An applicant for a Dangerous Goods Transport Authorization (DGTA) must submit the\r\nfollowing to the GACA:;\n  - (a) An application in a form and manner acceptable to the President,;\n  - (b) A dangerous goods manual as required under GACAR \u00a7 109.113,;\n  - (c) The qualifications of staff responsible for the handling of dangerous goods, and;\n  - (d) A list of all stations involved in the handling of dangerous goods.;\n- (ii) If the President finds the documents and facilities satisfactory, the GACA may issue a DGTA\r\nwhich is valid until surrendered by the holder or amended, suspended or revoked by the\r\nPresident.;\n- (iii) Any changes to be made to the facilities, including the addition of stations, or to procedures\r\nmust be approved by the GACA.;\n",
+            "code": "G-109 109.43",
+            "iosa_map": [
+                "G-109 109.43"
+            ]
+        },
+        {
+            "paragraph": "Each holder of a DGPC or a DGTA must\u2014;\n- (i) Provide dangerous goods training, as prescribed in Subpart F of this part and;\n- (ii) Comply with the conditions and limitations of its certificate or authorization.;\n",
+            "code": "G-109 109.45",
+            "iosa_map": [
+                "G-109 109.45"
+            ]
+        },
+        {
+            "paragraph": "(i) A DGTA holder must not accept dangerous goods prepared for transportation by air unless\u2014;\n  - (a) The person who has prepared the goods or the DGTA holder is certificated under GACAR\r\n\u00a7 109.41; or;\n  - (b) When the dangerous goods are prepared for transportation in a foreign Contracting State\r\nto the Convention on International Civil Aviation, the person has prepared the goods in\r\naccordance with the Technical Instructions and the dangerous goods regulations of that\r\nforeign Contracting State.;\n  - (c) Except when otherwise specified in the Technical Instructions, the dangerous goods are\r\naccompanied by two copies of\u2014;\n- (i) A dangerous goods transport document and declaration, and;\n- (ii) The shipper\u2019s documents required under GACAR \u00a7 109.21.;\n  - (d) The package, overpack or freight container has been inspected in accordance with the\r\nacceptance procedures in the Technical Instructions with the appropriate checklist; and;\n- (ii) A DGTA holder must develop and use an acceptance checklist to comply with paragraph (i) of\r\nthis section and record the results of the acceptance check.;\n",
+            "code": "G-109 109.61",
+            "iosa_map": [
+                "G-109 109.61"
+            ]
+        },
+        {
+            "paragraph": "A DGTA holder must handle packages as follows:;\n- (i) Loading.;\n  - (a) Packages and overpacks containing dangerous goods and freight containers containing\r\nradioactive materials must be inspected for evidence of leakage or damage before loading on an\r\naircraft or into a unit load device, as specified in the Technical Instructions.;\n  - (b) Leaking or damaged packages, overpacks, or freight containers must not be loaded on an\r\naircraft.;\n  - (c) A unit load device must not be loaded aboard an aircraft unless it has been found free from\r\nany evidence of leakage from, or damage to, any dangerous goods contained therein.;\n- (ii) Removal of leaking or damaged packagings. Any packages, overpacks, or freight containers of\r\ndangerous goods found on an aircraft and which appear to be damaged or leaking must be removed\r\nor arrangements made for their removal by an appropriate person or ground-handling agent. In this\r\ncase, the remainder of the shipment must be inspected to ensure it is in a proper condition for\r\ntransport and that no damage or contamination has occurred to the aircraft or its load, and that\r\nother cargo or baggage loaded on or suspended beneath the aircraft is fit for transport by air and\r\nhas not been contaminated.;\n- (iii) Unloading. Packages or overpacks containing dangerous goods and freight containers\r\ncontaining radioactive materials are inspected for signs of damage or leakage upon unloading from\r\nan aircraft or a unit load device. If there is evidence of damage or leakage, the area where the\r\ndangerous goods were stowed on the aircraft must be inspected for damage or contamination.;\n",
+            "code": "G-109 109.63",
+            "iosa_map": [
+                "G-109 109.63"
+            ]
+        },
+        {
+            "paragraph": "Each DGTA holder must adhere to the following restrictions:;\n- (i) General. Packages and overpacks containing dangerous goods and freight containers\r\ncontaining radioactive materials must be loaded, segregated, stowed, and stored on an aircraft in\r\naccordance with the provisions of the Technical Instructions.;\n- (ii) Passenger cabin and flightdeck. Dangerous goods must not be carried in an aircraft cabin\r\noccupied by passengers or on the flightdeck, except as permitted in the Technical Instructions.;\n- (iii) Dangerous goods designated for carriage only on cargo aircraft. Packages of dangerous\r\ngoods bearing the \u201cCARGO AIRCRAFT ONLY\u201d label must be loaded in accordance with the\r\nprovisions in the Technical Instructions.;\n- (iv) Separation and segregation.;\n  - (a) Packages containing dangerous goods that might react dangerously with each other must\r\nnot be stowed on an aircraft next to each other or in a position that would allow interaction\r\nbetween them in the event of leakage.;\n  - (b) Packages of toxic and infectious substances must be stowed on an aircraft in accordance with the provisions of the Technical Instructions.;\n  - (c) Packages of radioactive materials must be stowed on an aircraft so that they are separated\r\nfrom persons, live animals, and undeveloped film in accordance with the provisions in the\r\nTechnical Instructions.;\n- (v) Securing of dangerous goods cargo loads. When dangerous goods are loaded in an aircraft,\r\nthey must be protected from being damaged and be secured in the aircraft in such a way that\r\nprevents any movement in flight that would change the orientation of the packages. For packages\r\ncontaining radioactive materials, the securing must be adequate to ensure that the separation\r\nrequirements of paragraph (iv)(c) of this section are met at all times.;\n",
+            "code": "G-109 109.65",
+            "iosa_map": [
+                "G-109 109.65"
+            ]
+        },
+        {
+            "paragraph": "(i) Each DGTA holder must ensure that\u2014;\n  - (a) Any dangerous contamination resulting from the leakage of or damage to dangerous goods\r\nis removed without delay and steps are taken to eliminate any danger as specified in the\r\nTechnical Instructions and;\n  - (b) An aircraft which has been contaminated by radioactive materials is immediately taken out\r\nof service and not returned to service until the radiation level at any accessible surface and the\r\nnonfixed contamination are not more than the values specified in the Technical Instructions.;\n- (ii) In the event of noncompliance with any limit in the Technical Instructions applicable to\r\nradiation level or contamination, an operator or ground-handling agent acting on the operator\u2019s\r\nbehalf must\u2014;\n  - (a) Ensure the shipper and the DGPC holder are informed if the noncompliance is identified\r\nduring transport.;\n  - (b) Take immediate steps to mitigate the consequences of the noncompliance.;\n  - (c) Communicate the noncompliance to the shipper, DGPC, and the GACA as soon as\r\npracticable and immediately whenever an emergency situation has developed or is\r\ndeveloping.;\n  - (d) Investigate the noncompliance and its causes, circumstances and consequences.;\n  - (e) Take appropriate action to remedy the causes and circumstances that led to the\r\nnoncompliance and to prevent a recurrence of circumstances similar to those that led to the\r\nnoncompliance.;\n  - (f) Communicate to the GACA the causes of the noncompliance and corrective or preventive\r\nactions taken or to be taken.;\n",
+            "code": "G-109 109.67",
+            "iosa_map": [
+                "G-109 109.67"
+            ]
+        },
+        {
+            "paragraph": "Each DGTA holder must provide information in its operations manual and other appropriate\r\nmanuals to enable flight crew members to carry out their responsibilities as specified in the\r\nTechnical Instructions with regard to the transport of dangerous goods, including\u2014;\n- (i) The actions to be taken in the event of emergencies involving dangerous goods and;\n- (ii) Details of the location and numbering system of cargo compartments and the total of the\r\ntransport indexes of radioactive material permitted in each compartment, as specified in the\r\nTechnical Instructions.;\n",
+            "code": "G-109 109.81",
+            "iosa_map": [
+                "G-109 109.81"
+            ]
+        },
+        {
+            "paragraph": "Each operator must ensure that passengers are notified about the categories of dangerous goods\r\nthat may not be taken aboard an aircraft in either checked baggage or carry-on baggage\r\naccompanying the passenger as specified in the Technical Instructions by\u2014;\n- (i) Providing information with each passenger ticket, or;\n- (ii) Displaying a sufficient number of notices at\u2014;\n  - (a) Each of the places where the operator issues tickets and;\n  - (b) Any location where baggage is checked in.;\n",
+            "code": "G-109 109.83",
+            "iosa_map": [
+                "G-109 109.83"
+            ]
+        },
+        {
+            "paragraph": "Each DGTA holder and operator described in GACAR \u00a7 109.1(iii) must provide\u2014;\n- (i) Information to their personnel to enable them to carry out their responsibilities with regard to\r\nthe transport of dangerous goods and;\n- (ii) Instructions as to the action to be taken in the event of emergencies arising involving\r\ndangerous goods.;\n",
+            "code": "G-109 109.85",
+            "iosa_map": [
+                "G-109 109.85"
+            ]
+        },
+        {
+            "paragraph": "Each DGTA holder must ensure that\u2014;\n- (i) Written information about the dangerous goods to be carried on an aircraft, as specified in the\r\nTechnical Instructions, is provided to the pilot in command (PIC) before departure.;\n- (ii) Information for use in responding to in-flight emergencies is provided to the PIC, as specified\r\nin the Technical Instructions.;\n- (iii) A legible copy of the written information provided to the PIC, signed by the PIC, is retained on\r\nthe ground at a readily accessible location until after the flight. This copy, or the information\r\ncontained in it, must be readily accessible to the operator\u2019s personnel or representatives at the\r\naerodromes of last departure and next scheduled arrival until after the completion of the flight to\r\nwhich the information refers.;\n- (iv) A copy of the written information to the PIC, an electronic image thereof, or the information\r\ncontained therein, is maintained for 90 days at the aerodrome of departure or the operator\u2019s\r\nprincipal place of business, and provided to the GACA upon request.;\n- (v) When dangerous goods are carried on a flight that takes place wholly or partially outside the\r\nKingdom of Saudi Arabia, written information provided to the PIC must be in English.;\n",
+            "code": "G-109 109.87",
+            "iosa_map": [
+                "G-109 109.87"
+            ]
+        },
+        {
+            "paragraph": "(i) Aircraft accident or aircraft incident. The operator of an aircraft carrying dangerous goods\r\nthat is involved in an aircraft accident or aircraft incident must without delay provide to\r\nemergency services responding to the accident or incident information about the dangerous goods\r\naboard, as shown on the written information to the PIC. As soon as possible, the operator must\r\nalso provide this information to the GACA and the appropriate authorities of the State in which\r\nthe accident or incident occurred.;\n- (ii) The operator of an aircraft carrying dangerous goods must include procedures in manuals and\r\naccident contingency plans to enable the information to be provided as specified in this section.;\n",
+            "code": "G-109 109.89",
+            "iosa_map": [
+                "G-109 109.89"
+            ]
+        },
+        {
+            "paragraph": "If an in-flight emergency occurs, as soon as the situation permits, the PIC must inform the\r\nappropriate Air Traffic Services unit, for the information of aerodrome authorities, of any dangerous\r\ngoods carried as cargo aboard the aircraft as specified in the Technical Instructions.;\n",
+            "code": "G-109 109.91",
+            "iosa_map": [
+                "G-109 109.91"
+            ]
+        },
+        {
+            "paragraph": "(i) Initial and recurrent dangerous goods training programs, in accordance with the Technical\r\nInstructions and as provided for in Appendix B to this part, must be established and maintained by\r\nor on behalf of\u2014;\n  - (a) DGTA holders,;\n  - (b) Operators not authorized to transport dangerous goods as described under GACAR \u00a7\r\n109.1(iii), or;\n  - (c) DGPC holders.;\n- (ii) Training programs established under paragraph (i) of this section must be approved by the\r\nPresident.;\n- (iii) Initial training. Each person who performs or directly supervises any of the personnel\r\nfunctions identified in the tables in Appendix B to this part must satisfactorily complete the\r\nappropriate dangerous goods training upon employment, or it must be verified such training has\r\nbeen completed before the person assumes his duties.;\n- (iv) Recurrent training. Each person who performs or directly supervises any of the personnel\r\nfunctions identified in the tables in Appendix B to this part must satisfactorily complete the\r\nappropriate dangerous goods training every 24 months. If the recurrent training is completed\r\nwithin the final 3 months of validity of the previous training, the period of validity extends from\r\nthe date on which the recurrent training was completed until 24 months from the expiration date of\r\nthat training.;\n- (v) Testing. The training described in paragraphs (iii) and (iv) of this section must include testing to\r\nverify understanding of the training materials by the recipients of the training.;\n",
+            "code": "G-109 109.101",
+            "iosa_map": [
+                "G-109 109.101"
+            ]
+        },
+        {
+            "paragraph": "No person may serve as an instructor for an initial or recurrent dangerous goods training program\r\nunless that person has\u2014;\n- (i) Instructional skills acceptable to the President,;\n- (ii) Successfully completed a dangerous goods training program in the category specified in\r\nAppendix B to this part applicable to the course being taught, and;\n- (iii) Conducted an initial or recurrent training course in the previous 24 months or has completed\r\nrecurrent training.;\n",
+            "code": "G-109 109.103",
+            "iosa_map": [
+                "G-109 109.103"
+            ]
+        },
+        {
+            "paragraph": "Each DGTA holder and operator described in GACAR \u00a7 109.1(iii) must prepare and maintain\r\ncurrent a dangerous goods manual approved by the President that\u2014;\n- (i) Contains procedures and information, as described in paragraph (ii) of this section, to assist\r\neach crew member and person performing or directly supervising the following job functions\r\ninvolving items for transport on an aircraft:;\n  - (a) Acceptance,;\n  - (b) Rejection,;\n  - (c) Handling,;\n  - (d) Storing incidental to transport,;\n  - (e) Packaging of company material, and;\n  - (f) Loading.;\n- (ii) Ensures that the procedures and information described in this paragraph are sufficient to assist\r\nthe person in identifying packages that are marked or labeled as containing dangerous goods or\r\nthat show signs of containing undeclared dangerous goods. The procedures and information must\r\ninclude\u2014;\n  - (a) Procedures for rejecting packages that do not conform to this part and the Technical\r\nInstructions or that appear to contain undeclared dangerous goods;;\n  - (b) Procedures for complying with the dangerous goods reporting requirements of GACAR \u00a7\r\n109.121 and discrepancy reporting requirements of GACAR \u00a7 109.123;;\n  - (c) The operator\u2019s dangerous goods policies and whether the operator is authorized to carry,\r\nor is prohibited from carrying, dangerous goods; and;\n  - (d) If an operator\u2019s operations specifications or authorizing documents permit the transport of\r\ndangerous goods, procedures and information to ensure that\u2014;\n- (i) Packages containing dangerous goods are properly offered and accepted in\r\ncompliance with this part;;\n- (ii) Packages containing dangerous goods are properly handled, stored, packaged,\r\nloaded, and carried aboard an aircraft in compliance with this part;;\n- (iii) The PIC is notified in compliance with the requirements in GACAR \u00a7 109.87(iv);\r\nand;\n- (iv) Aircraft replacement parts, consumable materials or other items regulated under this\r\npart are properly handled, packaged, and transported.;\n- (iii) Provides details of the training programs required by GACAR \u00a7 109.101.;\n- (iv) The dangerous goods manual required by this section may be a separate manual or part of a\r\nmanual and must contain that part of the information appropriate for each group of personnel.;\n",
+            "code": "G-109 109.113",
+            "iosa_map": [
+                "G-109 109.113"
+            ]
+        },
+        {
+            "paragraph": "(i) Reporting dangerous goods incidents and accidents. An operator must report in writing\r\ndangerous goods incidents and accidents to the GACA and the appropriate authority in the state\r\nwhere the accident or incident occurred.;\n- (ii) Reporting undeclared or misdeclared dangerous goods. An operator must report in writing\r\nthe finding of undeclared or misdeclared dangerous goods discovered in cargo, passengers\u2019\r\nbaggage, or mail to the GACA and the appropriate authority in the state where the accident or\r\nincident occurred;\n- (iii) Written reports made under this section must be in a format approved by the President and\r\ncontain the information specified in Appendix A to this part.;\n- (iv) First reports must be submitted within 72 hours of the event or discovery, unless exceptional\r\ncircumstances prevent this, and include the details that are known at that time. If necessary, a\r\nsubsequent report must be made as soon as possible giving all the details that were not known at\r\nthe time the first report was sent. If a report has been made verbally, written confirmation must be\r\nsent as soon as possible.;\n",
+            "code": "G-109 109.121",
+            "iosa_map": [
+                "G-109 109.121"
+            ]
+        },
+        {
+            "paragraph": "(i) Each person who discovers a discrepancy, as defined in paragraph (ii) of this section, relative to\r\nthe shipment of a dangerous good following its acceptance for transportation aboard an aircraft\r\nmust, as soon as practicable, notify the GACA by telephone or electronically and must provide the\r\nfollowing information:;\n  - (a) Name and telephone number of the person reporting the discrepancy,;\n  - (b) Name of the operator,;\n  - (c) Specific location of the shipment concerned,;\n  - (d) Name of the shipper,;\n  - (e) Nature of the discrepancy, and;\n  - (f) Address of the shipper or person responsible for the discrepancy, if known.;\n- (ii) Discrepancies that must be reported under paragraph (i) of this section are those involving\r\ndangerous goods which are improperly\u2014;\n  - (a) Described in the dangerous goods transport document;;\n  - (b) Certified on the declaration attached to the dangerous goods transport document; or;\n  - (c) Labeled, marked or packaged in a manner making their status as dangerous goods not\r\nascertainable when accepted under the provisions of GACAR \u00a7 109.61, including packages\r\nand baggage that are found to contain dangerous goods subsequent to their being offered and\r\naccepted as other than dangerous goods.;\n",
+            "code": "G-109 109.123",
+            "iosa_map": [
+                "G-109 109.123"
+            ]
+        },
+        {
+            "paragraph": "(i) A DGPC holder, a DGTA holder, or an operator described in GACAR \u00a7 109.1(iii) must maintain\r\nrecords of the training required under Subpart F of this part for at least 36 months from the most\r\nrecent training completion date.;\n- (ii) The record of training must include\u2014;\n  - (a) The individual\u2019s name;;\n  - (b) The most recent training completion date;;\n  - (c) A description or copy of, or reference to, training materials used to meet the training\r\nrequirements;;\n  - (d) The name and address of the organization providing the training; and;\n  - (e) Evidence that shows that a test has been completed satisfactorily.;\n- (iii) The holder of a certificate or authorization issued under this part must make training records\r\navailable upon request of the employee or the President.;\n",
+            "code": "G-109 109.125",
+            "iosa_map": [
+                "G-109 109.125"
+            ]
+        },
+        {
+            "paragraph": "Each DGTA holder must retain a copy of the dangerous goods transport document, declaration,\r\nshippers documents, acceptance checklist or electronic images thereof, that is accessible through its principal place of business and must make the dangerous goods transport document available,\r\nupon request, to an authorized representative of the GACA. The DGTA holder must retain each\r\ndocument for 1 year after the shipment is accepted from the DGPC.;\n",
+            "code": "G-109 109.127",
+            "iosa_map": [
+                "G-109 109.127"
+            ]
+        }
+    ]
+}
