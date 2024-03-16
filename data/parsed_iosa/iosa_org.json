@@ -873,7 +873,7 @@
             "constraints": []
         },
         {
-            "code": "Table 1.2-Required Internal Audit Information",
+            "code": "ORG Table 1.2-Required Internal Audit Information",
             "guidance": null,
             "iosa_map": [
                 "ORG 1 Management and Control"

@@ -336,20 +336,24 @@ def parse_paragraph(paragraph):
         items_labled.append([items[i + 1], "t"])
 
     constraints = []
-    
-    for i in range(len(items_labled)):
-        if items_labled[i][1] == "t":
-            constraints.append(
-                {"text": items_labled[i][0].strip("\n").strip(), "children": []}
-            )
-        elif items_labled[i][1] == "r":
-            constraints[-1]["children"].append(
-                {"text": items_labled[i][0].strip("\n").strip(), "children": []}
-            )
-        elif items_labled[i][1] == "a":
-            constraints[-1]["children"][-1]["children"].append(
-                {"text": items_labled[i][0].strip("\n").strip(), "children": []}
-            )
+    try:
+        for i in range(len(items_labled)):
+            if items_labled[i][1] == "t":
+                constraints.append(
+                    {"text": items_labled[i][0].strip("\n").strip(), "children": []}
+                )
+            elif items_labled[i][1] == "r":
+                constraints[-1]["children"].append(
+                    {"text": items_labled[i][0].strip("\n").strip(), "children": []}
+                )
+            elif items_labled[i][1] == "a":
+                constraints[-1]["children"][-1]["children"].append(
+                    {"text": items_labled[i][0].strip("\n").strip(), "children": []}
+                )
+    except:
+        constraints = []
+        for i in range(len(items_labled)):
+            constraints.append({"text": items_labled[i][0].strip("\n").strip(), "children": []})
     return constraints
 
 def starts_with_matching_substring(string1, string2):

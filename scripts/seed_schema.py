@@ -40,8 +40,6 @@ from models.flow_reports import *
 # set back to pyhton3 for the linux dev server
 commands = [
     "rm public/airlines_files/manuals/*.pdf",
-    "shopt -s extglob",
-    "rm public/airlines_files/attachments/!(*.txt)",
     "python3 scripts/parse_iosa_section.py",
     "python3 scripts/parse_gacar.py",
 ]

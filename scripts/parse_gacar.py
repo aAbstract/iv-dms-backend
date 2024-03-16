@@ -146,34 +146,87 @@ def clean(text):
 
 
 def convert_to_listing(text):
-    romans = {
-        "(a)": "(i)",
-        "(b)": "(ii)",
-        "(c)": "(iii)",
-        "(d)": "(iv)",
-        "(e)": "(v)",
-        "(f)": "(vi)",
-        "(g)": "(vii)",
-        "(h)": "(viii)",
-    }
-    alphas = {
-        "(1)": "(a)",
-        "(2)": "(b)",
-        "(3)": "(c)",
-        "(4)": "(d)",
-        "(5)": "(e)",
-        "(6)": "(f)",
-        "(7)": "(g)",
-        "(8)": "(h)",
-    }
-    for i, g in romans.items():
-        text = text.replace(i, g)
 
-    for i, g in alphas.items():
-        text = text.replace(i, g)
+    if ("\n(a)" in text) or ("\n(i)" in text) or (("\n(1)" in text)):
+        print(text)
+        first_level = "i"
+        second_level = "a"
+        a_level = text.find("\n(a)") if text.find("\n(a)")!= -1 else 9999
+        r_level = text.find("\n(i)") if text.find("\n(i)")!= -1 else 99999
+        n_level = text.find("\n(1)") if text.find("\n(1)") != -1 else 99999
 
-    return text
+        if (a_level < r_level) and (a_level < n_level):
+            first_level = "a"
+            if r_level < n_level:
+                second_level = "i"
+            else:
+                second_level = "1"
 
+        elif (n_level < r_level) and (n_level < a_level):
+            first_level = "1"
+            if r_level < a_level:
+                second_level = "i"
+            else:
+                second_level = "a"
+        elif (r_level < n_level) and (r_level < a_level):
+            first_level = "i"
+            if n_level < a_level:
+                second_level = "1"
+            else:
+                second_level = "a"
+
+        romans = [
+            "(i)",
+            "(ii)",
+            "(iii)",
+            "(iv)",
+            "(v)",
+            "(vi)",
+            "(vii)",
+            "(viii)",
+        ]
+        numbers = [
+            "(1)",
+            "(2)",
+            "(3)",
+            "(4)",
+            "(5)",
+            "(6)",
+            "(7)",
+            "(8)"
+        ]
+        alphas = [
+            "(a)",
+            "(b)",
+            "(c)",
+            "(d)",
+            "(e)",
+            "(f)",
+            "(g)",
+            "(h)"
+        ]
+        if(first_level == "a"):
+            for i, g in zip(alphas,romans):
+                text = text.replace(i, g)        
+
+        elif(first_level == "r"):
+            pass
+
+        elif(first_level == "1"):
+            for i, g in zip(numbers,romans):
+                text = text.replace(i, g)
+
+        if(second_level == "a"):
+            pass
+        elif(second_level == "r"):
+            for i, g in zip(romans,alphas):
+                text = text.replace(i, g)
+        elif(second_level == "1"):
+            for i, g in zip(numbers,alphas):
+                text = text.replace(i, g)
+        return text
+    else:
+        return text
 
 def convert_to_markdown(text):
     def replace_listing(match):
@@ -248,38 +301,51 @@ def convert_to_markdown(text):
     markdown_text = re.sub(r"\n\((\w+)\)", replace_listing, markdown_text)
     return markdown_text
 
+
 section_columns = {
-    "117":"Subpart Section",
+    "117": "Subpart Section",
     "109": "Subpart/ Appendix SECTION",
-    "91": "Subpart/ Appendix SECTION"
+    "91": "Subpart/ Appendix SECTION",
 }
 
 for file in glob("data/gacar/*.csv"):
 
-    df = read_csv(file) 
-    
-    gacar_code = re.split(r"[\\|/]",file)[-1].split(".")[0]
+    df = read_csv(file)
+
+    gacar_code = re.split(r"[\\|/]", file)[-1].split(".")[0]
 
     df = df[df["REGULATION  STATEMENT"].notna()].reset_index()
     df = df[df[section_columns[gacar_code]].notna()].reset_index()
 
     unique_gacar_headers = {}
-    header = {"name": f"GACAR Part {gacar_code}", "code": f"G-{gacar_code}", "applicability": "", "guidance": "", "items": []}
-    temp_checklist_item = {"code": f"G-{gacar_code} {gacar_code}", "title": f"GACAR Part {gacar_code}", "sub_sections": []}
+    header = {
+        "name": f"GACAR Part {gacar_code}",
+        "code": f"G-{gacar_code}",
+        "applicability": "",
+        "guidance": "",
+        "items": [],
+    }
+    temp_checklist_item = {
+        "code": f"G-{gacar_code} {gacar_code}",
+        "title": f"GACAR Part {gacar_code}",
+        "sub_sections": [],
+    }
 
     for i in range(len(df)):
-        
+
         new_code = str(df[section_columns[gacar_code]][i]).strip()
-        
+
         header_code = header["code"] + " " + new_code
 
         if header_code in unique_gacar_headers:
-            unique_gacar_headers[header_code]["paragraph"] += df["REGULATION  STATEMENT"][i] + ";\n"
+            unique_gacar_headers[header_code]["paragraph"] += (
+                df["REGULATION  STATEMENT"][i] + ";\n"
+            )
         else:
             temp_checklist_item["sub_sections"].append(header_code)
             unique_gacar_headers[header_code] = {
-                "paragraph":df["REGULATION  STATEMENT"][i] + ";\n",
-                "code":header_code,
+                "paragraph": df["REGULATION  STATEMENT"][i] + ";\n",
+                "code": header_code,
                 "iosa_map": [header_code],
             }
 
