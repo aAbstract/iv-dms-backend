@@ -148,7 +148,7 @@ def clean(text):
 def convert_to_listing(text):
 
     if ("\n(a)" in text) or ("\n(i)" in text) or (("\n(1)" in text)):
-        print(text)
+
         first_level = "i"
         second_level = "a"
         a_level = text.find("\n(a)") if text.find("\n(a)")!= -1 else 9999

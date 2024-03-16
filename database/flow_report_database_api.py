@@ -153,8 +153,8 @@ async def list_flow_report_db(organization: str, creator: str ="") -> ServiceRes
 
     query = {"organization": organization}
 
-    if creator:
-        query["creator"] = creator
+    # if creator:
+    #     query["creator"] = creator
 
     flow_reports = [
         report

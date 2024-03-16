@@ -62,7 +62,7 @@ async def llm_audit(iosa_checklist: str, input_text: str,definitions:str) -> Ser
         ]
 
         message = client.messages.create(
-            model="claude-3-sonnet-20240229",
+            model="claude-3-opus-20240229",
             max_tokens=1024,
             messages=chat_context,
             system=system_prompt,
