@@ -41,8 +41,43 @@ async def llm_audit(iosa_checklist: str, input_text: str,definitions:str) -> Ser
     Should your assessment yield a compliance score greater than 3, you should provide supplemental text to the original content, drawing from industry best practices and benchmarks, as well as referencing pertinent regulatory materials or standards. The supplementary text should be crafted in a human writing style, incorporating human factors principles to ensure it is clear, readable, and easily understood by crew members. It's important to note that aviation regulations emphasize ease of language and precision in communication.
     In the case where the provided text is deemed completely irrelevant, you are to utilize your expertise, industry benchmarks, best practices, and relevant regulatory references or standards to formulate a detailed exposition of processes, procedures, organizational structure, duty management, or any other facet within the aviation industry. The goal is to revise the text to achieve full compliance with the applicable legal requirements or standards.
 
-    You must output the score in the following format:
-    OVERALL_COMPLIANCE_SCORE: A numerical rating (0 to 10) reflecting the INPUT_TEXT overall compliance with the REGULATION_TEXT.
+    Your output must be in the following markdown friendly format:
+    ASSESSMENT
+    In this section, thoroughly evaluate how well the provided answer meets
+    the requirements specified in the given regulatory reference or industry
+    standard. Focus on:
+    *       Compliance with all requirements
+    *       Proper syntax and semantics
+    Use a detailed, itemized format with two subsections:
+    *       Strengths: Aspects where the answer satisfies the requirements well
+    *       Weaknesses (or Shortcomings): Areas where the answer falls short of
+    fully meeting the requirements
+    Write the assessment in formal, professional language, incorporating
+    aviation and regulatory terminology from the provided reference when
+    applicable.
+    *       Score: The compliance score for the INPUT_TEXT
+
+
+    RECOMMENDATIONS
+    In this section, you will provide specific suggestions for the
+    document's author to address the identified weaknesses and bring the
+    text into full compliance with the relevant regulatory requirements or
+    industry standards.
+    1.      Directly address each shortcoming noted in the assessment
+    2.      Provide exact text that can be copied and pasted to replace or
+    supplement the original, ensuring it:
+    a.      Closes any gaps in meeting the specified requirements
+    b.      Incorporates wording and concepts from the applicable regulatory
+    reference or standard
+    c.      Reflects industry best practices, benchmarks, and your aviation
+    knowledge
+    Adheres to human factors principles for effective technical writing in
+    aviation
+    3.      Write in a professional, formal tone befitting technical
+    documentation
+    4.      Use precise aviation and regulatory terminology
+    The goal is to equip the author with the necessary content to revise the
+    document to be fully compliant and align with industry conventions.
     """
 
     llm_debug = int(os.environ['LLM_DEBUG'])
@@ -107,17 +142,16 @@ async def llm_audit_item(iosa_item: IOSAItem, input_text: str,regulation_type:st
     if not res.success:
         return res
     
-    # post processing
-    # replace unwanted keywords
+    # # post processing
+    # # replace unwanted keywords
     llm_response: str = res.data['llm_response']
     llm_response = llm_response.replace('INPUT_TEXT', 'Manual Answer')
     llm_response = llm_response.replace('REGULATION_TEXT', regulation_type + " Standard")
 
-    # extract OVERALL_COMPLIANCE_SCORE value
-    if 'OVERALL_COMPLIANCE_SCORE' not in llm_response:
+    if 'Score' not in llm_response:
         return ServiceResponse(success=False, status_code=503, msg='Missing OVERALL_COMPLIANCE_SCORE Key')
    
-    re_matches_score = re.search(r'OVERALL_COMPLIANCE_SCORE:\s+(\d{1,3})|\*\*OVERALL_COMPLIANCE_SCORE:\*\*\s+(\d{1,3})', llm_response)
+    re_matches_score = re.search(r'(?<=(Score:))( +)(\d{1,2})', llm_response)
    
     if not re_matches_score:
         if int(os.environ['LLM_DEBUG']):
@@ -126,11 +160,12 @@ async def llm_audit_item(iosa_item: IOSAItem, input_text: str,regulation_type:st
             print('=' * 100)
         return ServiceResponse(success=False, status_code=503, msg='Failed to Compute Compliance Score')
 
-    re_groups_score = re_matches_score.groups()
-    first_match = next((x for x in re_groups_score if x is not None), None)
-    if not first_match:
+    re_groups_score = re_matches_score.group()
+
+    if not re_groups_score:
         return ServiceResponse(success=False, status_code=503, msg='Failed to Compute Compliance Score')
-    ovcomp_score = int(first_match)
+        
+    ovcomp_score = int(re_groups_score.strip())
 
     text = llm_response[:].strip()
 
