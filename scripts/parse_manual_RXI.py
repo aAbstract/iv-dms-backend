@@ -147,20 +147,61 @@ def clean(text):
 
     return new_text
 
+def check_is_upper(parent):
+    string1 = parent[:]
 
+    point_string1 = string1.find(".") if string1.find(".") != -1 else 1e+10
+    space_string1 = string1.find(" ") if string1.find(" ") != -1 else 1e+10
+
+    cut_at_string1 = min(point_string1,space_string1)
+
+    return string1[cut_at_string1:].strip().isupper() 
+
+
+def check_if_logical_increment_in_parent(parent,new_parent):
+    string1 = parent[:]
+    string2 = new_parent[:]
+
+    point_string1 = string1.find(".") if string1.find(".") != -1 else 1e+10
+    point_string2 = string2.find(".") if string2.find(".") != -1 else 1e+10
+    space_string1 = string1.find(" ") if string1.find(" ") != -1 else 1e+10
+    space_string2 = string2.find(" ") if string2.find(" ") != -1 else 1e+10
+
+    cut_at_string1 = min(point_string1,space_string1)
+    cut_at_string2 = min(point_string2,space_string2)
+
+    new_string1  = string1[:cut_at_string1]
+    new_string2  = string2[:cut_at_string2]
+
+    try:
+        accept = int(new_string1) == (int(new_string2)-1)
+        return accept
+    except:
+        return False
+    
 def starts_with_matching_substring(string1, string2):
+    parent = string1[:]
+    child = string2[:]
+    parent = re.sub(r"[^0-9\.]","",parent)
+    child = re.sub(r"[^0-9\.]","",child)
+    parent_parts = parent.split('.')
+    child_parts = child.split('.')
 
-    for i in range(len(string2)):
-        for j in range(i+1, len(string2)+1):
-            substring = string2[i:j]
-
-            if string1.startswith(substring):
-                return True
-    return False
+    # Check if the child has more parts than the parent
+    if len(child_parts) <= len(parent_parts):
+        return False
+    
+    # Check if the parent is a prefix of the child
+    for i in range(len(parent_parts)):
+        if parent_parts[i] != child_parts[i]:
+            return False
+    
+    return True
 
 def filter_children(parent, children):
+
     return [
-            child for child in children if starts_with_matching_substring(child['label'].strip(), parent)
+            child for child in children if starts_with_matching_substring(parent.strip(),child['label'].strip())
         ]
 
   
@@ -250,9 +291,7 @@ def rearrange_manual_content_tree(metadata,code):
 
         temp_chapter = dict(data[chapter])
 
-        # current_offset = temp_chapter['start_page']
-
-        for i in data[chapter]["toc_info"]:
+        for idx,i in enumerate(data[chapter]["toc_info"]):
             i[0] = i[0].strip()
 
             # 1.1.1.1.1
@@ -359,7 +398,18 @@ def rearrange_manual_content_tree(metadata,code):
 
             # 1
             elif re.compile(r"( *)\d+( *)((.| )+)").fullmatch(i[0]):
-
+                if not check_is_upper(i[0]):
+                    continue
+                if temp_sub1_section.get("label") != None:
+                    if(idx+4 < len(data[chapter]["toc_info"])):
+                        child_1 = starts_with_matching_substring(i[0].strip(),data[chapter]["toc_info"][idx+1][0].strip())
+                        child_2 = starts_with_matching_substring(i[0].strip(),data[chapter]["toc_info"][idx+2][0].strip())
+                        child_3 = starts_with_matching_substring(i[0].strip(),data[chapter]["toc_info"][idx+3][0].strip())
+                        child_4 = starts_with_matching_substring(i[0].strip(),data[chapter]["toc_info"][idx+4][0].strip())
+                        if not (child_1 or child_2 or child_3 or child_4):
+                            continue
+                    if not check_if_logical_increment_in_parent( temp_sub1_section["label"],i[0]):
+                        continue
                 if temp_sub4_section.get("label") != None:
 
                     if len(all_sub5_section) > 0:
@@ -450,47 +500,12 @@ def rearrange_manual_content_tree(metadata,code):
     all_chapters.append(dict(temp_chapter))
     return all_chapters
 
-# def remove_duplicates_keep_highest_index(input_list):
-#     index_dict = {}
-
-#     for pair in input_list:
-#         key = pair[0]
-#         value = pair[1]
-#         index_dict[key] = max(index_dict.get(key, -1), input_list.index(pair))
-
-#     result_list = [[key, input_list[index][1]] for key, index in index_dict.items()]
-
-#     return result_list
-def get_header_footer(file_path):
-    pdf_reader = PdfReader(file_path)
-
-    headers = []
-    footers = []
-    for page in pdf_reader.pages:
-        parts = []
-
-        def visitor_body(text, cm, tm, fontDict, fontSize):
-
-            y = tm[5]
-            parts.append(y)
-
-        page.extract_text(visitor_text=visitor_body)
-       
-        if parts !=[]:
-            headers.append(np.percentile(parts, 87))
-            footers.append(np.percentile(parts,34))
-
-    header= sum(headers)/ len(headers)
-    footer  = sum(footers)/ len(footers)
-    return header, footer
-
 def create_parts_metadata_file(file_path):
     metadata = []
     water_marks= ["DRAFT"]
     pdf_reader = PdfReader(file_path)
     all_pages = []
     page_number = 1
-    header , footer = get_header_footer(file_path)
 
     for page in pdf_reader.pages:
         parts = []
@@ -508,7 +523,7 @@ def create_parts_metadata_file(file_path):
 
             y = tm[5]
 
-            if (y > footer) and (y < header) and (text not in water_marks):
+            if (y > 51) and (y < 719) and (text not in water_marks):
                 parts.append(text)
 
         page.extract_text(visitor_text=visitor_body)
@@ -520,7 +535,7 @@ def create_parts_metadata_file(file_path):
     
     for i in all_pages:
         for g in re.finditer(
-            r"(?<=(\n))( *)(\d+)( *)((( *)\.( *)(\d+)( *))*)( +)((([^0-9\s])| |([0-9][a-zA-Z-\.,]))+)( *)(?=(\n))", i[0]
+            r"( *)(\d+)( *)((( *)\.( *)(\d+)( *))*)( +)((([^0-9\s])| )+)( *)", i[0]
         ):
             
             if share_common_chars(string.ascii_letters, g.group().strip()) and ("..." not in g.group()):
@@ -533,4 +548,3 @@ def create_parts_metadata_file(file_path):
                         "toc_info": metadata,
                     }
                 ],str(int(random()*10000)))[0]['toc_info']
-  
