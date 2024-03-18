@@ -482,7 +482,7 @@ def extract_tables(text,section_code,all_page_count, page_start):
                 "code": section_code+' '+ header,
                 "guidence": None,
                 "iosa_map": [
-                    header_source_map[0]["title"],
+                    section_code+' Tables',
                 ],
                 "paragraph": convert_to_markdown(paragraph.strip()),
                 "page": page_number + page_start,
@@ -507,7 +507,7 @@ def extract_tables(text,section_code,all_page_count, page_start):
             "code":section_code+' '+  header,
             "guidence": None,
             "iosa_map": [
-                header_source_map[0]["title"],
+                section_code+' Tables',
             ],
             "paragraph": convert_to_markdown(paragraph.strip()),
             "page": page_number + page_start,
@@ -547,6 +547,16 @@ if __name__ == "__main__":
                 all_tables, code, all_table_count, table_starts[code]
             )
             all_sections = all_sections + all_tables
+            # update tables inside iosa map
+            with open(f"data/parsed_iosa/{filename}_map.json", 'r') as file:
+                data = json.load(file)
+
+            for obj in data:
+                if(code+' Tables' not in obj['sub_sections']):
+                    obj['sub_sections'].append(code+' Tables') 
+
+            with open(f"data/parsed_iosa/{filename}_map.json", 'w') as file:
+                json.dump(data, file, indent=4)
 
         section = extract_section_header(all_pages, first_flt_span, filename)
 
@@ -565,4 +575,7 @@ if __name__ == "__main__":
         with open(file_path, "w") as fp:
             json.dump(section.model_dump(), fp, indent=4)
         print(f"output file: {file_path}")
+
+
+
         # TODO: change data source file names

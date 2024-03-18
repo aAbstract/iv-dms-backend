@@ -14,7 +14,8 @@
             "1.9 Aircraft Systems/Equipment",
             "1.10 Quality Assurance Program",
             "1.11 Quality Control of Outsourced Operations and of Products",
-            "1.12 Safety Management"
+            "1.12 Safety Management",
+            "MNT Tables"
         ]
     },
     {
@@ -32,7 +33,8 @@
             "2.9 Aircraft Recorders",
             "2.10 Electronic Navigation Data Management",
             "2.11 Reduced Vertical Separation Minima (RVSM)",
-            "2.12 Reporting to the Authority"
+            "2.12 Reporting to the Authority",
+            "MNT Tables"
         ]
     },
     {
@@ -42,7 +44,8 @@
             "3.1 Aircraft Maintenance Records",
             "3.2 Aircraft Technical Log (ATL)",
             "3.3 (Intentionally open)",
-            "3.4 Airworthiness Directives"
+            "3.4 Airworthiness Directives",
+            "MNT Tables"
         ]
     },
     {
@@ -59,7 +62,8 @@
             "4.8 (Intentionally open)",
             "4.9 Procedures Manual",
             "4.10 Maintenance Release",
-            "4.11 Tooling and Calibration"
+            "4.11 Tooling and Calibration",
+            "MNT Tables"
         ]
     }
 ]

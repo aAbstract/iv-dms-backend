@@ -13,7 +13,8 @@
             "1.8 (Intentionally open)",
             "1.9 Quality Assurance Program",
             "1.10 Quality Control of Outsourced Operations and Products",
-            "1.11 Safety Management"
+            "1.11 Safety Management",
+            "CAB Tables"
         ]
     },
     {
@@ -23,7 +24,8 @@
             "2.1 Training Program",
             "2.2 Program Elements",
             "2.3 Line Qualification",
-            "2.4 SMS Training"
+            "2.4 SMS Training",
+            "CAB Tables"
         ]
     },
     {
@@ -33,7 +35,8 @@
             "3.1 Cabin Crew Requirements",
             "3.2 Cabin Crew Policies and Procedures",
             "3.3 Flight Deck Coordination",
-            "3.4 Cabin Operations Policies and Procedures"
+            "3.4 Cabin Operations Policies and Procedures",
+            "CAB Tables"
         ]
     },
     {
@@ -41,7 +44,8 @@
         "title": "CAB 4 Cabin Systems and Equipment",
         "sub_sections": [
             "4.1 Preflight Inspection/Non-serviceable Equipment Reporting",
-            "4.2 Safety Equipment Requirements"
+            "4.2 Safety Equipment Requirements",
+            "CAB Tables"
         ]
     }
 ]

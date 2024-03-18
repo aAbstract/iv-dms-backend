@@ -13,7 +13,8 @@
             "1.8 (Intentionally open)",
             "1.9 Quality Assurance Program",
             "1.10 Quality Control of Outsourced Operations and Products",
-            "1.11 Safety Management"
+            "1.11 Safety Management",
+            "CGO Tables"
         ]
     },
     {
@@ -22,7 +23,8 @@
         "sub_sections": [
             "2.1 Training Program",
             "2.2 Program Elements",
-            "2.3 SMS Training"
+            "2.3 SMS Training",
+            "CGO Tables"
         ]
     },
     {
@@ -35,7 +37,8 @@
             "3.4 Other Special Cargo",
             "3.5 Unit Load Device (ULD)",
             "3.6 (Intentionally open)",
-            "3.7 Security"
+            "3.7 Security",
+            "CGO Tables"
         ]
     }
 ]

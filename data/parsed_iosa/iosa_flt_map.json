@@ -14,7 +14,8 @@
             "1.9 (Intentionally open)",
             "1.10 Quality Assurance Program",
             "1.11 Quality Control of Outsourced Operations and Products",
-            "1.12 Safety Management"
+            "1.12 Safety Management",
+            "FLT Tables"
         ]
     },
     {
@@ -25,7 +26,8 @@
             "2.2 Training Elements",
             "2.3 Line Qualification",
             "2.4 Special Qualification",
-            "2.5 SMS Training"
+            "2.5 SMS Training",
+            "FLT Tables"
         ]
     },
     {
@@ -46,7 +48,8 @@
             "3.12 Flight Deck Policy and Procedures",
             "3.13 Flight Deck, Passenger Cabin, Supernumerary Compartment Coordination",
             "3.14 Non-Normal/Abnormal and Emergency Operations",
-            "3.15 Flight Crew Reporting Requirements"
+            "3.15 Flight Crew Reporting Requirements",
+            "FLT Tables"
         ]
     },
     {
@@ -55,7 +58,8 @@
         "sub_sections": [
             "4.1 Aircraft Performance",
             "4.2 Navigation and Facilities",
-            "4.3 Aircraft Systems and Equipment Specifications"
+            "4.3 Aircraft Systems and Equipment Specifications",
+            "FLT Tables"
         ]
     }
 ]

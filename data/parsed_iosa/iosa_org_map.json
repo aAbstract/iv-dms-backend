@@ -9,7 +9,8 @@
             "1.4 Safety Performance",
             "1.5 Resource Management",
             "1.6 Outsourcing Management",
-            "1.7 Emergency Response"
+            "1.7 Emergency Response",
+            "ORG Tables"
         ]
     },
     {
@@ -21,7 +22,8 @@
             "2.3 Product Control",
             "2.4 Data Management",
             "2.5 Documentation System",
-            "2.6 Records System"
+            "2.6 Records System",
+            "ORG Tables"
         ]
     },
     {
@@ -33,7 +35,8 @@
             "3.3 Flight Data Analysis (FDA)",
             "3.4 Specific Risk Assessments",
             "3.5 Occurrence Handling",
-            "3.6 Cybersecurity Risk Management"
+            "3.6 Cybersecurity Risk Management",
+            "ORG Tables"
         ]
     },
     {
@@ -43,7 +46,8 @@
             "4.1 Management Review",
             "4.2 Safety Communication",
             "4.3 Training",
-            "4.4 Effectiveness"
+            "4.4 Effectiveness",
+            "ORG Tables"
         ]
     }
 ]

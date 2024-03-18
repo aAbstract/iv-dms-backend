@@ -147,26 +147,57 @@ def clean(text):
 
     return new_text
 
+def check_is_upper(parent):
+    string1 = parent[:]
 
-def starts_with_matching_substring(child, parent):
+    point_string1 = string1.find(".") if string1.find(".") != -1 else 1e+10
+    space_string1 = string1.find(" ") if string1.find(" ") != -1 else 1e+10
 
-    for i in range(len(child)):
-        for j in range(i+1, len(child)+1):
-            substring = child[i:j]
+    cut_at_string1 = min(point_string1,space_string1)
 
-            if parent.startswith(substring):
-                return True
+    return string1[cut_at_string1:].strip().isupper() 
+
+    
+def check_if_logical_increment_in_parent(parent,new_parent):
+    string1 = parent[:].strip()
+    string2 = new_parent[:].strip()
+
+    string1 = re.sub(r"[^0-9\.]","",string1)
+    string2 = re.sub(r"[^0-9\.]","",string2)
+    if(new_parent.find(".")!=-1):
         return False
+    new_string1  = string1[:]
+    new_string2  = string2[:]
+  
+    try:
+        accept = int(new_string1) == (int(new_string2)-1)
+        return accept
+    except:
+        return False
+    
+def is_child(string1, string2):
+    parent = string1[:]
+    child = string2[:]
+    parent = re.sub(r"[^0-9\.]","",parent)
+    child = re.sub(r"[^0-9\.]","",child)
+    parent_parts = parent.split('.')
+    child_parts = child.split('.')
+
+    # Check if the child has more parts than the parent
+    if len(child_parts) <= len(parent_parts):
+        return False
+    
+    # Check if the parent is a prefix of the child
+    for i in range(len(parent_parts)):
+        if parent_parts[i] != child_parts[i]:
+            return False
+    
+    return True
 
 def filter_children(parent, children):
 
-    temp_parent = parent[:].strip()
-    if "Chapter" in temp_parent:
-
-        temp_parent = temp_parent.replace("Chapter", "").strip()
-
     return [
-            child for child in children if starts_with_matching_substring(child['label'].strip(), temp_parent)
+            child for child in children if is_child(parent.strip(),child['label'].strip())
         ]
 
   
@@ -361,8 +392,12 @@ def rearrange_manual_content_tree(metadata,code):
                 temp_sub2_section["pages"].append(i[1])
                 temp_sub2_section["key"] = generate_random_hash()
 
-            # 1
+            # Chapter 1
             elif i[0].startswith("Chapter"):
+
+                if temp_sub1_section.get("label") != None:
+                    if not check_if_logical_increment_in_parent(temp_sub1_section["label"],i[0]):
+                        continue
 
                 if temp_sub4_section.get("label") != None:
 
@@ -454,59 +489,46 @@ def rearrange_manual_content_tree(metadata,code):
     all_chapters.append(dict(temp_chapter))
     return all_chapters
 
-def get_header_footer(file_path):
-    pdf_reader = PdfReader(file_path)
-
-    headers = []
-    footers = []
-    for page in pdf_reader.pages:
-        parts = []
-
-        def visitor_body(text, cm, tm, fontDict, fontSize):
-
-            y = tm[5]
-            parts.append(y)
-
-        page.extract_text(visitor_text=visitor_body)
-       
-        if parts !=[]:
-            headers.append(np.percentile(parts, 87))
-            footers.append(np.percentile(parts,34))
-
-    header= sum(headers)/ len(headers)
-    footer  = sum(footers)/ len(footers)
-    return header, footer
-
 def create_parts_metadata_file(file_path):
     metadata = []
     water_marks= ["DRAFT"]
     pdf_reader = PdfReader(file_path)
     all_pages = []
     page_number = 1
-    # header , footer = get_header_footer(file_path)
+
 
     for page in pdf_reader.pages:
         parts = []
 
+        def share_common_chars(string1, string2):
+            set1 = set(string1)
+            set2 = set(string2)
+
+            if set1.intersection(set2):
+                return True
+            else:
+                return False
         def visitor_body(text, cm, tm, fontDict, fontSize):
 
             y = tm[5]
 
-            # if (y > footer) and (y < header) and (text not in water_marks):
-            parts.append(text)
+            if (y > 72) and (y < 740) and (text not in water_marks):
+                parts.append(text)
+
 
         page.extract_text(visitor_text=visitor_body)
         text_body = clean("".join(parts))
 
-        all_pages.append(["\n" + text_body + "\n", page_number])
+        all_pages.append(["\n" + text_body + "\n",page_number])
         page_number += 1
-    
+
     for i in all_pages:
         for g in re.finditer(
-            r"(?<=(\n))((( *)Chapter( *)(\d+)( *)(([a-zA-Z]| )+)( *))|(( *)(\d+)( *)((( *)\.( *)(\d+)( *))+)( +)((([^0-9\s])| |([0-9][a-zA-Z-\.,]))+)( *)))(?=(\n))", i[0]
+            r"(?<=(\n))( *)((Chapter( +)(\d+)( +)((([^0-9\s])|(( )[^0-9\s]))+)|(((\d+)( *)((( *)\.( *)(\d+)( *))+)( +)((([^0-9\s%])|(( +)[^0-9\s%]))+)))))", i[0]
         ):
 
-            metadata.append([g.group().strip(), i[1]])
+            if share_common_chars(string.ascii_letters, g.group().strip()) and ("..." not in g.group()):
+                metadata.append([g.group().strip(), i[1]])
 
     return rearrange_manual_content_tree([
                     {
@@ -514,4 +536,4 @@ def create_parts_metadata_file(file_path):
                         "toc_info": metadata,
                     }
                 ],str(int(random()*10000)))[0]['toc_info']
-
+  
