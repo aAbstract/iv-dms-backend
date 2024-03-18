@@ -260,7 +260,6 @@ def test_list_fs_index():
         "doc_uuid",
         "doc_status",
         "organization",
-        "parent",
         "url_path"
     }
 

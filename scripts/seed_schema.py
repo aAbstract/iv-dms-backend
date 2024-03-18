@@ -150,7 +150,6 @@ seed_fs_index_files = [
         doc_uuid=os.environ["INVALID_CHAT_DOC_UUID"],
         doc_status=ChatDOCStatus.PARSING_FAILD,
         organization="AeroSync",
-        parent="nesma_org_cos_rad.pdf",
     ),
     FSIndexFile(
         username="cwael",
@@ -160,7 +159,6 @@ seed_fs_index_files = [
         doc_uuid=os.environ["VALID_CHAT_DOC_UUID"],
         doc_status=ChatDOCStatus.PARSING_FAILD,
         organization="AeroSync",
-        parent="nesma_org.pdf",
     ),
     FSIndexFile(
         username="cwael",
@@ -170,7 +168,6 @@ seed_fs_index_files = [
         doc_uuid=os.environ["COMPLETE_CHAT_DOC_UUID"],
         doc_status=ChatDOCStatus.PARSED,
         organization="AeroSync",
-        parent="nesma_oma.pdf",
     ),
     FSIndexFile(
         username="safwat",
@@ -180,7 +177,6 @@ seed_fs_index_files = [
         doc_uuid=os.environ["INVALID_CHAT_DOC_UUID"],
         doc_status=ChatDOCStatus.PARSING_FAILD,
         organization="AeroSync",
-        parent="nesma_org_cos_rad.pdf",
     ),
     FSIndexFile(
         username="safwat",
@@ -190,7 +186,6 @@ seed_fs_index_files = [
         doc_uuid=os.environ["VALID_CHAT_DOC_UUID"],
         doc_status=ChatDOCStatus.PARSING_FAILD,
         organization="AeroSync",
-        parent="nesma_org.pdf",
     ),
     FSIndexFile(
         username="safwat",
@@ -200,7 +195,6 @@ seed_fs_index_files = [
         doc_uuid=os.environ["COMPLETE_CHAT_DOC_UUID"],
         doc_status=ChatDOCStatus.PARSED,
         organization="AeroSync",
-        parent="nesma_oma.pdf",
     ),
     FSIndexFile(
         username="aelhennawy",
@@ -210,7 +204,6 @@ seed_fs_index_files = [
         doc_uuid=os.environ["INVALID_CHAT_DOC_UUID"],
         doc_status=ChatDOCStatus.PARSING_FAILD,
         organization="AeroSync",
-        parent="nesma_org_cos_rad.pdf",
     ),
     FSIndexFile(
         username="aelhennawy",
@@ -220,7 +213,6 @@ seed_fs_index_files = [
         doc_uuid=os.environ["VALID_CHAT_DOC_UUID"],
         doc_status=ChatDOCStatus.PARSING_FAILD,
         organization="AeroSync",
-        parent="nesma_org.pdf",
     ),
     FSIndexFile(
         username="aelhennawy",
@@ -230,7 +222,6 @@ seed_fs_index_files = [
         doc_uuid=os.environ["COMPLETE_CHAT_DOC_UUID"],
         doc_status=ChatDOCStatus.PARSED,
         organization="AeroSync",
-        parent="nesma_oma.pdf",
     ),
 ]
 
@@ -403,7 +394,7 @@ def seed_routine():
 
     # # # RXI
     for file_path in glob(r"data/RXI/*.pdf"):
-        
+
         filename = re.split(r"[\\|/]", file_path)[-1]
 
         fs_index_entry = FSIndexFile(
@@ -418,7 +409,6 @@ def seed_routine():
             ),
             doc_status=ChatDOCStatus.PARSED,
             organization="AeroSync",
-            parent=filename,
             args={"toc_info": RXI_parser(file_path)},
         )
 
@@ -433,7 +423,7 @@ def seed_routine():
 
     # # Nesma
     for file_path in glob(r"data/nesma/*.pdf"):
-        
+
         filename = re.split(r"[\\|/]", file_path)[-1]
 
         fs_index_entry = FSIndexFile(
@@ -448,7 +438,6 @@ def seed_routine():
             ),
             doc_status=ChatDOCStatus.PARSED,
             organization="AeroSync",
-            parent=filename,
             args={"toc_info": nesma_parser(file_path)},
         )
 

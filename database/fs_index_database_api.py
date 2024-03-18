@@ -416,7 +416,6 @@ async def get_all_tree_db(organization: str) -> ServiceResponse:
                 "_id": 0,
                 "doc_uuid": 1,
                 "label": "$filename",
-                "parent": 1,
                 "children": "$args",
             },
         )
@@ -459,39 +458,23 @@ async def get_all_tree_db(organization: str) -> ServiceResponse:
 
             x["children"] = x["children"]["toc_info"]
 
-            if any([obj["label"] == x["parent"] for obj in filtered]):
+            if any([obj["label"] == x["label"] for obj in filtered]):
 
                 populate_docuuid(doc_uuid, x["children"])
-                [obj for obj in filtered if obj["label"] == x["parent"]][0][
+
+                [obj for obj in filtered if obj["label"] == x["label"]][0][
                     "children"
-                ].append(
-                    {
-                        "doc_uuid": x["doc_uuid"],
-                        "label": x["label"],
-                        "key": x["parent"].split(".pdf")[0]
-                        + "."
-                        + x["label"].split(".")[0],
-                        "children": x["children"],
-                    }
-                )
+                ].append(x["children"])
 
             else:
                 populate_docuuid(doc_uuid, x["children"])
 
                 filtered.append(
                     {
-                        "label": x["parent"],
-                        "key": x["parent"].split(".pdf")[0],
-                        "children": [
-                            {
-                                "doc_uuid": x["doc_uuid"],
-                                "label": x["label"].split(".pdf")[0],
-                                "key": x["parent"].split(".pdf")[0]
-                                + "."
-                                + x["label"].split(".pdf")[0],
-                                "children": x["children"],
-                            }
-                        ],
+                        "label": x["label"],
+                        "key": x["label"].split(".pdf")[0],
+                        "children":x["children"]
+                        
                     }
                 )
 
