@@ -351,31 +351,18 @@ def seed_routine():
                 {"$push": {"sections": section_json}},
             )
 
-    for gacar_map_file in glob("data/gacar/GACAR*_map.json"):
-        gacar_file = gacar_map_file.replace("_map", "")
-        gacar_code = re.split(r"[\\|/]", gacar_file)[-1].split(".")[0]
-        with open(gacar_file, "r") as f:
-            file_content = f.read()
-            section_json = json.loads(file_content)
-            temp_gacar = IOSARegulation(
-                type=RegulationType.GACAR,
-                name=f"GACAR {gacar_code} Standards Manual",
-                effective_date=datetime.strptime("1 Nov 2023", "%d %b %Y"),
-                sections=[section_json],
-            )
-
-            gacar_id = (
-                db.get_collection("regulations")
-                .insert_one(temp_gacar.model_dump())
-                .inserted_id
-            )
-
-        # seed regulations source map
-        with open(gacar_map_file, "r") as f:
-            json_obj = json.loads(f.read())
-            for x in json_obj:
-                x["regulation_id"] = gacar_id
-            reg_sm_data += json_obj
+    with open(r"data/gacar/GACAR.json", "r") as f:
+        file_content = f.read()
+        section_json = json.loads(file_content)
+        section_json['effective_date'] = datetime.strptime("1 Nov 2023", "%d %b %Y")
+        gacar_id = db.get_collection("regulations").insert_one(IOSARegulation.model_validate(section_json).model_dump()).inserted_id
+            
+    with open(r"data/gacar/GACAR_map.json", "r") as f:
+        file_content = f.read()
+        section_json = json.loads(file_content)
+        for gacar_map in section_json:
+            gacar_map["regulation_id"] = gacar_id
+            db.get_collection("regulations_source_maps").insert_one(gacar_map)
 
     print("seeding unstructured manuals...")
     db.get_collection("unstructured_manuals").insert_many(
@@ -394,7 +381,6 @@ def seed_routine():
 
     # # # RXI
     for file_path in glob(r"data/RXI/*.pdf"):
-
         filename = re.split(r"[\\|/]", file_path)[-1]
 
         fs_index_entry = FSIndexFile(
@@ -423,7 +409,6 @@ def seed_routine():
 
     # # Nesma
     for file_path in glob(r"data/nesma/*.pdf"):
-
         filename = re.split(r"[\\|/]", file_path)[-1]
 
         fs_index_entry = FSIndexFile(

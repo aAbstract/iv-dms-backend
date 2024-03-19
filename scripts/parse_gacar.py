@@ -1,7 +1,9 @@
+from datetime import datetime
 from glob import glob
 from pandas import read_csv
 import json
 import re
+
 
 
 def clean(text):
@@ -308,6 +310,15 @@ section_columns = {
     "91": "Subpart/ Appendix SECTION",
 }
 
+
+regulation = {
+            "type":"GACAR",
+            "name":"(GACAR) General Authority of Civil Aviation of Saudi Arabia",
+            "effective_date":"",
+            "sections":[],
+    }
+regulation_map = []
+
 for file in glob("data/gacar/*.csv"):
 
     df = read_csv(file)
@@ -317,45 +328,46 @@ for file in glob("data/gacar/*.csv"):
     df = df[df["REGULATION  STATEMENT"].notna()].reset_index()
     df = df[df[section_columns[gacar_code]].notna()].reset_index()
 
-    unique_gacar_headers = {}
+    unique_headers = {}
     header = {
-        "name": f"GACAR Part {gacar_code}",
+        "name": "",
         "code": f"G-{gacar_code}",
         "applicability": "",
         "guidance": "",
         "items": [],
     }
-    temp_checklist_item = {
+    gacar_map = {
         "code": f"G-{gacar_code} {gacar_code}",
         "title": f"GACAR Part {gacar_code}",
-        "sub_sections": [],
+        "sub_sections": [f"GACAR Part {gacar_code}"],
     }
 
     for i in range(len(df)):
 
         new_code = str(df[section_columns[gacar_code]][i]).strip()
 
-        header_code = header["code"] + " " + new_code
+        header_code = f"G-{gacar_code} {new_code}"
 
-        if header_code in unique_gacar_headers:
-            unique_gacar_headers[header_code]["paragraph"] += (
+        if header_code in unique_headers:
+            unique_headers[header_code]["paragraph"] += (
                 df["REGULATION  STATEMENT"][i] + ";\n"
             )
         else:
-            temp_checklist_item["sub_sections"].append(header_code)
-            unique_gacar_headers[header_code] = {
+            # gacar_map["sub_sections"].append(header_code)
+            unique_headers[header_code] = {
                 "paragraph": df["REGULATION  STATEMENT"][i] + ";\n",
                 "code": header_code,
-                "iosa_map": [header_code],
+                "iosa_map": [f"GACAR Part {gacar_code}"],
             }
-
-    for i in unique_gacar_headers.values():
-        i["paragraph"] = convert_to_markdown(convert_to_listing(clean(i["paragraph"])))
+    for i in unique_headers.values():
+        i["paragraph"] = convert_to_markdown(clean(i["paragraph"]))
         header["items"].append(i)
+    regulation_map.append(gacar_map)
+    regulation['sections'].append(header)
 
-    # write to a separate json file
-    with open(rf"data/gacar/GACAR_{gacar_code}.json", "w") as fp:
-        json.dump(header, fp, indent=4)
+# write to a separate json file
+with open(rf"data/gacar/GACAR.json", "w") as fp:
+    json.dump(regulation, fp, indent=4)
 
-    with open(rf"data/gacar/GACAR_{gacar_code}_map.json", "w") as fp:
-        json.dump([temp_checklist_item], fp, indent=4)
+with open(rf"data/gacar/GACAR_map.json", "w") as fp:
+    json.dump(regulation_map, fp, indent=4)
