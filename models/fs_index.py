@@ -40,6 +40,7 @@ class FSIndexFile(BaseModel):
     doc_uuid: str
     doc_status: ChatDOCStatus
     organization: str
+    airline:Optional[str] = None
     args: dict = {}
 
 

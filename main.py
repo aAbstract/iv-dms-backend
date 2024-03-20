@@ -32,8 +32,8 @@ async def lifespan(app: FastAPI):
 
 server = FastAPI(
     title=os.environ['SERVER_NAME'],
-    description='fixed rxi parser',
-    version="0.39.5",
+    description='Airline Grouping on listing of fsindices',
+    version="0.39.6",
     lifespan=lifespan,
 )
 server.add_middleware(

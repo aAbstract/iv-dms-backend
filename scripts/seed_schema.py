@@ -150,6 +150,7 @@ seed_fs_index_files = [
         doc_uuid=os.environ["INVALID_CHAT_DOC_UUID"],
         doc_status=ChatDOCStatus.PARSING_FAILD,
         organization="AeroSync",
+        airline=""
     ),
     FSIndexFile(
         username="cwael",
@@ -159,6 +160,7 @@ seed_fs_index_files = [
         doc_uuid=os.environ["VALID_CHAT_DOC_UUID"],
         doc_status=ChatDOCStatus.PARSING_FAILD,
         organization="AeroSync",
+        airline=""
     ),
     FSIndexFile(
         username="cwael",
@@ -168,6 +170,7 @@ seed_fs_index_files = [
         doc_uuid=os.environ["COMPLETE_CHAT_DOC_UUID"],
         doc_status=ChatDOCStatus.PARSED,
         organization="AeroSync",
+        airline=""
     ),
     FSIndexFile(
         username="safwat",
@@ -177,6 +180,7 @@ seed_fs_index_files = [
         doc_uuid=os.environ["INVALID_CHAT_DOC_UUID"],
         doc_status=ChatDOCStatus.PARSING_FAILD,
         organization="AeroSync",
+        airline=""
     ),
     FSIndexFile(
         username="safwat",
@@ -186,6 +190,7 @@ seed_fs_index_files = [
         doc_uuid=os.environ["VALID_CHAT_DOC_UUID"],
         doc_status=ChatDOCStatus.PARSING_FAILD,
         organization="AeroSync",
+        airline=""
     ),
     FSIndexFile(
         username="safwat",
@@ -195,6 +200,7 @@ seed_fs_index_files = [
         doc_uuid=os.environ["COMPLETE_CHAT_DOC_UUID"],
         doc_status=ChatDOCStatus.PARSED,
         organization="AeroSync",
+        airline=""
     ),
     FSIndexFile(
         username="aelhennawy",
@@ -204,6 +210,7 @@ seed_fs_index_files = [
         doc_uuid=os.environ["INVALID_CHAT_DOC_UUID"],
         doc_status=ChatDOCStatus.PARSING_FAILD,
         organization="AeroSync",
+        airline=""
     ),
     FSIndexFile(
         username="aelhennawy",
@@ -213,6 +220,7 @@ seed_fs_index_files = [
         doc_uuid=os.environ["VALID_CHAT_DOC_UUID"],
         doc_status=ChatDOCStatus.PARSING_FAILD,
         organization="AeroSync",
+        airline=""
     ),
     FSIndexFile(
         username="aelhennawy",
@@ -222,6 +230,7 @@ seed_fs_index_files = [
         doc_uuid=os.environ["COMPLETE_CHAT_DOC_UUID"],
         doc_status=ChatDOCStatus.PARSED,
         organization="AeroSync",
+        airline=""
     ),
 ]
 
@@ -317,8 +326,7 @@ seed_flow_reports = [
 seed_airlines = [
     Airline(name="Riyadh Air", organization="AeroSync"),
     Airline(name="Nesma Air", organization="AeroSync"),
-    Airline(name="Air Cairo", organization="AeroSync"),
-    Airline(name="AeroSync", organization="AeroSync"),
+    Airline(name="Air Cairo", organization="AeroSync")
 ]
 
 
@@ -334,6 +342,12 @@ def seed_routine():
         seed_regulations[0].model_dump()
     )
     iosa_e16r2_id = mdb_result.inserted_id
+
+    print("seeding airlines...")
+    ryad_airline_id = db.get_collection("airlines").insert_one(seed_airlines[0].model_dump()).inserted_id
+    nesma_airline_id = db.get_collection("airlines").insert_one(seed_airlines[1].model_dump()).inserted_id
+    cairo_airline_id = db.get_collection("airlines").insert_one(seed_airlines[2].model_dump()).inserted_id
+
     print("creating regulations indexes...")
     db.get_collection("regulations").create_index("type", unique=False)
 
@@ -395,6 +409,7 @@ def seed_routine():
             ),
             doc_status=ChatDOCStatus.PARSED,
             organization="AeroSync",
+            airline=str(ryad_airline_id),
             args={"toc_info": RXI_parser(file_path)},
         )
 
@@ -422,7 +437,8 @@ def seed_routine():
                 else str(uuid4())
             ),
             doc_status=ChatDOCStatus.PARSED,
-            organization="AeroSync",
+            organization="AeroSync",        
+            airline=str(nesma_airline_id),
             args={"toc_info": nesma_parser(file_path)},
         )
 
@@ -472,11 +488,7 @@ def seed_routine():
     print("creating regulations source maps indexes...")
     db.get_collection("regulations_source_maps").create_index("code", unique=True)
 
-    print("seeding airlines...")
-    for airline in seed_airlines:
-        airline_id = (
-            db.get_collection("airlines").insert_one(airline.model_dump()).inserted_id
-        )
+
     print("creating airlines indexes...")
     db.get_collection("airlines").create_index("organization", unique=False)
 
@@ -485,7 +497,7 @@ def seed_routine():
         report = report.model_dump()
         report["regulation_id"] = str(iosa_e16r2_id)
         report["sub_sections"][0]["checklist_items"][0]["checkins"] = []
-        report["airline"] = str(airline_id)
+        report["airline"] = str(cairo_airline_id)
         db.get_collection("flow_reports").insert_one(report)
     print("creating flow report indices...")
     db.get_collection("flow_reports").create_index("organization", unique=False)

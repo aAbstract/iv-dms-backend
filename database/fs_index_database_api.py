@@ -1,3 +1,4 @@
+from bson import ObjectId
 import os
 import aiofiles
 import aiofiles.os
@@ -28,7 +29,6 @@ async def create_fs_index_entry(
     chat_doc_uuid: str = "00000000-0000-0000-0000-000000000000",
 ) -> ServiceResponse:
     # check if index entry already exists
-
     fs_index = (
         await get_database()
         .get_collection("fs_index")
@@ -205,7 +205,23 @@ async def list_fs_index(organization: str) -> ServiceResponse:
     for fs_index in range(len(filtred)):
         filtred[fs_index]["_id"] = str(filtred[fs_index]["_id"])
         filtred[fs_index]["url_path"] = f"/airlines_files/manuals/{filtred[fs_index]['_id']}.pdf"
+        if(filtred[fs_index].get("airline")):
+            airline = await get_database().get_collection("airlines").find_one({"_id":ObjectId(filtred[fs_index]["airline"])})
 
+            if not airline:
+                return ServiceResponse(
+                            success=False,
+                            msg="Airline id couldn't be found",
+                            status_code=400,
+                        )
+            if airline['organization'] != organization:
+                return ServiceResponse(
+                    success=False, msg="Your organization can't access this airline", status_code=400
+                )
+
+            filtred[fs_index]["airline"] = airline["name"]
+        else:
+            filtred[fs_index]["airline"] = "No Airline Assigned"
     return ServiceResponse(data={"fs_index_entries": filtred})
 
 
