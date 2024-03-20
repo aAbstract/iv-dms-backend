@@ -416,23 +416,47 @@ async def get_tree_structure(text: str) -> ServiceResponse:
     return ServiceResponse(data={"tree": all_chapters})
 
 
-async def get_all_tree_db(organization: str) -> ServiceResponse:
-    fs_index_entries = [
-        fs_index
-        async for fs_index in get_database()
-        .get_collection("fs_index")
-        .find(
-            {
+async def get_all_tree_db(organization: str,airline_id:str | None) -> ServiceResponse:
+    query =  {
                 "$and": [
                     {"organization": organization},
                     {"file_type": "AIRLINES_MANUAL"},
                 ]
-            },
+            }
+    
+    if airline_id:
+         # validate airline
+        airline_id = validate_bson_id(airline_id)
+        if not airline_id:
+            return ServiceResponse(success=False, msg="Bad Airline ID", status_code=400)
+
+        # get airline
+        airline = await get_database().get_collection("airlines").find_one({"_id": airline_id})
+
+        if not airline:
+            return ServiceResponse(
+                success=False, msg="This airline ID doesn't exist", status_code=404
+            )
+        
+        if airline['organization'] != organization:
+            return ServiceResponse(
+                success=False, msg="Your organization can't access this airline", status_code=403
+            )
+        
+        query['$and'].append({"airline":str(airline_id)})
+
+    fs_index_entries = [
+        fs_index
+        async for fs_index in get_database()
+        .get_collection("fs_index")
+        .find(query
+           ,
             projection={
                 "_id": 0,
                 "doc_uuid": 1,
                 "label": "$filename",
                 "children": "$args",
+                "airline":"$airline"
             },
         )
     ]
@@ -485,12 +509,26 @@ async def get_all_tree_db(organization: str) -> ServiceResponse:
             else:
                 populate_docuuid(doc_uuid, x["children"])
 
+                # validate airline
+                airline_id = validate_bson_id(x["airline"])
+                if not airline_id:
+                    return ServiceResponse(success=False, msg="Bad Airline ID", status_code=400)
+
+                # get airline
+                airline = await get_database().get_collection("airlines").find_one({"_id": airline_id})
+
+                if not airline:
+                    return ServiceResponse(
+                        success=False, msg="This airline ID doesn't exist", status_code=404
+                    )
+                
                 filtered.append(
                     {
                         "label": x["label"],
                         "key": x["label"].split(".pdf")[0],
+                        "airline_id":x["airline"],
+                        "airline":airline['name'],
                         "children":x["children"]
-                        
                     }
                 )
 

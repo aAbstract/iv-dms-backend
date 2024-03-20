@@ -13,7 +13,7 @@ import lib.chat_doc as chat_doc_man
 import database.ai_tasks_database_api as ai_tasks_database_api
 from models.ai_tasks import AITaskType
 from database.mongo_driver import get_database
-
+from typing import Optional
 
 _ROOT_ROUTE = f"{os.getenv('API_ROOT')}/manuals"
 _MODULE_ID = 'routes.manuals_api'
@@ -484,7 +484,7 @@ async def get_tree_v2(res: Response, doc_uuid: str = Body(embed=True), x_auth=He
     return JsonResponse(data={'toc_info': fs_index_entry['args']['toc_info']})
 
 @router.post(f"{_ROOT_ROUTE}/get-all-trees")
-async def get_all_trees(res: Response, x_auth=Header(alias='X-Auth', default=None)) -> JsonResponse:
+async def get_all_trees(res: Response,airline_id: Optional[str] = Body(default=None, embed=True), x_auth=Header(alias='X-Auth', default=None)) -> JsonResponse:
 
     func_id = f"{_MODULE_ID}.get_all_trees"
 
@@ -501,7 +501,7 @@ async def get_all_trees(res: Response, x_auth=Header(alias='X-Auth', default=Non
     await log_man.add_log(func_id, 'DEBUG', f"received get all trees request: username={username} organization={organization}")
     
     # get tree
-    fs_service_response = await fs_index_database_api.get_all_tree_db(organization=organization)
+    fs_service_response = await fs_index_database_api.get_all_tree_db(organization=organization,airline_id=airline_id)
 
     if not fs_service_response.success:
         res.status_code = fs_service_response.status_code
