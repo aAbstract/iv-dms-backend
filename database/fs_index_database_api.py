@@ -16,6 +16,7 @@ from PyPDF2 import PdfReader
 import re
 import lib.log as log_man
 from lib.pdf import create_parts_metadata_file
+from models.flow_reports import Airline
 
 _PUBLIC_DIR = "public"
 
@@ -218,8 +219,8 @@ async def list_fs_index(organization: str) -> ServiceResponse:
                 return ServiceResponse(
                     success=False, msg="Your organization can't access this airline", status_code=400
                 )
-
-            filtred[fs_index]["airline"] = airline["name"]
+            airline["_id"] = str(airline["_id"])
+            filtred[fs_index]["airline"] = airline
         else:
             filtred[fs_index]["airline"] = "No Airline Assigned"
     return ServiceResponse(data={"fs_index_entries": filtred})
