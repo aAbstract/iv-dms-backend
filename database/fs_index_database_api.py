@@ -219,7 +219,8 @@ async def list_fs_index(organization: str) -> ServiceResponse:
                 return ServiceResponse(
                     success=False, msg="Your organization can't access this airline", status_code=400
                 )
-            airline["_id"] = str(airline["_id"])
+            airline["id"] = str(airline["_id"])
+            del airline["_id"]
             filtred[fs_index]["airline"] = airline
         else:
             filtred[fs_index]["airline"] = "No Airline Assigned"
