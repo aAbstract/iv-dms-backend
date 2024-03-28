@@ -32,6 +32,7 @@ from models.fs_index import *
 from models.ai_tasks import *
 from models.gpt_35t import *
 from models.flow_reports import *
+from lib.z_pdf_tree_parser import ZPDFTree
 
 # autopep8: on
 
@@ -396,6 +397,11 @@ def seed_routine():
     # # # RXI
     for file_path in glob(r"data/RXI/*.pdf"):
         filename = re.split(r"[\\|/]", file_path)[-1]
+        
+        try:
+            z_tree = ZPDFTree(file_path=file_path).get_cache_transformed()
+        except:
+            z_tree = None
 
         fs_index_entry = FSIndexFile(
             username="cwael",
@@ -410,7 +416,7 @@ def seed_routine():
             doc_status=ChatDOCStatus.PARSED,
             organization="AeroSync",
             airline=str(ryad_airline_id),
-            args={"toc_info": RXI_parser(file_path)},
+            args={"toc_info": z_tree} if z_tree else {},
         )
 
         mdb_result = db.get_collection("fs_index").insert_one(
@@ -426,6 +432,11 @@ def seed_routine():
     for file_path in glob(r"data/nesma/*.pdf"):
         filename = re.split(r"[\\|/]", file_path)[-1]
 
+        try:
+            z_tree = ZPDFTree(file_path=file_path).get_cache_transformed()
+        except:
+            z_tree = None
+
         fs_index_entry = FSIndexFile(
             username="cwael",
             datetime=datetime.now(),
@@ -439,7 +450,7 @@ def seed_routine():
             doc_status=ChatDOCStatus.PARSED,
             organization="AeroSync",        
             airline=str(nesma_airline_id),
-            args={"toc_info": nesma_parser(file_path)},
+            args={"toc_info": z_tree} if z_tree else {},
         )
 
         mdb_result = db.get_collection("fs_index").insert_one(

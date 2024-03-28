@@ -32,8 +32,8 @@ async def lifespan(app: FastAPI):
 
 server = FastAPI(
     title=os.environ['SERVER_NAME'],
-    description='airline filtering in get-all-trees',
-    version="0.39.7",
+    description='Integration of ZTree',
+    version="0.39.8",
     lifespan=lifespan,
 )
 server.add_middleware(

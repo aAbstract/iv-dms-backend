@@ -17,6 +17,7 @@ import re
 import lib.log as log_man
 from lib.pdf import create_parts_metadata_file
 from models.flow_reports import Airline
+from lib.z_pdf_tree_parser import ZPDFTree
 
 _PUBLIC_DIR = "public"
 
@@ -80,7 +81,8 @@ async def create_fs_index_entry(
     url_path = fr"/{FILE_TYPE_PATH_MAP[file_type]}/{disk_filename}"
 
     try:
-        metadata = {"toc_info": create_parts_metadata_file(file_path)}
+        z_tree = ZPDFTree(file_path=file_path).get_cache_transformed()
+        metadata = {"toc_info": z_tree}
         await get_database().get_collection("fs_index").update_one({"_id":mdb_result.inserted_id},{"$set":{"args":metadata}})
     except:
         pass

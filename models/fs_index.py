@@ -60,3 +60,24 @@ class FSIndexFileTree(BaseModel):
     label: str
     key:str
     children: Optional[list['FSIndexTree']] = None
+
+class TocLink(BaseModel):
+    link_idx: str
+    link_label: str
+    target_page: int
+    next_link_page: int = -1
+    next_link_label: Optional[str] = None
+
+class ZTree(BaseModel):
+    label: str
+    key:str
+    pages: Optional[list[int]] = []
+    children: Optional[list['ZTree']] = []
+
+class TocTreeNode(BaseModel):
+    link_idx: str
+    link_label: str
+    start_page: int
+    end_page: int = -1
+    end_link_label: Optional[str] = None
+    children: list['TocTreeNode'] = []
