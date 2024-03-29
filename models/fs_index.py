@@ -70,6 +70,7 @@ class TocLink(BaseModel):
 
 class ZTree(BaseModel):
     label: str
+    section_label:str
     key:str
     pages: Optional[list[int]] = []
     children: Optional[list['ZTree']] = []

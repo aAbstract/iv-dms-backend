@@ -1,4 +1,5 @@
 from bson import ObjectId
+import json
 import os
 import aiofiles
 import aiofiles.os
@@ -18,9 +19,11 @@ import lib.log as log_man
 from lib.pdf import create_parts_metadata_file
 from models.flow_reports import Airline
 from lib.z_pdf_tree_parser import ZPDFTree
+from uuid import uuid4
 
-_PUBLIC_DIR = "public"
-
+_PUBLIC_DIR = r"public"
+_CACHE_FOLDER = r"data/cache/toc_trees"
+WATER_MARKS = ["UNCONTROLLED IF PRINTED","DRAFT"]
 
 async def create_fs_index_entry(
     username: str,
@@ -28,7 +31,7 @@ async def create_fs_index_entry(
     file_type: IndexFileType,
     filename: str,
     data: bytes,
-    chat_doc_uuid: str = "00000000-0000-0000-0000-000000000000",
+    chat_doc_uuid: str = str(uuid4()),
 ) -> ServiceResponse:
     # check if index entry already exists
     fs_index = (
@@ -43,10 +46,12 @@ async def create_fs_index_entry(
         disk_filename = f"{file_id}{file_ext}"
         file_type = fs_index["file_type"]
         url_path = f"/{FILE_TYPE_PATH_MAP[file_type]}/{disk_filename}"
+        chat_doc_uuid = fs_index['doc_uuid']
         return ServiceResponse(
             data={
                 "url_path": url_path,
                 "file_id": file_id,
+                "doc_uuid":chat_doc_uuid
             }
         )
 
@@ -75,22 +80,25 @@ async def create_fs_index_entry(
 
     # save file to disk
     disk_filename = f"{file_id}{file_ext}"
-    file_path = os.path.join(_PUBLIC_DIR, FILE_TYPE_PATH_MAP[file_type], disk_filename)
+    file_path = os.path.join(_PUBLIC_DIR, FILE_TYPE_PATH_MAP[file_type], disk_filename).replace("\\","/")
     async with aiofiles.open(file_path, "wb") as f:
         await f.write(data)
     url_path = fr"/{FILE_TYPE_PATH_MAP[file_type]}/{disk_filename}"
 
     try:
-        z_tree = ZPDFTree(file_path=file_path).get_cache_transformed()
-        metadata = {"toc_info": z_tree}
+        z_tree = ZPDFTree(file_path=file_path)
+        z_tree.save_cache(chat_doc_uuid)
+
+        metadata = {"toc_info":  z_tree.get_cache_transformed()}
         await get_database().get_collection("fs_index").update_one({"_id":mdb_result.inserted_id},{"$set":{"args":metadata}})
     except:
         pass
 
     return ServiceResponse(
         data={
-            "url_path": url_path.replace("\\","/"),
+            "url_path": url_path,
             "file_id": file_id,
+            "doc_uuid":chat_doc_uuid
         }
     )
 
@@ -283,6 +291,68 @@ async def get_user_manuals(username: str) -> ServiceResponse:
 
     return ServiceResponse(data={"files": files})
 
+async def get_pages_from_sections(organization: str, pages_mapper: dict[str, list[str]]) -> ServiceResponse:
+    
+    # fetch entry from database
+    fs_indices = (
+        await get_database()
+        .get_collection("fs_index")
+        .find(
+            {
+                "organization": organization,
+                "doc_uuid": {"$in": [x for x in pages_mapper.keys()]},
+            },
+            {
+                "_id": 1,
+                "doc_uuid": 1,
+                "file_type":1
+            },
+        )
+        .to_list(length=None)
+    )
+
+    if not fs_indices:
+        return ServiceResponse(
+            success=False, status_code=404, msg="FS Index not Found"
+        )
+
+    # Get all the text
+    all_pages_text = ""
+    for fs_index in fs_indices:
+        try:
+            fs_index_id = str(fs_index['_id'])
+            file_type = fs_index['file_type']
+            doc_uuid = fs_index['doc_uuid']
+
+            file_path = os.path.join(_PUBLIC_DIR, FILE_TYPE_PATH_MAP[file_type], fs_index_id+".pdf").replace("\\","/")
+            cache_path =  os.path.join(_CACHE_FOLDER, fr"{doc_uuid}.json").replace("\\","/")
+            
+            # Check if Cache exists
+            if  os.path.exists(cache_path):
+                # Retrive Cache and instantiate ZTree
+                with open(cache_path, 'r') as f:
+                    cache = json.loads(f.read())
+                    z_pdf_tree = ZPDFTree(file_path=file_path, cache=cache)
+
+            else:
+                z_pdf_tree = ZPDFTree(file_path=file_path)
+                z_pdf_tree.save_cache(doc_uuid)
+
+            for text in z_pdf_tree.extract_text(pages_mapper[doc_uuid]):
+                all_pages_text += "\n"+text.strip() + "\n"
+        except:
+            pass
+
+    if not all_pages_text:
+        return ServiceResponse(
+            success=False, status_code=404, msg="No Text Was Selected"
+        )
+    
+    for water_mark in WATER_MARKS:
+        all_pages_text = all_pages_text.replace(water_mark," ")
+    
+    return ServiceResponse(data={"text": all_pages_text})
+   
 
 async def get_pages(organization: str, pages: dict[str, set[int]]) -> ServiceResponse:
     # fetch entry from database
@@ -303,7 +373,7 @@ async def get_pages(organization: str, pages: dict[str, set[int]]) -> ServiceRes
     )
     if not fs_indices:
         return ServiceResponse(
-            success=False, status_code=404, msg="File Index not Found"
+            success=False, status_code=404, msg="FS Index not Found"
         )
 
     all_pages_text = ""

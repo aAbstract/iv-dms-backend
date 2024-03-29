@@ -117,7 +117,7 @@ async def create_manual(file: UploadFile, res: Response, x_auth=Header(alias='X-
         )
 
     return JsonResponse(data={
-        'doc_uuid': "00000000-0000-0000-0000-000000000000",
+        'doc_uuid':  fs_service_response.data['doc_uuid'],
         'file_id': fs_service_response.data['file_id'],
         'url_path': fs_service_response.data['url_path']
     })

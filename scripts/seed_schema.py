@@ -36,18 +36,14 @@ from lib.z_pdf_tree_parser import ZPDFTree
 
 # autopep8: on
 
-# seed manual files
-# change these to python instead of python3 when using in your machine
-# set back to pyhton3 for the linux dev server
+# Seed Manual files
+# Python is available as python3 in the dev server
 commands = [
     "rm public/airlines_files/manuals/*.pdf",
+    "rm data/cache/toc_trees/*.json",
     "python3 scripts/parse_iosa_section.py",
     "python3 scripts/parse_gacar.py",
 ]
-# commands = [
-#     "python scripts/parse_iosa_section.py",
-#     "python scripts/parse_gacar.py",
-# ]
 
 for command in commands:
     os.system(command)
@@ -399,9 +395,11 @@ def seed_routine():
         filename = re.split(r"[\\|/]", file_path)[-1]
         
         try:
-            z_tree = ZPDFTree(file_path=file_path).get_cache_transformed()
+            z_tree = ZPDFTree(file_path=file_path)
+            tree = z_tree.get_cache_transformed()
+
         except:
-            z_tree = None
+            tree = None
 
         fs_index_entry = FSIndexFile(
             username="cwael",
@@ -416,7 +414,7 @@ def seed_routine():
             doc_status=ChatDOCStatus.PARSED,
             organization="AeroSync",
             airline=str(ryad_airline_id),
-            args={"toc_info": z_tree} if z_tree else {},
+            args={"toc_info": tree} if tree else {},
         )
 
         mdb_result = db.get_collection("fs_index").insert_one(
@@ -424,6 +422,11 @@ def seed_routine():
         )
 
         file_id = str(mdb_result.inserted_id)
+
+        # Cache tree
+        if tree:
+            z_tree.save_cache(fs_index_entry.doc_uuid)
+
         dst_path = f"public/airlines_files/manuals/{file_id}.pdf"
         shutil.copy2(file_path, dst_path)
         print(f"file map {file_path} -> {dst_path}")
@@ -433,9 +436,11 @@ def seed_routine():
         filename = re.split(r"[\\|/]", file_path)[-1]
 
         try:
-            z_tree = ZPDFTree(file_path=file_path).get_cache_transformed()
+            z_tree = ZPDFTree(file_path=file_path)
+            tree = z_tree.get_cache_transformed()
+
         except:
-            z_tree = None
+            tree = None
 
         fs_index_entry = FSIndexFile(
             username="cwael",
@@ -450,7 +455,7 @@ def seed_routine():
             doc_status=ChatDOCStatus.PARSED,
             organization="AeroSync",        
             airline=str(nesma_airline_id),
-            args={"toc_info": z_tree} if z_tree else {},
+            args={"toc_info": tree} if tree else {},
         )
 
         mdb_result = db.get_collection("fs_index").insert_one(
@@ -458,6 +463,11 @@ def seed_routine():
         )
 
         file_id = str(mdb_result.inserted_id)
+
+        # Cache tree
+        if tree:
+            z_tree.save_cache(fs_index_entry.doc_uuid)
+
         dst_path = f"public/airlines_files/manuals/{file_id}.pdf"
         shutil.copy2(file_path, dst_path)
         print(f"file map {file_path} -> {dst_path}")

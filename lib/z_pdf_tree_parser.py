@@ -6,6 +6,9 @@ from pydantic import BaseModel
 from random import random
 from faker import Faker
 from models.fs_index import TocLink, TocTreeNode, ZTree
+import json 
+
+_CACHE_FOLDER = r"data/cache/toc_trees"
 
 class ZPDFTree:
     ''' This class converts PDFs to indexable data structure '''
@@ -241,6 +244,11 @@ class ZPDFTree:
         filtered_keys = self._remove_key_overlaps(toc_keys)
         toc_tree_nodes = [self.find_toc_tree_node(key) for key in filtered_keys]
         return [self.get_toc_node_text(node) for node in toc_tree_nodes]
+    
+    def save_cache(self, file_name : str) -> None:
+
+        with open(fr'{_CACHE_FOLDER}/{file_name}.json', 'w') as f:
+            f.write(json.dumps(self.get_cache(), indent=2))
 
     def get_cache_transformed(self) -> list[dict]:
 
@@ -253,6 +261,7 @@ class ZPDFTree:
         def transform_node(node):
             # function to transform the z tree into a format for display
             node["label"] = node.pop("link_label")
+            node['section_label'] = node.pop("link_idx")
             node["pages"] = [node['start_page'],node["end_page"]]
 
             # random hash
