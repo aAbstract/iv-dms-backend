@@ -338,7 +338,7 @@ async def get_pages_from_sections(organization: str, pages_mapper: dict[str, lis
                 z_pdf_tree = ZPDFTree(file_path=file_path)
                 z_pdf_tree.save_cache(doc_uuid)
 
-            for text in z_pdf_tree.extract_text(pages_mapper[doc_uuid]):
+            for text in z_pdf_tree.extract_text(list(set(pages_mapper[doc_uuid]))):
                 all_pages_text += "\n"+text.strip() + "\n"
         except:
             pass
