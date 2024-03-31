@@ -480,11 +480,13 @@ def test_update_flow_report_sub_sections():
         == UserChangeType.CREATE
     )
 
+    payload = {"airline":str(airline.inserted_id)}
     # create fs index
     api_url = f"{_test_config.get_api_url()}/attachments/create-attachment"
     http_res = requests.post(
         api_url,
         headers=http_headers,
+        data=payload,
         files={"file": open("data/sample_attachment.png", "rb")},
     )
     assert http_res.status_code == 200

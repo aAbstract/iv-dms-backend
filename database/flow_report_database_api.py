@@ -175,7 +175,6 @@ async def list_flow_report_db(organization: str, creator: str ="") -> ServiceRes
         flow_reports[report]["type"] = "IOSA"  # TODO-LATER: fix this
 
         airline = await get_database().get_collection("airlines").find_one({"_id":ObjectId(flow_reports[report]["airline"])})
-
         if not airline:
             return ServiceResponse(
                         success=False,

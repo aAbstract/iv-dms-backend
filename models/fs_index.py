@@ -38,7 +38,7 @@ class FSIndexFile(BaseModel):
     file_type: IndexFileType
     filename: str
     doc_uuid: str
-    doc_status: ChatDOCStatus
+    doc_status: Optional[ChatDOCStatus] = None
     organization: str
     airline:Optional[str] = None
     args: dict = {}

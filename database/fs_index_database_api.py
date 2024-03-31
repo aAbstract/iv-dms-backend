@@ -23,16 +23,19 @@ from uuid import uuid4
 
 _PUBLIC_DIR = r"public"
 _CACHE_FOLDER = r"data/cache/toc_trees"
-WATER_MARKS = ["UNCONTROLLED IF PRINTED","DRAFT"]
+WATER_MARKS = ["UNCONTROLLED IF PRINTED", "DRAFT"]
+
 
 async def create_fs_index_entry(
     username: str,
     organization: str,
+    airline_id: str,
     file_type: IndexFileType,
     filename: str,
     data: bytes,
     chat_doc_uuid: str = str(uuid4()),
 ) -> ServiceResponse:
+
     # check if index entry already exists
     fs_index = (
         await get_database()
@@ -40,19 +43,51 @@ async def create_fs_index_entry(
         .find_one({"$and": [{"username": username}, {"filename": filename}]})
     )
 
+    # Default FSindex Variables
+    metrics = {"toc_headers_count": 0, "coverage_metric": 0.0}
     file_ext = os.path.splitext(filename)[1]
+    status = ChatDOCStatus.PARSING_FAILD
+
     if fs_index:
         file_id = str(fs_index["_id"])
         disk_filename = f"{file_id}{file_ext}"
         file_type = fs_index["file_type"]
-        url_path = f"/{FILE_TYPE_PATH_MAP[file_type]}/{disk_filename}"
-        chat_doc_uuid = fs_index['doc_uuid']
+        url_path = f"/{FILE_TYPE_PATH_MAP[file_type]}/{disk_filename}".replace("\\", "/")
+        chat_doc_uuid = fs_index["doc_uuid"]
+
+        if fs_index["doc_status"] == ChatDOCStatus.PARSED:
+            metrics = fs_index["args"]["parsing_metrics"]
+
         return ServiceResponse(
             data={
                 "url_path": url_path,
                 "file_id": file_id,
-                "doc_uuid":chat_doc_uuid
+                "doc_uuid": chat_doc_uuid,
+                "doc_status": fs_index["doc_status"],
+                "parsing_metrics": metrics,
             }
+        )
+
+    # validate airline
+    airline_id = validate_bson_id(airline_id)
+    if not airline_id:
+        return ServiceResponse(success=False, msg="Bad Airline ID", status_code=400)
+
+    # get airline
+    airline = (
+        await get_database().get_collection("airlines").find_one({"_id": airline_id})
+    )
+
+    if not airline:
+        return ServiceResponse(
+            success=False, msg="This airline ID doesn't exist", status_code=404
+        )
+
+    if airline["organization"] != organization:
+        return ServiceResponse(
+            success=False,
+            msg="Your organization can't access this airline",
+            status_code=403,
         )
 
     # create fs index entry in database
@@ -62,14 +97,11 @@ async def create_fs_index_entry(
         file_type=file_type,
         filename=filename,
         doc_uuid=chat_doc_uuid,
-        doc_status=(
-            ChatDOCStatus.PARSING
-            if file_type == IndexFileType.AIRLINES_MANUAL
-            else ChatDOCStatus.PARSED
-        ),
+        doc_status=status,
         organization=organization,
+        airline=str(airline["_id"]),
     )
-    
+
     mdb_result = (
         await get_database()
         .get_collection("fs_index")
@@ -77,28 +109,58 @@ async def create_fs_index_entry(
     )
     file_id = str(mdb_result.inserted_id)
 
-
     # save file to disk
     disk_filename = f"{file_id}{file_ext}"
-    file_path = os.path.join(_PUBLIC_DIR, FILE_TYPE_PATH_MAP[file_type], disk_filename).replace("\\","/")
+    file_path = os.path.join(
+        _PUBLIC_DIR, FILE_TYPE_PATH_MAP[file_type], disk_filename
+    ).replace("\\", "/")
     async with aiofiles.open(file_path, "wb") as f:
         await f.write(data)
-    url_path = fr"/{FILE_TYPE_PATH_MAP[file_type]}/{disk_filename}"
+    url_path = rf"/{FILE_TYPE_PATH_MAP[file_type]}/{disk_filename}".replace("\\", "/")
+
+
+    # if file is attachemnt, don't create a ZTree
+    if file_type == IndexFileType.AIRLINES_ATTACHMENT:
+
+        return ServiceResponse(
+            data={
+                "url_path": url_path,
+                "file_id": file_id,
+                "doc_uuid": chat_doc_uuid,
+                "doc_status": status,
+                "parsing_metrics": metrics,
+            }
+        )
 
     try:
+
         z_tree = ZPDFTree(file_path=file_path)
         z_tree.save_cache(chat_doc_uuid)
 
-        metadata = {"toc_info":  z_tree.get_cache_transformed()}
-        await get_database().get_collection("fs_index").update_one({"_id":mdb_result.inserted_id},{"$set":{"args":metadata}})
+        metrics = z_tree.get_benchmark()
+        metadata = {
+            "toc_info": z_tree.get_cache_transformed(),
+            "parsing_metrics": metrics,
+        }
+        status = ChatDOCStatus.PARSED
+        await get_database().get_collection("fs_index").update_one(
+            {"_id": mdb_result.inserted_id},
+            {"$set": {"args": metadata, "doc_status": status}},
+        )
+
     except:
-        pass
+        status = ChatDOCStatus.PARSING_FAILD
+        await get_database().get_collection("fs_index").update_one(
+            {"_id": mdb_result.inserted_id}, {"$set": {"doc_status": status}}
+        )
 
     return ServiceResponse(
         data={
             "url_path": url_path,
             "file_id": file_id,
-            "doc_uuid":chat_doc_uuid
+            "doc_uuid": chat_doc_uuid,
+            "doc_status": status,
+            "parsing_metrics": metrics,
         }
     )
 
@@ -107,8 +169,8 @@ async def delete_fs_index_entry(fs_index: str, organization: str) -> ServiceResp
 
     bson_id = validate_bson_id(fs_index)
     if not bson_id:
-        return ServiceResponse(success=False, msg='Bad flow report ID', status_code=400)
-    
+        return ServiceResponse(success=False, msg="Bad flow report ID", status_code=400)
+
     # fetch entry from database
     fs_index_entry = (
         await get_database().get_collection("fs_index").find_one({"_id": bson_id})
@@ -135,9 +197,7 @@ async def delete_fs_index_entry(fs_index: str, organization: str) -> ServiceResp
 
     # delete file index database entry
     result = (
-        await get_database()
-        .get_collection("fs_index")
-        .delete_one({"_id": bson_id})
+        await get_database().get_collection("fs_index").delete_one({"_id": bson_id})
     )
     if not result.deleted_count:
         return ServiceResponse(
@@ -152,8 +212,7 @@ async def rename_fs_index_entry(
 ) -> ServiceResponse:
     bson_id = validate_bson_id(fs_index)
     if not bson_id:
-        return ServiceResponse(success=False, msg='Bad flow report ID', status_code=400)
-
+        return ServiceResponse(success=False, msg="Bad flow report ID", status_code=400)
 
     # fetch entry from database
     fs_index_entry = (
@@ -194,12 +253,19 @@ async def rename_fs_index_entry(
 
 
 async def list_fs_index(organization: str) -> ServiceResponse:
+
     fs_index_entries = [
         fs_index
         async for fs_index in get_database()
         .get_collection("fs_index")
         .find(
-            {"$and": [{"organization": organization}, {"file_type": "AIRLINES_MANUAL"}]},{"args":0}
+            {
+                "$and": [
+                    {"organization": organization},
+                    {"file_type": "AIRLINES_MANUAL"},
+                ]
+            },
+            {"args": 0},
         )
     ]
 
@@ -215,19 +281,27 @@ async def list_fs_index(organization: str) -> ServiceResponse:
 
     for fs_index in range(len(filtred)):
         filtred[fs_index]["_id"] = str(filtred[fs_index]["_id"])
-        filtred[fs_index]["url_path"] = f"/airlines_files/manuals/{filtred[fs_index]['_id']}.pdf"
-        if(filtred[fs_index].get("airline")):
-            airline = await get_database().get_collection("airlines").find_one({"_id":ObjectId(filtred[fs_index]["airline"])})
+        filtred[fs_index][
+            "url_path"
+        ] = f"/airlines_files/manuals/{filtred[fs_index]['_id']}.pdf"
+        if filtred[fs_index].get("airline"):
+            airline = (
+                await get_database()
+                .get_collection("airlines")
+                .find_one({"_id": ObjectId(filtred[fs_index]["airline"])})
+            )
 
             if not airline:
                 return ServiceResponse(
-                            success=False,
-                            msg="Airline id couldn't be found",
-                            status_code=400,
-                        )
-            if airline['organization'] != organization:
+                    success=False,
+                    msg="Airline id couldn't be found",
+                    status_code=400,
+                )
+            if airline["organization"] != organization:
                 return ServiceResponse(
-                    success=False, msg="Your organization can't access this airline", status_code=400
+                    success=False,
+                    msg="Your organization can't access this airline",
+                    status_code=400,
                 )
             airline["id"] = str(airline["_id"])
             del airline["_id"]
@@ -237,7 +311,7 @@ async def list_fs_index(organization: str) -> ServiceResponse:
     return ServiceResponse(data={"fs_index_entries": filtred})
 
 
-async def get_fs_index_entry(chat_doc_uuid: str,organization: str) -> ServiceResponse:
+async def get_fs_index_entry(chat_doc_uuid: str, organization: str) -> ServiceResponse:
     fs_index_entry = (
         await get_database()
         .get_collection("fs_index")
@@ -247,14 +321,14 @@ async def get_fs_index_entry(chat_doc_uuid: str,organization: str) -> ServiceRes
         return ServiceResponse(
             success=False, msg="File Index not Found", status_code=404
         )
-    
+
     if fs_index_entry["organization"] != organization:
         return ServiceResponse(
             success=False,
             status_code=403,
             msg="Your organization can't access this file",
         )
-    
+
     return ServiceResponse(
         data={"fs_index_entry": FSIndexFile.model_validate(fs_index_entry)}
     )
@@ -291,8 +365,11 @@ async def get_user_manuals(username: str) -> ServiceResponse:
 
     return ServiceResponse(data={"files": files})
 
-async def get_pages_from_sections(organization: str, pages_mapper: dict[str, list[str]]) -> ServiceResponse:
-    
+
+async def get_pages_from_sections(
+    organization: str, pages_mapper: dict[str, list[str]]
+) -> ServiceResponse:
+
     # fetch entry from database
     fs_indices = (
         await get_database()
@@ -302,35 +379,33 @@ async def get_pages_from_sections(organization: str, pages_mapper: dict[str, lis
                 "organization": organization,
                 "doc_uuid": {"$in": [x for x in pages_mapper.keys()]},
             },
-            {
-                "_id": 1,
-                "doc_uuid": 1,
-                "file_type":1
-            },
+            {"_id": 1, "doc_uuid": 1, "file_type": 1},
         )
         .to_list(length=None)
     )
 
     if not fs_indices:
-        return ServiceResponse(
-            success=False, status_code=404, msg="FS Index not Found"
-        )
+        return ServiceResponse(success=False, status_code=404, msg="FS Index not Found")
 
     # Get all the text
     all_pages_text = ""
     for fs_index in fs_indices:
         try:
-            fs_index_id = str(fs_index['_id'])
-            file_type = fs_index['file_type']
-            doc_uuid = fs_index['doc_uuid']
+            fs_index_id = str(fs_index["_id"])
+            file_type = fs_index["file_type"]
+            doc_uuid = fs_index["doc_uuid"]
 
-            file_path = os.path.join(_PUBLIC_DIR, FILE_TYPE_PATH_MAP[file_type], fs_index_id+".pdf").replace("\\","/")
-            cache_path =  os.path.join(_CACHE_FOLDER, fr"{doc_uuid}.json").replace("\\","/")
-            
+            file_path = os.path.join(
+                _PUBLIC_DIR, FILE_TYPE_PATH_MAP[file_type], fs_index_id + ".pdf"
+            ).replace("\\", "/")
+            cache_path = os.path.join(_CACHE_FOLDER, rf"{doc_uuid}.json").replace(
+                "\\", "/"
+            )
+
             # Check if Cache exists
-            if  os.path.exists(cache_path):
+            if os.path.exists(cache_path):
                 # Retrive Cache and instantiate ZTree
-                with open(cache_path, 'r') as f:
+                with open(cache_path, "r") as f:
                     cache = json.loads(f.read())
                     z_pdf_tree = ZPDFTree(file_path=file_path, cache=cache)
 
@@ -339,7 +414,7 @@ async def get_pages_from_sections(organization: str, pages_mapper: dict[str, lis
                 z_pdf_tree.save_cache(doc_uuid)
 
             for text in z_pdf_tree.extract_text(list(set(pages_mapper[doc_uuid]))):
-                all_pages_text += "\n"+text.strip() + "\n"
+                all_pages_text += "\n" + text.strip() + "\n"
         except:
             pass
 
@@ -347,12 +422,12 @@ async def get_pages_from_sections(organization: str, pages_mapper: dict[str, lis
         return ServiceResponse(
             success=False, status_code=404, msg="No Text Was Selected"
         )
-    
+
     for water_mark in WATER_MARKS:
-        all_pages_text = all_pages_text.replace(water_mark," ")
-    
+        all_pages_text = all_pages_text.replace(water_mark, " ")
+
     return ServiceResponse(data={"text": all_pages_text})
-   
+
 
 async def get_pages(organization: str, pages: dict[str, set[int]]) -> ServiceResponse:
     # fetch entry from database
@@ -372,9 +447,7 @@ async def get_pages(organization: str, pages: dict[str, set[int]]) -> ServiceRes
         .to_list(length=None)
     )
     if not fs_indices:
-        return ServiceResponse(
-            success=False, status_code=404, msg="FS Index not Found"
-        )
+        return ServiceResponse(success=False, status_code=404, msg="FS Index not Found")
 
     all_pages_text = ""
 
@@ -396,7 +469,7 @@ async def get_pages(organization: str, pages: dict[str, set[int]]) -> ServiceRes
                     msg=f"Page Number is our of range for Document {fs_index['doc_uuid']} page {page}",
                 )
             all_pages_text += pdf_reader.pages[page - 1].extract_text()
-    all_pages_text = all_pages_text.replace("UNCONTROLLED IF PRINTED"," ")
+    all_pages_text = all_pages_text.replace("UNCONTROLLED IF PRINTED", " ")
     return ServiceResponse(data={"text": all_pages_text})
 
 
@@ -490,47 +563,54 @@ async def get_tree_structure(text: str) -> ServiceResponse:
     return ServiceResponse(data={"tree": all_chapters})
 
 
-async def get_all_tree_db(organization: str,airline_id:str | None) -> ServiceResponse:
-    query =  {
-                "$and": [
-                    {"organization": organization},
-                    {"file_type": "AIRLINES_MANUAL"},
-                ]
-            }
-    
+async def get_all_tree_db(organization: str, airline_id: str | None) -> ServiceResponse:
+    query = {
+        "$and": [
+            {"organization": organization},
+            {"file_type": "AIRLINES_MANUAL"},
+        ]
+    }
+
     if airline_id:
-         # validate airline
+        # validate airline
         airline_id = validate_bson_id(airline_id)
         if not airline_id:
             return ServiceResponse(success=False, msg="Bad Airline ID", status_code=400)
 
         # get airline
-        airline = await get_database().get_collection("airlines").find_one({"_id": airline_id})
+        airline = (
+            await get_database()
+            .get_collection("airlines")
+            .find_one({"_id": airline_id})
+        )
 
         if not airline:
             return ServiceResponse(
                 success=False, msg="This airline ID doesn't exist", status_code=404
             )
-        
-        if airline['organization'] != organization:
+
+        if airline["organization"] != organization:
             return ServiceResponse(
-                success=False, msg="Your organization can't access this airline", status_code=403
+                success=False,
+                msg="Your organization can't access this airline",
+                status_code=403,
             )
-        
-        query['$and'].append({"airline":str(airline_id)})
+
+        query["$and"].append({"airline": str(airline_id)})
 
     fs_index_entries = [
         fs_index
         async for fs_index in get_database()
         .get_collection("fs_index")
-        .find(query
-           ,
+        .find(
+            query,
             projection={
                 "_id": 0,
                 "doc_uuid": 1,
+                "doc_status": 1,
                 "label": "$filename",
                 "children": "$args",
-                "airline":"$airline"
+                "airline": "$airline",
             },
         )
     ]
@@ -565,7 +645,7 @@ async def get_all_tree_db(organization: str,airline_id:str | None) -> ServiceRes
     # filteration
     for x in fs_index_entries:
         doc_uuid = x["doc_uuid"]
-        if (doc_uuid not in uuids_set) and (x["children"].get("toc_info") != None):
+        if (doc_uuid not in uuids_set) and (x["doc_status"] == ChatDOCStatus.PARSED):
 
             if len(x["children"]["toc_info"]) < 1:
                 continue
@@ -586,23 +666,31 @@ async def get_all_tree_db(organization: str,airline_id:str | None) -> ServiceRes
                 # validate airline
                 airline_id = validate_bson_id(x["airline"])
                 if not airline_id:
-                    return ServiceResponse(success=False, msg="Bad Airline ID", status_code=400)
+                    return ServiceResponse(
+                        success=False, msg="Bad Airline ID", status_code=400
+                    )
 
                 # get airline
-                airline = await get_database().get_collection("airlines").find_one({"_id": airline_id})
+                airline = (
+                    await get_database()
+                    .get_collection("airlines")
+                    .find_one({"_id": airline_id})
+                )
 
                 if not airline:
                     return ServiceResponse(
-                        success=False, msg="This airline ID doesn't exist", status_code=404
+                        success=False,
+                        msg="This airline ID doesn't exist",
+                        status_code=404,
                     )
-                
+
                 filtered.append(
                     {
                         "label": x["label"],
                         "key": x["label"].split(".pdf")[0],
-                        "airline_id":x["airline"],
-                        "airline":airline['name'],
-                        "children":x["children"]
+                        "airline_id": x["airline"],
+                        "airline": airline["name"],
+                        "children": x["children"],
                     }
                 )
 
@@ -612,7 +700,10 @@ async def get_all_tree_db(organization: str,airline_id:str | None) -> ServiceRes
 
     return ServiceResponse(data={"checkins": filtered})
 
-async def get_keys_from_toc_tree(doc_uuid: str, pages: list[int], organization : str) -> ServiceResponse:
+
+async def get_keys_from_toc_tree(
+    doc_uuid: str, pages: list[int], organization: str
+) -> ServiceResponse:
 
     fs_index = (
         await get_database().get_collection("fs_index").find_one({"doc_uuid": doc_uuid})
@@ -621,14 +712,14 @@ async def get_keys_from_toc_tree(doc_uuid: str, pages: list[int], organization :
         return ServiceResponse(
             success=False, msg="File Index not Found", status_code=404
         )
-    
+
     if fs_index["organization"] != organization:
         return ServiceResponse(
             success=False,
             status_code=403,
             msg="Your organization can't access this file",
         )
-    
+
     if fs_index["args"].get("toc_info") == None:
         return ServiceResponse(
             success=False,
@@ -659,7 +750,6 @@ async def get_keys_from_toc_tree(doc_uuid: str, pages: list[int], organization :
             "doc_uuid": doc_uuid,
         }
 
-
     for child in fs_index["args"]["toc_info"]:
         if child.get("children") != []:
             for sub1_child in child["children"]:
@@ -687,7 +777,7 @@ async def get_keys_from_toc_tree(doc_uuid: str, pages: list[int], organization :
                                                     if check_if_contains_page(
                                                         sub5_child["pages"]
                                                     ):
-                                                        
+
                                                         add_key(
                                                             sub5_child["key"],
                                                             sub5_child["pages"],
@@ -697,7 +787,7 @@ async def get_keys_from_toc_tree(doc_uuid: str, pages: list[int], organization :
                                             if check_if_contains_page(
                                                 sub4_child["pages"]
                                             ):
-                                                
+
                                                 add_key(
                                                     sub4_child["key"],
                                                     sub4_child["pages"],
@@ -705,7 +795,7 @@ async def get_keys_from_toc_tree(doc_uuid: str, pages: list[int], organization :
                                                 )
                                 else:
                                     if check_if_contains_page(sub3_child["pages"]):
-                                        
+
                                         add_key(
                                             sub3_child["key"],
                                             sub3_child["pages"],
@@ -714,7 +804,7 @@ async def get_keys_from_toc_tree(doc_uuid: str, pages: list[int], organization :
 
                         else:
                             if check_if_contains_page(sub2_child["pages"]):
-                                
+
                                 add_key(
                                     sub2_child["key"],
                                     sub2_child["pages"],
@@ -722,24 +812,24 @@ async def get_keys_from_toc_tree(doc_uuid: str, pages: list[int], organization :
                                 )
                 else:
                     if check_if_contains_page(sub1_child["pages"]):
-                        
+
                         add_key(
                             sub1_child["key"], sub1_child["pages"], sub1_child["label"]
                         )
         else:
             if check_if_contains_page(child["pages"]):
-                
+
                 add_key(
                     child["key"],
                     child["pages"],
                     child["label"],
                 )
 
-    if(manual_refrences == {}):
+    if manual_refrences == {}:
         return ServiceResponse(
             success=False,
             status_code=400,
             msg=f"Pages {' '.join(pages)} were not found in {doc_uuid}",
         )
 
-    return ServiceResponse(data = manual_refrences)
+    return ServiceResponse(data=manual_refrences)

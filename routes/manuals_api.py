@@ -1,5 +1,5 @@
 import os
-from fastapi import APIRouter, Response, UploadFile, Header, Body, BackgroundTasks
+from fastapi import APIRouter, Response, UploadFile, Header, Body, BackgroundTasks, Form
 import lib.log as log_man
 import lib.security as security_man
 from models.users import UserRole
@@ -13,7 +13,8 @@ import lib.chat_doc as chat_doc_man
 import database.ai_tasks_database_api as ai_tasks_database_api
 from models.ai_tasks import AITaskType
 from database.mongo_driver import get_database
-from typing import Optional
+from typing import Optional,Annotated
+
 
 _ROOT_ROUTE = f"{os.getenv('API_ROOT')}/manuals"
 _MODULE_ID = 'routes.manuals_api'
@@ -22,7 +23,7 @@ router = APIRouter()
 
 
 @router.post(f"{_ROOT_ROUTE}/parse-pdf")
-async def parse_pdf(file: UploadFile, res: Response, x_auth=Header(alias='X-Auth', default=None)):
+async def parse_pdf(file: UploadFile,airline: Annotated[str, Form()], res: Response, x_auth=Header(alias='X-Auth', default=None)):
     """Parse PDF file, store it in the database and return it's id.\n
     Returns: {..., data: {\n
     doc_uuid: string,\n
@@ -64,7 +65,7 @@ async def parse_pdf(file: UploadFile, res: Response, x_auth=Header(alias='X-Auth
     # save file to server
     username = auth_service_response.data['token_claims']['username']
     organization = auth_service_response.data['token_claims']['organization']
-    fs_service_response = await fs_index_database_api.create_fs_index_entry(username, organization, IndexFileType.AIRLINES_MANUAL, file.filename, file.file.read(), chat_doc_uuid=cd_service_response.data['chat_doc_uuid'])
+    fs_service_response = await fs_index_database_api.create_fs_index_entry(username, organization,airline, IndexFileType.AIRLINES_MANUAL, file.filename, file.file.read(), chat_doc_uuid=cd_service_response.data['chat_doc_uuid'])
     if not fs_service_response.success:
         res.status_code = fs_service_response.status_code
         return JsonResponse(
@@ -76,11 +77,13 @@ async def parse_pdf(file: UploadFile, res: Response, x_auth=Header(alias='X-Auth
         'doc_uuid': cd_service_response.data['chat_doc_uuid'],
         'file_id': fs_service_response.data['file_id'],
         'url_path': fs_service_response.data['url_path'],
+        'doc_status': fs_service_response.data['doc_status'],
+        'parsing_metrics': fs_service_response.data['parsing_metrics']
     })
 
 
 @router.post(f"{_ROOT_ROUTE}/create-manual")
-async def create_manual(file: UploadFile, res: Response, x_auth=Header(alias='X-Auth', default=None)):
+async def create_manual(file: UploadFile,airline: Annotated[str, Form()], res: Response, x_auth=Header(alias='X-Auth', default=None)):
     """
     Create fs index from file
     """
@@ -108,7 +111,7 @@ async def create_manual(file: UploadFile, res: Response, x_auth=Header(alias='X-
         )
 
     # save file to server
-    fs_service_response = await fs_index_database_api.create_fs_index_entry(username, organization, IndexFileType.AIRLINES_MANUAL, file.filename, file.file.read())
+    fs_service_response = await fs_index_database_api.create_fs_index_entry(username, organization,airline, IndexFileType.AIRLINES_MANUAL, file.filename, file.file.read())
     if not fs_service_response.success:
         res.status_code = fs_service_response.status_code
         return JsonResponse(
@@ -119,7 +122,9 @@ async def create_manual(file: UploadFile, res: Response, x_auth=Header(alias='X-
     return JsonResponse(data={
         'doc_uuid':  fs_service_response.data['doc_uuid'],
         'file_id': fs_service_response.data['file_id'],
-        'url_path': fs_service_response.data['url_path']
+        'url_path': fs_service_response.data['url_path'],
+        'doc_status': fs_service_response.data['doc_status'],
+        'parsing_metrics': fs_service_response.data['parsing_metrics']
     })
 
 
