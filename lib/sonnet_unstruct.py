@@ -152,8 +152,10 @@ async def llm_audit_item(iosa_item: IOSAItem, input_text: str,regulation_type:st
 
     if 'Score' not in llm_response:
         return ServiceResponse(success=False, status_code=503, msg='Missing OVERALL_COMPLIANCE_SCORE Key')
-   
-    re_matches_score = re.search(r'(?<=(Score:))(\s+)(\d{1,2})', llm_response)
+    
+    print(llm_response)
+    
+    re_matches_score = re.search(r'(?<=(\*\*( *)Score:( *)\*\*))(\s+)(\d{1,2})', llm_response)
    
     if not re_matches_score:
         if int(os.environ['LLM_DEBUG']):
