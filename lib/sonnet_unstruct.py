@@ -41,7 +41,7 @@ async def llm_audit(iosa_checklist: str, input_text: str,definitions:str) -> Ser
     Should your assessment yield a compliance score greater than 3, you should provide supplemental text to the original content, drawing from industry best practices and benchmarks, as well as referencing pertinent regulatory materials or standards. The supplementary text should be crafted in a human writing style, incorporating human factors principles to ensure it is clear, readable, and easily understood by crew members. It's important to note that aviation regulations emphasize ease of language and precision in communication.
     In the case where the provided text is deemed completely irrelevant, you are to utilize your expertise, industry benchmarks, best practices, and relevant regulatory references or standards to formulate a detailed exposition of processes, procedures, organizational structure, duty management, or any other facet within the aviation industry. The goal is to revise the text to achieve full compliance with the applicable legal requirements or standards.
 
-    Your output must be in the following markdown friendly format where each header is in bold format:
+    Your output must be in the following markdown friendly format and each header must be wrapped with ** in order to display as bold:
     ASSESSMENT
     In this section, thoroughly evaluate how well the provided answer meets
     the requirements specified in the given regulatory reference or industry
