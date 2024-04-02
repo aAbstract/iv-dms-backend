@@ -414,6 +414,41 @@ def test_create_manual_fs_index():
     # Clean up
     get_database.get_collection("airlines").delete_one({"_id": airline.inserted_id})
 
+def test_create_manual_fs_index_1():
+    admin_access_token = _test_config.login_user('eslam', 'CgJhxwieCc7QEyN3BB7pmvy9MMpseMPV')
+
+    # Create airline
+    get_database = _test_config.get_database()
+    assert get_database != None
+
+    # create fs index
+    api_url = f"{_test_config.get_api_url()}/manuals/create-manual"
+    http_headers = {'X-Auth': f"Bearer {admin_access_token}"}
+    payload = {"airline":"Test Airline Create Manual"}
+    http_res = requests.post(api_url, headers=http_headers,data=payload, files={'file': open('data/RXI/CASS Manual_18 Dec 23.pdf', 'rb')})
+    assert http_res.status_code == 200
+    json_res_body = json.loads(http_res.content.decode())
+    assert json_res_body['success']
+    assert 'doc_uuid' in json_res_body['data']
+    assert 'file_id' in json_res_body['data']
+    assert 'url_path' in json_res_body['data']
+    file_id = json_res_body['data']['file_id']
+
+    if not os.path.exists(fr"data/cache/toc_trees/{json_res_body['data']['doc_uuid']}.json"):
+        assert False
+    
+    # delete FSIndex
+    get_database["fs_index"].find_one_and_delete({"_id": ObjectId(file_id)})
+    file_path = os.path.join("public", "airlines_files", "manuals", json_res_body['data']['file_id'] + ".pdf")
+    os.remove(file_path)
+    file_path = fr"data/cache/toc_trees/{json_res_body['data']['doc_uuid']}.json"
+    os.remove(file_path)
+
+    # Clean up
+    airline = get_database.get_collection("airlines").find_one({"name": "Test Airline Create Manual"})
+    assert airline['name'] == "Test Airline Create Manual"
+
+    get_database.get_collection("airlines").find_one_and_delete({"name": "Test Airline Create Manual"})
 
 def _test_get_tree_structure():
     admin_access_token = _test_config.login_user('eslam', 'CgJhxwieCc7QEyN3BB7pmvy9MMpseMPV')

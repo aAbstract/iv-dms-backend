@@ -527,11 +527,11 @@ async def create_airlines_db(organization: str, name: str) -> ServiceResponse:
                 success=False, status_code=400, msg=f"Airline Name already Exists"
             )
 
-    await get_database().get_collection("airlines").insert_one(
+    airline_obj = await get_database().get_collection("airlines").insert_one(
         Airline(organization=organization, name=name).model_dump()
     )
-    
-    return ServiceResponse()
+
+    return ServiceResponse(data={"airline_id" : str(airline_obj.inserted_id)})
 
 
 async def delete_airlines_db(organization: str, id: str) -> ServiceResponse:

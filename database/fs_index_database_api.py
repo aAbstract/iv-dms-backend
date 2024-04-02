@@ -13,6 +13,7 @@ from models.fs_index import (
 )
 from models.runtime import ServiceResponse
 from database.mongo_driver import get_database, validate_bson_id
+from database.flow_report_database_api import create_airlines_db
 from PyPDF2 import PdfReader
 import re
 import lib.log as log_man
@@ -52,7 +53,9 @@ async def create_fs_index_entry(
         file_id = str(fs_index["_id"])
         disk_filename = f"{file_id}{file_ext}"
         file_type = fs_index["file_type"]
-        url_path = f"/{FILE_TYPE_PATH_MAP[file_type]}/{disk_filename}".replace("\\", "/")
+        url_path = f"/{FILE_TYPE_PATH_MAP[file_type]}/{disk_filename}".replace(
+            "\\", "/"
+        )
         chat_doc_uuid = fs_index["doc_uuid"]
 
         if fs_index["doc_status"] == ChatDOCStatus.PARSED:
@@ -69,26 +72,45 @@ async def create_fs_index_entry(
         )
 
     # validate airline
-    airline_id = validate_bson_id(airline_id)
     if not airline_id:
-        return ServiceResponse(success=False, msg="Bad Airline ID", status_code=400)
-
-    # get airline
-    airline = (
-        await get_database().get_collection("airlines").find_one({"_id": airline_id})
-    )
-
-    if not airline:
         return ServiceResponse(
-            success=False, msg="This airline ID doesn't exist", status_code=404
+            success=False, msg="Airline ID can't be empty text", status_code=400
         )
 
-    if airline["organization"] != organization:
-        return ServiceResponse(
-            success=False,
-            msg="Your organization can't access this airline",
-            status_code=403,
+    airline_bson_id = validate_bson_id(airline_id)
+    if airline_bson_id:
+
+        # get airline
+        airline = (
+            await get_database()
+            .get_collection("airlines")
+            .find_one({"_id": airline_bson_id})
         )
+
+        if not airline:
+            return ServiceResponse(
+                success=False, msg="This airline ID doesn't exist", status_code=404
+            )
+
+        if airline["organization"] != organization:
+            return ServiceResponse(
+                success=False,
+                msg="Your organization can't access this airline",
+                status_code=403,
+            )
+    else:
+        airline_create_service_response = await create_airlines_db(
+            name=airline_id.strip(),
+            organization=organization,
+        )
+
+        if not airline_create_service_response.success:
+            return ServiceResponse(
+                success=False,
+                msg=airline_create_service_response.msg,
+                status_code=airline_create_service_response.status_code,
+            )
+        airline_id = airline_create_service_response.data['airline_id']
 
     # create fs index entry in database
     fs_index_entry = FSIndexFile(
@@ -99,7 +121,7 @@ async def create_fs_index_entry(
         doc_uuid=chat_doc_uuid,
         doc_status=status,
         organization=organization,
-        airline=str(airline["_id"]),
+        airline=airline_id,
     )
 
     mdb_result = (
@@ -117,7 +139,6 @@ async def create_fs_index_entry(
     async with aiofiles.open(file_path, "wb") as f:
         await f.write(data)
     url_path = rf"/{FILE_TYPE_PATH_MAP[file_type]}/{disk_filename}".replace("\\", "/")
-
 
     # if file is attachemnt, don't create a ZTree
     if file_type == IndexFileType.AIRLINES_ATTACHMENT:
