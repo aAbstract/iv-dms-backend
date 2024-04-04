@@ -17,7 +17,7 @@ def test_parse_pdf_api_lock():
 
     api_url = f"{_test_config.get_api_url()}/manuals/parse-pdf"
     http_headers = {'X-Auth': 'Bearer fake_token'}
-    payload = {"airline":str(airline.inserted_id)}
+    payload = {"airline_id":str(airline.inserted_id)}
     http_res = requests.post(api_url, headers=http_headers,data=payload, files={'file': open('data/sample_manual.pdf', 'rb')})
     assert http_res.status_code == 403
     json_res_body = json.loads(http_res.content.decode())
@@ -131,7 +131,7 @@ def test_chat_doc_parse_api():
     access_token = _test_config.login_user('cwael', 'CgJhxwieCc7QEyN3BB7pmvy9MMpseMPV')
     api_url = f"{_test_config.get_api_url()}/manuals/parse-pdf"
     http_headers = {'X-Auth': f"Bearer {access_token}"}
-    payload = {"airline":str(airline.inserted_id)}
+    payload = {"airline_id":str(airline.inserted_id)}
     http_res = requests.post(api_url, headers=http_headers,data=payload, files={'file': open('data/nesma_org_cos_rad.pdf', 'rb')})
     assert http_res.status_code == 200
     json_res_body = json.loads(http_res.content.decode())
@@ -214,7 +214,7 @@ def test_chat_doc_parse_api_bad_file_type():
     access_token = _test_config.login_user('cwael', 'CgJhxwieCc7QEyN3BB7pmvy9MMpseMPV')
     api_url = f"{_test_config.get_api_url()}/manuals/parse-pdf"
     http_headers = {'X-Auth': f"Bearer {access_token}"}
-    payload = {"airline":str(airline.inserted_id)}
+    payload = {"airline_id":str(airline.inserted_id)}
     http_res = requests.post(api_url, headers=http_headers,data=payload, files={'file': open('data/sample_manual.txt', 'rb')})
     assert http_res.status_code == 409
     json_res_body = json.loads(http_res.content.decode())
@@ -263,7 +263,7 @@ def test_list_fs_index():
     # create fs index
     api_url = f"{_test_config.get_api_url()}/manuals/create-manual"
     http_headers = {'X-Auth': f"Bearer {admin_access_token}"}
-    payload = {"airline":str(airline.inserted_id)}
+    payload = {"airline_id":str(airline.inserted_id)}
     http_res = requests.post(api_url, headers=http_headers,data=payload, files={'file': open('data/non_seeded_sample_file.pdf', 'rb')})
     assert http_res.status_code == 200
     json_res_body = json.loads(http_res.content.decode())
@@ -319,7 +319,7 @@ def test_delete_manual_fs_index():
     # create fs index
     api_url = f"{_test_config.get_api_url()}/manuals/create-manual"
     http_headers = {'X-Auth': f"Bearer {admin_access_token}"}
-    payload = {"airline":str(airline.inserted_id)}
+    payload = {"airline_id":str(airline.inserted_id)}
     http_res = requests.post(api_url, headers=http_headers,data=payload, files={'file': open('data/non_seeded_sample_file.pdf', 'rb')})
     assert http_res.status_code == 200
     json_res_body = json.loads(http_res.content.decode())
@@ -351,7 +351,7 @@ def test_rename_manual_fs_index():
     # create fs index
     api_url = f"{_test_config.get_api_url()}/manuals/create-manual"
     http_headers = {'X-Auth': f"Bearer {admin_access_token}"}
-    payload = {"airline":str(airline.inserted_id)}
+    payload = {"airline_id":str(airline.inserted_id)}
     http_res = requests.post(api_url, headers=http_headers,data= payload, files={'file': open('data/non_seeded_sample_file.pdf', 'rb')})
     assert http_res.status_code == 200
     json_res_body = json.loads(http_res.content.decode())
@@ -391,7 +391,7 @@ def test_create_manual_fs_index():
     # create fs index
     api_url = f"{_test_config.get_api_url()}/manuals/create-manual"
     http_headers = {'X-Auth': f"Bearer {admin_access_token}"}
-    payload = {"airline":str(airline.inserted_id)}
+    payload = {"airline_id":str(airline.inserted_id)}
     http_res = requests.post(api_url, headers=http_headers,data=payload, files={'file': open('data/RXI/CASS Manual_18 Dec 23.pdf', 'rb')})
     assert http_res.status_code == 200
     json_res_body = json.loads(http_res.content.decode())
@@ -399,10 +399,12 @@ def test_create_manual_fs_index():
     assert 'doc_uuid' in json_res_body['data']
     assert 'file_id' in json_res_body['data']
     assert 'url_path' in json_res_body['data']
+    assert 'doc_status' in json_res_body['data']
+    assert 'parsing_metrics' in json_res_body['data']
+
     file_id = json_res_body['data']['file_id']
 
     if not os.path.exists(fr"data/cache/toc_trees/{json_res_body['data']['doc_uuid']}.json"):
-        print(json_res_body['data']['doc_uuid'])
         assert False
     
     # delete FSIndex
@@ -424,7 +426,7 @@ def test_create_manual_fs_index_1():
     # create fs index
     api_url = f"{_test_config.get_api_url()}/manuals/create-manual"
     http_headers = {'X-Auth': f"Bearer {admin_access_token}"}
-    payload = {"airline":"Test Airline Create Manual"}
+    payload = {"airline_name":"Test Airline Create Manual"}
     http_res = requests.post(api_url, headers=http_headers,data=payload, files={'file': open('data/RXI/CASS Manual_18 Dec 23.pdf', 'rb')})
     assert http_res.status_code == 200
     json_res_body = json.loads(http_res.content.decode())

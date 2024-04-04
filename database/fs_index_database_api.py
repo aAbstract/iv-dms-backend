@@ -13,7 +13,6 @@ from models.fs_index import (
 )
 from models.runtime import ServiceResponse
 from database.mongo_driver import get_database, validate_bson_id
-from database.flow_report_database_api import create_airlines_db
 from PyPDF2 import PdfReader
 import re
 import lib.log as log_man
@@ -78,39 +77,29 @@ async def create_fs_index_entry(
         )
 
     airline_bson_id = validate_bson_id(airline_id)
-    if airline_bson_id:
+    if not airline_bson_id:
+        return ServiceResponse(
+            success=False, msg="Bad Airline ID", status_code=400
+        )
+    
+    # get airline
+    airline = (
+        await get_database()
+        .get_collection("airlines")
+        .find_one({"_id": airline_bson_id})
+    )
 
-        # get airline
-        airline = (
-            await get_database()
-            .get_collection("airlines")
-            .find_one({"_id": airline_bson_id})
+    if not airline:
+        return ServiceResponse(
+            success=False, msg="This airline ID doesn't exist", status_code=404
         )
 
-        if not airline:
-            return ServiceResponse(
-                success=False, msg="This airline ID doesn't exist", status_code=404
-            )
-
-        if airline["organization"] != organization:
-            return ServiceResponse(
-                success=False,
-                msg="Your organization can't access this airline",
-                status_code=403,
-            )
-    else:
-        airline_create_service_response = await create_airlines_db(
-            name=airline_id.strip(),
-            organization=organization,
+    if airline["organization"] != organization:
+        return ServiceResponse(
+            success=False,
+            msg="Your organization can't access this airline",
+            status_code=403,
         )
-
-        if not airline_create_service_response.success:
-            return ServiceResponse(
-                success=False,
-                msg=airline_create_service_response.msg,
-                status_code=airline_create_service_response.status_code,
-            )
-        airline_id = airline_create_service_response.data['airline_id']
 
     # create fs index entry in database
     fs_index_entry = FSIndexFile(

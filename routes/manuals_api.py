@@ -1,3 +1,4 @@
+import database.flow_report_database_api
 import os
 from fastapi import APIRouter, Response, UploadFile, Header, Body, BackgroundTasks, Form
 import lib.log as log_man
@@ -9,6 +10,7 @@ from models.regulations import IOSAItem
 import database.manuals_database_api as manuals_database_api
 import database.regulations_database_api as regulations_database_api
 import database.fs_index_database_api as fs_index_database_api
+from database.flow_report_database_api import create_airlines_db
 import lib.chat_doc as chat_doc_man
 import database.ai_tasks_database_api as ai_tasks_database_api
 from models.ai_tasks import AITaskType
@@ -23,7 +25,7 @@ router = APIRouter()
 
 
 @router.post(f"{_ROOT_ROUTE}/parse-pdf")
-async def parse_pdf(file: UploadFile,airline: Annotated[str, Form()], res: Response, x_auth=Header(alias='X-Auth', default=None)):
+async def parse_pdf(file: UploadFile,airline_id: Annotated[str, Form()], res: Response, x_auth=Header(alias='X-Auth', default=None)):
     """Parse PDF file, store it in the database and return it's id.\n
     Returns: {..., data: {\n
     doc_uuid: string,\n
@@ -65,7 +67,7 @@ async def parse_pdf(file: UploadFile,airline: Annotated[str, Form()], res: Respo
     # save file to server
     username = auth_service_response.data['token_claims']['username']
     organization = auth_service_response.data['token_claims']['organization']
-    fs_service_response = await fs_index_database_api.create_fs_index_entry(username, organization,airline, IndexFileType.AIRLINES_MANUAL, file.filename, file.file.read(), chat_doc_uuid=cd_service_response.data['chat_doc_uuid'])
+    fs_service_response = await fs_index_database_api.create_fs_index_entry(username, organization,airline_id, IndexFileType.AIRLINES_MANUAL, file.filename, file.file.read(), chat_doc_uuid=cd_service_response.data['chat_doc_uuid'])
     if not fs_service_response.success:
         res.status_code = fs_service_response.status_code
         return JsonResponse(
@@ -83,7 +85,7 @@ async def parse_pdf(file: UploadFile,airline: Annotated[str, Form()], res: Respo
 
 
 @router.post(f"{_ROOT_ROUTE}/create-manual")
-async def create_manual(file: UploadFile,airline: Annotated[str, Form()], res: Response, x_auth=Header(alias='X-Auth', default=None)):
+async def create_manual(file: UploadFile, res: Response,airline_id: Annotated[str, Form()] = None,airline_name: Annotated[str, Form()] = None, x_auth=Header(alias='X-Auth', default=None)):
     """
     Create fs index from file
     """
@@ -109,9 +111,30 @@ async def create_manual(file: UploadFile,airline: Annotated[str, Form()], res: R
             success=False,
             msg='Bad File Extention',
         )
+    
+    if not airline_id:
+        if not airline_name.strip():
+            return JsonResponse(
+                success= False,
+                msg="Can't store empty airline name",
+        )
+
+        airline_create_service_response = await create_airlines_db(
+            name=airline_name.strip(),
+            organization=organization,
+        )
+
+        if not airline_create_service_response.success:
+            return JsonResponse(
+                success=airline_create_service_response.success,
+                msg=airline_create_service_response.msg,
+                status_code=airline_create_service_response.status_code,
+            )
+        
+        airline_id = airline_create_service_response.data['airline_id']
 
     # save file to server
-    fs_service_response = await fs_index_database_api.create_fs_index_entry(username, organization,airline, IndexFileType.AIRLINES_MANUAL, file.filename, file.file.read())
+    fs_service_response = await fs_index_database_api.create_fs_index_entry(username, organization,airline_id, IndexFileType.AIRLINES_MANUAL, file.filename, file.file.read())
     if not fs_service_response.success:
         res.status_code = fs_service_response.status_code
         return JsonResponse(

@@ -16,7 +16,7 @@ router = APIRouter()
 
 
 @router.post(f"{_ROOT_ROUTE}/create-attachment")
-async def create_attachment(file: UploadFile,airline: Annotated[str, Form()], res: Response, x_auth=Header(alias='X-Auth', default=None)):
+async def create_attachment(file: UploadFile,airline_id: Annotated[str, Form()], res: Response, x_auth=Header(alias='X-Auth', default=None)):
     """Store attachment file in the database and return it's id.\n
     Returns: {..., data: {\n
     file_id: string,\n
@@ -38,7 +38,7 @@ async def create_attachment(file: UploadFile,airline: Annotated[str, Form()], re
     # save file to server
     username = auth_service_response.data['token_claims']['username']
     organization = auth_service_response.data['token_claims']['organization']
-    fs_service_response = await fs_index_database_api.create_fs_index_entry(username=username, organization=organization,airline_id=airline, file_type=IndexFileType.AIRLINES_ATTACHMENT, filename=file.filename, data=file.file.read())
+    fs_service_response = await fs_index_database_api.create_fs_index_entry(username=username, organization=organization,airline_id=airline_id, file_type=IndexFileType.AIRLINES_ATTACHMENT, filename=file.filename, data=file.file.read())
     if not fs_service_response.success:
         res.status_code = fs_service_response.status_code
         return JsonResponse(
