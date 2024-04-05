@@ -52,7 +52,7 @@ for command in commands:
 client = pymongo.MongoClient(
     f"mongodb://{os.environ['MDB_USERNAME']}:{os.environ['MDB_PASSWORD']}@127.0.0.1"
 )
-# client.drop_database(os.environ["IVDMS_DB"])
+client.drop_database(os.environ["IVDMS_DB"])
 
 db = client.get_database(os.environ["IVDMS_DB"])
 
@@ -328,39 +328,39 @@ seed_airlines = [
 
 
 def seed_routine():
-    # print("seeding users...")
-    # db.get_collection("users").insert_many([x.model_dump() for x in seed_users])
-    # print("creating users indexes...")
-    # db.get_collection("users").create_index("username", unique=True)
-    # db.get_collection("users").create_index("email", unique=True)
+    print("seeding users...")
+    db.get_collection("users").insert_many([x.model_dump() for x in seed_users])
+    print("creating users indexes...")
+    db.get_collection("users").create_index("username", unique=True)
+    db.get_collection("users").create_index("email", unique=True)
 
-    # print("seeding regulations index...")
-    # mdb_result = db.get_collection("regulations").insert_one(
-    #     seed_regulations[0].model_dump()
-    # )
-    # iosa_e16r2_id = mdb_result.inserted_id
+    print("seeding regulations index...")
+    mdb_result = db.get_collection("regulations").insert_one(
+        seed_regulations[0].model_dump()
+    )
+    iosa_e16r2_id = mdb_result.inserted_id
 
-    # print("seeding airlines...")
-    # ryad_airline_id = db.get_collection("airlines").insert_one(seed_airlines[0].model_dump()).inserted_id
-    # nesma_airline_id = db.get_collection("airlines").insert_one(seed_airlines[1].model_dump()).inserted_id
-    # cairo_airline_id = db.get_collection("airlines").insert_one(seed_airlines[2].model_dump()).inserted_id
+    print("seeding airlines...")
+    ryad_airline_id = db.get_collection("airlines").insert_one(seed_airlines[0].model_dump()).inserted_id
+    nesma_airline_id = db.get_collection("airlines").insert_one(seed_airlines[1].model_dump()).inserted_id
+    cairo_airline_id = db.get_collection("airlines").insert_one(seed_airlines[2].model_dump()).inserted_id
 
-    # print("creating regulations indexes...")
-    # db.get_collection("regulations").create_index("type", unique=False)
+    print("creating regulations indexes...")
+    db.get_collection("regulations").create_index("type", unique=False)
 
-    # reg_sm_data = []
-    # iosa_sections_files = [
-    #     x for x in glob("data/parsed_iosa/iosa_*.json") if "map" not in x
-    # ]
-    # for iosa_section_file in iosa_sections_files:
-    #     with open(iosa_section_file, "r") as f:
-    #         file_content = f.read()
-    #         section_json = json.loads(file_content)
-    #         # write to the mongo database
-    #         db.get_collection("regulations").find_one_and_update(
-    #             {"_id": iosa_e16r2_id},
-    #             {"$push": {"sections": section_json}},
-    #         )
+    reg_sm_data = []
+    iosa_sections_files = [
+        x for x in glob("data/parsed_iosa/iosa_*.json") if "map" not in x
+    ]
+    for iosa_section_file in iosa_sections_files:
+        with open(iosa_section_file, "r") as f:
+            file_content = f.read()
+            section_json = json.loads(file_content)
+            # write to the mongo database
+            db.get_collection("regulations").find_one_and_update(
+                {"_id": iosa_e16r2_id},
+                {"$push": {"sections": section_json}},
+            )
     db.get_collection("regulations_source_maps").delete_many({"code":"G-117 117"})
     db.get_collection("regulations_source_maps").delete_many({"code":"G-109 109"})
     db.get_collection("regulations_source_maps").delete_many({"code":"G-91 91"})
@@ -383,154 +383,154 @@ def seed_routine():
             gacar_map["regulation_id"] = gacar_id
             db.get_collection("regulations_source_maps").insert_one(gacar_map)
 
-    # print("seeding unstructured manuals...")
-    # db.get_collection("unstructured_manuals").insert_many(
-    #     [x.model_dump() for x in seed_unstructured_manuals]
-    # )
-    # print("creating unstructured manuals indexes...")
-    # db.get_collection("unstructured_manuals").create_index("name", unique=True)
+    print("seeding unstructured manuals...")
+    db.get_collection("unstructured_manuals").insert_many(
+        [x.model_dump() for x in seed_unstructured_manuals]
+    )
+    print("creating unstructured manuals indexes...")
+    db.get_collection("unstructured_manuals").create_index("name", unique=True)
 
-    # print("seeding fs index...")
-    # # TODO-GALAL add the rest of the oma chapters here
-    # fs_index_chat_doc_ids = {
-    #     "nesma_oma_ch15.pdf": "e1fb39f6-9c86-4b58-8ccb-0aebb1dbf075",
-    #     "nesma_oma_ch12.pdf": "79a57df5-5047-413f-9b88-68abc13b98a5",
-    #     "nesma_oma_ch1.pdf": "3de78336-42a9-4920-a916-91a4144db589",
-    # }
+    print("seeding fs index...")
+    # TODO-GALAL add the rest of the oma chapters here
+    fs_index_chat_doc_ids = {
+        "nesma_oma_ch15.pdf": "e1fb39f6-9c86-4b58-8ccb-0aebb1dbf075",
+        "nesma_oma_ch12.pdf": "79a57df5-5047-413f-9b88-68abc13b98a5",
+        "nesma_oma_ch1.pdf": "3de78336-42a9-4920-a916-91a4144db589",
+    }
 
-    # # # # RXI
-    # for file_path in glob(r"data/RXI/*.pdf"):
-    #     filename = re.split(r"[\\|/]", file_path)[-1]
+    # # # RXI
+    for file_path in glob(r"data/RXI/*.pdf"):
+        filename = re.split(r"[\\|/]", file_path)[-1]
         
-    #     try:
-    #         z_tree = ZPDFTree(file_path=file_path)
-    #         tree = z_tree.get_cache_transformed()
+        try:
+            z_tree = ZPDFTree(file_path=file_path)
+            tree = z_tree.get_cache_transformed()
 
-    #     except:
-    #         tree = None
+        except:
+            tree = None
 
-    #     fs_index_entry = FSIndexFile(
-    #         username="cwael",
-    #         datetime=datetime.now(),
-    #         file_type=IndexFileType.AIRLINES_MANUAL,
-    #         filename=filename,
-    #         doc_uuid=(
-    #             fs_index_chat_doc_ids[filename]
-    #             if fs_index_chat_doc_ids.get(filename) != None
-    #             else str(uuid4())
-    #         ),
-    #         doc_status=ChatDOCStatus.PARSED,
-    #         organization="AeroSync",
-    #         airline=str(ryad_airline_id),
-    #         args={"toc_info": tree} if tree else {},
-    #     )
+        fs_index_entry = FSIndexFile(
+            username="cwael",
+            datetime=datetime.now(),
+            file_type=IndexFileType.AIRLINES_MANUAL,
+            filename=filename,
+            doc_uuid=(
+                fs_index_chat_doc_ids[filename]
+                if fs_index_chat_doc_ids.get(filename) != None
+                else str(uuid4())
+            ),
+            doc_status=ChatDOCStatus.PARSED,
+            organization="AeroSync",
+            airline=str(ryad_airline_id),
+            args={"toc_info": tree} if tree else {},
+        )
 
-    #     mdb_result = db.get_collection("fs_index").insert_one(
-    #         fs_index_entry.model_dump()
-    #     )
+        mdb_result = db.get_collection("fs_index").insert_one(
+            fs_index_entry.model_dump()
+        )
 
-    #     file_id = str(mdb_result.inserted_id)
+        file_id = str(mdb_result.inserted_id)
 
-    #     # Cache tree
-    #     if tree:
-    #         z_tree.save_cache(fs_index_entry.doc_uuid)
+        # Cache tree
+        if tree:
+            z_tree.save_cache(fs_index_entry.doc_uuid)
 
-    #     dst_path = f"public/airlines_files/manuals/{file_id}.pdf"
-    #     shutil.copy2(file_path, dst_path)
-    #     print(f"file map {file_path} -> {dst_path}")
+        dst_path = f"public/airlines_files/manuals/{file_id}.pdf"
+        shutil.copy2(file_path, dst_path)
+        print(f"file map {file_path} -> {dst_path}")
 
-    # # # Nesma
-    # for file_path in glob(r"data/nesma/*.pdf"):
-    #     filename = re.split(r"[\\|/]", file_path)[-1]
+    # # Nesma
+    for file_path in glob(r"data/nesma/*.pdf"):
+        filename = re.split(r"[\\|/]", file_path)[-1]
 
-    #     try:
-    #         z_tree = ZPDFTree(file_path=file_path)
-    #         tree = z_tree.get_cache_transformed()
+        try:
+            z_tree = ZPDFTree(file_path=file_path)
+            tree = z_tree.get_cache_transformed()
 
-    #     except:
-    #         tree = None
+        except:
+            tree = None
 
-    #     fs_index_entry = FSIndexFile(
-    #         username="cwael",
-    #         datetime=datetime.now(),
-    #         file_type=IndexFileType.AIRLINES_MANUAL,
-    #         filename=filename,
-    #         doc_uuid=(
-    #             fs_index_chat_doc_ids[filename]
-    #             if fs_index_chat_doc_ids.get(filename) != None
-    #             else str(uuid4())
-    #         ),
-    #         doc_status=ChatDOCStatus.PARSED,
-    #         organization="AeroSync",        
-    #         airline=str(nesma_airline_id),
-    #         args={"toc_info": tree} if tree else {},
-    #     )
+        fs_index_entry = FSIndexFile(
+            username="cwael",
+            datetime=datetime.now(),
+            file_type=IndexFileType.AIRLINES_MANUAL,
+            filename=filename,
+            doc_uuid=(
+                fs_index_chat_doc_ids[filename]
+                if fs_index_chat_doc_ids.get(filename) != None
+                else str(uuid4())
+            ),
+            doc_status=ChatDOCStatus.PARSED,
+            organization="AeroSync",        
+            airline=str(nesma_airline_id),
+            args={"toc_info": tree} if tree else {},
+        )
 
-    #     mdb_result = db.get_collection("fs_index").insert_one(
-    #         fs_index_entry.model_dump()
-    #     )
+        mdb_result = db.get_collection("fs_index").insert_one(
+            fs_index_entry.model_dump()
+        )
 
-    #     file_id = str(mdb_result.inserted_id)
+        file_id = str(mdb_result.inserted_id)
 
-    #     # Cache tree
-    #     if tree:
-    #         z_tree.save_cache(fs_index_entry.doc_uuid)
+        # Cache tree
+        if tree:
+            z_tree.save_cache(fs_index_entry.doc_uuid)
 
-    #     dst_path = f"public/airlines_files/manuals/{file_id}.pdf"
-    #     shutil.copy2(file_path, dst_path)
-    #     print(f"file map {file_path} -> {dst_path}")
+        dst_path = f"public/airlines_files/manuals/{file_id}.pdf"
+        shutil.copy2(file_path, dst_path)
+        print(f"file map {file_path} -> {dst_path}")
 
-    # # db.get_collection("fs_index").insert_many(
-    # #     [x.model_dump() for x in seed_fs_index_files]
-    # # )
+    # db.get_collection("fs_index").insert_many(
+    #     [x.model_dump() for x in seed_fs_index_files]
+    # )
 
-    # print("creating fs index indexes...")
-    # db.get_collection("fs_index").create_index("doc_uuid", unique=False)
-    # db.get_collection("fs_index").create_index("username", unique=False)
-    # db.get_collection("fs_index").create_index("filename", unique=False)
+    print("creating fs index indexes...")
+    db.get_collection("fs_index").create_index("doc_uuid", unique=False)
+    db.get_collection("fs_index").create_index("username", unique=False)
+    db.get_collection("fs_index").create_index("filename", unique=False)
 
-    # print("seeding ai tasks...")
-    # db.get_collection("ai_tasks").insert_many([x.model_dump() for x in seed_ai_tasks])
-    # print("creating ai tasks indexes...")
-    # db.get_collection("ai_tasks").create_index("username", unique=False)
+    print("seeding ai tasks...")
+    db.get_collection("ai_tasks").insert_many([x.model_dump() for x in seed_ai_tasks])
+    print("creating ai tasks indexes...")
+    db.get_collection("ai_tasks").create_index("username", unique=False)
 
-    # print("seeding chat contexts...")
-    # db.get_collection("gpt35t_contexts").insert_one(seed_gpt35t_context.model_dump())
-    # db.get_collection("gpt35t_contexts").create_index("username", unique=False)
+    print("seeding chat contexts...")
+    db.get_collection("gpt35t_contexts").insert_one(seed_gpt35t_context.model_dump())
+    db.get_collection("gpt35t_contexts").create_index("username", unique=False)
 
-    # print("seeding logs...")
-    # db.get_collection("logs").insert_one(seed_log.model_dump())
-    # print("creating logs indexes...")
-    # db.get_collection("logs").create_index([("date", pymongo.DESCENDING)], unique=False)
+    print("seeding logs...")
+    db.get_collection("logs").insert_one(seed_log.model_dump())
+    print("creating logs indexes...")
+    db.get_collection("logs").create_index([("date", pymongo.DESCENDING)], unique=False)
 
-    # # seed regulations source map
-    # reg_sm_files = [x for x in glob("data/parsed_iosa/iosa_*_map.json")]
-    # for sm_file in reg_sm_files:
-    #     with open(sm_file, "r") as f:
-    #         json_obj = json.loads(f.read())
-    #         for x in json_obj:
-    #             x["regulation_id"] = iosa_e16r2_id
-    #         reg_sm_data += json_obj
+    # seed regulations source map
+    reg_sm_files = [x for x in glob("data/parsed_iosa/iosa_*_map.json")]
+    for sm_file in reg_sm_files:
+        with open(sm_file, "r") as f:
+            json_obj = json.loads(f.read())
+            for x in json_obj:
+                x["regulation_id"] = iosa_e16r2_id
+            reg_sm_data += json_obj
 
-    # print("seeding regulations source maps...")
-    # db.get_collection("regulations_source_maps").insert_many(reg_sm_data)
-    # print("creating regulations source maps indexes...")
-    # db.get_collection("regulations_source_maps").create_index("code", unique=True)
+    print("seeding regulations source maps...")
+    db.get_collection("regulations_source_maps").insert_many(reg_sm_data)
+    print("creating regulations source maps indexes...")
+    db.get_collection("regulations_source_maps").create_index("code", unique=True)
 
 
-    # print("creating airlines indexes...")
-    # db.get_collection("airlines").create_index("organization", unique=False)
+    print("creating airlines indexes...")
+    db.get_collection("airlines").create_index("organization", unique=False)
 
-    # print("seeding flow reports...")
-    # for report in seed_flow_reports:
-    #     report = report.model_dump()
-    #     report["regulation_id"] = str(iosa_e16r2_id)
-    #     report["sub_sections"][0]["checklist_items"][0]["checkins"] = []
-    #     report["airline"] = str(cairo_airline_id)
-    #     db.get_collection("flow_reports").insert_one(report)
-    # print("creating flow report indices...")
-    # db.get_collection("flow_reports").create_index("organization", unique=False)
-    # db.get_collection("flow_reports").create_index("creator", unique=False)
+    print("seeding flow reports...")
+    for report in seed_flow_reports:
+        report = report.model_dump()
+        report["regulation_id"] = str(iosa_e16r2_id)
+        report["sub_sections"][0]["checklist_items"][0]["checkins"] = []
+        report["airline"] = str(cairo_airline_id)
+        db.get_collection("flow_reports").insert_one(report)
+    print("creating flow report indices...")
+    db.get_collection("flow_reports").create_index("organization", unique=False)
+    db.get_collection("flow_reports").create_index("creator", unique=False)
 
 
 seed_routine()
