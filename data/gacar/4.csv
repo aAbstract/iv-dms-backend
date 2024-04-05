@@ -1,0 +1,587 @@
+﻿No,GACAR PART,SUBPART,APPENDIX,SECTION,SUB-SECTION,SUB-SECTION,OPS AREA,AREAS,SUBPART / APPENDIX HEADING,SUBPART SECTION / APPENDIX SECTION HEADING,REGULATION  STATEMENT,,,,,,
+1,4,SUBPART A,-,4.1,,a,-,,GENERAL,General,"(a) For the purpose of this part, an aviation safety occurrence means any safety-related event which endangers or which, if not corrected or addressed, could endanger an aircraft, its
+occupants, or any other person.",,,,,,
+1,4,SUBPART A,-,4.1,,b,-,,GENERAL,General,"(b) Aviation safety occurrences that represent a risk to aviation safety require mandatory reporting to the President. Mandatory occurrence reporting system requires certificate holders to
+report accidents, incidents, aircraft defects, and other occurrences related to failures of facilities and systems in the air navigation services, aerodromes, and ground services.",,,,,,
+1,4,SUBPART A,-,4.1,,c,-,,GENERAL,General,(c) The reporting of occurrences not covered under the mandatory reporting system is referred to as a voluntary reporting system. The voluntary reporting system includes confidential reporting of safety issues by any person.,,,,,,
+1,4,SUBPART A,-,4.1,,d,-,,GENERAL,General,"(d)Aviation safety occurrences include aircraft accidents, incidents, aircraft defects, failure of facilities or systems in aerodromes and air traffic services, failure of air navigation facility, or use of erroneous procedures that become hazardous to the safe operation of aircraft.",,,,,,
+1,4,SUBPART A,-,4.3,,a,-,,GENERAL,Purpose and Scope,"This part –
+(a) Stipulates the requirements to certificate holders for initial notification and reporting of accidents and incidents to the AIB and the President.",,,,,,
+1,4,SUBPART A,-,4.3,,b,-,,GENERAL,Purpose and Scope,"(b) Describes that notwithstanding the initial notification of occurrence under the mandatory reporting system, the certificate holders must report the incident to the AIB and President, giving all relevant details.",,,,,,
+1,4,SUBPART A,-,4.3,,c,-,,GENERAL,Purpose and Scope,"(c) Describes the procedures of voluntary occurrences reporting if any person wishes to submit a confidential reporting of occurrences. The confidential report may be annotated
+‘CONFIDENTIAL’ and addressed to the President.",,,,,,
+1,4,SUBPART A,-,4.3,,d1 ,-,,GENERAL,Purpose and Scope,"(d) Requires that for investigating accidents and serious incidents:
+(1) Preservation of aircraft, aircraft contents, records, or other evidence following an accident or serious incident.",,,,,,
+1,4,SUBPART A,-,4.3,,d2,-,,GENERAL,Purpose and Scope,"(2) Preservation of records and equipment relating to aerodromes, ANS, or other services linking to the accidents or serious incidents.",,,,,,
+1,4,SUBPART A,-,4.3,,e,-,,GENERAL,Purpose and Scope,"(e) Lays down requirements to all certificate and authorization holders to report latent hazards identified during internal audits, inspections, GACAR oversights, flight data analysis, ATS
+recorder analysis, and trend analysis.",,,,,,
+1,4,SUBPART A,-,4.3,,f,-,,GENERAL,Purpose and Scope,"(f) Prescribes requirements for service providers to submit reports to the President on operational performance and aircraft fleet statistics, including incident and accident investigation reports.",,,,,,
+1,4,SUBPART A,-,4.3,,g,-,,GENERAL,Purpose and Scope,"(g) Prescribes an integrated set of regulatory requirements for data collection, analysis, and establishing a safety database and information system to manage civil aviation safety under
+the Kingdom of Saudi Arabia’s State Safety Program.",,,,,,
+1,4,SUBPART A,-,4.5,,a,-,,GENERAL,Applicability.,"(a) This part is applicable for notifying and reporting occurrences related to all Saudi Arabian registered aircraft and ultra-light vehicles operating within the territorial limits or elsewhere,
+irrespective of its operation base or place of occurrence.",,,,,,
+1,4,SUBPART A,-,4.5,,b,-,,GENERAL,Applicability.,(b) This part is also applicable for reporting accidents and incidents involving foreign-registered aircraft within the territory of the Kingdom of Saudi Arabia.,,,,,,
+1,4,SUBPART A,-,4.5,,c1,-,,GENERAL,Applicability.,"(c) This part is applicable for notifying and reporting safety occurrences in the following
+approved organizations:
+(1) All certificate holders operating under GACAR Part 121, Part 135, Part 125, authorization holders operating under GACAR Part 91, and aircraft repair stations certificated under GACAR Part 145.",,,,,,
+1,4,SUBPART A,-,4.5,,c2,-,,GENERAL,Applicability.,"(2) All training schools approved under GACAR Part 141, and other training organizations approved under Part 142, 143 if they use aircraft for the training purpose. The aerial work operators approved under Part 133 must also comply the requirements of
+this part.",,,,,,
+1,4,SUBPART A,-,4.5,,c3,-,,GENERAL,Applicability.,"(3) Aerodrome and heliports operators certified or authorized as applicable under GACAR Part 137, Part 138, and Part 139; Ground Service providers certificated under GACAR Part 151.",,,,,,
+1,4,SUBPART A,-,4.5,,c4,-,,GENERAL,Applicability.,(4) Organizations dealing with the transportation of dangerous goods as prescribed by GACAR Part 109.,,,,,,
+1,4,SUBPART A,-,4.5,,c5,-,,GENERAL,Applicability.,"(5) Air Traffic Services providers certified under GACAR § 171, and Aeronautical Telecommunication Service providers operating as per the provisions of GACAR § 173;
+and",,,,,,
+1,4,SUBPART A,-,4.5,,c6,-,,GENERAL,Applicability.,"(6) Aeronautical Information Service providers approved under GACAR § 175, Instrument Flight Procedures Service provider certificated under the provisions of GACAR § 172, and Meteorological Services providers operating in accordance with
+requirements of GACAR § 179.",,,,,,
+1,4,SUBPART A,-,4.5,,d1 ,-,,GENERAL,Applicability.,"(d) The following occurrences must also be reported:
+(1) Suspected unapproved or bogus parts used or intended for use on aeronautical products.",,,,,,
+1,4,SUBPART A,-,4.5,,d2,-,,GENERAL,Applicability.,(2) A directed bright light or laser attack on an aircraft or air traffic control facility.,,,,,,
+1,4,SUBPART A,-,4.5,,d3,-,,GENERAL,Applicability.,(3) Pilots reporting unlawful interference required by GACAR § 91.15(b) and suspected bomb threats.,,,,,,
+1,4,SUBPART A,-,4.5,,e,-,,GENERAL,Applicability.,(e) This part stipulates the requirement for certificate holders to investigate serious incidents and submit reports to the AIB/GACA.,,,,,,
+1,4,SUBPART A,-,4.5,,f,-,,GENERAL,Applicability.,"(f) This part stipulates the requirements for submitting Operational/Engineering statistics and Safety Performance reports by aircraft operators, repair stations, ANS providers,
+aerodromes, and ground services providers.",,,,,,
+1,4,SUBPART A,-,4.7,,a,-,,GENERAL,Mandatory and Voluntary Reporting System.,"(a) Each organization certificated or authorized by GACA as referred in § 4.5 must establish a mandatory reporting system to facilitate the collection of details of occurrences within the
+organization.",,,,,,
+1,4,SUBPART A,-,4.7,,b,-,,GENERAL,Mandatory and Voluntary Reporting System.,(b) Each organization certificated or authorized by GACA as referred in § 4.5 must establish a voluntary reporting system to facilitate the collection of details of occurrences that may not be captured by the mandatory reporting system. Any individual in the organization can report safety issues through the internal reporting channel.,,,,,,
+1,4,SUBPART A,-,4.7,,c,-,,GENERAL,Mandatory and Voluntary Reporting System.,"(c) Organizations depending on the size and complexity, must designate one or more persons tohandle independently the collection, evaluation, processing, analysis, and storage of details of occurrences reported.",,,,,,
+1,4,SUBPART A,-,4.7,,d,-,,GENERAL,Mandatory and Voluntary Reporting System.,"(d) The details of internal occurrence reporting procedures for the system referred in § 4.7 (a) and (b), including the provision for protection of reporting person and reported information under
+voluntary reporting must be described in the organization’s procedure manual.",,,,,,
+1,4,SUBPART A,-,4.7,,e,-,,GENERAL,Mandatory and Voluntary Reporting System.,"(e) Under voluntary safety reporting system, any person can report aviation safety issues to the President using the GACA web-based reporting system or hard copy enclosed in a cover
+mentioning “Confidential Report”.",,,,,,
+1,4,SUBPART A,-,4.9,,a,-,,GENERAL,Language if Notification and Reports,(a) All notifications required under Subpart B and C of this part must be prepared in English or Arabic languages.,,,,,,
+1,4,SUBPART A,-,4.9,,b,-,,GENERAL,Language if Notification and Reports,(b) All reports required under Subpart D must be prepared in the English language.,,,,,,
+1,4,SUBPART B,-,4.11,,a,-,,NOTIFICATION AND REPORTING OF ACCIDENTS AND INCIDENTS,Notification of Accidents and Serious Incidents,"(a) Each pilot-in-command of an aircraft involved in an accident or serious incident must notify both the President and Aviation Investigation Bureau (AIB) as soon as practicable. If the PIC is unable to report or the aircraft is missing, the operator must notify the accident.",,,,,,
+1,4,SUBPART B,-,4.11,,b1,-,,NOTIFICATION AND REPORTING OF ACCIDENTS AND INCIDENTS,Notification of Accidents and Serious Incidents,"(b) The accident or incident notification referred to in § 4.9 (a) must be made in a form and manner acceptable to the President. The minimum information required in the initial notification must include, where applicable and ascertainable:
+(1) Name of the operator/owner",,,,,,
+1,4,SUBPART B,-,4.11,,b2,-,,NOTIFICATION AND REPORTING OF ACCIDENTS AND INCIDENTS,Notification of Accidents and Serious Incidents,"(2) Date, time, and place of the accident / serious incident; and",,,,,,
+1,4,SUBPART B,-,4.11,,b3,-,,NOTIFICATION AND REPORTING OF ACCIDENTS AND INCIDENTS,Notification of Accidents and Serious Incidents,"(3) Type, nationality, and registration marks of the aircraft; and",,,,,,
+1,4,SUBPART B,-,4.11,,b4,-,,NOTIFICATION AND REPORTING OF ACCIDENTS AND INCIDENTS,Notification of Accidents and Serious Incidents,(4) Type of operation; and,,,,,,
+1,4,SUBPART B,-,4.11,,b5,-,,NOTIFICATION AND REPORTING OF ACCIDENTS AND INCIDENTS,Notification of Accidents and Serious Incidents,(5) Nature of the accident / serious incident,,,,,,
+1,4,SUBPART B,-,4.11,,b6,-,,NOTIFICATION AND REPORTING OF ACCIDENTS AND INCIDENTS,Notification of Accidents and Serious Incidents,"(6) Position or last known position of the aircraft referring to an easily defined
+geographical point; and",,,,,,
+1,4,SUBPART B,-,4.11,,b7,-,,NOTIFICATION AND REPORTING OF ACCIDENTS AND INCIDENTS,Notification of Accidents and Serious Incidents,(7) Name of the pilot-in-command of the aircraft,,,,,,
+1,4,SUBPART B,-,4.11,,b8,-,,NOTIFICATION AND REPORTING OF ACCIDENTS AND INCIDENTS,Notification of Accidents and Serious Incidents,(8) The last point of departure of the aircraft,,,,,,
+1,4,SUBPART B,-,4.11,,b9,-,,NOTIFICATION AND REPORTING OF ACCIDENTS AND INCIDENTS,Notification of Accidents and Serious Incidents,(9) Next point of intended landing; and,,,,,,
+1,4,SUBPART B,-,4.11,,b10,-,,NOTIFICATION AND REPORTING OF ACCIDENTS AND INCIDENTS,Notification of Accidents and Serious Incidents,"(10) Description of the sky condition, precipitation, wind velocity, visibility, and the number of persons on board the aircraft.",,,,,,
+1,4,SUBPART B,-,4.11,,b11,-,,NOTIFICATION AND REPORTING OF ACCIDENTS AND INCIDENTS,Notification of Accidents and Serious Incidents,(11)Number of fatalities and seriously injured including crew members,,,,,,
+1,4,SUBPART B,-,4.11,,b12,-,,NOTIFICATION AND REPORTING OF ACCIDENTS AND INCIDENTS,Notification of Accidents and Serious Incidents,(12)Number of fatalities and seriously injured on the ground due to the accident; and,,,,,,
+1,4,SUBPART B,-,4.11,,b13,-,,NOTIFICATION AND REPORTING OF ACCIDENTS AND INCIDENTS,Notification of Accidents and Serious Incidents,(13)Details of damage to the aircraft.,,,,,,
+1,4,SUBPART B,,4.11,,,-,,NOTIFICATION AND REPORTING OF ACCIDENTS AND INCIDENTS,Notification of Accidents and Serious Incidents,Aircraft operators must report the serious incidents listed in Appendix A of this part.,,,,,,
+1,4,SUBPART B,,4.13,,a,-,,NOTIFICATION AND REPORTING OF ACCIDENTS AND INCIDENTS,Reporting details of Accident and Serious Incident,"(a) The PIC must report the accident/incident details in a form and manner acceptable to the President and the AIB within 48 hours of the occurrence. If the PIC is unable to report, the
+operator must submit the report.",,,,,,
+1,4,SUBPART B,,4.13,,b,-,,NOTIFICATION AND REPORTING OF ACCIDENTS AND INCIDENTS,Reporting details of Accident and Serious Incident,"(b) The details required in § 4.11 (a) must include a statement by each flight crew member who was on the aircraft at the time of the accident or serious incident, detailing the facts, conditions, and circumstances relating to the accident.",,,,,,
+1,4,SUBPART B,,4.13,,c,-,,NOTIFICATION AND REPORTING OF ACCIDENTS AND INCIDENTS,Reporting details of Accident and Serious Incident,"(c) Where a flight crew member is incapacitated, the statement required in § 4.11 (b) shall be submitted as soon as the flight crew member is able.",,,,,,
+1,4,SUBPART B,,4.13,,d,-,,NOTIFICATION AND REPORTING OF ACCIDENTS AND INCIDENTS,Reporting details of Accident and Serious Incident,"(d) Each AIS provider certificated under GACAR Part 175 and IFPS provider certificated under GACAR Part 172 must submit an incident report related to promulgated information or flight procedures within 24 hours of the incident. The report must contain a brief description of the incident mentioning the name of the notifying or reporting person, publication, date, and time of the incident.",,,,,,
+1,4,SUBPART B,,4.13,,e,-,,NOTIFICATION AND REPORTING OF ACCIDENTS AND INCIDENTS,Reporting details of Accident and Serious Incident,"(e) The operator of an aircraft carrying dangerous goods that is involved in a dangerous goods related accident or serious incident must notify the President as soon as practicable
+and report the details within 48 hours of the occurrence. Any dangerous goods accidents and serious incident other than onboard occurrences must be notified and reported by the concerned ground service agencies, freight forwarders /packers involved.",,,,,,
+1,4,SUBPART B,,4.15,,1,-,,NOTIFICATION AND REPORTING OF ACCIDENTS AND INCIDENTS,Notification of Incidents,"The incidents that are not classified under serious incidents must be reported to the President as soon as practicable. The incident notification must include at least the
+following information:
+(1) Name of the organization and contact details",,,,,,
+1,4,SUBPART B,,4.15,,2,-,,NOTIFICATION AND REPORTING OF ACCIDENTS AND INCIDENTS,Notification of Incidents,"(2) Date, time, and place of the incident; and",,,,,,
+1,4,SUBPART B,,4.15,,3,-,,NOTIFICATION AND REPORTING OF ACCIDENTS AND INCIDENTS,Notification of Incidents,"(3) Brief description of events, identify the applicable aircraft, vehicles or system, aerodrome,and publication such as map, charts, and procedures; class and or division of dangerous
+goods involved and the extent of damage to the aircraft or equipment or injury to the person.",,,,,,
+1,4,SUBPART B,,4.15,,a,-,,NOTIFICATION AND REPORTING OF ACCIDENTS AND INCIDENTS,Notification of Incidents,"The following incidents are to be notified to the President.
+(a) All incidents related to aircraft operations under the operator’s certification/authorization as applicable in accordance with GACAR Part 121, Part 125, Part 135, and
+Part 91. The incidents involving transportation of dangerous goods by air under theprovisions of GACAR part 109. Aircraft operators must report the significant incidents listed in Appendix B of this part.",,,,,,
+1,4,SUBPART B,,4.15,,b,-,,NOTIFICATION AND REPORTING OF ACCIDENTS AND INCIDENTS,Notification of Incidents,"(b) Any incidents related to technical conditions, maintenance, and repair of the aircraft operating under the approvals or certificate of authorization as mentioned in 4.13(a) and
+GACAR Part 145. Aircraft maintenance organizations must report the incidents listed in Appendix C of this part.",,,,,,
+1,4,SUBPART B,,4.15,,c1,-,,NOTIFICATION AND REPORTING OF ACCIDENTS AND INCIDENTS,Notification of Incidents,"(c) Incidents of facility malfunction and promulgated information incidents as appropriate to the below mentioned service providers:
+(1) ATS providers certified under GACAR Part 171; and",,,,,,
+1,4,SUBPART B,,4.15,,c2,-,,NOTIFICATION AND REPORTING OF ACCIDENTS AND INCIDENTS,Notification of Incidents,(2) Instrument Flight Procedures service provider certified under GACAR Part 172.,,,,,,
+1,4,SUBPART B,,4.15,,c3,-,,NOTIFICATION AND REPORTING OF ACCIDENTS AND INCIDENTS,Notification of Incidents,(3) Aeronautical Telecommunication Service providers operating under the provisions of GACAR Part 173.,,,,,,
+1,4,SUBPART B,,4.15,,c4,-,,NOTIFICATION AND REPORTING OF ACCIDENTS AND INCIDENTS,Notification of Incidents,(4) AIS providers certified under GACAR Part 175; and,,,,,,
+1,4,SUBPART B,,4.15,,c5,-,,NOTIFICATION AND REPORTING OF ACCIDENTS AND INCIDENTS,Notification of Incidents,(5) Meteorological service providers operating under the provisions of GACAR Part 179.,,,,,,
+1,4,SUBPART B,,4.15,,d,-,,NOTIFICATION AND REPORTING OF ACCIDENTS AND INCIDENTS,Notification of Incidents,"ANS providers must report the incidents listed in Appendix D of this part.
+(d) Incidents related to Aerodromes or Heliport operators certified/authorized under GACAR Part 139, Part 138, and Part 137 as applicable. The incidents listed in Appendix E
+of this part must be reported by the aerodrome services providers.",,,,,,
+1,4,SUBPART B,,4.15,,e,-,,NOTIFICATION AND REPORTING OF ACCIDENTS AND INCIDENTS,Notification of Incidents,(e) Incidents related to Ground Service providers approved under GACAR part 151. Ground services provider must report the incidents listed in Appendix F of this part.,,,,,,
+1,4,SUBPART B,,4.17,,a,-,,NOTIFICATION AND REPORTING OF ACCIDENTS AND INCIDENTS,Reporting Details of Incidents,"(a) Notwithstanding the notification of incidents required under GACAR § 4.13, the person or operator involved in an incident must provide the President with details of the incidents and related remedial measures within 96 hours of the incident. The report must clearly state details of corrective action to restore the facility, rectify the defect, revise procedures, or any other measures such as personnel training.",,,,,,
+1,4,SUBPART B,,4.17,,b,-,,NOTIFICATION AND REPORTING OF ACCIDENTS AND INCIDENTS,Reporting Details of Incidents,(b) The reporting of details of the incident mentioned in § 4.15 (a) must be in a form and manner acceptable to the President.,,,,,,
+1,4,SUBPART B,,4.19,,a,-,,NOTIFICATION AND REPORTING OF ACCIDENTS AND INCIDENTS,Investigation of Incidents,"(a) Unless otherwise notified by the KSA AIB, where an aircraft incident investigation is  to be performed by the KSA AIB, a certified organization mentioned in § 4.13 must investigate all serious incidents to identify the root causes and initiate timely remedial actions. The incident investigation report must be submitted to the President as per the acceptable timeline.",,,,,,
+1,4,SUBPART B,,4.19,,b,-,,NOTIFICATION AND REPORTING OF ACCIDENTS AND INCIDENTS,Investigation of Incidents,"(b) All scheduled commercial air operators must establish a Permanent Investigation Board (PIB). Unscheduled commercial air operators, aerial operators, operators under GACAR Part 125, and pilot schools or training centers using aircraft must have provisions to investigate serious incidents using internal resources or appropriate external agency acceptable to the President.",,,,,,
+1,4,SUBPART B,,4.19,,c,-,,NOTIFICATION AND REPORTING OF ACCIDENTS AND INCIDENTS,Investigation of Incidents,"(c) In case of an aircraft incident of authorization holder operating under GACAR Part 91 or owner-operated aircraft, where the internal investigation may not be feasible, the
+President will investigate the serious incident.",,,,,,
+1,4,SUBPART B,,4.19,,d,-,,NOTIFICATION AND REPORTING OF ACCIDENTS AND INCIDENTS,Investigation of Incidents,"(d) Air Navigation Service providers must establish a Board and investigate all serious incidents, including AIRPROX and other reportable incidents.",,,,,,
+1,4,SUBPART B,,4.19,,e,-,,NOTIFICATION AND REPORTING OF ACCIDENTS AND INCIDENTS,Investigation of Incidents,(e) Public Aerodrome operators and Ground Service providers must establish a Board and investigate all ground accidents and serious incidents. The aircraft operator is responsible for investigating ground accidents if an aircraft is involved.,,,,,,
+1,4,SUBPART B,,4.19,,f,-,,NOTIFICATION AND REPORTING OF ACCIDENTS AND INCIDENTS,Investigation of Incidents,"(f) All accidents and serious incidents involving dangerous goods must be investigated by a board constituted by the concerned aircraft operator or ground service providers
+based on the occurrence involved onboard or on-ground.",,,,,,
+1,4,SUBPART B,,4.19,,g,-,,NOTIFICATION AND REPORTING OF ACCIDENTS AND INCIDENTS,Investigation of Incidents,"(g) On completing the investigation, the aircraft operators and service providers must submit the investigation report to the President no later than 90 days after the incident.",,,,,,
+1,4,SUBPART B,,4.19,,h,-,,NOTIFICATION AND REPORTING OF ACCIDENTS AND INCIDENTS,Investigation of Incidents,"(h) The investigation report must be in a form and manner acceptable to the President. The certificate holders may propose any specific actions to the President to prevent the
+recurrence of similar incidents in the industry.",,,,,,
+1,4,SUBPART B,,4.19,,i,-,,NOTIFICATION AND REPORTING OF ACCIDENTS AND INCIDENTS,Investigation of Incidents,"(i) In Aerodromes where no certificated ground service providers are available to report any ground services-related occurrences, the aerodrome operator or the air operator responsible to perform such services must notify, report, and investigate such occurrences.",,,,,,
+1,4,SUBPART C,,4.21,,a,-,,REPORTING AND INVESTIGATION OF DEFECTS,Reporting of Aircraft/ Component Major Defects,"(a) For the purpose of this part, a major defect is defined as follows:
+An aircraft defect that may affect the safety of the aircraft or cause the aircraft to become a danger to persons or property; or a component defect may affect the aircraft's safety or cause a danger to persons or property if such component is fitted to an aircraft.",,,,,,
+1,4,SUBPART C,,4.21,,b,-,,REPORTING AND INVESTIGATION OF DEFECTS,Reporting of Aircraft/ Component Major Defects,"(b) For the purpose of this part, a minor defect means a typical defect with minor influence on safety.",,,,,,
+1,4,SUBPART C,,4.21,,c1,-,,REPORTING AND INVESTIGATION OF DEFECTS,Reporting of Aircraft/ Component Major Defects,"(c) An aircraft operator must notify the President of all major defects as soon as practicable. The notification must contain at least the following details:
+(1) Name of the owner/operator",,,,,,
+1,4,SUBPART C,,4.21,,c2,-,,REPORTING AND INVESTIGATION OF DEFECTS,Reporting of Aircraft/ Component Major Defects,(2) Aircraft type and registration mark,,,,,,
+1,4,SUBPART C,,4.21,,c3,-,,REPORTING AND INVESTIGATION OF DEFECTS,Reporting of Aircraft/ Component Major Defects,(3) Date and place of occurrence of the defect; and,,,,,,
+1,4,SUBPART C,,4.21,,c4,-,,REPORTING AND INVESTIGATION OF DEFECTS,Reporting of Aircraft/ Component Major Defects,"(4) Details of the defect(s) and the rectification actions, if any.",,,,,,
+1,4,SUBPART C,,4.21,,d,-,,REPORTING AND INVESTIGATION OF DEFECTS,Reporting of Aircraft/ Component Major Defects,"(d) The operator must report details of major defects to the President within 96 hours of the occurrence and reporting of major defects must be in a form and manner acceptable to the
+President. The major defects listed in Appendix G of this part must be reported to the President.",,,,,,
+1,4,SUBPART C,,4.21,,e,-,,REPORTING AND INVESTIGATION OF DEFECTS,Reporting of Aircraft/ Component Major Defects,"(e) When an operator outsources the aircraft maintenance activities to an approved aircraft maintenance organization (AMO), the defect reporting responsibility of the operator may be transferred to the maintenance organization. In such a case, both the operator and maintenance organization must set out procedures in the maintenance control and procedure manual,
+respectively.",,,,,,
+1,4,SUBPART C,,4.23,,a,-,,REPORTING AND INVESTIGATION OF DEFECTS,Investigation of Major Defects,"(a) All scheduled commercial air operators approved under GACAR Part 121, Part 135, and maintenance organizations approved under GACAR Part 145 must establish a system for
+investigating major defects.",,,,,,
+1,4,SUBPART C,,4.23,,b,-,,REPORTING AND INVESTIGATION OF DEFECTS,Investigation of Major Defects,"(b) All non-commercial operators certified under Part 125 and authorization holders operating under Part 91 and all pilot schools and training centres using aircraft may utilize the service of the maintenance organization, manufacturers, or other suitable sources for the investigation of major defects.",,,,,,
+1,4,SUBPART C,,4.23,,c,-,,REPORTING AND INVESTIGATION OF DEFECTS,Investigation of Major Defects,"(c) The major defects referred to in § 4.19 must be investigated by qualified mechanics. A representative from GACA may associate in the investigation process at the discretion of the
+President who may seek the investigating organization to submit components, worksheets, documents, or other information relevant to the investigation.",,,,,,
+1,4,SUBPART C,,4.23,,d,-,,REPORTING AND INVESTIGATION OF DEFECTS,Investigation of Major Defects,"(d) The investigations of major defects must be completed within 30 days of the date of occurrence. If the investigation is likely to take more than a month, the operator must submit a
+progress report to the President stating the reasons. However, the investigation must be completed within 90 days of occurrence.",,,,,,
+1,4,SUBPART C,,4.23,,e1,-,,REPORTING AND INVESTIGATION OF DEFECTS,Investigation of Major Defects,"(e) The operators or investigation organizations must submit a detailed investigation report to the President. The investigation report must contain at least the following information:
+(1) Identification of parts/ systems involved; and",,,,,,
+1,4,SUBPART C,,4.23,,e2,-,,REPORTING AND INVESTIGATION OF DEFECTS,Investigation of Major Defects,(2)Apparent or actual cause of the defect,,,,,,
+1,4,SUBPART C,,4.23,,e3,-,,REPORTING AND INVESTIGATION OF DEFECTS,Investigation of Major Defects,(3)No of flight hours/landings/cycles since new and since the last inspection for life affected component,,,,,,
+1,4,SUBPART C,,4.23,,e4,-,,REPORTING AND INVESTIGATION OF DEFECTS,Investigation of Major Defects,(4)Corrective actions,,,,,,
+1,4,SUBPART C,,4.23,,e5,-,,REPORTING AND INVESTIGATION OF DEFECTS,Investigation of Major Defects,"(5)Disciplinary action taken against the staff, if any",,,,,,
+1,4,SUBPART C,,4.23,,e6,-,,REPORTING AND INVESTIGATION OF DEFECTS,Investigation of Major Defects,"(6)Whether the investigation is closed or open, including the reasons for not closing the investigation.",,,,,,
+1,4,SUBPART C,,4.23,,f,-,,REPORTING AND INVESTIGATION OF DEFECTS,Investigation of Major Defects,"(f) The objective of the investigation mentioned in § 4.17 is to determine the root causes of the defect rather than identifying the personnel. The organization may take disciplinary action
+against the erring person if it is established that the failure was due to careless or wilful negligence of the person.",,,,,,
+1,4,SUBPART C,,4.23,,g,-,,REPORTING AND INVESTIGATION OF DEFECTS,Investigation of Major Defects,"(g) The aircraft operator must consider all defects, including minor and repetitive, for computing the statistics and determining components/systems reliability indices",,,,,,
+1,4,SUBPART C,,4.25,,a,-,,REPORTING AND INVESTIGATION OF DEFECTS,Reporting of Mechanical Interruptions.,"(a) Each scheduled commercial operator must submit mechanical interruption reports to the president as referred in GACAR § 121.1557, § 135.697, to review the failures, malfunctions, or other technical issues causing mechanical delays of over 15 minutes. The review must be conducted by appropriately qualified persons and maintain all review records.",,,,,,
+1,4,SUBPART C,,4.25,,b,-,,REPORTING AND INVESTIGATION OF DEFECTS,Reporting of Mechanical Interruptions.,(b) The scheduled commercial operators referred to in § 4.23 (a) must submit a consolidated mechanical interruption report every month.,,,,,,
+1,4,SUBPART C,,4.25,,c,-,,REPORTING AND INVESTIGATION OF DEFECTS,Reporting of Mechanical Interruptions.,"(c) Operators under Part 125 must establish a system to ensure that all mechanical irregularities referred to in § 125.457 are entered in the maintenance log and resolved timely for the safe
+operation of the aircraft. Mechanical irregularities reports must be submitted to the President every six months.",,,,,,
+1,4,SUBPART C,,4.27,,a,-,,REPORTING AND INVESTIGATION OF DEFECTS,Review of Mechanical Interruption Reports,(a) Scheduled commercial air operators must carry out a “Daily Review” of the defects reported during the previous day flights.,,,,,,
+1,4,SUBPART C,,4.27,,b,-,,REPORTING AND INVESTIGATION OF DEFECTS,Review of Mechanical Interruption Reports,(b) A representative from the GACA at his discretion may associate with the operator’s daily review meeting or inspection/investigation related to mechanical interruption based on the nature and number of the interruptions and defects reported.,,,,,,
+1,4,SUBPART C,,4.27,,c,-,,REPORTING AND INVESTIGATION OF DEFECTS,Review of Mechanical Interruption Reports,"(c) The President may advise certificate holders to furnish additional information on the mechanical interruptions or defects reviewed, especially on repeated defects and interruptions. The President may further assess the adequacy of the maintenance resources and internal procedures to identify root causes and prevent such recurrence.",,,,,,
+1,4,SUBPART C,,4.27,,d,-,,REPORTING AND INVESTIGATION OF DEFECTS,Review of Mechanical Interruption Reports,"(d) Unscheduled commercial air operators may review all mechanical interruptions/defects periodically depending upon the type of operation and size of the fleet of aircraft, as acceptable to the President.",,,,,,
+1,4,SUBPART C,,4.27,,e,-,,REPORTING AND INVESTIGATION OF DEFECTS,Review of Mechanical Interruption Reports,"(e) Part 125 operators must establish a system of recording, reviewing, and resolving mechanical irregularities as acceptable to the President.",,,,,,
+1,4,SUBPART C,,4.29,,a,-,,REPORTING AND INVESTIGATION OF DEFECTS,Service Difficulty Reporting,"(a) All commercial operators certificated under GACAR Part 121 and Part 135 must submit Service Difficulties Report (SDR) to the President as per the requirements stipulated in GACAR
+§ 121.1553 and § 135.695, respectively.",,,,,,
+1,4,SUBPART C,,4.29,,b,-,,REPORTING AND INVESTIGATION OF DEFECTS,Service Difficulty Reporting,(b) Non-commercial operators certificated under GACAR Part 125 must submit Service Difficulties Report to the President as per the requirements stipulated in GACAR § 125.539.,,,,,,
+1,4,SUBPART C,,4.29,,c,-,,REPORTING AND INVESTIGATION OF DEFECTS,Service Difficulty Reporting,(c) Repair stations certificated under GACAR Part 145 must submit Service Difficulties Report to the President as per the requirements stipulated in GACAR § 145.103.,,,,,,
+1,4,SUBPART C,,4.29,,d,-,,REPORTING AND INVESTIGATION OF DEFECTS,Service Difficulty Reporting,"(d) Notwithstanding the requirements given in § 4.27 (a), (b) and (c) for submission of the reports, the certificate holders must forward a copy of Service Difficulties Reports to the aircraft
+Type Certificate holder and forward a copy of the TC holder’s corrective actions to the President.",,,,,,
+1,4,SUBPART C,,4.31,,a,-,,REPORTING AND INVESTIGATION OF DEFECTS,Reporting and Reviewing of System Failures,"(a) ANS providers must establish a system for recording, reviewing, and rectifying major failures on communication, navigation, and radar equipment. The occurrence reporting system must also include reporting deviations in operating procedures and managing changes in the ANS system. A
+periodic report on facilities and system failures, including internal audit findings, must be submitted in a form and manner acceptable to the President.",,,,,,
+1,4,SUBPART C,,4.31,,b,-,,REPORTING AND INVESTIGATION OF DEFECTS,Reporting and Reviewing of System Failures,"(b) The certificated aerodrome operators must establish a system for recording, reviewing, and rectifying major failures in the aerodrome system. The certificated ground services providers must establish an occurrence reporting system to record, review and rectify major breakdowns of ground
+services equipment. A periodic report on facilities breakdowns, system failures, and internal audit findings must be submitted in a form and manner acceptable to the President.",,,,,,
+1,4,SUBPART D,,4.33,,a,-,,REPORTING OF OPERATIONAL PERFORMANCE AND ENGINEERING STATISTICS,Operational Performance and Engineering Statistics Report,"(a) Each certificate holder operating under GACAR Part 121, Part 135, Part 125, and authorization holders under Part 91 must submit a periodic report on fleet operational performance and engineering statistics to the President.",,,,,,
+1,4,SUBPART D,,4.33,,b,-,,REPORTING OF OPERATIONAL PERFORMANCE AND ENGINEERING STATISTICS,Operational Performance and Engineering Statistics Report,"(b) The scheduled commercial air operators must submit operational performance and statistical engineering reports every month, whereas unscheduled commercial air operators and aerial operators must submit quarterly reports.",,,,,,
+1,4,SUBPART D,,4.33,,c,-,,REPORTING OF OPERATIONAL PERFORMANCE AND ENGINEERING STATISTICS,Operational Performance and Engineering Statistics Report,"(c) Non-commercial operators approved under GACAR Part 125 and authorization holders operating under Part 91 must submit an operational performance and engineering statistics
+report on a half-yearly and annual basis, respectively.",,,,,,
+1,4,SUBPART D,,4.33,,d,-,,REPORTING OF OPERATIONAL PERFORMANCE AND ENGINEERING STATISTICS,Operational Performance and Engineering Statistics Report,"(d) Each Public aerodrome and heliport certificate holder operating under GACAR Part 139,Part 138, Part 137 must submit an Aerodrome/heliport Operational Statistics and safety
+performance report to the President every month, whereas aerodrome authorization holders must submit the information annually.",,,,,,
+1,4,SUBPART D,,4.33,,e,-,,REPORTING OF OPERATIONAL PERFORMANCE AND ENGINEERING STATISTICS,Operational Performance and Engineering Statistics Report,(e) Each Ground Services provider operating under GACAR Part 151 must submit Ground Services Operational statistic and Safety Performance Report every month.,,,,,,
+1,4,SUBPART D,,4.33,,f,-,,REPORTING OF OPERATIONAL PERFORMANCE AND ENGINEERING STATISTICS,Operational Performance and Engineering Statistics Report,"(f) The aircraft operators and other service providers must submit the operational statistic and safety performance report in a form and manner acceptable to the President. The reports for a specific period must be prepared with supporting graphs, charts, and diagrams and submitted before the 10th day of the following month.",,,,,,
+1,4,SUBPART D,,4.33,,g,-,,REPORTING OF OPERATIONAL PERFORMANCE AND ENGINEERING STATISTICS,Operational Performance and Engineering Statistics Report,"(g) President may require the reports with higher frequency based on the type of the aircraft, nature of the operation, and operational safety records",,,,,,
+1,4,SUBPART D,,4.35,,,-,,REPORTING OF OPERATIONAL PERFORMANCE AND ENGINEERING STATISTICS,Flight Operation Safety Performance Reporting,"Each certificate holder operating under GACAR Part 121, Part 135, Part 125, and authorization holders under Part 91 must submit a report on occurrences related to the flight
+operations.",,,,,,
+1,4,SUBPART D,,4.37,,a1,-,,REPORTING OF OPERATIONAL PERFORMANCE AND ENGINEERING STATISTICS,Engineering Statistics Reporting,"(a) The engineering statistics report must contain at least the following details:
+(1) Type wise aircraft registration details – make, model, and registration marks; and",,,,,,
+1,4,SUBPART D,,4.37,,a2,-,,REPORTING OF OPERATIONAL PERFORMANCE AND ENGINEERING STATISTICS,Engineering Statistics Reporting,"(2) Fleet flying details – Total flying hours: revenue and non-revenue; Number of landings, daily utilization (Fleet) hours, daily utilization (Fleet) landing,",,,,,,
+1,4,SUBPART D,,4.37,,a3,-,,REPORTING OF OPERATIONAL PERFORMANCE AND ENGINEERING STATISTICS,Engineering Statistics Reporting,(3) Total number of incidents; Number of incidents per 1000 landings; and,,,,,,
+1,4,SUBPART D,,4.37,,a4,-,,REPORTING OF OPERATIONAL PERFORMANCE AND ENGINEERING STATISTICS,Engineering Statistics Reporting,(4) Total number of technical delays of more than 15 minutes and Technical dispatch reliability.,,,,,,
+1,4,SUBPART D,,4.37,,a5,-,,REPORTING OF OPERATIONAL PERFORMANCE AND ENGINEERING STATISTICS,Engineering Statistics Reporting,(5) Total number of MELs; List of MELs; MEL rate: MEL per 1000 operations.,,,,,,
+1,4,SUBPART D,,4.37,,a6,-,,REPORTING OF OPERATIONAL PERFORMANCE AND ENGINEERING STATISTICS,Engineering Statistics Reporting,(6) Total number of major defects and aircraft details.,,,,,,
+1,4,SUBPART D,,4.37,,a7,-,,REPORTING OF OPERATIONAL PERFORMANCE AND ENGINEERING STATISTICS,Engineering Statistics Reporting,"(7) List of incidents, including ground incident indicating.",,,,,,
+1,4,SUBPART D,,4.37,,a8,-,,REPORTING OF OPERATIONAL PERFORMANCE AND ENGINEERING STATISTICS,Engineering Statistics Reporting,"(8) Engine operational Review – Total number of engines owned, Total engine hours and",,,,,,
+1,4,SUBPART D,,4.37,,a9,-,,REPORTING OF OPERATIONAL PERFORMANCE AND ENGINEERING STATISTICS,Engineering Statistics Reporting,(9) APU operational Review.,,,,,,
+1,4,SUBPART D,,4.37,,a10,-,,REPORTING OF OPERATIONAL PERFORMANCE AND ENGINEERING STATISTICS,Engineering Statistics Reporting,"(10) Total number of defects ATA Chapter wise, including three months cumulative and average.",,,,,,
+1,4,SUBPART D,,4.37,,a11,-,,REPORTING OF OPERATIONAL PERFORMANCE AND ENGINEERING STATISTICS,Engineering Statistics Reporting,(11) List unscheduled components removal and replacement.,,,,,,
+1,4,SUBPART D,,4.37,,a12,-,,REPORTING OF OPERATIONAL PERFORMANCE AND ENGINEERING STATISTICS,Engineering Statistics Reporting,(12) Auto landing (CAT I/II/III) system reliability.,,,,,,
+1,4,SUBPART D,,4.37,,a13,-,,REPORTING OF OPERATIONAL PERFORMANCE AND ENGINEERING STATISTICS,Engineering Statistics Reporting,(13) Reports on Flight Data Analysis and list of exceedance details.,,,,,,
+1,4,SUBPART D,,4.39,,a,-,,REPORTING OF OPERATIONAL PERFORMANCE AND ENGINEERING STATISTICS,Aerodrome operational Statistics and Safety Performance Report,"All Public aerodrome/heliport operators operating under GACAR Part 139, Part 138, Part 137 must submit an Aerodrome/heliport Operational Statistics and safety performance report containing at least the following details:
+(a) Name of the operator and total number of movements in a specific period.",,,,,,
+1,4,SUBPART D,,4.39,,b,-,,REPORTING OF OPERATIONAL PERFORMANCE AND ENGINEERING STATISTICS,Aerodrome operational Statistics and Safety Performance Report,(b) Number of collision or near-collisions in Apron/airfield.,,,,,,
+1,4,SUBPART D,,4.39,,c,-,,REPORTING OF OPERATIONAL PERFORMANCE AND ENGINEERING STATISTICS,Aerodrome operational Statistics and Safety Performance Report,(c) Number of runway/taxi incursion and runway Excursion.,,,,,,
+1,4,SUBPART D,,4.39,,d,-,,REPORTING OF OPERATIONAL PERFORMANCE AND ENGINEERING STATISTICS,Aerodrome operational Statistics and Safety Performance Report,(d) Number of Pushback incidents.,,,,,,
+1,4,SUBPART D,,4.39,,e,-,,REPORTING OF OPERATIONAL PERFORMANCE AND ENGINEERING STATISTICS,Aerodrome operational Statistics and Safety Performance Report,(e) Number of wildlife /bird strikes.,,,,,,
+1,4,SUBPART D,,4.39,,f,-,,REPORTING OF OPERATIONAL PERFORMANCE AND ENGINEERING STATISTICS,Aerodrome operational Statistics and Safety Performance Report,"(f) Number of failures - Marking /Signaling, Guidance system, or other equipment failures.",,,,,,
+1,4,SUBPART D,,4.41,,a,-,,REPORTING OF OPERATIONAL PERFORMANCE AND ENGINEERING STATISTICS,Air Traffic Operational Statistics and Safety Performance Report,(a) Each air traffic service provider providing services under GACAR Part 171 must provide the Operational statistics and safety information as listed in § 4.31 (b) through (e) of this section in accordance with the reporting regime prescribed in § 4.31 (f) of this section.,,,,,,
+1,4,SUBPART D,,4.41,,b,-,,REPORTING OF OPERATIONAL PERFORMANCE AND ENGINEERING STATISTICS,Air Traffic Operational Statistics and Safety Performance Report,"(b) Enroute Movement data for IFR, VFR, and Military flights identifying domestic flights, international arrival or departure flights, and international overflights.",,,,,,
+1,4,SUBPART D,,4.41,,c,-,,REPORTING OF OPERATIONAL PERFORMANCE AND ENGINEERING STATISTICS,Air Traffic Operational Statistics and Safety Performance Report,"(c) Enroute flight hours data on IFR, VFR, and Military flights.,",,,,,,
+1,4,SUBPART D,,4.41,,d,-,,REPORTING OF OPERATIONAL PERFORMANCE AND ENGINEERING STATISTICS,Air Traffic Operational Statistics and Safety Performance Report,"(d) Movement data of each controlled aerodrome for IFR, VFR, and Military operation identify arrivals, departures, and circuits.",,,,,,
+1,4,SUBPART D,,4.41,,e,-,,REPORTING OF OPERATIONAL PERFORMANCE AND ENGINEERING STATISTICS,Air Traffic Operational Statistics and Safety Performance Report,(e) Peak Hour data at each controlled aerodrome. The peak hour data means the average number of movements per hour derived from an average of the ten busiest hours over the month.,,,,,,
+1,4,SUBPART D,,4.41,,f1,-,,REPORTING OF OPERATIONAL PERFORMANCE AND ENGINEERING STATISTICS,Air Traffic Operational Statistics and Safety Performance Report,"(f) The ATS operations and safety performance reports must cover all technical and operational performance observed, including those reported by external parties. The report must contain at least the following details:
+(1) The number of Air Traffic Controllers per ATS Unit with the monthly restoring",,,,,,
+1,4,SUBPART D,,4.41,,f2,-,,REPORTING OF OPERATIONAL PERFORMANCE AND ENGINEERING STATISTICS,Air Traffic Operational Statistics and Safety Performance Report,(2) List of safety occurrences reported by the ATS Unit.,,,,,,
+1,4,SUBPART D,,4.41,,f3,-,,REPORTING OF OPERATIONAL PERFORMANCE AND ENGINEERING STATISTICS,Air Traffic Operational Statistics and Safety Performance Report,(3) List of safety occurrences reported by external parties,,,,,,
+1,4,SUBPART D,,4.41,,f4,-,,REPORTING OF OPERATIONAL PERFORMANCE AND ENGINEERING STATISTICS,Air Traffic Operational Statistics and Safety Performance Report,(4) List of safety occurrences investigated and their status as closed or open.,,,,,,
+1,4,SUBPART D,,4.41,,f5,-,,REPORTING OF OPERATIONAL PERFORMANCE AND ENGINEERING STATISTICS,Air Traffic Operational Statistics and Safety Performance Report,(5) List of technical and operating irregularities per ATS Unit with a brief description and their status,,,,,,
+1,4,SUBPART D,,4.41,,f6,-,,REPORTING OF OPERATIONAL PERFORMANCE AND ENGINEERING STATISTICS,Air Traffic Operational Statistics and Safety Performance Report,(6) The number of Short-Term Conflict Alert (STCA) and Minimum Safe Altitude Warning (MSAW) automatically detected and reported by each ATS Unit.,,,,,,
+1,4,SUBPART D,,4.41,,f7,-,,REPORTING OF OPERATIONAL PERFORMANCE AND ENGINEERING STATISTICS,Air Traffic Operational Statistics and Safety Performance Report,(7) List of STCA and MSAW warnings investigated and the status of whether “closed” or “open”.,,,,,,
+1,4,SUBPART D,,4.41,,f8,-,,REPORTING OF OPERATIONAL PERFORMANCE AND ENGINEERING STATISTICS,Air Traffic Operational Statistics and Safety Performance Report,(8) List of delayed flights and their causes,,,,,,
+1,4,SUBPART D,,4.41,,f9,-,,REPORTING OF OPERATIONAL PERFORMANCE AND ENGINEERING STATISTICS,Air Traffic Operational Statistics and Safety Performance Report,(9) The average taxi time for each runway in use,,,,,,
+1,4,SUBPART D,,4.41,,f10,-,,REPORTING OF OPERATIONAL PERFORMANCE AND ENGINEERING STATISTICS,Air Traffic Operational Statistics and Safety Performance Report,(10) The average flying time on the main ATS routes network,,,,,,
+1,4,SUBPART D,,4.41,,f11,-,,REPORTING OF OPERATIONAL PERFORMANCE AND ENGINEERING STATISTICS,Air Traffic Operational Statistics and Safety Performance Report,(11) The number of days with reduced visibility its duration for each ATS Unit,,,,,,
+1,4,SUBPART D,,4.43,,a,-,,REPORTING OF OPERATIONAL PERFORMANCE AND ENGINEERING STATISTICS,Ground Services Operational Statistics and Safety Performance Report,"Each Ground services provider approved under GACAR Part 151 must submit a Ground service operational statistics and safety performance report, which must contain at least the following
+details:
+(a) Name of the operator and total number of movements in a specific period",,,,,,
+1,4,SUBPART D,,4.43,,b,-,,REPORTING OF OPERATIONAL PERFORMANCE AND ENGINEERING STATISTICS,Ground Services Operational Statistics and Safety Performance Report,(b) Number of collisions or near collisions and aircraft damages,,,,,,
+1,4,SUBPART D,,4.43,,c,-,,REPORTING OF OPERATIONAL PERFORMANCE AND ENGINEERING STATISTICS,Ground Services Operational Statistics and Safety Performance Report,(c) Pax/Crew/Transport System (step ladder boarding bridge and vehicle) failures,,,,,,
+1,4,SUBPART D,,4.43,,d,-,,REPORTING OF OPERATIONAL PERFORMANCE AND ENGINEERING STATISTICS,Ground Services Operational Statistics and Safety Performance Report,(d) Number of Pushback incidents,,,,,,
+1,4,SUBPART D,,4.43,,e,-,,REPORTING OF OPERATIONAL PERFORMANCE AND ENGINEERING STATISTICS,Ground Services Operational Statistics and Safety Performance Report,"(e) Number of incidents due to aircraft Interface system (Ground Power Unit, Water Service,Fueling) failures",,,,,,
+1,4,SUBPART D,,4.43,,f,-,,REPORTING OF OPERATIONAL PERFORMANCE AND ENGINEERING STATISTICS,Ground Services Operational Statistics and Safety Performance Report,(f) Number of baggage and conveyors related incidents,,,,,,
+1,4,SUBPART D,,4.43,,g,-,,REPORTING OF OPERATIONAL PERFORMANCE AND ENGINEERING STATISTICS,Ground Services Operational Statistics and Safety Performance Report,(g) Number of dangerous goods incidents.,,,,,,
+1,4,SUBPART D,,4.45,,a1,-,,REPORTING OF OPERATIONAL PERFORMANCE AND ENGINEERING STATISTICS,Confidentiality of Statistical Reports,"(a) The President or any person employed by the President must not communicate to any unauthorized persons any information provided in statistical reports that identify any individual
+certificate holder except:
+(1) With the consent of the certificate holder.",,,,,,
+1,4,SUBPART D,,4.45,,a2,-,,REPORTING OF OPERATIONAL PERFORMANCE AND ENGINEERING STATISTICS,Ground Services Operational Statistics and Safety Performance Report,(2) In accordance with Article 67 of the Convention on International Civil Aviation; or,,,,,,
+1,4,SUBPART D,,4.45,,a3,-,,REPORTING OF OPERATIONAL PERFORMANCE AND ENGINEERING STATISTICS,Ground Services Operational Statistics and Safety Performance Report,(3) In pursuant of provisions prescribed in other applicable laws of the Kingdom of Saudi  Arabia.,,,,,,
+1,4,SUBPART D,,4.45,,b,-,,REPORTING OF OPERATIONAL PERFORMANCE AND ENGINEERING STATISTICS,Ground Services Operational Statistics and Safety Performance Report,(b) The President may provide relevant information to the Council of the International Civil Aviation Organization related to international commercial air transport operations.,,,,,,
+1,4,SUBPART E,,4.47,,a1,-,,SAFETY DATABASE AND EXCHANGE OF INFORMATION,Safety Information Database,"(a) Each certificate holder must maintain a safety database, information system and establish procedures for analyzing the data collected from the following internal sources as required in
+GACAR Part 5, Safety Management System.
+(1) Mandatory occurrence reports.",,,,,,
+1,4,SUBPART E,,4.47,,a2,-,,REPORTING OF OPERATIONAL PERFORMANCE AND ENGINEERING STATISTICS,Safety Information Database,(2) Voluntary reports.,,,,,,
+1,4,SUBPART E,,4.47,,a3,-,,REPORTING OF OPERATIONAL PERFORMANCE AND ENGINEERING STATISTICS,Safety Information Database,"(3) Findings from the GACA oversights such as surveillance, spot-checks, and inspections.",,,,,,
+1,4,SUBPART E,,4.47,,a4,-,,REPORTING OF OPERATIONAL PERFORMANCE AND ENGINEERING STATISTICS,Safety Information Database,(4) Monthly operational performance and statistical data.:,,,,,,
+1,4,SUBPART E,,4.47,,b,-,,REPORTING OF OPERATIONAL PERFORMANCE AND ENGINEERING STATISTICS,Safety Information Database,"(b) Each certificate holder approved under GACAR Part 121, in addition to the reports indicated in § 4.37 (a), must archive aircraft operational exceedances, adverse trends, and
+procedural deviations identified from its Flight data analysis system.",,,,,,
+1,4,SUBPART E,,4.47,,c,-,,REPORTING OF OPERATIONAL PERFORMANCE AND ENGINEERING STATISTICS,Safety Information Database,"(c) Notwithstanding the reports submitted to the President, each certificate holder must provide access to the AIB and the President to the occurrence database or related records maintained.",,,,,,
+1,4,SUBPART E,,4.47,,d,-,,REPORTING OF OPERATIONAL PERFORMANCE AND ENGINEERING STATISTICS,Safety Information Database,"(d) All accidents and serious incidents reports stored in the standardized descriptive database/ECCAIRS/ADREP reporting system of the AIB, described in AIB Regulation § 7.2, and the deidentified incidents database of GACA are accessible to the stakeholders for assessing the safety trend and performance and mutual sharing of safety data with the ICAO Contracting
+States under the State Safety Program.",,,,,,
+1,4,SUBPART E,,4.49,,a,-,,REPORTING OF OPERATIONAL PERFORMANCE AND ENGINEERING STATISTICS,Protectionof Safety data,"(a) Data collected from persons, operators, and service providers under mandatory or voluntary system are used only to enhance aviation safety.",,,,,,
+1,4,SUBPART E,,4.49,,b,-,,REPORTING OF OPERATIONAL PERFORMANCE AND ENGINEERING STATISTICS,Protectionof Safety data,(b) Persons reporting safety data to the President under this part are subject to protection from disclosure provisions prescribed in GACAR Part 193.,,,,,,
+1,4,SUBPART E,,4.49,,c,-,,REPORTING OF OPERATIONAL PERFORMANCE AND ENGINEERING STATISTICS,Protectionof Safety data,(c) Persons reporting safety information to the President under this part are subject to the immunity from punitive action provisions prescribed in GACAR Part 13.,,,,,,
+1,4,,APPENDIX A,,,a,-,,EXAMPLES OF SERIOUS INCIDENTS,Serious Incidents,"The aircraft serious incidents are listed below. The operator must report any other serious incident encountered which is not listed in Appendix A.
+Serious Incidents.
+(a) Near collisions requiring an avoidance maneuver to avoid a collision or an unsafe situation or when an avoidance action would have been appropriate.",,,,,,
+1,4,,APPENDIX A,,,b,-,,EXAMPLES OF SERIOUS INCIDENTS,Serious Incidents,(b) Collisions not classified as accidents.,,,,,,
+1,4,,APPENDIX A,,,c,-,,EXAMPLES OF SERIOUS INCIDENTS,Serious Incidents,(c) Controlled flight into terrain only marginally avoided.,,,,,,
+1,4,,APPENDIX A,,,d,-,,EXAMPLES OF SERIOUS INCIDENTS,Serious Incidents,"(d) Aborted take-offs on a closed or engaged runway, taxiway, or unassigned runway.",,,,,,
+1,4,,APPENDIX A,,,e,-,,EXAMPLES OF SERIOUS INCIDENTS,Serious Incidents,"(e) Take-offs from a closed or engaged runway, from a taxiway, or unassigned runway.",,,,,,
+1,4,,APPENDIX A,,,f,-,,EXAMPLES OF SERIOUS INCIDENTS,Serious Incidents,"(f) Landings or attempted landings on a closed or engaged runway, taxiway, or unassigned runway.",,,,,,
+1,4,,APPENDIX A,,,g,-,,EXAMPLES OF SERIOUS INCIDENTS,Serious Incidents,(g) Gross failures to achieve predicted performance during take-off or initial climb.,,,,,,
+1,4,,APPENDIX A,,,h,-,,EXAMPLES OF SERIOUS INCIDENTS,Serious Incidents,"(h) Fires or smoke in the cockpit, in the passenger compartment, in cargo compartments, or engine fires.",,,,,,
+1,4,,APPENDIX A,,,i,-,,EXAMPLES OF SERIOUS INCIDENTS,Serious Incidents,(i) Events requiring the emergency use of oxygen by the flight crew.,,,,,,
+1,4,,APPENDIX A,,,j,-,,EXAMPLES OF SERIOUS INCIDENTS,Serious Incidents,"(j) Failure of aircraft structure or engine, or uncontained turbine engine failures (not classified as an accident).",,,,,,
+1,4,,APPENDIX A,,,k,-,,EXAMPLES OF SERIOUS INCIDENTS,Serious Incidents,(k) Malfunctions of multiple aircraft systems that affect the aircraft operation seriously.,,,,,,
+1,4,,APPENDIX A,,,l,-,,EXAMPLES OF SERIOUS INCIDENTS,Serious Incidents,(l) Flight crew incapacitation in flight.,,,,,,
+1,4,,APPENDIX A,,,m,-,,EXAMPLES OF SERIOUS INCIDENTS,Serious Incidents,"(m) Fuel quantity level or distribution situations requiring the declaration of an emergency by the pilot, such as insufficient fuel, fuel exhaustion, fuel starvation, or inability to use all usable fuel onboard",,,,,,
+1,4,,APPENDIX A,,,n,-,,EXAMPLES OF SERIOUS INCIDENTS,Serious Incidents,"(n) Runway incursions classified with severity, A. The ICAO Manual on the Prevention of Runway Incursions (Doc 9870) contains information on the severity classifications",,,,,,
+1,4,,APPENDIX A,,,o,-,,EXAMPLES OF SERIOUS INCIDENTS,Serious Incidents,"(o) Take-off or landing incidents. Incidents such as under-shooting, overrunning, or running off the side of runways.",,,,,,
+1,4,,APPENDIX A,,,p,-,,EXAMPLES OF SERIOUS INCIDENTS,Serious Incidents,"(p) System failures, weather phenomena, operations outside the approved flight envelope, or other occurrences which caused or could have caused difficulties controlling the aircraft.",,,,,,
+1,4,,APPENDIX A,,,q,-,,EXAMPLES OF SERIOUS INCIDENTS,Serious Incidents,(q) Failures of more than one system in a redundancy system mandatory for flight guidance and navigation.,,,,,,
+1,4,,APPENDIX A,,,r,-,,EXAMPLES OF SERIOUS INCIDENTS,Serious Incidents,"(r) The unintentional or, as an emergency measure, the intentional release of a slung load or any other load carried external to the aircraft.",,,,,,
+1,4,,APPENDIX B,PART A,1,a1,-,,OCCURENCES RELATED TO THE AIRCRAFT OPERATIONS,Transport Aircraft and Commuter Category Aircraft,"Appendix B provides a list of occurrences in flight operations. The operator must report any other incident related to flight operation which is not listed in Appendix B.
+Part A - Transport Aircraft and commuter category aircraft.
+(1) Air Operations
+(a) Flight preparation
+(1) Using incorrect data into equipment for navigation or performance calculations that have
+or could have endangered the aircraft and its occupants.",,,,,,
+1,4,,APPENDIX B,PART A,1,a2,-,,OCCURENCES RELATED TO THE AIRCRAFT OPERATIONS,Transport Aircraft and Commuter Category Aircraft,"(2) Carrying or attempted carriage of dangerous goods in contravention of applicable legislation, including incorrect labeling, packaging, and handling of dangerous goods.",,,,,,
+1,4,,APPENDIX B,PART A,1,b1,-,,OCCURENCES RELATED TO THE AIRCRAFT OPERATIONS,Transport Aircraft and Commuter Category Aircraft,"(b) Aircraft preparation
+(1) Incorrect fuel type or contaminated fuel.",,,,,,
+1,4,,APPENDIX B,PART A,1,b2,-,,OCCURENCES RELATED TO THE AIRCRAFT OPERATIONS,Transport Aircraft and Commuter Category Aircraft,"(2) Missing, incorrect, or inadequate De-icing/Anti-icing treatment.",,,,,,
+1,4,,APPENDIX B,PART A,1,c1,-,,OCCURENCES RELATED TO THE AIRCRAFT OPERATIONS,Transport Aircraft and Commuter Category Aircraft,"(c) Take-off and landing
+(1) Taxiway or runway excursion.",,,,,,
+1,4,,APPENDIX B,PART A,1,c2,-,,OCCURENCES RELATED TO THE AIRCRAFT OPERATIONS,Transport Aircraft and Commuter Category Aircraft,(2) Actual or potential taxiway or runway incursion.,,,,,,
+1,4,,APPENDIX B,PART A,1,c3,-,,OCCURENCES RELATED TO THE AIRCRAFT OPERATIONS,Transport Aircraft and Commuter Category Aircraft,(3) Final Approach and Take-off Area (FATO) incursion.,,,,,,
+1,4,,APPENDIX B,PART A,1,c4,-,,OCCURENCES RELATED TO THE AIRCRAFT OPERATIONS,Transport Aircraft and Commuter Category Aircraft,(4)Any rejected take-off.,,,,,,
+1,4,,APPENDIX B,PART A,1,c5,-,,OCCURENCES RELATED TO THE AIRCRAFT OPERATIONS,Transport Aircraft and Commuter Category Aircraft,"(5)Inability to achieve required or expected performance during take-off, go-around, or landing.",,,,,,
+1,4,,APPENDIX B,PART A,1,c6,-,,OCCURENCES RELATED TO THE AIRCRAFT OPERATIONS,Transport Aircraft and Commuter Category Aircraft,"(6)Actual or attempted take-off, approach, or landing with the incorrect configuration setting.",,,,,,
+1,4,,APPENDIX B,PART A,1,c7,-,,OCCURENCES RELATED TO THE AIRCRAFT OPERATIONS,Transport Aircraft and Commuter Category Aircraft,"(7)Tail, blade/wingtip, or nacelle strike during take-off or landing.",,,,,,
+1,4,,APPENDIX B,PART A,1,c8,-,,OCCURENCES RELATED TO THE AIRCRAFT OPERATIONS,Transport Aircraft and Commuter Category Aircraft,(8) Approach continued against air operator stabilized approach criteria.,,,,,,
+1,4,,APPENDIX B,PART A,1,c9,-,,OCCURENCES RELATED TO THE AIRCRAFT OPERATIONS,Transport Aircraft and Commuter Category Aircraft,(9)Continuation of an instrument approach below published minimums with inadequate visual references.,,,,,,
+1,4,,APPENDIX B,PART A,1,c10,-,,OCCURENCES RELATED TO THE AIRCRAFT OPERATIONS,Transport Aircraft and Commuter Category Aircraft,(10)Precautionary or forced landing.,,,,,,
+1,4,,APPENDIX B,PART A,1,c11,-,,OCCURENCES RELATED TO THE AIRCRAFT OPERATIONS,Transport Aircraft and Commuter Category Aircraft,(11)Short and long landing.,,,,,,
+1,4,,APPENDIX B,PART A,1,c12,-,,OCCURENCES RELATED TO THE AIRCRAFT OPERATIONS,Transport Aircraft and Commuter Category Aircraft,(12)Hard landing.,,,,,,
+1,4,,APPENDIX B,PART A,1,d1,-,,OCCURENCES RELATED TO THE AIRCRAFT OPERATIONS,Transport Aircraft and Commuter Category Aircraft,"(d) Any phase of flight
+(1) Loss of control.",,,,,,
+1,4,,APPENDIX B,PART A,1,d2,-,,OCCURENCES RELATED TO THE AIRCRAFT OPERATIONS,Transport Aircraft and Commuter Category Aircraft,"(2) Aircraft upset, exceeding normal pitch attitude, bank angle, or airspeed inappropriate for the conditions.",,,,,,
+1,4,,APPENDIX B,PART A,1,d3,-,,OCCURENCES RELATED TO THE AIRCRAFT OPERATIONS,Transport Aircraft and Commuter Category Aircraft,(3) Level bust.,,,,,,
+1,4,,APPENDIX B,PART A,1,d4,-,,OCCURENCES RELATED TO THE AIRCRAFT OPERATIONS,Transport Aircraft and Commuter Category Aircraft,"(4) Activation of any flight envelope protection, including stall warning, stick shaker, stick pusher, and automatic protections.",,,,,,
+1,4,,APPENDIX B,PART A,1,d5,-,,OCCURENCES RELATED TO THE AIRCRAFT OPERATIONS,Transport Aircraft and Commuter Category Aircraft,(5) Unintentional deviation from the intended or assigned track of the lowest of twice the required navigation performance or ten nautical miles.,,,,,,
+1,4,,APPENDIX B,PART A,1,d6,-,,OCCURENCES RELATED TO THE AIRCRAFT OPERATIONS,Transport Aircraft and Commuter Category Aircraft,(6) Exceedance of aircraft flight manual limitation,,,,,,
+1,4,,APPENDIX B,PART A,1,d7,-,,OCCURENCES RELATED TO THE AIRCRAFT OPERATIONS,Transport Aircraft and Commuter Category Aircraft,(7) Operation with incorrect altimeter setting.,,,,,,
+1,4,,APPENDIX B,PART A,1,d8,-,,OCCURENCES RELATED TO THE AIRCRAFT OPERATIONS,Transport Aircraft and Commuter Category Aircraft,"(8) Jet blast or rotor and prop wash occurrences that have or could have endangered the aircraft, its occupants, or any other person.",,,,,,
+1,4,,APPENDIX B,PART A,1,d9,-,,OCCURENCES RELATED TO THE AIRCRAFT OPERATIONS,Transport Aircraft and Commuter Category Aircraft,"(9) Misinterpretation of automation mode or any flight deck information provided to the flight crew that has or could have endangered the aircraft, its occupants, or any other person",,,,,,
+1,4,,APPENDIX B,PART A,1,e1,-,,OCCURENCES RELATED TO THE AIRCRAFT OPERATIONS,Transport Aircraft and Commuter Category Aircraft,"(e) Other types of occurrences
+(1) Unintentional release of cargo or other externally carried equipment.",,,,,,
+1,4,,APPENDIX B,PART A,1,e2,-,,OCCURENCES RELATED TO THE AIRCRAFT OPERATIONS,Transport Aircraft and Commuter Category Aircraft,"(2) Loss of situational awareness (environmental, mode, and system awareness, spatial disorientation, and time horizon).",,,,,,
+1,4,,APPENDIX B,PART A,1,e3,-,,OCCURENCES RELATED TO THE AIRCRAFT OPERATIONS,Transport Aircraft and Commuter Category Aircraft,(3) Any operation wherein the human performance has directly contributed to or could have contributed to an accident or a serious incident.,,,,,,
+1,4,,APPENDIX B,PART A,2,a1,-,,OCCURENCES RELATED TO THE AIRCRAFT OPERATIONS,Technical Occurrences,"(2) Technical Occurrences
+(a) Structure and systems
+(1) Loss of any part of the aircraft structure in flight.",,,,,,
+1,4,,APPENDIX B,PART A,2,a2,-,,OCCURENCES RELATED TO THE AIRCRAFT OPERATIONS,Technical Occurrences,(2) Loss of a system.,,,,,,
+1,4,,APPENDIX B,PART A,2,a3,-,,OCCURENCES RELATED TO THE AIRCRAFT OPERATIONS,Technical Occurrences,(3) Loss of redundancy of a system.,,,,,,
+1,4,,APPENDIX B,PART A,2,a4,-,,OCCURENCES RELATED TO THE AIRCRAFT OPERATIONS,Technical Occurrences,"(4) Leakage of any fluid which resulted in a fire hazard or possible hazardous contamination of aircraft structure, systems, or equipment, or which has or could have endangered the aircraft, its occupants, or any other person.",,,,,,
+1,4,,APPENDIX B,PART A,2,a5,-,,OCCURENCES RELATED TO THE AIRCRAFT OPERATIONS,Technical Occurrences,"(5) Fuel system malfunctions or defects, which affected fuel supply and distribution.",,,,,,
+1,4,,APPENDIX B,PART A,2,a6,-,,OCCURENCES RELATED TO THE AIRCRAFT OPERATIONS,Technical Occurrences,(6) Malfunction or defect of any indication system results in misleading indications to the crew.,,,,,,
+1,4,,APPENDIX B,PART A,2,a7,-,,OCCURENCES RELATED TO THE AIRCRAFT OPERATIONS,Technical Occurrences,"(7) Abnormal functioning of flight controls such as asymmetric or stuck/jammed flight  controls (for example: lift (flaps/slats), drag (spoilers), attitude control (ailerons, elevators,
+rudder) devices).",,,,,,
+1,4,,APPENDIX B,PART A,2,b1,-,,OCCURENCES RELATED TO THE AIRCRAFT OPERATIONS,Technical Occurrences,"(b) Propulsion (including engines, propellers, and rotor systems) and auxiliary power units (APUs)
+(1) Significant malfunction of any part contributes to the failure of the propeller or powerplant.",,,,,,
+1,4,,APPENDIX B,PART A,2,b2,-,,OCCURENCES RELATED TO THE AIRCRAFT OPERATIONS,Technical Occurrences,(2) Damage to or failure of main/tail rotor transmission or equivalent systems.,,,,,,
+1,4,,APPENDIX B,PART A,2,b3,-,,OCCURENCES RELATED TO THE AIRCRAFT OPERATIONS,Technical Occurrences,"(3) Flameout, an in-flight shutdown of an engine, or shut down of APU during ETOPS (Extended Range Twin-engine Aircraft Operations) or operation under MEL (Minimum Equipment List).",,,,,,
+1,4,,APPENDIX B,PART A,2,b4,-,,OCCURENCES RELATED TO THE AIRCRAFT OPERATIONS,Technical Occurrences,"(4) Engine operating limitation exceedance, including Overspeed or inability to control the speed of any high-speed rotating component (for example, APU, air starter, air cycle machine, air turbine motor, propeller, or rotor).",,,,,,
+1,4,,APPENDIX B,PART A,2,b5(i),-,,OCCURENCES RELATED TO THE AIRCRAFT OPERATIONS,Technical Occurrences,"(5) Failure or malfunction of any part of an engine, powerplant, APU, or transmission resulting in any one or more of the following:
+(i) thrust-reversing system failing to operate as commanded;",,,,,,
+1,4,,APPENDIX B,PART A,2,b5(ii),-,,OCCURENCES RELATED TO THE AIRCRAFT OPERATIONS,Technical Occurrences,"(ii)inability to control power, thrust, or rpm (revolutions per minute);",,,,,,
+1,4,,APPENDIX B,PART A,2,b5(iii),-,,OCCURENCES RELATED TO THE AIRCRAFT OPERATIONS,Technical Occurrences,(iii) non-containment of components/debris.,,,,,,
+1,4,,APPENDIX B,PART A,3,a,-,,OCCURENCES RELATED TO THE AIRCRAFT OPERATIONS,Interaction with Air Navigation Services(ANS) and Air Traffic Management(ATM),"(3) Interaction with Air Navigation Services (ANS) and Air Traffic Management (ATM)
+(a) Unsafe ATC (Air Traffic Control) clearance.",,,,,,
+1,4,,APPENDIX B,PART A,3,b,-,,OCCURENCES RELATED TO THE AIRCRAFT OPERATIONS,Interaction with Air Navigation Services(ANS) and Air Traffic Management(ATM),(b) Prolonged loss of communication with ATS (Air Traffic Service) or ATM Unit.,,,,,,
+1,4,,APPENDIX B,PART A,3,c,-,,OCCURENCES RELATED TO THE AIRCRAFT OPERATIONS,Interaction with Air Navigation Services(ANS) and Air Traffic Management(ATM),(c) Conflicting instructions from different ATS Units potentially leads to a loss of separation.,,,,,,
+1,4,,APPENDIX B,PART A,3,d,-,,OCCURENCES RELATED TO THE AIRCRAFT OPERATIONS,Interaction with Air Navigation Services(ANS) and Air Traffic Management(ATM),"(d) Misinterpretation of radio communication which has or could have endangered the aircraft, its occupants, or any other person.",,,,,,
+1,4,,APPENDIX B,PART A,3,e,-,,OCCURENCES RELATED TO THE AIRCRAFT OPERATIONS,Interaction with Air Navigation Services(ANS) and Air Traffic Management(ATM),"(e) Intentional deviation from ATC instruction which has or could have endangered the aircraft, its occupants, or any other person.",,,,,,
+1,4,,APPENDIX B,PART A,4,a,-,,OCCURENCES RELATED TO THE AIRCRAFT OPERATIONS,Emergencies and other Critical Situation,"(4) Emergencies and other Critical Situation
+(a) Any event leading to the declaration of an emergency (‘Mayday’ or ‘PAN call’).",,,,,,
+1,4,,APPENDIX B,PART A,4,b,-,,OCCURENCES RELATED TO THE AIRCRAFT OPERATIONS,Emergencies and other Critical Situation,"(b) Any burning, melting, smoke, fumes, arcing, overheating, fire or explosion.",,,,,,
+1,4,,APPENDIX B,PART A,4,c,-,,OCCURENCES RELATED TO THE AIRCRAFT OPERATIONS,Emergencies and other Critical Situation,"(c) Contaminated air in the cockpit or passenger compartment, which has or could have endangered the aircraft, its occupants, or any other person.",,,,,,
+1,4,,APPENDIX B,PART A,4,d,-,,OCCURENCES RELATED TO THE AIRCRAFT OPERATIONS,Emergencies and other Critical Situation,(d) Failure to apply the correct non-normal or emergency procedure by the flight or cabin crew to deal with an emergency.,,,,,,
+1,4,,APPENDIX B,PART A,4,e,-,,OCCURENCES RELATED TO THE AIRCRAFT OPERATIONS,Emergencies and other Critical Situation,(e) Using any emergency equipment or non-normal procedure affecting in-flight or landing performance.,,,,,,
+1,4,,APPENDIX B,PART A,4,f,-,,OCCURENCES RELATED TO THE AIRCRAFT OPERATIONS,Emergencies and other Critical Situation,"(f) Failure of any emergency or rescue system or equipment that has or could have endangered the aircraft, its occupants, or any other person..",,,,,,
+1,4,,APPENDIX B,PART A,4,g,-,,OCCURENCES RELATED TO THE AIRCRAFT OPERATIONS,Emergencies and other Critical Situation,(g) Uncontrollable cabin pressure.,,,,,,
+1,4,,APPENDIX B,PART A,4,h,-,,OCCURENCES RELATED TO THE AIRCRAFT OPERATIONS,Emergencies and other Critical Situation,(h) Critically low fuel quantity or fuel quantity at destination below required final reserve fuel.,,,,,,
+1,4,,APPENDIX B,PART A,4,i,-,,OCCURENCES RELATED TO THE AIRCRAFT OPERATIONS,Emergencies and other Critical Situation,(i) Any use of crew oxygen system by the crew.,,,,,,
+1,4,,APPENDIX B,PART A,4,j,-,,OCCURENCES RELATED TO THE AIRCRAFT OPERATIONS,Emergencies and other Critical Situation,(j) Incapacitation of any cockpit crew or cabin crew results in the reduction below the minimum certified crew complement.,,,,,,
+1,4,,APPENDIX B,PART A,4,k,-,,OCCURENCES RELATED TO THE AIRCRAFT OPERATIONS,Emergencies and other Critical Situation,(k) Crew fatigue impacts or potentially impacts their ability to perform their flight duties safely.,,,,,,
+1,4,,APPENDIX B,PART A,5,a,-,,OCCURENCES RELATED TO THE AIRCRAFT OPERATIONS,External Environment and Meteorology,"(5) External Environment and Meteorology
+(a) A collision or near-collision with another aircraft, terrain, or obstacle, including vehicles.",,,,,,
+1,4,,APPENDIX B,PART A,5,b,-,,OCCURENCES RELATED TO THE AIRCRAFT OPERATIONS,External Environment and Meteorology,"(b) ACAS RA (Airborne Collision Avoidance System, Resolution Advisory).",,,,,,
+1,4,,APPENDIX B,PART A,5,c,-,,OCCURENCES RELATED TO THE AIRCRAFT OPERATIONS,External Environment and Meteorology,(c) Activation of genuine ground collision system such as GPWS (Ground Proximity Warning System)/TAWS (Terrain Awareness and Warning System) warning.,,,,,,
+1,4,,APPENDIX B,PART A,5,d,-,,OCCURENCES RELATED TO THE AIRCRAFT OPERATIONS,External Environment and Meteorology,"(d) Wildlife strike, including bird strike.",,,,,,
+1,4,,APPENDIX B,PART A,5,e,-,,OCCURENCES RELATED TO THE AIRCRAFT OPERATIONS,External Environment and Meteorology,(e) Foreign object damage/debris (FOD).,,,,,,
+1,4,,APPENDIX B,PART A,5,f,-,,OCCURENCES RELATED TO THE AIRCRAFT OPERATIONS,External Environment and Meteorology,(f) Unexpected encounter of poor runway surface conditions.,,,,,,
+1,4,,APPENDIX B,PART A,5,g,-,,OCCURENCES RELATED TO THE AIRCRAFT OPERATIONS,External Environment and Meteorology,(g) Wake-turbulence encounters.,,,,,,
+1,4,,APPENDIX B,PART A,5,h,-,,OCCURENCES RELATED TO THE AIRCRAFT OPERATIONS,External Environment and Meteorology,"(h) Interference with the aircraft by firearms, fireworks, flying kites, laser illumination, high-powered lights, lasers, Remotely Piloted Aircraft Systems, model aircraft, or similar means.",,,,,,
+1,4,,APPENDIX B,PART A,5,i,-,,OCCURENCES RELATED TO THE AIRCRAFT OPERATIONS,External Environment and Meteorology,(i) A lightning strike that resulted in damage to the aircraft or loss or malfunction of any aircraft system.,,,,,,
+1,4,,APPENDIX B,PART A,5,j,-,,OCCURENCES RELATED TO THE AIRCRAFT OPERATIONS,External Environment and Meteorology,(j) A hail encounter that resulted in damage to the aircraft or loss or malfunction of any aircraft system.,,,,,,
+1,4,,APPENDIX B,PART A,5,k,-,,OCCURENCES RELATED TO THE AIRCRAFT OPERATIONS,External Environment and Meteorology,(k) Severe turbulence encounter or any encounter resulting in injury to occupants or deemed to require a ‘turbulence check’ of the aircraft.,,,,,,
+1,4,,APPENDIX B,PART A,5,l,-,,OCCURENCES RELATED TO THE AIRCRAFT OPERATIONS,External Environment and Meteorology,"(l) A significant wind shear or thunderstorm encounter which has or could have endangered the aircraft, its occupants, or any other person.",,,,,,
+1,4,,APPENDIX B,PART A,5,m,-,,OCCURENCES RELATED TO THE AIRCRAFT OPERATIONS,External Environment and Meteorology,"(m) Icing encounter resulting in handling difficulties, damage to the aircraft, or loss or malfunction of any aircraft system.",,,,,,
+1,4,,APPENDIX B,PART A,5,n,-,,OCCURENCES RELATED TO THE AIRCRAFT OPERATIONS,External Environment and Meteorology,(n) Volcanic ash encounter.,,,,,,
+1,4,,APPENDIX B,PART A,6,a,-,,OCCURENCES RELATED TO THE AIRCRAFT OPERATIONS,Security,(a) Bomb threat or hijack.,,,,,,
+1,4,,APPENDIX B,PART A,6,b,-,,OCCURENCES RELATED TO THE AIRCRAFT OPERATIONS,Security,"(b) Difficulty in controlling intoxicated, violent, or unruly passengers.",,,,,,
+1,4,,APPENDIX B,PART A,6,c,-,,OCCURENCES RELATED TO THE AIRCRAFT OPERATIONS,Security,(c) Discovery of a stowaway.,,,,,,
+1,4,,APPENDIX B,PART B,,,-,,OCCURENCES RELATED TO THE AIRCRAFT OPERATIONS,Part B – Other than Transport Aircraft and commuter category aircraft,Part B – Other than Transport Aircraft and commuter category aircraft,,,,,,
+1,4,,APPENDIX B,PART B,1,a1,-,,OCCURENCES RELATED TO THE AIRCRAFT OPERATIONS,"Other than Transport Aircraft and Commuter Category aircraft excluding Gliders, Balloons and Airships","1. Other than Transport Aircraft and commuter category aircraft excluding Gliders, Balloons, and Airships.
+a) Air operations
+(1) Unintentional loss of control.",,,,,,
+1,4,,APPENDIX B,PART B,1,a2,-,,OCCURENCES RELATED TO THE AIRCRAFT OPERATIONS,"Other than Transport Aircraft and Commuter Category aircraft excluding Gliders, Balloons and Airships",(2) Landing outside of intended landing area.,,,,,,
+1,4,,APPENDIX B,PART B,1,a3,-,,OCCURENCES RELATED TO THE AIRCRAFT OPERATIONS,"Other than Transport Aircraft and Commuter Category aircraft excluding Gliders, Balloons and Airships","(3) Aircraft's inability to achieve the required performance during take-off, climb, or landing.",,,,,,
+1,4,,APPENDIX B,PART B,1,a4,-,,OCCURENCES RELATED TO THE AIRCRAFT OPERATIONS,"Other than Transport Aircraft and Commuter Category aircraft excluding Gliders, Balloons and Airships",(4) Runway incursion,,,,,,
+1,4,,APPENDIX B,PART B,1,a5,-,,OCCURENCES RELATED TO THE AIRCRAFT OPERATIONS,"Other than Transport Aircraft and Commuter Category aircraft excluding Gliders, Balloons and Airships",(5) Runway excursion.,,,,,,
+1,4,,APPENDIX B,PART B,1,a6,-,,OCCURENCES RELATED TO THE AIRCRAFT OPERATIONS,"Other than Transport Aircraft and Commuter Category aircraft excluding Gliders, Balloons and Airships","(6) Any flight performed with an aircraft that was not airworthy or for which flight preparation was not completed, which has or could have endangered the aircraft, its occupants, or any other person.",,,,,,
+1,4,,APPENDIX B,PART B,1,a7,-,,OCCURENCES RELATED TO THE AIRCRAFT OPERATIONS,"Other than Transport Aircraft and Commuter Category aircraft excluding Gliders, Balloons and Airships","(7) Unintended flight into IMC (Instrument Meteorological Conditions) conditions of aircraft not IFR (Instrument flight rules) certified, or a pilot not qualified for IFR, which has
+or could have endangered the aircraft, its occupants, or any other person.",,,,,,
+1,4,,APPENDIX B,PART B,1,a8,-,,OCCURENCES RELATED TO THE AIRCRAFT OPERATIONS,"Other than Transport Aircraft and Commuter Category aircraft excluding Gliders, Balloons and Airships",(8) Unintentional release of cargo on a commercial operation.,,,,,,
+1,4,,APPENDIX B,PART B,1,b1,-,,OCCURENCES RELATED TO THE AIRCRAFT OPERATIONS,"Other than Transport Aircraft and Commuter Category aircraft excluding Gliders, Balloons and Airships","(b) Technical occurrences
+(1) Abnormal severe vibration (for example, aileron or elevator ‘flutter’ or of propeller).",,,,,,
+1,4,,APPENDIX B,PART B,1,b2,-,,OCCURENCES RELATED TO THE AIRCRAFT OPERATIONS,"Other than Transport Aircraft and Commuter Category aircraft excluding Gliders, Balloons and Airships",(2) Any flight control not functioning correctly or disconnected.,,,,,,
+1,4,,APPENDIX B,PART B,1,b3,-,,OCCURENCES RELATED TO THE AIRCRAFT OPERATIONS,"Other than Transport Aircraft and Commuter Category aircraft excluding Gliders, Balloons and Airships",(3) A failure or substantial deterioration of the aircraft structure.,,,,,,
+1,4,,APPENDIX B,PART B,1,b4,-,,OCCURENCES RELATED TO THE AIRCRAFT OPERATIONS,"Other than Transport Aircraft and Commuter Category aircraft excluding Gliders, Balloons and Airships",(4) A loss of any part of the aircraft structure or installation in flight.,,,,,,
+1,4,,APPENDIX B,PART B,1,b5,-,,OCCURENCES RELATED TO THE AIRCRAFT OPERATIONS,"Other than Transport Aircraft and Commuter Category aircraft excluding Gliders, Balloons and Airships","(5) A failure of an engine, rotor, propeller, fuel system, or other essential systems.",,,,,,
+1,4,,APPENDIX B,PART B,1,b6,-,,OCCURENCES RELATED TO THE AIRCRAFT OPERATIONS,"Other than Transport Aircraft and Commuter Category aircraft excluding Gliders, Balloons and Airships","(6) Leakage of any fluid which resulted in a fire hazard or possible hazardous contamination of aircraft structure, systems, or equipment, or risk to occupants.",,,,,,
+1,4,,APPENDIX B,PART B,1,c1,-,,OCCURENCES RELATED TO THE AIRCRAFT OPERATIONS,"Other than Transport Aircraft and Commuter Category aircraft excluding Gliders, Balloons and Airships","(c) Interaction with air navigation services and air traffic management
+(1) Interactions with air navigation services (for example, incorrect services provided, conflicting communications, or deviation from clearance) have or could have endangered
+the aircraft, its occupants, or any other person.",,,,,,
+1,4,,APPENDIX B,PART B,1,c2,-,,OCCURENCES RELATED TO THE AIRCRAFT OPERATIONS,"Other than Transport Aircraft and Commuter Category aircraft excluding Gliders, Balloons and Airships",(2) Airspace infringement.,,,,,,
+1,4,,APPENDIX B,PART B,1,d1,-,,OCCURENCES RELATED TO THE AIRCRAFT OPERATIONS,"Other than Transport Aircraft and Commuter Category aircraft excluding Gliders, Balloons and Airships","(d) Emergencies and other critical situations
+(1) Any occurrence leading to an emergency call.",,,,,,
+1,4,,APPENDIX B,PART B,1,d2,-,,OCCURENCES RELATED TO THE AIRCRAFT OPERATIONS,"Other than Transport Aircraft and Commuter Category aircraft excluding Gliders, Balloons and Airships","(2) Fire, explosion, smoke, toxic gases, or toxic fumes in the aircraft.",,,,,,
+1,4,,APPENDIX B,PART B,1,d3,-,,OCCURENCES RELATED TO THE AIRCRAFT OPERATIONS,"Other than Transport Aircraft and Commuter Category aircraft excluding Gliders, Balloons and Airships",(3) Incapacitation of the pilot leads to the inability to perform any duty.,,,,,,
+1,4,,APPENDIX B,PART B,1,e1,-,,OCCURENCES RELATED TO THE AIRCRAFT OPERATIONS,"Other than Transport Aircraft and Commuter Category aircraft excluding Gliders, Balloons and Airships","(e) External environment and meteorology
+(1) A collision on the ground or in the air, with another aircraft, terrain, or obstacle
+including, vehicles",,,,,,
+1,4,,APPENDIX B,PART B,1,e2,-,,OCCURENCES RELATED TO THE AIRCRAFT OPERATIONS,"Other than Transport Aircraft and Commuter Category aircraft excluding Gliders, Balloons and Airships","(2) A near collision with another aircraft, terrain, or obstacle, including vehicles requiring an emergency avoidance maneuver to avoid a collision.",,,,,,
+1,4,,APPENDIX B,PART B,1,e3,-,,OCCURENCES RELATED TO THE AIRCRAFT OPERATIONS,"Other than Transport Aircraft and Commuter Category aircraft excluding Gliders, Balloons and Airships","(3) Wildlife strikes, including bird strikes, resulted in damage to the aircraft or loss or malfunction of any essential service.",,,,,,
+1,4,,APPENDIX B,PART B,1,e4,-,,OCCURENCES RELATED TO THE AIRCRAFT OPERATIONS,"Other than Transport Aircraft and Commuter Category aircraft excluding Gliders, Balloons and Airships","(4) Interference with the aircraft by firearms, fireworks, flying kites, laser illumination, high-powered lights lasers, Remotely Piloted Aircraft Systems, model aircraft, or similar means.",,,,,,
+1,4,,APPENDIX B,PART B,1,e5,-,,OCCURENCES RELATED TO THE AIRCRAFT OPERATIONS,"Other than Transport Aircraft and Commuter Category aircraft excluding Gliders, Balloons and Airships",(5) A lightning strike resulting in damage to or loss of aircraft functions.,,,,,,
+1,4,,APPENDIX B,PART B,1,e6,-,,OCCURENCES RELATED TO THE AIRCRAFT OPERATIONS,"Other than Transport Aircraft and Commuter Category aircraft excluding Gliders, Balloons and Airships",(6) Severe turbulence resulted in injury to aircraft occupants or the need for a post-flight turbulence damage check of the aircraft.,,,,,,
+1,4,,APPENDIX B,PART B,1,e7,-,,OCCURENCES RELATED TO THE AIRCRAFT OPERATIONS,"Other than Transport Aircraft and Commuter Category aircraft excluding Gliders, Balloons and Airships","(7) Icing, including carburetor icing, has endangered the aircraft, its occupants, or other persons.",,,,,,
+1,4,,APPENDIX B,PART B,2,a1,-,,OCCURENCES RELATED TO THE AIRCRAFT OPERATIONS,Sailplanes(Gliders),"2. Sailplanes (Gliders)
+(a) Air operations
+(1) Unintentional loss of control.",,,,,,
+1,4,,APPENDIX B,PART B,2,a2,-,,OCCURENCES RELATED TO THE AIRCRAFT OPERATIONS,Sailplanes(Gliders),(2) An occurrence where the sailplane pilot was unable to release either the winch cable or the aerotow rope and had to do so using emergency procedures.,,,,,,
+1,4,,APPENDIX B,PART B,2,a3,-,,OCCURENCES RELATED TO THE AIRCRAFT OPERATIONS,Sailplanes(Gliders),"(3) Any release of the winch cable or the aerotow rope if the release has or could have endangered the sailplane, its occupants, or any other person.",,,,,,
+1,4,,APPENDIX B,PART B,2,a4,-,,OCCURENCES RELATED TO THE AIRCRAFT OPERATIONS,Sailplanes(Gliders),"(4) In the case of a powered sailplane, an engine failure during take-off.",,,,,,
+1,4,,APPENDIX B,PART B,2,a5,-,,OCCURENCES RELATED TO THE AIRCRAFT OPERATIONS,Sailplanes(Gliders),"(5) Any flight performed with a sailplane that was not airworthy or for which an incomplete flight preparation has or could have endangered the sailplane, its occupants, or any other person.",,,,,,
+1,4,,APPENDIX B,PART B,2,b1,-,,OCCURENCES RELATED TO THE AIRCRAFT OPERATIONS,Sailplanes(Gliders),"(b) Technical occurrences
+(1) Abnormal severe vibration (for example, aileron or elevator ‘flutter’, or of propeller).",,,,,,
+1,4,,APPENDIX B,PART B,2,b2,-,,OCCURENCES RELATED TO THE AIRCRAFT OPERATIONS,Sailplanes(Gliders),(2) Any flight control not functioning correctly or disconnected.,,,,,,
+1,4,,APPENDIX B,PART B,2,b3,-,,OCCURENCES RELATED TO THE AIRCRAFT OPERATIONS,Sailplanes(Gliders),(3) A failure or substantial deterioration of the sailplane structure.,,,,,,
+1,4,,APPENDIX B,PART B,2,b4,-,,OCCURENCES RELATED TO THE AIRCRAFT OPERATIONS,Sailplanes(Gliders),(4) A loss of any part of the sailplane structure or installation in flight.,,,,,,
+1,4,,APPENDIX B,PART B,2,c1,-,,OCCURENCES RELATED TO THE AIRCRAFT OPERATIONS,Sailplanes(Gliders),"(c) Interaction with air navigation services and air traffic management
+(1) Interaction with air navigation services (for example, incorrect services provided, conflicting communications, or deviation from clearance) which has or could have endangered the sailplane, its occupants, or any other person.",,,,,,
+1,4,,APPENDIX B,PART B,2,c2,-,,OCCURENCES RELATED TO THE AIRCRAFT OPERATIONS,Sailplanes(Gliders),(2) Airspace infringements.,,,,,,
+1,4,,APPENDIX B,PART B,2,d1,-,,OCCURENCES RELATED TO THE AIRCRAFT OPERATIONS,Sailplanes(Gliders),"(d) Emergencies and other critical situations
+(1) Any occurrence leading to an emergency call.",,,,,,
+1,4,,APPENDIX B,PART B,2,d2,-,,OCCURENCES RELATED TO THE AIRCRAFT OPERATIONS,Sailplanes(Gliders),(2) Any situation where no safe landing area remains available.,,,,,,
+1,4,,APPENDIX B,PART B,2,d3,-,,OCCURENCES RELATED TO THE AIRCRAFT OPERATIONS,Sailplanes(Gliders),"(3) Fire, explosion, smoke, or toxic gases or fumes in the sailplane.",,,,,,
+1,4,,APPENDIX B,PART B,2,d4,-,,OCCURENCES RELATED TO THE AIRCRAFT OPERATIONS,Sailplanes(Gliders),(4) Incapacitation of the pilot leading to inability to perform any duty.,,,,,,
+1,4,,APPENDIX B,PART B,2,e1,-,,OCCURENCES RELATED TO THE AIRCRAFT OPERATIONS,Sailplanes(Gliders),"(e) External environment and meteorology
+(1) A collision on the ground or in the air with an aircraft, terrain, or obstacle, including vehicles.",,,,,,
+1,4,,APPENDIX B,PART B,2,e2,-,,OCCURENCES RELATED TO THE AIRCRAFT OPERATIONS,Sailplanes(Gliders),"(2) A near collision with an aircraft, terrain, or obstacle, including vehicles requiring an emergency avoidance maneuver to avoid a collision.",,,,,,
+1,4,,APPENDIX B,PART B,2,e3,-,,OCCURENCES RELATED TO THE AIRCRAFT OPERATIONS,Sailplanes(Gliders),"(3) Interference with the sailplane by firearms, fireworks, flying kites, laser illumination, high-powered lights lasers, Remotely Piloted Aircraft Systems, model aircraft, or similar means.",,,,,,
+1,4,,APPENDIX B,PART B,2,e4,-,,OCCURENCES RELATED TO THE AIRCRAFT OPERATIONS,Sailplanes(Gliders),(4) A lightning strike resulted in damage to the sailplane.,,,,,,
+1,4,,APPENDIX B,PART B,3,a1,-,,OCCURENCES RELATED TO THE AIRCRAFT OPERATIONS,Lighter-than-air Vehicles (Balloons and Airships),"3. Lighter-than-air Vehicles (Balloons and Airships)
+(a) Air operations
+(1) Any flight which has been performed with a lighter-than-air vehicle that was not airworthy or for which an incomplete flight preparation has or could have endangered the lighter-than-air vehicle, its occupants, or any other person.",,,,,,
+1,4,,APPENDIX B,PART B,3,a2,-,,OCCURENCES RELATED TO THE AIRCRAFT OPERATIONS,Lighter-than-air Vehicles (Balloons and Airships),(2) Unintended permanent extinction of the pilot light.,,,,,,
+1,4,,APPENDIX B,PART B,3,b1,-,,OCCURENCES RELATED TO THE AIRCRAFT OPERATIONS,Lighter-than-air Vehicles (Balloons and Airships),"(b) Technical occurrences
+(1) Failure of any of the following parts or controls: dip tube on fuel cylinder, envelope pulley, control line, tether rope, valve seal leak on the burner, valve seal leak on fuel cylinder, carabiner, damage to the fuel line, lifting gas valve, envelope or ballonet, blower, pressure relief valve (gas balloon), winch (tethered gas balloons).",,,,,,
+1,4,,APPENDIX B,PART B,3,b2,-,,OCCURENCES RELATED TO THE AIRCRAFT OPERATIONS,Lighter-than-air Vehicles (Balloons and Airships),"(2) Significant leakage or loss of lifting gas (for example, porosity, unseated lifting gas valves).",,,,,,
+1,4,,APPENDIX B,PART B,3,c1,-,,OCCURENCES RELATED TO THE AIRCRAFT OPERATIONS,Lighter-than-air Vehicles (Balloons and Airships),"(c) Interaction with air navigation services and air traffic management
+(1) Interaction with air navigation services (for example, incorrect services provided, conflicting communications, or deviation from clearance) which has or could have endangered the lighter-than-air vehicle, its occupants, or any other person.",,,,,,
+1,4,,APPENDIX B,PART B,3,c2,-,,OCCURENCES RELATED TO THE AIRCRAFT OPERATIONS,Lighter-than-air Vehicles (Balloons and Airships),(2) Airspace infringement.,,,,,,
+1,4,,APPENDIX B,PART B,3,d1,-,,OCCURENCES RELATED TO THE AIRCRAFT OPERATIONS,Lighter-than-air Vehicles (Balloons and Airships),"(d) Emergencies and other critical situations
+(1) Any occurrence leading to an emergency call. Fire, explosion, smoke, or toxic fumes in the lighter-than-air vehicle (beyond the normal operation of the burner).",,,,,,
+1,4,,APPENDIX B,PART B,3,d2,-,,OCCURENCES RELATED TO THE AIRCRAFT OPERATIONS,Lighter-than-air Vehicles (Balloons and Airships),(2) Lighter-than-air vehicle's occupants ejected from basket or gondola.,,,,,,
+1,4,,APPENDIX B,PART B,3,d3,-,,OCCURENCES RELATED TO THE AIRCRAFT OPERATIONS,Lighter-than-air Vehicles (Balloons and Airships),(3) Incapacitation of the pilot leading to inability to perform any duty.,,,,,,
+1,4,,APPENDIX B,PART B,3,d4,-,,OCCURENCES RELATED TO THE AIRCRAFT OPERATIONS,Lighter-than-air Vehicles (Balloons and Airships),"(4) Unintended lift or drag of ground crew, leading to fatality or injury of a person.",,,,,,
+1,4,,APPENDIX B,PART B,3,e1,-,,OCCURENCES RELATED TO THE AIRCRAFT OPERATIONS,Lighter-than-air Vehicles (Balloons and Airships),"(e) External environment and meteorology
+(1) A collision or near-collision with an aircraft, terrain, or obstacle (which has or could
+have endangered the lighter-than-air vehicle, its occupants, or any other person.",,,,,,
+1,4,,APPENDIX B,PART B,3,e2,-,,OCCURENCES RELATED TO THE AIRCRAFT OPERATIONS,Lighter-than-air Vehicles (Balloons and Airships),"(2) Interference with the lighter-than-air vehicle by firearms, fireworks, flying kites, laser illumination, high-powered lights lasers, Remotely Piloted Aircraft Systems, model aircraft, or similar means.",,,,,,
+1,4,,APPENDIX B,PART B,3,e3,-,,OCCURENCES RELATED TO THE AIRCRAFT OPERATIONS,Lighter-than-air Vehicles (Balloons and Airships),"(3) Unexpected encounter of adverse weather conditions which has or could have endangered the lighter-than-air vehicle, its occupants, or any other person.",,,,,,
+1,4,,APPENDIX C,,1,,-,,OCCURENCES RELATED TO THE AIRCRAFT MAINTENANCE,Manufacturing,"Appendix C provides a list of aircraft maintenance occurrences. Certificate holders must report any other aircraft maintenance-related incidents and not listed in Appendix C.
+1. Manufacturing
+Products, parts, or appliances released from the production organization with deviations from applicable design data lead to an unsafe condition potentially as identified with the holder of
+the type certificate or design approval.",,,,,,
+1,4,,APPENDIX C,,2,,-,,OCCURENCES RELATED TO THE AIRCRAFT MAINTENANCE,Design,"2. Design
+Any failure, malfunction, defect related to a product, part, or appliance which has resulted in ormay result in an unsafe condition.
+Remark: This list is applicable to occurrences occurring on a product, part, or appliance coveredby the type certificate, restricted type-certificate, supplemental type-certificate, KSATSO authorization, major repair design approval, or any other relevant approval",,,,,,
+1+3333:337,4,,APPENDIX C,,3,a,-,,OCCURENCES RELATED TO THE AIRCRAFT MAINTENANCE,Maintenanceand Continuing Airworthiness Management,"3. Maintenance and Continuing Airworthiness Management
+(a) Serious structural damage (for example, cracks, permanent deformation, delamination, debonding, burning, excessive wear, or corrosion) found during maintenance of the aircraft or
+component.",,,,,,
+1,4,,APPENDIX C,,3,b,-,,OCCURENCES RELATED TO THE AIRCRAFT MAINTENANCE,Maintenanceand Continuing Airworthiness Management,"(b) Serious leakage or contamination of fluids (for example, hydraulic, fuel, oil, gas, or other fluids).",,,,,,
+1,4,,APPENDIX C,,3,c1,-,,OCCURENCES RELATED TO THE AIRCRAFT MAINTENANCE,Maintenanceand Continuing Airworthiness Management,"(c) Failure or malfunction in an engine or powerplant or transmission parts resulting in any one
+or more of the following:
+(1) non-containment of components/debris.",,,,,,
+1,4,,APPENDIX C,,3,c2,-,,OCCURENCES RELATED TO THE AIRCRAFT MAINTENANCE,Maintenanceand Continuing Airworthiness Management,(2) failure of the engine mount structure.,,,,,,
+1,4,,APPENDIX C,,3,d,-,,OCCURENCES RELATED TO THE AIRCRAFT MAINTENANCE,Maintenanceand Continuing Airworthiness Management,"(d) Damage, failure, or defect in the propeller leads to in-flight separation of the propeller or any major portion of the propeller or malfunctions of the propeller control.",,,,,,
+1,4,,APPENDIX C,,3,e,-,,OCCURENCES RELATED TO THE AIRCRAFT MAINTENANCE,Maintenanceand Continuing Airworthiness Management,"(e) Damage, failure, or defect of main rotor gearbox/attachment, which could lead to in-flight separation of the rotor assembly or malfunctions of the rotor control.",,,,,,
+1,4,,APPENDIX C,,3,f,-,,OCCURENCES RELATED TO THE AIRCRAFT MAINTENANCE,Maintenanceand Continuing Airworthiness Management,"(f) Significant malfunction of a safety-critical system or equipment, including emergency system or equipment during maintenance testing or failure to activate these systems after maintenance.",,,,,,
+1,4,,APPENDIX C,,3,g,-,,OCCURENCES RELATED TO THE AIRCRAFT MAINTENANCE,Maintenanceand Continuing Airworthiness Management,(g) Incorrect assembly or installation of aircraft components found during an inspection or test procedure not intended for that specific purpose.,,,,,,
+1+3333:337,4,,APPENDIX C,,3,h,-,,OCCURENCES RELATED TO THE AIRCRAFT MAINTENANCE,Maintenanceand Continuing Airworthiness Management,(h) Wrong assessment of a serious defect or serious non-compliance with MEL and Technical logbook procedures.,,,,,,
+1,4,,APPENDIX C,,3,i,-,,OCCURENCES RELATED TO THE AIRCRAFT MAINTENANCE,Maintenanceand Continuing Airworthiness Management,(i) Serious damage to Electrical Wiring Interconnection System (EWIS).,,,,,,
+1,4,,APPENDIX C,,3,j,-,,OCCURENCES RELATED TO THE AIRCRAFT MAINTENANCE,Maintenanceand Continuing Airworthiness Management,(j) Any defect in a life-controlled critical part causing retirement before completion of its full life.,,,,,,
+1,4,,APPENDIX C,,3,k,-,,OCCURENCES RELATED TO THE AIRCRAFT MAINTENANCE,Maintenanceand Continuing Airworthiness Management,"(k) The use of products, components, or materials, from the unknown, suspect origin, or unserviceable critical components.",,,,,,
+1,4,,APPENDIX C,,3,l,-,,OCCURENCES RELATED TO THE AIRCRAFT MAINTENANCE,Maintenanceand Continuing Airworthiness Management,"l) Misleading, incorrect or insufficient applicable maintenance data or procedures could lead to significant maintenance errors, including language issues.",,,,,,
+1,4,,APPENDIX C,,3,m,-,,OCCURENCES RELATED TO THE AIRCRAFT MAINTENANCE,Maintenanceand Continuing Airworthiness Management,(m) Incorrect control or application of aircraft maintenance limitations or scheduled maintenance.,,,,,,
+1,4,,APPENDIX C,,3,n,-,,OCCURENCES RELATED TO THE AIRCRAFT MAINTENANCE,Maintenanceand Continuing Airworthiness Management,"(n) Releasing an aircraft to service with defect or non-compliance after maintenance, which could endanger flight safety.",,,,,,
+1,4,,APPENDIX C,,3,o,-,,OCCURENCES RELATED TO THE AIRCRAFT MAINTENANCE,Maintenanceand Continuing Airworthiness Management,(o) Serious damage caused to an aircraft during maintenance activities due to incorrect maintenance or use of inappropriate or unserviceable ground support equipment that requires additional maintenance actions.,,,,,,
+1,4,,APPENDIX C,,3,p,-,,OCCURENCES RELATED TO THE AIRCRAFT MAINTENANCE,Maintenanceand Continuing Airworthiness Management,"(p) Identified burning, melting, smoke, arcing, overheating, or fire occurrences.",,,,,,
+1,4,,APPENDIX C,,3,q,-,,OCCURENCES RELATED TO THE AIRCRAFT MAINTENANCE,Maintenanceand Continuing Airworthiness Management,"(q) Any occurrence where the human performance, including personnel fatigue, has directly contributed to or could have contributed to an accident or a serious incident.",,,,,,
+1,4,,APPENDIX C,,3,r,-,,OCCURENCES RELATED TO THE AIRCRAFT MAINTENANCE,Maintenanceand Continuing Airworthiness Management,"(r) Significant malfunction, reliability issue, or recurrent recording quality issue affecting a flight recorder system (such as a flight data recorder system, a data link recording system, or a cockpit
+voice recorder system) or lack of information needed to ensure the serviceability of a flight recorder system.",,,,,,
+1,4,,APPENDIX D,,1,a,-,,OCCURENCES RELATED TO THE AIR NAVIGATION SERVICES,Aircraft-Related Occurences,"Appendix D provides a list of occurrences in ANS. Certificate holders must report any other ANS occurrences that are related to ANS and not listed in Appendix D.
+1. Aircraft-Related Occurrences
+(a) A collision or a near-collision between aircraft, terrain, or obstacle, including vehicles, including near-controlled flight into terrain (near CFIT).",,,,,,
+1,4,,APPENDIX D,,1,b,-,,OCCURENCES RELATED TO THE AIR NAVIGATION SERVICES,Aircraft-Related Occurences,(b) Separation minima infringement between aircraft or between aircraft and airspace to which separation minima is prescribed.,,,,,,
+1,4,,APPENDIX D,,1,c,-,,OCCURENCES RELATED TO THE AIR NAVIGATION SERVICES,Aircraft-Related Occurences,"(c) Inadequate separation, in the absence of prescribed separation minima, a situation in which aircraft were perceived to pass too close to each other for pilots to ensure safe eparation.",,,,,,
+1,4,,APPENDIX D,,1,d,-,,OCCURENCES RELATED TO THE AIR NAVIGATION SERVICES,Aircraft-Related Occurences,(d) ACAS RAs.,,,,,,
+1,4,,APPENDIX D,,1,e,-,,OCCURENCES RELATED TO THE AIR NAVIGATION SERVICES,Aircraft-Related Occurences,"(e) Wildlife strike, including bird strike.",,,,,,
+1,4,,APPENDIX D,,1,f,-,,OCCURENCES RELATED TO THE AIR NAVIGATION SERVICES,Aircraft-Related Occurences,(f) Taxiway or runway excursion.,,,,,,
+1,4,,APPENDIX D,,1,g,-,,OCCURENCES RELATED TO THE AIR NAVIGATION SERVICES,Aircraft-Related Occurences,(g) Actual or potential taxiway or runway incursion.,,,,,,
+1,4,,APPENDIX D,,1,h,-,,OCCURENCES RELATED TO THE AIR NAVIGATION SERVICES,Aircraft-Related Occurences,(h) Final Approach and Take-off Area (FATO) incursion.,,,,,,
+1+3333:337,4,,APPENDIX D,,1,i,-,,OCCURENCES RELATED TO THE AIR NAVIGATION SERVICES,Aircraft-Related Occurences,(i) Aircraft deviation from ATC clearance.,,,,,,
+1,4,,APPENDIX D,,1,j(i),-,,OCCURENCES RELATED TO THE AIR NAVIGATION SERVICES,Aircraft-Related Occurences,"(j) Aircraft deviation from applicable air traffic management (ATM) regulation:
+(i) aircraft deviation from applicable published ATM procedures;",,,,,,
+1,4,,APPENDIX D,,1,j(ii),-,,OCCURENCES RELATED TO THE AIR NAVIGATION SERVICES,Aircraft-Related Occurences,(ii) airspace infringement including unauthorized penetration of airspace;,,,,,,
+1,4,,APPENDIX D,,1,j(iii),-,,OCCURENCES RELATED TO THE AIR NAVIGATION SERVICES,Aircraft-Related Occurences,"(iii) deviation from aircraft ATM-related equipment carriage and operations, as mandated by applicable regulations.",,,,,,
+1,4,,APPENDIX D,,1,k,-,,OCCURENCES RELATED TO THE AIR NAVIGATION SERVICES,Aircraft-Related Occurences,(k) Occurrences related to Call sign confusion.,,,,,,
+1,4,,APPENDIX D,,1,l,-,,OCCURENCES RELATED TO THE AIR NAVIGATION SERVICES,Aircraft-Related Occurences,(l) Conducted flight below the ATC authorized SVFR weather minima,,,,,,
+1,4,,APPENDIX D,,2,a1,-,,OCCURENCES RELATED TO THE AIR NAVIGATION SERVICES,Degradation or Total Loss of Services or Functions,"2. Degradation or Total Loss of Services or Functions
+(a) Inability to provide ATM services or to execute ATM functions:
+(1) inability to provide air traffic services or to execute air traffic services functions;",,,,,,
+1,4,,APPENDIX D,,2,a2,-,,OCCURENCES RELATED TO THE AIR NAVIGATION SERVICES,Degradation or Total Loss of Services or Functions,"(2) inability to provide airspace management services or to execute airspace management
+functions;",,,,,,
+1,4,,APPENDIX D,,2,a3,-,,OCCURENCES RELATED TO THE AIR NAVIGATION SERVICES,Degradation or Total Loss of Services or Functions,(3) inability to provide air traffic flow management and capacity services or execute air traffic flow management and capacity functions.,,,,,,
+1,4,,APPENDIX D,,2,b,-,,OCCURENCES RELATED TO THE AIR NAVIGATION SERVICES,Degradation or Total Loss of Services or Functions,"(b) Missing or incorrect, corrupted, inadequate, or misleading information from any support service - ATS, ATIS, meteorological services, navigation databases, maps, charts, aeronautical information service, including relating to poor runway surface conditions.",,,,,,
+1,4,,APPENDIX D,,2,c,-,,OCCURENCES RELATED TO THE AIR NAVIGATION SERVICES,Degradation or Total Loss of Services or Functions,(c) Failure of communication service.,,,,,,
+1+3333:337,4,,APPENDIX D,,2,d,-,,OCCURENCES RELATED TO THE AIR NAVIGATION SERVICES,Degradation or Total Loss of Services or Functions,(d) Failure of surveillance service.,,,,,,
+1,4,,APPENDIX D,,2,e,-,,OCCURENCES RELATED TO THE AIR NAVIGATION SERVICES,Degradation or Total Loss of Services or Functions,(e) Failure of data processing and distribution function or service.,,,,,,
+1,4,,APPENDIX D,,2,f,-,,OCCURENCES RELATED TO THE AIR NAVIGATION SERVICES,Degradation or Total Loss of Services or Functions,(f) Failure of navigation service.,,,,,,
+1,4,,APPENDIX D,,2,g,-,,OCCURENCES RELATED TO THE AIR NAVIGATION SERVICES,Degradation or Total Loss of Services or Functions,(g) Failure of ATM system security had or could have a direct negative impact on the safe provision of service.,,,,,,
+1,4,,APPENDIX D,,2,h,-,,OCCURENCES RELATED TO THE AIR NAVIGATION SERVICES,Degradation or Total Loss of Services or Functions,(h) Significant ATS sector/position overload leading to a potential deterioration in service provision.,,,,,,
+1,4,,APPENDIX D,,2,i,-,,OCCURENCES RELATED TO THE AIR NAVIGATION SERVICES,Degradation or Total Loss of Services or Functions,"(i) Incorrect receipt or interpretation of significant communications, including lack of understanding of the language used when this had or could negatively impact the safe provision of service.",,,,,,
+1,4,,APPENDIX D,,2,j,-,,OCCURENCES RELATED TO THE AIR NAVIGATION SERVICES,Degradation or Total Loss of Services or Functions,(j) Prolonged loss of communication with an aircraft or other ATS unit.,,,,,,
+1,4,,APPENDIX D,,3,a,-,,OCCURENCES RELATED TO THE AIR NAVIGATION SERVICES,Other Occurrences,"3. Other Occurrences
+(a) Declaration of an emergency (‘Mayday’ or ‘PAN’ call).",,,,,,
+1+3333:337,4,,APPENDIX D,,3,b,-,,OCCURENCES RELATED TO THE AIR NAVIGATION SERVICES,Other Occurrences,"(b) Significant external interference with Air Navigation Services. For example, radio broadcast stations transmitting in the FM band, interfering with instrument landing system (ILS), VOR
+(VHF Omni Directional Radio Range), and communication.",,,,,,
+1,4,,APPENDIX D,,3,c,-,,OCCURENCES RELATED TO THE AIR NAVIGATION SERVICES,Other Occurrences,"(c) Interference with an aircraft, an ATS unit, or a radio communication transmission by firearms, fireworks, flying kites, laser illumination, high-powered lights lasers, Remotely Piloted Aircraft Systems, model aircraft, or by similar means.",,,,,,
+1,4,,APPENDIX D,,3,d,-,,OCCURENCES RELATED TO THE AIR NAVIGATION SERVICES,Other Occurrences,(d) Fuel dumping.,,,,,,
+1,4,,APPENDIX D,,3,e,-,,OCCURENCES RELATED TO THE AIR NAVIGATION SERVICES,Other Occurrences,(e) Bomb threat or hijack.,,,,,,
+1,4,,APPENDIX D,,3,f,-,,OCCURENCES RELATED TO THE AIR NAVIGATION SERVICES,Other Occurrences,(f) Personnel Fatigue impacting or potentially impacting the safe performance of ATS duties.,,,,,,
+1,4,,APPENDIX D,,3,g,-,,OCCURENCES RELATED TO THE AIR NAVIGATION SERVICES,Other Occurrences,(g) Any occurrence where the human performance has directly contributed to or could have contributed to an accident or a serious incident.,,,,,,
+1,4,,APPENDIX D,,3,h,-,,OCCURENCES RELATED TO THE AIR NAVIGATION SERVICES,Other Occurrences,(h) Unauthorized unmanned aircraft operations within the aerodrome control zone or airspace,,,,,,
+1,4,,APPENDIX E,,1,a1,-,,OCCURENCES RELATED TO AERODROMES SERVICES,Safety Management of an Aerodrome,"Appendix E provides a list of occurrences in aerodrome operations. Certificate holders mustreport any other occurrences related to aerodrome operations and not listed in Appendix E.
+1. Safety Management of an Aerodrome
+(a) Aircraft- and obstacle-related occurrences
+(1) A collision or near-collision between an aircraft and another aircraft, terrain, or obstacle,including vehicles.",,,,,,
+1,4,,APPENDIX E,,1,a2,-,,OCCURENCES RELATED TO AERODROMES SERVICES,Safety Management of an Aerodrome,"(2) Wildlife strike, including bird strike.",,,,,,
+1,4,,APPENDIX E,,1,a3,-,,OCCURENCES RELATED TO AERODROMES SERVICES,Safety Management of an Aerodrome,(3) Taxiway or runway excursion.,,,,,,
+1,4,,APPENDIX E,,1,a4,-,,OCCURENCES RELATED TO AERODROMES SERVICES,Safety Management of an Aerodrome,(4) Actual or potential taxiway or runway incursion.,,,,,,
+1,4,,APPENDIX E,,1,a5,-,,OCCURENCES RELATED TO AERODROMES SERVICES,Safety Management of an Aerodrome,(5) Final Approach and Take-off Area (FATO) incursion or excursion.,,,,,,
+1,4,,APPENDIX E,,1,a6,-,,OCCURENCES RELATED TO AERODROMES SERVICES,Safety Management of an Aerodrome,"(6) Failure of aircraft or vehicle to follow clearance, instruction, or restriction while operating on the movement area (for example, wrong runway, taxiway, or a restricted part of
+an aerodrome).",,,,,,
+1,4,,APPENDIX E,,1,a7,-,,OCCURENCES RELATED TO AERODROMES SERVICES,Safety Management of an Aerodrome,"(7) Foreign object on the aerodrome movement area which has or could have endangered the aircraft, its occupants, or any other person.",,,,,,
+1,4,,APPENDIX E,,1,a8,-,,OCCURENCES RELATED TO AERODROMES SERVICES,Safety Management of an Aerodrome,(8) Presence of obstacle on aerodrome or its vicinity is not published in the AIP (Aeronautical Information Publication) or NOTAM (Notice to Airmen); such obstacles are neither marked nor appropriately lighted.,,,,,,
+1+3333:337,4,,APPENDIX E,,1,a9,-,,OCCURENCES RELATED TO AERODROMES SERVICES,Safety Management of an Aerodrome,"(9) Push-back, power-back, or taxi interference by vehicle, equipment, or person.",,,,,,
+1,4,,APPENDIX E,,1,a10,-,,OCCURENCES RELATED TO AERODROMES SERVICES,Safety Management of an Aerodrome,(10)Passengers or unauthorized persons left unsupervised on the apron.,,,,,,
+1,4,,APPENDIX E,,1,a11,-,,OCCURENCES RELATED TO AERODROMES SERVICES,Safety Management of an Aerodrome,"(11)Jet blast, rotor downwash, or propeller blast effect.",,,,,,
+1,4,,APPENDIX E,,1,a12,-,,OCCURENCES RELATED TO AERODROMES SERVICES,Safety Management of an Aerodrome,(12)Declaration of an emergency (‘Mayday’ or ‘PAN’ call).,,,,,,
+1,4,,APPENDIX E,,1,b1(i),-,,OCCURENCES RELATED TO AERODROMES SERVICES,Safety Management of an Aerodrome,"(b) Degradation or total loss of services or functions
+(1) Loss or failure of communication between:
+(i) aerodrome, vehicle or other ground personnel and air traffic services unit or apron management service unit;",,,,,,
+1,4,,APPENDIX E,,1,b1(ii),-,,OCCURENCES RELATED TO AERODROMES SERVICES,Safety Management of an Aerodrome,"(ii) apron management service unit and aircraft, vehicle, or air traffic services unit.",,,,,,
+1,4,,APPENDIX E,,1,b2,-,,OCCURENCES RELATED TO AERODROMES SERVICES,Safety Management of an Aerodrome,"(2) Significant failure, malfunction, or defect of aerodrome equipment or system which has or could have endangered the aircraft or its occupants.",,,,,,
+1,4,,APPENDIX E,,1,b3,-,,OCCURENCES RELATED TO AERODROMES SERVICES,Safety Management of an Aerodrome,"(3) Significant deficiencies in aerodrome lighting, marking, or signs.",,,,,,
+1,4,,APPENDIX E,,1,b4,-,,OCCURENCES RELATED TO AERODROMES SERVICES,Safety Management of an Aerodrome,(4) Failure of the aerodrome emergency alerting system.,,,,,,
+1,4,,APPENDIX E,,1,b5,-,,OCCURENCES RELATED TO AERODROMES SERVICES,Safety Management of an Aerodrome,(5) Rescue and firefighting services are not available according to applicable requirements.,,,,,,
+1,4,,APPENDIX E,,1,c1,-,,OCCURENCES RELATED TO AERODROMES SERVICES,Safety Management of an Aerodrome,"(c) Other occurrences
+(1) Fire, smoke, explosions in aerodrome facilities, or its vicinities and equipment that have or could have endangered the aircraft, its occupants, or any other person.",,,,,,
+1+3333:337,4,,APPENDIX E,,1,c2,-,,OCCURENCES RELATED TO AERODROMES SERVICES,Safety Management of an Aerodrome,"(2) Aerodrome security-related occurrences (for example, unlawful entry, sabotage, bomb threat).",,,,,,
+1,4,,APPENDIX E,,1,c3,-,,OCCURENCES RELATED TO AERODROMES SERVICES,Safety Management of an Aerodrome,"(3) Absence of reporting a significant change in aerodrome operating conditions that have or could have endangered the aircraft, its occupants, or any other person.",,,,,,
+1,4,,APPENDIX E,,1,c4,-,,OCCURENCES RELATED TO AERODROMES SERVICES,Safety Management of an Aerodrome,"(4) Missing, incorrect, or inadequate de-icing/anti-icing treatment.",,,,,,
+1,4,,APPENDIX E,,1,c5,-,,OCCURENCES RELATED TO AERODROMES SERVICES,Safety Management of an Aerodrome,(5) Significant spillage during fueling operations.,,,,,,
+1,4,,APPENDIX E,,1,c6,-,,OCCURENCES RELATED TO AERODROMES SERVICES,Safety Management of an Aerodrome,"(6) Loading the contaminated or incorrect type of fuel or other essential fluids (including oxygen, nitrogen, oil, and potable water).",,,,,,
+1,4,,APPENDIX E,,1,c7,-,,OCCURENCES RELATED TO AERODROMES SERVICES,Safety Management of an Aerodrome,(7) Failure to handle poor runway surface conditions.,,,,,,
+1,4,,APPENDIX E,,1,c8,-,,OCCURENCES RELATED TO AERODROMES SERVICES,Safety Management of an Aerodrome,(8) Any operation whereby the human performance has directly contributed to or could have contributed to an accident or a serious incident.,,,,,,
+1,4,,APPENDIX F,,1,a1,-,,OCCURENCES RELATED TO GROUND SERVICES,Ground Handling of an Aircraft,"Appendix F contains a list of occurrences related to Ground Services. Certificate holders must report any other occurrences that relate to ground services and not listed in Appendix F.
+1. Ground Handling of an Aircraft
+(a) Aircraft- and aerodrome-related occurrences
+(1) A collision or near collision, on the ground, between an aircraft and another aircraft, terrain, or obstacle, including vehicles.",,,,,,
+1+3333:337,4,,APPENDIX F,,1,a2,-,,OCCURENCES RELATED TO GROUND SERVICES,Ground Handling of an Aircraft,(2) Ground handling equipment or any vehicles causing non-fatal injury to any person,,,,,,
+1,4,,APPENDIX F,,1,a3,-,,OCCURENCES RELATED TO GROUND SERVICES,Ground Handling of an Aircraft,(3) Vehicles on the taxi/runway while aircraft taxiing,,,,,,
+1,4,,APPENDIX F,,1,a4,-,,OCCURENCES RELATED TO GROUND SERVICES,Ground Handling of an Aircraft,"(4) Significant contamination of aircraft structure, systems, and equipment arises from the carriage of baggage, mail, or cargo.",,,,,,
+1,4,,APPENDIX F,,1,a5,-,,OCCURENCES RELATED TO GROUND SERVICES,Ground Handling of an Aircraft,"(5) Push-back, power-back, or taxi interference by vehicle, equipment, or person.",,,,,,
+1,4,,APPENDIX F,,1,a6,-,,OCCURENCES RELATED TO GROUND SERVICES,Ground Handling of an Aircraft,"(6) Foreign object on the aerodrome movement area which has or could have endangered the aircraft, its occupants, or any other person.",,,,,,
+1,4,,APPENDIX F,,1,a7,-,,OCCURENCES RELATED TO GROUND SERVICES,Ground Handling of an Aircraft,(7) Passengers or unauthorized persons left unsupervised on the apron.,,,,,,
+1,4,,APPENDIX F,,1,a8,-,,OCCURENCES RELATED TO GROUND SERVICES,Ground Handling of an Aircraft,"(8) Fire, smoke, explosions in aerodrome facilities, or its vicinities and equipment that have or could have endangered the aircraft, its occupants, or any other person.",,,,,,
+1,4,,APPENDIX F,,1,a9,-,,OCCURENCES RELATED TO GROUND SERVICES,Ground Handling of an Aircraft,"(9) Aerodrome security-related occurrences (for example, unlawful entry, sabotage, bomb threat).",,,,,,
+1,4,,APPENDIX F,,1,b1,-,,OCCURENCES RELATED TO GROUND SERVICES,Ground Handling of an Aircraft,"(b) Degradation or total loss of services or functions
+(1) Loss or failure of communication with aircraft, vehicle, air traffic services unit, or apron management service unit.",,,,,,
+1,4,,APPENDIX F,,1,b2,-,,OCCURENCES RELATED TO GROUND SERVICES,Ground Handling of an Aircraft,"(2) Significant failure, malfunction, or defect of aerodrome equipment or system which has or could have endangered the aircraft or its occupants.",,,,,,
+1,4,,APPENDIX F,,1,b3,-,,OCCURENCES RELATED TO GROUND SERVICES,Ground Handling of an Aircraft,"(3) Significant deficiencies in aerodrome lighting, marking, or signs.",,,,,,
+1+3333:337,4,,APPENDIX F,,1,c1,-,,OCCURENCES RELATED TO GROUND SERVICES,Ground Handling of an Aircraft,"(c) Ground handling specific occurrences
+(1) Incorrect distribution of passengers or loading of baggage, mail, or cargo, likely to affect aircraft mass or balance significantly (including significant errors in load sheet
+calculations).",,,,,,
+1,4,,APPENDIX F,,1,c2,-,,OCCURENCES RELATED TO GROUND SERVICES,Ground Handling of an Aircraft,"(2) Boarding equipment removed while boarding, leading to the endangerment of aircraft occupants.",,,,,,
+1,4,,APPENDIX F,,1,c3,-,,OCCURENCES RELATED TO GROUND SERVICES,Ground Handling of an Aircraft,"(3) Incorrect stowage or securing of baggage, mail, or cargo likely in any way to endanger the aircraft, its equipment, or occupants or to impede an emergency evacuation.",,,,,,
+1,4,,APPENDIX F,,1,c4,-,,OCCURENCES RELATED TO GROUND SERVICES,Ground Handling of an Aircraft,"(4) Transport, or attempted transport of dangerous goods which endangered or could have endangered the safety of the operation, or led to an unsafe condition (for example, dangerous
+goods incident or accident as defined in the ICAO Technical Instructions for the Safe Transport of Dangerous Goods by Air (ICAO — Doc 9284).",,,,,,
+1,4,,APPENDIX F,,1,c5,-,,OCCURENCES RELATED TO GROUND SERVICES,Ground Handling of an Aircraft,(5) Non-compliance on baggage or passenger reconciliation.,,,,,,
+1,4,,APPENDIX F,,1,c6,-,,OCCURENCES RELATED TO GROUND SERVICES,Ground Handling of an Aircraft,"(6) Non-compliance with required aircraft ground handling and servicing procedures, especially in de-icing, refueling, or loading procedures, including incorrect positioning or removal of equipment.",,,,,,
+1,4,,APPENDIX F,,1,1c7,-,,OCCURENCES RELATED TO GROUND SERVICES,Ground Handling of an Aircraft,(7) Significant spillage during fueling operations.,,,,,,
+1,4,,APPENDIX F,,1,c8,-,,OCCURENCES RELATED TO GROUND SERVICES,Ground Handling of an Aircraft,"(8) Loading of incorrect fuel quantity is likely to affect aircraft endurance, performance, balance, or structural strength.",,,,,,
+1,4,,APPENDIX F,,1,c9,-,,OCCURENCES RELATED TO GROUND SERVICES,Ground Handling of an Aircraft,"(9) Failure, malfunction, or defect of ground equipment, resulting in damage or potential damage to the aircraft (for example, tow bar or GPU (Ground Power Unit).",,,,,,
+1,4,,APPENDIX F,,1,c10,-,,OCCURENCES RELATED TO GROUND SERVICES,Ground Handling of an Aircraft,"(10)Missing, incorrect, or inadequate de-icing/anti-icing treatment.",,,,,,
+1,4,,APPENDIX F,,1,c11,-,,OCCURENCES RELATED TO GROUND SERVICES,Ground Handling of an Aircraft,"(11)Damage to aircraft by ground handling equipment or vehicles, including the unreported occurrence of damage",,,,,,
+1,4,,APPENDIX F,,1,c12,-,,OCCURENCES RELATED TO GROUND SERVICES,Ground Handling of an Aircraft,"(12)Any occurrence wherein the human performance has directly
+contributed to or could have contributed to an accident or a serious incident.",,,,,,
+1,4,,APPENDIX G,,,a,-,,EXAMPLES OF MAJOR DEFECTS,Major Defects on Aircraft,"Appendix G provides a list of major defects. Certificate holders must report any other aircraft major defect that is not listed in Appendix G.
+Major Defects on aircraft
+(a) Cracks, permanent deformation, or corrosion of aircraft structure, if more than the maximum acceptable to the manufacturer limits; and",,,,,,
+1,4,,APPENDIX G,,,b,-,,EXAMPLES OF MAJOR DEFECTS,Major Defects on Aircraft,(b) Aircraft components or systems failure results in emergency actions during flight (except action to shut down an engine).,,,,,,
+1,4,,APPENDIX G,,,c,-,,EXAMPLES OF MAJOR DEFECTS,Major Defects on Aircraft,"(c) Interruption to a flight, unscheduled change of aircraft en route, or unscheduled stop or diversion from a route, caused by known or suspected mechanical difficulties or malfunctions;
+and",,,,,,
+1,4,,APPENDIX G,,,d,-,,EXAMPLES OF MAJOR DEFECTS,Major Defects on Aircraft,(d) Engine shut down during the flight when external damage to the engine or aircraft structure occurs.,,,,,,
+1+3333:337,4,,APPENDIX G,,,e,-,,EXAMPLES OF MAJOR DEFECTS,Major Defects on Aircraft,(e) Engine shut down during the flight due to foreign object ingestion or icing; and,,,,,,
+1,4,,APPENDIX G,,,f,-,,EXAMPLES OF MAJOR DEFECTS,Major Defects on Aircraft,(f) Shut down of more than one engine during flight.,,,,,,
+1,4,,APPENDIX G,,,g,-,,EXAMPLES OF MAJOR DEFECTS,Major Defects on Aircraft,(g) Failure of propeller feathering system or degradation of the ability of the system to control over-speed during flight; and,,,,,,
+1,4,,APPENDIX G,,,h,-,,EXAMPLES OF MAJOR DEFECTS,Major Defects on Aircraft,(h) The fuel or fuel dumping system affects fuel flow or causes hazardous leakage during flight.,,,,,,
+1,4,,APPENDIX G,,,i,-,,EXAMPLES OF MAJOR DEFECTS,Major Defects on Aircraft,"(i) Landing gear extension or retraction, or opening or closing of landing gear doors during flight; and",,,,,,
+1,4,,APPENDIX G,,,j,-,,EXAMPLES OF MAJOR DEFECTS,Major Defects on Aircraft,(j) Brake system components that result in loss of brake actuating force when the aircraft is in motion on the ground; aircraft structure that requires significant repair.,,,,,,
+1,4,,APPENDIX G,,,k,-,,EXAMPLES OF MAJOR DEFECTS,Major Defects on Aircraft,"(k) Engines removed prematurely because of malfunction, failure, or defect; and",,,,,,
+1,4,,APPENDIX G,,,l,-,,EXAMPLES OF MAJOR DEFECTS,Major Defects on Aircraft,"(l) Cases of propeller featherings in flight, listed by type of propeller and engine and aircraft on which the propeller was installed.",,,,,,
+1,4,,APPENDIX G,,,m,-,,EXAMPLES OF MAJOR DEFECTS,Major Defects on Aircraft,"(m) Fires during flight, and whether the fire warning system functioned properly; false fire warnings during flight; and",,,,,,
+1,4,,APPENDIX G,,,n,-,,EXAMPLES OF MAJOR DEFECTS,Major Defects on Aircraft,"(n) Engine exhaust system causes damage during flight to the engine, adjacent structure, equipment, or components.",,,,,,
+1,4,,APPENDIX G,,,o,-,,EXAMPLES OF MAJOR DEFECTS,Major Defects on Aircraft,"(o) Aircraft component that causes accumulation or circulation of smoke, vapor, or toxic or noxious fumes in the crew compartment or passenger cabin during flight; and",,,,,,
+1,4,,APPENDIX G,,,p,-,,EXAMPLES OF MAJOR DEFECTS,Major Defects on Aircraft,(p) Engine shutdown during flight because of flameout.,,,,,,
+,,,,,,,,,,,,,,,,,

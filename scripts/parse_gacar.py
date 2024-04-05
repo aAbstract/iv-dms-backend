@@ -308,6 +308,9 @@ section_columns = {
     "117": "Subpart Section",
     "109": "Subpart/ Appendix SECTION",
     "91": "Subpart/ Appendix SECTION",
+    "7": "Subpart/ Appendix SECTION",
+    "4":"SECTION",
+    "121":"SUBPART/ APPENDIX SECTION"
 }
 
 

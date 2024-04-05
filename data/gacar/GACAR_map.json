@@ -1,9 +1,30 @@
 [
     {
-        "code": "G-109 109",
-        "title": "GACAR Part 109",
+        "code": "G-91 91",
+        "title": "GACAR Part 91",
         "sub_sections": [
-            "GACAR Part 109"
+            "GACAR Part 91"
+        ]
+    },
+    {
+        "code": "G-7 7",
+        "title": "GACAR Part 7",
+        "sub_sections": [
+            "GACAR Part 7"
+        ]
+    },
+    {
+        "code": "G-4 4",
+        "title": "GACAR Part 4",
+        "sub_sections": [
+            "GACAR Part 4"
+        ]
+    },
+    {
+        "code": "G-121 121",
+        "title": "GACAR Part 121",
+        "sub_sections": [
+            "GACAR Part 121"
         ]
     },
     {
@@ -14,10 +35,10 @@
         ]
     },
     {
-        "code": "G-91 91",
-        "title": "GACAR Part 91",
+        "code": "G-109 109",
+        "title": "GACAR Part 109",
         "sub_sections": [
-            "GACAR Part 91"
+            "GACAR Part 109"
         ]
     }
 ]
