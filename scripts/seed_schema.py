@@ -361,14 +361,14 @@ def seed_routine():
     #             {"_id": iosa_e16r2_id},
     #             {"$push": {"sections": section_json}},
     #         )
-    db.get_collection("regulations_source_maps").find_one_and_delete({"code":"G-117 117"})
-    db.get_collection("regulations_source_maps").find_one_and_delete({"code":"G-109 109"})
-    db.get_collection("regulations_source_maps").find_one_and_delete({"code":"G-91 91"})
-    db.get_collection("regulations_source_maps").find_one_and_delete({"code":"G-7 7"})
-    db.get_collection("regulations_source_maps").find_one_and_delete({"code":"G-4 4"})
-    db.get_collection("regulations_source_maps").find_one_and_delete({"code":"G-121 121"})
+    db.get_collection("regulations_source_maps").delete_many({"code":"G-117 117"})
+    db.get_collection("regulations_source_maps").delete_many({"code":"G-109 109"})
+    db.get_collection("regulations_source_maps").delete_many({"code":"G-91 91"})
+    db.get_collection("regulations_source_maps").delete_many({"code":"G-7 7"})
+    db.get_collection("regulations_source_maps").delete_many({"code":"G-4 4"})
+    db.get_collection("regulations_source_maps").delete_many({"code":"G-121 121"})
 
-    db.get_collection("regulations").find_one_and_delete({"type":"GACAR"})
+    db.get_collection("regulations").delete_many({"type":"GACAR"})
 
     with open(r"data/gacar/GACAR.json", "r") as f:
         file_content = f.read()
