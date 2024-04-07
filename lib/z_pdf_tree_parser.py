@@ -10,7 +10,7 @@ import json
 
 _CACHE_FOLDER = r"data/cache/toc_trees"
 
-class ZPDFTree:
+class ZPDF:
     ''' This class converts PDFs to indexable data structure '''
     debug: bool
     doc: fitz.Document
@@ -30,14 +30,17 @@ class ZPDFTree:
 
         link_text = page.get_textbox(link.rect)
         link_text = ''.join([c for c in link_text if c in self.allowed_header_chars])
-        matches = re.findall(r'^((\d+(?:\.\d+)*)[A-Za-z ]+)[\.\s]+', link_text)
+        matches = re.findall(r'^((\d+\.?(?:\.\d+)*)[A-Za-z ]+)[\.\s]+', link_text)
         if not matches:
             return None
         if len(matches[0]) < 2:
             return None
 
-        # only keep unique toc headers
         link_text, idx = matches[0]
+        # fix x. pattern in top level toc headers
+        if idx.split('.')[-1] == '':
+            idx = idx[:-1]
+        # only keep unique toc headers
         if idx in self._link_idx_set:
             if self.debug:
                 print(idx, 'Duplicate')
@@ -51,6 +54,7 @@ class ZPDFTree:
             if idx < len(links) - 1:
                 link.next_link_page = links[idx + 1].target_page
                 link.next_link_label = links[idx + 1].link_label
+        self._last_link_idx = links[-1].link_idx
         return links
 
     def _extract_toc_links(self) -> list[TocLink]:
@@ -63,7 +67,6 @@ class ZPDFTree:
                     toc_links.append(toc_link)
                 link = link.next
         toc_links = self._fill_next_link_page(toc_links)
-        self._last_link_idx = toc_links[-1].link_idx
         return toc_links
 
     def _build_toc_tree(self, links: list[TocLink], start_index: int, end_index: int, level: int) -> list[TocTreeNode]:
@@ -123,9 +126,15 @@ class ZPDFTree:
                 not_found_links.append(link)
         not_found_pct = len(not_found_links) / len(links)
         return 1 - not_found_pct, not_found_links
-    
+
+    def _get_first_link_by_parent_key(self, parent_key: str, links: list[TocLink]) -> tuple[int, TocLink] | None:
+        search_res = [(idx, link) for idx, link in enumerate(links) if link.link_label.startswith(parent_key)]
+        if search_res:
+            return search_res[0]
+        return None
+
     def __init__(self, file_path: str, cache: list[dict] = [], debug: bool = False):
-        print('Initializing ZPDFTree for file:', file_path)
+        print('Initializing ZPDF for file:', file_path)
         self.debug = debug
         self.doc = fitz.open(file_path)
         self.allowed_header_chars = string.ascii_uppercase + string.ascii_lowercase + ' .' + string.digits
@@ -148,8 +157,8 @@ class ZPDFTree:
 
         # generate toc coverage metric
         print('Validating TOC Tree...')
-        conv_met, not_found_links = self._validate_toc_tree(toc_links)
-        self.coverage_metric = conv_met
+        coverage_metric, not_found_links = self._validate_toc_tree(toc_links)
+        self.coverage_metric = coverage_metric
         print('TOC Coverage Metric:', self.coverage_metric)
 
         # post correction
@@ -157,28 +166,24 @@ class ZPDFTree:
             return
 
         print('Running Post Correction...')
-        missing_roots_map = {}
-        for idx, link in enumerate(not_found_links):
-            link_key = link.link_idx.split('.')[0]
-            if link_key not in missing_roots_map:
-                missing_roots_map[link_key] = (idx, link)
-
-        for root_key, (arr_idx, link) in missing_roots_map.items():
-            link: TocLink = link
-            not_found_links.insert(arr_idx, TocLink(
+        missing_roots = {not_found_link.link_idx.split('.')[0] for not_found_link in not_found_links}
+        for root_key in missing_roots:
+            arr_idx, link = self._get_first_link_by_parent_key(root_key, toc_links)
+            toc_links.insert(arr_idx, TocLink(
                 link_idx=root_key,
                 link_label=(root_key + ' UNTITLED'),
                 target_page=link.target_page,
-                next_link_page=link.next_link_page,
-                next_link_label=link.next_link_label,
             ))
-        self.toc_tree += self._build_toc_tree(not_found_links, 0, len(not_found_links), 0)
+        self.toc_headers_count = len(toc_links)
+        print('Found', self.toc_headers_count, 'TOC Headers')
+        toc_links = self._fill_next_link_page(toc_links)
+        self.toc_tree = self._build_toc_tree(toc_links, 0, len(toc_links), 0)
         print('Running Post Correction...OK')
 
         # generate toc coverage metric
         print('Validating TOC Tree...')
-        conv_met, not_found_links = self._validate_toc_tree(toc_links)
-        self.coverage_metric = conv_met
+        coverage_metric, not_found_links = self._validate_toc_tree(toc_links)
+        self.coverage_metric = coverage_metric
         print('TOC Coverage Metric:', self.coverage_metric)
 
     def get_toc_node_text(self, node: TocTreeNode) -> str | None:
@@ -244,7 +249,7 @@ class ZPDFTree:
         filtered_keys = self._remove_key_overlaps(toc_keys)
         toc_tree_nodes = [self.find_toc_tree_node(key) for key in filtered_keys]
         return [self.get_toc_node_text(node) for node in toc_tree_nodes]
-    
+        
     def save_cache(self, file_name : str) -> None:
 
         with open(fr'{_CACHE_FOLDER}/{file_name}.json', 'w') as f:

@@ -32,7 +32,7 @@ from models.fs_index import *
 from models.ai_tasks import *
 from models.gpt_35t import *
 from models.flow_reports import *
-from lib.z_pdf_tree_parser import ZPDFTree
+from lib.z_pdf_tree_parser import ZPDF
 
 # autopep8: on
 
@@ -403,7 +403,7 @@ def seed_routine():
         filename = re.split(r"[\\|/]", file_path)[-1]
         
         try:
-            z_tree = ZPDFTree(file_path=file_path)
+            z_tree = ZPDF(file_path=file_path)
             tree = z_tree.get_cache_transformed()
 
         except:
@@ -444,7 +444,7 @@ def seed_routine():
         filename = re.split(r"[\\|/]", file_path)[-1]
 
         try:
-            z_tree = ZPDFTree(file_path=file_path)
+            z_tree = ZPDF(file_path=file_path)
             tree = z_tree.get_cache_transformed()
 
         except:

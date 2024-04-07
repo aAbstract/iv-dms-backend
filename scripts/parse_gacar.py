@@ -310,6 +310,7 @@ section_columns = {
     "91": "Subpart/ Appendix SECTION",
     "7": "Subpart/ Appendix SECTION",
     "4":"SECTION",
+    "5":"SECTION",
     "121":"SUBPART/ APPENDIX SECTION"
 }
 
@@ -346,8 +347,9 @@ for file in glob("data/gacar/*.csv"):
     }
 
     for i in range(len(df)):
-
         new_code = str(df[section_columns[gacar_code]][i]).strip()
+        if not new_code.startswith(gacar_code):
+            new_code = f"{gacar_code}.{new_code}"
 
         header_code = f"G-{gacar_code} {new_code}"
 

@@ -18,7 +18,7 @@ import re
 import lib.log as log_man
 from lib.pdf import create_parts_metadata_file
 from models.flow_reports import Airline
-from lib.z_pdf_tree_parser import ZPDFTree
+from lib.z_pdf_tree_parser import ZPDF
 from uuid import uuid4
 
 _PUBLIC_DIR = r"public"
@@ -144,7 +144,7 @@ async def create_fs_index_entry(
 
     try:
 
-        z_tree = ZPDFTree(file_path=file_path)
+        z_tree = ZPDF(file_path=file_path)
         z_tree.save_cache(chat_doc_uuid)
 
         metrics = z_tree.get_benchmark()
@@ -417,10 +417,10 @@ async def get_pages_from_sections(
                 # Retrive Cache and instantiate ZTree
                 with open(cache_path, "r") as f:
                     cache = json.loads(f.read())
-                    z_pdf_tree = ZPDFTree(file_path=file_path, cache=cache)
+                    z_pdf_tree = ZPDF(file_path=file_path, cache=cache)
 
             else:
-                z_pdf_tree = ZPDFTree(file_path=file_path)
+                z_pdf_tree = ZPDF(file_path=file_path)
                 z_pdf_tree.save_cache(doc_uuid)
 
             for text in z_pdf_tree.extract_text(list(set(pages_mapper[doc_uuid]))):

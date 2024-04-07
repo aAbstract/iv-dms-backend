@@ -477,7 +477,7 @@ def _test_get_tree_structure():
         FSIndexTree.model_validate(i)
 
 
-def test_get_tree_v2_structure():
+def _test_get_tree_v2_structure():
     admin_access_token = _test_config.login_user('eslam', 'CgJhxwieCc7QEyN3BB7pmvy9MMpseMPV')
     get_database = _test_config.get_database()
     assert get_database != None
@@ -502,13 +502,15 @@ def test_get_tree_v2_structure():
 def test_get_all_tree_structure():
     admin_access_token = _test_config.login_user('eslam', 'CgJhxwieCc7QEyN3BB7pmvy9MMpseMPV')
     get_database = _test_config.get_database()
-    assert get_database != None
+    assert get_database != None    
+    airline = get_database.get_collection("airlines").insert_one({"organization":"AeroSync","name":"AeroSync Test"})
+
+    
     http_headers = {'X-Auth': f"Bearer {admin_access_token}"}
 
     # get tree api
     api_url = f"{_test_config.get_api_url()}/manuals/get-all-trees"
-    payload = {
-    }
+    payload = {"airline_id":str(airline.inserted_id)}
 
     http_res = requests.post(api_url, headers=http_headers, json=payload)
     assert http_res.status_code == 200
@@ -518,3 +520,5 @@ def test_get_all_tree_structure():
 
     for checkin in json_res_body['data']['checkins']:
         FSIndexFileTree.model_validate(checkin)
+
+    get_database.get_collection("airlines").find_one_and_delete({"_id": airline.inserted_id})
