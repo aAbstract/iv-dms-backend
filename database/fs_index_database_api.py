@@ -33,7 +33,7 @@ async def create_fs_index_entry(
     file_type: IndexFileType,
     filename: str,
     data: bytes,
-    chat_doc_uuid: str = str(uuid4()),
+    chat_doc_uuid: str,
 ) -> ServiceResponse:
 
     # check if index entry already exists
@@ -47,7 +47,8 @@ async def create_fs_index_entry(
     metrics = {"toc_headers_count": 0, "coverage_metric": 0.0}
     file_ext = os.path.splitext(filename)[1]
     status = ChatDOCStatus.PARSING_FAILD
-
+    chat_doc_uuid = str(uuid4())
+    
     if fs_index:
         file_id = str(fs_index["_id"])
         disk_filename = f"{file_id}{file_ext}"
