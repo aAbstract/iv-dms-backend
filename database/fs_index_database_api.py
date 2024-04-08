@@ -41,34 +41,7 @@ async def create_fs_index_entry(
         .get_collection("fs_index")
         .find_one({"$and": [{"username": username}, {"filename": filename}]})
     )
-
-    # Default FSindex Variables
-    metrics = {"toc_headers_count": 0, "coverage_metric": 0.0}
     file_ext = os.path.splitext(filename)[1]
-    status = ChatDOCStatus.PARSING_FAILD
-    chat_doc_uuid = str(uuid4())
-    
-    if fs_index:
-        file_id = str(fs_index["_id"])
-        disk_filename = f"{file_id}{file_ext}"
-        file_type = fs_index["file_type"]
-        url_path = f"/{FILE_TYPE_PATH_MAP[file_type]}/{disk_filename}".replace(
-            "\\", "/"
-        )
-        chat_doc_uuid = fs_index["doc_uuid"]
-
-        if fs_index["doc_status"] == ChatDOCStatus.PARSED:
-            metrics = fs_index["args"]["parsing_metrics"]
-
-        return ServiceResponse(
-            data={
-                "url_path": url_path,
-                "file_id": file_id,
-                "doc_uuid": chat_doc_uuid,
-                "doc_status": fs_index["doc_status"],
-                "parsing_metrics": metrics,
-            }
-        )
 
     # validate airline
     if not airline_id:
@@ -101,24 +74,47 @@ async def create_fs_index_entry(
             status_code=403,
         )
 
-    # create fs index entry in database
-    fs_index_entry = FSIndexFile(
-        username=username,
-        datetime=datetime.now(),
-        file_type=file_type,
-        filename=filename,
-        doc_uuid=chat_doc_uuid,
-        doc_status=status,
-        organization=organization,
-        airline=airline_id,
-    )
+    # over write if already existing
+    if fs_index:
 
-    mdb_result = (
-        await get_database()
-        .get_collection("fs_index")
-        .insert_one(fs_index_entry.model_dump())
-    )
-    file_id = str(mdb_result.inserted_id)
+        fs_index['airline'] = airline_id
+        fs_index['datetime'] =datetime.now()
+        fs_index['doc_status'] = ChatDOCStatus.PARSING_FAILD
+        fs_index['args'] = {}
+        FSIndexFile.model_validate(fs_index)
+
+        mdb_result = (
+            await get_database()
+            .get_collection("fs_index")
+            .replace_one({"_id":fs_index['_id']},fs_index)
+        )
+
+        file_id = str(fs_index['_id'])
+        chat_doc_uuid = str(fs_index['doc_uuid'])
+
+    else:
+
+        chat_doc_uuid = str(uuid4())
+
+        # create fs index entry in database
+        fs_index_entry = FSIndexFile(
+            username=username,
+            datetime=datetime.now(),
+            file_type=file_type,
+            filename=filename,
+            doc_uuid=chat_doc_uuid,
+            doc_status=ChatDOCStatus.PARSING_FAILD,
+            organization=organization,
+            airline=airline_id,
+        )
+
+        mdb_result = (
+            await get_database()
+            .get_collection("fs_index")
+            .insert_one(fs_index_entry.model_dump())
+        )
+
+        file_id = str(mdb_result.inserted_id)
 
     # save file to disk
     disk_filename = f"{file_id}{file_ext}"
@@ -129,18 +125,22 @@ async def create_fs_index_entry(
         await f.write(data)
     url_path = rf"/{FILE_TYPE_PATH_MAP[file_type]}/{disk_filename}".replace("\\", "/")
 
+
     # if file is attachemnt, don't create a ZTree
     if file_type == IndexFileType.AIRLINES_ATTACHMENT:
+
+        metrics = {"toc_headers_count": 0, "coverage_metric": 0.0}
 
         return ServiceResponse(
             data={
                 "url_path": url_path,
                 "file_id": file_id,
                 "doc_uuid": chat_doc_uuid,
-                "doc_status": status,
+                "doc_status": ChatDOCStatus.PARSING_FAILD,
                 "parsing_metrics": metrics,
             }
         )
+
 
     try:
 
@@ -148,20 +148,24 @@ async def create_fs_index_entry(
         z_tree.save_cache(chat_doc_uuid)
 
         metrics = z_tree.get_benchmark()
+        status = ChatDOCStatus.PARSED
+
         metadata = {
             "toc_info": z_tree.get_cache_transformed(),
             "parsing_metrics": metrics,
         }
-        status = ChatDOCStatus.PARSED
+        
         await get_database().get_collection("fs_index").update_one(
-            {"_id": mdb_result.inserted_id},
+            {"_id": ObjectId(file_id)},
             {"$set": {"args": metadata, "doc_status": status}},
         )
 
     except:
         status = ChatDOCStatus.PARSING_FAILD
+        metrics = {"toc_headers_count": 0, "coverage_metric": 0.0}
+
         await get_database().get_collection("fs_index").update_one(
-            {"_id": mdb_result.inserted_id}, {"$set": {"doc_status": status}}
+            {"_id": ObjectId(file_id)}, {"$set": {"doc_status": status}}
         )
 
     return ServiceResponse(

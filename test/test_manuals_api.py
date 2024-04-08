@@ -18,7 +18,7 @@ def test_parse_pdf_api_lock():
     api_url = f"{_test_config.get_api_url()}/manuals/parse-pdf"
     http_headers = {'X-Auth': 'Bearer fake_token'}
     payload = {"airline_id":str(airline.inserted_id)}
-    http_res = requests.post(api_url, headers=http_headers,data=payload, files={'file': open('data/sample_manual.pdf', 'rb')})
+    http_res = requests.post(api_url, headers=http_headers,data=payload, files={'file': open('data/samples/1/sample_manual.pdf', 'rb')})
     assert http_res.status_code == 403
     json_res_body = json.loads(http_res.content.decode())
     assert (not json_res_body['success'] and json_res_body['msg'] == 'Unauthorized API Access [Invalid Token]')
@@ -155,7 +155,14 @@ def test_chat_doc_parse_api():
     get_database.get_collection("airlines").delete_one({"_id": airline.inserted_id})
     get_database.get_collection("fs_index").delete_one({"_id": ObjectId(file_id)})
     file_path = os.path.join("public", "airlines_files", "manuals", file_id + ".pdf")
-    os.remove(file_path)
+    try:
+        os.remove(file_path)
+    except:
+        pass
+    try:
+        os.remove(file_path)
+    except:
+        pass
 
 def _test_chat_doc_scan_api():
     load_dotenv()
@@ -375,12 +382,27 @@ def test_rename_manual_fs_index():
     # delete FSIndex
     get_database["fs_index"].find_one_and_delete({"_id": ObjectId(file_id)})
     file_path = os.path.join("public", "airlines_files", "manuals", file_id + ".pdf")
-    os.remove(file_path)
+
+    try:
+        os.remove(file_path)
+    except:
+        pass
+    try:
+        os.remove(file_path)
+    except:
+        pass
     
     # Clean up
-    get_database.get_collection("airlines").delete_one({"_id": airline.inserted_id})
+    airline = get_database.get_collection("airlines").find_one({"_id":airline.inserted_id})
+    assert airline['name'] == "AeroSync Test"
+
+    get_database.get_collection("airlines").delete_one({"_id": airline['_id']})
 
 def test_create_manual_fs_index():
+
+
+    ### Existing airline, new manual ###
+
     admin_access_token = _test_config.login_user('eslam', 'CgJhxwieCc7QEyN3BB7pmvy9MMpseMPV')
 
     # Create airline
@@ -392,7 +414,7 @@ def test_create_manual_fs_index():
     api_url = f"{_test_config.get_api_url()}/manuals/create-manual"
     http_headers = {'X-Auth': f"Bearer {admin_access_token}"}
     payload = {"airline_id":str(airline.inserted_id)}
-    http_res = requests.post(api_url, headers=http_headers,data=payload, files={'file': open('data/RXI/CASS Manual_18 Dec 23.pdf', 'rb')})
+    http_res = requests.post(api_url, headers=http_headers,data=payload, files={'file': open('data/samples/1/sample_manual.pdf', 'rb')})
     assert http_res.status_code == 200
     json_res_body = json.loads(http_res.content.decode())
     assert json_res_body['success']
@@ -407,16 +429,34 @@ def test_create_manual_fs_index():
     if not os.path.exists(fr"data/cache/toc_trees/{json_res_body['data']['doc_uuid']}.json"):
         assert False
     
-    # delete FSIndex
+    # Clean up
     get_database["fs_index"].find_one_and_delete({"_id": ObjectId(file_id)})
     file_path = os.path.join("public", "airlines_files", "manuals", json_res_body['data']['file_id'] + ".pdf")
-    os.remove(file_path)
+
+    try:
+        os.remove(file_path)
+    except:
+        pass
+    try:
+        os.remove(file_path)
+    except:
+        pass
+
     file_path = fr"data/cache/toc_trees/{json_res_body['data']['doc_uuid']}.json"
-    os.remove(file_path)
-    # Clean up
+    try:
+        os.remove(file_path)
+    except:
+        pass
+    try:
+        os.remove(file_path)
+    except:
+        pass
+
     get_database.get_collection("airlines").delete_one({"_id": airline.inserted_id})
 
-def test_create_manual_fs_index_1():
+
+    ### new airline, new manual ###
+
     admin_access_token = _test_config.login_user('eslam', 'CgJhxwieCc7QEyN3BB7pmvy9MMpseMPV')
 
     # Create airline
@@ -427,7 +467,7 @@ def test_create_manual_fs_index_1():
     api_url = f"{_test_config.get_api_url()}/manuals/create-manual"
     http_headers = {'X-Auth': f"Bearer {admin_access_token}"}
     payload = {"airline_name":"Test Airline Create Manual"}
-    http_res = requests.post(api_url, headers=http_headers,data=payload, files={'file': open('data/RXI/CASS Manual_18 Dec 23.pdf', 'rb')})
+    http_res = requests.post(api_url, headers=http_headers,data=payload, files={'file': open('data/samples/1/sample_manual.pdf', 'rb')})
     assert http_res.status_code == 200
     json_res_body = json.loads(http_res.content.decode())
     assert json_res_body['success']
@@ -439,18 +479,118 @@ def test_create_manual_fs_index_1():
     if not os.path.exists(fr"data/cache/toc_trees/{json_res_body['data']['doc_uuid']}.json"):
         assert False
     
-    # delete FSIndex
+    # Clean up
     get_database["fs_index"].find_one_and_delete({"_id": ObjectId(file_id)})
     file_path = os.path.join("public", "airlines_files", "manuals", json_res_body['data']['file_id'] + ".pdf")
-    os.remove(file_path)
+    try:
+        os.remove(file_path)
+    except:
+        pass
+    try:
+        os.remove(file_path)
+    except:
+        pass
+    
     file_path = fr"data/cache/toc_trees/{json_res_body['data']['doc_uuid']}.json"
-    os.remove(file_path)
-
-    # Clean up
+    try:
+        os.remove(file_path)
+    except:
+        pass
+    try:
+        os.remove(file_path)
+    except:
+        pass    
+    
     airline = get_database.get_collection("airlines").find_one({"name": "Test Airline Create Manual"})
     assert airline['name'] == "Test Airline Create Manual"
 
     get_database.get_collection("airlines").find_one_and_delete({"name": "Test Airline Create Manual"})
+
+    
+    ### new manual, new airline ###
+    ### then ###
+    ### new manual replace existing manual, new airline ###
+
+    admin_access_token = _test_config.login_user('eslam', 'CgJhxwieCc7QEyN3BB7pmvy9MMpseMPV')
+
+    # create fs index 1
+    api_url = f"{_test_config.get_api_url()}/manuals/create-manual"
+    http_headers = {'X-Auth': f"Bearer {admin_access_token}"}
+    payload = {"airline_name":"Test Airline Create Manual 1"}
+    http_res = requests.post(api_url, headers=http_headers,data=payload, files={'file': open('data/samples/1/sample_manual.pdf', 'rb')})
+    assert http_res.status_code == 200
+    json_res_body = json.loads(http_res.content.decode())
+    assert json_res_body['success']
+    assert 'doc_uuid' in json_res_body['data']
+    assert 'file_id' in json_res_body['data']
+    assert 'url_path' in json_res_body['data']
+    file_id = json_res_body['data']['file_id']
+
+    if not os.path.exists(fr"data/cache/toc_trees/{json_res_body['data']['doc_uuid']}.json"):
+        assert False
+
+    with open(fr"data/cache/toc_trees/{json_res_body['data']['doc_uuid']}.json",'r') as reader:
+        old_tree = json.load(reader)
+        assert old_tree
+
+    old_chatdoc = json_res_body['data']['doc_uuid']
+
+    # create fs index 2
+    api_url = f"{_test_config.get_api_url()}/manuals/create-manual"
+    http_headers = {'X-Auth': f"Bearer {admin_access_token}"}
+    payload = {"airline_name":"Test Airline Create Manual 2"}
+    http_res = requests.post(api_url, headers=http_headers,data=payload, files={'file': open('data/samples/2/sample_manual.pdf', 'rb')})
+    assert http_res.status_code == 200
+    json_res_body = json.loads(http_res.content.decode())
+    assert json_res_body['success']
+    assert 'doc_uuid' in json_res_body['data']
+    assert 'file_id' in json_res_body['data']
+    assert 'url_path' in json_res_body['data']
+    file_id = json_res_body['data']['file_id']
+
+    if not os.path.exists(fr"data/cache/toc_trees/{json_res_body['data']['doc_uuid']}.json"):
+        assert False
+
+    with open(fr"data/cache/toc_trees/{json_res_body['data']['doc_uuid']}.json",'r') as reader:
+        new_tree = json.load(reader)
+        assert new_tree
+
+    new_chatdoc = json_res_body['data']['doc_uuid']
+
+    assert old_tree != new_tree
+    assert old_chatdoc == new_chatdoc
+
+    airline = get_database.get_collection("airlines").find_one({"name": "Test Airline Create Manual 1"})
+    assert airline['name'] == "Test Airline Create Manual 1"
+    airline = get_database.get_collection("airlines").find_one({"name": "Test Airline Create Manual 2"})
+    assert airline['name'] == "Test Airline Create Manual 2"
+
+    # Clean up
+    get_database["fs_index"].find_one_and_delete({"_id": ObjectId(file_id)})
+    file_path = os.path.join("public", "airlines_files", "manuals", json_res_body['data']['file_id'] + ".pdf")
+    
+    try:
+        os.remove(file_path)
+    except:
+        pass
+    try:
+        os.remove(file_path)
+    except:
+        pass
+
+
+    file_path = fr"data/cache/toc_trees/{json_res_body['data']['doc_uuid']}.json"
+    try:
+        os.remove(file_path)
+    except:
+        pass
+    try:
+        os.remove(file_path)
+    except:
+        pass
+
+    get_database.get_collection("airlines").find_one_and_delete({"name": "Test Airline Create Manual 1"})
+    get_database.get_collection("airlines").find_one_and_delete({"name": "Test Airline Create Manual 2"})
 
 def _test_get_tree_structure():
     admin_access_token = _test_config.login_user('eslam', 'CgJhxwieCc7QEyN3BB7pmvy9MMpseMPV')
