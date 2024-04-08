@@ -67,7 +67,7 @@ async def parse_pdf(file: UploadFile,airline_id: Annotated[str, Form()], res: Re
     # save file to server
     username = auth_service_response.data['token_claims']['username']
     organization = auth_service_response.data['token_claims']['organization']
-    fs_service_response = await fs_index_database_api.create_fs_index_entry(username, organization,airline_id, IndexFileType.AIRLINES_MANUAL, file.filename, file.file.read(), chat_doc_uuid=cd_service_response.data['chat_doc_uuid'])
+    fs_service_response = await fs_index_database_api.create_fs_index_entry(username=username, organization=organization,airline_id=airline_id, file_type=IndexFileType.AIRLINES_MANUAL, filename=file.filename,data= file.file.read())
     if not fs_service_response.success:
         res.status_code = fs_service_response.status_code
         return JsonResponse(
@@ -134,7 +134,7 @@ async def create_manual(file: UploadFile, res: Response,airline_id: Annotated[st
         airline_id = airline_create_service_response.data['airline_id']
 
     # save file to server
-    fs_service_response = await fs_index_database_api.create_fs_index_entry(username, organization,airline_id, IndexFileType.AIRLINES_MANUAL, file.filename, file.file.read())
+    fs_service_response = await fs_index_database_api.create_fs_index_entry(username=username, organization=organization,airline_id=airline_id, file_type=IndexFileType.AIRLINES_MANUAL, filename=file.filename,data= file.file.read())
     if not fs_service_response.success:
         res.status_code = fs_service_response.status_code
         return JsonResponse(

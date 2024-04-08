@@ -33,7 +33,6 @@ async def create_fs_index_entry(
     file_type: IndexFileType,
     filename: str,
     data: bytes,
-    chat_doc_uuid: str,
 ) -> ServiceResponse:
 
     # check if index entry already exists
