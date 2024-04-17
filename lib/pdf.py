@@ -272,7 +272,7 @@ def parse_paragraph(paragraph):
     text = paragraph[:]
     splitter = r"\.\n|:\n|;\n| or\n"
     items = re.split(splitter, text)
-    items = [i.strip() for i in items if i]
+    items = [i.strip() for i in items if i.strip()]
 
     items_labled = []
     last = None

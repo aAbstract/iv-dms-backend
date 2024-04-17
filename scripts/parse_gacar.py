@@ -231,10 +231,7 @@ def convert_to_listing(text):
         return text
 
 def convert_to_markdown(text):
-    def replace_listing(match):
-        listing_type = match.group(1)
-
-        if listing_type.lower() in [
+    romans = [
             "i",
             "ii",
             "iii",
@@ -265,9 +262,8 @@ def convert_to_markdown(text):
             "xxviii",
             "xxix",
             "xxx",
-        ]:
-            return f"\n- ({listing_type.lower()})"
-        elif listing_type.lower() in [
+        ]
+    alphas =  [
             "a",
             "b",
             "c",
@@ -294,13 +290,20 @@ def convert_to_markdown(text):
             "x",
             "y",
             "z",
-        ]:
-            return f"\n  - ({listing_type.lower()})"
+        ]
+
+    def replace_listing(match):
+ 
+        listing_type = match.group().replace("(","").replace(")","").strip().lower()
+        if listing_type in romans:
+            return f"\n- ({listing_type})"
+        elif listing_type in alphas:
+            return f"\n  - ({listing_type})"
         else:
             return f"({listing_type})"
 
     markdown_text = re.sub(r"(?<=\w)\n(?=\w)", " ", text)
-    markdown_text = re.sub(r"\n\((\w+)\)", replace_listing, markdown_text)
+    markdown_text = re.sub(r"(\n\((\w+)\))|\n(\w+)\)", replace_listing, markdown_text)
     return markdown_text
 
 
