@@ -294,7 +294,9 @@ def convert_to_markdown(text):
 
     def replace_listing(match):
  
-        listing_type = match.group().replace("(","").replace(")","").strip().lower()
+        listing_type = match.group().replace(")","").strip().lower()
+        listing_type = listing_type[listing_type.find("(")+1:]
+
         if listing_type in romans:
             return f"\n- ({listing_type})"
         elif listing_type in alphas:
@@ -303,7 +305,8 @@ def convert_to_markdown(text):
             return f"({listing_type})"
 
     markdown_text = re.sub(r"(?<=\w)\n(?=\w)", " ", text)
-    markdown_text = re.sub(r"(\n\((\w+)\))|\n(\w+)\)", replace_listing, markdown_text)
+
+    markdown_text = re.sub(r"(\n\(|\n|;\(|\.\(|:\(|,\()\w{1,5}\) ", replace_listing, markdown_text)
     return markdown_text
 
 
@@ -358,12 +361,12 @@ for file in glob("data/gacar/*.csv"):
 
         if header_code in unique_headers:
             unique_headers[header_code]["paragraph"] += (
-                df["REGULATION  STATEMENT"][i] + ";\n"
+                df["REGULATION  STATEMENT"][i] + "\n"
             )
         else:
             # gacar_map["sub_sections"].append(header_code)
             unique_headers[header_code] = {
-                "paragraph": df["REGULATION  STATEMENT"][i] + ";\n",
+                "paragraph": df["REGULATION  STATEMENT"][i] + "\n",
                 "code": header_code,
                 "iosa_map": [f"GACAR Part {gacar_code}"],
             }
