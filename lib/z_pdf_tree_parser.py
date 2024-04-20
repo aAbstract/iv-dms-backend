@@ -17,7 +17,9 @@ class ZPDF:
     allowed_header_chars: str
     toc_headers_count: int
     coverage_metric: float
+    toc_pages: set[int]
     toc_tree: list[TocTreeNode]
+    untitled_labels_count: int
     _link_idx_set: set
     _last_link_idx: str
 
@@ -36,6 +38,7 @@ class ZPDF:
         if len(matches[0]) < 2:
             return None
 
+        self.toc_pages.add(page.number)
         link_text, idx = matches[0]
         # fix x. pattern in top level toc headers
         if idx.split('.')[-1] == '':
@@ -133,12 +136,29 @@ class ZPDF:
             return search_res[0]
         return None
 
+    def _try_find_untitled_header(self, link_idx: str) -> str:
+        for toc_page in self.toc_pages:
+            toc_page_text: str = self.doc.load_page(toc_page).get_text()
+            lines = toc_page_text.split('\n')
+            header_idx = [idx for idx, val in enumerate(lines) if val.strip() == link_idx or val.strip() == link_idx + '.']
+            if not header_idx:
+                continue
+            header_idx = header_idx[-1]
+            if header_idx >= len(lines):
+                continue
+            return ''.join([lines[header_idx], lines[header_idx + 1]])
+        print('Can not Find Unlinked Index', link_idx)
+        self.untitled_labels_count += 1
+        return (link_idx + ' UNTITLED')
+
     def __init__(self, file_path: str, cache: list[dict] = [], debug: bool = False):
         print('Initializing ZPDF for file:', file_path)
         self.debug = debug
         self.doc = fitz.open(file_path)
         self.allowed_header_chars = string.ascii_uppercase + string.ascii_lowercase + ' .' + string.digits
         self._link_idx_set = set()
+        self.toc_pages = set()
+        self.untitled_labels_count = 0
 
         # load cache if exists
         if cache:
@@ -171,7 +191,8 @@ class ZPDF:
             arr_idx, link = self._get_first_link_by_parent_key(root_key, toc_links)
             toc_links.insert(arr_idx, TocLink(
                 link_idx=root_key,
-                link_label=(root_key + ' UNTITLED'),
+                # link_label=(root_key + ' UNTITLED'),
+                link_label=self._try_find_untitled_header(root_key),
                 target_page=link.target_page,
             ))
         self.toc_headers_count = len(toc_links)
@@ -189,6 +210,19 @@ class ZPDF:
     def get_toc_node_text(self, node: TocTreeNode) -> str | None:
         if not node:
             return None
+
+        # terminal section case
+        if node.end_page == -1:
+            terminal_section_text = ''
+            for page in range(node.start_page, self.doc.page_count):
+                page_text: str = self.doc.load_page(page).get_text()
+                if page == node.start_page:
+                    page_text = page_text.replace('\n', '')
+                    terminal_section_text += page_text.split(f" {node.link_idx} ")[-1]
+                    terminal_section_text += '\n'
+                    continue
+                terminal_section_text += page_text
+            return terminal_section_text
 
         # single page case
         end_link_idx = node.end_link_label.split(' ')[0]
@@ -243,6 +277,7 @@ class ZPDF:
         return {
             'toc_headers_count': self.toc_headers_count,
             'coverage_metric': self.coverage_metric,
+            'untitled_labels_count': self.untitled_labels_count,
         }
 
     def extract_text(self, toc_keys: list[str]) -> list[str]:

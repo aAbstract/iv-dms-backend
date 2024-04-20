@@ -323,7 +323,8 @@ seed_flow_reports = [
 seed_airlines = [
     Airline(name="Riyadh Air", organization="AeroSync"),
     Airline(name="Nesma Air", organization="AeroSync"),
-    Airline(name="Air Cairo", organization="AeroSync")
+    Airline(name="Air Cairo", organization="AeroSync"),
+    Airline(name="Mukamalah Aviation", organization="AeroSync")
 ]
 
 
@@ -344,6 +345,7 @@ def seed_routine():
     ryad_airline_id = db.get_collection("airlines").insert_one(seed_airlines[0].model_dump()).inserted_id
     nesma_airline_id = db.get_collection("airlines").insert_one(seed_airlines[1].model_dump()).inserted_id
     cairo_airline_id = db.get_collection("airlines").insert_one(seed_airlines[2].model_dump()).inserted_id
+    mukamalah_airline_id = db.get_collection("airlines").insert_one(seed_airlines[3].model_dump()).inserted_id
 
     print("creating regulations indexes...")
     db.get_collection("regulations").create_index("type", unique=False)
@@ -398,7 +400,7 @@ def seed_routine():
         "nesma_oma_ch1.pdf": "3de78336-42a9-4920-a916-91a4144db589",
     }
 
-    # # # RXI
+    # RXI
     for file_path in glob(r"data/RXI/*.pdf"):
         filename = re.split(r"[\\|/]", file_path)[-1]
         
@@ -438,8 +440,9 @@ def seed_routine():
         dst_path = f"public/airlines_files/manuals/{file_id}.pdf"
         shutil.copy2(file_path, dst_path)
         print(f"file map {file_path} -> {dst_path}")
+    
 
-    # # Nesma
+    # Nesma
     for file_path in glob(r"data/nesma/*.pdf"):
         filename = re.split(r"[\\|/]", file_path)[-1]
 
@@ -463,6 +466,49 @@ def seed_routine():
             doc_status=ChatDOCStatus.PARSED,
             organization="AeroSync",        
             airline=str(nesma_airline_id),
+            args={"toc_info": tree} if tree else {},
+        )
+
+        mdb_result = db.get_collection("fs_index").insert_one(
+            fs_index_entry.model_dump()
+        )
+
+        file_id = str(mdb_result.inserted_id)
+
+        # Cache tree
+        if tree:
+            z_tree.save_cache(fs_index_entry.doc_uuid)
+
+        dst_path = f"public/airlines_files/manuals/{file_id}.pdf"
+        shutil.copy2(file_path, dst_path)
+        print(f"file map {file_path} -> {dst_path}")
+        
+
+
+    # Mukamalah
+    for file_path in glob(r"data/mukamalah/*.pdf"):
+        filename = re.split(r"[\\|/]", file_path)[-1]
+
+        try:
+            z_tree = ZPDF(file_path=file_path)
+            tree = z_tree.get_cache_transformed()
+
+        except:
+            tree = None
+
+        fs_index_entry = FSIndexFile(
+            username="cwael",
+            datetime=datetime.now(),
+            file_type=IndexFileType.AIRLINES_MANUAL,
+            filename=filename,
+            doc_uuid=(
+                fs_index_chat_doc_ids[filename]
+                if fs_index_chat_doc_ids.get(filename) != None
+                else str(uuid4())
+            ),
+            doc_status=ChatDOCStatus.PARSED,
+            organization="AeroSync",        
+            airline=str(mukamalah_airline_id),
             args={"toc_info": tree} if tree else {},
         )
 
