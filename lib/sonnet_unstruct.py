@@ -5,9 +5,9 @@ from openai import AsyncOpenAI
 from models.runtime import ServiceResponse
 from models.regulations import IOSAItem, RegulationType, RegulationTypeDefinitions
 from models.gpt_35t import *
+from lib.pdf import count_tokens
 import anthropic
-import tokenize
-import io
+
 
 client = anthropic.Anthropic(api_key=os.environ.get('ANTHROPIC_API_KEY'))
 
@@ -116,9 +116,15 @@ async def llm_audit(iosa_checklist: str, input_text: str,definitions:str) -> Ser
                 'role': llm_response.type,
                 'content': llm_response.text,
             })
+
+            input_token_count = count_tokens(user_prompt+ ' ' + system_prompt + ' ' + llm_response.text)
+            output_token_count = count_tokens(llm_response.text)
+
             return ServiceResponse(data={
                 'llm_response': llm_response.text,
                 'conversation': [GPT35TMessage.model_validate(x) for x in chat_context],
+                'input_token_count' : input_token_count,
+                'output_token_count':output_token_count
             })
         else:
             return ServiceResponse(success=False, status_code=503, msg='LLM Sonnet Empty Response')
@@ -130,20 +136,19 @@ async def llm_audit_item(iosa_item: IOSAItem, input_text: str,regulation_type:st
 
     llm_enable = int(os.environ['ANTHROPIC_ENABLE'])
     if not llm_enable:
-        dummy_scores_map = {
-            'FLT 3.1.1': 90,
-            'FLT 2.1.35': 20,
-        }
         return ServiceResponse(data={
-            'llm_resp': 'LLM Disabled',
-            'overall_compliance_score': dummy_scores_map.get(iosa_item.code, 0),
+            'llm_resp': "Hello my dude",
+            'overall_compliance_score': 7,
+            'overall_compliance_tag':"Partially Compliant",
             'conversation': [],
+            'input_token_count':200,
+            'output_token_count': 500
         })
 
     res = await llm_audit(iosa_item.paragraph, input_text,RegulationTypeDefinitions[regulation_type])
     if not res.success:
         return res
-    
+
     # # post processing
     # # replace unwanted keywords
     llm_response: str = res.data['llm_response']
@@ -171,22 +176,14 @@ async def llm_audit_item(iosa_item: IOSAItem, input_text: str,regulation_type:st
 
     text = llm_response[:].strip()
 
-    def count_tokens(text):
-        token_count = 0
-        try:
-            tokens = tokenize.tokenize(io.BytesIO(text.encode('utf-8')).readline)
-            for token in tokens:
-                token_count += 1
-        except:
-            pass
-
-        return token_count
-
     # check if token limit is reached
-    tokens = count_tokens(text)
+    input_token_count = res.data['input_token_count']
+    output_token_count = res.data['output_token_count']
 
-    if(tokens >= 10000):
-        text+= f"\n\n\n\n**Warning**\n\n**Your Prompt Reached {tokens} Tokens**\n\n**Prompts shouldn't pass 200000 Tokens.**"
+    total_token_count = input_token_count + output_token_count
+
+    if(total_token_count >= 10000):
+        text+= f"\n\n\n\n**Warning**\n\n**Your Prompt Reached {total_token_count} Tokens**\n\n**Prompts shouldn't pass 200000 Tokens.**"
     ovcomp_tag= ""
     if(ovcomp_score<=3):
         ovcomp_tag = "Non Compliant"
@@ -200,4 +197,6 @@ async def llm_audit_item(iosa_item: IOSAItem, input_text: str,regulation_type:st
         'overall_compliance_score': ovcomp_score,
         'overall_compliance_tag':ovcomp_tag,
         'conversation': res.data['conversation'],
+        'input_token_count': input_token_count,
+        'output_token_count':output_token_count
     })

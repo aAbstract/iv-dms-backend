@@ -18,7 +18,7 @@ from models.flow_reports import (
 
 _ROOT_ROUTE = f"{os.getenv('API_ROOT')}/flow_report"
 _MODULE_ID = "routes.flow_report_api"
-_ALLOWED_USERS = [UserRole.ADMIN, UserRole.AUDITOR]
+_ALLOWED_USERS = [UserRole.ADMIN, UserRole.AUDITOR,UserRole.AIRLINES]
 router = APIRouter()
 
 
@@ -73,6 +73,7 @@ async def list_flow_report(
     res: Response, x_auth=Header(alias="X-Auth", default=None)
 ) -> list[FlowReport] | Any:
     func_id = f"{_MODULE_ID}.list_flow_report"
+
     # authorize user
     auth_service_response = await security_man.authorize_api(
         x_auth, _ALLOWED_USERS, func_id
@@ -91,7 +92,7 @@ async def list_flow_report(
     )
 
     db_service_response = await list_flow_report_db(
-        organization=auth_service_response.data["token_claims"]["organization"], creator=auth_service_response.data['token_claims']['username']
+        organization=auth_service_response.data["token_claims"]["organization"], username=auth_service_response.data['token_claims']['username']
     )
 
     if not db_service_response.success:

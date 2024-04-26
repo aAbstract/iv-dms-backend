@@ -20,6 +20,7 @@ from routes import llm_api
 from routes import ai_tasks_api
 from routes import attachments_api
 from routes import flow_report_api
+from routes import user_api
 # autopep8: on
 
 
@@ -32,8 +33,8 @@ async def lifespan(app: FastAPI):
 
 server = FastAPI(
     title=os.environ['SERVER_NAME'],
-    description='Add mukamalah files',
-    version="0.39.17",
+    description='Integrate Airlines User Role',
+    version="0.40.0",
     lifespan=lifespan,
 )
 server.add_middleware(
@@ -43,6 +44,7 @@ server.add_middleware(
     allow_headers=['*'],
 )
 server.include_router(auth_api.router)
+server.include_router(user_api.router)
 server.include_router(manuals_api.router)
 server.include_router(activity_api.router)
 server.include_router(regulations_api.router)

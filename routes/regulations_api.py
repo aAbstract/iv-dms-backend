@@ -9,7 +9,7 @@ import database.regulations_database_api as regulations_database_api
 
 _ROOT_ROUTE = f"{os.getenv('API_ROOT')}/regulations"
 _MODULE_ID = 'routes.regulations_api'
-_ALLOWED_USERS = [UserRole.ADMIN, UserRole.AUDITOR]
+_ALLOWED_USERS = [UserRole.ADMIN, UserRole.AUDITOR,UserRole.AIRLINES]
 router = APIRouter()
 
 

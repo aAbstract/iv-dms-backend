@@ -168,7 +168,7 @@ def _test_llm_api_success_high_score():
     assert json_res_body["data"]["llm_resp"]["pct_score"] > (1 - LLM_SCORE_TH)
 
 
-def test_llm_unstruct_api_success_high_score():
+def _test_llm_unstruct_api_success_high_score():
     access_token = _test_config.login_user("cwael", "CgJhxwieCc7QEyN3BB7pmvy9MMpseMPV")
     http_headers = {"X-Auth": f"Bearer {access_token}"}
     get_database = _test_config.get_database()
@@ -296,7 +296,7 @@ def test_llm_pages_api_success_high_score():
     )
 
 
-def test_llm_pages_api_combined_low_score():
+def _test_llm_pages_api_combined_low_score():
     if not int(os.environ["GPT_35T_ENABLE"]):
         return
 

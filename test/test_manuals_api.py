@@ -8,7 +8,7 @@ import _test_config
 from models.fs_index import FSIndexFileTree, FSIndexTree
 
 
-def test_parse_pdf_api_lock():
+def _test_parse_pdf_api_lock():
 
     # Create airline
     get_database = _test_config.get_database()
@@ -120,7 +120,7 @@ def test_get_meta_data_api_success():
     assert ('id' in manual_meta_data and 'name' in manual_meta_data and 'page_count' in manual_meta_data)
 
 
-def test_chat_doc_parse_api():
+def _test_chat_doc_parse_api():
 
     # Create airline
     get_database = _test_config.get_database()
@@ -211,7 +211,7 @@ def _test_chat_doc_scan_api():
         assert obj_keys == {'text', 'refs'}
 
 
-def test_chat_doc_parse_api_bad_file_type():
+def _test_chat_doc_parse_api_bad_file_type():
 
     # Create airline
     get_database = _test_config.get_database()

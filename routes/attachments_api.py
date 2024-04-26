@@ -11,7 +11,7 @@ import database.fs_index_database_api as fs_index_database_api
 
 _ROOT_ROUTE = f"{os.getenv('API_ROOT')}/attachments"
 _MODULE_ID = 'routes.attachments_api'
-_ALLOWED_USERS = [UserRole.ADMIN, UserRole.AUDITOR]
+_ALLOWED_USERS = [UserRole.ADMIN, UserRole.AUDITOR,UserRole.AIRLINES]
 router = APIRouter()
 
 

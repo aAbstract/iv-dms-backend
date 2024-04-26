@@ -95,15 +95,6 @@ seed_users = [
         organization="AeroSync",
     ),
     User(
-        username="sam",
-        disp_name="Sam Jackson",
-        pass_hash="86d74596bb4c2f6b63ae7c09c212a7ed824ab15371ec06a2126dffc3aaa191659478e432c458d5b6a7c0b21b5bf2120c91480c27e78cf94935135d8c022f42f7",
-        user_role=UserRole.AIRLINES,
-        phone_number="+201193458172",
-        email="sam@aerosync.com",
-        organization="AeroSync",
-    ),
-    User(
         username="mahmoud",
         disp_name="Mahmoud Gabr",
         pass_hash="86d74596bb4c2f6b63ae7c09c212a7ed824ab15371ec06a2126dffc3aaa191659478e432c458d5b6a7c0b21b5bf2120c91480c27e78cf94935135d8c022f42f7",
@@ -327,11 +318,70 @@ seed_airlines = [
     Airline(name="Mukamalah Aviation", organization="AeroSync")
 ]
 
+seed_airline_users = [
+    User(
+        username="Riyadh Air Airline User",
+        disp_name="Riyadh Air",
+        pass_hash="86d74596bb4c2f6b63ae7c09c212a7ed824ab15371ec06a2126dffc3aaa191659478e432c458d5b6a7c0b21b5bf2120c91480c27e78cf94935135d8c022f42f7",
+        user_role=UserRole.AIRLINES,
+        phone_number="+201111111111",
+        email="Riyadh_Air@aerosync.com",
+        organization="AeroSync",
+        airline= "",
+        is_disabled= False,
+        output_token_count=0,
+        input_token_count= 0,
+        request_count = 0
+    ),
+    User(
+        username="Nesma Air Airline User",
+        disp_name="Nesma Air",
+        pass_hash="86d74596bb4c2f6b63ae7c09c212a7ed824ab15371ec06a2126dffc3aaa191659478e432c458d5b6a7c0b21b5bf2120c91480c27e78cf94935135d8c022f42f7",
+        user_role=UserRole.AIRLINES,
+        phone_number="+201111111111",
+        email="Nesma_Air@aerosync.com",
+        organization="AeroSync",
+        airline= "",
+        is_disabled= False,
+        output_token_count=0,
+        input_token_count= 0,
+        request_count = 0
+    ),
+        User(
+        username="Air Cairo Airline User",
+        disp_name="Air Cairo",
+        pass_hash="86d74596bb4c2f6b63ae7c09c212a7ed824ab15371ec06a2126dffc3aaa191659478e432c458d5b6a7c0b21b5bf2120c91480c27e78cf94935135d8c022f42f7",
+        user_role=UserRole.AIRLINES,
+        phone_number="+201111111111",
+        email="Air_Cairo@aerosync.com",
+        organization="AeroSync",
+        airline= "",
+        is_disabled= False,
+        output_token_count=0,
+        input_token_count= 0,
+        request_count = 0
+    ),
+        User(
+        username="Mukamalah Aviation Airline User",
+        disp_name="Mukamalah Aviation",
+        pass_hash="86d74596bb4c2f6b63ae7c09c212a7ed824ab15371ec06a2126dffc3aaa191659478e432c458d5b6a7c0b21b5bf2120c91480c27e78cf94935135d8c022f42f7",
+        user_role=UserRole.AIRLINES,
+        phone_number="+201111111111",
+        email="Mukamalah_Aviation@aerosync.com",
+        organization="AeroSync",
+        airline= "",
+        is_disabled= False,
+        output_token_count=0,
+        input_token_count= 0,
+        request_count = 0
+    ),
+]
 
 def seed_routine():
-    print("seeding users...")
-    db.get_collection("users").insert_many([x.model_dump() for x in seed_users])
-    print("creating users indexes...")
+    print("Seeding Users...")
+    db.get_collection("users").insert_many([x.model_dump(exclude_none=True) for x in seed_users])
+
+    print("Creating Users Indecies...")
     db.get_collection("users").create_index("username", unique=True)
     db.get_collection("users").create_index("email", unique=True)
 
@@ -346,6 +396,13 @@ def seed_routine():
     nesma_airline_id = db.get_collection("airlines").insert_one(seed_airlines[1].model_dump()).inserted_id
     cairo_airline_id = db.get_collection("airlines").insert_one(seed_airlines[2].model_dump()).inserted_id
     mukamalah_airline_id = db.get_collection("airlines").insert_one(seed_airlines[3].model_dump()).inserted_id
+
+    print("Seeding Airline Users...")
+    airline_ids = [ryad_airline_id,nesma_airline_id,cairo_airline_id,mukamalah_airline_id]
+    for user, airline in zip(seed_airline_users, airline_ids):
+        user = user.model_dump()
+        user['airline'] = str(airline)
+        db.get_collection("users").insert_one(user)
 
     print("creating regulations indexes...")
     db.get_collection("regulations").create_index("type", unique=False)
@@ -440,7 +497,7 @@ def seed_routine():
         dst_path = f"public/airlines_files/manuals/{file_id}.pdf"
         shutil.copy2(file_path, dst_path)
         print(f"file map {file_path} -> {dst_path}")
-    
+        break
 
     # Nesma
     for file_path in glob(r"data/nesma/*.pdf"):
@@ -482,7 +539,7 @@ def seed_routine():
         dst_path = f"public/airlines_files/manuals/{file_id}.pdf"
         shutil.copy2(file_path, dst_path)
         print(f"file map {file_path} -> {dst_path}")
-        
+        break
 
 
     # Mukamalah
@@ -525,7 +582,8 @@ def seed_routine():
         dst_path = f"public/airlines_files/manuals/{file_id}.pdf"
         shutil.copy2(file_path, dst_path)
         print(f"file map {file_path} -> {dst_path}")
-
+        break
+    
     # db.get_collection("fs_index").insert_many(
     #     [x.model_dump() for x in seed_fs_index_files]
     # )

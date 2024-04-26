@@ -21,7 +21,7 @@ async def create_flow_report_db(
     checklist_template_code: str,
     organization: str,
     username: str,
-    airline_id:str
+    airline_id: str
 ) -> ServiceResponse:
 
     bson_id = validate_bson_id(regulation_id)
@@ -46,9 +46,9 @@ async def create_flow_report_db(
         return ServiceResponse(
             success=False, msg="Bad Checklist Template Code", status_code=400
         )
-    
+
     section_code, _ = checklist_template_code.split(" ")
-    
+
     iosa_section = (
         await get_database()
         .get_collection("regulations")
@@ -73,6 +73,15 @@ async def create_flow_report_db(
     iosa_section = IOSASection.model_validate(iosa_section["sections"][0])
 
     # validate airline
+    if username:
+        user = await get_database().get_collection("users").find_one({"username": username})
+
+        if not user:
+            return ServiceResponse(success=False, msg="This Username Doesn't exist", status_code=404)
+
+        if user['user_role'] == UserRole.AIRLINES:
+            airline_id = user['airline']
+
     airline_id = validate_bson_id(airline_id)
     if not airline_id:
         return ServiceResponse(success=False, msg="Bad Airline ID", status_code=400)
@@ -84,12 +93,12 @@ async def create_flow_report_db(
         return ServiceResponse(
             success=False, msg="This airline ID doesn't exist", status_code=404
         )
-    
+
     if airline['organization'] != organization:
         return ServiceResponse(
             success=False, msg="Your organization can't access this airline", status_code=403
         )
-    
+
     # construct flow report
     flow_report = FlowReport(
         title=title,
@@ -112,8 +121,8 @@ async def create_flow_report_db(
     sub_section_iosa_item_map = {}
     for item in iosa_section.items:
         # the dot here prevents the match between flt 1 and flt 11.1
-        # where flt 11.1 doesn't start with  "flt 1." 
-        # bug flt 11.1 starts with  "flt 1" which is incorrect 
+        # where flt 11.1 doesn't start with  "flt 1."
+        # bug flt 11.1 starts with  "flt 1" which is incorrect
 
         if item.code.startswith(checklist_template_code+".") or ("Table" in item.code):
 
@@ -149,12 +158,18 @@ async def create_flow_report_db(
     return ServiceResponse(data={"flow_report": flow_report_dict})
 
 
-async def list_flow_report_db(organization: str, creator: str ="") -> ServiceResponse:
+async def list_flow_report_db(organization: str, username: str = "") -> ServiceResponse:
 
     query = {"organization": organization}
 
-    # if creator:
-    #     query["creator"] = creator
+    if username:
+        user = await get_database().get_collection("users").find_one({"username": username})
+
+        if not user:
+            return ServiceResponse(success=False, msg="This Username Doesn't exist", status_code=404)
+
+        if user['user_role'] == UserRole.AIRLINES:
+            query['airline'] = user['airline']
 
     flow_reports = [
         report
@@ -165,27 +180,29 @@ async def list_flow_report_db(organization: str, creator: str ="") -> ServiceRes
     ]
 
     for report in range(len(flow_reports)):
-        # TODO-GALAL: fix this later
+
         flow_reports[report]["id"] = str(flow_reports[report]["_id"])
         del flow_reports[report]["_id"]
 
-        flow_reports[report]["regulation_id"] = str(
-            flow_reports[report]["regulation_id"]
-        )
-        flow_reports[report]["type"] = "IOSA"  # TODO-LATER: fix this
+        regulation = await get_database().get_collection('regulations').find_one({'_id': ObjectId(flow_reports[report]["regulation_id"])})
 
-        airline = await get_database().get_collection("airlines").find_one({"_id":ObjectId(flow_reports[report]["airline"])})
+        flow_reports[report]["regulation_id"] = str(
+            flow_reports[report]["regulation_id"])
+
+        flow_reports[report]["type"] = regulation['type']
+
+        airline = await get_database().get_collection("airlines").find_one({"_id": ObjectId(flow_reports[report]["airline"])})
         if not airline:
             return ServiceResponse(
-                        success=False,
-                        msg="Airline id couln't be found",
-                        status_code=400,
-                    )
-        
+                success=False,
+                msg="Airline id couln't be found",
+                status_code=400,
+            )
+
         airline["id"] = str(airline["_id"])
         del airline["_id"]
         FlowReport.model_validate(flow_reports[report])
-        
+
         flow_reports[report]["airline"] = airline
         del flow_reports[report]["sub_sections"]
 
@@ -250,7 +267,7 @@ async def get_flow_report_db(
         return ServiceResponse(
             success=False, msg="This flow report ID doesn't exist", status_code=404
         )
-    
+
     # get type from regulation
     regulation = (
         await get_database().get_collection("regulations").find_one({"_id": ObjectId(flow_report["regulation_id"])})
@@ -271,11 +288,19 @@ async def get_flow_report_db(
             status_code=403,
             msg="Your organization can't access this flow report",
         )
-    
 
+    user = await get_database().get_collection("users").find_one({"username":username})
+
+    if user['user_role'] == UserRole.AIRLINES:
+        if user['airline'] != flow_report['airline']:
+            return ServiceResponse(
+                success=False,
+                status_code=403,
+                msg="Your User Airline Account Can't Access this Report",
+            )
+        
     section_code = flow_report["code"].split()[0]
-    
-    
+
     # get applicability and general guidence
     iosa_section = (
         await get_database()
@@ -306,13 +331,13 @@ async def get_flow_report_db(
     flow_report["applicability"] = iosa_section.applicability
     flow_report["guidance"] = iosa_section.guidance
     flow_report["_id"] = flow_report_id
-    airline = await get_database().get_collection("airlines").find_one({"_id":ObjectId(flow_report["airline"])})
+    airline = await get_database().get_collection("airlines").find_one({"_id": ObjectId(flow_report["airline"])})
     if not airline:
         return ServiceResponse(
-                    success=False,
-                    msg="Airline id couldn't be found",
-                    status_code=400,
-                )
+            success=False,
+            msg="Airline id couldn't be found",
+            status_code=400,
+        )
     airline["id"] = str(airline["_id"])
     del airline["_id"]
     flow_report["airline"] = airline
@@ -505,7 +530,7 @@ async def change_flow_report_sub_sections_db(
 
 async def list_airlines_db(organization: str) -> ServiceResponse:
 
-    airlines = [ airline async for  airline in get_database().get_collection("airlines").find({"organization": organization}) if Airline.model_validate(airline)]
+    airlines = [airline async for airline in get_database().get_collection("airlines").find({"organization": organization}) if Airline.model_validate(airline)]
     for airline in airlines:
         airline["id"] = str(airline["_id"])
         del airline["_id"]
@@ -520,18 +545,18 @@ async def create_airlines_db(organization: str, name: str) -> ServiceResponse:
         )
     name = name.strip()
 
-    airline_obj = await get_database().get_collection("airlines").find_one({"organization": organization,"name":name})
-    
+    airline_obj = await get_database().get_collection("airlines").find_one({"organization": organization, "name": name})
+
     if airline_obj != None:
         return ServiceResponse(
-                success=False, status_code=400, msg=f"Airline Name already Exists"
-            )
+            success=False, status_code=400, msg=f"Airline Name already Exists"
+        )
 
     airline_obj = await get_database().get_collection("airlines").insert_one(
         Airline(organization=organization, name=name).model_dump()
     )
 
-    return ServiceResponse(data={"airline_id" : str(airline_obj.inserted_id)})
+    return ServiceResponse(data={"airline_id": str(airline_obj.inserted_id)})
 
 
 async def delete_airlines_db(organization: str, id: str) -> ServiceResponse:
@@ -541,7 +566,7 @@ async def delete_airlines_db(organization: str, id: str) -> ServiceResponse:
         return ServiceResponse(success=False, msg="Bad Airline ID", status_code=400)
 
     airline_obj = await get_database().get_collection("airlines").find_one({"_id": bson_id})
-    
+
     if airline_obj == None:
         return ServiceResponse(
             success=False,
@@ -550,5 +575,5 @@ async def delete_airlines_db(organization: str, id: str) -> ServiceResponse:
         )
 
     await get_database().get_collection("airlines").delete_one({"_id": bson_id})
-    
+
     return ServiceResponse()

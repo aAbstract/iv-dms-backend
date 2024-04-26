@@ -97,3 +97,9 @@ class GPT35TContext(BaseModel):
     datetime: datetime
     conversation: list[GPT35TMessage]
     organization: str
+
+class LLMCostRate(float, Enum):
+    ANTHROPIC_INPUT = 0.000015
+    ANTHROPIC_OUTPUT = 0.000075
+    GPT_INPUT = 0.0000005
+    GPT_OUTPUT = 0.0000015

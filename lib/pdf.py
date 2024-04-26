@@ -5,7 +5,8 @@ import re
 from faker import Faker
 from random import random
 import numpy as np
-
+import tokenize
+import io
 
 def convert_to_markdown(text):
     def replace_listing(match):
@@ -730,3 +731,13 @@ def create_parts_metadata_file(file_path):
                     }
                 ],str(int(random()*10000)))[0]['toc_info']
   
+def count_tokens(text : str) -> int:
+    # token_count = 0
+    # try:
+    #     tokens = tokenize.tokenize(io.BytesIO(text.encode('utf-8')).readline)
+    #     for token in tokens:
+    #         token_count += 1
+    # except:
+    #     pass
+
+    return len(text.split())

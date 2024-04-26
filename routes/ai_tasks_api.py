@@ -9,7 +9,7 @@ import database.ai_tasks_database_api as ai_tasks_database_api
 
 _ROOT_ROUTE = f"{os.getenv('API_ROOT')}/ai-tasks"
 _MODULE_ID = 'routes.ai_tasks_api'
-_ALLOWED_USERS = [UserRole.ADMIN, UserRole.AUDITOR]
+_ALLOWED_USERS = [UserRole.ADMIN, UserRole.AUDITOR,UserRole.AIRLINES]
 router = APIRouter()
 
 

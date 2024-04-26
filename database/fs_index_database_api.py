@@ -20,6 +20,7 @@ from lib.pdf import create_parts_metadata_file
 from models.flow_reports import Airline
 from lib.z_pdf_tree_parser import ZPDF
 from uuid import uuid4
+from models.users import UserRole
 
 _PUBLIC_DIR = r"public"
 _CACHE_FOLDER = r"data/cache/toc_trees"
@@ -54,7 +55,7 @@ async def create_fs_index_entry(
         return ServiceResponse(
             success=False, msg="Bad Airline ID", status_code=400
         )
-    
+
     # get airline
     airline = (
         await get_database()
@@ -78,7 +79,7 @@ async def create_fs_index_entry(
     if fs_index:
 
         fs_index['airline'] = airline_id
-        fs_index['datetime'] =datetime.now()
+        fs_index['datetime'] = datetime.now()
         fs_index['doc_status'] = ChatDOCStatus.PARSING_FAILD
         fs_index['args'] = {}
         FSIndexFile.model_validate(fs_index)
@@ -86,7 +87,7 @@ async def create_fs_index_entry(
         mdb_result = (
             await get_database()
             .get_collection("fs_index")
-            .replace_one({"_id":fs_index['_id']},fs_index)
+            .replace_one({"_id": fs_index['_id']}, fs_index)
         )
 
         file_id = str(fs_index['_id'])
@@ -123,8 +124,8 @@ async def create_fs_index_entry(
     ).replace("\\", "/")
     async with aiofiles.open(file_path, "wb") as f:
         await f.write(data)
-    url_path = rf"/{FILE_TYPE_PATH_MAP[file_type]}/{disk_filename}".replace("\\", "/")
-
+    url_path = rf"/{FILE_TYPE_PATH_MAP[file_type]}/{disk_filename}".replace(
+        "\\", "/")
 
     # if file is attachemnt, don't create a ZTree
     if file_type == IndexFileType.AIRLINES_ATTACHMENT:
@@ -141,7 +142,6 @@ async def create_fs_index_entry(
             }
         )
 
-
     try:
 
         z_tree = ZPDF(file_path=file_path)
@@ -154,7 +154,7 @@ async def create_fs_index_entry(
             "toc_info": z_tree.get_cache_transformed(),
             "parsing_metrics": metrics,
         }
-        
+
         await get_database().get_collection("fs_index").update_one(
             {"_id": ObjectId(file_id)},
             {"$set": {"args": metadata, "doc_status": status}},
@@ -206,7 +206,8 @@ async def delete_fs_index_entry(fs_index: str, organization: str) -> ServiceResp
     file_type = fs_index_entry["file_type"]
     file_id = str(fs_index_entry["_id"])
     filename = f"{file_id}{file_ext}"
-    file_path = os.path.join(_PUBLIC_DIR, FILE_TYPE_PATH_MAP[file_type], filename)
+    file_path = os.path.join(
+        _PUBLIC_DIR, FILE_TYPE_PATH_MAP[file_type], filename)
     await aiofiles.os.remove(file_path)
 
     # delete file index database entry
@@ -266,7 +267,19 @@ async def rename_fs_index_entry(
     return ServiceResponse(msg="OK")
 
 
-async def list_fs_index(organization: str) -> ServiceResponse:
+async def list_fs_index(organization: str, username: str) -> ServiceResponse:
+
+    # Construct Query
+    query = [{"organization": organization}, {"file_type": "AIRLINES_MANUAL"}]
+
+    if username:
+        user = await get_database().get_collection("users").find_one({"username": username})
+
+        if not user:
+            return ServiceResponse(success=False, msg="This Username Doesn't exist", status_code=404)
+
+        if user['user_role'] == UserRole.AIRLINES:
+            query.append({'airline': user['airline']})
 
     fs_index_entries = [
         fs_index
@@ -274,10 +287,7 @@ async def list_fs_index(organization: str) -> ServiceResponse:
         .get_collection("fs_index")
         .find(
             {
-                "$and": [
-                    {"organization": organization},
-                    {"file_type": "AIRLINES_MANUAL"},
-                ]
+                "$and": query
             },
             {"args": 0},
         )
@@ -520,7 +530,8 @@ async def get_tree_structure(text: str) -> ServiceResponse:
                     temp_chapter["pages"].append(max_page)
                 temp_chapter["children"].append(dict(temp_section))
 
-                temp_chapter = FSIndexTree.model_validate(temp_chapter).model_dump()
+                temp_chapter = FSIndexTree.model_validate(
+                    temp_chapter).model_dump()
                 all_chapters.append(dict(temp_chapter))
                 temp_chapter = {"children": [], "pages": []}
 
@@ -534,7 +545,8 @@ async def get_tree_structure(text: str) -> ServiceResponse:
             if temp_section.get("name") != None:
 
                 if len(temp_sub_section) > 1:
-                    max_page = max(temp_sub_section, key=lambda x: x.get("pages", 0)[0])
+                    max_page = max(temp_sub_section,
+                                   key=lambda x: x.get("pages", 0)[0])
                     temp_section["pages"].append(max_page["pages"][0])
 
                 temp_section["children"] = temp_sub_section
@@ -559,7 +571,8 @@ async def get_tree_structure(text: str) -> ServiceResponse:
     if temp_section.get("name") != None:
 
         if temp_sub_section != []:
-            max_page = max(temp_sub_section, key=lambda x: x.get("pages", 0)[0])
+            max_page = max(temp_sub_section,
+                           key=lambda x: x.get("pages", 0)[0])
             temp_section["pages"].append(max_page["pages"][0])
 
         temp_section["children"] = temp_sub_section

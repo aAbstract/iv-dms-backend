@@ -4,6 +4,7 @@ import lib.log as log_man
 import database.regulations_database_api as regulations_database_api
 import database.fs_index_database_api as fs_index_database_api
 import database.gpt35t_contexts_database_api as gpt35t_contexts_database_api
+import database.activity_database_api as activity_database_api
 from models.users import UserRole
 from models.regulations import IOSAItem, RegulationType
 from models.httpio import JsonResponse
@@ -15,7 +16,7 @@ import lib.sonnet_unstruct as sonnet_unstruct
 
 _ROOT_ROUTE = f"{os.getenv('API_ROOT')}/llm"
 _MODULE_ID = 'routes.llm_api'
-_ALLOWED_USERS = [UserRole.ADMIN, UserRole.AUDITOR]
+_ALLOWED_USERS = [UserRole.ADMIN, UserRole.AUDITOR, UserRole.AIRLINES]
 router = APIRouter()
 
 
@@ -107,11 +108,11 @@ async def iosa_audit_unstruct(res: Response, regulation_id: str = Body(), checkl
             success=db_service_response.success,
             msg=db_service_response.msg,
         )
-    
+
     iosa_checklist: IOSAItem = db_service_response.data['iosa_checklist']
     regulation_type: RegulationType = db_service_response.data['regulation_type']
 
-    llm_service_response = await sonnet_unstruct.llm_audit_item(iosa_checklist, text,regulation_type)
+    llm_service_response = await sonnet_unstruct.llm_audit_item(iosa_checklist, text, regulation_type)
     if not llm_service_response.success:
         res.status_code = llm_service_response.status_code
         return JsonResponse(
@@ -135,7 +136,7 @@ async def iosa_audit_unstruct(res: Response, regulation_id: str = Body(), checkl
 
 
 @router.post(f"{_ROOT_ROUTE}/iosa-enhance-unstruct")
-async def iosa_enhance_unstruct(res: Response,overall_compliance_tag:str=Body(embed=True) ,regulation_id: str = Body(embed=True), checklist_code: str = Body(embed=True),  context_id: str = Body(embed=True), x_auth=Header(alias='X-Auth', default=None)) -> JsonResponse:
+async def iosa_enhance_unstruct(res: Response, overall_compliance_tag: str = Body(embed=True), regulation_id: str = Body(embed=True), checklist_code: str = Body(embed=True),  context_id: str = Body(embed=True), x_auth=Header(alias='X-Auth', default=None)) -> JsonResponse:
     """Apply suggested AI recommendations to enhance overall compliance score.\n
     =================================================================\n
     Returns: {..., data: {\n
@@ -156,8 +157,8 @@ async def iosa_enhance_unstruct(res: Response,overall_compliance_tag:str=Body(em
             msg=auth_service_response.msg,
         )
 
-    if(overall_compliance_tag == GPT35TAuditTag.NON_COMPLIANT):
-        
+    if (overall_compliance_tag == GPT35TAuditTag.NON_COMPLIANT):
+
         # get IOSA item from database
         db_service_response = await regulations_database_api.get_iosa_checklist(regulation_id, checklist_code)
         if not db_service_response.success:
@@ -183,10 +184,10 @@ async def iosa_enhance_unstruct(res: Response,overall_compliance_tag:str=Body(em
             llm_service_response.data['conversation'],
         )
         context_id = gpt35t_cdb_service_response.data['context_id']
-    elif(overall_compliance_tag == GPT35TAuditTag.PARTIALLY_COMPLIANT):
-        
+    elif (overall_compliance_tag == GPT35TAuditTag.PARTIALLY_COMPLIANT):
+
         # get context from database
-        db_service_response = await gpt35t_contexts_database_api.get_gpt35t_context(context_id,auth_service_response.data['token_claims']['organization'])
+        db_service_response = await gpt35t_contexts_database_api.get_gpt35t_context(context_id, auth_service_response.data['token_claims']['organization'])
         if not db_service_response.success:
             res.status_code = db_service_response.status_code
             return JsonResponse(
@@ -205,7 +206,7 @@ async def iosa_enhance_unstruct(res: Response,overall_compliance_tag:str=Body(em
             )
 
         # update gpt35t context in database
-        gpt35t_cdb_service_response = await gpt35t_contexts_database_api.update_gpt35t_context(context_id,auth_service_response.data['token_claims']['organization'], llm_service_response.data['conversation'])
+        gpt35t_cdb_service_response = await gpt35t_contexts_database_api.update_gpt35t_context(context_id, auth_service_response.data['token_claims']['organization'], llm_service_response.data['conversation'])
         if not gpt35t_cdb_service_response.success:
             res.status_code = gpt35t_cdb_service_response.status_code
             return JsonResponse(
@@ -214,9 +215,9 @@ async def iosa_enhance_unstruct(res: Response,overall_compliance_tag:str=Body(em
             )
     else:
         return JsonResponse(
-           success=False,
+            success=False,
             msg="Invalid Audit Tag Type",
-    )
+        )
 
     return JsonResponse(data={
         'llm_resp': llm_service_response.data['llm_resp'],
@@ -225,8 +226,9 @@ async def iosa_enhance_unstruct(res: Response,overall_compliance_tag:str=Body(em
         'context_id': context_id
     })
 
+
 @router.post(f"{_ROOT_ROUTE}/iosa-audit-pages")
-async def iosa_audit_pages(res: Response, regulation_id: str = Body(embed=True), checklist_code: str = Body(embed=True), text: str = Body(embed = True), pagesMapper: dict[str, list[str]] = Body(embed=True), x_auth=Header(alias='X-Auth', default=None)) -> JsonResponse:
+async def iosa_audit_pages(res: Response, regulation_id: str = Body(embed=True), checklist_code: str = Body(embed=True), text: str = Body(embed=True), pagesMapper: dict[str, list[str]] = Body(embed=True), x_auth=Header(alias='X-Auth', default=None)) -> JsonResponse:
     """Audit text against pages from an FSIndex entry using Chatdoc ID.\n
     =================================================================\n
     interface LLMIOSAItemResponse {\n
@@ -265,7 +267,15 @@ async def iosa_audit_pages(res: Response, regulation_id: str = Body(embed=True),
 
     await log_man.add_log(func_id, 'DEBUG', f"received iosa audit pages request: username = {username}, organization= {organization}, regulation_id={regulation_id}, pagesMapper: {pagesMapper}, checklist_code={checklist_code}")
 
-   
+    # Increment request count of airline
+    db_service_response = await activity_database_api.increment_airline_reqest_count(username)
+    if not db_service_response.success:
+        res.status_code = db_service_response.status_code
+        return JsonResponse(
+            success=db_service_response.success,
+            msg=db_service_response.msg,
+        )
+
     # get IOSA item from database
     db_service_response = await regulations_database_api.get_iosa_checklist(regulation_id, checklist_code)
     if not db_service_response.success:
@@ -285,13 +295,14 @@ async def iosa_audit_pages(res: Response, regulation_id: str = Body(embed=True),
             success=get_pages_service_response.success,
             msg=get_pages_service_response.msg,
         )
+
     text_to_audit = get_pages_service_response.data['text']
 
     # Select sent text if sent from front
     if text.strip():
-       iosa_checklist.paragraph = text.strip()
+        iosa_checklist.paragraph = text.strip()
 
-    llm_service_response = await sonnet_unstruct.llm_audit_item(iosa_checklist, text_to_audit,regulation_type)
+    llm_service_response = await sonnet_unstruct.llm_audit_item(iosa_checklist, text_to_audit, regulation_type)
     if not llm_service_response.success:
         res.status_code = llm_service_response.status_code
         return JsonResponse(
@@ -305,6 +316,15 @@ async def iosa_audit_pages(res: Response, regulation_id: str = Body(embed=True),
         auth_service_response.data['token_claims']['organization'],
         llm_service_response.data['conversation'],
     )
+
+    # Increment request count of airline
+    db_service_response = await activity_database_api.increment_airline_token_count(username, input_token_count=llm_service_response.data['input_token_count'], output_token_count=llm_service_response.data['output_token_count'])
+    if not db_service_response.success:
+        res.status_code = db_service_response.status_code
+        return JsonResponse(
+            success=db_service_response.success,
+            msg=db_service_response.msg,
+        )
 
     return JsonResponse(data={
         'llm_resp': llm_service_response.data['llm_resp'],
