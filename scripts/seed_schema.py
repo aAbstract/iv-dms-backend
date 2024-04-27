@@ -497,7 +497,7 @@ def seed_routine():
         dst_path = f"public/airlines_files/manuals/{file_id}.pdf"
         shutil.copy2(file_path, dst_path)
         print(f"file map {file_path} -> {dst_path}")
-        break
+        
 
     # Nesma
     for file_path in glob(r"data/nesma/*.pdf"):
@@ -539,8 +539,7 @@ def seed_routine():
         dst_path = f"public/airlines_files/manuals/{file_id}.pdf"
         shutil.copy2(file_path, dst_path)
         print(f"file map {file_path} -> {dst_path}")
-        break
-
+        
 
     # Mukamalah
     for file_path in glob(r"data/mukamalah/*.pdf"):
@@ -582,7 +581,7 @@ def seed_routine():
         dst_path = f"public/airlines_files/manuals/{file_id}.pdf"
         shutil.copy2(file_path, dst_path)
         print(f"file map {file_path} -> {dst_path}")
-        break
+        
     
     # db.get_collection("fs_index").insert_many(
     #     [x.model_dump() for x in seed_fs_index_files]

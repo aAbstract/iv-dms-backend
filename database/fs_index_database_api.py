@@ -590,7 +590,7 @@ async def get_tree_structure(text: str) -> ServiceResponse:
     return ServiceResponse(data={"tree": all_chapters})
 
 
-async def get_all_tree_db(organization: str, airline_id: str | None) -> ServiceResponse:
+async def get_all_tree_db(organization: str, airline_id: str | None, username: str) -> ServiceResponse:
     query = {
         "$and": [
             {"organization": organization},
@@ -598,32 +598,46 @@ async def get_all_tree_db(organization: str, airline_id: str | None) -> ServiceR
         ]
     }
 
-    if airline_id:
-        # validate airline
-        airline_id = validate_bson_id(airline_id)
-        if not airline_id:
-            return ServiceResponse(success=False, msg="Bad Airline ID", status_code=400)
+    # validate airline
+    if username:
+        user = await get_database().get_collection("users").find_one({"username": username})
 
-        # get airline
-        airline = (
-            await get_database()
-            .get_collection("airlines")
-            .find_one({"_id": airline_id})
-        )
+        if not user:
+            return ServiceResponse(success=False, msg="This Username Doesn't exist", status_code=404)
 
-        if not airline:
-            return ServiceResponse(
-                success=False, msg="This airline ID doesn't exist", status_code=404
-            )
+        # is the user an airline user
+        if user['user_role'] == UserRole.AIRLINES:
+            query["$and"].append({"airline": str(user['airline'])})
+            
+        # This is a normal user
+        else:
 
-        if airline["organization"] != organization:
-            return ServiceResponse(
-                success=False,
-                msg="Your organization can't access this airline",
-                status_code=403,
-            )
+            if airline_id:
+                # validate airline
+                airline_id = validate_bson_id(airline_id)
+                if not airline_id:
+                    return ServiceResponse(success=False, msg="Bad Airline ID", status_code=400)
 
-        query["$and"].append({"airline": str(airline_id)})
+                # get airline
+                airline = (
+                    await get_database()
+                    .get_collection("airlines")
+                    .find_one({"_id": airline_id})
+                )
+
+                if not airline:
+                    return ServiceResponse(
+                        success=False, msg="This airline ID doesn't exist", status_code=404
+                    )
+
+                if airline["organization"] != organization:
+                    return ServiceResponse(
+                        success=False,
+                        msg="Your organization can't access this airline",
+                        status_code=403,
+                    )
+
+                query["$and"].append({"airline": str(airline_id)})
 
     fs_index_entries = [
         fs_index

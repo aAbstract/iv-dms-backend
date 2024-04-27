@@ -117,7 +117,7 @@ async def llm_audit(iosa_checklist: str, input_text: str,definitions:str) -> Ser
                 'content': llm_response.text,
             })
 
-            input_token_count = count_tokens(user_prompt+ ' ' + system_prompt + ' ' + llm_response.text)
+            input_token_count = count_tokens(user_prompt+ ' ' + system_prompt)
             output_token_count = count_tokens(llm_response.text)
 
             return ServiceResponse(data={

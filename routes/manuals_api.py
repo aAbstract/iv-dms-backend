@@ -532,7 +532,7 @@ async def get_all_trees(res: Response,airline_id: Optional[str] = Body(default=N
     await log_man.add_log(func_id, 'DEBUG', f"received get all trees request: username={username} organization={organization}")
     
     # get tree
-    fs_service_response = await fs_index_database_api.get_all_tree_db(organization=organization,airline_id=airline_id)
+    fs_service_response = await fs_index_database_api.get_all_tree_db(organization=organization,airline_id=airline_id,username=username)
 
     if not fs_service_response.success:
         res.status_code = fs_service_response.status_code
