@@ -351,7 +351,8 @@ def test_get_airline_user_usage_table():
                                                          "request_count",
                                                          "manual_count",
                                                          "cost",
-                                                         "tokens"}
+                                                         "tokens",
+                                                         "_id"}
 
     # Clean Up
     get_database.get_collection("airlines").delete_one(

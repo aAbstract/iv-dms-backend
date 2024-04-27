@@ -216,10 +216,11 @@ async def get_airline_users_table(organization: str) -> ServiceResponse:
         user
         async for user in get_database()
         .get_collection("users")
-        .find( {"organization": organization,'user_role':UserRole.AIRLINES},{"_id":0,"username":1,"airline": 1,"input_token_count":1,"output_token_count":1,"request_count":1,"is_disabled":1})
+        .find( {"organization": organization,'user_role':UserRole.AIRLINES},{"_id":1,"username":1,"airline": 1,"input_token_count":1,"output_token_count":1,"request_count":1,"is_disabled":1})
     ]
 
     for airline_user in airline_users:    
+        airline_user["_id"] = str(airline_user["_id"])
         airline_user['manual_count'] = await get_database().get_collection("fs_index").count_documents({"airline": str(airline_user['airline'])})
         airline_user['cost'] = (airline_user['input_token_count'] * LLMCostRate.ANTHROPIC_INPUT.value) +  (airline_user['output_token_count'] * LLMCostRate.ANTHROPIC_OUTPUT.value) 
         airline_user['tokens'] = airline_user['input_token_count'] + airline_user['output_token_count']
