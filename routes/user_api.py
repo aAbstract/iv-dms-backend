@@ -54,7 +54,7 @@ async def create_airline_user(res: Response, phone_number: str =  Body(embed=Tru
     return JsonResponse(data=db_service_response.data)
 
 @router.post(f"{_ROOT_ROUTE}/reset_airline_user_password")
-async def reset_airline_user_password(res: Response, airline_username:str = Body(embed=True),new_password: str =Body(embed=True) , x_auth=Header(alias="X-Auth", default=None)) -> JsonResponse:
+async def reset_airline_user_password(res: Response, id:str = Body(embed=True),new_password: str =Body(embed=True) , x_auth=Header(alias="X-Auth", default=None)) -> JsonResponse:
     """
     Resets the Password of an airline user, done by an admin user
     """
@@ -75,12 +75,12 @@ async def reset_airline_user_password(res: Response, airline_username:str = Body
     await log_man.add_log(
         func_id,
         "DEBUG",
-        f"received reset airline user password request: username={auth_service_response.data['token_claims']['username']} organization={auth_service_response.data['token_claims']['organization']} airline username= {airline_username}",
+        f"received reset airline user password request: username={auth_service_response.data['token_claims']['username']} organization={auth_service_response.data['token_claims']['organization']} airline user id= {id}",
     )
 
     organization = auth_service_response.data["token_claims"]["organization"]
 
-    db_service_response = await users_database_api.reset_airline_user_password_db(airline_username=airline_username, new_password=new_password,organization=organization)
+    db_service_response = await users_database_api.reset_airline_user_password_db(user_id=id, new_password=new_password,organization=organization)
     res.status_code = db_service_response.status_code
 
     if not db_service_response.success:
@@ -93,7 +93,7 @@ async def reset_airline_user_password(res: Response, airline_username:str = Body
     return JsonResponse(data=db_service_response.data)
 
 @router.post(f"{_ROOT_ROUTE}/toggle_airline_user")
-async def toggle_airline_user(res: Response, airline_username:str = Body(embed=True), x_auth=Header(alias="X-Auth", default=None)) -> JsonResponse:
+async def toggle_airline_user(res: Response, id:str = Body(embed=True), x_auth=Header(alias="X-Auth", default=None)) -> JsonResponse:
     """
     toggle the disablity of an airline user, done by an admin user
     """
@@ -114,12 +114,12 @@ async def toggle_airline_user(res: Response, airline_username:str = Body(embed=T
     await log_man.add_log(
         func_id,
         "DEBUG",
-        f"received toggle airline user request: username={auth_service_response.data['token_claims']['username']} organization={auth_service_response.data['token_claims']['organization']} airline username= {airline_username}",
+        f"received toggle airline user request: username={auth_service_response.data['token_claims']['username']} organization={auth_service_response.data['token_claims']['organization']} airline user id= {id}",
     )
 
     organization = auth_service_response.data["token_claims"]["organization"]
 
-    db_service_response = await users_database_api.toggle_airline_user_db(airline_username=airline_username,organization=organization)
+    db_service_response = await users_database_api.toggle_airline_user_db(user_id=id,organization=organization)
     res.status_code = db_service_response.status_code
 
     if not db_service_response.success:
@@ -132,7 +132,7 @@ async def toggle_airline_user(res: Response, airline_username:str = Body(embed=T
     return JsonResponse(data=db_service_response.data)
 
 @router.post(f"{_ROOT_ROUTE}/delete_airline_user")
-async def delete_airline_user(res: Response, airline_username:str = Body(embed=True), x_auth=Header(alias="X-Auth", default=None)) -> JsonResponse:
+async def delete_airline_user(res: Response, id:str = Body(embed=True), x_auth=Header(alias="X-Auth", default=None)) -> JsonResponse:
     """
     Deletsan airline user, done by an admin user
     """
@@ -153,12 +153,12 @@ async def delete_airline_user(res: Response, airline_username:str = Body(embed=T
     await log_man.add_log(
         func_id,
         "DEBUG",
-        f"received delete airline user  request: username={auth_service_response.data['token_claims']['username']} organization={auth_service_response.data['token_claims']['organization']} airline username= {airline_username}",
+        f"received delete airline user  request: username={auth_service_response.data['token_claims']['username']} organization={auth_service_response.data['token_claims']['organization']} airline user id= {id}",
     )
 
     organization = auth_service_response.data["token_claims"]["organization"]
 
-    db_service_response = await users_database_api.delete_airline_user_db(airline_username=airline_username,organization=organization)
+    db_service_response = await users_database_api.delete_airline_user_db(user_id=id,organization=organization)
     res.status_code = db_service_response.status_code
 
     if not db_service_response.success:

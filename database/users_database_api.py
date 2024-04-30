@@ -108,14 +108,20 @@ async def create_airline_user_db(username: str, disp_name: str, email: str, phon
         return ServiceResponse(
             success=False, msg="Failed to Create User", status_code=500
         )
+    
+    user_id = str(user.inserted_id)
+  
+    return ServiceResponse(data = {"_id":user_id})
 
-    return ServiceResponse()
 
-
-async def reset_airline_user_password_db(airline_username: str, new_password: str, organization: str) -> ServiceResponse:
+async def reset_airline_user_password_db(user_id: str, new_password: str, organization: str) -> ServiceResponse:
 
     # Validate User
-    user = await get_database().get_collection("users").find_one({"username": airline_username})
+    user_id = validate_bson_id(user_id)
+    if not user_id:
+        return ServiceResponse(success=False, msg="Bad Airline ID", status_code=400)
+    
+    user = await get_database().get_collection("users").find_one({"_id": user_id})
 
     if not user:
         return ServiceResponse(
@@ -149,10 +155,14 @@ async def reset_airline_user_password_db(airline_username: str, new_password: st
     return ServiceResponse()
 
 
-async def toggle_airline_user_db(airline_username: str, organization: str) -> ServiceResponse:
+async def toggle_airline_user_db(user_id: str, organization: str) -> ServiceResponse:
 
     # Validate User
-    user = await get_database().get_collection("users").find_one({"username": airline_username})
+    user_id = validate_bson_id(user_id)
+    if not user_id:
+        return ServiceResponse(success=False, msg="Bad Airline ID", status_code=400)
+    
+    user = await get_database().get_collection("users").find_one({"_id": user_id})
 
     if not user:
         return ServiceResponse(
@@ -179,10 +189,14 @@ async def toggle_airline_user_db(airline_username: str, organization: str) -> Se
     return ServiceResponse(data={"is_disabled": (not user['is_disabled'])})
 
 
-async def delete_airline_user_db(airline_username: str, organization: str) -> ServiceResponse:
+async def delete_airline_user_db(user_id: str, organization: str) -> ServiceResponse:
 
     # Validate User
-    user = await get_database().get_collection("users").find_one({"username": airline_username})
+    user_id = validate_bson_id(user_id)
+    if not user_id:
+        return ServiceResponse(success=False, msg="Bad Airline ID", status_code=400)
+    
+    user = await get_database().get_collection("users").find_one({"_id": user_id})
 
     if not user:
         return ServiceResponse(

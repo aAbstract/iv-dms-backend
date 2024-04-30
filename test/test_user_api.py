@@ -110,6 +110,9 @@ def test_create_airline_user():
     assert new_user['email'] == "boombastic@hotmail.com"
     assert new_user['airline'] == str(airline.inserted_id)
 
+    json_res_body = json.loads(http_res.content.decode())
+    assert json_res_body['data']['_id']
+
     # Call API 2
     api_url = f"{_test_config.get_api_url()}/users/create_airline_user"
     payload = {
@@ -124,7 +127,7 @@ def test_create_airline_user():
     assert http_res.status_code == 400
     json_res_body = json.loads(http_res.content.decode())
     assert json_res_body['msg'] == "An Airline User already exists for this Airline"
-
+    
     # Clean Up
     get_database.get_collection("airlines").delete_one(
         {"_id": airline.inserted_id})
@@ -168,11 +171,14 @@ def test_reset_airline_user_password():
     assert new_user['airline'] == str(airline.inserted_id)
     assert _test_config.hash_password(
         "verysecurepassword") == new_user['pass_hash']
+    json_res_body = json.loads(http_res.content.decode())
+    assert json_res_body['data']['_id']
+    user_id =  json_res_body['data']['_id']
 
     # Call API
     api_url = f"{_test_config.get_api_url()}/users/reset_airline_user_password"
     payload = {
-        "airline_username": "airline_user_test",
+        "id": user_id,
         "new_password": "notverysecurepassword"
     }
     http_res = requests.post(api_url, headers=http_headers, json=payload)
@@ -227,11 +233,14 @@ def test_delete_airline_user():
     assert new_user['phone_number'] == "+201234567890"
     assert new_user['email'] == "boombastic@hotmail.com"
     assert new_user['airline'] == str(airline.inserted_id)
+    json_res_body = json.loads(http_res.content.decode())
+    assert json_res_body['data']['_id']
+    user_id =  json_res_body['data']['_id']
 
     # Call API
     api_url = f"{_test_config.get_api_url()}/users/delete_airline_user"
     payload = {
-        "airline_username": "airline_user_test"
+        "id": user_id
     }
     http_res = requests.post(api_url, headers=http_headers, json=payload)
 
@@ -281,11 +290,14 @@ def test_toggle_airline_user_disability():
     assert new_user['email'] == "boombastic@hotmail.com"
     assert new_user['airline'] == str(airline.inserted_id)
     old_disabled = new_user['is_disabled']
+    json_res_body = json.loads(http_res.content.decode())
+    assert json_res_body['data']['_id']
+    user_id =  json_res_body['data']['_id']
 
     # Call API
     api_url = f"{_test_config.get_api_url()}/users/toggle_airline_user"
     payload = {
-        "airline_username": "airline_user_test"
+        "id": user_id
     }
     http_res = requests.post(api_url, headers=http_headers, json=payload)
 
