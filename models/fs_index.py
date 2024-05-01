@@ -66,7 +66,7 @@ class TocLink(BaseModel):
     link_label: str
     target_page: int
     next_link_page: int = -1
-    next_link_label: Optional[str] = None
+    next_link_idx: Optional[str] = None
 
 class ZTree(BaseModel):
     label: str
@@ -80,5 +80,5 @@ class TocTreeNode(BaseModel):
     link_label: str
     start_page: int
     end_page: int = -1
-    end_link_label: Optional[str] = None
+    end_tag: Optional[str] = None
     children: list['TocTreeNode'] = []
