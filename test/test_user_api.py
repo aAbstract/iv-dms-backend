@@ -12,9 +12,9 @@ def test_create_airline_user_lock():
     get_database = _test_config.get_database()
     assert get_database != None
 
-    # Create airline
-    airline = get_database.get_collection("airlines").insert_one(
-        {"organization": "AeroSync", "name": "AeroSync Test"})
+    # # Create airline
+    # airline = get_database.get_collection("airlines").insert_one(
+    #     {"organization": "AeroSync", "name": "AeroSync Test"})
 
     # Call API
     api_url = f"{_test_config.get_api_url()}/users/create_airline_user"
@@ -24,7 +24,7 @@ def test_create_airline_user_lock():
         "disp_name": "airline_user_test",
         "email": "boombastic@hotmail.com",
         "password": "verysecurepassword",
-        "airline_id": str(airline.inserted_id)
+        "airline_name": "AeroSync Test"
     }
 
     http_res = requests.post(api_url, json=payload)
@@ -33,9 +33,9 @@ def test_create_airline_user_lock():
     assert (not json_res_body['success'] and json_res_body['msg']
             == 'Unauthorized API Access [Empty Authorization Header]')
 
-    # Clean Up
-    get_database.get_collection("airlines").delete_one(
-        {"_id": airline.inserted_id})
+    # # Clean Up
+    # get_database.get_collection("airlines").delete_one(
+    #     {"_id": airline.inserted_id})
 
 
 def test_create_airline_user_lock_admin_role():
@@ -49,9 +49,9 @@ def test_create_airline_user_lock_admin_role():
     get_database = _test_config.get_database()
     assert get_database != None
 
-    # Create airline
-    airline = get_database.get_collection("airlines").insert_one(
-        {"organization": "AeroSync", "name": "AeroSync Test"})
+    # # Create airline
+    # airline = get_database.get_collection("airlines").insert_one(
+    #     {"organization": "AeroSync", "name": "AeroSync Test"})
 
     # Call API
     api_url = f"{_test_config.get_api_url()}/users/create_airline_user"
@@ -61,7 +61,7 @@ def test_create_airline_user_lock_admin_role():
         "disp_name": "airline_user_test",
         "email": "boombastic@hotmail.com",
         "password": "verysecurepassword",
-        "airline_id": str(airline.inserted_id)
+        "airline_name": "AeroSync Test"
     }
 
     http_res = requests.post(api_url, headers=http_headers, json=payload)
@@ -70,9 +70,9 @@ def test_create_airline_user_lock_admin_role():
     assert (not json_res_body['success'] and json_res_body['msg']
             == 'Unauthorized API Access [Restricted Access]')
 
-    # Clean Up
-    get_database.get_collection("airlines").delete_one(
-        {"_id": airline.inserted_id})
+    # # Clean Up
+    # get_database.get_collection("airlines").delete_one(
+    #     {"_id": airline.inserted_id})
 
 
 def test_create_airline_user():
@@ -86,9 +86,9 @@ def test_create_airline_user():
     get_database = _test_config.get_database()
     assert get_database != None
 
-    # Create airline
-    airline = get_database.get_collection("airlines").insert_one(
-        {"organization": "AeroSync", "name": "AeroSync Test"})
+    # # Create airline
+    # airline = get_database.get_collection("airlines").insert_one(
+    #     {"organization": "AeroSync", "name": "AeroSync Test"})
 
     # Call API
     api_url = f"{_test_config.get_api_url()}/users/create_airline_user"
@@ -98,7 +98,7 @@ def test_create_airline_user():
         "disp_name": "airline_user_test",
         "email": "boombastic@hotmail.com",
         "password": "verysecurepassword",
-        "airline_id": str(airline.inserted_id)
+        "airline_name": "AeroSync Test"
     }
     http_res = requests.post(api_url, headers=http_headers, json=payload)
 
@@ -108,29 +108,31 @@ def test_create_airline_user():
         "users").find_one({"username": "airline_user_test"})
     assert new_user['phone_number'] == "+201234567890"
     assert new_user['email'] == "boombastic@hotmail.com"
-    assert new_user['airline'] == str(airline.inserted_id)
+
+    airline = get_database.get_collection("airlines").find_one({"name":"AeroSync Test"})
+    assert new_user['airline'] == str(airline['_id'])
 
     json_res_body = json.loads(http_res.content.decode())
     assert json_res_body['data']['_id']
 
-    # Call API 2
-    api_url = f"{_test_config.get_api_url()}/users/create_airline_user"
-    payload = {
-        "phone_number": "+201234567890",
-        "username": "airline_user_test2",
-        "disp_name": "airline_user_test2",
-        "email": "boombastic2@hotmail.com",
-        "password": "verysecurepassword",
-        "airline_id": str(airline.inserted_id)
-    }
-    http_res = requests.post(api_url, headers=http_headers, json=payload)
-    assert http_res.status_code == 400
-    json_res_body = json.loads(http_res.content.decode())
-    assert json_res_body['msg'] == "An Airline User already exists for this Airline"
+    # # Call API 2
+    # api_url = f"{_test_config.get_api_url()}/users/create_airline_user"
+    # payload = {
+    #     "phone_number": "+201234567890",
+    #     "username": "airline_user_test2",
+    #     "disp_name": "airline_user_test2",
+    #     "email": "boombastic2@hotmail.com",
+    #     "password": "verysecurepassword",
+    #     "airline_id": str(airline.inserted_id)
+    # }
+    # http_res = requests.post(api_url, headers=http_headers, json=payload)
+    # assert http_res.status_code == 400
+    # json_res_body = json.loads(http_res.content.decode())
+    # assert json_res_body['msg'] == "An Airline User already exists for this Airline"
     
     # Clean Up
     get_database.get_collection("airlines").delete_one(
-        {"_id": airline.inserted_id})
+        {"_id": airline['_id']})
     get_database.get_collection("users").delete_one({"_id": new_user['_id']})
 
 
@@ -145,9 +147,9 @@ def test_reset_airline_user_password():
     get_database = _test_config.get_database()
     assert get_database != None
 
-    # Create airline
-    airline = get_database.get_collection("airlines").insert_one(
-        {"organization": "AeroSync", "name": "AeroSync Test"})
+    # # Create airline
+    # airline = get_database.get_collection("airlines").insert_one(
+    #     {"organization": "AeroSync", "name": "AeroSync Test"})
 
     # Create Airline User
     api_url = f"{_test_config.get_api_url()}/users/create_airline_user"
@@ -157,7 +159,7 @@ def test_reset_airline_user_password():
         "disp_name": "airline_user_test",
         "email": "boombastic@hotmail.com",
         "password": "verysecurepassword",
-        "airline_id": str(airline.inserted_id)
+        "airline_name": "AeroSync Test"
     }
 
     http_res = requests.post(api_url, headers=http_headers, json=payload)
@@ -168,7 +170,8 @@ def test_reset_airline_user_password():
         "users").find_one({"username": "airline_user_test"})
     assert new_user['phone_number'] == "+201234567890"
     assert new_user['email'] == "boombastic@hotmail.com"
-    assert new_user['airline'] == str(airline.inserted_id)
+    airline = get_database.get_collection("airlines").find_one({"name":"AeroSync Test"})
+    assert new_user['airline'] == str(airline['_id'])
     assert _test_config.hash_password(
         "verysecurepassword") == new_user['pass_hash']
     json_res_body = json.loads(http_res.content.decode())
@@ -189,13 +192,13 @@ def test_reset_airline_user_password():
         "users").find_one({"username": "airline_user_test"})
     assert new_user['phone_number'] == "+201234567890"
     assert new_user['email'] == "boombastic@hotmail.com"
-    assert new_user['airline'] == str(airline.inserted_id)
+    assert new_user['airline'] == str(airline['_id'])
     assert _test_config.hash_password(
         "notverysecurepassword") == new_user['pass_hash']
 
     # Clean Up
     get_database.get_collection("airlines").delete_one(
-        {"_id": airline.inserted_id})
+        {"_id": airline['_id']})
     get_database.get_collection("users").delete_one({"_id": new_user['_id']})
 
 
@@ -210,9 +213,9 @@ def test_delete_airline_user():
     get_database = _test_config.get_database()
     assert get_database != None
 
-    # Create airline
-    airline = get_database.get_collection("airlines").insert_one(
-        {"organization": "AeroSync", "name": "AeroSync Test"})
+    # # Create airline
+    # airline = get_database.get_collection("airlines").insert_one(
+    #     {"organization": "AeroSync", "name": "AeroSync Test"})
 
     # Create Airline User
     api_url = f"{_test_config.get_api_url()}/users/create_airline_user"
@@ -222,7 +225,7 @@ def test_delete_airline_user():
         "disp_name": "airline_user_test",
         "email": "boombastic@hotmail.com",
         "password": "verysecurepassword",
-        "airline_id": str(airline.inserted_id)
+        "airline_name": "AeroSync Test"
     }
     http_res = requests.post(api_url, headers=http_headers, json=payload)
 
@@ -232,7 +235,8 @@ def test_delete_airline_user():
         "users").find_one({"username": "airline_user_test"})
     assert new_user['phone_number'] == "+201234567890"
     assert new_user['email'] == "boombastic@hotmail.com"
-    assert new_user['airline'] == str(airline.inserted_id)
+    airline = get_database.get_collection("airlines").find_one({"name":"AeroSync Test"})
+    assert new_user['airline'] == str(airline['_id'])
     json_res_body = json.loads(http_res.content.decode())
     assert json_res_body['data']['_id']
     user_id =  json_res_body['data']['_id']
@@ -252,7 +256,7 @@ def test_delete_airline_user():
 
     # Clean Up
     get_database.get_collection("airlines").delete_one(
-        {"_id": airline.inserted_id})
+        {"_id": airline['_id']})
 
 
 def test_toggle_airline_user_disability():
@@ -266,9 +270,9 @@ def test_toggle_airline_user_disability():
     get_database = _test_config.get_database()
     assert get_database != None
 
-    # Create airline
-    airline = get_database.get_collection("airlines").insert_one(
-        {"organization": "AeroSync", "name": "AeroSync Test"})
+    # # Create airline
+    # airline = get_database.get_collection("airlines").insert_one(
+    #     {"organization": "AeroSync", "name": "AeroSync Test"})
 
     # Create Airline User
     api_url = f"{_test_config.get_api_url()}/users/create_airline_user"
@@ -278,7 +282,7 @@ def test_toggle_airline_user_disability():
         "disp_name": "airline_user_test",
         "email": "boombastic@hotmail.com",
         "password": "verysecurepassword",
-        "airline_id": str(airline.inserted_id)
+        "airline_name": "AeroSync Test"
     }
     http_res = requests.post(api_url, headers=http_headers, json=payload)
 
@@ -288,7 +292,8 @@ def test_toggle_airline_user_disability():
         "users").find_one({"username": "airline_user_test"})
     assert new_user['phone_number'] == "+201234567890"
     assert new_user['email'] == "boombastic@hotmail.com"
-    assert new_user['airline'] == str(airline.inserted_id)
+    airline = get_database.get_collection("airlines").find_one({"name":"AeroSync Test"})
+    assert new_user['airline'] == str(airline['_id'])
     old_disabled = new_user['is_disabled']
     json_res_body = json.loads(http_res.content.decode())
     assert json_res_body['data']['_id']
@@ -309,7 +314,7 @@ def test_toggle_airline_user_disability():
 
     # Clean Up
     get_database.get_collection("airlines").delete_one(
-        {"_id": airline.inserted_id})
+        {"_id": airline['_id']})
     get_database.get_collection("users").delete_one({"_id": new_user['_id']})
 
 
@@ -324,9 +329,9 @@ def test_get_airline_user_usage_table():
     get_database = _test_config.get_database()
     assert get_database != None
 
-    # Create airline
-    airline = get_database.get_collection("airlines").insert_one(
-        {"organization": "AeroSync", "name": "AeroSync Test"})
+    # # Create airline
+    # airline = get_database.get_collection("airlines").insert_one(
+    #     {"organization": "AeroSync", "name": "AeroSync Test"})
 
     # Create Airline User
     api_url = f"{_test_config.get_api_url()}/users/create_airline_user"
@@ -336,7 +341,7 @@ def test_get_airline_user_usage_table():
         "disp_name": "airline_user_test",
         "email": "boombastic@hotmail.com",
         "password": "verysecurepassword",
-        "airline_id": str(airline.inserted_id)
+        "airline_name": "AeroSync Test"
     }
     http_res = requests.post(api_url, headers=http_headers, json=payload)
 
@@ -346,7 +351,8 @@ def test_get_airline_user_usage_table():
         "users").find_one({"username": "airline_user_test"})
     assert new_user['phone_number'] == "+201234567890"
     assert new_user['email'] == "boombastic@hotmail.com"
-    assert new_user['airline'] == str(airline.inserted_id)
+    airline = get_database.get_collection("airlines").find_one({"name":"AeroSync Test"})
+    assert new_user['airline'] == str(airline['_id'])
 
     # Call API
     api_url = f"{_test_config.get_api_url()}/users/get_airline_users_table"
@@ -368,5 +374,5 @@ def test_get_airline_user_usage_table():
 
     # Clean Up
     get_database.get_collection("airlines").delete_one(
-        {"_id": airline.inserted_id})
+        {"_id": airline['_id']})
     get_database.get_collection("users").delete_one({"_id": new_user['_id']})

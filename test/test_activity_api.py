@@ -51,7 +51,7 @@ def test_llm_usage_increment_airline_user():
     assert get_database != None
 
     # Create airline
-    airline = get_database.get_collection("airlines").insert_one({"organization":"AeroSync","name":"AeroSync Test"})
+    # airline = get_database.get_collection("airlines").insert_one({"organization":"AeroSync","name":"AeroSync Test"})
 
     # Create airline User
     api_url = f"{_test_config.get_api_url()}/users/create_airline_user"
@@ -61,7 +61,7 @@ def test_llm_usage_increment_airline_user():
         "disp_name":"airline_user_test",
         "email":"boombastic@hotmail.com",
         "password": "verysecurepassword",
-        "airline_id":str(airline.inserted_id)
+        "airline_name": "AeroSync Test"
     }
     http_res = requests.post(api_url,headers=http_headers, json=payload)
 
@@ -70,7 +70,8 @@ def test_llm_usage_increment_airline_user():
     new_user = get_database.get_collection("users").find_one({"username":"airline_user_test"})
     assert new_user['phone_number'] == "+201234567890"
     assert new_user['email'] == "boombastic@hotmail.com"
-    assert new_user['airline'] == str(airline.inserted_id)
+    airline = get_database.get_collection("airlines").find_one({"name":"AeroSync Test"})
+    assert new_user['airline'] == str(airline['_id'])
 
     # Log in as Airline User
     admin_access_token = _test_config.login_user(
@@ -139,7 +140,7 @@ def test_llm_usage_increment_airline_user():
 
     # Clean Up
     get_database.get_collection("users").delete_one({"_id": new_user['_id']})
-    get_database.get_collection("airlines").delete_one({"_id": airline.inserted_id})
+    get_database.get_collection("airlines").delete_one({"_id": airline['_id']})
     get_database.get_collection("gpt35t_contexts").find_one_and_delete(
         {"_id": ObjectId(json_res_body["data"]["context_id"])}
     )

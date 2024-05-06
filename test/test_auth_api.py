@@ -47,7 +47,7 @@ def test_auth_api_login_fail_airline_user():
     assert get_database != None
 
     # Create airline
-    airline = get_database.get_collection("airlines").insert_one({"organization":"AeroSync","name":"AeroSync Test"})
+    # airline = get_database.get_collection("airlines").insert_one({"organization":"AeroSync","name":"AeroSync Test"})
 
     # Create Airline User
     api_url = f"{_test_config.get_api_url()}/users/create_airline_user"
@@ -57,7 +57,7 @@ def test_auth_api_login_fail_airline_user():
         "disp_name":"airline_user_test",
         "email":"boombastic@hotmail.com",
         "password": "verysecurepassword",
-        "airline_id":str(airline.inserted_id)
+        "airline_name": "AeroSync Test"
     }
     http_res = requests.post(api_url,headers=http_headers, json=payload)
 
@@ -66,13 +66,16 @@ def test_auth_api_login_fail_airline_user():
     new_user = get_database.get_collection("users").find_one({"username":"airline_user_test"})
     assert new_user['phone_number'] == "+201234567890"
     assert new_user['email'] == "boombastic@hotmail.com"
-    assert new_user['airline'] == str(airline.inserted_id)
-    old_disabled = new_user['is_disabled']
+    airline = get_database.get_collection("airlines").find_one({"name":"AeroSync Test"})
+    assert new_user['airline'] == str(airline['_id'])
 
+    old_disabled = new_user['is_disabled']
+    user_id =  str(new_user['_id'])
+    
     # Disable Airline User
     api_url = f"{_test_config.get_api_url()}/users/toggle_airline_user"
     payload = {
-        "airline_username":"airline_user_test"
+        "id":user_id
     }
     http_res = requests.post(api_url,headers=http_headers, json=payload)
 
@@ -93,5 +96,5 @@ def test_auth_api_login_fail_airline_user():
     assert json_res_body['msg'] == 'Login Failed, Airline User Is Disabled'
 
     # Clean Up
-    get_database.get_collection("airlines").delete_one({"_id": airline.inserted_id})
+    get_database.get_collection("airlines").delete_one({"_id": airline['_id']})
     get_database.get_collection("users").delete_one({"_id": new_user['_id']})

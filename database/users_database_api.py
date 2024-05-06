@@ -22,19 +22,28 @@ async def login_user(username: str, password: str) -> ServiceResponse:
     if user.user_role == UserRole.AIRLINES:
         if user.is_disabled:
             return ServiceResponse(success=False, msg='Login Failed, Airline User Is Disabled', status_code=403)
-
-    # create jwt token
-    jwt_token = crypto_man.create_jwt_token({
-        'username': user.username,
-        'display_name': user.disp_name,
-        'role': user.user_role,
-        'organization': user.organization,
-    })
+         
+        # create jwt token
+        jwt_token = crypto_man.create_jwt_token({
+            'username': user.username,
+            'display_name': user.disp_name,
+            'role': user.user_role,
+            'organization': user.organization,
+            'airline': user.airline
+        })
+    else:   
+        # create jwt token
+        jwt_token = crypto_man.create_jwt_token({
+            'username': user.username,
+            'display_name': user.disp_name,
+            'role': user.user_role,
+            'organization': user.organization,
+        })
     return ServiceResponse(data={'access_token': jwt_token})
 
 
 async def create_airline_user_db(username: str, disp_name: str, email: str, phone_number: str, password: str, airline_id: str, organization: str) -> ServiceResponse:
-
+    
     # Validate Airline
     airline_id = validate_bson_id(airline_id)
     if not airline_id:
@@ -52,6 +61,7 @@ async def create_airline_user_db(username: str, disp_name: str, email: str, phon
             success=False, msg="Your organization can't access this airline", status_code=403
         )
 
+    # Checks if a user already exists for this airline
     airline_user = await get_database().get_collection("users").find_one({"organization": organization, "airline": str(airline['_id'])})
 
     if airline_user:

@@ -17,7 +17,7 @@ async def login(res: Response, username: str = Body(), password: str = Body()) -
     """
     func_id = f"{_MODULE_ID}.login"
     await log_man.add_log(func_id, 'DEBUG', f"received login request: username={username}, password={password}")
-
+    
     db_service_response = await users_database_api.login_user(username, password)
     res.status_code = db_service_response.status_code
 
