@@ -4,7 +4,7 @@ from database.mongo_driver import get_database, validate_bson_id
 from models.users import User, UserRole
 import re
 from models.gpt_35t import LLMCostRate
-
+from bson import ObjectId
 
 async def login_user(username: str, password: str) -> ServiceResponse:
     # check user in database
@@ -62,7 +62,7 @@ async def create_airline_user_db(username: str, disp_name: str, email: str, phon
         )
 
     # Checks if a user already exists for this airline
-    airline_user = await get_database().get_collection("users").find_one({"organization": organization, "airline": str(airline['_id'])})
+    airline_user = await get_database().get_collection("users").find_one({"organization": organization, "airline": str(airline['_id']), 'deleted':False})
 
     if airline_user:
         return ServiceResponse(
@@ -200,7 +200,7 @@ async def toggle_airline_user_db(user_id: str, organization: str) -> ServiceResp
 
 
 async def delete_airline_user_db(user_id: str, organization: str) -> ServiceResponse:
-
+    
     # Validate User
     user_id = validate_bson_id(user_id)
     if not user_id:
@@ -223,9 +223,10 @@ async def delete_airline_user_db(user_id: str, organization: str) -> ServiceResp
             success=False, msg="Can't Delete a non-airline user", status_code=400
         )
 
-    user = await get_database().get_collection("users").delete_one({"_id": user['_id']})
+    user_ack = await get_database().get_collection("users").delete_one({"_id": user['_id']})
+    airline_ack = await get_database().get_collection("airlines").update_one({"_id": ObjectId(user['airline'])},{"$set":{"deleted":True}})
 
-    if not user.acknowledged:
+    if not (user_ack.acknowledged and airline_ack.acknowledged):
         return ServiceResponse(
             success=False, msg="Failed to Delete Airline User", status_code=500
         )
@@ -242,12 +243,15 @@ async def get_airline_users_table(organization: str) -> ServiceResponse:
         .get_collection("users")
         .find( {"organization": organization,'user_role':UserRole.AIRLINES},{"_id":1,"username":1,"airline": 1,"input_token_count":1,"output_token_count":1,"request_count":1,"is_disabled":1})
     ]
-
+    
     for airline_user in airline_users:    
         airline_user["_id"] = str(airline_user["_id"])
         airline_user['manual_count'] = await get_database().get_collection("fs_index").count_documents({"airline": str(airline_user['airline'])})
         airline_user['cost'] = (airline_user['input_token_count'] * LLMCostRate.ANTHROPIC_INPUT.value) +  (airline_user['output_token_count'] * LLMCostRate.ANTHROPIC_OUTPUT.value) 
         airline_user['tokens'] = airline_user['input_token_count'] + airline_user['output_token_count']
+        airline = await get_database().get_collection("airlines").find_one({"_id": ObjectId(airline_user['airline'])})
+        airline_user['username'] = airline['name']
+        
         del airline_user['input_token_count']
         del airline_user['output_token_count']
         del airline_user['airline']

@@ -102,3 +102,4 @@ class FlowReportChange(BaseModel):
 class Airline(BaseModel):
     name: str
     organization: str
+    deleted: Optional[bool] = False

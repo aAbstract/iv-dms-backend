@@ -289,7 +289,7 @@ async def get_flow_report_db(
             msg="Your organization can't access this flow report",
         )
 
-    user = await get_database().get_collection("users").find_one({"username":username})
+    user = await get_database().get_collection("users").find_one({"username": username})
 
     if user['user_role'] == UserRole.AIRLINES:
         if user['airline'] != flow_report['airline']:
@@ -298,7 +298,7 @@ async def get_flow_report_db(
                 status_code=403,
                 msg="Your User Airline Account Can't Access this Report",
             )
-        
+
     section_code = flow_report["code"].split()[0]
 
     # get applicability and general guidence
@@ -530,7 +530,7 @@ async def change_flow_report_sub_sections_db(
 
 async def list_airlines_db(organization: str) -> ServiceResponse:
 
-    airlines = [airline async for airline in get_database().get_collection("airlines").find({"organization": organization}) if Airline.model_validate(airline)]
+    airlines = [airline async for airline in get_database().get_collection("airlines").find({"organization": organization, "deleted": False}) if Airline.model_validate(airline)]
     for airline in airlines:
         airline["id"] = str(airline["_id"])
         del airline["_id"]
@@ -545,7 +545,7 @@ async def create_airlines_db(organization: str, name: str) -> ServiceResponse:
         )
     name = name.strip()
 
-    airline_obj = await get_database().get_collection("airlines").find_one({"organization": organization, "name": name})
+    airline_obj = await get_database().get_collection("airlines").find_one({"organization": organization, "name": name, "deleted": False})
 
     if airline_obj != None:
         return ServiceResponse(
