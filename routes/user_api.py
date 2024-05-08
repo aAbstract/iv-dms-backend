@@ -42,20 +42,7 @@ async def create_airline_user(res: Response, phone_number: str =  Body(embed=Tru
     )
     organization = auth_service_response.data["token_claims"]["organization"]
 
-
-    db_service_response = await create_airlines_db(
-        name = airline_name,
-        organization=organization,
-    )
-
-    if not db_service_response.success:
-        res.status_code = db_service_response.status_code
-        return JsonResponse(
-            success=db_service_response.success,
-            msg=db_service_response.msg,
-        )
-
-    db_service_response = await users_database_api.create_airline_user_db(username=username, disp_name=disp_name,email=email,phone_number=phone_number,password=password,airline_id=db_service_response.data['airline_id'],organization=organization)
+    db_service_response = await users_database_api.create_airline_user_db(username=username, disp_name=disp_name,email=email,phone_number=phone_number,password=password,organization=organization,airline_name=airline_name)
     res.status_code = db_service_response.status_code
 
     if not db_service_response.success:

@@ -5,6 +5,7 @@ from models.users import User, UserRole
 import re
 from models.gpt_35t import LLMCostRate
 from bson import ObjectId
+from models.flow_reports import Airline
 
 async def login_user(username: str, password: str) -> ServiceResponse:
     # check user in database
@@ -42,33 +43,22 @@ async def login_user(username: str, password: str) -> ServiceResponse:
     return ServiceResponse(data={'access_token': jwt_token})
 
 
-async def create_airline_user_db(username: str, disp_name: str, email: str, phone_number: str, password: str, airline_id: str, organization: str) -> ServiceResponse:
+async def create_airline_user_db(username: str, disp_name: str, email: str, phone_number: str, password: str, organization: str,airline_name:str) -> ServiceResponse:
     
-    # Validate Airline
-    airline_id = validate_bson_id(airline_id)
-    if not airline_id:
-        return ServiceResponse(success=False, msg="Bad Airline ID", status_code=400)
 
-    airline = await get_database().get_collection("airlines").find_one({"_id": airline_id})
-
-    if not airline:
+    if not airline_name:
         return ServiceResponse(
-            success=False, msg="This airline ID doesn't exist", status_code=404
+            success=False, status_code=400, msg=f"Can't create empty airline name"
         )
+    airline_name = airline_name.strip()
 
-    if airline['organization'] != organization:
+    airline_obj = await get_database().get_collection("airlines").find_one({"organization": organization, "name": airline_name, "deleted": False})
+
+    if airline_obj != None:
         return ServiceResponse(
-            success=False, msg="Your organization can't access this airline", status_code=403
+            success=False, status_code=400, msg=f"Airline Name already Exists"
         )
-
-    # Checks if a user already exists for this airline
-    airline_user = await get_database().get_collection("users").find_one({"organization": organization, "airline": str(airline['_id']), 'deleted':False})
-
-    if airline_user:
-        return ServiceResponse(
-            success=False, msg="An Airline User already exists for this Airline", status_code=400
-        )
-
+    
     # Validate User Credentials
     user = await get_database().get_collection("users").find_one({"username": username})
 
@@ -92,6 +82,10 @@ async def create_airline_user_db(username: str, disp_name: str, email: str, phon
             success=False, msg="Can't have an empty password", status_code=400
         )
 
+    airline_obj = await get_database().get_collection("airlines").insert_one(
+        Airline(organization=organization, name=airline_name).model_dump()
+    )
+
     # Create User
     password_hash = crypto_man.hash_password(password)
 
@@ -103,7 +97,7 @@ async def create_airline_user_db(username: str, disp_name: str, email: str, phon
         phone_number=phone_number,
         email=email,
         organization=organization,
-        airline=str(airline_id),
+        airline=str(airline_obj.inserted_id),
         is_disabled=False,
         input_token_count=0,
         output_token_count=0,
