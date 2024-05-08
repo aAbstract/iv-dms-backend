@@ -94,6 +94,15 @@ seed_users = [
         email="aelhennawy@aerosync.com",
         organization="AeroSync",
     ),
+        User(
+        username="admin_aelhennawy",
+        disp_name="Amr Elhennawy",
+        pass_hash="6204c03169cb87f6834c1dd0419e0a06d1dfca3b0df37fef6b7f2bf5baa016b03463c3906c8669e797ba49c67b3f9950dfc7248ce278f922fc0592e7044a3d32",
+        user_role=UserRole.ADMIN,
+        phone_number="+201001000000",
+        email="admin_aelhennawy@aerosync.com",
+        organization="AeroSync",
+    ),
     User(
         username="mahmoud",
         disp_name="Mahmoud Gabr",
@@ -539,7 +548,7 @@ def seed_routine():
         dst_path = f"public/airlines_files/manuals/{file_id}.pdf"
         shutil.copy2(file_path, dst_path)
         print(f"file map {file_path} -> {dst_path}")
-        
+
 
     # Mukamalah
     for file_path in glob(r"data/mukamalah/*.pdf"):
