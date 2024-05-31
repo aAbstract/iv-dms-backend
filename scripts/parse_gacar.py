@@ -313,7 +313,7 @@ def convert_to_markdown(text):
 section_columns = {
     "117": "Subpart Section",
     "109": "Subpart/ Appendix SECTION",
-    "91": "Subpart/ Appendix SECTION",
+    "91GACAR": "Subpart/ Appendix SECTION",
     "7": "Subpart/ Appendix SECTION",
     "4":"SECTION",
     "5":"SECTION",
@@ -322,6 +322,9 @@ section_columns = {
     "66":"Subpart Section",
     "65":"Subpart Section",
     "47":"Subpart Section",
+    "91ECAR":"Subpart Section",
+    "43":"Subpart Section",
+    "119":"Subpart Section"
 }
 
 

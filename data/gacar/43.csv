@@ -1,0 +1,581 @@
+﻿No,GACAR PART,SUBPART,Subpart Section,Subpart Subsection,SUBPART HEADING,SUBPART SECTION HEADING,REGULATION  STATEMENT
+1,43,A,43.1,A,General,Applicability,"(a) Except as provided in paragraphs (b) and (d) of this section, this part prescribes rules governing the maintenance, preventive maintenance, rebuilding, and alteration of any—"
+2,43,A,43.1,-,General,Applicability,(1) Aircraft having a Kingdom of Saudi Arabia airworthiness certificate; and
+3,43,A,43.1,-,General,Applicability,"(2) Airframe, aircraft engines, propellers, appliances, and component parts of such aircraft."
+4,43,A,43.1,B,General,Applicability,"(b) This part does not apply to any aircraft for which the President has issued an experimental certificate, unless the President has previously issued a different kind of airworthiness certificate for that aircraft."
+5,43,A,43.1,C,General,Applicability,"(c) This part applies to all life limited parts removed from a product having a validated or accepted type certificate, segregated or controlled as provided in GACAR § 43.13."
+6,43,A,43.1,D,General,Applicability,"(d) Except for the following, this part applies to any aircraft for which the President has issued a special airworthiness certificate in the light-sport category:"
+7,43,A,43.1,-,General,Applicability,(1) The repair or alteration form specified in GACAR §§ 43.7(b) and 43.11(d) is not required to be completed for products not produced under an approved production system;
+8,43,A,43.1,-,General,Applicability,(2) Major repairs and major alterations for products not produced under an approved production system are not required to be recorded in accordance with Appendix B to this part; and
+9,43,A,43.1,-,General,Applicability,(3) The list of major alterations and major repairs specified in paragraphs (a) and (b) of Appendix A to this part is not applicable to products not produced under an approved production system.
+10,43,A,43.3,A,General,Records of Overhaul and Rebuilding,"(a) No person may describe in any required maintenance entry or form an aircraft, airframe, aircraft engine, propeller, appliance, or component part as being overhauled unless—"
+11,43,A,43.3,-,General,Records of Overhaul and Rebuilding,"(1) Using methods, techniques, and practices acceptable to the President, it has been
+disassembled, cleaned, inspected, repaired as necessary, and reassembled; and"
+12,43,A,43.3,-,General,Records of Overhaul and Rebuilding,"(2) It has been tested in accordance with approved standards and technical data, or in
+accordance with current standards and technical data acceptable to the President, which have been developed and documented by the holder of the type certificate, supplemental type certificate, or an approval under GACAR Part 21."
+13,43,A,43.3,B,General,Records of Overhaul and Rebuilding,"(b) No person may describe in any required maintenance entry or form an aircraft, airframe, aircraft engine, propeller, appliance, or component part as being rebuilt unless it has been disassembled, cleaned, inspected, repaired as necessary, reassembled, and tested to the same tolerances and limits as a new item, using either new parts or used parts that either conform to new part tolerances and limits or to approved oversized or undersized dimensions."
+14,43,A,43.5,A,General,"Persons Authorized To Perform Maintenance, Preventive Maintenance, Rebuilding, and
+Alterations","(a) Except as provided in this section, no person may maintain, rebuild, alter, or perform preventive maintenance on an aircraft, airframe, aircraft engine, propeller, appliance, or component part to which this part applies. Those items, the performance of which constitutes a major alteration, a major repair, or preventive maintenance, are listed in Appendix A to this part."
+15,43,A,43.5,B,General,"Persons Authorized To Perform Maintenance, Preventive Maintenance, Rebuilding, and
+Alterations","(b) The holder of a mechanic certificate may perform maintenance, preventive maintenance, and alterations as provided in GACAR Part 66."
+16,43,A,43.5,C,General,"Persons Authorized To Perform Maintenance, Preventive Maintenance, Rebuilding, and
+Alterations","(c) The holder of a repairman certificate or light-sport aircraft (LSA) repairman certificate may perform maintenance, preventive maintenance, and alterations as provided in GACAR Part 66."
+17,43,A,43.5,D,General,"Persons Authorized To Perform Maintenance, Preventive Maintenance, Rebuilding, and
+Alterations","(d) A person working under the supervision of a holder of a mechanic or repairman certificate may perform the maintenance, preventive maintenance, and alterations his supervisor is authorized to perform, if the supervisor personally observes the work being done to the extent necessary to ensure that it is being done properly and if the supervisor is readily available, in person, for consultation. However, this paragraph does not authorize the performance of any inspection required by GACAR Part 91 or 125 or any inspection performed after a major repair or alteration."
+18,43,A,43.5,E,General,"Persons Authorized To Perform Maintenance, Preventive Maintenance, Rebuilding, and
+Alterations","(e) The holder of a repair station certificate may perform maintenance, preventive maintenance, and alterations as provided in GACAR Part 145."
+19,43,A,43.5,F,General,"Persons Authorized To Perform Maintenance, Preventive Maintenance, Rebuilding, and
+Alterations","(f) The holder of an air operator certificate or an operator certificate issued under GACAR Part 121 or 135 may perform maintenance, preventive maintenance, and alterations as provided in GACAR Part 121 or 135."
+20,43,A,43.5,G,General,"Persons Authorized To Perform Maintenance, Preventive Maintenance, Rebuilding, and
+Alterations","(g) Except for holders of a sport pilot certificate, the holder of a pilot certificate issued under GACAR Part 61 may perform preventive maintenance on any aircraft owned or operated by that pilot and not used under GACAR Part 121 or 135. The holder of a sport pilot certificate may perform preventive maintenance on an aircraft owned or operated by that pilot and issued a special airworthiness certificate in the light sport category."
+21,43,A,43.5,H,General,"Persons Authorized To Perform Maintenance, Preventive Maintenance, Rebuilding, and
+Alterations","(h) Notwithstanding the provisions of paragraph (g) of this section, the President may approve a certificate holder under GACAR Part 135, operating rotorcraft in a remote area, to allow a pilot to perform specific preventive maintenance items provided—"
+22,43,A,43.5,-,General,"Persons Authorized To Perform Maintenance, Preventive Maintenance, Rebuilding, and
+Alterations","(1) The items of preventive maintenance are a result of a known or suspected mechanical
+difficulty or malfunction that occurred en route to or in a remote area;"
+23,43,A,43.5,-,General,"Persons Authorized To Perform Maintenance, Preventive Maintenance, Rebuilding, and
+Alterations",(2) The pilot has satisfactorily completed an approved training program and is authorized in writing by the certificate holder for each item of preventive maintenance the pilot is authorized to perform;
+24,43,A,43.5,-,General,"Persons Authorized To Perform Maintenance, Preventive Maintenance, Rebuilding, and
+Alterations",(3) There is no certificated mechanic available to perform preventive maintenance;
+25,43,A,43.5,-,General,"Persons Authorized To Perform Maintenance, Preventive Maintenance, Rebuilding, and
+Alterations","(4) The certificate holder has procedures to evaluate the accomplishment of a preventive
+maintenance item that requires a decision concerning the airworthiness of the rotorcraft; and"
+26,43,A,43.5,-,General,"Persons Authorized To Perform Maintenance, Preventive Maintenance, Rebuilding, and
+Alterations",(5) The items of preventive maintenance authorized by this section are those listed in paragraph (c) of Appendix A to this part.
+27,43,A,43.5,-,General,"Persons Authorized To Perform Maintenance, Preventive Maintenance, Rebuilding, and
+Alterations","(i) A pilot may perform the removal and reinstallation of approved aircraft cabin seats, approved cabin mounted stretchers, and when no tools are required, approved cabin mounted medical oxygen bottles, provided—"
+28,43,A,43.5,-,General,"Persons Authorized To Perform Maintenance, Preventive Maintenance, Rebuilding, and
+Alterations",(1) The pilot has satisfactorily completed an approved training program and is authorized in writing by the certificate holder to perform each task; and
+29,43,A,43.5,-,General,"Persons Authorized To Perform Maintenance, Preventive Maintenance, Rebuilding, and
+Alterations","(2) The certificate holder has written procedures available to the pilot to evaluate the
+accomplishment of the task."
+30,43,A,43.5,J,General,"Persons Authorized To Perform Maintenance, Preventive Maintenance, Rebuilding, and
+Alterations",(j) A manufacturer may—
+31,43,A,43.5,-,General,"Persons Authorized To Perform Maintenance, Preventive Maintenance, Rebuilding, and
+Alterations","(1) Rebuild or alter any aircraft, aircraft engine, propeller, article, or appliance manufactured by him. "
+32,43,A,43.5,-,General,"Persons Authorized To Perform Maintenance, Preventive Maintenance, Rebuilding, and
+Alterations",(2) Perform any inspection required by GACAR Part 91 or 125 on aircraft manufactured by him.
+33,43,A,43.5,K,General,"Persons Authorized To Perform Maintenance, Preventive Maintenance, Rebuilding, and
+Alterations",(k) Updates of databases in installed avionics meeting the conditions of this paragraph are not considered maintenance and may be performed by pilots provided:
+34,43,A,43.5,-,General,"Persons Authorized To Perform Maintenance, Preventive Maintenance, Rebuilding, and
+Alterations",(1) The database upload is:
+35,43,A,43.5,-,General,"Persons Authorized To Perform Maintenance, Preventive Maintenance, Rebuilding, and
+Alterations",(i) Initiated from the flight deck;
+36,43,A,43.5,-,General,"Persons Authorized To Perform Maintenance, Preventive Maintenance, Rebuilding, and
+Alterations",(ii) Performed without disassembling the avionics unit; and
+37,43,A,43.5,-,General,"Persons Authorized To Perform Maintenance, Preventive Maintenance, Rebuilding, and
+Alterations",(iii) Performed without the use of tools and/or special equipment.
+38,43,A,43.5,-,General,"Persons Authorized To Perform Maintenance, Preventive Maintenance, Rebuilding, and
+Alterations","(2) The pilot must comply with the certificate holder's procedures or the manufacturer's
+instructions."
+39,43,A,43.5,-,General,"Persons Authorized To Perform Maintenance, Preventive Maintenance, Rebuilding, and
+Alterations",(3) The holder of operating certificates must make available written procedures consistent with manufacturer's instructions to the pilot that describe how to:
+40,43,A,43.5,-,General,"Persons Authorized To Perform Maintenance, Preventive Maintenance, Rebuilding, and
+Alterations",(i) Perform the database update; and
+41,43,A,43.5,-,General,"Persons Authorized To Perform Maintenance, Preventive Maintenance, Rebuilding, and
+Alterations",(ii) Determine the status of the data upload.
+42,43,A,43.7,-,General,"Approval for Return to Service After Maintenance, Preventive Maintenance, Rebuilding,
+or Alteration.","No person may approve for return to service any aircraft, airframe, aircraft engine, propeller, or
+appliance that has undergone maintenance, preventive maintenance, rebuilding, or alteration
+unless—"
+43,43,A,43.7,A,General,"Approval for Return to Service After Maintenance, Preventive Maintenance, Rebuilding,
+or Alteration.","(a) The maintenance record entry required by GACAR § 43.11 or 43.15, as appropriate, has been made;"
+44,43,A,43.7,B,General,"Approval for Return to Service After Maintenance, Preventive Maintenance, Rebuilding,
+or Alteration.","(b) The repair or alteration form authorized by, or furnished by the President has been executed in a manner prescribed by the President; and"
+45,43,A,43.7,C,General,"Approval for Return to Service After Maintenance, Preventive Maintenance, Rebuilding,
+or Alteration.","(c) If a repair or an alteration results in any change in the aircraft operating limitations or flight data contained in the approved aircraft flight manual, those operating limitations or flight data are appropriately revised and set forth as prescribed in GACAR § 91.9."
+46,43,A,43.9,A,General,"Persons Authorized To Approve Aircraft, Airframes, Aircraft Engines, Propellers,
+Appliances, or Component Parts for Return to Service After Maintenance, Preventive
+Maintenance, Rebuilding, or Alteration.","(a) Except as provided in this section, no person, other than the President, may approve an aircraft,
+airframe, aircraft engine, propeller, appliance, or component part for return to service after it has
+undergone maintenance, preventive maintenance, rebuilding, or alteration."
+47,43,A,43.9,B,General,"Persons Authorized To Approve Aircraft, Airframes, Aircraft Engines, Propellers,
+Appliances, or Component Parts for Return to Service After Maintenance, Preventive
+Maintenance, Rebuilding, or Alteration.","(b) The holder of a mechanic certificate or an inspection authorization may approve an aircraft, airframe, aircraft engine, propeller, appliance, or component part for return to service as provided in GACAR Part 66."
+48,43,A,43.9,C,General,"Persons Authorized To Approve Aircraft, Airframes, Aircraft Engines, Propellers,
+Appliances, or Component Parts for Return to Service After Maintenance, Preventive
+Maintenance, Rebuilding, or Alteration.","(c) The holder of a repair station certificate may approve an aircraft, airframe, aircraft engine, propeller, appliance, or component part for return to service as provided in GACAR Part 145."
+49,43,A,43.9,D,General,"Persons Authorized To Approve Aircraft, Airframes, Aircraft Engines, Propellers,
+Appliances, or Component Parts for Return to Service After Maintenance, Preventive
+Maintenance, Rebuilding, or Alteration.","(d) A manufacturer may approve for return to service any aircraft, aircraft engine, propeller or appliance which that manufacturer has worked on under GACAR § 43.5(j). The work must have been done in accordance with technical data approved by the President."
+50,43,A,43.9,E,General,"Persons Authorized To Approve Aircraft, Airframes, Aircraft Engines, Propellers,
+Appliances, or Component Parts for Return to Service After Maintenance, Preventive
+Maintenance, Rebuilding, or Alteration.","(e) The holder of an air operator certificate issued under GACAR Part 121 or 135, may approve an aircraft, airframe, aircraft engine, propeller, appliance, or component part for return to service as provided in GACAR Part 121 or 135, as applicable."
+51,43,A,43.9,F,General,"Persons Authorized To Approve Aircraft, Airframes, Aircraft Engines, Propellers,
+Appliances, or Component Parts for Return to Service After Maintenance, Preventive
+Maintenance, Rebuilding, or Alteration.",(f) A person holding at least a private pilot certificate may approve an aircraft for return to service after performing preventive maintenance under the provisions of GACAR § 43.5(g).
+52,43,A,43.9,G,General,"Persons Authorized To Approve Aircraft, Airframes, Aircraft Engines, Propellers,
+Appliances, or Component Parts for Return to Service After Maintenance, Preventive
+Maintenance, Rebuilding, or Alteration.","(g) The holder of a repairman certificate (light sport aircraft) with a maintenance rating may approve an aircraft issued a special airworthiness certificate in light sport category for return to service, as provided in GACAR Part 66."
+53,43,A,43.9,H,General,"Persons Authorized To Approve Aircraft, Airframes, Aircraft Engines, Propellers,
+Appliances, or Component Parts for Return to Service After Maintenance, Preventive
+Maintenance, Rebuilding, or Alteration.",(h) The holder of at least a sport pilot certificate may approve an aircraft owned or operated by that pilot and issued a special airworthiness certificate in the light sport category for return to service after performing preventive maintenance under the provisions of GACAR § 43.5(g).
+54,43,A,43.9,-,General,"Persons Authorized To Approve Aircraft, Airframes, Aircraft Engines, Propellers,
+Appliances, or Component Parts for Return to Service After Maintenance, Preventive
+Maintenance, Rebuilding, or Alteration.","(i) The holder of a one-time approval issued by the President may perform maintenance on and approve an aircraft, airframe, aircraft engine, propeller, appliance, or component part for return to service under its one-time approval."
+55,43,A,43.11,A,General,"Content, Form, and Disposition of Maintenance, Preventive Maintenance, Rebuilding,
+and Alteration Records (except inspections per formed in accordance with GACAR Part 91, Part
+125, Part 133, GACAR §§ 135.239(a)(1) or 135.245)","(a) Maintenance record entries.
+Except as provided in paragraphs (b) and (c) of this section, each person who maintains, performs preventive maintenance, rebuilds, or alters an aircraft, airframe, aircraft engine, propeller, appliance, or component part must make an entry in the maintenance record of that equipment containing the following information:"
+56,43,A,43.11,-,General,"Content, Form, and Disposition of Maintenance, Preventive Maintenance, Rebuilding,
+and Alteration Records (except inspections per formed in accordance with GACAR Part 91, Part
+125, Part 133, GACAR §§ 135.239(a)(1) or 135.245)",(1) A description (or reference to data acceptable to the President) of work performed.
+57,43,A,43.11,-,General,"Content, Form, and Disposition of Maintenance, Preventive Maintenance, Rebuilding,
+and Alteration Records (except inspections per formed in accordance with GACAR Part 91, Part
+125, Part 133, GACAR §§ 135.239(a)(1) or 135.245)",(2) The date of completion of the work performed.
+58,43,A,43.11,-,General,"Content, Form, and Disposition of Maintenance, Preventive Maintenance, Rebuilding,
+and Alteration Records (except inspections per formed in accordance with GACAR Part 91, Part
+125, Part 133, GACAR §§ 135.239(a)(1) or 135.245)",(3) The name of the person performing the work if other than the person specified in paragraph (a) (4) of this section.
+59,43,A,43.11,-,General,"Content, Form, and Disposition of Maintenance, Preventive Maintenance, Rebuilding,
+and Alteration Records (except inspections per formed in accordance with GACAR Part 91, Part
+125, Part 133, GACAR §§ 135.239(a)(1) or 135.245)","(4) If the work performed on the aircraft, airframe, aircraft engine, propeller, appliance, or
+component part has been performed satisfactorily, the signature, certificate number, and kind of certificate held by the person approving the work. The signature constitutes the approval for return to service only for the work performed."
+60,43,A,43.11,B,General,"Content, Form, and Disposition of Maintenance, Preventive Maintenance, Rebuilding,
+and Alteration Records (except inspections per formed in accordance with GACAR Part 91, Part
+125, Part 133, GACAR §§ 135.239(a)(1) or 135.245)","(b) Each holder of an air operator certificate or an operator certificate issued for operations under GACAR Part 121 or 135, which is required by its approved operations specifications to provide for a continuous airworthiness maintenance program, must make a record of the maintenance, preventive maintenance, rebuilding, and alteration on aircraft, airframes, aircraft engines, propellers, appliances, or component parts which it operates in accordance with the applicable provisions of GACAR Part 121 or 135, as appropriate."
+61,43,A,43.11,C,General,"Content, Form, and Disposition of Maintenance, Preventive Maintenance, Rebuilding,
+and Alteration Records (except inspections per formed in accordance with GACAR Part 91, Part
+125, Part 133, GACAR §§ 135.239(a)(1) or 135.245)","(c) This section does not apply to persons performing inspections in accordance with GACAR Part 91, Part 125, Part 133, GACAR §§ 135.239(a)(1), or 135.245."
+62,43,A,43.11,D,General,"Content, Form, and Disposition of Maintenance, Preventive Maintenance, Rebuilding,
+and Alteration Records (except inspections per formed in accordance with GACAR Part 91, Part
+125, Part 133, GACAR §§ 135.239(a)(1) or 135.245)","(d) In addition to the entry required by paragraph (a) of this section, major repairs and major alterations must be entered on a form, and the form disposed of, in the manner prescribed in Appendix B of this part, by the person performing the work."
+63,43,A,43.13,A,General,Disposition of Life Limited Aircraft Parts.,(a) For the purposes of this section the following definitions apply.
+64,43,A,43.13,-,General,Disposition of Life Limited Aircraft Parts.,"(1) Life limited part means any part for which a mandatory replacement limit is specified in the type design, the Instructions for Continued Airworthiness (ICA), or the maintenance manual."
+65,43,A,43.13,-,General,Disposition of Life Limited Aircraft Parts.,"(2) Life status means the accumulated cycles, hours, or any other mandatory replacement limit of a life limited part."
+66,43,A,43.13,B,General,Disposition of Life Limited Aircraft Parts.,"(b) Temporary removal of parts from type certificated products. When a life limited part is
+temporarily removed and reinstalled for the purpose of performing maintenance, no disposition under paragraph (c) of this section is required if—"
+67,43,A,43.13,-,General,Disposition of Life Limited Aircraft Parts.,(1) The life status of the part has not changed;
+68,43,A,43.13,-,General,Disposition of Life Limited Aircraft Parts.,(2) The removal and reinstallation is performed on the same serial numbered product; and
+69,43,A,43.13,-,General,Disposition of Life Limited Aircraft Parts.,(3) That product does not accumulate time in service while the part is removed.
+70,43,A,43.13,C,General,Disposition of Life Limited Aircraft Parts.,"(c) Disposition of parts removed from type certificated products. Except as provided in paragraph (b) of this section, each person who removes a life limited part from a type certificated product must ensure the part is controlled using one of the methods in this paragraph. The method must deter the installation of the part after it has reached its life limit. Acceptable methods include:"
+71,43,A,43.13,-,General,Disposition of Life Limited Aircraft Parts.,"(1) Record keeping system. The part may be controlled using a record keeping system that
+substantiates the part number, serial number, and current life status of the part. Each time the part is removed from a type certificated product, the record must be updated with the current life status. This system may include electronic, paper, or other means of record keeping."
+72,43,A,43.13,-,General,Disposition of Life Limited Aircraft Parts.,"(2) Tag or record attached to part. A tag or other record may be attached to the part. The tag or record must include the part number, serial number, and current life status of the part. Each time the part is removed from a type certificated product, either a new tag or record must be created, or the existing tag or record must be updated with the current life status."
+73,43,A,43.13,-,General,Disposition of Life Limited Aircraft Parts.,"(3) Non-permanent marking. The part may be legibly marked using a non permanent method showing its current life status. The life status must be updated each time the part is removed from a type certificated product, or if the mark is removed, another method in this section may be used. The mark must be accomplished in accordance with the instructions under GACAR § 45.16 in order to maintain the integrity of the part."
+74,43,A,43.13,-,General,Disposition of Life Limited Aircraft Parts.,"(4) Permanent marking. The part may be legibly marked using a permanent method showing its current life status. The life status must be updated each time the part is removed from a type certificated product. Unless the part is permanently removed from use on type certificated products, this permanent mark must be accomplished in accordance with the instructions under GACAR § 45.16 in order to maintain the integrity of the part."
+75,43,A,43.13,-,General,Disposition of Life Limited Aircraft Parts.,"(5) Segregation. The part may be segregated using methods, which deter its installation on a type certificated product. These methods must include, at least—"
+76,43,A,43.13,-,General,Disposition of Life Limited Aircraft Parts.,"(i) Maintaining a record of the part number, serial number, and current life status, and"
+77,43,A,43.13,-,General,Disposition of Life Limited Aircraft Parts.,"(ii) Ensuring the part is physically stored separately from parts currently eligible for
+installation."
+78,43,A,43.13,-,General,Disposition of Life Limited Aircraft Parts.,(6) Mutilation. The part may be mutilated to deter its installation in a type certificated product. The mutilation must render the part beyond repair and incapable of being reworked to appear to be airworthy.
+79,43,A,43.13,-,General,Disposition of Life Limited Aircraft Parts.,(7) Other methods. Any other method approved or accepted by the President.
+80,43,A,43.13,D,General,Disposition of Life Limited Aircraft Parts.,"(d) Transfer of life limited parts. Each person who removes a life limited part from a type certificated product and later sells or otherwise transfers that part must transfer with the part the mark, tag, or other record used to comply with this section, unless the part is mutilated before it is sold or transferred."
+81,43,A,43.15,A,General,"Content, Form, and Disposition of Records for Inspections Conducted Under GACAR
+Part 91, Part 125, Part 133, GACAR §§ 135.239(a)(1) or 135.245.","(a) Maintenance record entries. The person approving or disapproving for return to service an aircraft, airframe, aircraft engine, propeller, appliance, or component part after any inspection performed in accordance with GACAR Part 91, Part 125, Part 133, GACAR §§ 135.239(a)(1) or 135.245, must make an entry in the maintenance record of that equipment containing the following information:"
+82,43,A,43.15,-,General,"Content, Form, and Disposition of Records for Inspections Conducted Under GACAR
+Part 91, Part 125, Part 133, GACAR §§ 135.239(a)(1) or 135.245.",(1) The type of inspection and a brief description of the extent of the inspection.
+83,43,A,43.15,-,General,"Content, Form, and Disposition of Records for Inspections Conducted Under GACAR
+Part 91, Part 125, Part 133, GACAR §§ 135.239(a)(1) or 135.245.",(2) The date of the inspection and aircraft total time in service.
+84,43,A,43.15,-,General,"Content, Form, and Disposition of Records for Inspections Conducted Under GACAR
+Part 91, Part 125, Part 133, GACAR §§ 135.239(a)(1) or 135.245.","(3) The signature, the certificate number, and kind of certificate held by the person approving or disapproving for return to service the aircraft, airframe, aircraft engine, propeller, appliance, component part, or portions thereof."
+85,43,A,43.15,-,General,"Content, Form, and Disposition of Records for Inspections Conducted Under GACAR
+Part 91, Part 125, Part 133, GACAR §§ 135.239(a)(1) or 135.245.","(4) Except for progressive inspections, if the aircraft is found to be airworthy and approved for return to service, the following or a similarly worded statement—“I certify that this aircraft has been inspected in accordance with (insert type) inspection and was determined to be in an airworthy condition.”"
+86,43,A,43.15,-,General,"Content, Form, and Disposition of Records for Inspections Conducted Under GACAR
+Part 91, Part 125, Part 133, GACAR §§ 135.239(a)(1) or 135.245.","(5) Except for progressive inspections, if the aircraft is not approved for return to service because of needed maintenance, noncompliance with applicable specifications, airworthiness directives, or other approved data, the following or a similarly worded statement—“I certify that this aircraft has been inspected in accordance with (insert type) inspection and a list of discrepancies and unairworthy items dated (date) has been provided for the aircraft owner or operator.”"
+87,43,A,43.15,-,General,"Content, Form, and Disposition of Records for Inspections Conducted Under GACAR
+Part 91, Part 125, Part 133, GACAR §§ 135.239(a)(1) or 135.245.","(6) For progressive inspections, the following or a similarly worded statement—“I certify that in accordance with a progressive inspection program, a routine inspection of (identify whether aircraft or components) and a detailed inspection of (identify components) were performed and the (aircraft or components) are (approved or disapproved) for return to service.” If disapproved, the entry must further state “and a list of discrepancies and unairworthy items dated (date) has been provided to the aircraft owner or operator.”"
+88,43,A,43.15,-,General,"Content, Form, and Disposition of Records for Inspections Conducted Under GACAR
+Part 91, Part 125, Part 133, GACAR §§ 135.239(a)(1) or 135.245.","(7) If an inspection is conducted under an inspection program provided for in GACAR Part 91, Part 125, Part 133 or GACAR § 135.239(a)(1), the entry must identify the inspection program, that part of the inspection program accomplished, and contain a statement that the inspection was performed in accordance with the inspections and procedures for that particular program."
+89,43,A,43.15,B,General,"Content, Form, and Disposition of Records for Inspections Conducted Under GACAR
+Part 91, Part 125, Part 133, GACAR §§ 135.239(a)(1) or 135.245.","(b) Listing of discrepancies and placards. If the person performing any inspection required by GACAR Part 91, Part 125, Part 133 or GACAR § 135.239(a)(1) finds the aircraft is not airworthy or does not meet the applicable type certificate data, airworthiness directives, or other approved data upon which its airworthiness depends, that person must give the owner or lessee a signed and dated list of those discrepancies. For those items permitted to be inoperative under GACAR § 91.309(d)(2), that person must place a placard, which meets the aircraft’s airworthiness certification regulations, on each inoperative instrument and the cockpit control of each item of inoperative equipment, marking it “Inoperative,” and must add the items to the signed and dated list of discrepancies given to the owner or lessee."
+90,43,A,43.17,A,General,"Maintenance Records: Falsification, Reproduction, or Alteration",(a) No person may make or cause to be made—
+91,43,A,43.17,-,General,"Maintenance Records: Falsification, Reproduction, or Alteration","(1) Any fraudulent or intentionally false entry in any record or report required to be made, kept, or used to show compliance with any requirement under this part;"
+92,43,A,43.17,-,General,"Maintenance Records: Falsification, Reproduction, or Alteration","(2) Any reproduction, for fraudulent purpose, of any record or report under this part; or"
+93,43,A,43.17,-,General,"Maintenance Records: Falsification, Reproduction, or Alteration","(3) Any alteration, for fraudulent purpose, of any record or report under this part."
+94,43,A,43.17,B,General,"Maintenance Records: Falsification, Reproduction, or Alteration","(b) The commission by any person of an act prohibited under paragraph (a) of this section is a basis for suspending or revoking the applicable airman, operator, SATSOA or SAPMA issued by the President and held by that person."
+95,43,A,43.19,A,General,Performance Rules (General),"(a) Each person performing maintenance, alteration, or preventive maintenance on an aircraft, engine, propeller, or appliance must use the methods, techniques, and practices prescribed in the current manufacturer’s maintenance manual or ICA prepared by its manufacturer, or other methods, techniques, and practices acceptable to the President, except as noted in GACAR § 43.25. He must use the tools, equipment, and test apparatus necessary to assure completion of the work in accordance with accepted industry practices. If special equipment or test apparatus is recommended by the manufacturer involved, he must use that equipment or apparatus or its equivalent acceptable to
+the President."
+96,43,A,43.19,B,General,Performance Rules (General),"(b) Each person maintaining or altering, or performing preventive maintenance, must do that work in such a manner and use materials of such a quality, that the condition of the aircraft, airframe, aircraft engine, propeller, or appliance worked on will be at least equal to its original or properly altered condition (with regard to aerodynamic function, structural strength, resistance to vibration and deterioration, and other qualities affecting airworthiness)."
+97,43,A,43.19,C,General,Performance Rules (General),"(c) Special provisions for holders of air operator certificates and operator certificates issued for operations under the provisions of GACAR Part 121 or 135. Unless otherwise notified by the President, the methods, techniques, and practices contained in the maintenance manual or the maintenance part of the manual of the holder of an air operator certificate under GACAR Parts 121 or 135,that is required by its operating specifications to provide a continuous airworthiness maintenance and inspection program, constitute acceptable means of compliance with this section"
+98,43,A,43.21,A,General,Additional Performance Rules for Alterations and Repairs,(a) Each person performing an alteration or repair must perform the alteration or repair in accordance with approved data.
+99,43,A,43.21,B,General,Additional Performance Rules for Alterations and Repairs,"(b) Each person performing a major alteration or major repair as established in accordance with Appendix A of this part, must record the major alteration or major repair in accordance with the provisions of Appendix B of this part."
+100,43,A,43.23,A,General,Additional Performance Rules for Inspections.,"(a) General. Each person performing an inspection required by GACAR Part 91, 125, 133, or 135, must—"
+101,43,A,43.23,-,General,Additional Performance Rules for Inspections.,"(1) Perform the inspection so as to determine whether the aircraft, or portion(s) thereof under inspection, meets all applicable airworthiness requirements; and"
+102,43,A,43.23,-,General,Additional Performance Rules for Inspections.,"(2) If the inspection is one provided for in GACAR Part 125, 133, 135, or GACAR § 91.449(e), perform the inspection in accordance with the instructions and procedures set forth in the inspection program for the aircraft being inspected."
+103,43,A,43.23,B,General,Additional Performance Rules for Inspections.,(b) Rotorcraft. Each person performing an inspection required by GACAR Part 91 on a rotorcraft must inspect the following systems in accordance with the maintenance manual or ICA of the manufacturer concerned:
+104,43,A,43.23,-,General,Additional Performance Rules for Inspections.,(1) The drive shafts or similar systems.
+105,43,A,43.23,-,General,Additional Performance Rules for Inspections.,(2) The main rotor transmission gear box for obvious defects.
+106,43,A,43.23,-,General,Additional Performance Rules for Inspections.,(3) The main rotor and center section (or the equivalent area).
+107,43,A,43.23,-,General,Additional Performance Rules for Inspections.,(4) The auxiliary rotor on helicopters.
+108,43,A,43.23,C,General,Additional Performance Rules for Inspections.,(c) Annual and 100 hour inspections.
+109,43,A,43.23,-,General,Additional Performance Rules for Inspections.,"(1) Each person performing an annual or 100 hour inspection must use a checklist while
+performing the inspection. The checklist may be of the person’s own design, one provided by the manufacturer of the equipment being inspected, or one obtained from another source. This checklist must include the scope and detail of the items contained in Appendix D of this part and paragraph (b) of this section."
+110,43,A,43.23,-,General,Additional Performance Rules for Inspections.,(2) Each person before approving a reciprocating engine powered aircraft for return to service after an annual or 100 hour inspection must run the aircraft engine or engines to determine satisfactory performance in accordance with the manufacturer’s recommendations of—
+111,43,A,43.23,-,General,Additional Performance Rules for Inspections.,(i) Power output (static and idle rpm);
+112,43,A,43.23,-,General,Additional Performance Rules for Inspections.,(ii) Magnetos;
+113,43,A,43.23,-,General,Additional Performance Rules for Inspections.,(iii) Fuel and oil pressure; and
+114,43,A,43.23,-,General,Additional Performance Rules for Inspections.,(iv) Cylinder and oil temperature.
+115,43,A,43.23,-,General,Additional Performance Rules for Inspections.,"(3) Each person before approving a turbine engine powered aircraft for return to service after an annual, 100 hour, or progressive inspection must run the aircraft engine or engines to determine satisfactory performance in accordance with the manufacturer’s recommendations."
+116,43,A,43.23,D,General,Additional Performance Rules for Inspections.,(d) Progressive inspection.
+117,43,A,43.23,-,General,Additional Performance Rules for Inspections.,"(1) Each person performing a progressive inspection must begin by inspecting the aircraft
+completely. After this initial inspection, routine and detailed inspections must be conducted as prescribed in the progressive inspection schedule. Routine inspections consist of visual examination or check of the appliances, the aircraft, and its components and systems, insofar as practicable without disassembly. Detailed inspections consist of a thorough examination of the appliances, the aircraft, and its components and systems, with such disassembly as is necessary. For the purposes of this subparagraph, the overhaul of a component or system is considered a detailed inspection."
+118,43,A,43.23,-,General,Additional Performance Rules for Inspections.,"(2) If the aircraft is away from the station where inspections are normally conducted, an
+appropriately rated mechanic, a certificated repair station, or the manufacturer of the aircraft may perform inspections in accordance with the procedures and using the forms of the person who would otherwise perform the inspection."
+119,43,A,43.25,-,General,Airworthiness Limitations,"Each person performing an inspection or other maintenance specified in an Airworthiness
+Limitations section of a manufacturer’s maintenance manual or ICA must perform the inspection or other maintenance in accordance with that section, or in accordance with operations specifications approved by the President under GACAR Part 121 or 135, or an inspection program approved under GACAR § 91.449(e)."
+120,43,Appendix  A,-,-,"Appendix A to GACAR Part 43 Major Aletrations, Major Repairs, and Preventive Maintenance",Major Aletration,(1) General: A major alteration is any alteration that would reduce the capability of aircraft or ability of the crew to cope with adverse operating conditions or prevent continued safe flight and landing—
+121,43,Appendix  A,-,-,"Appendix A to GACAR Part 43 Major Aletrations, Major Repairs, and Preventive Maintenance",Major Aletration,(i) If it were accomplished incorrectly;
+122,43,Appendix  A,-,-,"Appendix A to GACAR Part 43 Major Aletrations, Major Repairs, and Preventive Maintenance",Major Aletration,(ii) If it failed;
+123,43,Appendix  A,-,-,"Appendix A to GACAR Part 43 Major Aletrations, Major Repairs, and Preventive Maintenance",Major Aletration,(iii) If it malfunctioned; or
+124,43,Appendix  A,-,-,"Appendix A to GACAR Part 43 Major Aletrations, Major Repairs, and Preventive Maintenance",Major Aletration,(iv) If it otherwise could create an unsafe condition.
+125,43,Appendix  A,-,-,"Appendix A to GACAR Part 43 Major Aletrations, Major Repairs, and Preventive Maintenance",Major Aletration,"(2) Airframe major alterations. Alterations of the following parts and alterations of the
+following types, when not listed in the approved aircraft specifications, are airframe major
+alterations:"
+126,43,Appendix  A,-,-,"Appendix A to GACAR Part 43 Major Aletrations, Major Repairs, and Preventive Maintenance",Major Aletration,(i) Wings.
+127,43,Appendix  A,-,-,"Appendix A to GACAR Part 43 Major Aletrations, Major Repairs, and Preventive Maintenance",Major Aletration,(ii) Tail surfaces.
+128,43,Appendix  A,-,-,"Appendix A to GACAR Part 43 Major Aletrations, Major Repairs, and Preventive Maintenance",Major Aletration,(iii) Fuselage.
+129,43,Appendix  A,-,-,"Appendix A to GACAR Part 43 Major Aletrations, Major Repairs, and Preventive Maintenance",Major Aletration,(iv) Engine mounts.
+130,43,Appendix  A,-,-,"Appendix A to GACAR Part 43 Major Aletrations, Major Repairs, and Preventive Maintenance",Major Aletration,(v) Control system.
+131,43,Appendix  A,-,-,"Appendix A to GACAR Part 43 Major Aletrations, Major Repairs, and Preventive Maintenance",Major Aletration,(vi) Landing gear.
+132,43,Appendix  A,-,-,"Appendix A to GACAR Part 43 Major Aletrations, Major Repairs, and Preventive Maintenance",Major Aletration,(vii) Hull or floats.
+133,43,Appendix  A,-,-,"Appendix A to GACAR Part 43 Major Aletrations, Major Repairs, and Preventive Maintenance",Major Aletration,"(viii) Elements of an airframe including spars, ribs, fittings, shock absorbers, bracing,
+cowlings, fairings, and balance weights."
+134,43,Appendix  A,-,-,"Appendix A to GACAR Part 43 Major Aletrations, Major Repairs, and Preventive Maintenance",Major Aletration,(ix) Hydraulic and electrical actuating system of components.
+135,43,Appendix  A,-,-,"Appendix A to GACAR Part 43 Major Aletrations, Major Repairs, and Preventive Maintenance",Major Aletration,(x) Rotor blades.
+136,43,Appendix  A,-,-,"Appendix A to GACAR Part 43 Major Aletrations, Major Repairs, and Preventive Maintenance",Major Aletration,(xi) Changes to the empty mass or empty balance which result in an increase in the maximum certificated mass or center of gravity limits of the aircraft.
+137,43,Appendix  A,-,-,"Appendix A to GACAR Part 43 Major Aletrations, Major Repairs, and Preventive Maintenance",Major Aletration,"(xii) Changes to the basic design of the fuel, oil, cooling, heating, cabin pressurization,
+electrical, hydraulic, deicing, or exhaust systems."
+138,43,Appendix  A,-,-,"Appendix A to GACAR Part 43 Major Aletrations, Major Repairs, and Preventive Maintenance",Major Aletration,"(xiii) Changes to the wing or to fixed or movable control surfaces, which affect flutter and
+vibration characteristics."
+139,43,Appendix  A,-,-,"Appendix A to GACAR Part 43 Major Aletrations, Major Repairs, and Preventive Maintenance",Major Aletration,"(3) Powerplant major alterations. The following alterations of a powerplant, when not listed in the approved engine specifications, are powerplant major alterations:"
+140,43,Appendix  A,-,-,"Appendix A to GACAR Part 43 Major Aletrations, Major Repairs, and Preventive Maintenance",Major Aletration,"(i) Conversion of an aircraft engine from one approved model to another, involving any
+changes in compression ratio, propeller reduction gear, impeller gear ratios or the
+substitution of major engine parts which requires extensive rework and testing of the
+engine."
+141,43,Appendix  A,-,-,"Appendix A to GACAR Part 43 Major Aletrations, Major Repairs, and Preventive Maintenance",Major Aletration,"(ii) Changes to the engine by replacing aircraft engine structural parts with parts not
+supplied by the original manufacturer or parts not specifically approved by the President."
+142,43,Appendix  A,-,-,"Appendix A to GACAR Part 43 Major Aletrations, Major Repairs, and Preventive Maintenance",Major Aletration,"(iii) Installation of an accessory, which is not approved for the engine."
+143,43,Appendix  A,-,-,"Appendix A to GACAR Part 43 Major Aletrations, Major Repairs, and Preventive Maintenance",Major Aletration,"(iv) Removal of accessories listed as required equipment on the aircraft or engine
+specification."
+144,43,Appendix  A,-,-,"Appendix A to GACAR Part 43 Major Aletrations, Major Repairs, and Preventive Maintenance",Major Aletration,(v) Installation of structural parts other than the type of parts approved for the installation.
+145,43,Appendix  A,-,-,"Appendix A to GACAR Part 43 Major Aletrations, Major Repairs, and Preventive Maintenance",Major Aletration,"(vi) Conversions of any sort for using fuel of a rating or grade other than that listed in the
+engine specifications."
+146,43,Appendix  A,-,-,"Appendix A to GACAR Part 43 Major Aletrations, Major Repairs, and Preventive Maintenance",Major Aletration,(4) Propeller major alterations. The following alterations of a propeller when not authorized in the approved propeller specifications are propeller major alterations:
+147,43,Appendix  A,-,-,"Appendix A to GACAR Part 43 Major Aletrations, Major Repairs, and Preventive Maintenance",Major Aletration,(i) Changes in blade design.
+148,43,Appendix  A,-,-,"Appendix A to GACAR Part 43 Major Aletrations, Major Repairs, and Preventive Maintenance",Major Aletration,(ii) Changes in hub design.
+149,43,Appendix  A,-,-,"Appendix A to GACAR Part 43 Major Aletrations, Major Repairs, and Preventive Maintenance",Major Aletration,(iii) Changes in the governor or control design.
+150,43,Appendix  A,-,-,"Appendix A to GACAR Part 43 Major Aletrations, Major Repairs, and Preventive Maintenance",Major Aletration,(iv) Installation of a propeller governor or feathering system.
+151,43,Appendix  A,-,-,"Appendix A to GACAR Part 43 Major Aletrations, Major Repairs, and Preventive Maintenance",Major Aletration,(v) Installation of propeller deicing system.
+152,43,Appendix  A,-,-,"Appendix A to GACAR Part 43 Major Aletrations, Major Repairs, and Preventive Maintenance",Major Aletration,(vi) Installation of parts not approved for the propeller.
+153,43,Appendix  A,-,-,"Appendix A to GACAR Part 43 Major Aletrations, Major Repairs, and Preventive Maintenance",Major Aletration,"(5) Appliance major alterations. Alterations of the basic design not made in accordance with recommendations of the appliance manufacturer or in accordance with an airworthiness directive are appliance major alterations. In addition, changes in the basic design of radio communication and navigation equipment approved under type certification or a technical standard order having an effect on frequency stability, noise level, sensitivity, selectivity, distortion, spurious radiation, Active Vibration Control characteristics, or ability to meet environmental test conditions, and other changes having an effect on the performance of the equipment are also major alterations."
+154,43,Appendix  A,-,-,"Appendix A to GACAR Part 43 Major Aletrations, Major Repairs, and Preventive Maintenance",Major Repairs,(1) General. A major repair is any repair that would reduce the capability of aircraft or ability of the crew to cope with adverse operating conditions or prevent continued safe flight and landing—
+155,43,Appendix  A,-,-,"Appendix A to GACAR Part 43 Major Aletrations, Major Repairs, and Preventive Maintenance",Major Repairs,(i) If it were accomplished incorrectly;
+156,43,Appendix  A,-,-,"Appendix A to GACAR Part 43 Major Aletrations, Major Repairs, and Preventive Maintenance",Major Repairs,(ii) If it failed;
+157,43,Appendix  A,-,-,"Appendix A to GACAR Part 43 Major Aletrations, Major Repairs, and Preventive Maintenance",Major Repairs,(iii) If it otherwise could create an unsafe condition.
+158,43,Appendix  A,-,-,"Appendix A to GACAR Part 43 Major Aletrations, Major Repairs, and Preventive Maintenance",Major Repairs,"(2) Airframe major repairs. Repairs to the following parts of an airframe and repairs of the
+following types, involving the strengthening, reinforcing, splicing, and manufacturing of
+primary structural members or their replacement, when replacement is by fabrication such as riveting or welding, are airframe major repairs:"
+159,43,Appendix  A,-,-,"Appendix A to GACAR Part 43 Major Aletrations, Major Repairs, and Preventive Maintenance",Major Repairs,(i) Box beams.
+160,43,Appendix  A,-,-,"Appendix A to GACAR Part 43 Major Aletrations, Major Repairs, and Preventive Maintenance",Major Repairs,(ii) Monocoque or semimonocoque wings or control surfaces.
+161,43,Appendix  A,-,-,"Appendix A to GACAR Part 43 Major Aletrations, Major Repairs, and Preventive Maintenance",Major Repairs,(iii) Wing stringers or chord members.
+162,43,Appendix  A,-,-,"Appendix A to GACAR Part 43 Major Aletrations, Major Repairs, and Preventive Maintenance",Major Repairs,(iv) Spars.
+163,43,Appendix  A,-,-,"Appendix A to GACAR Part 43 Major Aletrations, Major Repairs, and Preventive Maintenance",Major Repairs,(v) Spar flanges.
+164,43,Appendix  A,-,-,"Appendix A to GACAR Part 43 Major Aletrations, Major Repairs, and Preventive Maintenance",Major Repairs,(vi) Members of truss-type beams.
+165,43,Appendix  A,-,-,"Appendix A to GACAR Part 43 Major Aletrations, Major Repairs, and Preventive Maintenance",Major Repairs,(vii) Thin sheet webs of beams.
+166,43,Appendix  A,-,-,"Appendix A to GACAR Part 43 Major Aletrations, Major Repairs, and Preventive Maintenance",Major Repairs,(viii) Keel and chine members of boat hulls or floats.
+167,43,Appendix  A,-,-,"Appendix A to GACAR Part 43 Major Aletrations, Major Repairs, and Preventive Maintenance",Major Repairs,"(ix) Corrugated sheet compression members, which act as flange material of wings or tail
+surfaces."
+168,43,Appendix  A,-,-,"Appendix A to GACAR Part 43 Major Aletrations, Major Repairs, and Preventive Maintenance",Major Repairs,(x) Wing main ribs and compression members.
+169,43,Appendix  A,-,-,"Appendix A to GACAR Part 43 Major Aletrations, Major Repairs, and Preventive Maintenance",Major Repairs,(xi) Wing or tail surface brace struts.
+170,43,Appendix  A,-,-,"Appendix A to GACAR Part 43 Major Aletrations, Major Repairs, and Preventive Maintenance",Major Repairs,(xii) Engine mounts.
+171,43,Appendix  A,-,-,"Appendix A to GACAR Part 43 Major Aletrations, Major Repairs, and Preventive Maintenance",Major Repairs,(xiii) Fuselage longerons.
+172,43,Appendix  A,-,-,"Appendix A to GACAR Part 43 Major Aletrations, Major Repairs, and Preventive Maintenance",Major Repairs,"(xiv) Members of the side truss, horizontal truss, or bulkheads."
+173,43,Appendix  A,-,-,"Appendix A to GACAR Part 43 Major Aletrations, Major Repairs, and Preventive Maintenance",Major Repairs,(xv) Main seat support braces and brackets.
+174,43,Appendix  A,-,-,"Appendix A to GACAR Part 43 Major Aletrations, Major Repairs, and Preventive Maintenance",Major Repairs,(xvi) Landing gear brace struts.
+175,43,Appendix  A,-,-,"Appendix A to GACAR Part 43 Major Aletrations, Major Repairs, and Preventive Maintenance",Major Repairs,(xvii) Axles.
+176,43,Appendix  A,-,-,"Appendix A to GACAR Part 43 Major Aletrations, Major Repairs, and Preventive Maintenance",Major Repairs,(xviii) Wheels.
+177,43,Appendix  A,-,-,"Appendix A to GACAR Part 43 Major Aletrations, Major Repairs, and Preventive Maintenance",Major Repairs,"(xix) Skis, and ski pedestals."
+178,43,Appendix  A,-,-,"Appendix A to GACAR Part 43 Major Aletrations, Major Repairs, and Preventive Maintenance",Major Repairs,"(xx) Parts of the control system such as control columns, pedals, shafts, brackets, or horns."
+179,43,Appendix  A,-,-,"Appendix A to GACAR Part 43 Major Aletrations, Major Repairs, and Preventive Maintenance",Major Repairs,(xxi) Repairs involving the substitution of material.
+180,43,Appendix  A,-,-,"Appendix A to GACAR Part 43 Major Aletrations, Major Repairs, and Preventive Maintenance",Major Repairs,"(xxii) The repair of damaged areas in metal or plywood stressed covering exceeding 6 in
+(152 mm) in any direction."
+181,43,Appendix  A,-,-,"Appendix A to GACAR Part 43 Major Aletrations, Major Repairs, and Preventive Maintenance",Major Repairs,(xxiii) The repair of portions of skin sheets by making additional seams.
+182,43,Appendix  A,-,-,"Appendix A to GACAR Part 43 Major Aletrations, Major Repairs, and Preventive Maintenance",Major Repairs,(xxiv) The splicing of skin sheets.
+183,43,Appendix  A,-,-,"Appendix A to GACAR Part 43 Major Aletrations, Major Repairs, and Preventive Maintenance",Major Repairs,"(xxv) The repair of three or more adjacent wing or control surface ribs or the leading edge of wings and control surfaces, between such adjacent ribs."
+184,43,Appendix  A,-,-,"Appendix A to GACAR Part 43 Major Aletrations, Major Repairs, and Preventive Maintenance",Major Repairs,"(xxvi) Repair of fabric covering involving an area greater than that required to repair two
+adjacent ribs."
+185,43,Appendix  A,-,-,"Appendix A to GACAR Part 43 Major Aletrations, Major Repairs, and Preventive Maintenance",Major Repairs,"(xxvii) Replacement of fabric on fabric covered parts such as wings, fuselages, stabilizers,
+and control surfaces."
+186,43,Appendix  A,-,-,"Appendix A to GACAR Part 43 Major Aletrations, Major Repairs, and Preventive Maintenance",Major Repairs,"(xxviii) Repairing, including rebottoming, of removable or integral fuel tanks and oil tanks."
+187,43,Appendix  A,-,-,"Appendix A to GACAR Part 43 Major Aletrations, Major Repairs, and Preventive Maintenance",Major Repairs,"(3) Powerplant major repairs. Repairs of the following parts of an engine and repairs of the
+following types, are powerplant major repairs:"
+188,43,Appendix  A,-,-,"Appendix A to GACAR Part 43 Major Aletrations, Major Repairs, and Preventive Maintenance",Major Repairs,"(i) Separation or disassembly of a crankcase or crankshaft of a reciprocating engine
+equipped with an integral supercharger."
+189,43,Appendix  A,-,-,"Appendix A to GACAR Part 43 Major Aletrations, Major Repairs, and Preventive Maintenance",Major Repairs,"(ii) Separation or disassembly of a crankcase or crankshaft of a reciprocating engine
+equipped with other than spur-type propeller reduction gearing."
+190,43,Appendix  A,-,-,"Appendix A to GACAR Part 43 Major Aletrations, Major Repairs, and Preventive Maintenance",Major Repairs,"(iii) Special repairs to structural engine parts by welding, plating, metalizing, or other
+methods"
+191,43,Appendix  A,-,-,"Appendix A to GACAR Part 43 Major Aletrations, Major Repairs, and Preventive Maintenance",Major Repairs,(4) Turbine engine part classifications.
+192,43,Appendix  A,-,B,"Appendix A to GACAR Part 43 Major Aletrations, Major Repairs, and Preventive Maintenance",Major Repairs,"(i) General. Below are classifications of turbine engine structural parts and the general
+classifications of engine repairs. Although each manufacturer may not use the identical
+terminology used below, what they use must be equivalent to the following:"
+193,43,Appendix  A,-,+,"Appendix A to GACAR Part 43 Major Aletrations, Major Repairs, and Preventive Maintenance",Major Repairs,(ii) Structural engine parts include the following:
+194,43,Appendix  A,-,#VALUE!,"Appendix A to GACAR Part 43 Major Aletrations, Major Repairs, and Preventive Maintenance",Major Repairs,(A) All frames.
+195,43,Appendix  A,-,-,"Appendix A to GACAR Part 43 Major Aletrations, Major Repairs, and Preventive Maintenance",Major Repairs,(B) All casings/housings.
+196,43,Appendix  A,-,-,"Appendix A to GACAR Part 43 Major Aletrations, Major Repairs, and Preventive Maintenance",Major Repairs,(C) Engine mounts and associated engine structures.
+197,43,Appendix  A,-,-,"Appendix A to GACAR Part 43 Major Aletrations, Major Repairs, and Preventive Maintenance",Major Repairs,(D) Complete rotor assemblies.
+198,43,Appendix  A,-,-,"Appendix A to GACAR Part 43 Major Aletrations, Major Repairs, and Preventive Maintenance",Major Repairs,(iii) Engine frames include the following:
+199,43,Appendix  A,-,-,"Appendix A to GACAR Part 43 Major Aletrations, Major Repairs, and Preventive Maintenance",Major Repairs,(A) Front frames or front bearing support.
+200,43,Appendix  A,-,-,"Appendix A to GACAR Part 43 Major Aletrations, Major Repairs, and Preventive Maintenance",Major Repairs,(B) Compressor rear frame.
+201,43,Appendix  A,-,-,"Appendix A to GACAR Part 43 Major Aletrations, Major Repairs, and Preventive Maintenance",Major Repairs,(C) Turbine mid-frame.
+202,43,Appendix  A,-,-,"Appendix A to GACAR Part 43 Major Aletrations, Major Repairs, and Preventive Maintenance",Major Repairs,(D) Turbine rear-frame or rear bearing support.
+203,43,Appendix  A,-,-,"Appendix A to GACAR Part 43 Major Aletrations, Major Repairs, and Preventive Maintenance",Major Repairs,(iv) Engine Combustion casings/housings include the following:
+204,43,Appendix  A,-,-,"Appendix A to GACAR Part 43 Major Aletrations, Major Repairs, and Preventive Maintenance",Major Repairs,(A) Fan casing.
+205,43,Appendix  A,-,-,"Appendix A to GACAR Part 43 Major Aletrations, Major Repairs, and Preventive Maintenance",Major Repairs,"(B) Compressor, low and high."
+206,43,Appendix  A,-,-,"Appendix A to GACAR Part 43 Major Aletrations, Major Repairs, and Preventive Maintenance",Major Repairs,(C) Combustor casing/housing.
+207,43,Appendix  A,-,-,"Appendix A to GACAR Part 43 Major Aletrations, Major Repairs, and Preventive Maintenance",Major Repairs,(D) Turbine casing/housing.
+208,43,Appendix  A,-,-,"Appendix A to GACAR Part 43 Major Aletrations, Major Repairs, and Preventive Maintenance",Major Repairs,(E) Accessory gear-case housing.
+209,43,Appendix  A,-,-,"Appendix A to GACAR Part 43 Major Aletrations, Major Repairs, and Preventive Maintenance",Major Repairs,"(5) The following will apply to modular designed turbine engines, non-modular designed turbine engines, and reciprocating engines, as applicable:"
+210,43,Appendix  A,-,-,"Appendix A to GACAR Part 43 Major Aletrations, Major Repairs, and Preventive Maintenance",Major Repairs,(i) Modular Design Turbine Engines. The following repair classifications will apply:
+211,43,Appendix  A,-,-,"Appendix A to GACAR Part 43 Major Aletrations, Major Repairs, and Preventive Maintenance",Major Repairs,(A) The changing of modules is not considered a major repair.
+212,43,Appendix  A,-,-,"Appendix A to GACAR Part 43 Major Aletrations, Major Repairs, and Preventive Maintenance",Major Repairs,"(B) The disassembly of a module may be a major repair. This will be determined by the
+engine manufacturer’s repair/overhaul manual."
+213,43,Appendix  A,-,-,"Appendix A to GACAR Part 43 Major Aletrations, Major Repairs, and Preventive Maintenance",Major Repairs,"(ii) Non-Modular Design Turbine Engines. The disassembly of any of the main sections of
+a turbine engine should be considered a major repair. The main sections consist of the
+following:"
+214,43,Appendix  A,-,-,"Appendix A to GACAR Part 43 Major Aletrations, Major Repairs, and Preventive Maintenance",Major Repairs,(A) Fan section
+215,43,Appendix  A,-,-,"Appendix A to GACAR Part 43 Major Aletrations, Major Repairs, and Preventive Maintenance",Major Repairs,"(B) Compressor section, low and high pressure"
+216,43,Appendix  A,-,-,"Appendix A to GACAR Part 43 Major Aletrations, Major Repairs, and Preventive Maintenance",Major Repairs,(C) Combustion section
+217,43,Appendix  A,-,-,"Appendix A to GACAR Part 43 Major Aletrations, Major Repairs, and Preventive Maintenance",Major Repairs,(D) Turbine section
+218,43,Appendix  A,-,-,"Appendix A to GACAR Part 43 Major Aletrations, Major Repairs, and Preventive Maintenance",Major Repairs,(E) Accessory section
+219,43,Appendix  A,-,-,"Appendix A to GACAR Part 43 Major Aletrations, Major Repairs, and Preventive Maintenance",Major Repairs,(6) Reciprocating Engines. Major and minor repairs to structural parts of reciprocating engines are classified as follows:
+220,43,Appendix  A,-,-,"Appendix A to GACAR Part 43 Major Aletrations, Major Repairs, and Preventive Maintenance",Major Repairs,(i) Major repairs include the following:
+221,43,Appendix  A,-,-,"Appendix A to GACAR Part 43 Major Aletrations, Major Repairs, and Preventive Maintenance",Major Repairs,(A) Welding of crankcases.
+222,43,Appendix  A,-,-,"Appendix A to GACAR Part 43 Major Aletrations, Major Repairs, and Preventive Maintenance",Major Repairs,(B) Machining operations necessitated by a weld repair.
+223,43,Appendix  A,-,-,"Appendix A to GACAR Part 43 Major Aletrations, Major Repairs, and Preventive Maintenance",Major Repairs,(C) Crankshaft grinding.
+224,43,Appendix  A,-,-,"Appendix A to GACAR Part 43 Major Aletrations, Major Repairs, and Preventive Maintenance",Major Repairs,(D) Camshaft recontouring and similar complex precision machining.
+225,43,Appendix  A,-,-,"Appendix A to GACAR Part 43 Major Aletrations, Major Repairs, and Preventive Maintenance",Major Repairs,(E) Boring of crankshaft and camshaft bosses.
+226,43,Appendix  A,-,-,"Appendix A to GACAR Part 43 Major Aletrations, Major Repairs, and Preventive Maintenance",Major Repairs,(F) Machining of oil pump housings and accessory drive pads following weld repairs.
+227,43,Appendix  A,-,-,"Appendix A to GACAR Part 43 Major Aletrations, Major Repairs, and Preventive Maintenance",Major Repairs,"(ii) Minor repairs include simple machine operations, such as spot facing, lapping and
+grinding valves, and reaming valve guides in accordance with the manufacturer’s overhaul
+and service instructions."
+228,43,Appendix  A,-,-,"Appendix A to GACAR Part 43 Major Aletrations, Major Repairs, and Preventive Maintenance",Major Repairs,(7) Propeller major repairs. Repairs of the following types to a propeller are propeller major repairs:
+229,43,Appendix  A,-,-,"Appendix A to GACAR Part 43 Major Aletrations, Major Repairs, and Preventive Maintenance",Major Repairs,"(i) Any repairs to, or straightening of steel blades."
+230,43,Appendix  A,-,-,"Appendix A to GACAR Part 43 Major Aletrations, Major Repairs, and Preventive Maintenance",Major Repairs,(ii) Repairing or machining of steel hubs.
+231,43,Appendix  A,-,-,"Appendix A to GACAR Part 43 Major Aletrations, Major Repairs, and Preventive Maintenance",Major Repairs,(iii) Shortening of blades.
+232,43,Appendix  A,-,-,"Appendix A to GACAR Part 43 Major Aletrations, Major Repairs, and Preventive Maintenance",Major Repairs,(iv) Retipping of wood propellers.
+233,43,Appendix  A,-,-,"Appendix A to GACAR Part 43 Major Aletrations, Major Repairs, and Preventive Maintenance",Major Repairs,(v) Replacement of outer laminations on fixed pitch wood propellers.
+234,43,Appendix  A,-,-,"Appendix A to GACAR Part 43 Major Aletrations, Major Repairs, and Preventive Maintenance",Major Repairs,(vi) Repairing elongated bolt holes in the hub of fixed pitch wood propellers.
+235,43,Appendix  A,-,-,"Appendix A to GACAR Part 43 Major Aletrations, Major Repairs, and Preventive Maintenance",Major Repairs,(vii) Inlay work on wood blades.
+236,43,Appendix  A,-,-,"Appendix A to GACAR Part 43 Major Aletrations, Major Repairs, and Preventive Maintenance",Major Repairs,(viii) Repairs to composition blades.
+237,43,Appendix  A,-,-,"Appendix A to GACAR Part 43 Major Aletrations, Major Repairs, and Preventive Maintenance",Major Repairs,(ix) Replacement of tip fabric.
+238,43,Appendix  A,-,-,"Appendix A to GACAR Part 43 Major Aletrations, Major Repairs, and Preventive Maintenance",Major Repairs,(x) Replacement of plastic covering.
+239,43,Appendix  A,-,-,"Appendix A to GACAR Part 43 Major Aletrations, Major Repairs, and Preventive Maintenance",Major Repairs,(xi) Repair of propeller governors.
+240,43,Appendix  A,-,-,"Appendix A to GACAR Part 43 Major Aletrations, Major Repairs, and Preventive Maintenance",Major Repairs,(xii) Overhaul of controllable pitch propellers.
+241,43,Appendix  A,-,-,"Appendix A to GACAR Part 43 Major Aletrations, Major Repairs, and Preventive Maintenance",Major Repairs,"(xiii) Repairs to deep dents, cuts, scars, nicks, and the like, and straightening of aluminum
+blades."
+242,43,Appendix  A,-,-,"Appendix A to GACAR Part 43 Major Aletrations, Major Repairs, and Preventive Maintenance",Major Repairs,(xiv) The repair or replacement of internal elements of blades.
+243,43,Appendix  A,-,-,"Appendix A to GACAR Part 43 Major Aletrations, Major Repairs, and Preventive Maintenance",Major Repairs,(8) Appliance major repairs. Repairs of the following types to appliances are appliance major repairs:
+244,43,Appendix  A,-,-,"Appendix A to GACAR Part 43 Major Aletrations, Major Repairs, and Preventive Maintenance",Major Repairs,(i) Calibration and repair of instruments.
+245,43,Appendix  A,-,-,"Appendix A to GACAR Part 43 Major Aletrations, Major Repairs, and Preventive Maintenance",Major Repairs,(ii) Calibration of radio equipment.
+246,43,Appendix  A,-,-,"Appendix A to GACAR Part 43 Major Aletrations, Major Repairs, and Preventive Maintenance",Major Repairs,(iii) Rewinding the field coil of an electrical accessory.
+247,43,Appendix  A,-,-,"Appendix A to GACAR Part 43 Major Aletrations, Major Repairs, and Preventive Maintenance",Major Repairs,(iv) Complete disassembly of complex hydraulic power valves.
+248,43,Appendix  A,-,-,"Appendix A to GACAR Part 43 Major Aletrations, Major Repairs, and Preventive Maintenance",Major Repairs,"(v) Overhaul of pressure type carburetors, and pressure type fuel, oil and hydraulic pumps."
+249,43,Appendix  A,-,C,"Appendix A to GACAR Part 43 Major Aletrations, Major Repairs, and Preventive Maintenance",Preventive Maintenance,"(c) Preventive maintenance. Preventive maintenance is limited to the following work, provided it does not involve complex assembly operations:"
+250,43,Appendix  A,-,-,"Appendix A to GACAR Part 43 Major Aletrations, Major Repairs, and Preventive Maintenance",Preventive Maintenance,"(1) Removal, installation, and repair of landing gear tires."
+251,43,Appendix  A,-,-,"Appendix A to GACAR Part 43 Major Aletrations, Major Repairs, and Preventive Maintenance",Preventive Maintenance,(2) Replacing elastic shock absorber cords on landing gear.
+252,43,Appendix  A,-,-,"Appendix A to GACAR Part 43 Major Aletrations, Major Repairs, and Preventive Maintenance",Preventive Maintenance,"(3) Servicing landing gear shock struts by adding oil, air, or both."
+253,43,Appendix  A,-,-,"Appendix A to GACAR Part 43 Major Aletrations, Major Repairs, and Preventive Maintenance",Preventive Maintenance,"(4) Servicing landing gear wheel bearings, such as cleaning and greasing."
+254,43,Appendix  A,-,-,"Appendix A to GACAR Part 43 Major Aletrations, Major Repairs, and Preventive Maintenance",Preventive Maintenance,(5) Replacing defective safety wiring or cotter keys.
+255,43,Appendix  A,-,-,"Appendix A to GACAR Part 43 Major Aletrations, Major Repairs, and Preventive Maintenance",Preventive Maintenance,"(6) Lubrication not requiring disassembly other than removal of nonstructural items such as cover plates, cowlings, and fairings."
+256,43,Appendix  A,-,-,"Appendix A to GACAR Part 43 Major Aletrations, Major Repairs, and Preventive Maintenance",Preventive Maintenance,"(7) Making simple fabric patches not requiring rib stitching or the removal of structural parts or control surfaces. In the case of balloons, the making of small fabric repairs to envelopes (as defined in, and in accordance with, the balloon manufacturer’s instructions) not requiring load tape repair or replacement."
+257,43,Appendix  A,-,-,"Appendix A to GACAR Part 43 Major Aletrations, Major Repairs, and Preventive Maintenance",Preventive Maintenance,(8) Replenishing hydraulic fluid in the hydraulic reservoir.
+258,43,Appendix  A,-,-,"Appendix A to GACAR Part 43 Major Aletrations, Major Repairs, and Preventive Maintenance",Preventive Maintenance,"(9) Refinishing decorative coating of fuselage, balloon baskets, wings tail group surfaces (excluding balanced control surfaces), fairings, cowlings, landing gear, cabin, or cockpit interior when removal or disassembly of any primary structure or operating system is not required."
+259,43,Appendix  A,-,-,"Appendix A to GACAR Part 43 Major Aletrations, Major Repairs, and Preventive Maintenance",Preventive Maintenance,(10) Applying preservative or protective material to components where no disassembly of any primary structure or operating system is involved and where such coating is not prohibited or is not contrary to good practices.
+260,43,Appendix  A,-,-,"Appendix A to GACAR Part 43 Major Aletrations, Major Repairs, and Preventive Maintenance",Preventive Maintenance,"(11) Repairing upholstery and decorative furnishings of the cabin, cockpit, or balloon basket interior when the repairing does not require disassembly of any primary structure or operating system, interfere with an operating system, or affect the primary structure of the aircraft."
+261,43,Appendix  A,-,-,"Appendix A to GACAR Part 43 Major Aletrations, Major Repairs, and Preventive Maintenance",Preventive Maintenance,"(12) Making small simple repairs to fairings, nonstructural cover plates, cowlings, and small
+patches and reinforcements not changing the contour so as to interfere with proper airflow."
+262,43,Appendix  A,-,-,"Appendix A to GACAR Part 43 Major Aletrations, Major Repairs, and Preventive Maintenance",Preventive Maintenance,"(13) Replacing side windows where that work does not interfere with the structure or any
+operating system such as controls or electrical equipment."
+263,43,Appendix  A,-,-,"Appendix A to GACAR Part 43 Major Aletrations, Major Repairs, and Preventive Maintenance",Preventive Maintenance,(14) Replacing safety belts.
+264,43,Appendix  A,-,-,"Appendix A to GACAR Part 43 Major Aletrations, Major Repairs, and Preventive Maintenance",Preventive Maintenance,"(15) Replacing seats or seat parts with replacement parts approved for the aircraft, not involving disassembly of any primary structure or operating system."
+265,43,Appendix  A,-,-,"Appendix A to GACAR Part 43 Major Aletrations, Major Repairs, and Preventive Maintenance",Preventive Maintenance,(16) Troubleshooting and repairing broken circuits in landing light wiring circuits.
+266,43,Appendix  A,-,-,"Appendix A to GACAR Part 43 Major Aletrations, Major Repairs, and Preventive Maintenance",Preventive Maintenance,"(17) Replacing bulbs, reflectors, and lenses of position and landing lights."
+267,43,Appendix  A,-,-,"Appendix A to GACAR Part 43 Major Aletrations, Major Repairs, and Preventive Maintenance",Preventive Maintenance,(18) Replacing wheels and skis where no mass and balance computation is involved.
+268,43,Appendix  A,-,-,"Appendix A to GACAR Part 43 Major Aletrations, Major Repairs, and Preventive Maintenance",Preventive Maintenance,(19) Replacing any cowling not requiring removal of the propeller or disconnection of flight controls.
+269,43,Appendix  A,-,-,"Appendix A to GACAR Part 43 Major Aletrations, Major Repairs, and Preventive Maintenance",Preventive Maintenance,(20) Replacing or cleaning spark plugs and setting of spark plug gap clearance.
+270,43,Appendix  A,-,-,"Appendix A to GACAR Part 43 Major Aletrations, Major Repairs, and Preventive Maintenance",Preventive Maintenance,(21) Replacing any hose connection except hydraulic connections.
+271,43,Appendix  A,-,-,"Appendix A to GACAR Part 43 Major Aletrations, Major Repairs, and Preventive Maintenance",Preventive Maintenance,(22) Replacing prefabricated fuel lines.
+272,43,Appendix  A,-,-,"Appendix A to GACAR Part 43 Major Aletrations, Major Repairs, and Preventive Maintenance",Preventive Maintenance,(23) Cleaning or replacing fuel and oil strainers or filter elements.
+273,43,Appendix  A,-,-,"Appendix A to GACAR Part 43 Major Aletrations, Major Repairs, and Preventive Maintenance",Preventive Maintenance,(24) Replacing and servicing batteries.
+274,43,Appendix  A,-,-,"Appendix A to GACAR Part 43 Major Aletrations, Major Repairs, and Preventive Maintenance",Preventive Maintenance,"(25) Cleaning of balloon burner pilot and main nozzles in accordance with the balloon
+manufacturer’s instructions."
+275,43,Appendix  A,-,-,"Appendix A to GACAR Part 43 Major Aletrations, Major Repairs, and Preventive Maintenance",Preventive Maintenance,(26) Replacement or adjustment of nonstructural standard fasteners incidental to operations.
+276,43,Appendix  A,-,-,"Appendix A to GACAR Part 43 Major Aletrations, Major Repairs, and Preventive Maintenance",Preventive Maintenance,(27) The interchange of balloon baskets and burners on envelopes when the basket or burner is designated as interchangeable in the balloon type certificate data and the baskets and burners are specifically designed for quick removal and installation.
+277,43,Appendix  A,-,-,"Appendix A to GACAR Part 43 Major Aletrations, Major Repairs, and Preventive Maintenance",Preventive Maintenance,"(28) The installations of anti misfueling devices to reduce the diameter of fuel tank filler
+openings provided the specific device has been made a part of the aircraft type certificate data by the aircraft manufacturer, the aircraft manufacturer has provided approved instructions for installation of the specific device, and installation does not involve the disassembly of the existing tank filler opening."
+278,43,Appendix  A,-,-,"Appendix A to GACAR Part 43 Major Aletrations, Major Repairs, and Preventive Maintenance",Preventive Maintenance,"(29) Removing, checking, and replacing magnetic chip detectors."
+279,43,Appendix  A,-,-,"Appendix A to GACAR Part 43 Major Aletrations, Major Repairs, and Preventive Maintenance",Preventive Maintenance,(30) The inspection and maintenance tasks prescribed and specifically identified as preventive maintenance in a primary category aircraft type certificate or supplemental type certificate holder’s approved special inspection and preventive maintenance program when accomplished on a primary category aircraft provided:
+280,43,Appendix  A,-,-,"Appendix A to GACAR Part 43 Major Aletrations, Major Repairs, and Preventive Maintenance",Preventive Maintenance,"(i) They are performed by the holder of at least a private pilot certificate issued under
+GACAR Part 61 who is the registered owner (including co owners) of the affected aircraft
+and who holds a certificate of competency for the affected aircraft"
+281,43,Appendix  A,-,-,"Appendix A to GACAR Part 43 Major Aletrations, Major Repairs, and Preventive Maintenance",Preventive Maintenance,(A) Issued by a school approved under GACAR § 147.21(e);
+282,43,Appendix  A,-,-,"Appendix A to GACAR Part 43 Major Aletrations, Major Repairs, and Preventive Maintenance",Preventive Maintenance,"(B) Issued by the holder of the production certificate for that primary category aircraft
+that has a special training program approved under GACAR § 21.24; or"
+283,43,Appendix  A,-,-,"Appendix A to GACAR Part 43 Major Aletrations, Major Repairs, and Preventive Maintenance",Preventive Maintenance,(C) Issued by another entity having a course approved by the President; and
+284,43,Appendix  A,-,-,"Appendix A to GACAR Part 43 Major Aletrations, Major Repairs, and Preventive Maintenance",Preventive Maintenance,"(ii) The inspections and maintenance tasks are performed in accordance with instructions
+contained by the special inspection and preventive maintenance program approved as part of the aircraft’s type design or supplemental type design."
+285,43,Appendix  A,-,-,"Appendix A to GACAR Part 43 Major Aletrations, Major Repairs, and Preventive Maintenance",Preventive Maintenance,"(31) Removing and replacing self contained, front instrument panel mounted navigation and communication devices employing tray mounted connectors to connect the unit when the unit is installed into the instrument panel, (excluding automatic flight control systems, transponders, and microwave frequency distance measuring equipment (DME)). The approved unit must be designed to be readily and repeatedly removed and replaced, and pertinent instructions must be provided. Prior to the unit’s intended use, an operational check must be performed in accordance with the applicable sections of GACAR Part 91."
+286,43,Appendix B,-,A,Appendix B to GACAR Part 43 Recording of Major Repairs and Major Alterations,-,"(a) Except as provided in paragraph (b) of this appendix, each person performing a major repair or major alteration must—"
+287,43,Appendix B,-,-,Appendix B to GACAR Part 43 Recording of Major Repairs and Major Alterations,-,"(1) Execute a Major Repair and Alteration Form, at least in duplicate;"
+288,43,Appendix B,-,-,Appendix B to GACAR Part 43 Recording of Major Repairs and Major Alterations,-,(2) Give a signed copy of that form to the aircraft owner; and
+289,43,Appendix B,-,-,Appendix B to GACAR Part 43 Recording of Major Repairs and Major Alterations,-,"(3) Forward a copy of the form to the GACA within 48 hours after the aircraft, airframe, aircraft engine, propeller, or appliance is approved for return to service."
+290,43,Appendix B,-,-,Appendix B to GACAR Part 43 Recording of Major Repairs and Major Alterations,-,"(b) For major repairs, a certificated repair station may, in place of the requirements of paragraph (a) of this appendix—"
+291,43,Appendix B,-,-,Appendix B to GACAR Part 43 Recording of Major Repairs and Major Alterations,-,(1) Use the customer’s work order upon which the repair is recorded;
+292,43,Appendix B,-,-,Appendix B to GACAR Part 43 Recording of Major Repairs and Major Alterations,-,"(2) Give the aircraft owner a signed copy of the work order and retain a duplicate copy for at least 2 years from the date of approval for return to service of the aircraft, airframe, aircraft engine, propeller, or appliance;"
+293,43,Appendix B,-,-,Appendix B to GACAR Part 43 Recording of Major Repairs and Major Alterations,-,"(3) Give the aircraft owner an approval for return to service signed by an authorized
+representative of the repair station and incorporating the following information:"
+294,43,Appendix B,-,-,Appendix B to GACAR Part 43 Recording of Major Repairs and Major Alterations,-,"(i) Identity of the aircraft, airframe, aircraft engine, propeller, or appliance;"
+295,43,Appendix B,-,-,Appendix B to GACAR Part 43 Recording of Major Repairs and Major Alterations,-,"(ii) If an aircraft, the make, model, serial number, nationality and registration marks, and
+location of the repaired area;"
+296,43,Appendix B,-,-,Appendix B to GACAR Part 43 Recording of Major Repairs and Major Alterations,-,"(iii) If an airframe, aircraft engine, propeller, or appliance, the manufacturer’s name, name of the part, model, and serial numbers (if any); and"
+297,43,Appendix B,-,-,Appendix B to GACAR Part 43 Recording of Major Repairs and Major Alterations,-,(iv) Identify the approved data used for the repair; and
+298,43,Appendix B,-,-,Appendix B to GACAR Part 43 Recording of Major Repairs and Major Alterations,-,"(4) Include the following or a similarly worded statement— “The aircraft, airframe, aircraft engine, propeller, or appliance identified above was
+repaired and inspected in accordance with current Regulations of the General
+Authority of Civil Aviation and is approved for return to service.
+Pertinent details of the repair are on file at this repair station under Order No. ___,
+Date
+Signed ____________________________
+(For signature of authorized representative)
+(Repair station name) (Certificate No.)"
+299,43,Appendix C,-,A,Appendix C to GACAR Part 43 -Scope and Detail of Items (as applicable to the particular Aircraft) to be included in annual and 100 Hours Inspections,-,"(a) Each person before performing an annual or 100-hour inspection must first remove or open all
+necessary inspection plates, access doors, fairings, and cowlings. He must thoroughly clean the
+aircraft and aircraft engine."
+300,43,Appendix C,-,B,Appendix C to GACAR Part 43 -Scope and Detail of Items (as applicable to the particular Aircraft) to be included in annual and 100 Hours Inspections,-,(b) Each person performing an annual or 100-hour inspection must inspect (where applicable) the following components of the fuselage and hull group:
+301,43,Appendix C,-,-,Appendix C to GACAR Part 43 -Scope and Detail of Items (as applicable to the particular Aircraft) to be included in annual and 100 Hours Inspections,-,"(1) Fabric and skin —for deterioration, distortion, other evidence of failure, and defective or insecure attachment of fittings."
+302,43,Appendix C,-,-,Appendix C to GACAR Part 43 -Scope and Detail of Items (as applicable to the particular Aircraft) to be included in annual and 100 Hours Inspections,-,"(2) Systems and components —for improper installation, apparent defects, and unsatisfactory operation."
+303,43,Appendix C,-,-,Appendix C to GACAR Part 43 -Scope and Detail of Items (as applicable to the particular Aircraft) to be included in annual and 100 Hours Inspections,-,"(3) Envelope, gas bags, ballast tanks, and related parts —for poor condition."
+304,43,Appendix C,-,C,Appendix C to GACAR Part 43 -Scope and Detail of Items (as applicable to the particular Aircraft) to be included in annual and 100 Hours Inspections,-,(c) Each person performing an annual or 100-hour inspection must inspect (where applicable) the following components of the cabin and flightdeck group:
+305,43,Appendix C,-,-,Appendix C to GACAR Part 43 -Scope and Detail of Items (as applicable to the particular Aircraft) to be included in annual and 100 Hours Inspections,-,(1) Generally —for uncleanliness and loose equipment that might foul the controls.
+306,43,Appendix C,-,-,Appendix C to GACAR Part 43 -Scope and Detail of Items (as applicable to the particular Aircraft) to be included in annual and 100 Hours Inspections,-,(2) Seats and safety belts —for poor condition and apparent defects.
+307,43,Appendix C,-,-,Appendix C to GACAR Part 43 -Scope and Detail of Items (as applicable to the particular Aircraft) to be included in annual and 100 Hours Inspections,-,(3) Windows and windshields —for deterioration and breakage.
+308,43,Appendix C,-,-,Appendix C to GACAR Part 43 -Scope and Detail of Items (as applicable to the particular Aircraft) to be included in annual and 100 Hours Inspections,-,"(4) Instruments —for poor condition, mounting, marking, and (where practicable) improper operation."
+309,43,Appendix C,-,-,Appendix C to GACAR Part 43 -Scope and Detail of Items (as applicable to the particular Aircraft) to be included in annual and 100 Hours Inspections,-,(5) Flight and engine controls —for improper installation and improper operation.
+310,43,Appendix C,-,-,Appendix C to GACAR Part 43 -Scope and Detail of Items (as applicable to the particular Aircraft) to be included in annual and 100 Hours Inspections,-,(6) Batteries —for improper installation and improper charge.
+311,43,Appendix C,-,-,Appendix C to GACAR Part 43 -Scope and Detail of Items (as applicable to the particular Aircraft) to be included in annual and 100 Hours Inspections,-,"(7) All systems —for improper installation, poor general condition, apparent and obvious
+defects, and insecurity of attachment."
+312,43,Appendix C,-,D,Appendix C to GACAR Part 43 -Scope and Detail of Items (as applicable to the particular Aircraft) to be included in annual and 100 Hours Inspections,-,(d) Each person performing an annual or 100-hour inspection must inspect (where applicable) components of the engine and nacelle group as follows:
+313,43,Appendix C,-,-,Appendix C to GACAR Part 43 -Scope and Detail of Items (as applicable to the particular Aircraft) to be included in annual and 100 Hours Inspections,-,"(1) Engine section —for visual evidence of excessive oil, fuel, or hydraulic leaks, and sources of such leaks."
+314,43,Appendix C,-,-,Appendix C to GACAR Part 43 -Scope and Detail of Items (as applicable to the particular Aircraft) to be included in annual and 100 Hours Inspections,-,(2) Studs and nuts —for improper torqueing and obvious defects.
+315,43,Appendix C,-,-,Appendix C to GACAR Part 43 -Scope and Detail of Items (as applicable to the particular Aircraft) to be included in annual and 100 Hours Inspections,-,"(3) Internal engine —for cylinder compression and for metal particles or foreign matter on
+screens and sump drain plugs. If there is weak cylinder compression, for improper internal
+condition and improper internal tolerances."
+316,43,Appendix C,-,-,Appendix C to GACAR Part 43 -Scope and Detail of Items (as applicable to the particular Aircraft) to be included in annual and 100 Hours Inspections,-,"(4) Engine mount —for cracks, looseness of mounting, and looseness of engine to mount."
+317,43,Appendix C,-,-,Appendix C to GACAR Part 43 -Scope and Detail of Items (as applicable to the particular Aircraft) to be included in annual and 100 Hours Inspections,-,(5) Flexible vibration dampeners —for poor condition and deterioration.
+318,43,Appendix C,-,-,Appendix C to GACAR Part 43 -Scope and Detail of Items (as applicable to the particular Aircraft) to be included in annual and 100 Hours Inspections,-,"(6) Engine controls —for defects, improper travel, and improper safetying."
+319,43,Appendix C,-,-,Appendix C to GACAR Part 43 -Scope and Detail of Items (as applicable to the particular Aircraft) to be included in annual and 100 Hours Inspections,-,"(7) Lines, hoses, and clamps —for leaks, improper condition and looseness."
+320,43,Appendix C,-,-,Appendix C to GACAR Part 43 -Scope and Detail of Items (as applicable to the particular Aircraft) to be included in annual and 100 Hours Inspections,-,"(8) Exhaust stacks—for cracks, defects, and improper attachment."
+321,43,Appendix C,-,-,Appendix C to GACAR Part 43 -Scope and Detail of Items (as applicable to the particular Aircraft) to be included in annual and 100 Hours Inspections,-,(9) Accessories —for apparent defects in security of mounting.
+322,43,Appendix C,-,-,Appendix C to GACAR Part 43 -Scope and Detail of Items (as applicable to the particular Aircraft) to be included in annual and 100 Hours Inspections,-,"(10) All systems —for improper installation, poor general condition, defects, and insecure
+attachment."
+323,43,Appendix C,-,-,Appendix C to GACAR Part 43 -Scope and Detail of Items (as applicable to the particular Aircraft) to be included in annual and 100 Hours Inspections,-,"(11) Cowling —for cracks, and defects."
+324,43,Appendix C,-,E,Appendix C to GACAR Part 43 -Scope and Detail of Items (as applicable to the particular Aircraft) to be included in annual and 100 Hours Inspections,-,(e) Each person performing an annual or 100-hour inspection must inspect (where applicable) the following components of the landing gear group:
+325,43,Appendix C,-,-,Appendix C to GACAR Part 43 -Scope and Detail of Items (as applicable to the particular Aircraft) to be included in annual and 100 Hours Inspections,-,(1) All units —for poor condition and insecurity of attachment.
+326,43,Appendix C,-,-,Appendix C to GACAR Part 43 -Scope and Detail of Items (as applicable to the particular Aircraft) to be included in annual and 100 Hours Inspections,-,(2) Shock absorbing devices —for improper oleo fluid level.
+327,43,Appendix C,-,,Appendix C to GACAR Part 43 -Scope and Detail of Items (as applicable to the particular Aircraft) to be included in annual and 100 Hours Inspections,-,"(3) Linkages, trusses, and members —for undue or excessive wear fatigue, and distortion."
+328,43,Appendix C,-,-,Appendix C to GACAR Part 43 -Scope and Detail of Items (as applicable to the particular Aircraft) to be included in annual and 100 Hours Inspections,-,(4) Retracting and locking mechanism —for improper operation.
+329,43,Appendix C,-,-,Appendix C to GACAR Part 43 -Scope and Detail of Items (as applicable to the particular Aircraft) to be included in annual and 100 Hours Inspections,-,(5) Hydraulic lines —for leakage.
+330,43,Appendix C,-,-,Appendix C to GACAR Part 43 -Scope and Detail of Items (as applicable to the particular Aircraft) to be included in annual and 100 Hours Inspections,-,(6) Electrical system —for chafing and improper operation of switches.
+331,43,Appendix C,-,-,Appendix C to GACAR Part 43 -Scope and Detail of Items (as applicable to the particular Aircraft) to be included in annual and 100 Hours Inspections,-,"(7) Wheels —for cracks, defects, and condition of bearings."
+332,43,Appendix C,-,-,Appendix C to GACAR Part 43 -Scope and Detail of Items (as applicable to the particular Aircraft) to be included in annual and 100 Hours Inspections,-,(8) Tires —for wear and cuts.
+333,43,Appendix C,-,-,Appendix C to GACAR Part 43 -Scope and Detail of Items (as applicable to the particular Aircraft) to be included in annual and 100 Hours Inspections,-,(9) Brakes —for improper adjustment.
+334,43,Appendix C,-,-,Appendix C to GACAR Part 43 -Scope and Detail of Items (as applicable to the particular Aircraft) to be included in annual and 100 Hours Inspections,-,(10) Floats and skis —for insecure attachment and obvious or apparent defects.
+335,43,Appendix C,-,F,Appendix C to GACAR Part 43 -Scope and Detail of Items (as applicable to the particular Aircraft) to be included in annual and 100 Hours Inspections,-,"(f) Each person performing an annual or 100-hour inspection must inspect (where applicable) all components of the wing and center section assembly for poor general condition, fabric or skin deterioration, distortion, evidence of failure, and insecurity of attachment."
+336,43,Appendix C,-,G,Appendix C to GACAR Part 43 -Scope and Detail of Items (as applicable to the particular Aircraft) to be included in annual and 100 Hours Inspections,-,"(g) Each person performing an annual or 100-hour inspection must inspect (where applicable) all components and systems making up the complete empennage assembly for poor general condition, fabric or skin deterioration, distortion, evidence of failure, insecure attachment, improper component installation, and improper component operation."
+337,43,Appendix C,-,H,Appendix C to GACAR Part 43 -Scope and Detail of Items (as applicable to the particular Aircraft) to be included in annual and 100 Hours Inspections,-,(h) Each person performing an annual or 100-hour inspection must inspect (where applicable) the following components of the propeller group:
+338,43,Appendix C,-,-,Appendix C to GACAR Part 43 -Scope and Detail of Items (as applicable to the particular Aircraft) to be included in annual and 100 Hours Inspections,-,"(1) Propeller assembly —for cracks, nicks, binds, and oil leakage."
+339,43,Appendix C,-,-,Appendix C to GACAR Part 43 -Scope and Detail of Items (as applicable to the particular Aircraft) to be included in annual and 100 Hours Inspections,-,(2) Bolts —for improper torquing and lack of safetying.
+340,43,Appendix C,-,-,Appendix C to GACAR Part 43 -Scope and Detail of Items (as applicable to the particular Aircraft) to be included in annual and 100 Hours Inspections,-,(3) Anti-icing devices —for improper operation and obvious defects.
+341,43,Appendix C,-,-,Appendix C to GACAR Part 43 -Scope and Detail of Items (as applicable to the particular Aircraft) to be included in annual and 100 Hours Inspections,-,"(4) Control mechanisms —for improper operation, insecure mounting, and restricted travel."
+342,43,Appendix C,-,I,Appendix C to GACAR Part 43 -Scope and Detail of Items (as applicable to the particular Aircraft) to be included in annual and 100 Hours Inspections,-,(i) Each person performing an annual or 100-hour inspection must inspect (where applicable) the following components of the radio group:
+343,43,Appendix C,-,-,Appendix C to GACAR Part 43 -Scope and Detail of Items (as applicable to the particular Aircraft) to be included in annual and 100 Hours Inspections,-,(1) Radio and electronic equipment —for improper installation and insecure mounting.
+344,43,Appendix C,-,-,Appendix C to GACAR Part 43 -Scope and Detail of Items (as applicable to the particular Aircraft) to be included in annual and 100 Hours Inspections,-,"(2) Wiring and conduits —for improper routing, insecure mounting, and obvious defects."
+345,43,Appendix C,-,-,Appendix C to GACAR Part 43 -Scope and Detail of Items (as applicable to the particular Aircraft) to be included in annual and 100 Hours Inspections,-,(3) Bonding and shielding —for improper installation and poor condition.
+346,43,Appendix C,-,-,Appendix C to GACAR Part 43 -Scope and Detail of Items (as applicable to the particular Aircraft) to be included in annual and 100 Hours Inspections,-,"(4) Antenna including trailing antenna —for poor condition, insecure mounting, and improper operation."
+347,43,Appendix C,-,J,Appendix C to GACAR Part 43 -Scope and Detail of Items (as applicable to the particular Aircraft) to be included in annual and 100 Hours Inspections,-,(j) Each person performing an annual or 100-hour inspection must inspect (where applicable) each installed miscellaneous item not otherwise covered by this listing for improper installation and improper operation.
+348,43,Appendix D,-,-,Appendix D to GACAR Part 43 - Altimeter System Test and Inspection,-,Each person performing the altimeter system tests and inspections required by GACAR § 91.451 must comply with the following:
+349,43,Appendix D,-,A,Appendix D to GACAR Part 43 - Altimeter System Test and Inspection,-,(a) Static pressure system
+350,43,Appendix D,-,-,Appendix D to GACAR Part 43 - Altimeter System Test and Inspection,-,(1) Ensure freedom from entrapped moisture and restrictions.
+351,43,Appendix D,-,-,Appendix D to GACAR Part 43 - Altimeter System Test and Inspection,-,"(2) Determine leakage is within the tolerances established in GACAR §§ 23.1325 or 25.1325,
+whichever is applicable."
+352,43,Appendix D,-,-,Appendix D to GACAR Part 43 - Altimeter System Test and Inspection,-,"(3) Determine the static port heater, if installed, is operative."
+353,43,Appendix D,-,-,Appendix D to GACAR Part 43 - Altimeter System Test and Inspection,-,(4) Ensure no alterations or deformations of the airframe surface have been made that would affect the relationship between air pressure in the static pressure system and true ambient static air pressure for any flight condition.
+354,43,Appendix D,-,B,Appendix D to GACAR Part 43 - Altimeter System Test and Inspection,-,(b) Altimeter:
+355,43,Appendix D,-,-,Appendix D to GACAR Part 43 - Altimeter System Test and Inspection,-,"(1) Test by an appropriately rated repair facility in accordance with the following
+subparagraphs. Unless otherwise specified, each test for performance may be conducted with the instrument subjected to vibration. When tests are conducted with the temperature substantially different from ambient temperature of approximately 25 °C, allowance must be made for the variation from the specified condition."
+356,43,Appendix D,-,-,Appendix D to GACAR Part 43 - Altimeter System Test and Inspection,-,"(i) Scale error. With the barometric pressure scale at 10 132.1 hPa, the altimeter must be
+subjected successively to pressures corresponding to the altitude specified in Table D–1
+up to the maximum normally expected operating altitude of the aircraft in which the altimeter is to be installed. The reduction in pressure must be made at a rate not in excess of 20 000 ft (6 096 m) per minute to within approximately 2 000 ft (609.6 m) of the test point. The test point must be approached at a rate compatible with the test equipment. The altimeter must be kept at the pressure corresponding to each test point for at least 1 minute, but not more than 10 minutes, before a reading is taken. The error at all test points must not exceed the Jtolerances specified in Table D–1."
+357,43,Appendix D,-,-,Appendix D to GACAR Part 43 - Altimeter System Test and Inspection,-,"(ii) Hysteresis. The hysteresis test must begin not more than 15 minutes after the altimeter’s initial exposure to the pressure corresponding to the upper limit of the scale error test prescribed in paragraph (b)(1)(i) of this appendix; and while the altimeter is at this pressure, the hysteresis test must commence. Pressure must be increased at a rate simulating a descent in altitude at the rate of 5 000 to 20 000 ft (1 524 to 6 096 m) per minute until within 3 000 ft (914.4 m) of the first test point (50 percent of maximum altitude). The test point must then be approached at a rate of approximately 3 000 ft (914.4 m) per minute. The altimeter must be kept at this pressure for at least 5 minutes, but not more than 15 minutes, before the test reading is taken. After the reading has been taken, the pressure must be increased further, in the same manner as before, until the pressure corresponding to the second test point (40 percent of maximum altitude) is reached. The altimeter must be kept at this pressure for at least 1 minute, but not more than 10 minutes, before the test reading is taken. After the reading has been taken, the pressure must be increased further, in the same manner as before, until atmospheric pressure is reached. The reading of the altimeter at either of the two test points must not differ by more than the tolerance specified in Table D–2 from the reading of the altimeter for the corresponding altitude recorded during the scale error test prescribed in paragraph (b)(1)(i) of this appendix."
+358,43,Appendix D,-,-,Appendix D to GACAR Part 43 - Altimeter System Test and Inspection,-,"(iii) After effect. Not more than 5 minutes after the completion of the hysteresis test
+prescribed in paragraph (b)(1)(ii) of this appendix, the reading of the altimeter (corrected for any change in atmospheric pressure) must not differ from the original atmospheric pressure reading by more than the tolerance specified in Table D–2."
+359,43,Appendix D,-,-,Appendix D to GACAR Part 43 - Altimeter System Test and Inspection,-,"(iv) Friction. The altimeter must be subjected to a steady rate of decrease of pressure
+approximating 750 ft (226 m) per minute. At each altitude listed in Table D–3, the change in reading of the pointers after vibration must not exceed the corresponding tolerance listed in Table D–3."
+360,43,Appendix D,-,-,Appendix D to GACAR Part 43 - Altimeter System Test and Inspection,-,"(v) Case leak. The leakage of the altimeter case, when the pressure within it corresponds to an altitude of 18 000 ft (5 486 m), must not change the altimeter reading by more than the tolerance shown in Table D–2 during an interval of 1 minute."
+361,43,Appendix D,-,-,Appendix D to GACAR Part 43 - Altimeter System Test and Inspection,-,"(vi) Barometric scale error. At constant atmospheric pressure, the barometric pressure
+scale must be set at each of the pressures (falling within its range of adjustment) listed in
+Table D–4, and must cause the pointer to indicate the equivalent altitude difference shown in Table D–4 with a tolerance of 25 ft (7.6 m)."
+362,43,Appendix D,-,C,Appendix D to GACAR Part 43 - Altimeter System Test and Inspection,-,"(c) Automatic pressure altitude reporting equipment and ATC transponder system integration test. The test must be conducted by an appropriately rated person under the conditions specified in paragraph (a) of this appendix. Measure the automatic pressure altitude at the output of the installed ATC transponder when interrogated on Mode C at a sufficient number of test points to ensure the altitude reporting equipment, altimeters, and ATC transponders perform their intended functions as installed in the aircraft. The difference between the automatic reporting output and the altitude displayed at the altimeter must not exceed 125 ft (38.1 m)."
+363,43,Appendix D,-,,Appendix D to GACAR Part 43 - Altimeter System Test and Inspection,-,"(d) Records. Comply with the provisions of GACAR § 43.11 as to content, form, and disposition of the records. The person performing the altimeter tests must record on the altimeter the date and maximum altitude to which the altimeter has been tested and the persons approving the aircraft for return to service must enter that data in the aircraft log or other permanent record."
+364,43,Appendix D,-,,Appendix D to GACAR Part 43 - Altimeter System Test and Inspection,-,Picture
+365,43,,,,,,Picture
+366,43,,,,,,Picture
+367,43,,,,,,Picture
+368,43,Appendix E,-,-,Appendix E to GACAR Part 43 - ATC Transponder Test and Inspection,-,"The ATC transponder tests required by GACAR § 91.453 may be conducted using a bench check or portable test equipment and must meet the requirements prescribed in paragraphs (a) through (j) of this appendix. If portable test equipment with appropriate coupling to the aircraft antenna ystem is used, operate the test equipment for ATC Radar Beacon System (ATCRBS) transponders at a nominal rate of 235 interrogations per second to avoid possible ATCRBS interference. Operate the test equipment at a nominal rate of 50 Mode S interrogations per second for Mode S. An additional 3 dB loss is allowed to compensate for antenna coupling errors during receiver sensitivity measurements conducted in accordance with paragraph (c)(1) of this appendix when using portable test equipment."
+369,43,Appendix E,-,A,Appendix E to GACAR Part 43 - ATC Transponder Test and Inspection,-,"(1) For all classes of ATCRBS transponders, interrogate the transponder and verify the reply
+frequency is 1 090 ±3 Megahertz (MHz)."
+370,43,Appendix E,-,-,Appendix E to GACAR Part 43 - ATC Transponder Test and Inspection,-,"(2) For classes 1B, 2B, and 3B Mode S transponders, interrogate the transponder and verify the
+reply frequency is 1 090 ±3 MHz."
+371,43,Appendix E,-,-,Appendix E to GACAR Part 43 - ATC Transponder Test and Inspection,-,"(3) For classes 1B, 2B, and 3B Mode S transponders incorporating the optional 1090 ±1 MHz
+reply frequency, interrogate the transponder, and verify the reply frequency is correct."
+372,43,Appendix E,-,-,Appendix E to GACAR Part 43 - ATC Transponder Test and Inspection,-,"(4) For classes 1A, 2A, 3A, and 4 Mode S transponders, interrogate the transponder and verify
+the reply frequency is 1 090 ±1 MHz."
+373,43,Appendix E,-,B,Appendix E to GACAR Part 43 - ATC Transponder Test and Inspection,-,"(b) Suppression: When Classes 1B and 2B ATCRBS Transponders, or Classes 1B, 2B, and 3B ModeS transponders are interrogated Mode 3/A at an interrogation rate between 230 and 1 000
+interrogations per second; or when Classes 1A and 2A ATCRBS Transponders, or Classes 1B, 2A,
+3A, and 4 Mode S transponders are interrogated at a rate between 230 and 1 200 Mode 3/A
+interrogations per second--"
+374,43,Appendix E,-,-,Appendix E to GACAR Part 43 - ATC Transponder Test and Inspection,-,"(1) Verify the transponder does not respond to more than 1 percent of ATCRBS interrogations
+when the amplitude of P2 pulse is equal to the P1 pulse."
+375,43,Appendix E,-,-,Appendix E to GACAR Part 43 - ATC Transponder Test and Inspection,-,"(2) Verify the transponder replies to at least 90 percent of ATCRBS interrogations when the amplitude of the P2 pulse is 9 dB less than the P1 pulse. If the test is conducted with a radiated
+test signal, the interrogation rate must be 235 ±5 interrogations per second unless a higher rate
+has been approved for the test equipment used at that location."
+376,43,Appendix E,-,C,Appendix E to GACAR Part 43 - ATC Transponder Test and Inspection,-,(c) Receiver Sensitivity:
+377,43,Appendix E,-,,Appendix E to GACAR Part 43 - ATC Transponder Test and Inspection,-,"(1) Verify for any class of ATCRBS Transponder, the receiver minimum triggering level (MTL) of
+the system is -73 ±4 dBm, or that for any class of Mode S transponder the receiver MTL for Mode
+S format (P6 type) interrogations is -74 ±3 dBm by use of a test set either--"
+378,43,Appendix E,-,,Appendix E to GACAR Part 43 - ATC Transponder Test and Inspection,-,(i) Connected to the antenna end of the transmission line;
+379,43,Appendix E,-,,Appendix E to GACAR Part 43 - ATC Transponder Test and Inspection,-,"(ii) Connected to the antenna terminal of the transponder with a correction for transmission
+line loss; or"
+380,43,Appendix E,-,,Appendix E to GACAR Part 43 - ATC Transponder Test and Inspection,-,(iii) Used radiated signal.
+381,43,Appendix E,-,,Appendix E to GACAR Part 43 - ATC Transponder Test and Inspection,-,"(2) Verify the difference in Mode 3/A and Mode C receiver sensitivity does not exceed 1 dB for
+either any class of ATCRBS transponder or any class of Mode S transponder."
+382,43,Appendix E,-,D,Appendix E to GACAR Part 43 - ATC Transponder Test and Inspection,-,(d) Radio frequency (RF) peak output power:
+383,43,Appendix E,-,,Appendix E to GACAR Part 43 - ATC Transponder Test and Inspection,-,"(1) Verify the transponder RF output power is within specifications for the class of transponder.
+Use the same conditions as described in paragraphs (c)(1)(i), (ii), and (iii) of this appendix."
+384,43,Appendix E,-,,Appendix E to GACAR Part 43 - ATC Transponder Test and Inspection,-,"(i) For Class 1A and 2A ATCRBS transponders, verify the minimum RF peak output power
+is at least 21.0 dBW (125 W)."
+385,43,Appendix E,-,,Appendix E to GACAR Part 43 - ATC Transponder Test and Inspection,-,"(ii) For Class 1B and 2B ATCRBS Transponders, verify the minimum RF peak output power
+is at least 18.5 dBW (70 W)."
+386,43,Appendix E,-,,Appendix E to GACAR Part 43 - ATC Transponder Test and Inspection,-,"(iii) For Class 1A, 2A, 3A, and 4, and those Class 1B, 2B, and 3B Mode S transponders that
+include the optional high RF peak output power, verify the minimum RF peak output power
+is at least 21.0 dBW (125 W)."
+387,43,Appendix E,-,,Appendix E to GACAR Part 43 - ATC Transponder Test and Inspection,-,"(iv) For Classes 1B, 2B, and 3B Mode S transponders, verify the minimum RF peak output
+power is at least 18.5 dBW (70 W)."
+388,43,Appendix E,-,,Appendix E to GACAR Part 43 - ATC Transponder Test and Inspection,-,"(v) For any class of ATCRBS or any class of Mode S transponders, verify the maximum RF
+peak output power does not exceed 27.0 dBW (500 W).                                                                                                        Note: The tests in paragraphs (e) through (j) of this appendix apply only to Mode S transponders."
+389,43,Appendix E,-,E,Appendix E to GACAR Part 43 - ATC Transponder Test and Inspection,-,"(e) Mode S diversity transmission channel isolation: For any class of Mode S transponder
+incorporating diversity operation, verify the RF peak output power transmitted from the selected
+antenna exceeds the power transmitted from the nonselected antenna by at least 20 dB."
+390,43,Appendix E,-,F,Appendix E to GACAR Part 43 - ATC Transponder Test and Inspection,-,"(f) Mode S Address: Interrogate the Mode S transponder and verify it replies only to its assigned
+address. Use the correct address and at least two incorrect addresses. The interrogations should be made at a nominal rate of 50 interrogations per second."
+391,43,Appendix E,-,G,Appendix E to GACAR Part 43 - ATC Transponder Test and Inspection,-,"(g) Mode S formats: Interrogate the Mode S transponder with uplink formats (UF) for which it is
+equipped and verify the replies are made in the correct format. Use the surveillance formats UF = 4 and 5. Verify the altitude reported in the replies to UF = 4 are the same as that reported in a valid ATCRBS Mode C reply. Verify the identity reported in the replies to UF = 5 are the same as that reported in a valid ATCRBS Mode 3/A reply. If the transponder is so equipped, use the communication formats UF = 20, 21, and 24."
+392,43,Appendix E,-,H,Appendix E to GACAR Part 43 - ATC Transponder Test and Inspection,-,"(h) Mode S all-call interrogations: Interrogate the Mode S transponder with the Mode S only
+all-call format UF = 11, and the ATCRBS/Mode S all call formats (1.6 μs P4 pulse) and verify the
+correct address and capability are reported in the replies (downlink format DF = 11)."
+393,43,Appendix E,-,I,Appendix E to GACAR Part 43 - ATC Transponder Test and Inspection,-,"(i) ATCRBS Only All Call Interrogation: Interrogate the Mode S transponder with the ATCRBS only
+all call interrogation (0.8 μs P4 pulse) and verify no reply is generated."
+394,43,Appendix E,-,J,Appendix E to GACAR Part 43 - ATC Transponder Test and Inspection,-,"(j) Squitter: Verify the Mode S transponder generates a correct squitter approximately once per
+second."
+395,43,Appendix E,-,K,Appendix E to GACAR Part 43 - ATC Transponder Test and Inspection,-,"(k) Records: Comply with the provisions of GACAR § 43.11 as to content, form, and disposition of
+the records."
