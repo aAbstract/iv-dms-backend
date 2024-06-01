@@ -43,6 +43,7 @@ commands = [
     "rm data/cache/toc_trees/*.json",
     "python3 scripts/parse_iosa_section.py",
     "python3 scripts/parse_gacar.py",
+    "python3 scripts/parse_ecar.py",
 ]
 
 for command in commands:
@@ -445,6 +446,19 @@ def seed_routine():
         gacar_id = db.get_collection("regulations").insert_one(IOSARegulation.model_validate(section_json).model_dump()).inserted_id
             
     with open(r"data/gacar/GACAR_map.json", "r") as f:
+        file_content = f.read()
+        section_json = json.loads(file_content)
+        for gacar_map in section_json:
+            gacar_map["regulation_id"] = gacar_id
+            db.get_collection("regulations_source_maps").insert_one(gacar_map)
+
+    with open(r"data/ecar/ECAR.json", "r") as f:
+        file_content = f.read()
+        section_json = json.loads(file_content)
+        section_json['effective_date'] = datetime.strptime("1 Nov 2023", "%d %b %Y")
+        gacar_id = db.get_collection("regulations").insert_one(IOSARegulation.model_validate(section_json).model_dump()).inserted_id
+            
+    with open(r"data/ecar/ECAR_map.json", "r") as f:
         file_content = f.read()
         section_json = json.loads(file_content)
         for gacar_map in section_json:

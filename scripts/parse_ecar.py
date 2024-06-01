@@ -311,31 +311,19 @@ def convert_to_markdown(text):
 
 
 section_columns = {
-    "117": "Subpart Section",
-    "109": "Subpart/ Appendix SECTION",
-    "91": "Subpart/ Appendix SECTION",
-    "7": "Subpart/ Appendix SECTION",
-    "4":"SECTION",
-    "5":"SECTION",
-    "121":"SUBPART/ APPENDIX SECTION",
-    "157":"Subpart Section",
-    "66":"Subpart Section",
-    "65":"Subpart Section",
-    "47":"Subpart Section",
-    "43":"Subpart Section",
-    "119":"Subpart Section"
+    "91":"Subpart Section",
 }
 
 
 regulation = {
-            "type":"GACAR",
-            "name":"(GACAR) General Authority of Civil Aviation of Saudi Arabia",
+            "type":"ECAR",
+            "name":"(ECAR) Egyptian Civil Aviation Regulations",
             "effective_date":"",
             "sections":[],
     }
 regulation_map = []
 
-for file in glob("data/gacar/*.csv"):
+for file in glob("data/ecar/*.csv"):
 
     df = read_csv(file)
 
@@ -347,15 +335,15 @@ for file in glob("data/gacar/*.csv"):
     unique_headers = {}
     header = {
         "name": "",
-        "code": f"G-{gacar_code}",
+        "code": f"E-{gacar_code}",
         "applicability": "",
         "guidance": "",
         "items": [],
     }
     gacar_map = {
-        "code": f"G-{gacar_code} {gacar_code}",
-        "title": f"GACAR Part {gacar_code}",
-        "sub_sections": [f"GACAR Part {gacar_code}"],
+        "code": f"E-{gacar_code} {gacar_code}",
+        "title": f"ECAR Part {gacar_code}",
+        "sub_sections": [f"ECAR Part {gacar_code}"],
     }
 
     for i in range(len(df)):
@@ -363,7 +351,7 @@ for file in glob("data/gacar/*.csv"):
         if not new_code.startswith(gacar_code):
             new_code = f"{gacar_code}.{new_code}"
 
-        header_code = f"G-{gacar_code} {new_code}"
+        header_code = f"E-{gacar_code} {new_code}"
 
         if header_code in unique_headers:
             unique_headers[header_code]["paragraph"] += (
@@ -374,7 +362,7 @@ for file in glob("data/gacar/*.csv"):
             unique_headers[header_code] = {
                 "paragraph": df["REGULATION  STATEMENT"][i] + "\n",
                 "code": header_code,
-                "iosa_map": [f"GACAR Part {gacar_code}"],
+                "iosa_map": [f"ECAR Part {gacar_code}"],
             }
     for i in unique_headers.values():
         i["paragraph"] = convert_to_markdown(clean(i["paragraph"]))
@@ -383,8 +371,8 @@ for file in glob("data/gacar/*.csv"):
     regulation['sections'].append(header)
 
 # write to a separate json file
-with open(rf"data/gacar/GACAR.json", "w") as fp:
+with open(rf"data/ecar/ECAR.json", "w") as fp:
     json.dump(regulation, fp, indent=4)
 
-with open(rf"data/gacar/GACAR_map.json", "w") as fp:
+with open(rf"data/ecar/ECAR_map.json", "w") as fp:
     json.dump(regulation_map, fp, indent=4)
